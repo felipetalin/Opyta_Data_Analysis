@@ -1,0 +1,8 @@
+{
+  "client_code": "FERSAM001",
+  "theme_override": {
+    "primary_hex": "#11420C",
+    "secondary_hex": "#6A8F63",
+    "highlight_hex": "#3F5F3B"
+  }
+}

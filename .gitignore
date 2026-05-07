@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.env
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# VS Code
+.vscode/
+.vscode-settings/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Outputs and logs (keep structure files only)
+outputs/*
+!outputs/.gitkeep
+!outputs/_project_scripts/
+logs/*
+!logs/.gitkeep
+logs/PROJECT_JOURNAL.md
+
+# Local environment
+.env
+.env.local
+.env.*.local
+
+# IDE cache
+.pylintrc
+.flake8

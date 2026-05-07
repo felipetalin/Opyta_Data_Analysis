@@ -1,0 +1,20 @@
+{
+  "executed_at": "2026-05-07T13:30:54.320188Z",
+  "runner_version": "1.1",
+  "project_id": 62,
+  "group": "Zoobentos",
+  "pipeline": "zoobentos",
+  "client": "fersam001",
+  "block": "all",
+  "rows_loaded": 0,
+  "executed_blocks": [],
+  "campaigns": [],
+  "campaigns_count": 0,
+  "points": [],
+  "points_count": 0,
+  "output_dir": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zoobentos",
+  "generated_files_count": 0,
+  "generated_files": [],
+  "config_root": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos"
+}

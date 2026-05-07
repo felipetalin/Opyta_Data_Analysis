@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-07T13:31:18.211398Z",
+  "project_name": "SAM Metais",
+  "project_id": 62,
+  "client": "fersam001",
+  "items": [
+    {
+      "group": "fitoplancton",
+      "audit_dir": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton",
+      "latest_metadata": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\execution_metadata.json",
+      "latest_script": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\_run_this_analysis.py",
+      "history_metadata": [
+        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\20260507T133053Z_execution_metadata.json"
+      ],
+      "history_scripts": [
+        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\20260507T133053Z_run_this_analysis.py"
+      ]
+    },
+    {
+      "group": "zooplancton",
+      "audit_dir": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton",
+      "latest_metadata": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\execution_metadata.json",
+      "latest_script": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\_run_this_analysis.py",
+      "history_metadata": [
+        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\20260507T133053Z_execution_metadata.json"
+      ],
+      "history_scripts": [
+        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\20260507T133053Z_run_this_analysis.py"
+      ]
+    },
+    {
+      "group": "zoobentos",
+      "audit_dir": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos",
+      "latest_metadata": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\execution_metadata.json",
+      "latest_script": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\_run_this_analysis.py",
+      "history_metadata": [
+        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\20260507T133053Z_execution_metadata.json"
+      ],
+      "history_scripts": [
+        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\20260507T133053Z_run_this_analysis.py"
+      ]
+    }
+  ]
+}
