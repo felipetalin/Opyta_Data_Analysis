@@ -7,10 +7,17 @@ from typing import Dict, Any
 
 from opyta_analysis.config import RunParams, load_theme
 from opyta_analysis.pipelines import (
+    # Diagnóstico
     run_fitoplancton_pipeline,
     run_ictio_pipeline,
     run_zoobentos_pipeline,
     run_zooplancton_pipeline,
+    run_macrofitas_pipeline,
+    run_mastofauna_pipeline,
+    run_herpetofauna_pipeline,
+    run_avifauna_pipeline,
+    # Monitoramento
+    run_mastofauna_monitoring_pipeline,
 )
 
 
@@ -182,6 +189,53 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
         )
     elif params.pipeline.lower() in {"ictio", "ictiofauna", "ichthyo", "ichthyofauna"}:
         details = run_ictio_pipeline(
+            project_id=params.project_id,
+            group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    # --- Diagnóstico: stubs ---
+    elif params.pipeline.lower() in {"macrofitas", "macrófitas", "macrophytes"}:
+        details = run_macrofitas_pipeline(
+            project_id=params.project_id,
+            group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    elif params.pipeline.lower() in {"mastofauna", "mastofauna_diag", "mamiferos"}:
+        details = run_mastofauna_pipeline(
+            project_id=params.project_id,
+            group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    elif params.pipeline.lower() in {"herpetofauna", "herp", "repteis"}:
+        details = run_herpetofauna_pipeline(
+            project_id=params.project_id,
+            group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    elif params.pipeline.lower() in {"avifauna", "aves", "birds"}:
+        details = run_avifauna_pipeline(
+            project_id=params.project_id,
+            group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    # --- Monitoramento ---
+    elif params.pipeline.lower() in {"mastofauna_mon", "mastofauna_monitoramento", "masto_mon"}:
+        details = run_mastofauna_monitoring_pipeline(
             project_id=params.project_id,
             group=params.group,
             theme=theme,
