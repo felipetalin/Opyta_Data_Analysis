@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Mastofauna analysis - fersam001
-Generated: 2026-05-13T20:23:39.286619Z
+Generated: 2026-05-13T20:14:03.070357Z
 
 Usage:
   python _run_this_analysis.py
@@ -20,7 +20,7 @@ from opyta_analysis.runner import run
 
 def main():
     parser = argparse.ArgumentParser(description="Re-run Mastofauna analysis")
-    parser.add_argument("--block", default='6.3', help="Block to execute (default: 6.3)")
+    parser.add_argument("--block", default='6.6', help="Block to execute (default: 6.6)")
     parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Opyta_Data_Analysis\outputs\_gold_validation\mastofauna_165", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='G:\\Meu Drive\\Opyta\\Opyta_Data\\.env', help="Optional .env file path")
     args = parser.parse_args()

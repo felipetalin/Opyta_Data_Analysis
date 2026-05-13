@@ -1,14 +1,16 @@
 {
-  "executed_at": "2026-05-13T20:23:39.198949Z",
+  "executed_at": "2026-05-13T20:14:02.927620Z",
   "runner_version": "1.1",
   "project_id": 165,
   "group": "Mastofauna",
   "pipeline": "mastofauna",
   "client": "fersam001",
-  "block": "6.3",
+  "block": "6.6",
   "rows_loaded": 40,
   "executed_blocks": [
-    "6.3"
+    "6.6",
+    "6.7",
+    "6.8"
   ],
   "campaigns": [
     "28a-abr-26-SC",
@@ -30,10 +32,9 @@
   ],
   "points_count": 11,
   "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165",
-  "generated_files_count": 2,
+  "generated_files_count": 1,
   "generated_files": [
-    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165\\6_3_indices_diversidade.xlsx",
-    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165\\6_3_indices_diversidade.png"
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165\\6_6_6_8_tabela_geral_status.xlsx"
   ],
   "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
   "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\mastofauna"

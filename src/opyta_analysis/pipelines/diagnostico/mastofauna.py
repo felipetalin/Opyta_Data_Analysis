@@ -616,23 +616,50 @@ def _save_diversity(df_pch: pd.DataFrame, df_control: pd.DataFrame, theme: dict,
     div.to_excel(out_xlsx, index=False, engine="openpyxl")
     generated_files.append(str(out_xlsx))
 
-    size = get_figsize_by_complexity(theme, n_categories=2, prefer_landscape=True)
-    fig, ax = plt.subplots(figsize=size, dpi=int(theme.get("dpi", 600)))
-    x = np.arange(len(div))
-    width = 0.25
     metrics = ["Shannon (H')", "Pielou (J')", "Simpson (1-D)"]
-    colors = green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), len(metrics))
-    for i, metric in enumerate(metrics):
-        vals = div[metric].values
-        bars = ax.bar(x + (i - 1) * width, vals, width=width, label=metric, color=colors[i], edgecolor="black", linewidth=0.8)
+    order = [TARGET_CONTROL_NAME, TARGET_PCH_NAME]
+    div_plot = div.set_index("Area").reindex(order).reset_index()
+
+    base_w, base_h = get_figsize_by_complexity(theme, n_categories=2, prefer_landscape=False)
+    fig, axes = plt.subplots(
+        nrows=3,
+        ncols=1,
+        figsize=(base_w, max(base_h * 1.6, 9.5)),
+        dpi=int(theme.get("dpi", 600)),
+        sharex=False,
+    )
+
+    area_labels = ["Area Controle", "PCH DGN"]
+    bar_color = str(theme.get("primary_hex", "#11420C"))
+
+    for idx, metric in enumerate(metrics):
+        ax = axes[idx]
+        vals = div_plot[metric].astype(float).values
+        y = np.arange(len(vals))
+
+        bars = ax.barh(y, vals, color=bar_color, edgecolor="black", linewidth=0.8, height=0.5)
         for bar, val in zip(bars, vals):
-            ax.text(bar.get_x() + bar.get_width() / 2, float(val), f"{val:.2f}", ha="center", va="bottom", fontsize=int(theme.get("annotation_size", 11)))
-    ax.set_xticks(x)
-    ax.set_xticklabels(div["Area"].tolist())
-    apply_theme(ax, theme, xlabel="Area", ylabel="Indice", x_tick_rotation=0)
-    place_legend_below_x_axis(fig, ax, theme, ncol=3)
-    validate_axes_style(ax, theme)
-    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.03))
+            ax.text(
+                float(val) + (max(vals) * 0.03 if max(vals) > 0 else 0.02),
+                bar.get_y() + bar.get_height() / 2,
+                f"{val:.2f}",
+                va="center",
+                ha="left",
+                fontsize=int(theme.get("annotation_size", 12)),
+                color="black",
+            )
+
+        ax.set_yticks(y)
+        ax.set_yticklabels(area_labels)
+        ax.invert_yaxis()
+        ax.set_title(metric, fontsize=int(theme.get("label_size", 14)), fontweight="bold", pad=8)
+        ax.set_xlim(0, max(vals) * 1.25 if max(vals) > 0 else 1.0)
+        ax.set_xlabel("")
+        ax.set_ylabel("")
+        apply_theme(ax, theme, xlabel="", ylabel="", x_tick_rotation=0)
+        validate_axes_style(ax, theme)
+
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.01))
     out_png = output_dir / "6_3_indices_diversidade.png"
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
