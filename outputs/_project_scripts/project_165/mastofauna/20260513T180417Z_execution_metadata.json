@@ -1,0 +1,41 @@
+{
+  "executed_at": "2026-05-13T18:04:17.545422Z",
+  "runner_version": "1.1",
+  "project_id": 165,
+  "group": "Mastofauna",
+  "pipeline": "mastofauna",
+  "client": "fersam001",
+  "block": "6.4",
+  "rows_loaded": 20,
+  "executed_blocks": [
+    "6.4"
+  ],
+  "campaigns": [
+    "28a-abr-26-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "CO2",
+    "CON1",
+    "CON2",
+    "DG7",
+    "DGN1",
+    "FO6",
+    "FOR1",
+    "JA1",
+    "JAC1",
+    "SP4",
+    "SPT1"
+  ],
+  "points_count": 11,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165",
+  "generated_files_count": 4,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165\\6_4_dendrograma_jaccard_por_pontos.png",
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_gold_validation\\mastofauna_165\\6_5_diagrama_venn_pch_vs_controle.png"
+  ],
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\mastofauna"
+}

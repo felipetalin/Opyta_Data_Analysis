@@ -45,7 +45,9 @@ def validate_axes_style(ax, expected: dict) -> None:
         errors.append("x grid visibility mismatch")
 
     title = ax.title
-    if title.get_text():
+    if bool(expected.get("no_chart_title", False)) and title.get_text():
+        errors.append("chart title is forbidden by active style")
+    elif title.get_text():
         expected_weight = str(expected.get("title_weight", "bold")).lower()
         current_weight = str(title.get_fontweight()).lower()
         if expected_weight not in current_weight:

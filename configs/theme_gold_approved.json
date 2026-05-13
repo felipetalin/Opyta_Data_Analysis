@@ -5,6 +5,7 @@
   "annotation_size": 14,
   "campaign_label_size": 14,
   "title_size": 14,
+  "no_chart_title": true,
   "subtitle_size": 11,
   "label_size": 14,
   "legend_size": 13,
