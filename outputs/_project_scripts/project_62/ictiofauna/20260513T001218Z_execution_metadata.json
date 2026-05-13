@@ -1,0 +1,51 @@
+{
+  "executed_at": "2026-05-13T00:12:18.560883Z",
+  "runner_version": "1.1",
+  "project_id": 62,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "fersam001",
+  "block": "12",
+  "rows_loaded": 123,
+  "executed_blocks": [
+    "12"
+  ],
+  "campaigns": [
+    "Campanha-01-Seca",
+    "Campanha-02-Chuva"
+  ],
+  "campaigns_count": 2,
+  "points": [
+    "SAM_01",
+    "SAM_02",
+    "SAM_03",
+    "SAM_04",
+    "SAM_05",
+    "SAM_06",
+    "SAM_07",
+    "SAM_08",
+    "SAM_09",
+    "SAM_10",
+    "SAM_11",
+    "SAM_12",
+    "SAM_13",
+    "SAM_14",
+    "SAM_15",
+    "SAM_16",
+    "SAM_17",
+    "SAM_18",
+    "SAM_19",
+    "SAM_21",
+    "SAM_23",
+    "SAM_25"
+  ],
+  "points_count": 22,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio",
+  "generated_files_count": 2,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_df_curva_suficiencia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_curva_suficiencia_amostral_ictiofauna.png"
+  ],
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\ictiofauna"
+}

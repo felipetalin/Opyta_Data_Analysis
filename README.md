@@ -6,7 +6,7 @@ Central project for ecological analysis pipelines with a single Python environme
 shared Supabase access, and a global plotting standard.
 
 **Stable Pipelines**: Zoobentos ✓ | Fitoplancton ✓ | Zooplancton ✓  
-**In Development**: ICTIO (planned for v0.2)
+**In Development**: ICTIO (block 3 migrated, incremental rollout)
 
 ## Goals
 - Reuse one environment for all clients/projects.
@@ -90,6 +90,18 @@ Supported `--block` values for Zooplancton core currently:
 - `12` (Curva de Suficiencia Amostral)
 - `13` (DarwinCore)
 - `all` (runs migrated ZOO set)
+
+Supported `--block` values for ICTIO core currently:
+- `3` (Tabela de Composição Taxonômica)
+- `5` (Riqueza Taxonômica por Ponto e Campanha)
+- `6` (Abundância Total por Ponto e Campanha)
+- `8` (CPUE por Ponto: CPUEn e CPUEb)
+- `9` (CPUE por Espécie: CPUEn e CPUEb)
+- `10` (Diversidade Alfa: Shannon e Pielou)
+- `11` (Dendrograma de Similaridade - Bray-Curtis)
+- `12` (Curva de Suficiência Amostral - Jackknife 1)
+- `13` (Exportação DarwinCore)
+- `all` (currently runs blocks 3 + 5 + 6 + 8 + 9 + 10 + 11 + 12 + 13)
 
 ## Rules
 - Do not run pip install inside notebooks.

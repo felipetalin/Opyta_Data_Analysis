@@ -1,0 +1,52 @@
+{
+  "executed_at": "2026-05-12T23:50:22.529744Z",
+  "runner_version": "1.1",
+  "project_id": 62,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "fersam001",
+  "block": "8",
+  "rows_loaded": 123,
+  "executed_blocks": [
+    "8"
+  ],
+  "campaigns": [
+    "Campanha-01-Seca",
+    "Campanha-02-Chuva"
+  ],
+  "campaigns_count": 2,
+  "points": [
+    "SAM_01",
+    "SAM_02",
+    "SAM_03",
+    "SAM_04",
+    "SAM_05",
+    "SAM_06",
+    "SAM_07",
+    "SAM_08",
+    "SAM_09",
+    "SAM_10",
+    "SAM_11",
+    "SAM_12",
+    "SAM_13",
+    "SAM_14",
+    "SAM_15",
+    "SAM_16",
+    "SAM_17",
+    "SAM_18",
+    "SAM_19",
+    "SAM_21",
+    "SAM_23",
+    "SAM_25"
+  ],
+  "points_count": 22,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio",
+  "generated_files_count": 3,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\07_grafico_cpueb_por_ponto_ictiofauna.png"
+  ],
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\ictiofauna"
+}

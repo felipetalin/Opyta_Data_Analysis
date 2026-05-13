@@ -6,7 +6,12 @@ from pathlib import Path
 from typing import Dict, Any
 
 from opyta_analysis.config import RunParams, load_theme
-from opyta_analysis.pipelines import run_fitoplancton_pipeline, run_zoobentos_pipeline, run_zooplancton_pipeline
+from opyta_analysis.pipelines import (
+    run_fitoplancton_pipeline,
+    run_ictio_pipeline,
+    run_zoobentos_pipeline,
+    run_zooplancton_pipeline,
+)
 
 
 def _utc_now() -> datetime:
@@ -168,6 +173,15 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
         )
     elif params.pipeline.lower() in {"zooplancton", "zoo", "zooplanctonio"}:
         details = run_zooplancton_pipeline(
+            project_id=params.project_id,
+            group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    elif params.pipeline.lower() in {"ictio", "ictiofauna", "ichthyo", "ichthyofauna"}:
+        details = run_ictio_pipeline(
             project_id=params.project_id,
             group=params.group,
             theme=theme,
