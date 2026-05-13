@@ -42,6 +42,10 @@ def _safe_name(text: str) -> str:
     return re.sub(r"[^A-Za-z0-9]+", "_", str(text)).strip("_")
 
 
+def _area_slug(text: str) -> str:
+    return _safe_name(_norm(text))
+
+
 def _is_primata(row: pd.Series) -> bool:
     ordem = _norm(row.get("ordem"))
     if ordem == "primates":
@@ -629,7 +633,7 @@ def _save_diversity(df_pch: pd.DataFrame, df_control: pd.DataFrame, theme: dict,
         sharex=False,
     )
 
-    area_labels = ["Area Controle", "PCH DGN"]
+    area_labels = [TARGET_CONTROL_NAME, TARGET_PCH_NAME]
     bar_color = str(theme.get("primary_hex", "#11420C"))
 
     for idx, metric in enumerate(metrics):
@@ -979,8 +983,10 @@ def run_mastofauna_pipeline(
     if block_sel in {"6.1", "61", "all"}:
         tab_pch = _build_species_list(df_pch)
         tab_ctrl = _build_species_list(df_control)
-        out_pch = output_dir / "6_1_tabela_especies_pch_dores_de_guanhaes.xlsx"
-        out_ctrl = output_dir / "6_1_tabela_especies_area_controle.xlsx"
+        pch_slug = _area_slug(TARGET_PCH_NAME)
+        ctrl_slug = _area_slug(TARGET_CONTROL_NAME)
+        out_pch = output_dir / f"6_1_tabela_especies_{pch_slug}.xlsx"
+        out_ctrl = output_dir / f"6_1_tabela_especies_{ctrl_slug}.xlsx"
         tab_pch.to_excel(out_pch, index=False, engine="openpyxl")
         tab_ctrl.to_excel(out_ctrl, index=False, engine="openpyxl")
         generated_files.extend([str(out_pch), str(out_ctrl)])
@@ -988,16 +994,16 @@ def run_mastofauna_pipeline(
         metrics_pch = _save_abundance_figures(
             df_area=df_pch,
             theme=theme,
-            output_png=output_dir / "6_1_figura_abundancia_total_relativa_mastofauna_pch_dgn.png",
+            output_png=output_dir / f"6_1_figura_abundancia_total_relativa_mastofauna_{pch_slug}.png",
         )
-        generated_files.append(str(output_dir / "6_1_figura_abundancia_total_relativa_mastofauna_pch_dgn.png"))
+        generated_files.append(str(output_dir / f"6_1_figura_abundancia_total_relativa_mastofauna_{pch_slug}.png"))
 
         _save_abundance_figures(
             df_area=df_control,
             theme=theme,
-            output_png=output_dir / "6_1_figura_abundancia_mastofauna_area_controle.png",
+            output_png=output_dir / f"6_1_figura_abundancia_mastofauna_{ctrl_slug}.png",
         )
-        generated_files.append(str(output_dir / "6_1_figura_abundancia_mastofauna_area_controle.png"))
+        generated_files.append(str(output_dir / f"6_1_figura_abundancia_mastofauna_{ctrl_slug}.png"))
         details["block_6_1"] = metrics_pch
         executed_blocks.append("6.1")
 
@@ -1007,7 +1013,7 @@ def run_mastofauna_pipeline(
         df_units_ctrl = _subset_by_empreendimento(df_units, TARGET_CONTROL_NAME) if not df_units.empty else pd.DataFrame()
         est_pch = _save_estimators_and_curve(
             df_pch,
-            "pch_dores_de_guanhaes",
+            _area_slug(TARGET_PCH_NAME),
             theme,
             output_dir,
             generated_files,
@@ -1015,7 +1021,7 @@ def run_mastofauna_pipeline(
         )
         est_ctrl = _save_estimators_and_curve(
             df_control,
-            "area_controle",
+            _area_slug(TARGET_CONTROL_NAME),
             theme,
             output_dir,
             generated_files,
