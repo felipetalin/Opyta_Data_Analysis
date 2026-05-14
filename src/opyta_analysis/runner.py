@@ -14,6 +14,7 @@ from opyta_analysis.pipelines import (
     run_zooplancton_pipeline,
     run_macrofitas_pipeline,
     run_mastofauna_pipeline,
+    run_primatas_pipeline,
     run_herpetofauna_pipeline,
     run_avifauna_pipeline,
     # Monitoramento
@@ -208,6 +209,15 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
         )
     elif params.pipeline.lower() in {"mastofauna", "mastofauna_diag", "mamiferos"}:
         details = run_mastofauna_pipeline(
+            project_id=params.project_id,
+            group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    elif params.pipeline.lower() in {"primatas", "primatas_diag", "primates"}:
+        details = run_primatas_pipeline(
             project_id=params.project_id,
             group=params.group,
             theme=theme,

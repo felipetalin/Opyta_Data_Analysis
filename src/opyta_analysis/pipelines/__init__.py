@@ -6,6 +6,7 @@ from .diagnostico import (
     run_ictio_pipeline,
     run_macrofitas_pipeline,
     run_mastofauna_pipeline,
+    run_primatas_pipeline,
     run_herpetofauna_pipeline,
     run_avifauna_pipeline,
 )
@@ -23,6 +24,7 @@ __all__ = [
     "run_ictio_pipeline",
     "run_macrofitas_pipeline",
     "run_mastofauna_pipeline",
+    "run_primatas_pipeline",
     "run_herpetofauna_pipeline",
     "run_avifauna_pipeline",
     # Monitoramento
