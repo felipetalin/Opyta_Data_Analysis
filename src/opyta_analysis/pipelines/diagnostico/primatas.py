@@ -62,6 +62,10 @@ def _infer_pch_name_from_output_dir(output_dir: Path) -> Optional[str]:
     return _PCH_NAME_BY_FOLDER_KEY.get(key)
 
 
+def _scientific_label(name: str) -> str:
+    return str(name)
+
+
 MONTH_MAP_PT = {
     "jan": "Janeiro",
     "fev": "Fevereiro",
@@ -273,10 +277,8 @@ def _save_fig17_abundancia(
     if max_val == 0:
         max_val = 1.0
 
-    primary_hex = str(theme.get("primary_hex", "#2E6F95"))
-    secondary_hex = str(theme.get("secondary_hex", "#E07A5F"))
-    highlight_hex = str(theme.get("highlight_hex", "#3D5A80"))
-    species_colors = [primary_hex, secondary_hex, highlight_hex, primary_hex]
+    # Keep registros palette aligned with mastofauna/primatas green visual standard.
+    species_colors = ["#0E5A16", "#7AAE6E", "#2F7D32", "#A4C89E"]
 
     value_color = str(theme.get("spine_color", "#000000"))
     for si, sp in enumerate(species_order):
@@ -289,7 +291,7 @@ def _save_fig17_abundancia(
             edgecolor=str(theme.get("spine_color", "#000000")),
             linewidth=0.4,
             zorder=2,
-            label=f"$\\it{{{sp}}}$" if " " in sp else sp,
+            label=_scientific_label(sp),
         )
         for bar, val in zip(bars, vals):
             label_y = float(bar.get_height()) + (max_val * 0.015 if val > 0 else max_val * 0.02)
@@ -312,7 +314,7 @@ def _save_fig17_abundancia(
 
     ax.set_title("")
 
-    ax.legend(
+    legend = ax.legend(
         loc="upper center",
         bbox_to_anchor=(0.5, -0.09),
         ncol=max(1, min(3, n_species)),
@@ -321,6 +323,8 @@ def _save_fig17_abundancia(
         handlelength=0.6,
         handletextpad=0.35,
     )
+    for text in legend.get_texts():
+        text.set_fontstyle("italic")
 
     fig.tight_layout(rect=[0.02, 0.05, 0.98, 0.95])
     out_fig = output_dir / "fig17_abundancia_registros_primatas_campanha.png"
@@ -536,9 +540,7 @@ def _save_mapa_primatas(
                 marker=sp_marker_map[sp],
                 s=160, edgecolors="white", linewidths=0.8, zorder=5,
             )
-        plotted_handles.append(
-            mpatches.Patch(facecolor=sp_marker_map[sp] and "#555555", label=f"$\\it{{{sp}}}$")
-        )
+        plotted_handles.append(mpatches.Patch(facecolor="#555555", label=_scientific_label(sp)))
 
     # Point labels
     for _, row in coords_df.iterrows():
@@ -563,9 +565,13 @@ def _save_mapa_primatas(
     area_handles = [mpatches.Patch(facecolor=area_color_map[a], edgecolor="white", linewidth=0.6, label=a) for a in sorted(unique_areas)]
     sp_handles = [mpatches.Patch(
         facecolor="#555555", edgecolor="white", linewidth=0.6,
-        label=f"$\\it{{{sp}}}$" if " " in sp else sp,
+        label=_scientific_label(sp),
     ) for sp in species_list]
-    ax.legend(handles=area_handles + sp_handles, loc="lower right", fontsize=9, frameon=True, framealpha=0.9)
+    legend = ax.legend(handles=area_handles + sp_handles, loc="lower right", fontsize=9, frameon=True, framealpha=0.9)
+    species_set = set(species_list)
+    for text in legend.get_texts():
+        if text.get_text() in species_set:
+            text.set_fontstyle("italic")
 
     ax.set_xlabel("Longitude" if not use_satellite else "")
     ax.set_ylabel("Latitude" if not use_satellite else "")
