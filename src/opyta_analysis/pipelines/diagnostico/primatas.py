@@ -374,9 +374,9 @@ def _save_venn_primatas(
 
     fig, ax = plt.subplots(figsize=(11, 7.4), dpi=int(theme.get("dpi", 600)))
 
-    # Use TARGET_PCH_NAME and TARGET_CONTROL_NAME dynamically
-    pch_label = TARGET_PCH_NAME
-    ctrl_label = TARGET_CONTROL_NAME
+    # Standard labels for all enterprises.
+    pch_label = "Área de Estudo"
+    ctrl_label = "Área Controle"
     pch_color = str(theme.get("primary_hex", "#2E6F95"))
     ctrl_color = str(theme.get("secondary_hex", "#E07A5F"))
     dark_text = "#0D2A1D"

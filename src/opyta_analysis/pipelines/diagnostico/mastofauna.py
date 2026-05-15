@@ -148,7 +148,7 @@ def _load_mastofauna_df(project_id: int, env_file: Optional[str]) -> pd.DataFram
     especies = paginate(
         sb,
         "especies",
-        select="id_especie,nome_cientifico,nome_popular,ordem,familia,status_ameaca_global,status_ameaca_nacional,status_copam,cites,dependencia_florestal,endemismo,habito_alimentar,guilda_alimentar,sensibilidade_ambiental,migratorio,raridade,origem,observacoes",
+        select="id_especie,nome_cientifico,nome_popular,ordem,familia,status_ameaca_global,status_ameaca_nacional,status_copam,cites,dependencia_florestal,endemismo,habito_alimentar,guilda_alimentar,sensibilidade_ambiental,migratorio,raridade,origem,distribuicao,cinegetica,xerimbabo,observacoes",
     )
     esp_map = {e["id_especie"]: e for e in especies}
 
@@ -179,6 +179,9 @@ def _load_mastofauna_df(project_id: int, env_file: Optional[str]) -> pd.DataFram
                 "migratorio": esp.get("migratorio"),
                 "raridade": esp.get("raridade"),
                 "origem": esp.get("origem"),
+                "distribuicao": esp.get("distribuicao"),
+                "cinegetica_db": esp.get("cinegetica"),
+                "xerimbabo_db": esp.get("xerimbabo"),
                 "especie_obs": esp.get("observacoes"),
                 "metodo_de_captura": esf.get("metodo_de_captura"),
                 "tipo_amostragem": r.get("tipo_amostragem") or esf.get("tipo_amostragem") or esf.get("tipo_de_amostragem"),
@@ -812,7 +815,7 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
     both = len(inter)
     fig, ax = plt.subplots(figsize=(11, 7.4), dpi=int(theme.get("dpi", 600)))
 
-    pch_label = "PCH DGN"
+    pch_label = "Área de Estudo"
     ctrl_label = "Área Controle"
     pch_color = str(theme.get("primary_hex", "#11420C"))
     ctrl_color = str(theme.get("secondary_hex", "#5B8E53"))
@@ -885,7 +888,10 @@ def _save_general_status_tables(df_all: pd.DataFrame, output_dir: Path, generate
             iucn=("status_ameaca_global", "first"),
             mma=("status_ameaca_nacional", "first"),
             origem=("origem", "first"),
+            distribuicao=("distribuicao", "first"),
             habito=("habito_alimentar", "first"),
+            cinegetica_db=("cinegetica_db", "first"),
+            xerimbabo_db=("xerimbabo_db", "first"),
         )
     )
 
@@ -896,9 +902,44 @@ def _save_general_status_tables(df_all: pd.DataFrame, output_dir: Path, generate
     species["Ameacada"] = species["iucn"].map(_is_threatened) | species["mma"].map(_is_threatened)
     species["Endemica"] = False
     species["Rara"] = False
-    species["Exotica"] = ~species["origem"].astype(str).str.contains("nativa", case=False, na=False)
-    species["Cinegetica"] = species["habito"].astype(str).str.contains("herb|oniv|carn", case=False, na=False)
-    species["Xerimbabo"] = False
+
+    dist_txt = species["distribuicao"].astype(str)
+    origem_txt = species["origem"].astype(str)
+    has_dist = species["distribuicao"].notna() & (dist_txt.str.strip() != "")
+    exotica_por_dist = dist_txt.str.contains("exot", case=False, na=False)
+    exotica_por_origem = ~origem_txt.str.contains("nativa", case=False, na=False)
+    species["Exotica"] = np.where(has_dist, exotica_por_dist, exotica_por_origem)
+
+    cineg_db = species["cinegetica_db"]
+    cineg_fallback = species["habito"].astype(str).str.contains("herb|oniv|carn", case=False, na=False)
+    species["Cinegetica"] = np.where(cineg_db.notna(), cineg_db.astype(bool), cineg_fallback)
+
+    xerim_db = species["xerimbabo_db"]
+    species["Xerimbabo"] = np.where(xerim_db.notna(), xerim_db.astype(bool), False)
+
+    bool_to_text = {True: "Sim", False: "Não"}
+    for col in ["Ameacada", "Endemica", "Rara", "Exotica", "Cinegetica", "Xerimbabo"]:
+        species[col] = species[col].map(bool_to_text)
+
+    species = species[
+        [
+            "nome_cientifico",
+            "nome_popular",
+            "ordem",
+            "familia",
+            "iucn",
+            "mma",
+            "origem",
+            "distribuicao",
+            "habito",
+            "Ameacada",
+            "Endemica",
+            "Rara",
+            "Exotica",
+            "Cinegetica",
+            "Xerimbabo",
+        ]
+    ]
 
     out_68 = output_dir / "6_6_6_8_tabela_geral_status.xlsx"
     species.to_excel(out_68, index=False, engine="openpyxl")
@@ -951,9 +992,9 @@ def run_mastofauna_pipeline(
     block: str = "all",
 ) -> Dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
-    df = _load_mastofauna_df(project_id=project_id, env_file=env_file)
+    df_raw = _load_mastofauna_df(project_id=project_id, env_file=env_file)
 
-    if df.empty:
+    if df_raw.empty:
         return {
             "rows_loaded": 0,
             "executed_blocks": [],
@@ -961,8 +1002,10 @@ def run_mastofauna_pipeline(
             "warning": "Sem dados de mastofauna para o projeto informado.",
         }
 
+    df_status = df_raw.copy()
+
     # Regra solicitada: mastofauna sem primatas.
-    df = df[~df.apply(_is_primata, axis=1)].copy()
+    df = df_raw[~df_raw.apply(_is_primata, axis=1)].copy()
 
     block_sel = str(block).strip().lower()
     generated_files: list[str] = []
@@ -1045,7 +1088,7 @@ def run_mastofauna_pipeline(
         executed_blocks.append("6.5")
 
     if block_sel in {"6.6", "66", "6.7", "67", "6.8", "68", "all"}:
-        _save_general_status_tables(df, output_dir, generated_files)
+        _save_general_status_tables(df_status, output_dir, generated_files)
         executed_blocks.extend(["6.6", "6.7", "6.8"])
 
     if block_sel in {"all"}:
