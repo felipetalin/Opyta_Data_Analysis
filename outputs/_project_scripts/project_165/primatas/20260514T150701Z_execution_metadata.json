@@ -1,0 +1,35 @@
+{
+  "executed_at": "2026-05-14T15:07:01.232013Z",
+  "runner_version": "1.1",
+  "project_id": 165,
+  "group": "primatas",
+  "pipeline": "primatas",
+  "client": "fersam001",
+  "block": "6.1",
+  "rows_loaded": 10,
+  "executed_blocks": [
+    "6.1"
+  ],
+  "campaigns": [
+    "28ª-abr-26-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "PMPRICON1-C28-01",
+    "PMPRISPT1-C28-01",
+    "PMPRISPT2-C28-01",
+    "PMPRISPT2-C28-02",
+    "PMPRISPT2-C28-03"
+  ],
+  "points_count": 5,
+  "output_dir": "outputs\\_gold_validation\\primatas_165",
+  "generated_files_count": 4,
+  "generated_files": [
+    "outputs\\_gold_validation\\primatas_165\\6_1_tabela_especies_primatas_senhora_do_porto.xlsx",
+    "outputs\\_gold_validation\\primatas_165\\6_1_tabela_especies_primatas_area_controle.xlsx",
+    "outputs\\_gold_validation\\primatas_165\\6_1_figura_abundancia_total_relativa_primatas_senhora_do_porto.png",
+    "outputs\\_gold_validation\\primatas_165\\6_1_figura_abundancia_primatas_area_controle.png"
+  ],
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\primatas"
+}

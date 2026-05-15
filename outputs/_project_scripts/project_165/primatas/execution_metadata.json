@@ -1,0 +1,32 @@
+{
+  "executed_at": "2026-05-14T19:51:59.832977Z",
+  "runner_version": "1.1",
+  "project_id": 165,
+  "group": "primatas",
+  "pipeline": "primatas",
+  "client": "fersam001",
+  "block": "6.2",
+  "rows_loaded": 5,
+  "executed_blocks": [
+    "6.2"
+  ],
+  "campaigns": [
+    "28ª-abr-26-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "PMPRICON1-C28-01",
+    "PMPRISPT1-C28-01",
+    "PMPRISPT2-C28-01",
+    "PMPRISPT2-C28-02",
+    "PMPRISPT2-C28-03"
+  ],
+  "points_count": 5,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto",
+  "generated_files_count": 1,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto\\6_2_prim_diagrama_venn_pch_vs_controle.png"
+  ],
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\primatas"
+}

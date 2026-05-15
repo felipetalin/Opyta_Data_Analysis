@@ -1,0 +1,33 @@
+{
+  "executed_at": "2026-05-14T18:15:03.147836Z",
+  "runner_version": "1.1",
+  "project_id": 165,
+  "group": "primatas",
+  "pipeline": "primatas",
+  "client": "fersam001",
+  "block": "map",
+  "rows_loaded": 5,
+  "executed_blocks": [
+    "mapa"
+  ],
+  "campaigns": [
+    "28ª-abr-26-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "PMPRICON1-C28-01",
+    "PMPRISPT1-C28-01",
+    "PMPRISPT2-C28-01",
+    "PMPRISPT2-C28-02",
+    "PMPRISPT2-C28-03"
+  ],
+  "points_count": 5,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Dores de Guanhães",
+  "generated_files_count": 2,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Dores de Guanhães\\mapa_registros_primatas_georreferenciado.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Dores de Guanhães\\mapa_tabela_coordenadas_primatas.xlsx"
+  ],
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\primatas"
+}
