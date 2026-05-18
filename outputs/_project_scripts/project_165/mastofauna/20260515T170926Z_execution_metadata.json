@@ -1,0 +1,63 @@
+{
+  "executed_at": "2026-05-15T17:09:26.973242Z",
+  "runner_version": "1.1",
+  "project_id": 165,
+  "group": "Mastofauna",
+  "pipeline": "mastofauna",
+  "client": "fersam001",
+  "block": "all",
+  "rows_loaded": 20,
+  "executed_blocks": [
+    "6.1",
+    "6.2",
+    "6.3",
+    "6.4",
+    "6.5",
+    "6.6",
+    "6.7",
+    "6.8"
+  ],
+  "campaigns": [
+    "C028-2026-04-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "CO2",
+    "CON1",
+    "CON2",
+    "DG7",
+    "DGN1",
+    "FO6",
+    "FOR1",
+    "JA1",
+    "JAC1",
+    "SP4",
+    "SPT1"
+  ],
+  "points_count": 11,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II",
+  "generated_files_count": 19,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_1_tabela_especies_fortuna_ii.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_1_tabela_especies_area_controle.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_1_figura_abundancia_total_relativa_mastofauna_fortuna_ii.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_1_figura_abundancia_mastofauna_area_controle.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_2_tabela_estimadores_fortuna_ii.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_2_curva_coletor_dados_fortuna_ii.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_2_curva_coletor_fortuna_ii.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_2_tabela_estimadores_area_controle.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_2_curva_coletor_dados_area_controle.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_2_curva_coletor_area_controle.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_3_indices_diversidade.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_3_indices_diversidade.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_4_dendrograma_jaccard_por_pontos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_5_diagrama_venn_pch_vs_controle.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_6_6_8_tabela_geral_status.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Fortuna II\\6_relatorio_descritivo_mastofauna_sem_primatas.txt"
+  ],
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\mastofauna"
+}

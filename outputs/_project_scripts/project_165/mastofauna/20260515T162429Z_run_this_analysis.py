@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-Reproducer script for Mastofauna analysis - fersam001
-Generated: 2026-05-15T17:45:28.818247Z
+Reproducer script for mastofauna analysis - fersam001
+Generated: 2026-05-15T16:24:29.828527Z
 
 Usage:
   python _run_this_analysis.py
@@ -19,15 +19,15 @@ from opyta_analysis.config import RunParams
 from opyta_analysis.runner import run
 
 def main():
-    parser = argparse.ArgumentParser(description="Re-run Mastofauna analysis")
-    parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\28_campanha-Abril_26\Mastofauna\Senhora do Porto", help="Output directory for generated artifacts")
-    parser.add_argument("--env-file", default='G:\\Meu Drive\\Opyta\\Opyta_Data\\.env', help="Optional .env file path")
+    parser = argparse.ArgumentParser(description="Re-run mastofauna analysis")
+    parser.add_argument("--block", default='6.6', help="Block to execute (default: 6.6)")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Opyta_Data_Analysis\outputs\_gold_validation\mastofauna_165_status_textual", help="Output directory for generated artifacts")
+    parser.add_argument("--env-file", default='G:/Meu Drive/Opyta/Opyta_Data/.env', help="Optional .env file path")
     args = parser.parse_args()
 
     params = RunParams(
         project_id=165,
-        group='Mastofauna',
+        group='mastofauna',
         pipeline='mastofauna',
         client='fersam001',
         output_dir=Path(args.output_dir),
