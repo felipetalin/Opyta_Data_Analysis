@@ -117,6 +117,10 @@ Supported `--block` values for ICTIO core currently:
 - Current default theme is aligned with approved Gold baseline.
 - Latest approved analytical criterion included: block 10 counts sampling unit as `campaign + point`.
 
+## Meio Fisico Documentation
+- Technical README: `docs/README_MEIO_FISICO.md`
+- Learning memory and operational lessons: `logs/MEMORIA_APRENDIZADO_MEIO_FISICO.md`
+
 ## Next Steps
 - Start modular migration for next biological groups not yet delivered.
 - Reuse the approved Gold standard with no block-local style exceptions.
