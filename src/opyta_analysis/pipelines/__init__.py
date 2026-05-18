@@ -1,5 +1,6 @@
 # --- Diagnóstico (EIA/RIMA) ---
 from .diagnostico import (
+    run_meio_fisico_pipeline,
     run_zoobentos_pipeline,
     run_fitoplancton_pipeline,
     run_zooplancton_pipeline,
@@ -27,6 +28,7 @@ __all__ = [
     "run_primatas_pipeline",
     "run_herpetofauna_pipeline",
     "run_avifauna_pipeline",
+    "run_meio_fisico_pipeline",
     # Monitoramento
     "run_mastofauna_monitoring_pipeline",
 ]
