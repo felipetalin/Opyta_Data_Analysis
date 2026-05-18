@@ -69,6 +69,27 @@ def harmonizar_colunas(df):
     df = df.rename(columns={k: v for k, v in COL_MAP.items() if k in df.columns})
     return df
 
+def _parse_valor_medido(df):
+    """Separa '<'/'>' de valor_medido em sinal_limite + número."""
+    import re
+    def extract(v):
+        if v is None or (isinstance(v, float) and pd.isna(v)):
+            return None, None
+        s = str(v).strip()
+        m = re.match(r'^([<>]=?)\s*(.+)$', s)
+        if m:
+            return m.group(1), m.group(2)
+        return None, s
+
+    sinais, valores = zip(*df["valor_medido"].apply(extract))
+    # Só preencher sinal_limite se ainda não existe ou é vazio
+    if "sinal_limite" not in df.columns:
+        df["sinal_limite"] = None
+    mask = df["sinal_limite"].isna() | (df["sinal_limite"] == "")
+    df.loc[mask, "sinal_limite"] = [s for s in sinais]
+    df["valor_medido"] = pd.to_numeric(list(valores), errors="coerce")
+    return df
+
 def preencher_extras(df):
     df["codigo_interno_opyta"] = CODIGO_PROJETO
     df["nome_projeto"] = NOME_PROJETO
@@ -76,6 +97,7 @@ def preencher_extras(df):
     for col in COLUNAS_EXTRAS:
         if col not in df.columns:
             df[col] = None
+    df = _parse_valor_medido(df)
     return df
 
 def validar_e_exibir(df, aba):
@@ -163,11 +185,7 @@ def main():
         batch = registros[i:i+BATCH]
         print(f"Inserindo registros {i+1} a {i+len(batch)}...")
         resp = sb.table(table).insert(batch).execute()
-        if resp.error:
-            print(f"Erro ao inserir lote {i//BATCH+1}: {resp.error}")
-            break
-        else:
-            print(f"Lote {i//BATCH+1} inserido com sucesso.")
+        print(f"Lote {i//BATCH+1} inserido com sucesso ({len(batch)} registros).")
     print("Concluído.")
 
 if __name__ == "__main__":
