@@ -91,6 +91,34 @@ def _parse_vmp(v):
     except ValueError: return None
 
 
+_UNIT_FACTORS_TO_MGL = {
+    "mg/l": 1.0,
+    "µg/l": 1e-3,
+    "μg/l": 1e-3,
+    "ug/l": 1e-3,
+    "ng/l": 1e-6,
+    "mg/kg": 1.0,
+    "µg/kg": 1e-3,
+    "μg/kg": 1e-3,
+    "ug/kg": 1e-3,
+}
+
+
+def _unit_norm(u):
+    if u is None:
+        return ""
+    return str(u).strip().lower().replace(" ", "")
+
+
+def _conv_factor(from_u, to_u):
+    """Fator multiplicativo para X[from_u] -> X[to_u]. None se incomparavel."""
+    a = _UNIT_FACTORS_TO_MGL.get(_unit_norm(from_u))
+    b = _UNIT_FACTORS_TO_MGL.get(_unit_norm(to_u))
+    if a is None or b is None:
+        return None
+    return a / b
+
+
 def _safe(name):
     s = unicodedata.normalize("NFKD", str(name))
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
@@ -102,6 +130,8 @@ def calcular_violacao_matriz(matriz, cfg, df_res, theme):
     df["Parametro"] = df["Parametro"].astype(str).str.strip()
     df_cad = pd.read_excel(SRC_CAD, sheet_name=cfg["aba_cad"])
     df_cad["Parametro"] = df_cad["Parametro"].astype(str).str.strip()
+    # remove parametros duplicados no cadastro (mantém primeiro)
+    df_cad = df_cad.drop_duplicates(subset=["Parametro"], keep="first")
     cad_idx = df_cad.set_index("Parametro")
 
     # ph map para Superficial
@@ -118,11 +148,22 @@ def calcular_violacao_matriz(matriz, cfg, df_res, theme):
         sub = df[df["Parametro"] == p]
         if p not in cad_idx.index:
             continue
+        # Unidade autoritativa = moda dos dados; converte VMP cad->dados
+        unidade_cad = cad_idx.loc[p, "Unidade_Medida"] if "Unidade_Medida" in df_cad.columns else None
+        try:
+            unidade_dados = sub["Unidade_Medida"].dropna().mode().iloc[0]
+        except Exception:
+            unidade_dados = unidade_cad
+        factor = _conv_factor(unidade_cad, unidade_dados) if unidade_cad and unidade_dados else 1.0
+        if factor is None:
+            factor = 1.0
         vmps = []
         for c in cfg["vmp_cols"]:
             if c in df_cad.columns:
                 v = _parse_vmp(cad_idx.loc[p, c])
-                if v is not None: vmps.append(v)
+                if v is None: continue
+                if v <= 0: continue  # ignora VMP=0 (ex.: Arsênio Irrigação)
+                vmps.append(v * factor)
         if not vmps and not (matriz == "Água Superficial" and p.lower().startswith("nitrogênio amon")):
             continue
         vmp_ref = min(vmps) if vmps else None
