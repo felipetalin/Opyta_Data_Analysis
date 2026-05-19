@@ -1,43 +1,52 @@
 {
-  "generated_at": "2026-05-07T13:31:18.211398Z",
+  "generated_at": "2026-05-19T14:50:00Z",
   "project_name": "SAM Metais",
   "project_id": 62,
   "client": "fersam001",
   "items": [
     {
       "group": "fitoplancton",
-      "audit_dir": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton",
-      "latest_metadata": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\execution_metadata.json",
-      "latest_script": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\_run_this_analysis.py",
-      "history_metadata": [
-        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\20260507T133053Z_execution_metadata.json"
-      ],
-      "history_scripts": [
-        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\20260507T133053Z_run_this_analysis.py"
-      ]
+      "audit_dir": "outputs/_project_scripts/sam_metais/fitoplancton",
+      "latest_script": "outputs/_project_scripts/sam_metais/fitoplancton/_run_this_analysis.py",
+      "latest_metadata": "outputs/_project_scripts/sam_metais/fitoplancton/execution_metadata.json"
     },
     {
       "group": "zooplancton",
-      "audit_dir": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton",
-      "latest_metadata": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\execution_metadata.json",
-      "latest_script": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\_run_this_analysis.py",
-      "history_metadata": [
-        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\20260507T133053Z_execution_metadata.json"
-      ],
-      "history_scripts": [
-        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zooplancton\\20260507T133053Z_run_this_analysis.py"
-      ]
+      "audit_dir": "outputs/_project_scripts/sam_metais/zooplancton",
+      "latest_script": "outputs/_project_scripts/sam_metais/zooplancton/_run_this_analysis.py",
+      "latest_metadata": "outputs/_project_scripts/sam_metais/zooplancton/execution_metadata.json"
     },
     {
       "group": "zoobentos",
-      "audit_dir": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos",
-      "latest_metadata": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\execution_metadata.json",
-      "latest_script": "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\_run_this_analysis.py",
-      "history_metadata": [
-        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\20260507T133053Z_execution_metadata.json"
-      ],
-      "history_scripts": [
-        "g:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\20260507T133053Z_run_this_analysis.py"
+      "audit_dir": "outputs/_project_scripts/sam_metais/zoobentos",
+      "latest_script": "outputs/_project_scripts/sam_metais/zoobentos/_run_this_analysis.py",
+      "latest_metadata": "outputs/_project_scripts/sam_metais/zoobentos/execution_metadata.json"
+    },
+    {
+      "group": "meio_fisico",
+      "audit_dir": "outputs/_project_scripts/sam_metais/meio_fisico/scripts_snapshot",
+      "readme": "outputs/_project_scripts/sam_metais/meio_fisico/README.md",
+      "latest_metadata": "outputs/_project_scripts/sam_metais/meio_fisico/scripts_snapshot/execution_metadata.json",
+      "pipeline": "meio_fisico_xlsx",
+      "pipeline_api": "run_meio_fisico_xlsx_pipeline(client='FERSAM001', block='all')",
+      "gold_baseline": "gold-meio-fisico-v1 (commit b92c6df)",
+      "last_run": {
+        "snapshot_ts": "20260519T144804Z",
+        "git_commit": "e00701c",
+        "n_files": 106,
+        "failed_blocks": []
+      },
+      "scripts": [
+        "gerar_conformidade_sam_etapa2.py",
+        "gerar_b3_grafico_por_parametro.py",
+        "gerar_b4_pct_violacao.py",
+        "gerar_b5_iqa_cetesb.py",
+        "gerar_b6_iet_lamparelli.py",
+        "gerar_b7_iqasb_parcial.py",
+        "gerar_b8_mpelq.py",
+        "gerar_b9_sazonal.py",
+        "gerar_b11_sintese.py",
+        "gerar_resumo_tecnico.py"
       ]
     }
   ]

@@ -1,0 +1,56 @@
+﻿{
+    "generated_at":  "2026-05-19T14:48:31Z",
+    "snapshot_ts":  "20260519T144804Z",
+    "client":  "FERSAM001",
+    "project_name":  "SAM Metais",
+    "project_id":  62,
+    "pipeline":  "meio_fisico_xlsx",
+    "pipeline_api":  "run_meio_fisico_xlsx_pipeline(client=\u0027FERSAM001\u0027, block=\u0027all\u0027)",
+    "git_commit":  "e00701c5cdb1dc004ddd4bb1bb95e5320238ef51",
+    "git_branch":  "main",
+    "last_run":  {
+                     "n_files":  106,
+                     "failed_blocks":  [
+
+                                       ],
+                     "status":  "OK",
+                     "executed_blocks":  [
+                                             "b2",
+                                             "b3",
+                                             "b4",
+                                             "b5",
+                                             "b6",
+                                             "b7",
+                                             "b8",
+                                             "b9",
+                                             "b11",
+                                             "resumo"
+                                         ]
+                 },
+    "outputs_root":  "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Meio_físico",
+    "gold_baseline":  "gold-meio-fisico-v1 (commit b92c6df)",
+    "recent_fixes":  [
+                         {
+                             "date":  "2026-05-19",
+                             "commit":  "e00701c",
+                             "topic":  "b4 conversao unidade + drop_duplicates + filtro VMP\u003c=0"
+                         },
+                         {
+                             "date":  "2026-05-19",
+                             "persisted_in":  "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Migração\\Físico\\cadastro_parametros_opyta.xlsx",
+                             "topic":  "Cadastro Aguas_Subterraneas: 4 linhas mg/L -\u003e ug/L (Nitrato, Cobre Total, Cloretos, Aluminio Total)"
+                         }
+                     ],
+    "scripts":  [
+                    "gerar_conformidade_sam_etapa2.py",
+                    "gerar_b3_grafico_por_parametro.py",
+                    "gerar_b4_pct_violacao.py",
+                    "gerar_b5_iqa_cetesb.py",
+                    "gerar_b6_iet_lamparelli.py",
+                    "gerar_b7_iqasb_parcial.py",
+                    "gerar_b8_mpelq.py",
+                    "gerar_b9_sazonal.py",
+                    "gerar_b11_sintese.py",
+                    "gerar_resumo_tecnico.py"
+                ]
+}
