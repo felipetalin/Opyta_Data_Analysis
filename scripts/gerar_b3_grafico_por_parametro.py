@@ -114,6 +114,33 @@ def _parse_vmp(val):
     except ValueError:
         return None
 
+_UNIT_FACTORS_TO_MGL = {
+    "mg/l": 1.0,
+    "\u00b5g/l": 1e-3,
+    "ug/l": 1e-3,
+    "ng/l": 1e-6,
+    "mg/kg": 1.0,
+    "\u00b5g/kg": 1e-3,
+    "ug/kg": 1e-3,
+}
+
+
+def _unit_norm(u):
+    """Normaliza unidade para chave de _UNIT_FACTORS_TO_MGL."""
+    if u is None:
+        return ""
+    s = str(u).strip().lower().replace(" ", "")
+    # tratar 'ug' como microgramas
+    return s
+
+
+def _conv_factor(from_u, to_u):
+    """Fator multiplicativo para X[from_u] -> X[to_u]. None se incomparavel."""
+    a = _UNIT_FACTORS_TO_MGL.get(_unit_norm(from_u))
+    b = _UNIT_FACTORS_TO_MGL.get(_unit_norm(to_u))
+    if a is None or b is None:
+        return None
+    return a / b
 
 def _camp_sort(c):
     s = str(c)
@@ -296,16 +323,33 @@ def main():
         for p in params:
             df_p = sub[sub["Parametro"] == p]
             unidade = df_p["Unidade_Medida"].iloc[0] if len(df_p) else ""
+            if unidade is None or (isinstance(unidade, float) and np.isnan(unidade)):
+                unidade = ""
+            unidade = str(unidade)
             if unidade.lower() in {"nan", ""}:
                 unidade = ""
 
             vmps_ativos = []
+            unidade_cad = ""
             if p in cad_idx.index:
+                if "Unidade_Medida" in df_cad.columns:
+                    uc = cad_idx.loc[p, "Unidade_Medida"]
+                    if isinstance(uc, pd.Series):
+                        uc = uc.iloc[0]
+                    if uc is not None and not (isinstance(uc, float) and np.isnan(uc)):
+                        unidade_cad = str(uc)
+                # fator de conversao VMP(cadastro) -> unidade dos dados
+                factor = _conv_factor(unidade_cad, unidade) if unidade and unidade_cad else 1.0
+                if factor is None:
+                    factor = 1.0
                 for col_cad, label, theme_key in cfg["vmps"]:
                     if col_cad in df_cad.columns:
                         v = _parse_vmp(cad_idx.loc[p, col_cad])
-                        if v is not None:
-                            vmps_ativos.append((label, v, str(theme.get(theme_key, "#e74c3c"))))
+                        if v is None or v <= 0:
+                            # ignora VMP ausente, '-' ou zero (ex.: Arsenio irrigacao = 0)
+                            continue
+                        v_conv = v * factor
+                        vmps_ativos.append((label, v_conv, str(theme.get(theme_key, "#e74c3c"))))
 
             # Caso especial: Nitrogenio Amoniacal (Sup) -> VMPs dependem do pH (CONAMA 357 art.34)
             if matriz == "Água Superficial" and p.lower().startswith("nitrogênio amon"):

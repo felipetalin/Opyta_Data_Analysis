@@ -135,6 +135,30 @@ def _parse_vmp(val) -> float | None:
     except ValueError:
         return None
 
+# Conversao de unidades agua/sedimento
+_UNIT_FACTORS_TO_MGL = {
+    "mg/l": 1.0,
+    "\u00b5g/l": 1e-3,
+    "ug/l": 1e-3,
+    "ng/l": 1e-6,
+    "mg/kg": 1.0,
+    "\u00b5g/kg": 1e-3,
+    "ug/kg": 1e-3,
+}
+
+
+def _unit_norm(u) -> str:
+    if u is None:
+        return ""
+    return str(u).strip().lower().replace(" ", "")
+
+
+def _conv_factor(from_u, to_u) -> float | None:
+    a = _UNIT_FACTORS_TO_MGL.get(_unit_norm(from_u))
+    b = _UNIT_FACTORS_TO_MGL.get(_unit_norm(to_u))
+    if a is None or b is None:
+        return None
+    return a / b
 
 def _limite_amonia_por_ph(ph: float | None) -> float | None:
     """CONAMA 357 art.34 — Nitrogenio Amoniacal Total (mg/L N) por faixa de pH."""
@@ -197,18 +221,43 @@ def gerar_para_matriz(df_res: pd.DataFrame, matriz: str, cfg: dict) -> tuple[Pat
     campanhas = sorted(df["Campanha"].unique())
     pontos = sorted(df["Ponto"].unique())
 
-    # Unidade por parametro
+    # Unidade efetiva por parametro (prioriza unidade reportada nos dados)
     unidades: dict[str, str] = {}
+    unidades_cad: dict[str, str] = {}
+    conv_factor: dict[str, float] = {}
     for p in parametros:
-        u = None
+        # unidade do cadastro
+        uc = ""
         if "Unidade_Medida" in df_cad.columns and p in cad_idx.index:
-            u = cad_idx.loc[p, "Unidade_Medida"]
-            if isinstance(u, pd.Series):
-                u = u.iloc[0]
-        if u is None or (isinstance(u, float) and np.isnan(u)):
-            ds = df.loc[df["Parametro"] == p, "Unidade_Medida"]
-            u = ds.iloc[0] if len(ds) else ""
-        unidades[p] = u
+            v_uc = cad_idx.loc[p, "Unidade_Medida"]
+            if isinstance(v_uc, pd.Series):
+                v_uc = v_uc.iloc[0]
+            if v_uc is not None and not (isinstance(v_uc, float) and np.isnan(v_uc)):
+                uc = str(v_uc)
+        unidades_cad[p] = uc
+        # unidade dos dados (moda)
+        ud = ""
+        ds = df.loc[df["Parametro"] == p, "Unidade_Medida"].dropna()
+        if len(ds):
+            try:
+                ud = str(ds.mode().iloc[0])
+            except Exception:
+                ud = str(ds.iloc[0])
+        # adota unidade dos dados como autoritativa; fallback cadastro
+        u_final = ud if ud and ud.lower() != "nan" else uc
+        unidades[p] = u_final
+        # fator de conversao VMP(cadastro) -> dados
+        f = _conv_factor(uc, u_final) if uc and u_final else 1.0
+        conv_factor[p] = f if f is not None else 1.0
+
+    # Aplica conversao aos VMPs por parametro
+    for label in list(vmp_maps.keys()):
+        for p in list(vmp_maps[label].keys()):
+            v = vmp_maps[label][p]
+            if v is None:
+                continue
+            f = conv_factor.get(p, 1.0)
+            vmp_maps[label][p] = v * f
 
     # Lookups por (parametro, campanha, ponto)
     res_str: dict[tuple, str] = {}
@@ -325,6 +374,30 @@ def gerar_para_matriz(df_res: pd.DataFrame, matriz: str, cfg: dict) -> tuple[Pat
     ws.row_dimensions[2].height = 38
     ws.freeze_panes = ws.cell(row=3, column=3)
 
+    # Aba auxiliar: conversao de unidade VMP (cadastro -> dados)
+    convs = [
+        (p, unidades_cad.get(p, ""), unidades.get(p, ""), conv_factor.get(p, 1.0))
+        for p in parametros
+        if conv_factor.get(p, 1.0) != 1.0
+    ]
+    if convs:
+        ws2 = wb.create_sheet("Conversoes_Unidade")
+        cabec = ["Parametro", "Unidade_Cadastro", "Unidade_Dados", "Fator_Conversao_VMP"]
+        ws2.append(cabec)
+        for col in range(1, len(cabec) + 1):
+            cell = ws2.cell(row=1, column=col)
+            cell.fill = HEADER_FILL
+            cell.font = HEADER_FONT
+            cell.alignment = CENTER
+        for p, uc, ud, f in convs:
+            ws2.append([p, uc, ud, f])
+        ws2.column_dimensions[get_column_letter(1)].width = 42
+        ws2.column_dimensions[get_column_letter(2)].width = 18
+        ws2.column_dimensions[get_column_letter(3)].width = 18
+        ws2.column_dimensions[get_column_letter(4)].width = 22
+        ws2.row_dimensions[1].height = 22
+        ws2.freeze_panes = ws2.cell(row=2, column=1)
+
     out_dir = OUT_ROOT / cfg["subpasta"]
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / cfg["arquivo"]
@@ -336,7 +409,7 @@ def gerar_para_matriz(df_res: pd.DataFrame, matriz: str, cfg: dict) -> tuple[Pat
         print(f"  ! arquivo original bloqueado; salvo em: {alt.name}")
         out_path = alt
 
-    return out_path, viol_cells, len(viol_params)
+    return out_path, viol_cells, len(viol_params), convs
 
 
 def main() -> None:
@@ -347,9 +420,13 @@ def main() -> None:
 
     for matriz, cfg in MATRIZ_CFG.items():
         print(f"[etapa-2] Processando {matriz} (layout WIDE) ...")
-        out_path, viol_cells, viol_params = gerar_para_matriz(df_res, matriz, cfg)
+        out_path, viol_cells, viol_params, convs = gerar_para_matriz(df_res, matriz, cfg)
         print(f"  -> {out_path}")
         print(f"     celulas em violacao: {viol_cells}  |  parametros afetados: {viol_params}")
+        if convs:
+            print(f"     conversoes de unidade VMP: {len(convs)} parametro(s) -> aba 'Conversoes_Unidade'")
+            for p, uc, ud, f in convs:
+                print(f"       - {p}: {uc} -> {ud} (x{f:g})")
         print()
 
     print("[etapa-2] OK")
