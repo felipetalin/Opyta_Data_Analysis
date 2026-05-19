@@ -43,9 +43,9 @@ _BLOCKS: Dict[str, str] = {
     "resumo": "gerar_resumo_tecnico.py",
 }
 
-# Conjunto padrão executado quando ``block == 'all'``: exclui o piloto
-# (coliformes) e o b2 (conformidade tabular — formato wide, validação manual).
-_DEFAULT_BLOCKS: List[str] = ["b3", "b4", "b5", "b6", "b7", "b8", "b9", "b11", "resumo"]
+# Conjunto padrão executado quando ``block == 'all'`` (Gold Meio Físico).
+# Exclui apenas o piloto (coliformes — análise auxiliar manual).
+_DEFAULT_BLOCKS: List[str] = ["b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b11", "resumo"]
 
 
 @dataclass
