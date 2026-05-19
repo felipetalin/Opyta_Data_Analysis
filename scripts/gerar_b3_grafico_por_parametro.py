@@ -238,14 +238,6 @@ def gerar_grafico(
         for label, v, color in vmps_ativos:
             ax.axhline(v, color=color, linewidth=2.0, label=f"{label} ({v:g})", zorder=2)
 
-    loq_vals = d.loc[d["_sinal"] == "<", "_valor"].dropna().astype(float)
-    if not loq_vals.empty:
-        loq = float(np.nanmax(loq_vals.values))
-        ax.axhline(
-            loq, color="#7f7f7f", linewidth=1.6, linestyle="--",
-            label=f"LOQ ({loq:g})", zorder=2,
-        )
-
     if use_log:
         # Garante limite inferior > 0
         positivos = d.loc[d["_valor"] > 0, "_valor"]
