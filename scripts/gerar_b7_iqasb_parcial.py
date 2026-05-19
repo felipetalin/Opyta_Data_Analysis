@@ -10,6 +10,8 @@ Curvas q-i simplificadas baseadas em adaptacoes da literatura.
 
 from __future__ import annotations
 
+import os
+
 import json
 import re
 from pathlib import Path
@@ -23,7 +25,7 @@ from matplotlib.colors import ListedColormap, BoundaryNorm
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 THEME_FILE = REPO_ROOT / "configs" / "theme_gold_approved.json"
-CLIENT_ROOT = Path(r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos")
+CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
 SRC = CLIENT_ROOT / "Migração" / "Físico" / "Resultados_Meio_Fisico.xlsx"
 OUT = CLIENT_ROOT / "Resultados" / "Meio_físico" / "Subterrânea"
 

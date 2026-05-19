@@ -33,6 +33,8 @@ Uso:
 
 from __future__ import annotations
 
+import os
+
 from pathlib import Path
 
 import numpy as np
@@ -44,9 +46,7 @@ from openpyxl.utils import get_column_letter
 # ----------------------------------------------------------------------------
 # Caminhos
 # ----------------------------------------------------------------------------
-CLIENT_ROOT = Path(
-    r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"
-)
+CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
 SRC_RESULTADOS = CLIENT_ROOT / "Migração" / "Físico" / "Resultados_Meio_Fisico.xlsx"
 SRC_CADASTRO = CLIENT_ROOT / "Migração" / "Físico" / "cadastro_parametros_opyta.xlsx"
 OUT_ROOT = CLIENT_ROOT / "Resultados" / "Meio_físico"

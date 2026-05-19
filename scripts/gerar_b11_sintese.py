@@ -11,13 +11,15 @@ Por matriz, gera 1 xlsx com abas:
 
 from __future__ import annotations
 
+import os
+
 import re
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-CLIENT_ROOT = Path(r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos")
+CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
 SRC = CLIENT_ROOT / "Migração" / "Físico" / "Resultados_Meio_Fisico.xlsx"
 CAD = CLIENT_ROOT / "Migração" / "Físico" / "cadastro_parametros_opyta.xlsx"
 OUT_ROOT = CLIENT_ROOT / "Resultados" / "Meio_físico"

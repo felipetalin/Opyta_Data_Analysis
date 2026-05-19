@@ -9,6 +9,7 @@ from opyta_analysis.config import RunParams, load_theme
 from opyta_analysis.pipelines import (
     # Diagnóstico
     run_meio_fisico_pipeline,
+    run_meio_fisico_xlsx_pipeline,
     run_fitoplancton_pipeline,
     run_ictio_pipeline,
     run_zoobentos_pipeline,
@@ -171,6 +172,17 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             block=params.block,
             project_id=params.project_id,
             group=params.group,
+        )
+    elif params.pipeline.lower() in {"meio_fisico_xlsx", "meio_fisico_gold", "fisico_xlsx", "meio_fisico_v2"}:
+        details = run_meio_fisico_xlsx_pipeline(
+            client=params.client.upper(),
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+            project_id=params.project_id,
+            group=params.group,
+            config_root=config_root,
         )
     elif params.pipeline.lower() == "zoobentos":
         details = run_zoobentos_pipeline(

@@ -1,4 +1,5 @@
 from .meio_fisico import run_meio_fisico_pipeline
+from .meio_fisico_xlsx import run_meio_fisico_xlsx_pipeline
 from .zoobentos import run_zoobentos_pipeline
 from .fitoplancton import run_fitoplancton_pipeline
 from .zooplancton import run_zooplancton_pipeline
@@ -11,6 +12,7 @@ from .avifauna import run_avifauna_pipeline
 
 __all__ = [
     "run_meio_fisico_pipeline",
+    "run_meio_fisico_xlsx_pipeline",
     "run_zoobentos_pipeline",
     "run_fitoplancton_pipeline",
     "run_zooplancton_pipeline",

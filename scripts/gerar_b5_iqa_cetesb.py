@@ -12,6 +12,8 @@ Saida:
 
 from __future__ import annotations
 
+import os
+
 import json
 from pathlib import Path
 
@@ -24,7 +26,7 @@ from matplotlib.colors import ListedColormap, BoundaryNorm
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 THEME_FILE = REPO_ROOT / "configs" / "theme_gold_approved.json"
-CLIENT_ROOT = Path(r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos")
+CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
 SRC_RES = CLIENT_ROOT / "Migração" / "Físico" / "Resultados_Meio_Fisico.xlsx"
 OUT_DIR = CLIENT_ROOT / "Resultados" / "Meio_físico" / "Superficial"
 

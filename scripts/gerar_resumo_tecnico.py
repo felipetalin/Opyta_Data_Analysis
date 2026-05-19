@@ -12,12 +12,14 @@ Linguagem tecnica ambiental, paragrafos fluidos, sem causalidade absoluta.
 
 from __future__ import annotations
 
+import os
+
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-CLIENT_ROOT = Path(r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos")
+CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
 OUT_ROOT = CLIENT_ROOT / "Resultados" / "Meio_físico"
 
 
