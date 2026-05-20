@@ -4,6 +4,7 @@ from .zoobentos import run_zoobentos_pipeline
 from .fitoplancton import run_fitoplancton_pipeline
 from .zooplancton import run_zooplancton_pipeline
 from .ictio import run_ictio_pipeline
+from .ictio_partial import run_ictio_partial_pipeline
 from .macrofitas import run_macrofitas_pipeline
 from .mastofauna import run_mastofauna_pipeline
 from .primatas import run_primatas_pipeline

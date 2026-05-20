@@ -12,6 +12,7 @@ from opyta_analysis.pipelines import (
     run_meio_fisico_xlsx_pipeline,
     run_fitoplancton_pipeline,
     run_ictio_pipeline,
+    run_ictio_partial_pipeline,
     run_zoobentos_pipeline,
     run_zooplancton_pipeline,
     run_macrofitas_pipeline,
@@ -215,6 +216,14 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
         details = run_ictio_pipeline(
             project_id=params.project_id,
             group=params.group,
+            theme=theme,
+            output_dir=params.output_dir,
+            env_file=params.env_file,
+            block=params.block,
+        )
+    elif params.pipeline.lower() in {"ictio_partial", "ictiofauna_parcial", "ictio_parcial"}:
+        details = run_ictio_partial_pipeline(
+            project_id=params.project_id,
             theme=theme,
             output_dir=params.output_dir,
             env_file=params.env_file,
