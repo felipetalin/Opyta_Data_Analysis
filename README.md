@@ -121,6 +121,11 @@ Supported `--block` values for ICTIO core currently:
 - Technical README: `docs/README_MEIO_FISICO.md`
 - Learning memory and operational lessons: `logs/MEMORIA_APRENDIZADO_MEIO_FISICO.md`
 
+## Fauna Audit Documentation
+- Technical README: `docs/README_FAUNA_AUDITORIA.md`
+- Learning memory and operational lessons: `logs/MEMORIA_APRENDIZADO_FAUNA.md`
+- Audit command: `python scripts/validar_fauna_outputs.py --project sam_metais`
+
 ## Next Steps
 - Start modular migration for next biological groups not yet delivered.
 - Reuse the approved Gold standard with no block-local style exceptions.

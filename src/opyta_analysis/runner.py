@@ -5,6 +5,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Dict, Any
 
+from opyta_analysis.audit_utils import build_file_manifest, git_context
 from opyta_analysis.config import RunParams, load_theme
 from opyta_analysis.pipelines import (
     # Diagnóstico
@@ -56,15 +57,21 @@ def _generate_execution_metadata(
     campaigns = details.get("campaigns", [])
     points = details.get("points", [])
     generated_files = details.get("generated_files", [])
+    generated_file_checks = build_file_manifest(generated_files)
+    missing_generated_files = [item["path"] for item in generated_file_checks if not item.get("exists")]
+    warnings = list(details.get("warnings", [])) if isinstance(details.get("warnings", []), list) else []
+    if missing_generated_files:
+        warnings.append(f"missing_generated_files={len(missing_generated_files)}")
 
     metadata = {
         "executed_at": _utc_now().isoformat().replace("+00:00", "Z"),
-        "runner_version": "1.1",
+        "runner_version": "1.2",
         "project_id": params.project_id,
         "group": params.group,
         "pipeline": params.pipeline,
         "client": params.client,
         "block": params.block,
+        "git": git_context(config_root.parent),
         "rows_loaded": details.get("rows_loaded", 0),
         "executed_blocks": details.get("executed_blocks", []),
         "campaigns": campaigns,
@@ -74,8 +81,11 @@ def _generate_execution_metadata(
         "output_dir": str(params.output_dir),
         "generated_files_count": len(generated_files),
         "generated_files": generated_files,
+        "generated_file_checks": generated_file_checks,
+        "generated_files_missing_count": len(missing_generated_files),
         "config_root": str(config_root),
         "audit_dir": str(audit_dir),
+        "warnings": warnings,
     }
 
     metadata_file = audit_dir / f"{run_id}_execution_metadata.json"

@@ -1081,9 +1081,13 @@ def run_zoobentos_pipeline(
         executed_blocks.append("12")
 
     campaign_order = sorted(df["nome_campanha"].dropna().unique().tolist())
+    points_order = sorted(df["nome_ponto"].dropna().unique().tolist())
+    rows_loaded = int(len(df))
     return {
-        "records": int(len(df)),
+        "records": rows_loaded,
+        "rows_loaded": rows_loaded,
         "campaigns": campaign_order,
+        "points": points_order,
         "executed_blocks": executed_blocks,
         "generated_files": generated_files,
     }

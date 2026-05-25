@@ -1,0 +1,509 @@
+{
+  "generated_at": "2026-05-25T23:42:11.424018Z",
+  "status": "OK_WITH_WARNINGS",
+  "ruleset_version": "fauna_audit_v1.0",
+  "audit_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts",
+  "git": {
+    "branch": "main",
+    "commit": "6e2f09e",
+    "dirty": true,
+    "status_short_count": 9
+  },
+  "summary": {
+    "projects_count": 1,
+    "errors_count": 0,
+    "warnings_count": 4
+  },
+  "projects": [
+    {
+      "generated_at": "2026-05-25T23:42:10.719412Z",
+      "status": "OK_WITH_WARNINGS",
+      "ruleset_version": "fauna_audit_v1.0",
+      "project": "project_62",
+      "project_audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62",
+      "git": {
+        "branch": "main",
+        "commit": "6e2f09e",
+        "dirty": true,
+        "status_short_count": 9
+      },
+      "summary": {
+        "groups_count": 2,
+        "errors_count": 0,
+        "warnings_count": 4,
+        "skipped_metadata_count": 0
+      },
+      "groups": [
+        {
+          "status": "OK_WITH_WARNINGS",
+          "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\ictiofauna\\execution_metadata.json",
+          "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\ictiofauna",
+          "project_id": 62,
+          "group": "Ictiofauna",
+          "pipeline": "ictio",
+          "client": "fersam001",
+          "block": "12",
+          "executed_at": "2026-05-13T00:25:03.007411Z",
+          "runner_version": "1.1",
+          "rows_loaded": 123,
+          "executed_blocks": [
+            "12"
+          ],
+          "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio",
+          "output_dir_exists": true,
+          "generated_files_count": 2,
+          "generated_files_declared_count": 2,
+          "generated_files_missing_count": 0,
+          "generated_file_checks": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_df_curva_suficiencia_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7496,
+              "modified_at": "2026-05-13T00:25:00.104000Z",
+              "sha256": "3a0e83425d4b44978874f9facdcff2bd5612813a69f6503ad872c5fb52bc893f"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_curva_suficiencia_amostral_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 851408,
+              "modified_at": "2026-05-13T00:25:02.908000Z",
+              "sha256": "6f0a7a905c2f02a8c7b073353bc4322f490a882930f75f7940e6a8409cf12b81"
+            }
+          ],
+          "deliverable_inventory_count": 20,
+          "deliverable_inventory": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\01_tabela_composicao_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 20161,
+              "modified_at": "2026-05-24T21:30:59.909000Z",
+              "sha256": "cfdc81cfae75a8b0a569f44246b7493ebf792b98e59f9eea25e9efde2ce7e7d9"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5530,
+              "modified_at": "2026-05-13T00:17:45.923000Z",
+              "sha256": "ce803a03ff663390d79619daaf4e1b71a8ee5b567b9a0750061bf8f82d13f7f5"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 471696,
+              "modified_at": "2026-05-13T00:17:54.354000Z",
+              "sha256": "ae127f7e38a08e20622068df112995b9b9bbf71d7f9727e83a6b517f6a6e416d"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5573,
+              "modified_at": "2026-05-13T00:17:54.705000Z",
+              "sha256": "ce1af563dcfc199563f17212414b3e2ac8868ccc41da9a03f0ebf4d74d2be750"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 596758,
+              "modified_at": "2026-05-13T00:17:59.719000Z",
+              "sha256": "9128ae4634a2ae00dc8ccd7e0efdd24e905cc3858814eddc6b32383d7df22e39"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6016,
+              "modified_at": "2026-05-13T00:18:00.126000Z",
+              "sha256": "63be16b7485b2f54da54015a1279251b71e4df68bedcb28e3fe88e9a65e06ebb"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 790018,
+              "modified_at": "2026-05-13T00:18:05.617000Z",
+              "sha256": "a8221c7499cd8f9987534918791016b2c20775f9868d8c326eae840960dd9b55"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 769345,
+              "modified_at": "2026-05-13T00:18:10.626000Z",
+              "sha256": "2fad734004e4143908dc089ac82f8e60963c890f7b0bf7fa72d4afdb746d9310"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5789,
+              "modified_at": "2026-05-13T00:18:10.984000Z",
+              "sha256": "a78e1246bf4ea20a2e27874591312d464ed086709735a872d37cd1e45e0185d0"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\08_grafico_cpuen_por_especie_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1483838,
+              "modified_at": "2026-05-13T00:18:17.203000Z",
+              "sha256": "a217d2c480cced610e0a6091973b200bc1d31b574888fbb84af8cd9392fed926"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5817,
+              "modified_at": "2026-05-13T00:18:11.146000Z",
+              "sha256": "4adb3a076f2b84515bb5cd06968bb6e87edcdbe08aee1b6fea6fde43f16781f1"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\09_grafico_cpueb_por_especie_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1495696,
+              "modified_at": "2026-05-13T00:18:25.170000Z",
+              "sha256": "63b8f3a7ee38d983552645c92c6025039bac98a426791dda2dd4a03ec0a4845a"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\10_df_diversidade_alfa_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6461,
+              "modified_at": "2026-05-13T00:18:25.555000Z",
+              "sha256": "50955052a716bdf3fa7049fe12bc0d7e1fb32bb360194f38cbd3a0926746035f"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\10_grafico_diversidade_alfa_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 980063,
+              "modified_at": "2026-05-13T00:18:31.402000Z",
+              "sha256": "b016fefa83475bf4894ad422bf6a5bee9236ed8e1dcd5844af471853e4bc9126"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 594039,
+              "modified_at": "2026-05-13T00:18:36.733000Z",
+              "sha256": "efa7c7bd30cc06b9cf463ba68c470e1d1260d6fc34d4ff981be89fc9f7249d10"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 8020,
+              "modified_at": "2026-05-13T00:18:32.017000Z",
+              "sha256": "4fbb34394989d45e8a4874cbe2d01ee7aa4a570eaa29eb2de887cc95d9cdd796"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6927,
+              "modified_at": "2026-05-13T00:18:31.819000Z",
+              "sha256": "7707f028226e5ea71601c3116eb9e14999705fdce5eecee036a5c99ff3965c95"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_curva_suficiencia_amostral_ictiofauna.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 851408,
+              "modified_at": "2026-05-13T00:25:02.908000Z",
+              "sha256": "6f0a7a905c2f02a8c7b073353bc4322f490a882930f75f7940e6a8409cf12b81"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_df_curva_suficiencia_ictiofauna.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7496,
+              "modified_at": "2026-05-13T00:25:00.104000Z",
+              "sha256": "3a0e83425d4b44978874f9facdcff2bd5612813a69f6503ad872c5fb52bc893f"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\DarwinCore_ictiofauna_sam_metais_diagnostico.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 20650,
+              "modified_at": "2026-05-13T00:24:06.777000Z",
+              "sha256": "30d9dd234a585dca6416ca457e1c95ab66ed0230db99ff31b9f439b42158aa74"
+            }
+          ],
+          "errors": [],
+          "warnings": [
+            "metadata_without_git_context",
+            "metadata_without_generated_file_hashes"
+          ]
+        },
+        {
+          "status": "OK_WITH_WARNINGS",
+          "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\zooplancton\\execution_metadata.json",
+          "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\zooplancton",
+          "project_id": 62,
+          "group": "Zooplancton",
+          "pipeline": "zooplancton",
+          "client": "fersam001",
+          "block": "12",
+          "executed_at": "2026-05-13T00:27:22.149393Z",
+          "runner_version": "1.1",
+          "rows_loaded": 852,
+          "executed_blocks": [
+            "12"
+          ],
+          "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton",
+          "output_dir_exists": true,
+          "generated_files_count": 2,
+          "generated_files_declared_count": 2,
+          "generated_files_missing_count": 0,
+          "generated_file_checks": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\12_df_curva_suficiencia_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7792,
+              "modified_at": "2026-05-13T00:27:17.420000Z",
+              "sha256": "aaca372d35dbb45ccb5351bf6fd1b6113d73cf82ff7ddf7b086b71c5f91bee5f"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\12_curva_suficiencia_amostral_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 745518,
+              "modified_at": "2026-05-13T00:27:22.010000Z",
+              "sha256": "e49df5ac4d260aa2110293973cd66a634779513787065a36bc2990f86e0f43bc"
+            }
+          ],
+          "deliverable_inventory_count": 25,
+          "deliverable_inventory": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\01_tabela_composicao_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 15854,
+              "modified_at": "2026-05-11T21:00:17.940000Z",
+              "sha256": "b4c7040da8dcc4f8afdabdf0277ddd97ed4650f36236067a89ecee3a436f8da9"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\02_df_riqueza_por_ponto_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5609,
+              "modified_at": "2026-05-07T01:18:46.091000Z",
+              "sha256": "b4201b432450b22f5a53356dd93b1a143ee50b424073c745c5c035721d6b7355"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\02_grafico_riqueza_por_ponto_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 522441,
+              "modified_at": "2026-05-07T01:18:49.706000Z",
+              "sha256": "48cd4951545bd09f838ea202e7ba914e5e9512c565f086c07c1c066facf04295"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\04_5_tabela_ocorrencia_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 40182,
+              "modified_at": "2026-05-13T22:19:24.960000Z",
+              "sha256": "5fc265dedc40d2557d477f4a1332c934588bd21e99b60d206b553bf15c41b08b"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\04_df_riqueza_por_filo_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4924,
+              "modified_at": "2026-05-07T01:19:00.278000Z",
+              "sha256": "474ab92f50625f55f08180835733a561488316ac544ccc89f5bc8f1baf7a6ad7"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\04_grafico_riqueza_filo_barras_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 449778,
+              "modified_at": "2026-05-07T01:19:02.033000Z",
+              "sha256": "2dcc320e936f33fbc28d51c3311a427a83d00004e8685c2e718f321888a738ff"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\05_grafico_riqueza_filo_rosca_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 702726,
+              "modified_at": "2026-05-07T01:19:04.391000Z",
+              "sha256": "28d6ae7d5653f79938373366fe6d9d1ae5b2d2dd573afcd0fd5359045eed2ac2"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06A_df_riqueza_total_por_ponto_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5196,
+              "modified_at": "2026-05-07T01:18:49.904000Z",
+              "sha256": "fbd59d81a1beee9a0f7a7ebd863e03887053260c14030ca2815778bed40d2922"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06A_grafico_riqueza_total_por_ponto_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 529366,
+              "modified_at": "2026-05-07T01:18:51.926000Z",
+              "sha256": "7607f7616b6561dccdd5b70ef2265b3527ee59b77c2529cb0af8faa90248f3ed"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06B_df_densidade_filo_Campanha_01_Seca_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5540,
+              "modified_at": "2026-05-07T01:18:52.179000Z",
+              "sha256": "ecf0862a9013177104719981bcbfc64267da74262cf0f92bbc23b0536e344594"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06B_df_densidade_filo_Campanha_02_Chuva_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5464,
+              "modified_at": "2026-05-07T01:18:56.353000Z",
+              "sha256": "64293918a626ed15737c5b13ceca5aab4621071a5664580d131fcfdff546f8a7"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06B_grafico_densidade_filo_Campanha_01_Seca_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 484301,
+              "modified_at": "2026-05-07T01:18:53.963000Z",
+              "sha256": "452ef4fb79fafd8d8770a885c8f3ddc23a73b6fee0bcf613d5cfe59e91f735b2"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06B_grafico_densidade_filo_Campanha_02_Chuva_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 478209,
+              "modified_at": "2026-05-07T01:18:58.122000Z",
+              "sha256": "202607c3f43aa99b932c096e20890753c0bed6244e03610c88ffdc7288a83627"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06C_df_densidade_relativa_filo_Campanha_01_Seca_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5761,
+              "modified_at": "2026-05-07T01:18:54.133000Z",
+              "sha256": "fa194af7c2aac2c5dd42e0423ee6c87083eea2388ede644b6f3bf42b694b22d8"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06C_df_densidade_relativa_filo_Campanha_02_Chuva_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5766,
+              "modified_at": "2026-05-07T01:18:58.290000Z",
+              "sha256": "b86b9d426fd19b090c55d22144511e0ad7f1e612116c69f661244a9a0bf4ae51"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06C_grafico_densidade_relativa_filo_Campanha_01_Seca_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 457840,
+              "modified_at": "2026-05-07T01:18:56.147000Z",
+              "sha256": "7bc27171464c7364e82c3e8dd4c9c273dbe209e40506253d02cea3ee7c8f5ccd"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\06C_grafico_densidade_relativa_filo_Campanha_02_Chuva_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 451802,
+              "modified_at": "2026-05-07T01:19:00.107000Z",
+              "sha256": "66ee83ad1887ada15ea1f635cc06c527dc623ea94154773ba4d5862c58fb544f"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\10_df_diversidade_alfa_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6759,
+              "modified_at": "2026-05-07T01:19:04.597000Z",
+              "sha256": "551177ad07998df8214ec887e8827f3d3812db1bdaaff2323bc0d10911f8ab39"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\10_grafico_diversidade_alfa_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1065373,
+              "modified_at": "2026-05-07T01:19:07.112000Z",
+              "sha256": "36e75b22313242e27c376a02a4d6e3270cfedec251cf342fa12a9506d585c757"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\11_dendrograma_similaridade_zooplancton_seca_chuva_somadas.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 637114,
+              "modified_at": "2026-05-07T01:19:09.388000Z",
+              "sha256": "40a7b24a1f97ff02cbc43eee5bedd443f470a3fb775bd35f4f5d1a193423bc3c"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\11_df_distancias_braycurtis_zooplancton_seca_chuva_somadas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9959,
+              "modified_at": "2026-05-07T01:19:07.525000Z",
+              "sha256": "2e1e9e5011e8a30a8a3854f4409c7716f06dbb855da73c5c5fed3b7ede4e054d"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\11_df_matriz_comunidade_zooplancton_seca_chuva_somadas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 10133,
+              "modified_at": "2026-05-07T01:19:07.424000Z",
+              "sha256": "dd4f7724896b41ce3cb709ac518459bdae6e66410b2769455d8a3eee94cd2f80"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\12_curva_suficiencia_amostral_zooplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 745518,
+              "modified_at": "2026-05-13T00:27:22.010000Z",
+              "sha256": "e49df5ac4d260aa2110293973cd66a634779513787065a36bc2990f86e0f43bc"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\12_df_curva_suficiencia_zooplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7792,
+              "modified_at": "2026-05-13T00:27:17.420000Z",
+              "sha256": "aaca372d35dbb45ccb5351bf6fd1b6113d73cf82ff7ddf7b086b71c5f91bee5f"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton\\DarwinCore_Zooplancton_Sam_Metais_Diagn_stico.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 82674,
+              "modified_at": "2026-05-07T01:19:14.766000Z",
+              "sha256": "091121b46743f4df4714609521d5af54b0ff1f41dd8cf9d24f1a46015e8fd414"
+            }
+          ],
+          "errors": [],
+          "warnings": [
+            "metadata_without_git_context",
+            "metadata_without_generated_file_hashes"
+          ]
+        }
+      ],
+      "skipped_metadata": [],
+      "errors": [],
+      "warnings": [
+        "Ictiofauna: metadata_without_git_context",
+        "Ictiofauna: metadata_without_generated_file_hashes",
+        "Zooplancton: metadata_without_git_context",
+        "Zooplancton: metadata_without_generated_file_hashes"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Ictiofauna: metadata_without_git_context",
+    "Ictiofauna: metadata_without_generated_file_hashes",
+    "Zooplancton: metadata_without_git_context",
+    "Zooplancton: metadata_without_generated_file_hashes"
+  ]
+}

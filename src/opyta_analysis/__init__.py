@@ -4,4 +4,6 @@ __all__ = [
     "validators",
     "supabase_client",
     "runner",
+    "audit_utils",
+    "fauna",
 ]

@@ -1,0 +1,1040 @@
+{
+  "generated_at": "2026-05-25T23:43:28.501848Z",
+  "status": "OK_WITH_WARNINGS",
+  "ruleset_version": "fauna_audit_v1.0",
+  "audit_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts",
+  "git": {
+    "branch": "main",
+    "commit": "6e2f09e",
+    "dirty": true,
+    "status_short_count": 11
+  },
+  "summary": {
+    "projects_count": 1,
+    "errors_count": 0,
+    "warnings_count": 8
+  },
+  "projects": [
+    {
+      "generated_at": "2026-05-25T23:43:27.741315Z",
+      "status": "OK_WITH_WARNINGS",
+      "ruleset_version": "fauna_audit_v1.0",
+      "project": "project_165",
+      "project_audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165",
+      "git": {
+        "branch": "main",
+        "commit": "6e2f09e",
+        "dirty": true,
+        "status_short_count": 11
+      },
+      "summary": {
+        "groups_count": 4,
+        "errors_count": 0,
+        "warnings_count": 8,
+        "skipped_metadata_count": 0
+      },
+      "groups": [
+        {
+          "status": "OK_WITH_WARNINGS",
+          "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\herpetofauna\\execution_metadata.json",
+          "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\herpetofauna",
+          "project_id": 165,
+          "group": "Herpetofauna",
+          "pipeline": "herpetofauna",
+          "client": "fersam001",
+          "block": "all",
+          "executed_at": "2026-05-15T20:40:05.685160Z",
+          "runner_version": "1.1",
+          "rows_loaded": 107,
+          "executed_blocks": [
+            "6.1",
+            "6.2",
+            "6.3",
+            "6.4",
+            "6.5",
+            "6.6",
+            "6.7",
+            "6.8"
+          ],
+          "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto",
+          "output_dir_exists": true,
+          "generated_files_count": 19,
+          "generated_files_declared_count": 19,
+          "generated_files_missing_count": 0,
+          "generated_file_checks": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 10930,
+              "modified_at": "2026-05-21T20:50:09.158000Z",
+              "sha256": "e52594224060f47268f47436630ac8c77e88e2b1c63c2ae0d205e11315497771"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_tabela_especies_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6075,
+              "modified_at": "2026-05-15T20:38:26.980000Z",
+              "sha256": "a24701157bde6dff299a2f984a838a7c974b9a4a11f63fdb22035ce75f7fd725"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_figura_abundancia_total_relativa_herpetofauna_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 886222,
+              "modified_at": "2026-05-15T20:38:28.544000Z",
+              "sha256": "4f788789b1f3ad8e05fcfc77b99b82421fc781c4a2edaa3c4587cd20f9511d7b"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_figura_abundancia_herpetofauna_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1254084,
+              "modified_at": "2026-05-15T20:38:30.614000Z",
+              "sha256": "f7abd855e8bac37640afd1af87de98a54efb24c436e05b723d32641199346f0d"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5000,
+              "modified_at": "2026-05-15T20:39:56.038000Z",
+              "sha256": "a15d5e371022b5cb147abe78eac97e230178b6bcd5aeda3443e9e1259d51d297"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5478,
+              "modified_at": "2026-05-15T20:39:56.140000Z",
+              "sha256": "8e504f63617a0beb98be7fe03bf81af6fbe8584a55e12a65282057fe7c85d884"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 898830,
+              "modified_at": "2026-05-15T20:39:57.609000Z",
+              "sha256": "2d86011b23e390d47d6ac463b69f481b07d8961dae666b1f95754d224fd60bdc"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_tabela_estimadores_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4997,
+              "modified_at": "2026-05-15T20:39:57.747000Z",
+              "sha256": "ad68a18c90d1c7dca447e0e1d6a84afdab9993e63a5c0152f532f6f710a581a2"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_dados_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5481,
+              "modified_at": "2026-05-15T20:39:57.853000Z",
+              "sha256": "ea5ed1f2412f4e865613753b571f7800f71561100df5e9cd7d82f33a4cc9f09c"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 869700,
+              "modified_at": "2026-05-15T20:39:59.380000Z",
+              "sha256": "68e83fe6937b7ff63733278246515051eceb695e19d9d5fd1b075ceb4cc15804"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5023,
+              "modified_at": "2026-05-15T20:39:59.495000Z",
+              "sha256": "8f982addb1e422ba07ad3e64d15c311c454d2113f32fefa78fd3d9d2946323cc"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 612748,
+              "modified_at": "2026-05-15T20:40:01.276000Z",
+              "sha256": "ab52cba68a7e5cd04e7e3964c4b5fde06945486dfac518708dae533864494996"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4943,
+              "modified_at": "2026-05-15T20:40:01.446000Z",
+              "sha256": "a0ebe1b51541b569e042d5a9777d457c4a825ef197d511e6aea0ea4e2f2327ee"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 12086,
+              "modified_at": "2026-05-21T21:10:27.405000Z",
+              "sha256": "2da40b7c1d624930de13aac87dff2e776550b45563c6c0878bb9bd8415f327fe"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 454093,
+              "modified_at": "2026-05-15T20:40:02.993000Z",
+              "sha256": "4cd4191fcbf795893e9ef4603268fa4d3a4e22e21f38603ced6ead9139f51a13"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 337540,
+              "modified_at": "2026-05-15T20:40:04.239000Z",
+              "sha256": "59eecb1a9b59d03e8964fdb9a45fe75964bdb6dfb870e6aaed5be9bd74b57a47"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_5_diagrama_venn_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 541242,
+              "modified_at": "2026-05-15T20:40:05.467000Z",
+              "sha256": "b46d2a998a835cb47590f65479d571a0cb68f7016d86dc48e35a51b4970a8a11"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_6_6_8_tabela_geral_status.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7083,
+              "modified_at": "2026-05-15T20:40:05.622000Z",
+              "sha256": "25b7cfe958127239a71df637d7efa1aab092dbdc3802a8c9b654389b8fa7e9f4"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_relatorio_descritivo_herpetofauna.txt",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 940,
+              "modified_at": "2026-05-15T20:40:05.660000Z",
+              "sha256": "83073d7d6f8deff452a2b5e71f955ab54a2df1ae44a86048be3a6bba0d0b4829"
+            }
+          ],
+          "deliverable_inventory_count": 18,
+          "deliverable_inventory": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_figura_abundancia_herpetofauna_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1254084,
+              "modified_at": "2026-05-15T20:38:30.614000Z",
+              "sha256": "f7abd855e8bac37640afd1af87de98a54efb24c436e05b723d32641199346f0d"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_figura_abundancia_total_relativa_herpetofauna_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 886222,
+              "modified_at": "2026-05-15T20:38:28.544000Z",
+              "sha256": "4f788789b1f3ad8e05fcfc77b99b82421fc781c4a2edaa3c4587cd20f9511d7b"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_tabela_especies_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6075,
+              "modified_at": "2026-05-15T20:38:26.980000Z",
+              "sha256": "a24701157bde6dff299a2f984a838a7c974b9a4a11f63fdb22035ce75f7fd725"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 10930,
+              "modified_at": "2026-05-21T20:50:09.158000Z",
+              "sha256": "e52594224060f47268f47436630ac8c77e88e2b1c63c2ae0d205e11315497771"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 869700,
+              "modified_at": "2026-05-15T20:39:59.380000Z",
+              "sha256": "68e83fe6937b7ff63733278246515051eceb695e19d9d5fd1b075ceb4cc15804"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_dados_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5481,
+              "modified_at": "2026-05-15T20:39:57.853000Z",
+              "sha256": "ea5ed1f2412f4e865613753b571f7800f71561100df5e9cd7d82f33a4cc9f09c"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5478,
+              "modified_at": "2026-05-15T20:39:56.140000Z",
+              "sha256": "8e504f63617a0beb98be7fe03bf81af6fbe8584a55e12a65282057fe7c85d884"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 898830,
+              "modified_at": "2026-05-15T20:39:57.609000Z",
+              "sha256": "2d86011b23e390d47d6ac463b69f481b07d8961dae666b1f95754d224fd60bdc"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_tabela_estimadores_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4997,
+              "modified_at": "2026-05-15T20:39:57.747000Z",
+              "sha256": "ad68a18c90d1c7dca447e0e1d6a84afdab9993e63a5c0152f532f6f710a581a2"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5000,
+              "modified_at": "2026-05-15T20:39:56.038000Z",
+              "sha256": "a15d5e371022b5cb147abe78eac97e230178b6bcd5aeda3443e9e1259d51d297"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 612748,
+              "modified_at": "2026-05-15T20:40:01.276000Z",
+              "sha256": "ab52cba68a7e5cd04e7e3964c4b5fde06945486dfac518708dae533864494996"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5023,
+              "modified_at": "2026-05-15T20:39:59.495000Z",
+              "sha256": "8f982addb1e422ba07ad3e64d15c311c454d2113f32fefa78fd3d9d2946323cc"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 337540,
+              "modified_at": "2026-05-15T20:40:04.239000Z",
+              "sha256": "59eecb1a9b59d03e8964fdb9a45fe75964bdb6dfb870e6aaed5be9bd74b57a47"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 454093,
+              "modified_at": "2026-05-15T20:40:02.993000Z",
+              "sha256": "4cd4191fcbf795893e9ef4603268fa4d3a4e22e21f38603ced6ead9139f51a13"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 12086,
+              "modified_at": "2026-05-21T21:10:27.405000Z",
+              "sha256": "2da40b7c1d624930de13aac87dff2e776550b45563c6c0878bb9bd8415f327fe"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4943,
+              "modified_at": "2026-05-15T20:40:01.446000Z",
+              "sha256": "a0ebe1b51541b569e042d5a9777d457c4a825ef197d511e6aea0ea4e2f2327ee"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_5_diagrama_venn_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 541242,
+              "modified_at": "2026-05-15T20:40:05.467000Z",
+              "sha256": "b46d2a998a835cb47590f65479d571a0cb68f7016d86dc48e35a51b4970a8a11"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_6_6_8_tabela_geral_status.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7083,
+              "modified_at": "2026-05-15T20:40:05.622000Z",
+              "sha256": "25b7cfe958127239a71df637d7efa1aab092dbdc3802a8c9b654389b8fa7e9f4"
+            }
+          ],
+          "errors": [],
+          "warnings": [
+            "metadata_without_git_context",
+            "metadata_without_generated_file_hashes"
+          ]
+        },
+        {
+          "status": "OK_WITH_WARNINGS",
+          "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\ictiofauna\\execution_metadata.json",
+          "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\ictiofauna",
+          "project_id": 165,
+          "group": "Ictiofauna",
+          "pipeline": "ictio_partial",
+          "client": "fersam001",
+          "block": "all",
+          "executed_at": "2026-05-20T13:46:04.949280Z",
+          "runner_version": "1.1",
+          "rows_loaded": 11,
+          "executed_blocks": [
+            "6.1",
+            "6.2",
+            "6.3",
+            "6.4",
+            "6.5",
+            "6.6",
+            "6.7",
+            "6.8"
+          ],
+          "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto",
+          "output_dir_exists": true,
+          "generated_files_count": 13,
+          "generated_files_declared_count": 13,
+          "generated_files_missing_count": 0,
+          "generated_file_checks": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6262,
+              "modified_at": "2026-05-20T13:45:32.530000Z",
+              "sha256": "136623a7c7a23add52f4012dcfd68eed418ef34ed397d2550204a1908cdfc8e5"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_1_figura_abundancia_cpue_n_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 684685,
+              "modified_at": "2026-05-20T13:45:40.885000Z",
+              "sha256": "d4bd59898f2019d822225f129d9db072235a4d8f3b041f294335fdc718605da6"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5011,
+              "modified_at": "2026-05-20T13:45:41.538000Z",
+              "sha256": "8cd4b5f82a7f91af4b7d2f447b56ae2d3b9698d839194ce44f551041ee02eced"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5123,
+              "modified_at": "2026-05-20T13:45:41.956000Z",
+              "sha256": "698b345900bbdba14eb1cb0080ea45cf675d6f8e064bc9321eba2208279228ff"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 827244,
+              "modified_at": "2026-05-20T13:45:47.828000Z",
+              "sha256": "e3b0ecf96be0c27c36bb20619c80881c7fa1b1e1e7d954397a0baeb3f7367a11"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4991,
+              "modified_at": "2026-05-20T13:45:48.072000Z",
+              "sha256": "d3e3419dcf660fa1f1ca33a1b91048475336eb109b56e9c2bed5aef741e71b57"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 641413,
+              "modified_at": "2026-05-20T13:45:55.549000Z",
+              "sha256": "e37f98be688e0827582fd3488230e5b97b56827679ec3123b244a32688a8a6b5"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5519,
+              "modified_at": "2026-05-20T13:45:55.985000Z",
+              "sha256": "1b532051ccab34d746748f59d29facfeea8137a5f8501c061a2f8aa8edefe148"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 332027,
+              "modified_at": "2026-05-20T13:46:00.541000Z",
+              "sha256": "db1f56aaad97759a5afa7d0245884e451f54be5610ff065160b3beca9cc4fe62"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4957,
+              "modified_at": "2026-05-20T13:46:00.807000Z",
+              "sha256": "5b44e1fbc8fb99c490051cf09d12ed4f8c2b49b5628e85160e57db872111b57d"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_5_diagrama_venn_rp_vs_tr.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 540772,
+              "modified_at": "2026-05-20T13:46:04.514000Z",
+              "sha256": "903fc171d6ee26eb49e8218dfb6dde3145e5d21d34d96e799e2e3b2a4da23e49"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_6_6_8_tabela_geral_status.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5480,
+              "modified_at": "2026-05-20T13:46:04.853000Z",
+              "sha256": "aa2268f9e587da0dc24783bc1aeffc068cf738e3910f4a3a39e830cccc22e575"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_relatorio_descritivo_ictio_parcial.txt",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1267,
+              "modified_at": "2026-05-20T13:46:04.907000Z",
+              "sha256": "e73dedb3d641540814458452627349acd505de084c3df9ca257da1d9f7792a0d"
+            }
+          ],
+          "deliverable_inventory_count": 12,
+          "deliverable_inventory": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_1_figura_abundancia_cpue_n_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 684685,
+              "modified_at": "2026-05-20T13:45:40.885000Z",
+              "sha256": "d4bd59898f2019d822225f129d9db072235a4d8f3b041f294335fdc718605da6"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6262,
+              "modified_at": "2026-05-20T13:45:32.530000Z",
+              "sha256": "136623a7c7a23add52f4012dcfd68eed418ef34ed397d2550204a1908cdfc8e5"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5123,
+              "modified_at": "2026-05-20T13:45:41.956000Z",
+              "sha256": "698b345900bbdba14eb1cb0080ea45cf675d6f8e064bc9321eba2208279228ff"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 827244,
+              "modified_at": "2026-05-20T13:45:47.828000Z",
+              "sha256": "e3b0ecf96be0c27c36bb20619c80881c7fa1b1e1e7d954397a0baeb3f7367a11"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5011,
+              "modified_at": "2026-05-20T13:45:41.538000Z",
+              "sha256": "8cd4b5f82a7f91af4b7d2f447b56ae2d3b9698d839194ce44f551041ee02eced"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 641413,
+              "modified_at": "2026-05-20T13:45:55.549000Z",
+              "sha256": "e37f98be688e0827582fd3488230e5b97b56827679ec3123b244a32688a8a6b5"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4991,
+              "modified_at": "2026-05-20T13:45:48.072000Z",
+              "sha256": "d3e3419dcf660fa1f1ca33a1b91048475336eb109b56e9c2bed5aef741e71b57"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 332027,
+              "modified_at": "2026-05-20T13:46:00.541000Z",
+              "sha256": "db1f56aaad97759a5afa7d0245884e451f54be5610ff065160b3beca9cc4fe62"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5519,
+              "modified_at": "2026-05-20T13:45:55.985000Z",
+              "sha256": "1b532051ccab34d746748f59d29facfeea8137a5f8501c061a2f8aa8edefe148"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_5_diagrama_venn_rp_vs_tr.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 540772,
+              "modified_at": "2026-05-20T13:46:04.514000Z",
+              "sha256": "903fc171d6ee26eb49e8218dfb6dde3145e5d21d34d96e799e2e3b2a4da23e49"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4957,
+              "modified_at": "2026-05-20T13:46:00.807000Z",
+              "sha256": "5b44e1fbc8fb99c490051cf09d12ed4f8c2b49b5628e85160e57db872111b57d"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto\\6_6_6_8_tabela_geral_status.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5480,
+              "modified_at": "2026-05-20T13:46:04.853000Z",
+              "sha256": "aa2268f9e587da0dc24783bc1aeffc068cf738e3910f4a3a39e830cccc22e575"
+            }
+          ],
+          "errors": [],
+          "warnings": [
+            "metadata_without_git_context",
+            "metadata_without_generated_file_hashes"
+          ]
+        },
+        {
+          "status": "OK_WITH_WARNINGS",
+          "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\mastofauna\\execution_metadata.json",
+          "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\mastofauna",
+          "project_id": 165,
+          "group": "Mastofauna",
+          "pipeline": "mastofauna",
+          "client": "fersam001",
+          "block": "all",
+          "executed_at": "2026-05-15T17:45:28.674263Z",
+          "runner_version": "1.1",
+          "rows_loaded": 20,
+          "executed_blocks": [
+            "6.1",
+            "6.2",
+            "6.3",
+            "6.4",
+            "6.5",
+            "6.6",
+            "6.7",
+            "6.8"
+          ],
+          "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto",
+          "output_dir_exists": true,
+          "generated_files_count": 19,
+          "generated_files_declared_count": 19,
+          "generated_files_missing_count": 0,
+          "generated_file_checks": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9785,
+              "modified_at": "2026-05-19T20:38:57.846000Z",
+              "sha256": "9bf3b55f72ff4e1bb6bba469228c3436c570d46fb00e83a000da1bb1789d5761"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_tabela_especies_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9521,
+              "modified_at": "2026-05-19T20:48:54.856000Z",
+              "sha256": "b9e8894a177a9b2a0f18ca709f7c9c8f0ad923e59cbe68b5b9c8261154ff1140"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_figura_abundancia_total_relativa_mastofauna_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 595472,
+              "modified_at": "2026-05-15T17:42:04.792000Z",
+              "sha256": "6afc2ed4f105af993aa367b5991552deab2976bd05a9d95e02bde85d3a17b378"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_figura_abundancia_mastofauna_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 630784,
+              "modified_at": "2026-05-15T17:42:09.842000Z",
+              "sha256": "781a432fafa0fa5be66b6067dd5e81a79e2f2ce9650021089af0179248f6ed09"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 8644,
+              "modified_at": "2026-05-19T20:48:56.904000Z",
+              "sha256": "270816f39f349dae04f9ded032a7c8528eb56f9388c1e0bba93592ae9fba7b83"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6023,
+              "modified_at": "2026-05-15T17:45:05.460000Z",
+              "sha256": "f9b759d6c38d7e776bcacf339f133f30e206d95713663cdbc2f33ef7240f7bfc"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 843127,
+              "modified_at": "2026-05-15T17:45:09.995000Z",
+              "sha256": "e96aa3c9e959c362a78e27c70f2655eae78caa25f43733fa78755d31ff4f6054"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_tabela_estimadores_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4995,
+              "modified_at": "2026-05-15T17:45:10.237000Z",
+              "sha256": "8b24fe384426a4f224c45263522f36503797323504004f217a41ce1598242153"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_dados_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5840,
+              "modified_at": "2026-05-15T17:45:10.468000Z",
+              "sha256": "00a449f284e085780c298767df027ae67b5a0da069e9b18f96c8596f6a027d6c"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 858715,
+              "modified_at": "2026-05-15T17:45:14.687000Z",
+              "sha256": "cd117f1d008ad76e369bab46f1e8edada24269b45246cd199032ea2ee35ddc7b"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 8525,
+              "modified_at": "2026-05-19T20:58:18.584000Z",
+              "sha256": "63c8d4c6d0b118796696245eec86ac361053ead910f37225819d4b0830c824d7"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 619174,
+              "modified_at": "2026-05-15T17:45:20.620000Z",
+              "sha256": "541db60b0fa21f6ac75cb6e19bccec9bb89390a72b12a5d86b0c6d2cd8496e56"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4940,
+              "modified_at": "2026-05-15T17:45:20.806000Z",
+              "sha256": "81accdb1eddfb757ed4be64cfcae96904c31be5dc15dcfba2732aea194874c72"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9775,
+              "modified_at": "2026-05-19T21:02:06.937000Z",
+              "sha256": "4f7406c1a0f49d7ca58dec23ef35ca4e4f65d46f521ac1465611d683aa0a8eef"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 306728,
+              "modified_at": "2026-05-15T17:45:23.120000Z",
+              "sha256": "9b088fded45a139ad070765546c2c9ed159331930dd97c399e00ce37b41ac7cd"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 337304,
+              "modified_at": "2026-05-15T17:45:25.970000Z",
+              "sha256": "d86fbbbd2424db326d4fe7ef72c2af843d27ad7717cd9a75a73e7607db43ccfb"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_5_diagrama_venn_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 524198,
+              "modified_at": "2026-05-15T17:45:28.377000Z",
+              "sha256": "cc67344458fa28bb1a1c4c31e15ad84e564afe89f816d0d9abb5d62157041c71"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_6_6_8_tabela_geral_status.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6352,
+              "modified_at": "2026-05-15T17:45:28.603000Z",
+              "sha256": "d4d61e42dd1a619c69552bfd57660d7e4deb06c7aa72bf4e8bd368c2bd07d913"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_relatorio_descritivo_mastofauna_sem_primatas.txt",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1070,
+              "modified_at": "2026-05-15T17:45:28.647000Z",
+              "sha256": "4735bb377dadf35a61d92a08080d1e66241090dae0c3f139686478b925465862"
+            }
+          ],
+          "deliverable_inventory_count": 18,
+          "deliverable_inventory": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_figura_abundancia_mastofauna_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 630784,
+              "modified_at": "2026-05-15T17:42:09.842000Z",
+              "sha256": "781a432fafa0fa5be66b6067dd5e81a79e2f2ce9650021089af0179248f6ed09"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_figura_abundancia_total_relativa_mastofauna_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 595472,
+              "modified_at": "2026-05-15T17:42:04.792000Z",
+              "sha256": "6afc2ed4f105af993aa367b5991552deab2976bd05a9d95e02bde85d3a17b378"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_tabela_especies_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9521,
+              "modified_at": "2026-05-19T20:48:54.856000Z",
+              "sha256": "b9e8894a177a9b2a0f18ca709f7c9c8f0ad923e59cbe68b5b9c8261154ff1140"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9785,
+              "modified_at": "2026-05-19T20:38:57.846000Z",
+              "sha256": "9bf3b55f72ff4e1bb6bba469228c3436c570d46fb00e83a000da1bb1789d5761"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_area_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 858715,
+              "modified_at": "2026-05-15T17:45:14.687000Z",
+              "sha256": "cd117f1d008ad76e369bab46f1e8edada24269b45246cd199032ea2ee35ddc7b"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_dados_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5840,
+              "modified_at": "2026-05-15T17:45:10.468000Z",
+              "sha256": "00a449f284e085780c298767df027ae67b5a0da069e9b18f96c8596f6a027d6c"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6023,
+              "modified_at": "2026-05-15T17:45:05.460000Z",
+              "sha256": "f9b759d6c38d7e776bcacf339f133f30e206d95713663cdbc2f33ef7240f7bfc"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 843127,
+              "modified_at": "2026-05-15T17:45:09.995000Z",
+              "sha256": "e96aa3c9e959c362a78e27c70f2655eae78caa25f43733fa78755d31ff4f6054"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_tabela_estimadores_area_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4995,
+              "modified_at": "2026-05-15T17:45:10.237000Z",
+              "sha256": "8b24fe384426a4f224c45263522f36503797323504004f217a41ce1598242153"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 8644,
+              "modified_at": "2026-05-19T20:48:56.904000Z",
+              "sha256": "270816f39f349dae04f9ded032a7c8528eb56f9388c1e0bba93592ae9fba7b83"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 619174,
+              "modified_at": "2026-05-15T17:45:20.620000Z",
+              "sha256": "541db60b0fa21f6ac75cb6e19bccec9bb89390a72b12a5d86b0c6d2cd8496e56"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 8525,
+              "modified_at": "2026-05-19T20:58:18.584000Z",
+              "sha256": "63c8d4c6d0b118796696245eec86ac361053ead910f37225819d4b0830c824d7"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 337304,
+              "modified_at": "2026-05-15T17:45:25.970000Z",
+              "sha256": "d86fbbbd2424db326d4fe7ef72c2af843d27ad7717cd9a75a73e7607db43ccfb"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 306728,
+              "modified_at": "2026-05-15T17:45:23.120000Z",
+              "sha256": "9b088fded45a139ad070765546c2c9ed159331930dd97c399e00ce37b41ac7cd"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9775,
+              "modified_at": "2026-05-19T21:02:06.937000Z",
+              "sha256": "4f7406c1a0f49d7ca58dec23ef35ca4e4f65d46f521ac1465611d683aa0a8eef"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4940,
+              "modified_at": "2026-05-15T17:45:20.806000Z",
+              "sha256": "81accdb1eddfb757ed4be64cfcae96904c31be5dc15dcfba2732aea194874c72"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_5_diagrama_venn_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 524198,
+              "modified_at": "2026-05-15T17:45:28.377000Z",
+              "sha256": "cc67344458fa28bb1a1c4c31e15ad84e564afe89f816d0d9abb5d62157041c71"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto\\6_6_6_8_tabela_geral_status.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6352,
+              "modified_at": "2026-05-15T17:45:28.603000Z",
+              "sha256": "d4d61e42dd1a619c69552bfd57660d7e4deb06c7aa72bf4e8bd368c2bd07d913"
+            }
+          ],
+          "errors": [],
+          "warnings": [
+            "metadata_without_git_context",
+            "metadata_without_generated_file_hashes"
+          ]
+        },
+        {
+          "status": "OK_WITH_WARNINGS",
+          "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\primatas\\execution_metadata.json",
+          "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\primatas",
+          "project_id": 165,
+          "group": "primatas",
+          "pipeline": "primatas",
+          "client": "fersam001",
+          "block": "6.2",
+          "executed_at": "2026-05-14T19:51:59.832977Z",
+          "runner_version": "1.1",
+          "rows_loaded": 5,
+          "executed_blocks": [
+            "6.2"
+          ],
+          "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto",
+          "output_dir_exists": true,
+          "generated_files_count": 1,
+          "generated_files_declared_count": 1,
+          "generated_files_missing_count": 0,
+          "generated_file_checks": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto\\6_2_prim_diagrama_venn_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 527817,
+              "modified_at": "2026-05-15T18:27:58.800000Z",
+              "sha256": "6f540a733d0a5219754679e27a106b098c89447e9087a4c0aef1066176dbb8d6"
+            }
+          ],
+          "deliverable_inventory_count": 4,
+          "deliverable_inventory": [
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto\\6_2_prim_diagrama_venn_pch_vs_controle.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 527817,
+              "modified_at": "2026-05-15T18:27:58.800000Z",
+              "sha256": "6f540a733d0a5219754679e27a106b098c89447e9087a4c0aef1066176dbb8d6"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto\\6_3_tabela_status_ecologico_primatas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5347,
+              "modified_at": "2026-05-15T18:27:58.973000Z",
+              "sha256": "07b90aac10a3f5bb11179c410438051294aaa4d4c63f23f293e8f1f4932b6288"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto\\fig17_abundancia_registros_primatas_campanha.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 182921,
+              "modified_at": "2026-05-15T18:27:56.139000Z",
+              "sha256": "f794e106daf253c2f59123a389e526b388eaca028137fc2d9a01dc1b51bc8895"
+            },
+            {
+              "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto\\fig17_tabela_composicao_primatas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5022,
+              "modified_at": "2026-05-15T18:27:56.318000Z",
+              "sha256": "48981330c5d6a8e7b146128881570bff21454d80ae02c1caeca80bf7b634f44a"
+            }
+          ],
+          "errors": [],
+          "warnings": [
+            "metadata_without_git_context",
+            "metadata_without_generated_file_hashes"
+          ]
+        }
+      ],
+      "skipped_metadata": [],
+      "errors": [],
+      "warnings": [
+        "Herpetofauna: metadata_without_git_context",
+        "Herpetofauna: metadata_without_generated_file_hashes",
+        "Ictiofauna: metadata_without_git_context",
+        "Ictiofauna: metadata_without_generated_file_hashes",
+        "Mastofauna: metadata_without_git_context",
+        "Mastofauna: metadata_without_generated_file_hashes",
+        "primatas: metadata_without_git_context",
+        "primatas: metadata_without_generated_file_hashes"
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Herpetofauna: metadata_without_git_context",
+    "Herpetofauna: metadata_without_generated_file_hashes",
+    "Ictiofauna: metadata_without_git_context",
+    "Ictiofauna: metadata_without_generated_file_hashes",
+    "Mastofauna: metadata_without_git_context",
+    "Mastofauna: metadata_without_generated_file_hashes",
+    "primatas: metadata_without_git_context",
+    "primatas: metadata_without_generated_file_hashes"
+  ]
+}
