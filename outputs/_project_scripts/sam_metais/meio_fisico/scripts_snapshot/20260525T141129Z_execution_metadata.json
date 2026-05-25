@@ -6,7 +6,7 @@
   "project_id": 62,
   "pipeline": "meio_fisico_xlsx",
   "pipeline_api": "run_meio_fisico_xlsx_pipeline(client='FERSAM001', block='all')",
-  "git_commit": "pending_commit_after_snapshot",
+  "git_commit": "526727e",
   "git_branch": "main",
   "last_run": {
     "n_files": 106,
@@ -40,7 +40,7 @@
     },
     {
       "date": "2026-05-25",
-      "commit": "pending",
+      "commit": "526727e",
       "topic": "B4 Superficial passa a avaliar Classe 2 min/max; OD entra por limite minimo; B2 usa Classe 2 para marcacao; B11/resumo preferem _NEW mais recente quando arquivo oficial esta bloqueado."
     }
   ],
