@@ -15,6 +15,7 @@ Atualizado em 2026-05-25 para SAM Metais / FERSAM001.
 - Amônia em Água Superficial é dinâmica por pH no mesmo ponto/campanha.
 - Resultado com sinal `<` ou `<=` não deve ser contado como violação.
 - Se o Excel/Drive bloquear o arquivo oficial, salvar `_NEW` e fazer os blocos seguintes lerem a versão mais recente entre oficial e `_NEW`.
+- IET Lamparelli para reservatórios usa fósforo total e clorofila-a em µg/L (equivalente a mg/m3). Se Fósforo Total vier em mg/L na fonte, converter para µg/L multiplicando por 1000 antes de calcular `IET_PT`.
 
 ## Aprendizado do erro de 2026-05-25
 
@@ -37,3 +38,4 @@ Resultado validado: 8 parâmetros violados em Superficial:
 - Clorofila A com 100% ou valor muito alto pode indicar conversão de unidade ausente entre mg/L e µg/L.
 - OD ausente do B4 quando aparece na conformidade indica que limites mínimos não estão sendo avaliados.
 - Divergência entre `01_Conformidade` e `04_Pct_Violacao` normalmente significa diferença de regra, não necessariamente dado novo.
+- IET todo Ultraoligotrófico/baixo demais com fósforo em mg/L é sinal clássico de ausência de conversão mg/L -> µg/L no `IET_PT`.

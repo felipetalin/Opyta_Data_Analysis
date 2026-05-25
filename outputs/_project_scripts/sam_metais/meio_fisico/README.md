@@ -49,10 +49,12 @@ Validação pontual registrada em **2026-05-25**: blocos `b2`, `b4`, `b11` e `re
 1. **b4 Classe 2 min/max em Superficial** — `04_Pct_Violacao.xlsx` agora grava `Limite_Min`, `Limite_Max` e `Regra_VMP`; OD passa a ser contabilizado por violar o mínimo de 5 mg/L. Resultado validado: 8 parâmetros violados em Superficial (FE, CF, PH, AL, P, EC, OD, MN).
 2. **b2 alinhado ao b3/b4** — `01_Conformidade_Agua_Superficial.xlsx` deixou de marcar qualquer classe e passou a marcar a referência operacional Classe 2. Isso remove falsos alertas como Turbidez por Classe 1.
 3. **Resiliência a arquivo bloqueado** — `b4` avisa quando salva `_NEW`; `b11` e `resumo` leem a versão mais recente entre o arquivo oficial e `_NEW`.
+4. **b6 IET Lamparelli com unidade correta** — `IET_PT` usa Fósforo Total em µg/L (mg/m³); quando a fonte está em mg/L, o script converte `mg/L -> µg/L` antes da fórmula. Isso corrigiu a classificação artificialmente boa em Superficial.
 
 ## Sinal de alerta (para futuras revisões de cadastro)
 > **VMP absurdamente grande** + **linhas duplicadas no cadastro** ≈ unidade trocada. Conferir antes de propagar.
 > **Parâmetros com limite mínimo** (OD, pH/faixa) exigem regra `valor < limite_min`; se o script usa apenas `valor > VMP_ref`, a violação some silenciosamente.
+> **IET bom demais em todos os pontos** pode indicar que o fósforo em mg/L foi usado direto na fórmula de Lamparelli, que espera µg/L.
 
 ## Referência de memória
 - `/memories/repo/meio_fisico_gold_v1.md` — versão completa das regras Gold e armadilhas.

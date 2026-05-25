@@ -1,7 +1,7 @@
 """
 B6 - IET Lamparelli (reservatorio).
 
-IET(PT) = 10*(6 - (1.77 - 0.42*ln(PT))/ln(2))   # PT em mg/L
+IET(PT) = 10*(6 - (1.77 - 0.42*ln(PT))/ln(2))   # PT em ug/L
 IET(CL) = 10*(6 - (0.92 - 0.34*ln(CL))/ln(2))   # CL em ug/L
 IET = (IET(PT) + IET(CL)) / 2
 
@@ -44,6 +44,23 @@ def parse(v):
     except ValueError: return None
 
 
+def _unit_norm(u):
+    return str(u or "").strip().lower().replace(" ", "")
+
+
+def _to_ug_l(valor, unidade):
+    if valor is None or pd.isna(valor):
+        return np.nan
+    u = _unit_norm(unidade)
+    if u in {"µg/l", "μg/l", "ug/l"}:
+        return float(valor)
+    if u == "mg/l":
+        return float(valor) * 1000.0
+    if u == "ng/l":
+        return float(valor) / 1000.0
+    return float(valor)
+
+
 def classe(v):
     if np.isnan(v): return ""
     if v <= 47: return "Ultraoligotrófico"
@@ -66,18 +83,25 @@ def main():
     pt["_v"] = pt["Resultado"].map(parse)
     cl = sup[sup["Parametro"] == "Clorofila A"].copy()
     cl["_v"] = cl["Resultado"].map(parse)
-    # unidades: PT esperada mg/L; CL esperada ug/L
     un_pt = pt["Unidade_Medida"].iloc[0] if len(pt) else ""
     un_cl = cl["Unidade_Medida"].iloc[0] if len(cl) else ""
-    print(f"  [B6] PT em '{un_pt}' | Clorofila em '{un_cl}'")
+    pt["_ug_l"] = [
+        _to_ug_l(v, u) for v, u in zip(pt["_v"], pt["Unidade_Medida"])
+    ]
+    cl["_ug_l"] = [
+        _to_ug_l(v, u) for v, u in zip(cl["_v"], cl["Unidade_Medida"])
+    ]
+    print(f"  [B6] PT em '{un_pt}' -> ug/L | Clorofila em '{un_cl}' -> ug/L")
 
-    pt_pv = pt.groupby(["Ponto", "Campanha"])["_v"].mean()
-    cl_pv = cl.groupby(["Ponto", "Campanha"])["_v"].mean()
+    pt_mg_pv = pt.groupby(["Ponto", "Campanha"])["_v"].mean()
+    pt_pv = pt.groupby(["Ponto", "Campanha"])["_ug_l"].mean()
+    cl_pv = cl.groupby(["Ponto", "Campanha"])["_ug_l"].mean()
 
     rows = []
     keys = sorted(set(pt_pv.index) | set(cl_pv.index))
     for ponto, camp in keys:
         p = pt_pv.get((ponto, camp)); c = cl_pv.get((ponto, camp))
+        p_mg = pt_mg_pv.get((ponto, camp))
         iet_p = iet_c = iet = np.nan
         if p is not None and not pd.isna(p) and p > 0:
             iet_p = 10 * (6 - (1.77 - 0.42 * np.log(p)) / np.log(2))
@@ -87,7 +111,7 @@ def main():
         if comp: iet = float(np.mean(comp))
         rows.append({
             "Ponto": ponto, "Campanha": camp,
-            "PT_mg_L": p, "Clorofila_ug_L": c,
+            "PT_mg_L": p_mg, "PT_ug_L": p, "Clorofila_ug_L": c,
             "IET_PT": iet_p, "IET_CL": iet_c, "IET": iet,
             "Classe": classe(iet) if not np.isnan(iet) else "",
         })
