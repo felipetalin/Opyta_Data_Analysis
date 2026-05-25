@@ -32,13 +32,46 @@ MATRIZES = {
 
 
 def parse(v):
-    if v is None or (isinstance(v, float) and np.isnan(v)): return None
+    if v is None or (isinstance(v, float) and np.isnan(v)): return None, ""
     s = str(v).strip()
+    sinal = ""
     for sym in ("<=", ">=", "<", ">"):
-        if s.startswith(sym): s = s[len(sym):].strip(); break
+        if s.startswith(sym):
+            sinal = sym
+            s = s[len(sym):].strip()
+            break
     s = s.replace(",", ".").replace(" ", "")
-    try: return float(s)
-    except ValueError: return None
+    try: return float(s), sinal
+    except ValueError: return None, sinal
+
+
+def _num_or_none(v):
+    if v is None or pd.isna(v):
+        return None
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def _violou(valor, sinal, limite_min, limite_max):
+    if valor is None:
+        return False
+    if sinal in ("<", "<="):
+        return False
+    if limite_min is not None and valor < limite_min:
+        return True
+    if limite_max is not None and valor > limite_max:
+        return True
+    return False
+
+
+def _latest_generated(path: Path) -> Path:
+    alt = path.with_name(path.stem + "_NEW" + path.suffix)
+    existing = [p for p in (path, alt) if p.exists()]
+    if not existing:
+        return path
+    return max(existing, key=lambda p: p.stat().st_mtime)
 
 
 def main():
@@ -63,45 +96,58 @@ def main():
         }])
 
         # Pct_Violacao
-        pv_path = out_dir / "04_Pct_Violacao.xlsx"
+        pv_path = _latest_generated(out_dir / "04_Pct_Violacao.xlsx")
         df_pv = pd.read_excel(pv_path) if pv_path.exists() else pd.DataFrame()
 
         # Sazonal
-        sz_path = out_dir / "09_Sazonal_MannWhitney.xlsx"
+        sz_path = _latest_generated(out_dir / "09_Sazonal_MannWhitney.xlsx")
         df_sz = pd.read_excel(sz_path) if sz_path.exists() else pd.DataFrame()
 
         # Indice
         indices = []
         for fname in cfg["indice_xlsx"]:
             p = out_dir / fname
+            p = _latest_generated(p)
             if p.exists():
                 t = pd.read_excel(p)
                 t.insert(0, "Origem", fname)
                 indices.append(t)
         df_idx = pd.concat(indices, ignore_index=True) if indices else pd.DataFrame()
 
-        # Pontos criticos: ranking por pontos com maior numero de violacoes em B4 desnormalizado
-        # Aproximacao: contar violacoes por ponto reusando logica do B4 (ja temos df_pv com taxa global).
-        # Para detalhar por ponto, contamos violacoes em d usando VMP_ref do df_pv.
+        # Pontos criticos: ranking por pontos com maior numero de violacoes em B4 desnormalizado.
         pontos_critic = pd.DataFrame()
         if not df_pv.empty:
-            # construir mapa parametro -> vmp_ref
-            vmp_map = dict(zip(df_pv["Parametro"], df_pv["VMP_ref"]))
+            limite_map = {}
+            for _, row in df_pv.iterrows():
+                if "Limite_Min" in df_pv.columns or "Limite_Max" in df_pv.columns:
+                    limite_min = _num_or_none(row.get("Limite_Min"))
+                    limite_max = _num_or_none(row.get("Limite_Max"))
+                else:
+                    limite_min = None
+                    limite_max = _num_or_none(row.get("VMP_ref"))
+                if limite_min is None and limite_max is None:
+                    continue
+                limite_map[row["Parametro"]] = (limite_min, limite_max)
             rows = []
-            d["_v"] = d["Resultado"].map(parse)
+            parsed = d["Resultado"].map(parse)
+            d["_v"] = parsed.map(lambda t: t[0])
+            d["_sinal"] = parsed.map(lambda t: t[1])
             for ponto, sub_p in d.groupby("Ponto"):
                 nv = 0; nt = 0
                 for _, r in sub_p.iterrows():
-                    if pd.isna(r["_v"]): continue
-                    if r["Parametro"] not in vmp_map: continue
-                    lim = vmp_map[r["Parametro"]]
-                    if pd.isna(lim): continue
+                    if pd.isna(r["_v"]):
+                        continue
+                    if r["Parametro"] not in limite_map:
+                        continue
+                    limite_min, limite_max = limite_map[r["Parametro"]]
                     nt += 1
-                    if float(r["_v"]) > float(lim): nv += 1
+                    if _violou(float(r["_v"]), r["_sinal"], limite_min, limite_max):
+                        nv += 1
                 if nt > 0:
                     rows.append({"Ponto": ponto, "N_amostras": nt,
                                  "N_violacoes": nv, "Pct_Violacao": nv/nt*100})
-            pontos_critic = pd.DataFrame(rows).sort_values("Pct_Violacao", ascending=False).head(10)
+            if rows:
+                pontos_critic = pd.DataFrame(rows).sort_values("Pct_Violacao", ascending=False).head(10)
 
         xlsx_out = out_dir / "11_Sintese_Executiva.xlsx"
         if xlsx_out.exists():

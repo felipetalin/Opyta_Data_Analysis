@@ -15,7 +15,8 @@ Regras por matriz:
 
 Marcacao de violacao:
 - Cada celula de valor recebe fundo vermelho (FFC7CE) quando o valor
-  numerico viola QUALQUER VMP aplicavel da linha.
+  numerico viola o VMP de referencia da matriz. Para Agua Superficial,
+  a referencia operacional do diagnostico e Classe 2 (min/max).
 - Para amonia, a violacao usa o pH medido no mesmo (campanha, ponto)
   e a tabela do CONAMA 357 (3.7 / 2.0 / 1.0 / 0.5 mg/L conforme pH).
 - Sinal '<' (abaixo do LOQ) nunca configura violacao.
@@ -69,6 +70,7 @@ MATRIZ_CFG = {
             ("VMP_357_Cl3", "vmp_357_cl3", "max"),
             (None, "vmp_amonia_dinamico", "amonia"),
         ],
+        "violacao_labels": {"vmp_357_cl2_min", "vmp_357_cl2_max", "vmp_amonia_dinamico"},
     },
     "Água Subterrânea": {
         "subpasta": "Subterrânea",
@@ -332,7 +334,10 @@ def gerar_para_matriz(df_res: pd.DataFrame, matriz: str, cfg: dict) -> tuple[Pat
 
     for ridx, p in enumerate(parametros, start=3):
         ativos: list[tuple[str, float | None, str]] = []
+        violacao_labels = cfg.get("violacao_labels")
         for _col_cad, label, modo in cfg["vmps"]:
+            if violacao_labels is not None and label not in violacao_labels:
+                continue
             if modo == "amonia":
                 ativos.append((label, None, "amonia"))
             else:

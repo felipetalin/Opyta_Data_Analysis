@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T14:50:00Z",
+  "generated_at": "2026-05-25T14:11:29Z",
   "project_name": "SAM Metais",
   "project_id": 62,
   "client": "fersam001",
@@ -31,10 +31,16 @@
       "pipeline_api": "run_meio_fisico_xlsx_pipeline(client='FERSAM001', block='all')",
       "gold_baseline": "gold-meio-fisico-v1 (commit b92c6df)",
       "last_run": {
-        "snapshot_ts": "20260519T144804Z",
-        "git_commit": "e00701c",
-        "n_files": 106,
-        "failed_blocks": []
+        "snapshot_ts": "20260525T141129Z",
+        "git_commit": "pending_commit_after_snapshot",
+        "validated_blocks": [
+          "b2",
+          "b4",
+          "b11",
+          "resumo"
+        ],
+        "failed_blocks": [],
+        "superficial_violated_parameters": 8
       },
       "scripts": [
         "gerar_conformidade_sam_etapa2.py",

@@ -2,10 +2,10 @@
 B4 (Etapa 5) — % Violacao por parametro, barras horizontais.
 
 Para cada matriz, calcula a % de amostras em violacao por parametro
-(considerando o VMP mais restritivo da matriz/cadastro):
-- Superficial: VMP_357_Cl2_Max
-- Subterranea: minimo entre 4 VMPs CONAMA 396 (mais restritivo).
-- Sedimento: VMP_454_N1.
+(considerando os VMPs aplicaveis da matriz/cadastro):
+- Superficial: VMP_357_Cl2_Min e VMP_357_Cl2_Max.
+- Subterranea: 4 VMPs CONAMA 396 como limites maximos.
+- Sedimento: VMP_454_N1 como limite maximo.
 
 Saida: Resultados/Meio_físico/<sub>/04_Pct_Violacao.png e 04_Pct_Violacao.xlsx
 """
@@ -36,25 +36,25 @@ MATRIZ_CFG = {
     "Água Superficial": {
         "subpasta": "Superficial",
         "aba_cad": "Aguas_Superficiais",
-        "vmp_cols": ["VMP_357_Cl2_Max"],
-        "modo": "min",
+        "vmp_rules": [
+            ("VMP_357_Cl2_Min", "min"),
+            ("VMP_357_Cl2_Max", "max"),
+        ],
     },
     "Água Subterrânea": {
         "subpasta": "Subterrânea",
         "aba_cad": "Aguas_Subterraneas",
-        "vmp_cols": [
-            "VMP_396_Consumo_Humano",
-            "VMP_396_Dessedentacao_Animal",
-            "VMP_396_Irrigacao",
-            "VMP_396_Recreacao",
+        "vmp_rules": [
+            ("VMP_396_Consumo_Humano", "max"),
+            ("VMP_396_Dessedentacao_Animal", "max"),
+            ("VMP_396_Irrigacao", "max"),
+            ("VMP_396_Recreacao", "max"),
         ],
-        "modo": "min",
     },
     "Sedimento": {
         "subpasta": "Sedimentos",
         "aba_cad": "Sedimento",
-        "vmp_cols": ["VMP_454_N1"],
-        "modo": "min",
+        "vmp_rules": [("VMP_454_N1", "max")],
     },
 }
 
@@ -125,6 +125,38 @@ def _safe(name):
     return re.sub(r"[^A-Za-z0-9_-]+", "_", s).strip("_")
 
 
+def _viola(valor, sinal, limite, modo):
+    if valor is None or limite is None:
+        return False
+    if sinal in ("<", "<="):
+        return False
+    if modo == "min":
+        return valor < limite
+    if modo == "max":
+        return valor > limite
+    return False
+
+
+def _limites_resumo(limites):
+    mins = [v for modo, v in limites if modo == "min" and v is not None]
+    maxs = [v for modo, v in limites if modo == "max" and v is not None]
+    limite_min = max(mins) if mins else None
+    limite_max = min(maxs) if maxs else None
+    if limite_min is not None and limite_max is not None:
+        vmp_ref = limite_max
+        regra = "faixa"
+    elif limite_min is not None:
+        vmp_ref = limite_min
+        regra = "min"
+    elif limite_max is not None:
+        vmp_ref = limite_max
+        regra = "max"
+    else:
+        vmp_ref = None
+        regra = ""
+    return limite_min, limite_max, vmp_ref, regra
+
+
 def calcular_violacao_matriz(matriz, cfg, df_res, theme):
     df = df_res[df_res["Matriz"] == matriz].copy()
     df["Parametro"] = df["Parametro"].astype(str).str.strip()
@@ -157,36 +189,41 @@ def calcular_violacao_matriz(matriz, cfg, df_res, theme):
         factor = _conv_factor(unidade_cad, unidade_dados) if unidade_cad and unidade_dados else 1.0
         if factor is None:
             factor = 1.0
-        vmps = []
-        for c in cfg["vmp_cols"]:
+        limites = []
+        for c, modo in cfg["vmp_rules"]:
             if c in df_cad.columns:
                 v = _parse_vmp(cad_idx.loc[p, c])
                 if v is None: continue
                 if v <= 0: continue  # ignora VMP=0 (ex.: Arsênio Irrigação)
-                vmps.append(v * factor)
-        if not vmps and not (matriz == "Água Superficial" and p.lower().startswith("nitrogênio amon")):
+                limites.append((modo, v * factor))
+        if not limites and not (matriz == "Água Superficial" and p.lower().startswith("nitrogênio amon")):
             continue
-        vmp_ref = min(vmps) if vmps else None
+        limite_min, limite_max, vmp_ref, regra_vmp = _limites_resumo(limites)
 
         n_total = 0; n_viol = 0
         for _, r in sub.iterrows():
             val, sinal = _parse_valor(r["Resultado"])
             if val is None: continue
-            n_total += 1
-            limite = vmp_ref
             if matriz == "Água Superficial" and p.lower().startswith("nitrogênio amon"):
                 ph_v = ph_map.get((str(r["Ponto"]).strip(), str(r["Campanha"]).strip()))
                 limite = limite_amonia(ph_v)
-            if limite is None: continue
-            if sinal in ("<", "<="):
-                viola = val > limite
+                if limite is None:
+                    continue
+                n_total += 1
+                viola = _viola(val, sinal, limite, "max")
             else:
-                viola = val > limite
+                if not limites:
+                    continue
+                n_total += 1
+                viola = any(_viola(val, sinal, limite, modo) for modo, limite in limites)
             if viola: n_viol += 1
         if n_total == 0: continue
         rows.append({
             "Parametro": p,
             "VMP_ref": vmp_ref,
+            "Limite_Min": limite_min,
+            "Limite_Max": limite_max,
+            "Regra_VMP": regra_vmp,
             "N_amostras": n_total,
             "N_violacoes": n_viol,
             "Pct_Violacao": (n_viol / n_total) * 100.0,
@@ -206,6 +243,7 @@ def calcular_violacao_matriz(matriz, cfg, df_res, theme):
     except PermissionError:
         xlsx = xlsx.with_name(xlsx.stem + "_NEW.xlsx")
         df_out.to_excel(xlsx, index=False)
+        print(f"  ! arquivo original bloqueado; salvo em: {xlsx.name}")
 
     # PNG
     fig, ax = plt.subplots(
@@ -238,6 +276,7 @@ def calcular_violacao_matriz(matriz, cfg, df_res, theme):
     except PermissionError:
         png = png.with_name(png.stem + "_NEW.png")
         fig.savefig(png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+        print(f"  ! arquivo original bloqueado; salvo em: {png.name}")
     plt.close(fig)
     print(f"  [{matriz}] {len(df_out)} parametros | top: {df_out.iloc[-1]['Parametro']} ({df_out.iloc[-1]['Pct_Violacao']:.1f}%)")
 

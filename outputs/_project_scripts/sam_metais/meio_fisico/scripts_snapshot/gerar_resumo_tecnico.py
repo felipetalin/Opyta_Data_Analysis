@@ -27,7 +27,16 @@ def fmt_pct(p): return f"{p:.1f}%".replace(".", ",")
 def fmt(v, n=2): return f"{v:.{n}f}".replace(".", ",")
 
 
+def latest_generated(path: Path) -> Path:
+    alt = path.with_name(path.stem + "_NEW" + path.suffix)
+    existing = [p for p in (path, alt) if p.exists()]
+    if not existing:
+        return path
+    return max(existing, key=lambda p: p.stat().st_mtime)
+
+
 def ler(path):
+    path = latest_generated(path)
     return pd.read_excel(path) if path.exists() else pd.DataFrame()
 
 
@@ -35,10 +44,7 @@ def secao_contextualizacao(matriz, sub):
     pv = ler(OUT_ROOT / sub / "11_Sintese_Executiva.xlsx")
     res = ler(OUT_ROOT / sub / "11_Sintese_Executiva.xlsx") if False else None
     # ler resumo da aba "Resumo"
-    p = OUT_ROOT / sub / "11_Sintese_Executiva.xlsx"
-    if not p.exists():
-        # tentar _NEW
-        p = OUT_ROOT / sub / "11_Sintese_Executiva_NEW.xlsx"
+    p = latest_generated(OUT_ROOT / sub / "11_Sintese_Executiva.xlsx")
     try:
         df = pd.read_excel(p, sheet_name="Resumo")
         r = df.iloc[0]
@@ -113,9 +119,7 @@ def secao_sazonal(matriz, sub):
 
 
 def secao_espacial(matriz, sub):
-    p = OUT_ROOT / sub / "11_Sintese_Executiva.xlsx"
-    if not p.exists():
-        p = OUT_ROOT / sub / "11_Sintese_Executiva_NEW.xlsx"
+    p = latest_generated(OUT_ROOT / sub / "11_Sintese_Executiva.xlsx")
     try:
         df = pd.read_excel(p, sheet_name="Pontos_Criticos")
     except Exception:

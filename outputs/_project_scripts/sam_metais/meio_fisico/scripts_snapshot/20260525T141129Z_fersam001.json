@@ -1,0 +1,12 @@
+{
+  "client_code": "FERSAM001",
+  "theme_override": {
+    "primary_hex": "#11420C",
+    "secondary_hex": "#6A8F63",
+    "highlight_hex": "#3F5F3B"
+  },
+  "meio_fisico_xlsx": {
+    "client_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos",
+    "blocks_default": ["b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b11", "resumo"]
+  }
+}
