@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-05-25T23:42:31.663675Z",
-  "status": "ERROR",
+  "generated_at": "2026-05-25T23:53:32.602807Z",
+  "status": "OK_WITH_WARNINGS",
   "ruleset_version": "fauna_audit_v1.0",
   "audit_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts",
   "git": {
     "branch": "main",
-    "commit": "6e2f09e",
+    "commit": "ac4efa8",
     "dirty": true,
-    "status_short_count": 10
+    "status_short_count": 4
   },
   "summary": {
     "projects_count": 3,
-    "errors_count": 2,
-    "warnings_count": 28
+    "errors_count": 0,
+    "warnings_count": 32
   },
   "projects": [
     {
-      "generated_at": "2026-05-25T23:42:26.370670Z",
+      "generated_at": "2026-05-25T23:53:25.120046Z",
       "status": "OK_WITH_WARNINGS",
       "ruleset_version": "fauna_audit_v1.0",
       "project": "project_165",
       "project_audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165",
       "git": {
         "branch": "main",
-        "commit": "6e2f09e",
+        "commit": "ac4efa8",
         "dirty": true,
-        "status_short_count": 10
+        "status_short_count": 4
       },
       "summary": {
         "groups_count": 4,
@@ -57,7 +57,10 @@
             "6.8"
           ],
           "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto",
+          "audited_output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto",
+          "output_dir_alias_used": null,
           "output_dir_exists": true,
+          "audited_output_dir_exists": true,
           "generated_files_count": 19,
           "generated_files_declared_count": 19,
           "generated_files_missing_count": 0,
@@ -391,7 +394,10 @@
             "6.8"
           ],
           "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto",
+          "audited_output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Senhora do Porto",
+          "output_dir_alias_used": null,
           "output_dir_exists": true,
+          "audited_output_dir_exists": true,
           "generated_files_count": 13,
           "generated_files_declared_count": 13,
           "generated_files_missing_count": 0,
@@ -629,7 +635,10 @@
             "6.8"
           ],
           "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto",
+          "audited_output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Mastofauna\\Senhora do Porto",
+          "output_dir_alias_used": null,
           "output_dir_exists": true,
+          "audited_output_dir_exists": true,
           "generated_files_count": 19,
           "generated_files_declared_count": 19,
           "generated_files_missing_count": 0,
@@ -956,7 +965,10 @@
             "6.2"
           ],
           "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto",
+          "audited_output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Primatas\\Senhora do Porto",
+          "output_dir_alias_used": null,
           "output_dir_exists": true,
+          "audited_output_dir_exists": true,
           "generated_files_count": 1,
           "generated_files_declared_count": 1,
           "generated_files_missing_count": 0,
@@ -1026,16 +1038,16 @@
       ]
     },
     {
-      "generated_at": "2026-05-25T23:42:28.992945Z",
+      "generated_at": "2026-05-25T23:53:27.356655Z",
       "status": "OK_WITH_WARNINGS",
       "ruleset_version": "fauna_audit_v1.0",
       "project": "project_62",
       "project_audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62",
       "git": {
         "branch": "main",
-        "commit": "6e2f09e",
+        "commit": "ac4efa8",
         "dirty": true,
-        "status_short_count": 10
+        "status_short_count": 4
       },
       "summary": {
         "groups_count": 2,
@@ -1060,7 +1072,10 @@
             "12"
           ],
           "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio",
+          "audited_output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio",
+          "output_dir_alias_used": null,
           "output_dir_exists": true,
+          "audited_output_dir_exists": true,
           "generated_files_count": 2,
           "generated_files_declared_count": 2,
           "generated_files_missing_count": 0,
@@ -1267,7 +1282,10 @@
             "12"
           ],
           "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton",
+          "audited_output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton",
+          "output_dir_alias_used": null,
           "output_dir_exists": true,
+          "audited_output_dir_exists": true,
           "generated_files_count": 2,
           "generated_files_declared_count": 2,
           "generated_files_missing_count": 0,
@@ -1509,26 +1527,26 @@
       ]
     },
     {
-      "generated_at": "2026-05-25T23:42:30.829672Z",
-      "status": "ERROR",
+      "generated_at": "2026-05-25T23:53:31.886452Z",
+      "status": "OK_WITH_WARNINGS",
       "ruleset_version": "fauna_audit_v1.0",
       "project": "sam_metais",
       "project_audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais",
       "git": {
         "branch": "main",
-        "commit": "6e2f09e",
+        "commit": "ac4efa8",
         "dirty": true,
-        "status_short_count": 10
+        "status_short_count": 4
       },
       "summary": {
         "groups_count": 3,
-        "errors_count": 2,
-        "warnings_count": 16,
+        "errors_count": 0,
+        "warnings_count": 20,
         "skipped_metadata_count": 0
       },
       "groups": [
         {
-          "status": "ERROR",
+          "status": "OK_WITH_WARNINGS",
           "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton\\execution_metadata.json",
           "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\fitoplancton",
           "project_id": 62,
@@ -1541,26 +1559,230 @@
           "rows_loaded": 0,
           "executed_blocks": [],
           "output_dir": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fitoplancton",
+          "audited_output_dir": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito",
+          "output_dir_alias_used": "Fito",
           "output_dir_exists": false,
+          "audited_output_dir_exists": true,
           "generated_files_count": 0,
           "generated_files_declared_count": 0,
           "generated_files_missing_count": 0,
           "generated_file_checks": [],
-          "deliverable_inventory_count": 0,
-          "deliverable_inventory": [],
-          "errors": [
-            "output_dir_missing=g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fitoplancton"
+          "deliverable_inventory_count": 25,
+          "deliverable_inventory": [
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\01_tabela_composicao_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 28191,
+              "modified_at": "2026-05-08T19:15:57.319000Z",
+              "sha256": "8a9b3da66245e890e17eed85720df524f38d5ebdf50f9d6f5ea9a38881fabede"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\01_tabela_ocorrencia_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 53336,
+              "modified_at": "2026-05-13T22:19:29.983000Z",
+              "sha256": "aae649a2eebffecb1feb1546362b9fc42b01cfedd09f05f811a48d162a6973d2"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\02_df_riqueza_por_ponto_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5629,
+              "modified_at": "2026-05-07T00:45:27.617000Z",
+              "sha256": "5e026d2493440b49f757c843c6a2a7c3a726443d14f9089e8f8bc657482ced8c"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\02_grafico_riqueza_por_ponto_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 556853,
+              "modified_at": "2026-05-07T00:45:32.521000Z",
+              "sha256": "6707440e9c761802b789a78a91af7d786f272e74547cd3b9af5f0801c96ddc54"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\04_df_riqueza_por_filo_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 4998,
+              "modified_at": "2026-05-07T00:45:49.446000Z",
+              "sha256": "0040b944bc33c3f10f39dcf231a73420bd571cce38de8368621c54156a43c1f9"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\04_grafico_riqueza_filo_barras_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 667655,
+              "modified_at": "2026-05-07T00:45:52.188000Z",
+              "sha256": "c1a018c975603daee9529b0becf8ef7f4c8266aec6d61316b28d0c2c47db4004"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\05_grafico_riqueza_filo_rosca_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1009038,
+              "modified_at": "2026-05-07T00:45:55.859000Z",
+              "sha256": "50746b77ebecde52f0f8d31bf6975bf63eea2630ab702c3757e6ddbd95d3f6f1"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06A_df_riqueza_total_por_ponto_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5200,
+              "modified_at": "2026-05-07T00:50:30.852000Z",
+              "sha256": "dcc709a789804eb11a399f7adde43c6fba8ff5aa634b22dedd5a6bed22c73f05"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06A_grafico_riqueza_total_por_ponto_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 521373,
+              "modified_at": "2026-05-07T00:50:37.293000Z",
+              "sha256": "bc057335850c3f10ded3064a5262eccf038a61018892ea1821eeff03f889c11c"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_df_densidade_filo_Campanha_01_Seca_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 10232,
+              "modified_at": "2026-05-08T19:16:08.243000Z",
+              "sha256": "2d79022c27ab1fc8fecb11f30d0eedbd9d64ffa79ae4d2262bf8e45732eafdc4"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_df_densidade_filo_Campanha_02_Chuva_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5541,
+              "modified_at": "2026-05-07T00:50:50.340000Z",
+              "sha256": "d64f08719d26eba00622cfc7bf372ff8fa1e56f310ec5758da099a8c0f32fe49"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_grafico_densidade_filo_Campanha_01_Seca_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 537434,
+              "modified_at": "2026-05-07T00:50:44.470000Z",
+              "sha256": "10f6155978cd1bd86e84c6569d671db96e14637d5271c7111152b402d8bf3274"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_grafico_densidade_filo_Campanha_02_Chuva_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 495618,
+              "modified_at": "2026-05-07T00:50:57.240000Z",
+              "sha256": "34ebd83e8b89e0fde55614e09ac12876792c0c370cb6250a300fc817ef8d08c6"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_df_densidade_relativa_filo_Campanha_01_Seca_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6051,
+              "modified_at": "2026-05-07T00:50:44.725000Z",
+              "sha256": "e166ac36adebf87a897bcae1f80bfdbc06184cf75d7b0e204a50a1e34f9c1a19"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_df_densidade_relativa_filo_Campanha_02_Chuva_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5602,
+              "modified_at": "2026-05-07T00:50:57.484000Z",
+              "sha256": "b85e6a05779b8fc32a8acf6da40310fbd0f04a7f0be8a3700f62fa93b95af322"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_grafico_densidade_relativa_filo_Campanha_01_Seca_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 512167,
+              "modified_at": "2026-05-07T00:50:49.976000Z",
+              "sha256": "e54da00567a161d8add2169b24f28bb687bc92a98e60550bca2800b87845519c"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_grafico_densidade_relativa_filo_Campanha_02_Chuva_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 481023,
+              "modified_at": "2026-05-07T00:51:02.446000Z",
+              "sha256": "9c1694e7601db216d550c343ce04bb6db73e104604cf52aa695c423790d9244b"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\10_df_diversidade_alfa_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5978,
+              "modified_at": "2026-05-07T00:45:56.138000Z",
+              "sha256": "515b399a0ae378aeb45898fcd7fa7715431721cfab7c55be98381a3a4eb8d35e"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\10_grafico_diversidade_alfa_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 884791,
+              "modified_at": "2026-05-07T00:46:00.703000Z",
+              "sha256": "c4c4889eb94f45b67bd3c4ee5f71808cf87172aa203b7bb52436bcce7e6bd225"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_dendrograma_similaridade_fitoplancton_seca_chuva_somadas.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 565682,
+              "modified_at": "2026-05-07T00:46:05.050000Z",
+              "sha256": "d0b3e89c55b2f331ac722f11ac52dee2986d00b19f511b8da9d5318ec69f37b6"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_df_distancias_braycurtis_fitoplancton_seca_chuva_somadas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7302,
+              "modified_at": "2026-05-07T00:46:01.198000Z",
+              "sha256": "b2a51ea6e6881542433d4a3892de5b68aef20e81cb0d5bd67c6655917a0c27aa"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_df_matriz_comunidade_fitoplancton_seca_chuva_somadas.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9122,
+              "modified_at": "2026-05-07T00:46:01.061000Z",
+              "sha256": "3dc3f692e29761ab29c4f5bdaef17465685269ff10d9fce63872bc05a537a2bc"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\12_curva_suficiencia_amostral_fitoplancton.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 906003,
+              "modified_at": "2026-05-07T00:46:08.494000Z",
+              "sha256": "0eaacac88bc803c4fbea5046ed18f147ef65cb594fd7d4c573e742f7b7112844"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\12_df_curva_suficiencia_fitoplancton.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7035,
+              "modified_at": "2026-05-07T00:46:05.632000Z",
+              "sha256": "d206dbafa404922699da9baf5467081264edfd598f3506cd13c9b045f9264718"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\DarwinCore_Fitoplancton_Sam_Metais_Diagn_stico.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 61390,
+              "modified_at": "2026-05-07T00:46:10.464000Z",
+              "sha256": "f5bd2dae6b66b60b3dab2c9e5fe152ce4b8b651e70559a515b2b46144f6089f3"
+            }
           ],
+          "errors": [],
           "warnings": [
+            "output_dir_resolved_by_alias=Fito",
             "rows_loaded_non_positive=0",
             "executed_blocks_empty",
             "generated_files_empty",
+            "output_dir_has_deliverables_not_linked_in_metadata=25",
             "metadata_without_git_context",
             "metadata_without_generated_file_hashes"
           ]
         },
         {
-          "status": "ERROR",
+          "status": "OK_WITH_WARNINGS",
           "metadata_path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos\\execution_metadata.json",
           "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais\\zoobentos",
           "project_id": 62,
@@ -1573,20 +1795,472 @@
           "rows_loaded": 0,
           "executed_blocks": [],
           "output_dir": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zoobentos",
+          "audited_output_dir": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos",
+          "output_dir_alias_used": "Bentos",
           "output_dir_exists": false,
+          "audited_output_dir_exists": true,
           "generated_files_count": 0,
           "generated_files_declared_count": 0,
           "generated_files_missing_count": 0,
           "generated_file_checks": [],
-          "deliverable_inventory_count": 0,
-          "deliverable_inventory": [],
-          "errors": [
-            "output_dir_missing=g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zoobentos"
+          "deliverable_inventory_count": 56,
+          "deliverable_inventory": [
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\01_tabela_composicao_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 14445,
+              "modified_at": "2026-05-07T22:08:55.491000Z",
+              "sha256": "24e36b34b039e25ba8e2d79b8491629faaac2fb3167851a5757e29585e8ca8f1"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5677,
+              "modified_at": "2026-05-06T18:17:19.525000Z",
+              "sha256": "ac5c104711a2038d129ef540ab1c299add83cd04bd3c2829a1968766acd2bb77"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 417584,
+              "modified_at": "2026-05-06T18:17:21.549000Z",
+              "sha256": "da87f103111f400529f09a65b8df512d092cdc52041ec287266bca04108a85ea"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 24277,
+              "modified_at": "2026-05-13T22:19:25.001000Z",
+              "sha256": "f628339b9e10167992686a71e944bc4e44b7b3ce32c4fb4fb00e3f297e57bf63"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5133,
+              "modified_at": "2026-05-06T18:31:43.783000Z",
+              "sha256": "bbb442f6f2a66e9a4736b6d6b2fcf907453588465664f25969ab4bfee8ebef1b"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 824469,
+              "modified_at": "2026-05-06T18:31:46.830000Z",
+              "sha256": "48a51b6d33e80572af603f07a9e7f083f461570d33836d17c2798e590cdded3b"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 1225017,
+              "modified_at": "2026-05-06T18:31:49.930000Z",
+              "sha256": "c0aac21f3b5de5a8680879598e00aed09c9ae0ea5eb453a3ceeee9005e0abf76"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5285,
+              "modified_at": "2026-05-06T18:34:42.606000Z",
+              "sha256": "64b34dae342a030612bf4f2ad73e3eeffa56a36ebd5a7842bed401b8962a860b"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 390009,
+              "modified_at": "2026-05-06T18:34:45.845000Z",
+              "sha256": "afde0b95b0e58661ee668c01f5b726a915b0cc7c86a327b7f92fa8c0f83e265c"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_df_abundancia_classe_Campanha_01_Seca_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9219,
+              "modified_at": "2026-05-07T22:09:06.010000Z",
+              "sha256": "824c04eb3ea5098b8405e3268bd9214d269a2d40593a1ce5ccbc92f19daf57e8"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_df_abundancia_classe_Campanha_02_Chuva_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5608,
+              "modified_at": "2026-05-06T18:34:57.192000Z",
+              "sha256": "c1251f8ff16c85b1f0a09c5ea330cd79f58279db99b5e4a0b31ff1d8ea3c26fa"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_grafico_abundancia_classe_Campanha_01_Seca_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 472200,
+              "modified_at": "2026-05-06T18:34:50.945000Z",
+              "sha256": "b9da83861b5ddb2a8b5cba19a42d83b40b8eed62bbf127b6c68dacd824b13a82"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_grafico_abundancia_classe_Campanha_02_Chuva_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 483384,
+              "modified_at": "2026-05-06T18:35:00.617000Z",
+              "sha256": "ba381140b57a4945c3e06558f4ade25d3d1bb41e5d353fb9137535b0fa996fbf"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_df_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5613,
+              "modified_at": "2026-05-06T18:34:51.186000Z",
+              "sha256": "08ac6ed53806e41be027c17a4f170716e2a8ca9dc27f7ea9b7de599a84fbd89f"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_df_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5644,
+              "modified_at": "2026-05-06T18:35:00.735000Z",
+              "sha256": "a6d8ff0b5fda6ade743e5e9dcd936df266aa2c9149e5cf819316894ade4a5c25"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 500988,
+              "modified_at": "2026-05-06T18:34:57.039000Z",
+              "sha256": "38fa75f0fb894f84cc103303660baa4c4aeabace81589931100025641f176e88"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 509484,
+              "modified_at": "2026-05-06T18:35:04.413000Z",
+              "sha256": "5c20e938a132f02442afe99534ea4c1d5971347e8b4038e97b77bae25b5be9c7"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 10363,
+              "modified_at": "2026-05-07T22:09:06Z",
+              "sha256": "998aeed45046fbfe3862fc298085b59ba15bbd1bf87d78f710eacbc01cad40e6"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\10_grafico_diversidade_alfa_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 811497,
+              "modified_at": "2026-05-06T18:17:39.592000Z",
+              "sha256": "96e6825f1f8b2d2381bcd13953aefab5a76ff8340486cd4a637d9b3a9019d4b7"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_dendrograma_similaridade_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 662573,
+              "modified_at": "2026-05-06T18:17:42.382000Z",
+              "sha256": "edda5a023cbebd20ba5b8ced15bdf70ac5200579f520a3032c05c370656d459d"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_bmwp_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5937,
+              "modified_at": "2026-05-06T18:17:45.011000Z",
+              "sha256": "23c7ed49ebc5339430979b8a7383a931576434ab7d0b79566e33694cb290a404"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9095,
+              "modified_at": "2026-05-06T18:17:39.903000Z",
+              "sha256": "af8c289b98e813ab1a7eb1a6412b0beb366a8412829a9fcd09c0b15ff8a744f7"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 8079,
+              "modified_at": "2026-05-06T18:17:39.793000Z",
+              "sha256": "df76a3bf37dc67ab2ffb7a64389504c130053019b0cee319a26be52ba131c375"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_grafico_bmwp_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 547177,
+              "modified_at": "2026-05-06T18:17:47.643000Z",
+              "sha256": "f146b143657c475e695076358116aa2435e9cf8605dde6a6e831ec854c6a11b7"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_curva_suficiencia_amostral_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 847137,
+              "modified_at": "2026-05-06T18:39:37.604000Z",
+              "sha256": "6fccdb50efa648dbcdbfb2c4ed6329ba61bb745a8c529211efaeaf5522bae1fd"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 7784,
+              "modified_at": "2026-05-06T18:39:30.758000Z",
+              "sha256": "0f313dc16ace8d0c66d3cceb6366cee073cb8d48f13267964e63b20b07f72074"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_df_ept_chol_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6567,
+              "modified_at": "2026-05-06T18:17:47.806000Z",
+              "sha256": "82c4323f83ffe0b77dac105ab27185ae3acbbb95cd5aa881e024dff5039fd8f4"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_grafico_ept_chol_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 441721,
+              "modified_at": "2026-05-06T18:17:50.087000Z",
+              "sha256": "cc9e59b56c14232bd56d3b608082e7046d2eb6a5e76079d3513948aa3cf90eaa"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\01_tabela_composicao_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6312,
+              "modified_at": "2026-05-06T14:26:41.995000Z",
+              "sha256": "0a48e796f91653d97b58a4ce1e70bd9a7cbeda5b0d4b3f4decf83d2f2f9ef82f"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5574,
+              "modified_at": "2026-05-06T14:37:44.432000Z",
+              "sha256": "487ba5812365d7bb5bdd9da6b07e5226d5be3efe708ae1b9f35fe2fecbdd7813"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\02_grafico_riqueza_por_ponto_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 105889,
+              "modified_at": "2026-05-06T14:37:49.429000Z",
+              "sha256": "d42b5c948786d552ef5fda73d0fe38215ca467b308e329f55ca9ed0a807f5e16"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 11497,
+              "modified_at": "2026-05-06T14:27:26.643000Z",
+              "sha256": "c4c46db73c1d768df29e5db72123c3d15445801b6e1a7e70765e9c1da5119ebe"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5144,
+              "modified_at": "2026-05-05T00:48:45.041000Z",
+              "sha256": "c96a4f9586fd0cd7f5b289496056025db513453a8c96c99c5d403377f0b81edd"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 113391,
+              "modified_at": "2026-05-05T00:48:48.484000Z",
+              "sha256": "be0b2c9c11ba4a1dbbdd87dc5f2c34699081f2b1a22fb228a4757d3bbbf39b1e"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 211245,
+              "modified_at": "2026-05-05T00:48:52.569000Z",
+              "sha256": "e1b8adffbefd319ec2ec4ffc6fd38b06a48894fe0d8756264aabcafc96adac87"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5281,
+              "modified_at": "2026-05-05T00:48:41.915000Z",
+              "sha256": "8974f06c52d544f732f853e03e83771f60131c151674edccc6a40e884fd21adf"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 145820,
+              "modified_at": "2026-05-05T00:48:42.478000Z",
+              "sha256": "889beae28ce36465404cfb7d4775f7758672c2e106367c973f1f53d01f9f600f"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06B_df_abundancia_classe_Campanha_01_Seca_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5517,
+              "modified_at": "2026-05-05T00:48:42.591000Z",
+              "sha256": "d64bf0b8eab8e511a49716ceff2e98b9ddf6a5f9de7685ba7e72089dd1833a50"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06B_df_abundancia_classe_Campanha_02_Chuva_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5604,
+              "modified_at": "2026-05-05T00:48:43.803000Z",
+              "sha256": "504f9bee9fa0ab991a05d59bc193ccc56d4d734e29e9f642f8ca667c22a614d0"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06B_grafico_abundancia_classe_Campanha_01_Seca_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 160121,
+              "modified_at": "2026-05-05T00:48:43.017000Z",
+              "sha256": "babad5d05853e323c681e34e0edd2f7415eee188a75d76adcc411bad1f20ef37"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06B_grafico_abundancia_classe_Campanha_02_Chuva_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 166657,
+              "modified_at": "2026-05-05T00:48:44.299000Z",
+              "sha256": "8d9b63540639303631633cf1c4d3b8c3890181910b1fea17f56882069f1edec1"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06C_df_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5609,
+              "modified_at": "2026-05-05T00:48:43.123000Z",
+              "sha256": "443304819d867dc06037be24aefdfe1f4ec5442797181c19d9921ceced8d0d2c"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06C_df_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5642,
+              "modified_at": "2026-05-05T00:48:44.401000Z",
+              "sha256": "50a33fe205923168177258a165caf98398194908f777994bf8b968b906658251"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06C_grafico_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 173859,
+              "modified_at": "2026-05-05T00:48:43.695000Z",
+              "sha256": "a1aa1dc436be8a00808568dcd562c777188dc75bfdb67aac7167ebe9e385389b"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\06C_grafico_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 179575,
+              "modified_at": "2026-05-05T00:48:44.928000Z",
+              "sha256": "992e7c19cd539e855cd613902234613b7b08d5c919ba34c81737fa7ef04371d5"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\10_df_diversidade_alfa_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6654,
+              "modified_at": "2026-05-05T00:48:52.726000Z",
+              "sha256": "ef1b7a55386d2d490ba08d6fc1f6f9668a5c158322620f91de69343cfd0bb09f"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\10_grafico_diversidade_alfa_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 368380,
+              "modified_at": "2026-05-05T00:48:53.816000Z",
+              "sha256": "3d45512355eb5df5c44d7f41dfbd110c1c813bddea165fc4d3111c2c36322c45"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\11_dendrograma_similaridade_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 214295,
+              "modified_at": "2026-05-05T00:48:54.735000Z",
+              "sha256": "240730a17b10df8de52196efa7fb4bbaa49f6ace68ab8c3797c2408649074f17"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\11_df_bmwp_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 5944,
+              "modified_at": "2026-05-05T00:48:55.449000Z",
+              "sha256": "3f016cbb8f503379ae5d95343df8dd2a4899dae623b9aa65e18bcea761a7257e"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\11_df_distancias_braycurtis_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 9093,
+              "modified_at": "2026-05-05T00:48:54.063000Z",
+              "sha256": "d861f21eaa4bb5de9a799c528c404128057157458b77de8de363848818b0cee2"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\11_df_matriz_comunidade_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 8074,
+              "modified_at": "2026-05-05T00:48:53.954000Z",
+              "sha256": "5dc14177ae0c22ab199b8a8f335d3b4a055e773e92bb67833c6983b1608b075d"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\11_grafico_bmwp_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 269373,
+              "modified_at": "2026-05-05T00:48:56.709000Z",
+              "sha256": "cc68d6562cd0f7ebc532fdd8fb35f1debb9ad7bcb0812ea9389756a19046896e"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\12_curva_suficiencia_amostral_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 257373,
+              "modified_at": "2026-05-05T00:48:55.352000Z",
+              "sha256": "246aa9d9849c0d38c4811fd508d58def7beb6d2a8194e301633818646be1adad"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\12_df_curva_suficiencia_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6629,
+              "modified_at": "2026-05-05T00:48:54.941000Z",
+              "sha256": "b62bfbeb010b092f67bd0508f09a0221a7412024e41d970546bb9d7b5fb3181d"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\12_df_ept_chol_zoobentos.xlsx",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 6497,
+              "modified_at": "2026-05-05T00:48:56.953000Z",
+              "sha256": "29686509133a84e6a6c7730c326ba42e30ad6f5601132e5098a90c0afd10891d"
+            },
+            {
+              "path": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\Layou errado\\12_grafico_ept_chol_zoobentos.png",
+              "exists": true,
+              "type": "file",
+              "size_bytes": 251254,
+              "modified_at": "2026-05-05T00:48:58.157000Z",
+              "sha256": "47f9cbfe2882a8de2fa464949702e1a282b187f233b4f968fd61f1b29f07d769"
+            }
           ],
+          "errors": [],
           "warnings": [
+            "output_dir_resolved_by_alias=Bentos",
             "rows_loaded_non_positive=0",
             "executed_blocks_empty",
             "generated_files_empty",
+            "output_dir_has_deliverables_not_linked_in_metadata=56",
             "metadata_without_git_context",
             "metadata_without_generated_file_hashes"
           ]
@@ -1605,7 +2279,10 @@
           "rows_loaded": 0,
           "executed_blocks": [],
           "output_dir": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton",
+          "audited_output_dir": "g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zooplancton",
+          "output_dir_alias_used": null,
           "output_dir_exists": true,
+          "audited_output_dir_exists": true,
           "generated_files_count": 0,
           "generated_files_declared_count": 0,
           "generated_files_missing_count": 0,
@@ -1825,19 +2502,20 @@
         }
       ],
       "skipped_metadata": [],
-      "errors": [
-        "Fitoplancton: output_dir_missing=g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fitoplancton",
-        "Zoobentos: output_dir_missing=g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zoobentos"
-      ],
+      "errors": [],
       "warnings": [
+        "Fitoplancton: output_dir_resolved_by_alias=Fito",
         "Fitoplancton: rows_loaded_non_positive=0",
         "Fitoplancton: executed_blocks_empty",
         "Fitoplancton: generated_files_empty",
+        "Fitoplancton: output_dir_has_deliverables_not_linked_in_metadata=25",
         "Fitoplancton: metadata_without_git_context",
         "Fitoplancton: metadata_without_generated_file_hashes",
+        "Zoobentos: output_dir_resolved_by_alias=Bentos",
         "Zoobentos: rows_loaded_non_positive=0",
         "Zoobentos: executed_blocks_empty",
         "Zoobentos: generated_files_empty",
+        "Zoobentos: output_dir_has_deliverables_not_linked_in_metadata=56",
         "Zoobentos: metadata_without_git_context",
         "Zoobentos: metadata_without_generated_file_hashes",
         "Zooplancton: rows_loaded_non_positive=0",
@@ -1849,10 +2527,7 @@
       ]
     }
   ],
-  "errors": [
-    "Fitoplancton: output_dir_missing=g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fitoplancton",
-    "Zoobentos: output_dir_missing=g:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Zoobentos"
-  ],
+  "errors": [],
   "warnings": [
     "Herpetofauna: metadata_without_git_context",
     "Herpetofauna: metadata_without_generated_file_hashes",
@@ -1866,14 +2541,18 @@
     "Ictiofauna: metadata_without_generated_file_hashes",
     "Zooplancton: metadata_without_git_context",
     "Zooplancton: metadata_without_generated_file_hashes",
+    "Fitoplancton: output_dir_resolved_by_alias=Fito",
     "Fitoplancton: rows_loaded_non_positive=0",
     "Fitoplancton: executed_blocks_empty",
     "Fitoplancton: generated_files_empty",
+    "Fitoplancton: output_dir_has_deliverables_not_linked_in_metadata=25",
     "Fitoplancton: metadata_without_git_context",
     "Fitoplancton: metadata_without_generated_file_hashes",
+    "Zoobentos: output_dir_resolved_by_alias=Bentos",
     "Zoobentos: rows_loaded_non_positive=0",
     "Zoobentos: executed_blocks_empty",
     "Zoobentos: generated_files_empty",
+    "Zoobentos: output_dir_has_deliverables_not_linked_in_metadata=56",
     "Zoobentos: metadata_without_git_context",
     "Zoobentos: metadata_without_generated_file_hashes",
     "Zooplancton: rows_loaded_non_positive=0",

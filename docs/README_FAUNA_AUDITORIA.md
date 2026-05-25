@@ -48,6 +48,16 @@ outputs/_project_scripts/<projeto>/fauna_inventory.json
 - presenca de `rows_loaded`, `executed_blocks`, contexto git e hashes gerados pelo runner;
 - inventario de artefatos encontrados no diretorio de entrega.
 
+## Aliases conhecidos
+
+Algumas memorias antigas usam nomes formais de grupo enquanto a pasta de
+entrega usa nome curto. A auditoria preserva o caminho declarado e registra
+`output_dir_resolved_by_alias` quando encontra a pasta equivalente.
+
+- `Fitoplancton` pode resolver para `Fito`
+- `Zoobentos` pode resolver para `Bentos`
+- `Ictiofauna` pode resolver para `Ictio`
+
 ## Aprendizado incorporado
 
 O caso de fauna mostrou que saidas podem existir no Drive sem que a memoria

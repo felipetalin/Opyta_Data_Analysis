@@ -40,6 +40,14 @@ FAUNA_GROUP_HINTS = {
     "macrofitas",
 }
 
+OUTPUT_DIR_ALIASES = {
+    "fitoplancton": ["Fito", "Fitoplancton"],
+    "zoobentos": ["Bentos", "Zoobentos"],
+    "zooplancton": ["Zooplancton", "Zoo"],
+    "ictio": ["Ictio", "Ictiofauna"],
+    "ictiofauna": ["Ictio", "Ictiofauna"],
+}
+
 
 def _utc_timestamp() -> str:
     return datetime.now(UTC).isoformat().replace("+00:00", "Z")
@@ -77,6 +85,30 @@ def _coerce_int(value: object) -> int | None:
         return None
 
 
+def _output_aliases(metadata: dict[str, Any]) -> list[str]:
+    aliases: list[str] = []
+    for key in (_normalize(metadata.get("group")), _normalize(metadata.get("pipeline"))):
+        for alias in OUTPUT_DIR_ALIASES.get(key, []):
+            if alias not in aliases:
+                aliases.append(alias)
+    return aliases
+
+
+def _resolve_output_dir(output_dir: Path | None, metadata: dict[str, Any]) -> tuple[Path | None, str | None]:
+    if output_dir is None or output_dir.exists():
+        return output_dir, None
+
+    parent = output_dir.parent
+    if not parent.exists():
+        return output_dir, None
+
+    for alias in _output_aliases(metadata):
+        candidate = parent / alias
+        if candidate.exists() and candidate.is_dir():
+            return candidate, alias
+    return output_dir, None
+
+
 def is_fauna_metadata(metadata: dict[str, Any]) -> bool:
     pipeline = _normalize(metadata.get("pipeline"))
     group = _normalize(metadata.get("group"))
@@ -98,20 +130,27 @@ def audit_execution_metadata(metadata_path: Path) -> dict[str, Any]:
     if generated_files_count is not None and generated_files_count != len(generated_files):
         errors.append(f"generated_files_count_mismatch={generated_files_count}!={len(generated_files)}")
 
+    audited_output_dir, output_dir_alias = _resolve_output_dir(output_dir, metadata)
+
     if output_dir is None:
         errors.append("missing_output_dir_in_metadata")
         deliverable_inventory: list[dict[str, object]] = []
-    elif not output_dir.exists():
+    elif not audited_output_dir or not audited_output_dir.exists():
         errors.append(f"output_dir_missing={output_dir}")
         deliverable_inventory = []
     else:
-        deliverable_inventory = discover_deliverables(output_dir)
+        deliverable_inventory = discover_deliverables(audited_output_dir)
+        if output_dir_alias:
+            warnings.append(f"output_dir_resolved_by_alias={output_dir_alias}")
 
     metadata_file_checks = _as_list(metadata.get("generated_file_checks"))
     generated_file_checks = (
         metadata_file_checks
         if metadata_file_checks
-        else build_file_manifest(generated_files, base_dir=output_dir if output_dir and output_dir.exists() else None)
+        else build_file_manifest(
+            generated_files,
+            base_dir=audited_output_dir if audited_output_dir and audited_output_dir.exists() else None,
+        )
     )
     missing_generated = [str(item.get("path")) for item in generated_file_checks if not item.get("exists")]
     if generated_files and missing_generated:
@@ -150,7 +189,10 @@ def audit_execution_metadata(metadata_path: Path) -> dict[str, Any]:
         "rows_loaded": rows_loaded,
         "executed_blocks": executed_blocks,
         "output_dir": output_dir_text,
+        "audited_output_dir": str(audited_output_dir) if audited_output_dir else None,
+        "output_dir_alias_used": output_dir_alias,
         "output_dir_exists": bool(output_dir and output_dir.exists()),
+        "audited_output_dir_exists": bool(audited_output_dir and audited_output_dir.exists()),
         "generated_files_count": len(generated_files),
         "generated_files_declared_count": generated_files_count,
         "generated_files_missing_count": len(missing_generated),

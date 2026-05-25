@@ -19,6 +19,9 @@ hashes dos artefatos.
 - Criado nucleo de auditoria em `opyta_analysis.fauna.audit`.
 - Criado script `scripts/validar_fauna_outputs.py`.
 - Criada documentacao operacional em `docs/README_FAUNA_AUDITORIA.md`.
+- Auditoria passou a reconhecer aliases de pastas antigas/operacionais, como
+  `Fitoplancton -> Fito` e `Zoobentos -> Bentos`, registrando o alias usado
+  sem alterar a memoria original.
 
 ## Regra operacional
 
