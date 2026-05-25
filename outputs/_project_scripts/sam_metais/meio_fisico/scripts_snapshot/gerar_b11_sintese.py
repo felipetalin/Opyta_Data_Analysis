@@ -14,10 +14,22 @@ from __future__ import annotations
 import os
 
 import re
+import sys
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from opyta_analysis.meio_fisico.rules import (  # noqa: E402
+    latest_generated as _shared_latest_generated,
+    parse_resultado as _shared_parse_resultado,
+    violates_limit as _shared_viola,
+)
 
 CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
 SRC = CLIENT_ROOT / "Migração" / "Físico" / "Resultados_Meio_Fisico.xlsx"
@@ -72,6 +84,17 @@ def _latest_generated(path: Path) -> Path:
     if not existing:
         return path
     return max(existing, key=lambda p: p.stat().st_mtime)
+
+
+def _shared_violou_range(valor, sinal, limite_min, limite_max):
+    return _shared_viola(valor, sinal, limite_min, "min") or _shared_viola(valor, sinal, limite_max, "max")
+
+
+# Shared calculation rules. Local helpers above are kept only for legacy context;
+# these assignments make B11 use the package-level source of truth.
+parse = _shared_parse_resultado
+_violou = _shared_violou_range
+_latest_generated = _shared_latest_generated
 
 
 def _write_sintese(path: Path, resumo: pd.DataFrame, df_pv: pd.DataFrame,

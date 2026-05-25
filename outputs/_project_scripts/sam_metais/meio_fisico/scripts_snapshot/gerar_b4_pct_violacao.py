@@ -16,6 +16,7 @@ import os
 
 import json
 import re
+import sys
 import unicodedata
 from pathlib import Path
 
@@ -26,6 +27,18 @@ import numpy as np
 import pandas as pd
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from opyta_analysis.meio_fisico.rules import (  # noqa: E402
+    conversion_factor as _shared_conv_factor,
+    filter_vmp_value,
+    parse_resultado as _shared_parse_valor,
+    summarize_limits as _shared_limites_resumo,
+    violates_limit as _shared_viola,
+)
+
 THEME_FILE = REPO_ROOT / "configs" / "theme_gold_approved.json"
 CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
 SRC_RES = CLIENT_ROOT / "Migração" / "Físico" / "Resultados_Meio_Fisico.xlsx"
@@ -168,6 +181,14 @@ def _limites_resumo(limites):
     return limite_min, limite_max, vmp_ref, regra
 
 
+# Shared calculation rules. Local helpers above are kept only for legacy context;
+# these assignments make B4 use the package-level source of truth.
+_parse_valor = _shared_parse_valor
+_conv_factor = _shared_conv_factor
+_viola = _shared_viola
+_limites_resumo = _shared_limites_resumo
+
+
 def calcular_violacao_matriz(matriz, cfg, df_res, theme):
     df = df_res[df_res["Matriz"] == matriz].copy()
     df["Parametro"] = df["Parametro"].astype(str).str.strip()
@@ -203,11 +224,8 @@ def calcular_violacao_matriz(matriz, cfg, df_res, theme):
         limites = []
         for c, modo in cfg["vmp_rules"]:
             if c in df_cad.columns:
-                v = _parse_vmp(cad_idx.loc[p, c])
+                v = filter_vmp_value(cad_idx.loc[p, c], p)
                 if v is None: continue
-                if v < 0: continue
-                if v == 0 and not _zero_vmp_valido(p):
-                    continue  # ignora placeholder 0 (ex.: Arsênio Irrigação)
                 limites.append((modo, v * factor))
         if not limites and not (matriz == "Água Superficial" and p.lower().startswith("nitrogênio amon")):
             continue

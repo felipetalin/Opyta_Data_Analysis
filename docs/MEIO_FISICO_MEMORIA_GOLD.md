@@ -16,6 +16,8 @@ Atualizado em 2026-05-25 para SAM Metais / FERSAM001.
 - Resultado com sinal `<` ou `<=` não deve ser contado como violação.
 - Se o Excel/Drive bloquear o arquivo oficial, salvar `_NEW` e fazer os blocos seguintes lerem a versão mais recente entre oficial e `_NEW`.
 - IET Lamparelli para reservatórios usa fósforo total e clorofila-a em µg/L (equivalente a mg/m3). Se Fósforo Total vier em mg/L na fonte, converter para µg/L multiplicando por 1000 antes de calcular `IET_PT`.
+- Regras compartilhadas de parse, VMP, unidade, violação e seleção `_NEW` ficam em `src/opyta_analysis/meio_fisico/rules.py`; novas correções devem entrar ali antes de alterar blocos individuais.
+- Toda execução Gold XLSX deve gerar `12_Auditoria_Execucao.json` com `status: OK`; esse manifesto confere B2 x B4 x B11 e guarda hashes das planilhas de entrada.
 
 ## Aprendizado do erro de 2026-05-25
 
@@ -50,3 +52,4 @@ Resultado validado em Subterrânea: 5 parâmetros violados:
 - Divergência entre `01_Conformidade` e `04_Pct_Violacao` normalmente significa diferença de regra, não necessariamente dado novo.
 - Em Subterrânea, divergência envolvendo Coliformes/E. coli pode indicar que `VMP=0` foi tratado como placeholder em vez de padrão de ausência.
 - IET todo Ultraoligotrófico/baixo demais com fósforo em mg/L é sinal clássico de ausência de conversão mg/L -> µg/L no `IET_PT`.
+- `12_Auditoria_Execucao.json` com `status: ERROR` deve bloquear entrega até identificar se a diferença está em B2, B4, B11 ou arquivo `_NEW` stale.

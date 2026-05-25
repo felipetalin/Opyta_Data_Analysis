@@ -21,6 +21,7 @@ import os
 import colorsys
 import json
 import re
+import sys
 import unicodedata
 from pathlib import Path
 
@@ -32,6 +33,16 @@ import pandas as pd
 
 # ----------------------------------------------------------------------------
 REPO_ROOT = Path(__file__).resolve().parent.parent
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from opyta_analysis.meio_fisico.rules import (  # noqa: E402
+    conversion_factor as _shared_conv_factor,
+    filter_vmp_value,
+    parse_resultado as _shared_parse_valor,
+)
+
 THEME_FILE = REPO_ROOT / "configs" / "theme_gold_approved.json"
 
 CLIENT_ROOT = Path(os.environ.get("OPYTA_MF_CLIENT_ROOT", r"G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos"))
@@ -141,6 +152,14 @@ def _conv_factor(from_u, to_u):
     if a is None or b is None:
         return None
     return a / b
+
+
+# Shared calculation rules. Local helpers above are kept only for legacy context;
+# these assignments make B3 use the package-level source of truth for parsing
+# and unit conversion.
+_parse_valor = _shared_parse_valor
+_conv_factor = _shared_conv_factor
+
 
 def _camp_sort(c):
     s = str(c)
@@ -336,9 +355,9 @@ def main():
                     factor = 1.0
                 for col_cad, label, theme_key in cfg["vmps"]:
                     if col_cad in df_cad.columns:
-                        v = _parse_vmp(cad_idx.loc[p, col_cad])
-                        if v is None or v <= 0:
-                            # ignora VMP ausente, '-' ou zero (ex.: Arsenio irrigacao = 0)
+                        v = filter_vmp_value(cad_idx.loc[p, col_cad], p)
+                        if v is None or v == 0:
+                            # VMP=0 microbiologico e regra de ausencia; nao ha linha util para plotar.
                             continue
                         v_conv = v * factor
                         vmps_ativos.append((label, v_conv, str(theme.get(theme_key, "#e74c3c"))))

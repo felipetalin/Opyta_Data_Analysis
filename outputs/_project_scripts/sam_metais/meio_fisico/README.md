@@ -9,16 +9,17 @@ $env:PYTHONPATH = (Resolve-Path "src").Path
 $env:PYTHONIOENCODING = "utf-8"
 .\.venv\Scripts\python.exe -c "from opyta_analysis.pipelines import run_meio_fisico_xlsx_pipeline; r = run_meio_fisico_xlsx_pipeline(client='FERSAM001', block='all'); print('FAILED:', r['failed_blocks']); print('N_FILES:', len(r['generated_files']))"
 ```
-Esperado: `FAILED: []`, `N_FILES: 106`.
+Esperado após inclusão do bloco `audit`: `FAILED: []` e manifesto `12_Auditoria_Execucao.json` com `status: OK`.
 
-Validação pontual registrada em **2026-05-25**: blocos `b2`, `b4`, `b11` e `resumo` executados sem falha após correção da regra de violação em Água Superficial. Quando arquivos oficiais estavam bloqueados pelo Excel/Drive, os scripts salvaram versões `_NEW` e os blocos dependentes passaram a priorizar a versão mais recente.
+Validação pontual registrada em **2026-05-25**: blocos `b2`, `b3`, `b4`, `b11`, `resumo` e `audit` executados sem falha após centralização das regras críticas. Quando arquivos oficiais estavam bloqueados pelo Excel/Drive, os scripts salvaram versões `_NEW` e os blocos dependentes passaram a priorizar a versão mais recente.
 
 ## Estrutura
 - `scripts_snapshot/` — cópia versionada (com prefixo `YYYYMMDDTHHMMSSZ_`) dos scripts `gerar_*.py`, do runner `meio_fisico_xlsx.py` e do config `fersam001.json` no momento do snapshot. Também guarda o arquivo "latest" sem prefixo.
 - `scripts_snapshot/execution_metadata.json` — metadados da última execução validada (commit git, blocos executados, n_files, fixes recentes).
 - `01_Conformidade_*.xlsx` e `03_ST_*.png` — outputs históricos (apenas amostras de validação Gold; outputs vivos ficam em `Produtos/Resultados/Meio_físico/` no Drive do cliente).
+- `12_Auditoria_Execucao.json` — manifesto vivo da execução, com hashes de entrada e checagem B2 x B4 x B11.
 
-## Pipeline (10 blocos)
+## Pipeline (11 blocos)
 | Bloco | Script | Saída |
 |-------|--------|-------|
 | b2 | `gerar_conformidade_sam_etapa2.py` | `01_Conformidade_<matriz>.xlsx` (+ aba `Conversoes_Unidade`) |
@@ -31,6 +32,7 @@ Validação pontual registrada em **2026-05-25**: blocos `b2`, `b4`, `b11` e `re
 | b9 | `gerar_b9_sazonal.py` | `09_Sazonal_Boxplots_top12.png` + Mann-Whitney xlsx |
 | b11 | `gerar_b11_sintese.py` | `11_Sintese_Executiva.xlsx` |
 | resumo | `gerar_resumo_tecnico.py` | `RESUMO_<matriz>.txt` + `RESUMO_CONSOLIDADO.txt` |
+| audit | `validar_meio_fisico_outputs.py` | `12_Auditoria_Execucao.json` |
 
 ## Regras Gold (resumo executivo)
 - **Unidade dos dados é autoritativa** (moda da coluna `Unidade_Medida`). VMPs do cadastro são convertidos via `_conv_factor(unidade_cad, unidade_dados)` antes de violação e antes de plotar.
@@ -40,6 +42,7 @@ Validação pontual registrada em **2026-05-25**: blocos `b2`, `b4`, `b11` e `re
 - b2: a marcação vermelha em Superficial deve usar apenas `VMP_357_Cl2_Min`, `VMP_357_Cl2_Max` e amônia dinâmica por pH.
 - b4: `drop_duplicates(subset=["Parametro"], keep="first")` no cadastro como proteção defensiva; em Superficial deve avaliar limite mínimo e máximo, não apenas máximo.
 - Caracteres `µ` (U+00B5) e `μ` (U+03BC) ambos normalizados.
+- Regras comuns de parse, VMP, unidade, violação e `_NEW` ficam centralizadas em `src/opyta_analysis/meio_fisico/rules.py`.
 
 ## Fixes pós-Gold (2026-05-19)
 1. **b4 conversão de unidade + filtro VMP<=0** (commit `e00701c`) — corrigiu Clorofila A 100% falsa em Superficial e violações infladas em Subterrânea.
@@ -52,6 +55,7 @@ Validação pontual registrada em **2026-05-25**: blocos `b2`, `b4`, `b11` e `re
 4. **b6 IET Lamparelli com unidade correta** — `IET_PT` usa Fósforo Total em µg/L (mg/m³); quando a fonte está em mg/L, o script converte `mg/L -> µg/L` antes da fórmula. Isso corrigiu a classificação artificialmente boa em Superficial.
 5. **b2/b4 Subterrânea com VMP zero microbiológico** — `VMP=0` passa a valer para Coliformes e E. coli (padrão de ausência), mas segue descartado para placeholders de outros parâmetros. Resultado validado: 5 parâmetros violados em Subterrânea (Ferro Total, Manganês Total, Coliformes Termotolerantes, Alumínio Total e E. coli).
 6. **b11 grava arquivo oficial quando possível** — `11_Sintese_Executiva.xlsx` agora é atualizado diretamente; `_NEW` fica restrito a caso de bloqueio real pelo Excel/Drive.
+7. **Núcleo compartilhado + auditoria** — `b2`, `b3`, `b4` e `b11` passaram a usar regras compartilhadas para parse/conversão/violação; `audit` confere B2 x B4 x B11 e registra hashes das entradas.
 
 ## Sinal de alerta (para futuras revisões de cadastro)
 > **VMP absurdamente grande** + **linhas duplicadas no cadastro** ≈ unidade trocada. Conferir antes de propagar.

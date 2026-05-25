@@ -37,6 +37,7 @@ from __future__ import annotations
 import os
 
 import re
+import sys
 import unicodedata
 from pathlib import Path
 
@@ -45,6 +46,18 @@ import pandas as pd
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from opyta_analysis.meio_fisico.rules import (  # noqa: E402
+    conversion_factor as _shared_conv_factor,
+    filter_vmp_value,
+    parse_resultado as _shared_parse_resultado,
+    violates_limit as _shared_viola,
+)
 
 # ----------------------------------------------------------------------------
 # Caminhos
@@ -200,6 +213,13 @@ def _viola(valor: float | None, sinal: str, vmp: float | None, modo: str) -> boo
     return False
 
 
+# Shared calculation rules. Local helpers above are kept only for legacy context;
+# these assignments make B2 use the package-level source of truth.
+_parse_resultado = _shared_parse_resultado
+_conv_factor = _shared_conv_factor
+_viola = _shared_viola
+
+
 # ----------------------------------------------------------------------------
 # Pipeline
 # ----------------------------------------------------------------------------
@@ -227,13 +247,7 @@ def gerar_para_matriz(df_res: pd.DataFrame, matriz: str, cfg: dict) -> tuple[Pat
             continue
         vmp_maps[label] = {}
         for p, v in cad_idx[col_cad].items():
-            parsed = _parse_vmp(v)
-            if parsed is not None:
-                if parsed < 0:
-                    parsed = None
-                elif parsed == 0 and not _zero_vmp_valido(p):
-                    parsed = None
-            vmp_maps[label][p] = parsed
+            vmp_maps[label][p] = filter_vmp_value(v, p)
 
     # Parse resultado
     parsed = df["Resultado"].map(_parse_resultado)

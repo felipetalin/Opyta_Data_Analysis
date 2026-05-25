@@ -7,6 +7,8 @@ Escopo atual:
 - Pipeline de diagnostico para dados fisicoquimicos consolidados.
 - Execucao por matriz ambiental.
 - Suporte a projetos com codigo interno Opyta.
+- Pipeline Gold XLSX para projetos com planilhas locais de migracao.
+- Auditoria pos-execucao para conferir consistencia entre conformidade, percentual de violacao e sintese.
 
 ## Arquitetura Funcional
 
@@ -19,6 +21,24 @@ Escopo atual:
   - `fisico`
   - `meio-fisico`
   - `physicochemical`
+
+### Pipeline Gold XLSX
+- Modulo: `src/opyta_analysis/pipelines/diagnostico/meio_fisico_xlsx.py`
+- Funcao publica: `run_meio_fisico_xlsx_pipeline(...)`
+- Configuracao por cliente: `configs/clients/<cliente>.json`, chave `meio_fisico_xlsx`.
+- Fonte local: `Resultados_Meio_Fisico.xlsx` e `cadastro_parametros_opyta.xlsx`.
+- Blocos canonicos: `b2`, `b3`, `b4`, `b5`, `b6`, `b7`, `b8`, `b9`, `b11`, `resumo`, `audit`.
+
+### Nucleo compartilhado de regras
+- Pacote: `src/opyta_analysis/meio_fisico/`.
+- Modulo principal: `rules.py`.
+- Responsavel por regras que nao podem divergir entre blocos:
+  - parse de resultados e sinais (`<`, `<=`, `>`, `>=`);
+  - parse e filtro de VMP;
+  - conversao de unidades;
+  - regra compartilhada de violacao;
+  - excecao `VMP=0` para microbiologia de ausencia;
+  - selecao de versao oficial ou `_NEW` mais recente.
 
 ### Fonte de dados
 - Tabela: `public.fisico_analise_consolidada`
@@ -71,6 +91,15 @@ Saida por matriz dentro do diretorio informado em `--output-dir`:
 - Aplicavel somente para Sedimento.
 - Indicador de potencial toxicidade sedimentar.
 
+### Bloco audit - Auditoria de execucao
+- Script: `scripts/validar_meio_fisico_outputs.py`.
+- Saida: `12_Auditoria_Execucao.json`.
+- Compara totais de violacao entre:
+  - B2 (`01_Conformidade_*.xlsx`, celulas vermelhas);
+  - B4 (`04_Pct_Violacao.xlsx`);
+  - B11 (`11_Sintese_Executiva.xlsx`, aba `Pct_Violacao`).
+- Registra hash SHA-256 das planilhas de entrada, commit git, branch, status dirty e `ruleset_version`.
+
 ## Regras de Negocio e Normalizacao
 - Campanhas suportam dois padroes:
   - legado: `mes-ano` (ex.: `jan-2021`)
@@ -78,6 +107,9 @@ Saida por matriz dentro do diretorio informado em `--output-dir`:
 - Ordenacao de campanha e feita por parser dedicado.
 - `sinal_limite = '<'` indica valor abaixo de deteccao:
   - regra analitica adotada: usar `valor_medido/2` nos calculos que exigem numerico.
+- Nos scripts Gold XLSX, resultados com sinal `<` ou `<=` nao configuram violacao de VMP.
+- `VMP=0` e descartado como placeholder, exceto para parametros microbiologicos de ausencia (`Coliformes`, `Escherichia coli`/`E. coli`).
+- A unidade reportada nos resultados e autoritativa; VMPs do cadastro sao convertidos antes de calculos e graficos.
 
 ## Padrao Visual Gold - Parametrizacao de Cores
 - Cores tecnicas de classificacao e limites do Meio Fisico estao parametrizadas no tema.
@@ -167,6 +199,7 @@ Depois de executar:
 - Conferir blocos gerados por matriz.
 - Revisar indicadores que nao se aplicam por tipo de matriz.
 - Registrar evidencias no journal de projeto.
+- Conferir `12_Auditoria_Execucao.json`; status diferente de `OK` bloqueia entrega sem revisao.
 
 ## Armadilhas Conhecidas
 - Nao usar apenas `project_id` para meio fisico.
@@ -174,6 +207,9 @@ Depois de executar:
 - Nomes de campanha sem parser podem ficar fora de ordem.
 - Valores com `<` sem tratamento distorcem indices.
 - Migracao sem mapear VMP invalida bloco de conformidade.
+- Regras duplicadas entre scripts tendem a divergir; novas regras devem entrar primeiro em `src/opyta_analysis/meio_fisico/rules.py`.
+- Indice integrado favoravel nao substitui conformidade parametro-a-parametro.
+- Arquivos `_NEW` sao contingencia para bloqueio do Excel/Drive; o manifesto de auditoria deve indicar qual versao foi usada.
 
 ## Referencias Internas
 - `src/opyta_analysis/pipelines/diagnostico/meio_fisico.py`
