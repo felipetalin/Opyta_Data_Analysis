@@ -6,7 +6,7 @@
   "project_id": 62,
   "pipeline": "meio_fisico_xlsx",
   "pipeline_api": "run_meio_fisico_xlsx_pipeline(client='FERSAM001', block='all')",
-  "git_commit": "pending_commit_after_snapshot",
+  "git_commit": "54ef307",
   "git_branch": "main",
   "last_run": {
     "n_files": 106,
@@ -45,7 +45,7 @@
     },
     {
       "date": "2026-05-25",
-      "commit": "pending",
+      "commit": "54ef307",
       "topic": "B6 IET Lamparelli converte Fosforo Total mg/L -> ug/L antes do IET_PT; Superficial validada com media IET 50.0 e classes 22 Oligo, 11 Meso, 10 Ultra, 1 Hiper."
     }
   ],

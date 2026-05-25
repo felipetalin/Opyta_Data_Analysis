@@ -32,7 +32,7 @@
       "gold_baseline": "gold-meio-fisico-v1 (commit b92c6df)",
       "last_run": {
         "snapshot_ts": "20260525T150627Z",
-        "git_commit": "pending_commit_after_snapshot",
+        "git_commit": "54ef307",
         "validated_blocks": [
           "b6",
           "b11",
