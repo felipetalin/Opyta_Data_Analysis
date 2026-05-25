@@ -125,6 +125,17 @@ def _safe(name):
     return re.sub(r"[^A-Za-z0-9_-]+", "_", s).strip("_")
 
 
+def _norm_text(s):
+    s = unicodedata.normalize("NFKD", str(s or "").strip().lower())
+    s = "".join(ch for ch in s if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
+def _zero_vmp_valido(parametro):
+    p = _norm_text(parametro)
+    return "coliform" in p or "escherichia" in p or "e coli" in p
+
+
 def _viola(valor, sinal, limite, modo):
     if valor is None or limite is None:
         return False
@@ -194,7 +205,9 @@ def calcular_violacao_matriz(matriz, cfg, df_res, theme):
             if c in df_cad.columns:
                 v = _parse_vmp(cad_idx.loc[p, c])
                 if v is None: continue
-                if v <= 0: continue  # ignora VMP=0 (ex.: Arsênio Irrigação)
+                if v < 0: continue
+                if v == 0 and not _zero_vmp_valido(p):
+                    continue  # ignora placeholder 0 (ex.: Arsênio Irrigação)
                 limites.append((modo, v * factor))
         if not limites and not (matriz == "Água Superficial" and p.lower().startswith("nitrogênio amon")):
             continue

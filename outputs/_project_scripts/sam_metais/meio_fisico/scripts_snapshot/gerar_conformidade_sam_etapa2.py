@@ -36,6 +36,8 @@ from __future__ import annotations
 
 import os
 
+import re
+import unicodedata
 from pathlib import Path
 
 import numpy as np
@@ -162,6 +164,17 @@ def _conv_factor(from_u, to_u) -> float | None:
         return None
     return a / b
 
+
+def _norm_text(s: str) -> str:
+    s = unicodedata.normalize("NFKD", str(s or "").strip().lower())
+    s = "".join(ch for ch in s if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+
+def _zero_vmp_valido(parametro: str) -> bool:
+    p = _norm_text(parametro)
+    return "coliform" in p or "escherichia" in p or "e coli" in p
+
 def _limite_amonia_por_ph(ph: float | None) -> float | None:
     """CONAMA 357 art.34 — Nitrogenio Amoniacal Total (mg/L N) por faixa de pH."""
     if ph is None:
@@ -212,7 +225,15 @@ def gerar_para_matriz(df_res: pd.DataFrame, matriz: str, cfg: dict) -> tuple[Pat
     for col_cad, label, _modo in cfg["vmps"]:
         if col_cad is None or col_cad not in df_cad.columns:
             continue
-        vmp_maps[label] = {p: _parse_vmp(v) for p, v in cad_idx[col_cad].items()}
+        vmp_maps[label] = {}
+        for p, v in cad_idx[col_cad].items():
+            parsed = _parse_vmp(v)
+            if parsed is not None:
+                if parsed < 0:
+                    parsed = None
+                elif parsed == 0 and not _zero_vmp_valido(p):
+                    parsed = None
+            vmp_maps[label][p] = parsed
 
     # Parse resultado
     parsed = df["Resultado"].map(_parse_resultado)

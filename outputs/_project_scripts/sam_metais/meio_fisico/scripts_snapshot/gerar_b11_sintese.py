@@ -74,6 +74,30 @@ def _latest_generated(path: Path) -> Path:
     return max(existing, key=lambda p: p.stat().st_mtime)
 
 
+def _write_sintese(path: Path, resumo: pd.DataFrame, df_pv: pd.DataFrame,
+                   df_sz: pd.DataFrame, df_idx: pd.DataFrame,
+                   pontos_critic: pd.DataFrame) -> Path:
+    def write(target: Path) -> None:
+        with pd.ExcelWriter(target, engine="openpyxl") as w:
+            resumo.to_excel(w, sheet_name="Resumo", index=False)
+            if not df_pv.empty:
+                df_pv.to_excel(w, sheet_name="Pct_Violacao", index=False)
+            if not df_sz.empty:
+                df_sz.to_excel(w, sheet_name="Sazonal_MannWhitney", index=False)
+            if not df_idx.empty:
+                df_idx.to_excel(w, sheet_name="Indice", index=False)
+            if not pontos_critic.empty:
+                pontos_critic.to_excel(w, sheet_name="Pontos_Criticos", index=False)
+
+    try:
+        write(path)
+        return path
+    except PermissionError:
+        alt = path.with_name(path.stem + "_NEW" + path.suffix)
+        write(alt)
+        return alt
+
+
 def main():
     df = pd.read_excel(SRC, sheet_name="Resultados_Meio_Fisico", dtype=str)
     for c in ["Matriz", "Parametro", "Ponto", "Campanha"]:
@@ -149,15 +173,14 @@ def main():
             if rows:
                 pontos_critic = pd.DataFrame(rows).sort_values("Pct_Violacao", ascending=False).head(10)
 
-        xlsx_out = out_dir / "11_Sintese_Executiva.xlsx"
-        if xlsx_out.exists():
-            xlsx_out = xlsx_out.with_name(xlsx_out.stem + "_NEW.xlsx")
-        with pd.ExcelWriter(xlsx_out, engine="openpyxl") as w:
-            resumo.to_excel(w, sheet_name="Resumo", index=False)
-            if not df_pv.empty: df_pv.to_excel(w, sheet_name="Pct_Violacao", index=False)
-            if not df_sz.empty: df_sz.to_excel(w, sheet_name="Sazonal_MannWhitney", index=False)
-            if not df_idx.empty: df_idx.to_excel(w, sheet_name="Indice", index=False)
-            if not pontos_critic.empty: pontos_critic.to_excel(w, sheet_name="Pontos_Criticos", index=False)
+        xlsx_out = _write_sintese(
+            out_dir / "11_Sintese_Executiva.xlsx",
+            resumo,
+            df_pv,
+            df_sz,
+            df_idx,
+            pontos_critic,
+        )
         print(f"  [{matriz}] sintese -> {xlsx_out.name}")
     print("[B11] OK")
 

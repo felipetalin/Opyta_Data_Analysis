@@ -34,7 +34,7 @@ Validação pontual registrada em **2026-05-25**: blocos `b2`, `b4`, `b11` e `re
 
 ## Regras Gold (resumo executivo)
 - **Unidade dos dados é autoritativa** (moda da coluna `Unidade_Medida`). VMPs do cadastro são convertidos via `_conv_factor(unidade_cad, unidade_dados)` antes de violação e antes de plotar.
-- Filtrar `VMP <= 0` e `VMP None`.
+- Filtrar `VMP <= 0` e `VMP None`, exceto `VMP=0` em parâmetros microbiológicos de ausência (`Coliformes`, `Escherichia coli`/`E. coli`).
 - b3: apenas linhas de VMP (CONAMA 396/357), sem LQ.
 - Superficial usa **CONAMA 357 Classe 2** como referência operacional de conformidade do diagnóstico.
 - b2: a marcação vermelha em Superficial deve usar apenas `VMP_357_Cl2_Min`, `VMP_357_Cl2_Max` e amônia dinâmica por pH.
@@ -50,11 +50,14 @@ Validação pontual registrada em **2026-05-25**: blocos `b2`, `b4`, `b11` e `re
 2. **b2 alinhado ao b3/b4** — `01_Conformidade_Agua_Superficial.xlsx` deixou de marcar qualquer classe e passou a marcar a referência operacional Classe 2. Isso remove falsos alertas como Turbidez por Classe 1.
 3. **Resiliência a arquivo bloqueado** — `b4` avisa quando salva `_NEW`; `b11` e `resumo` leem a versão mais recente entre o arquivo oficial e `_NEW`.
 4. **b6 IET Lamparelli com unidade correta** — `IET_PT` usa Fósforo Total em µg/L (mg/m³); quando a fonte está em mg/L, o script converte `mg/L -> µg/L` antes da fórmula. Isso corrigiu a classificação artificialmente boa em Superficial.
+5. **b2/b4 Subterrânea com VMP zero microbiológico** — `VMP=0` passa a valer para Coliformes e E. coli (padrão de ausência), mas segue descartado para placeholders de outros parâmetros. Resultado validado: 5 parâmetros violados em Subterrânea (Ferro Total, Manganês Total, Coliformes Termotolerantes, Alumínio Total e E. coli).
+6. **b11 grava arquivo oficial quando possível** — `11_Sintese_Executiva.xlsx` agora é atualizado diretamente; `_NEW` fica restrito a caso de bloqueio real pelo Excel/Drive.
 
 ## Sinal de alerta (para futuras revisões de cadastro)
 > **VMP absurdamente grande** + **linhas duplicadas no cadastro** ≈ unidade trocada. Conferir antes de propagar.
 > **Parâmetros com limite mínimo** (OD, pH/faixa) exigem regra `valor < limite_min`; se o script usa apenas `valor > VMP_ref`, a violação some silenciosamente.
 > **IET bom demais em todos os pontos** pode indicar que o fósforo em mg/L foi usado direto na fórmula de Lamparelli, que espera µg/L.
+> **Coliformes/E. coli ausentes do B4 em Subterrânea** pode indicar filtro indevido de `VMP=0`; para microbiologia, zero representa ausência, não placeholder.
 
 ## Referência de memória
 - `/memories/repo/meio_fisico_gold_v1.md` — versão completa das regras Gold e armadilhas.
