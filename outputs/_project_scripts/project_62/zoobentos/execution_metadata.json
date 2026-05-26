@@ -1,0 +1,323 @@
+{
+  "executed_at": "2026-05-26T00:00:42.704332Z",
+  "runner_version": "1.2",
+  "project_id": 62,
+  "group": "Zoobentos",
+  "pipeline": "zoobentos",
+  "client": "fersam001",
+  "block": "all",
+  "git": {
+    "branch": "main",
+    "commit": "dd3d01d",
+    "dirty": true,
+    "status_short_count": 1
+  },
+  "rows_loaded": 207,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
+  "campaigns": [
+    "Campanha-01-Seca",
+    "Campanha-02-Chuva"
+  ],
+  "campaigns_count": 2,
+  "points": [
+    "SAM_01",
+    "SAM_02",
+    "SAM_03",
+    "SAM_04",
+    "SAM_05",
+    "SAM_06",
+    "SAM_07",
+    "SAM_08",
+    "SAM_09",
+    "SAM_10",
+    "SAM_11",
+    "SAM_12",
+    "SAM_13",
+    "SAM_14",
+    "SAM_15",
+    "SAM_16",
+    "SAM_17",
+    "SAM_18",
+    "SAM_19",
+    "SAM_20",
+    "SAM_21",
+    "SAM_23",
+    "SAM_24",
+    "SAM_25",
+    "SAM_26"
+  ],
+  "points_count": 25,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos",
+  "generated_files_count": 28,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\01_tabela_composicao_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_df_abundancia_classe_Campanha_01_Seca_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_grafico_abundancia_classe_Campanha_01_Seca_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_df_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_df_abundancia_classe_Campanha_02_Chuva_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_grafico_abundancia_classe_Campanha_02_Chuva_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_df_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\10_grafico_diversidade_alfa_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_dendrograma_similaridade_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_curva_suficiencia_amostral_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_bmwp_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_grafico_bmwp_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_df_ept_chol_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_grafico_ept_chol_zoobentos.png"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\01_tabela_composicao_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6382,
+      "modified_at": "2026-05-25T23:59:25.160000Z",
+      "sha256": "2dc6f53e159d26a8001dfde85e1215bcc2177009fa15462edf1bee2882f7ae28"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 12398,
+      "modified_at": "2026-05-25T23:59:25.919000Z",
+      "sha256": "4375224c46376a38ee24ef5d5977cd5a8bdab3f4064a1a7d169efab5133d213c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5676,
+      "modified_at": "2026-05-25T23:59:26.032000Z",
+      "sha256": "f84ecd75a6566e16e82e8815ea7c2aa0dd07e5c1bdbecd07a418a049210bc0b8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 456970,
+      "modified_at": "2026-05-25T23:59:30.869000Z",
+      "sha256": "83c9a4bcd51f05ace7d82ea4019511436a6543dd1346e5d142eee466daf5b4df"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5284,
+      "modified_at": "2026-05-25T23:59:31.008000Z",
+      "sha256": "b618a7a36d4dd48d72ff2c41bbe80f2c3b9ddafe29c388a7bc6f84316c6475bc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 443507,
+      "modified_at": "2026-05-25T23:59:35.076000Z",
+      "sha256": "c68d55a497dad48f0f8bc97116918fb6b0e7eb4864e0fe68956a4dab271f1899"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_df_abundancia_classe_Campanha_01_Seca_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5520,
+      "modified_at": "2026-05-25T23:59:35.220000Z",
+      "sha256": "f90f522e700fb7e740296160e84bccc717039a816a4872af02fbdacc0889c495"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_grafico_abundancia_classe_Campanha_01_Seca_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 514740,
+      "modified_at": "2026-05-25T23:59:40.812000Z",
+      "sha256": "5385fc8b68fc72cf86bfeac7b1e84e144287087a3a267af18be5a34ff8b940f7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_df_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5613,
+      "modified_at": "2026-05-25T23:59:40.979000Z",
+      "sha256": "dd44be1880597070581b56b9d24d193ef837ce8dfef1ddd573d05c75166dd0b1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_classe_Campanha_01_Seca_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 541474,
+      "modified_at": "2026-05-25T23:59:46.679000Z",
+      "sha256": "d03d0846bc20dadf46f9f5460538f25db0b81c74c800fc344286c3e3cdc969ac"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_df_abundancia_classe_Campanha_02_Chuva_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5607,
+      "modified_at": "2026-05-25T23:59:46.855000Z",
+      "sha256": "921b836a57ed8ca68802262821223d733e177ac3a8668533118d99dab7e319c1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06B_grafico_abundancia_classe_Campanha_02_Chuva_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 534750,
+      "modified_at": "2026-05-25T23:59:52.629000Z",
+      "sha256": "3008aabc67b430b24682f88e2ad5ef885bb24cdbb1007692bfc50b1c529d0f27"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_df_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5644,
+      "modified_at": "2026-05-25T23:59:52.798000Z",
+      "sha256": "72ffcaacd0dd3c6c47220b6b9cf88c33b323b2628ea6592b3001d7259cf04aee"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_classe_Campanha_02_Chuva_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 557849,
+      "modified_at": "2026-05-25T23:59:58.288000Z",
+      "sha256": "5a1f056cea208bebedd00f211912b382d4fc3f88bff10dc0b01059d47f07cb19"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5133,
+      "modified_at": "2026-05-25T23:59:58.437000Z",
+      "sha256": "a6c2ddf735d96104fcb3a9e240ed4231a2d4b036b9dc69d7a7b4aac911d934af"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 918458,
+      "modified_at": "2026-05-26T00:00:04.104000Z",
+      "sha256": "38f2085d7779760a82b1e36e2872d6173e068953a7c8182951c2c0e9faa56a79"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1272166,
+      "modified_at": "2026-05-26T00:00:10.477000Z",
+      "sha256": "753eb37cf7d65bab77b10ad935882509f106295827d8249fc21ba2f6c4ce76e2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6657,
+      "modified_at": "2026-05-26T00:00:10.725000Z",
+      "sha256": "5a3befb727fa8cc87d61926bcac5e76d0cc433ee380cc9328430b9f5a5f78950"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\10_grafico_diversidade_alfa_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 913070,
+      "modified_at": "2026-05-26T00:00:17.384000Z",
+      "sha256": "5dcc6fe9fcfa323e9d9a83cbcc6752452b48401718aedc717982a16b9f4ddc89"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 8078,
+      "modified_at": "2026-05-26T00:00:17.587000Z",
+      "sha256": "92967242d3b12316f5de328206d0a0d0800e66d00cbc27bd48da2becb61d83d8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 9094,
+      "modified_at": "2026-05-26T00:00:17.732000Z",
+      "sha256": "4bd622cc3bbc6ffb8afd9c879b7ccf684f79782d22eeb6f15a4392687bbc7a88"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_dendrograma_similaridade_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 732151,
+      "modified_at": "2026-05-26T00:00:23.520000Z",
+      "sha256": "7e6302b7d47ead3c834680a1fd7110f2a9926d99896d0d7dd941c71b16148b46"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7785,
+      "modified_at": "2026-05-26T00:00:24.268000Z",
+      "sha256": "7518fe04fff2ba2b7053ea3729e7ec2b2ce889084d75c42aee74f8c33652d8bf"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_curva_suficiencia_amostral_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 852561,
+      "modified_at": "2026-05-26T00:00:29.738000Z",
+      "sha256": "a544e3bbadcbc11f15626470316cead7e5711227abac6246ceb101bd90fbb3e4"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_df_bmwp_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5938,
+      "modified_at": "2026-05-26T00:00:29.909000Z",
+      "sha256": "3f2e71bfe28b41b5d2ed2e178e573cd8fbd32675a0289d4873805df3c5eb1cd4"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\11_grafico_bmwp_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 569420,
+      "modified_at": "2026-05-26T00:00:35.564000Z",
+      "sha256": "a55bd413a07fac6ac13384fb0fb692b8dd51c4ef80fb053e9682447b90dd8ae6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_df_ept_chol_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6566,
+      "modified_at": "2026-05-26T00:00:35.757000Z",
+      "sha256": "033609c819cbb74fb983511ad2451ec3b10e94b3ca8ea97c08b4f1253daf9d90"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Bentos\\12_grafico_ept_chol_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 473742,
+      "modified_at": "2026-05-26T00:00:41.341000Z",
+      "sha256": "269f29775605053332cb109e0decce271e1431889108468fdc2e08006b39efea"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\zoobentos",
+  "warnings": []
+}

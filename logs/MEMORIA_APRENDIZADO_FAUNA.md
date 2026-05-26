@@ -22,6 +22,12 @@ hashes dos artefatos.
 - Auditoria passou a reconhecer aliases de pastas antigas/operacionais, como
   `Fitoplancton -> Fito` e `Zoobentos -> Bentos`, registrando o alias usado
   sem alterar a memoria original.
+- O cliente `fersam001` passou a declarar `audit_project_slug="sam_metais"`,
+  garantindo que novas memorias de fauna caiam no mesmo lastro oficial do
+  projeto.
+- O contexto git separa sujeira de codigo/configuracao dos arquivos gerados em
+  `outputs/_project_scripts`, para que a propria auditoria nao contamine novas
+  execucoes.
 
 ## Regra operacional
 

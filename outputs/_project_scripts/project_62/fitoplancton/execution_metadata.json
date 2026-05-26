@@ -1,0 +1,266 @@
+{
+  "executed_at": "2026-05-25T23:58:57.025706Z",
+  "runner_version": "1.2",
+  "project_id": 62,
+  "group": "Fitoplancton",
+  "pipeline": "fitoplancton",
+  "client": "fersam001",
+  "block": "all",
+  "git": {
+    "branch": "main",
+    "commit": "dd3d01d",
+    "dirty": false,
+    "status_short_count": 0
+  },
+  "rows_loaded": 591,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [],
+  "campaigns_count": 0,
+  "points": [],
+  "points_count": 0,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito",
+  "generated_files_count": 25,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\01_tabela_composicao_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\01_tabela_ocorrencia_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\02_df_riqueza_por_ponto_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\02_grafico_riqueza_por_ponto_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06A_df_riqueza_total_por_ponto_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06A_grafico_riqueza_total_por_ponto_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_df_densidade_filo_Campanha_01_Seca_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_grafico_densidade_filo_Campanha_01_Seca_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_df_densidade_relativa_filo_Campanha_01_Seca_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_grafico_densidade_relativa_filo_Campanha_01_Seca_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_df_densidade_filo_Campanha_02_Chuva_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_grafico_densidade_filo_Campanha_02_Chuva_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_df_densidade_relativa_filo_Campanha_02_Chuva_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_grafico_densidade_relativa_filo_Campanha_02_Chuva_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\04_df_riqueza_por_filo_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\04_grafico_riqueza_filo_barras_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\05_grafico_riqueza_filo_rosca_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\10_df_diversidade_alfa_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\10_grafico_diversidade_alfa_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_df_matriz_comunidade_fitoplancton_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_df_distancias_braycurtis_fitoplancton_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_dendrograma_similaridade_fitoplancton_seca_chuva_somadas.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\12_df_curva_suficiencia_fitoplancton.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\12_curva_suficiencia_amostral_fitoplancton.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\DarwinCore_Fitoplancton_Sam_Metais_Diagn_stico.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\01_tabela_composicao_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 11358,
+      "modified_at": "2026-05-25T23:57:46.803000Z",
+      "sha256": "17ddd5288d426cccfe07d6d43aa1814afbdda623d13e0e3cf5e2ebfa79741b76"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\01_tabela_ocorrencia_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 31844,
+      "modified_at": "2026-05-25T23:57:47.390000Z",
+      "sha256": "1cba2c239f8cbf9da283b352ea708ef51a1a063f756d356d661944f02bdd3e86"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5725,
+      "modified_at": "2026-05-25T23:57:47.499000Z",
+      "sha256": "bdc9c80800cdfba2bef9ec1f2ba82f91e54b773f438ddea2d8f917a83f891b2b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 584691,
+      "modified_at": "2026-05-25T23:57:56.309000Z",
+      "sha256": "1249b983eb1661c9eb5f62709f93238d6eb5a9b8699fc19531dada74f2b3891d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06A_df_riqueza_total_por_ponto_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5293,
+      "modified_at": "2026-05-25T23:57:56.494000Z",
+      "sha256": "835e790187f0047a5183e7cc39d6f4b4619c011f8b661827df5eeb3aadcac078"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06A_grafico_riqueza_total_por_ponto_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 560424,
+      "modified_at": "2026-05-25T23:58:02.112000Z",
+      "sha256": "753f28195c8f0f4de648366702f9ec9e07df4f132803affd50eb40d468af9993"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_df_densidade_filo_Campanha_01_Seca_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6216,
+      "modified_at": "2026-05-25T23:58:02.298000Z",
+      "sha256": "70262346f60bc1c3462e0052f14db9885eeddd66dbe7303f4ac80bdfe5eb16ad"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_grafico_densidade_filo_Campanha_01_Seca_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 697553,
+      "modified_at": "2026-05-25T23:58:08.441000Z",
+      "sha256": "8122f20a18b747de0793daaa0a165fd29d8c21a89659a73c92e10dfdf9043627"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_df_densidade_relativa_filo_Campanha_01_Seca_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6560,
+      "modified_at": "2026-05-25T23:58:08.603000Z",
+      "sha256": "00fb9b71ef411ff12b2d46eb186a44b01699939be53fcdb6cefc50c77b782ad0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_grafico_densidade_relativa_filo_Campanha_01_Seca_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 668704,
+      "modified_at": "2026-05-25T23:58:14.267000Z",
+      "sha256": "3e1c27c11e5bb87714e124c3cc42d7471da676b2a2f440f4c78185ed9916b683"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_df_densidade_filo_Campanha_02_Chuva_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5856,
+      "modified_at": "2026-05-25T23:58:14.763000Z",
+      "sha256": "c8aded9b3246a9e750313c7ecbeb0ef66c72c6125d1c2e9233abc04de0da3928"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06B_grafico_densidade_filo_Campanha_02_Chuva_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 589736,
+      "modified_at": "2026-05-25T23:58:20.119000Z",
+      "sha256": "31c8adb7fc61d5f93ab712d13597a16ec169c77d8fdb09d051695509847c883c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_df_densidade_relativa_filo_Campanha_02_Chuva_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5983,
+      "modified_at": "2026-05-25T23:58:20.277000Z",
+      "sha256": "3fb7023edf459fc2efe3750cf1edea46c22755f5208d2299372d2eab77d6fbeb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\06C_grafico_densidade_relativa_filo_Campanha_02_Chuva_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 573646,
+      "modified_at": "2026-05-25T23:58:25.487000Z",
+      "sha256": "4439d2093db49f823d4d8e0ec55c30956a0c8d174f4628da3853a9f4cc390fd3"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5201,
+      "modified_at": "2026-05-25T23:58:25.622000Z",
+      "sha256": "3a27ce17954a73a5d1b7e4b653bdf48a80447eb98f191469b7e31cf005a3cde6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1194625,
+      "modified_at": "2026-05-25T23:58:30.523000Z",
+      "sha256": "295af2e98b35c2629361301463e24b47b391314f34cca3b4d1f3df03e1d8a62f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1448220,
+      "modified_at": "2026-05-25T23:58:36.189000Z",
+      "sha256": "92cf55052ac1dc9c513e55d64bc37e56f4b050386083fd071896b44ac5d05f93"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\10_df_diversidade_alfa_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6071,
+      "modified_at": "2026-05-25T23:58:36.360000Z",
+      "sha256": "ad514fbb252c223a7b5eebdb58009feb976eb9f0ce9084476cc4b5de75d49598"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\10_grafico_diversidade_alfa_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1015110,
+      "modified_at": "2026-05-25T23:58:42.254000Z",
+      "sha256": "8f7c54658b7edd96ce1c619befaa47cf9425dc29a0a907b429c9a4efeae47629"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_df_matriz_comunidade_fitoplancton_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 9227,
+      "modified_at": "2026-05-25T23:58:42.444000Z",
+      "sha256": "dc5da2d26415dfde2a420226df0b81e2d6dd89a2aeb11a815ca193940a3f315a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_df_distancias_braycurtis_fitoplancton_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7407,
+      "modified_at": "2026-05-25T23:58:42.559000Z",
+      "sha256": "f458f1123e679525ff91d3fec231f6ade08e7889f51072b4c2a57f25d5962053"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\11_dendrograma_similaridade_fitoplancton_seca_chuva_somadas.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 643054,
+      "modified_at": "2026-05-25T23:58:46.804000Z",
+      "sha256": "b41cf5d815d89164e4ac7bde1a8de853866afa9b0efc34a7ab47707b56b3d02b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\12_df_curva_suficiencia_fitoplancton.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7129,
+      "modified_at": "2026-05-25T23:58:47.275000Z",
+      "sha256": "15553d9682909a08fcfe27aaa3b0279e505ff8333661dfbded726689170e6bb8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\12_curva_suficiencia_amostral_fitoplancton.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 940303,
+      "modified_at": "2026-05-25T23:58:52.224000Z",
+      "sha256": "38a37ba9c7415a544b2b50705f594923d2446c798a0e14843c17b3e4de98c412"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Fito\\DarwinCore_Fitoplancton_Sam_Metais_Diagn_stico.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 61689,
+      "modified_at": "2026-05-25T23:58:55.711000Z",
+      "sha256": "29c8a497c0e3e34ca7267501d09e42b8b9ec63fdd6f3c41b7a81583c4a34f632"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_62\\fitoplancton",
+  "warnings": []
+}

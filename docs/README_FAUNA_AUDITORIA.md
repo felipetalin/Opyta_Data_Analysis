@@ -38,6 +38,9 @@ O manifesto padrao por projeto e gravado em:
 outputs/_project_scripts/<projeto>/fauna_inventory.json
 ```
 
+O nome do projeto pode ser definido no arquivo do cliente com
+`audit_project_slug`. Para `fersam001`, o lastro oficial usa `sam_metais`.
+
 ## O que a auditoria confere
 
 - existencia do `execution_metadata.json` por grupo;

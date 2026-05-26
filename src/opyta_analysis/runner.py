@@ -35,9 +35,22 @@ def _slug(value: str) -> str:
     return "".join(safe).strip("_") or "unknown"
 
 
+def _client_audit_project_slug(params: RunParams, config_root: Path) -> str | None:
+    cfg_path = config_root / "clients" / f"{params.client}.json"
+    if not cfg_path.exists():
+        return None
+    try:
+        with cfg_path.open("r", encoding="utf-8") as f:
+            cfg = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return None
+    value = cfg.get("audit_project_slug") or cfg.get("project_slug")
+    return str(value).strip() if value else None
+
+
 def _get_project_audit_dir(params: RunParams, config_root: Path, details: Dict[str, Any]) -> Path:
     root = config_root.parent
-    project_name = details.get("project_name")
+    project_name = details.get("project_name") or _client_audit_project_slug(params, config_root)
     project_folder = _slug(project_name) if project_name else f"project_{params.project_id}"
     group_folder = _slug(params.group)
     audit_dir = root / "outputs" / "_project_scripts" / project_folder / group_folder

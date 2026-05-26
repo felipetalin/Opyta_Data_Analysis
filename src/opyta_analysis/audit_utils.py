@@ -17,6 +17,11 @@ DEFAULT_DELIVERABLE_PATTERNS = (
     "*.json",
 )
 
+GENERATED_AUDIT_PREFIXES = (
+    "outputs/_project_scripts/",
+    "outputs\\_project_scripts\\",
+)
+
 
 def run_git(args: Sequence[str], repo_root: Path) -> str | None:
     try:
@@ -34,13 +39,31 @@ def run_git(args: Sequence[str], repo_root: Path) -> str | None:
     return result.stdout.strip()
 
 
+def _status_path(line: str) -> str:
+    path = line[3:] if len(line) > 3 else ""
+    if " -> " in path:
+        path = path.split(" -> ", 1)[1]
+    return path.strip().strip('"')
+
+
+def _is_generated_audit_path(line: str) -> bool:
+    path = _status_path(line)
+    normalized = path.replace("\\", "/")
+    return any(normalized.startswith(prefix.replace("\\", "/")) for prefix in GENERATED_AUDIT_PREFIXES)
+
+
 def git_context(repo_root: Path) -> dict[str, object]:
     status_short = run_git(["status", "--short"], repo_root) or ""
+    status_lines = [line for line in status_short.splitlines() if line.strip()]
+    source_status_lines = [line for line in status_lines if not _is_generated_audit_path(line)]
     return {
         "branch": run_git(["branch", "--show-current"], repo_root),
         "commit": run_git(["rev-parse", "--short", "HEAD"], repo_root),
-        "dirty": bool(status_short),
-        "status_short_count": len([line for line in status_short.splitlines() if line.strip()]),
+        "dirty": bool(source_status_lines),
+        "status_short_count": len(source_status_lines),
+        "full_dirty": bool(status_lines),
+        "full_status_short_count": len(status_lines),
+        "ignored_generated_audit_count": len(status_lines) - len(source_status_lines),
     }
 
 
