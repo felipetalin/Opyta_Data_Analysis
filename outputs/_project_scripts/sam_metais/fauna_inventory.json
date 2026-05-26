@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-05-26T00:20:13.934239Z",
+  "generated_at": "2026-05-26T00:45:16.596680Z",
   "status": "OK",
   "ruleset_version": "fauna_audit_v1.0",
   "audit_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts",
   "git": {
     "branch": "main",
-    "commit": "684c97a",
+    "commit": "680e853",
     "dirty": false,
     "status_short_count": 0,
     "full_dirty": true,
-    "full_status_short_count": 21,
-    "ignored_generated_audit_count": 21
+    "full_status_short_count": 7,
+    "ignored_generated_audit_count": 7
   },
   "summary": {
     "projects_count": 1,
@@ -19,19 +19,19 @@
   },
   "projects": [
     {
-      "generated_at": "2026-05-26T00:20:13.038374Z",
+      "generated_at": "2026-05-26T00:45:15.576876Z",
       "status": "OK",
       "ruleset_version": "fauna_audit_v1.0",
       "project": "sam_metais",
       "project_audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\sam_metais",
       "git": {
         "branch": "main",
-        "commit": "684c97a",
+        "commit": "680e853",
         "dirty": false,
         "status_short_count": 0,
         "full_dirty": true,
-        "full_status_short_count": 21,
-        "ignored_generated_audit_count": 21
+        "full_status_short_count": 7,
+        "ignored_generated_audit_count": 7
       },
       "summary": {
         "groups_count": 4,
@@ -488,7 +488,7 @@
           "pipeline": "ictio",
           "client": "fersam001",
           "block": "all",
-          "executed_at": "2026-05-26T00:18:20.598629Z",
+          "executed_at": "2026-05-26T00:44:16.081000Z",
           "runner_version": "1.2",
           "rows_loaded": 123,
           "executed_blocks": [
@@ -515,112 +515,112 @@
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\01_tabela_composicao_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 6117,
-              "modified_at": "2026-05-26T00:17:38.177000Z",
-              "sha256": "3b2e63faf25cd4bc22330351065bd7c475c77ff19997344b30f5a2c8f57bc1f2"
+              "size_bytes": 6118,
+              "modified_at": "2026-05-26T00:43:44.254000Z",
+              "sha256": "97014888cc9d5fa258df92e306e0688e453e22b2d80e8280d5b6a6f0be40ac50"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5620,
-              "modified_at": "2026-05-26T00:17:38.260000Z",
-              "sha256": "7c100cff15dac833243018f83c514287e4f73ec4811af3c00514b6f3ec530f87"
+              "size_bytes": 5621,
+              "modified_at": "2026-05-26T00:43:44.376000Z",
+              "sha256": "58084244a22c98d4aa4236342273bbc6147dc5f077cb9a47236ff319e5ed87fa"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\02_grafico_riqueza_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 503165,
-              "modified_at": "2026-05-26T00:17:40.389000Z",
+              "modified_at": "2026-05-26T00:43:46.708000Z",
               "sha256": "d4efae33e700d16790401fa68fc660b76b68c69ab26148119fc787d25dcf810f"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5667,
-              "modified_at": "2026-05-26T00:17:40.527000Z",
-              "sha256": "3608148f25bc82981057d9683db51710fda240a6ceb40069c6eeb45c47fedcda"
+              "size_bytes": 5666,
+              "modified_at": "2026-05-26T00:43:46.825000Z",
+              "sha256": "cc185cbbf80c3004738aa5144104fb9145d071095f2e2558c38fc8410ba46f09"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\03_grafico_abundancia_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 633899,
-              "modified_at": "2026-05-26T00:17:42.812000Z",
+              "modified_at": "2026-05-26T00:43:48.575000Z",
               "sha256": "bc1dd272fe294a628afcd978d99b48994a2bcd8b8c96e2c75460bb1616fe04ba"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_df_cpue_por_ponto_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 6107,
-              "modified_at": "2026-05-26T00:17:42.942000Z",
-              "sha256": "3fc0586050e4ec31a220bde378d265f32e330266290eed8e666d53c68dd633ea"
+              "size_bytes": 6804,
+              "modified_at": "2026-05-26T00:43:48.740000Z",
+              "sha256": "03ebf2e32933d93fff4bb2718e15f568f1ab742573698f394c916026e9c9f5c1"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_grafico_cpuen_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 828077,
-              "modified_at": "2026-05-26T00:17:45.492000Z",
-              "sha256": "cbd0c0b417533315b6eac73d73c75265352d8f1ff81ae5d354792f679d4405c2"
+              "size_bytes": 831255,
+              "modified_at": "2026-05-26T00:43:51.512000Z",
+              "sha256": "82a57e89b518d360f0d4e125aa3039ad66887b1773ab1ddf1fa5f85ff6a8da5e"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\07_grafico_cpueb_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 819619,
-              "modified_at": "2026-05-26T00:17:49.838000Z",
-              "sha256": "954959c2436315343b5fb867311c9e2f87b020545aa2d3bb0abdc6ac73d2665e"
+              "size_bytes": 801045,
+              "modified_at": "2026-05-26T00:43:55.003000Z",
+              "sha256": "dc3080492421aaf0751f929a0e013a0faee1dc84b67966aef01cce842346cb34"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\08_df_cpuen_por_especie_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5883,
-              "modified_at": "2026-05-26T00:17:50.032000Z",
-              "sha256": "57ee9d6db6cb709fc12af53a6e3781920f77b33854ba9efb801bde0ed74255fd"
+              "size_bytes": 5889,
+              "modified_at": "2026-05-26T00:43:55.240000Z",
+              "sha256": "d6ca901a373db697cd5a859514b97472c08a8e6bdb53ced4b6db7054dc599fe6"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\09_df_cpueb_por_especie_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5912,
-              "modified_at": "2026-05-26T00:17:50.156000Z",
-              "sha256": "1ec563f1833bc372d302492828d31f1c3a752e333cddd72661d833bddff9aa75"
+              "size_bytes": 5918,
+              "modified_at": "2026-05-26T00:43:55.411000Z",
+              "sha256": "b3bbff12479f3defb6c55b2c579f292eaa7f3f8df9cc894cb34d4aba707f5f96"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\08_grafico_cpuen_por_especie_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 1792780,
-              "modified_at": "2026-05-26T00:17:55.414000Z",
-              "sha256": "34b0b3f27727f447c0477d1bced7213861dd3fcbf06d7e99026561f166b918ca"
+              "size_bytes": 1779160,
+              "modified_at": "2026-05-26T00:43:59.241000Z",
+              "sha256": "9e05242feacc22e7fb64ecd7ff863b45b784966cc79b7bec7cb590cf9dcc7765"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\09_grafico_cpueb_por_especie_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 1796248,
-              "modified_at": "2026-05-26T00:18:00.764000Z",
-              "sha256": "3799438d298d7f182ec713af15ea44b6b39451da1ba9dd399c28badac553331b"
+              "size_bytes": 1795978,
+              "modified_at": "2026-05-26T00:44:03.225000Z",
+              "sha256": "4353fa126f5fdf288c2dcd49d0fa908bd9513a304bbe2802a2043f72c0f37fb6"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\10_df_diversidade_alfa_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
               "size_bytes": 6555,
-              "modified_at": "2026-05-26T00:18:00.934000Z",
-              "sha256": "01b8f49666106981cd784be7373e949335e5ca7def2c32fb0578c66c98e20fd2"
+              "modified_at": "2026-05-26T00:44:03.395000Z",
+              "sha256": "f4c4968064ad205d933d55b2d093421ea15fd6b6c85eaa3da752f453a9263011"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\10_grafico_diversidade_alfa_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 1102118,
-              "modified_at": "2026-05-26T00:18:07.415000Z",
+              "modified_at": "2026-05-26T00:44:06.531000Z",
               "sha256": "5488a68d7f65748e99643dbfa4f11f826fe94cf6c75514e517dda4b10738ea58"
             },
             {
@@ -628,48 +628,48 @@
               "exists": true,
               "type": "file",
               "size_bytes": 7025,
-              "modified_at": "2026-05-26T00:18:07.567000Z",
-              "sha256": "11647ae5852c39bb3c2c6f08a607d6613f298d09184a6e3defebe73eda4334fe"
+              "modified_at": "2026-05-26T00:44:06.680000Z",
+              "sha256": "18982e74154f1750b143456721aeda5cbf3672a7eabd8a275baec6646d756b47"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
               "exists": true,
               "type": "file",
               "size_bytes": 8128,
-              "modified_at": "2026-05-26T00:18:07.691000Z",
-              "sha256": "4c8d7230e34174d0acc902394ca9131080781402d96bbab38b6c9053e2d0a99c"
+              "modified_at": "2026-05-26T00:44:06.785000Z",
+              "sha256": "80263171111ea34fcfbc67d8c82a1fc5a014da35cf28aa808a5ff3431d0871f6"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
               "exists": true,
               "type": "file",
               "size_bytes": 678088,
-              "modified_at": "2026-05-26T00:18:12.946000Z",
+              "modified_at": "2026-05-26T00:44:10.416000Z",
               "sha256": "8471cd249200e1b334233d40c9743c7bbe93891ed3e3f75c58388b321d5d8059"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_df_curva_suficiencia_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 7587,
-              "modified_at": "2026-05-26T00:18:13.571000Z",
-              "sha256": "ec477cedb127c1c2fe5210c5947e46a377063eb9c0e64e71afdd8ad3324796dd"
+              "size_bytes": 7588,
+              "modified_at": "2026-05-26T00:44:10.784000Z",
+              "sha256": "bb9038c2dac962e5b39477a72c4f7c2790ee34625eba078780d5983d6c15b972"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_curva_suficiencia_amostral_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 890785,
-              "modified_at": "2026-05-26T00:18:19.404000Z",
+              "modified_at": "2026-05-26T00:44:14.595000Z",
               "sha256": "d92304f84e211323c64393a16ba9e720b5bbf6382c24929cbabbac88bf0981f2"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\DarwinCore_ictiofauna_sam_metais_diagnostico.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 17592,
-              "modified_at": "2026-05-26T00:18:19.669000Z",
-              "sha256": "b60f38a69994d2f74b9f36724154d4c6c7b4618939aa7b07b746f6c61423ee31"
+              "size_bytes": 17591,
+              "modified_at": "2026-05-26T00:44:14.956000Z",
+              "sha256": "d59bde6b930ba9411489187593b406202dce1e749e76b35a9960f2e313433c96"
             }
           ],
           "deliverable_inventory_count": 20,
@@ -678,112 +678,112 @@
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\01_tabela_composicao_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 6117,
-              "modified_at": "2026-05-26T00:17:38.177000Z",
-              "sha256": "3b2e63faf25cd4bc22330351065bd7c475c77ff19997344b30f5a2c8f57bc1f2"
+              "size_bytes": 6118,
+              "modified_at": "2026-05-26T00:43:44.254000Z",
+              "sha256": "97014888cc9d5fa258df92e306e0688e453e22b2d80e8280d5b6a6f0be40ac50"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5620,
-              "modified_at": "2026-05-26T00:17:38.260000Z",
-              "sha256": "7c100cff15dac833243018f83c514287e4f73ec4811af3c00514b6f3ec530f87"
+              "size_bytes": 5621,
+              "modified_at": "2026-05-26T00:43:44.376000Z",
+              "sha256": "58084244a22c98d4aa4236342273bbc6147dc5f077cb9a47236ff319e5ed87fa"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\02_grafico_riqueza_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 503165,
-              "modified_at": "2026-05-26T00:17:40.389000Z",
+              "modified_at": "2026-05-26T00:43:46.708000Z",
               "sha256": "d4efae33e700d16790401fa68fc660b76b68c69ab26148119fc787d25dcf810f"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5667,
-              "modified_at": "2026-05-26T00:17:40.527000Z",
-              "sha256": "3608148f25bc82981057d9683db51710fda240a6ceb40069c6eeb45c47fedcda"
+              "size_bytes": 5666,
+              "modified_at": "2026-05-26T00:43:46.825000Z",
+              "sha256": "cc185cbbf80c3004738aa5144104fb9145d071095f2e2558c38fc8410ba46f09"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\03_grafico_abundancia_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 633899,
-              "modified_at": "2026-05-26T00:17:42.812000Z",
+              "modified_at": "2026-05-26T00:43:48.575000Z",
               "sha256": "bc1dd272fe294a628afcd978d99b48994a2bcd8b8c96e2c75460bb1616fe04ba"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_df_cpue_por_ponto_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 6107,
-              "modified_at": "2026-05-26T00:17:42.942000Z",
-              "sha256": "3fc0586050e4ec31a220bde378d265f32e330266290eed8e666d53c68dd633ea"
+              "size_bytes": 6804,
+              "modified_at": "2026-05-26T00:43:48.740000Z",
+              "sha256": "03ebf2e32933d93fff4bb2718e15f568f1ab742573698f394c916026e9c9f5c1"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\06_grafico_cpuen_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 828077,
-              "modified_at": "2026-05-26T00:17:45.492000Z",
-              "sha256": "cbd0c0b417533315b6eac73d73c75265352d8f1ff81ae5d354792f679d4405c2"
+              "size_bytes": 831255,
+              "modified_at": "2026-05-26T00:43:51.512000Z",
+              "sha256": "82a57e89b518d360f0d4e125aa3039ad66887b1773ab1ddf1fa5f85ff6a8da5e"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\07_grafico_cpueb_por_ponto_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 819619,
-              "modified_at": "2026-05-26T00:17:49.838000Z",
-              "sha256": "954959c2436315343b5fb867311c9e2f87b020545aa2d3bb0abdc6ac73d2665e"
+              "size_bytes": 801045,
+              "modified_at": "2026-05-26T00:43:55.003000Z",
+              "sha256": "dc3080492421aaf0751f929a0e013a0faee1dc84b67966aef01cce842346cb34"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\08_df_cpuen_por_especie_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5883,
-              "modified_at": "2026-05-26T00:17:50.032000Z",
-              "sha256": "57ee9d6db6cb709fc12af53a6e3781920f77b33854ba9efb801bde0ed74255fd"
+              "size_bytes": 5889,
+              "modified_at": "2026-05-26T00:43:55.240000Z",
+              "sha256": "d6ca901a373db697cd5a859514b97472c08a8e6bdb53ced4b6db7054dc599fe6"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\08_grafico_cpuen_por_especie_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 1792780,
-              "modified_at": "2026-05-26T00:17:55.414000Z",
-              "sha256": "34b0b3f27727f447c0477d1bced7213861dd3fcbf06d7e99026561f166b918ca"
+              "size_bytes": 1779160,
+              "modified_at": "2026-05-26T00:43:59.241000Z",
+              "sha256": "9e05242feacc22e7fb64ecd7ff863b45b784966cc79b7bec7cb590cf9dcc7765"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\09_df_cpueb_por_especie_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 5912,
-              "modified_at": "2026-05-26T00:17:50.156000Z",
-              "sha256": "1ec563f1833bc372d302492828d31f1c3a752e333cddd72661d833bddff9aa75"
+              "size_bytes": 5918,
+              "modified_at": "2026-05-26T00:43:55.411000Z",
+              "sha256": "b3bbff12479f3defb6c55b2c579f292eaa7f3f8df9cc894cb34d4aba707f5f96"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\09_grafico_cpueb_por_especie_ictiofauna.png",
               "exists": true,
               "type": "file",
-              "size_bytes": 1796248,
-              "modified_at": "2026-05-26T00:18:00.764000Z",
-              "sha256": "3799438d298d7f182ec713af15ea44b6b39451da1ba9dd399c28badac553331b"
+              "size_bytes": 1795978,
+              "modified_at": "2026-05-26T00:44:03.225000Z",
+              "sha256": "4353fa126f5fdf288c2dcd49d0fa908bd9513a304bbe2802a2043f72c0f37fb6"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\10_df_diversidade_alfa_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
               "size_bytes": 6555,
-              "modified_at": "2026-05-26T00:18:00.934000Z",
-              "sha256": "01b8f49666106981cd784be7373e949335e5ca7def2c32fb0578c66c98e20fd2"
+              "modified_at": "2026-05-26T00:44:03.395000Z",
+              "sha256": "f4c4968064ad205d933d55b2d093421ea15fd6b6c85eaa3da752f453a9263011"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\10_grafico_diversidade_alfa_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 1102118,
-              "modified_at": "2026-05-26T00:18:07.415000Z",
+              "modified_at": "2026-05-26T00:44:06.531000Z",
               "sha256": "5488a68d7f65748e99643dbfa4f11f826fe94cf6c75514e517dda4b10738ea58"
             },
             {
@@ -791,7 +791,7 @@
               "exists": true,
               "type": "file",
               "size_bytes": 678088,
-              "modified_at": "2026-05-26T00:18:12.946000Z",
+              "modified_at": "2026-05-26T00:44:10.416000Z",
               "sha256": "8471cd249200e1b334233d40c9743c7bbe93891ed3e3f75c58388b321d5d8059"
             },
             {
@@ -799,40 +799,40 @@
               "exists": true,
               "type": "file",
               "size_bytes": 8128,
-              "modified_at": "2026-05-26T00:18:07.691000Z",
-              "sha256": "4c8d7230e34174d0acc902394ca9131080781402d96bbab38b6c9053e2d0a99c"
+              "modified_at": "2026-05-26T00:44:06.785000Z",
+              "sha256": "80263171111ea34fcfbc67d8c82a1fc5a014da35cf28aa808a5ff3431d0871f6"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
               "exists": true,
               "type": "file",
               "size_bytes": 7025,
-              "modified_at": "2026-05-26T00:18:07.567000Z",
-              "sha256": "11647ae5852c39bb3c2c6f08a607d6613f298d09184a6e3defebe73eda4334fe"
+              "modified_at": "2026-05-26T00:44:06.680000Z",
+              "sha256": "18982e74154f1750b143456721aeda5cbf3672a7eabd8a275baec6646d756b47"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_curva_suficiencia_amostral_ictiofauna.png",
               "exists": true,
               "type": "file",
               "size_bytes": 890785,
-              "modified_at": "2026-05-26T00:18:19.404000Z",
+              "modified_at": "2026-05-26T00:44:14.595000Z",
               "sha256": "d92304f84e211323c64393a16ba9e720b5bbf6382c24929cbabbac88bf0981f2"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\12_df_curva_suficiencia_ictiofauna.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 7587,
-              "modified_at": "2026-05-26T00:18:13.571000Z",
-              "sha256": "ec477cedb127c1c2fe5210c5947e46a377063eb9c0e64e71afdd8ad3324796dd"
+              "size_bytes": 7588,
+              "modified_at": "2026-05-26T00:44:10.784000Z",
+              "sha256": "bb9038c2dac962e5b39477a72c4f7c2790ee34625eba078780d5983d6c15b972"
             },
             {
               "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Ferreira Rocha\\SAM Metais\\Produtos\\Resultados\\Ictio\\DarwinCore_ictiofauna_sam_metais_diagnostico.xlsx",
               "exists": true,
               "type": "file",
-              "size_bytes": 17592,
-              "modified_at": "2026-05-26T00:18:19.669000Z",
-              "sha256": "b60f38a69994d2f74b9f36724154d4c6c7b4618939aa7b07b746f6c61423ee31"
+              "size_bytes": 17591,
+              "modified_at": "2026-05-26T00:44:14.956000Z",
+              "sha256": "d59bde6b930ba9411489187593b406202dce1e749e76b35a9960f2e313433c96"
             }
           ],
           "errors": [],
