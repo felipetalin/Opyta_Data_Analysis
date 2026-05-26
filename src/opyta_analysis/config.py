@@ -15,6 +15,7 @@ class RunParams:
     output_dir: Path
     env_file: str | None = None
     block: str = "all"
+    audit_project_slug: str | None = None
 
 
 def _read_json(path: Path) -> Dict[str, Any]:

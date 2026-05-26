@@ -642,25 +642,28 @@ def _save_block_6_4(
     n_pts = len(pontos)
     fig_height = min(max(4 + n_pts * 0.4, 8), 16)
     fig, ax = plt.subplots(figsize=(12, fig_height), dpi=int(theme.get("dpi", 600)))
-    dendrogram(z, labels=pontos, orientation="right", ax=ax, color_threshold=None)
-
     color_rp = str(theme.get("primary_hex", "#1f77b4"))
-    color_tr = str(theme.get("secondary_hex", "#ff7f0e"))
+    cluster_color_threshold = 0.8 * float(z[:, 2].max()) if z.size else None
+    dendrogram(z, labels=pontos, orientation="right", ax=ax, color_threshold=cluster_color_threshold)
+    for collection in ax.collections:
+        collection.set_linewidth(1.6)
+
     for label in ax.get_yticklabels():
-        ambient = _ambiente_from_ponto(label.get_text())
-        label.set_color(color_rp if ambient == "RP" else color_tr)
+        label.set_color(color_rp)
         label.set_fontweight("bold")
 
     ax.xaxis.tick_top()
     ax.xaxis.set_label_position("top")
-    ax.set_xlim(1.0, 0.0)
+    # Zero distance is 100% similarity; keep it inside the plotting area so
+    # identical points do not look disconnected at the right border.
+    ax.set_xlim(1.03, -0.03)
     ticks_sim = np.arange(0, 101, 10)
     ax.set_xticks(1 - ticks_sim / 100.0)
     ax.set_xticklabels([str(t) for t in ticks_sim], fontsize=10)
     apply_theme(ax, theme, xlabel="Similaridade de Jaccard (%)", ylabel="Pontos amostrais (Quantitativos)")
     validate_axes_style(ax, theme)
-    fig.text(0.495, 0.96, "■ Rio Principal (RP)", ha="right", va="top", fontsize=11, fontweight="bold", color=color_rp)
-    fig.text(0.505, 0.96, "■ Tributario (TR)", ha="left", va="top", fontsize=11, fontweight="bold", color=color_tr)
+    fig.text(0.5, 0.96, "Rio Principal (RP) - dados quantitativos | cores = agrupamentos", ha="center", va="top",
+             fontsize=11, fontweight="bold", color=color_rp)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     out_png = output_dir / "6_4_dendrograma_jaccard_por_pontos.png"
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
@@ -687,6 +690,11 @@ def _save_block_6_5(
     only_tr = len(set_tr - set_rp)
     both = len(inter)
     jacc = (len(inter) / len(union)) if union else 0.0
+    obs = (
+        "Sem registros TR nesta campanha; Jaccard RP x TR registra ausencia de dados TR, nao dissimilaridade ecologica testada."
+        if not set_tr
+        else "Comparacao descritiva entre especies registradas em RP e TR nesta campanha."
+    )
 
     table = pd.DataFrame([{
         "Ambiente A": "Rio Principal (RP)",
@@ -696,6 +704,7 @@ def _save_block_6_5(
         "Spp_intersecao": both,
         "Spp_total (uniao)": len(union),
         "Jaccard": round(jacc, 4),
+        "Observacao": obs,
     }])
     out_xlsx = output_dir / "6_5_tabela_jaccard_rp_vs_tr.xlsx"
     table.to_excel(out_xlsx, index=False, engine="openpyxl")
@@ -733,6 +742,12 @@ def _save_block_6_5(
     ax.add_patch(box)
     ax.text(0.50, 0.360, f"RIQUEZA TOTAL: {len(union)} ESPECIES", ha="center", va="center",
             fontsize=14.5, fontweight="bold", color=dark_text)
+    if not set_tr:
+        ax.text(
+            0.50, 0.325,
+            "Sem registros TR nesta campanha",
+            ha="center", va="center", fontsize=11.5, color="#5A5A5A",
+        )
     ax.set_xlim(0.08, 0.92); ax.set_ylim(0.32, 0.90)
     ax.set_xticks([0.0, 0.5, 1.0]); ax.set_yticks([0.0, 0.5, 1.0])
     ax.set_xticklabels(["", "", ""]); ax.set_yticklabels(["", "", ""])
@@ -784,10 +799,14 @@ def _save_descriptive_report(details: dict, output_dir: Path, generated_files: l
         "",
         "6.4 Similaridade Jaccard entre pontos:",
         "- Calculada apenas com dados Quantitativos (RP).",
-        "- Matriz por pontos + dendrograma com codificacao RP/TR.",
+        "- Matriz por pontos + dendrograma dos pontos quantitativos.",
+        "- Cores dos ramos indicam agrupamentos hierarquicos, nao ambientes.",
+        "- Resultado descritivo de uma campanha; nao substitui analise temporal de estabilidade.",
         "",
         "6.5 Diagrama de Venn RP x TR:",
         "- Sobreposicao de especies entre Rio Principal e Tributarios.",
+        "- Quando nao houver registros TR, Jaccard = 0 indica ausencia de dados TR,",
+        "  nao dissimilaridade ecologica testada.",
         "",
         "6.6-6.8 Tabela geral:",
         "- Consolidacao de ameacadas/endemicas/raras/exoticas (status DB).",

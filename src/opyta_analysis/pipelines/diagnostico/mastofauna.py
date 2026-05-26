@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -28,6 +29,8 @@ TARGET_CONTROL_NAME = "Area Controle"
 
 def _norm(value: object) -> str:
     txt = str(value or "").strip().lower()
+    txt = unicodedata.normalize("NFKD", txt)
+    txt = "".join(ch for ch in txt if not unicodedata.combining(ch))
     txt = txt.replace("á", "a").replace("ã", "a").replace("â", "a")
     txt = txt.replace("é", "e").replace("ê", "e")
     txt = txt.replace("í", "i")
@@ -742,6 +745,8 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
         fig, ax = plt.subplots(figsize=(12, fig_height), dpi=int(theme.get("dpi", 600)))
         
         dendro = dendrogram(z_points, labels=pontos_unicos, orientation="right", ax=ax, color_threshold=None)
+        for collection in ax.collections:
+            collection.set_linewidth(1.6)
         
         # Colorir labels dos pontos: azul para PCH, laranja para Controle
         color_pch = str(theme.get("primary_hex", "#1f77b4"))
@@ -757,7 +762,7 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
         
         ax.xaxis.tick_top()
         ax.xaxis.set_label_position("top")
-        ax.set_xlim(1.0, 0.0)
+        ax.set_xlim(1.03, -0.03)
         
         ticks_sim = np.arange(0, 101, 10)
         ticks_dist = 1 - (ticks_sim / 100.0)
@@ -795,9 +800,11 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
 
     fig, ax = plt.subplots(figsize=get_figsize_by_complexity(theme, n_categories=2, prefer_landscape=True), dpi=int(theme.get("dpi", 600)))
     dendrogram(z, labels=[TARGET_PCH_NAME, TARGET_CONTROL_NAME], orientation="right", ax=ax, color_threshold=None)
+    for collection in ax.collections:
+        collection.set_linewidth(1.6)
     ax.xaxis.tick_top()
     ax.xaxis.set_label_position("top")
-    ax.set_xlim(1.0, 0.0)
+    ax.set_xlim(1.03, -0.03)
     ticks_sim = np.arange(0, 101, 10)
     ticks_dist = 1 - (ticks_sim / 100.0)
     ax.set_xticks(ticks_dist)
@@ -903,12 +910,14 @@ def _save_general_status_tables(df_all: pd.DataFrame, output_dir: Path, generate
     species["Endemica"] = False
     species["Rara"] = False
 
-    dist_txt = species["distribuicao"].astype(str)
-    origem_txt = species["origem"].astype(str)
+    dist_txt = species["distribuicao"].map(_norm)
+    origem_txt = species["origem"].map(_norm)
     has_dist = species["distribuicao"].notna() & (dist_txt.str.strip() != "")
-    exotica_por_dist = dist_txt.str.contains("exot", case=False, na=False)
-    exotica_por_origem = ~origem_txt.str.contains("nativa", case=False, na=False)
-    species["Exotica"] = np.where(has_dist, exotica_por_dist, exotica_por_origem)
+    exotica_por_dist = dist_txt.str.contains("exot|aloc|introduz|invas", case=False, na=False)
+    nativa_por_origem = origem_txt.str.contains("nativ", case=False, na=False)
+    nao_nativa_por_origem = origem_txt.str.contains("nao\\s+nativ|non\\s+nativ", case=False, na=False)
+    exotica_por_origem = origem_txt.str.contains("exot|aloc|introduz|invas", case=False, na=False)
+    species["Exotica"] = exotica_por_dist | nao_nativa_por_origem | (exotica_por_origem & ~nativa_por_origem)
 
     cineg_db = species["cinegetica_db"]
     cineg_fallback = species["habito"].astype(str).str.contains("herb|oniv|carn", case=False, na=False)

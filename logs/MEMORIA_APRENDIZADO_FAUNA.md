@@ -61,3 +61,43 @@ Regra aprovada:
 - calcular `CPUEb = biomassa_total / esforco_total_ponto * 100`;
 - para CPUE por especie, calcular a especie dentro de cada ponto com o mesmo
   denominador de esforco total do ponto e depois agregar por campanha/especie.
+
+## Auditoria Itatiaia/Guanhaes - campanha 28
+
+Data: 2026-05-26
+
+### Conhecimento incorporado
+
+- A entrega de ictiofauna parcial da campanha `C028-2026-05-SC` deve ser lida
+  como analise descritiva de campanha unica, nao como analise temporal de
+  estabilidade.
+- O bloco 6.4 usa somente pontos quantitativos RP. Portanto, a figura de
+  similaridade nao deve trazer legenda de `Tributario (TR)`.
+- Cores dos ramos em dendrograma representam agrupamentos hierarquicos, nao
+  ambientes. A legenda aprovada para ictio parcial e:
+  `Rio Principal (RP) - dados quantitativos | cores = agrupamentos`.
+- Dendrogramas exibidos em similaridade, mas calculados a partir de distancia,
+  precisam de margem visual alem de 100%. Sem isso, pares identicos
+  (`Jaccard = 1`) ficam colados na borda e parecem desconectados.
+- Quando nao houver registros TR, o Jaccard RP x TR do bloco 6.5 deve ser
+  interpretado como ausencia de dados TR, nao como dissimilaridade ecologica
+  testada.
+- A regra de `Exotica` deve reconhecer `Nativo/Nativa` como nao exotico e
+  `Nao Nativa/Nao Nativo`, `exotico`, `alocotone`, `introduzido` ou `invasor`
+  como exotico.
+- `audit_project_slug` precisa poder ser definido por execucao. Um mesmo
+  cliente/config pode atender mais de um projeto operacional, como `sam_metais`
+  e `project_165`.
+
+### Risco arquitetural identificado
+
+Os scripts multiempreendimento atuais funcionam, mas ainda dependem de campanha,
+caminho, lista de empreendimentos e variaveis globais hardcoded. Para novas
+campanhas, o proximo ganho operacional e criar uma configuracao por
+projeto/campanha e um runner de lote generico.
+
+### Proxima frente
+
+Antes da migracao da Avifauna, criar a arquitetura alvo registrada em
+`docs/FAUNA_ARQUITETURA_MULTIUSO_AUDITORIA.md`, ou pelo menos usar esse desenho
+como criterio para nao repetir scripts especificos e duplicados.

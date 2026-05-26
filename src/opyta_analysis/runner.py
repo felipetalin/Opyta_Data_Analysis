@@ -50,7 +50,7 @@ def _client_audit_project_slug(params: RunParams, config_root: Path) -> str | No
 
 def _get_project_audit_dir(params: RunParams, config_root: Path, details: Dict[str, Any]) -> Path:
     root = config_root.parent
-    project_name = details.get("project_name") or _client_audit_project_slug(params, config_root)
+    project_name = params.audit_project_slug or details.get("project_name") or _client_audit_project_slug(params, config_root)
     project_folder = _slug(project_name) if project_name else f"project_{params.project_id}"
     group_folder = _slug(params.group)
     audit_dir = root / "outputs" / "_project_scripts" / project_folder / group_folder
@@ -120,6 +120,7 @@ def _generate_reproducer_script(params: RunParams, config_root: Path, audit_dir:
     client_literal = repr(params.client)
     env_file_literal = repr(params.env_file)
     block_literal = repr(params.block)
+    audit_project_slug_literal = repr(params.audit_project_slug)
 
     script_content = f'''#!/usr/bin/env python
 """
@@ -156,6 +157,7 @@ def main():
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
         block=args.block,
+        audit_project_slug={audit_project_slug_literal},
     )
 
     config_root = Path(r"{config_root_resolved}")

@@ -23,6 +23,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--output-dir", type=str, required=True)
     p.add_argument("--env-file", type=str, default=None, help="Optional path to .env with Supabase credentials")
     p.add_argument("--block", type=str, default="all", help="Pipeline block selector, ex: 6")
+    p.add_argument("--audit-project-slug", type=str, default=None, help="Optional outputs/_project_scripts project folder override")
     return p.parse_args()
 
 
@@ -37,6 +38,7 @@ def main() -> int:
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
         block=args.block,
+        audit_project_slug=args.audit_project_slug,
     )
 
     result = run(params=params, config_root=ROOT / "configs")

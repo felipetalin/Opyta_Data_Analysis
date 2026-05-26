@@ -28,7 +28,8 @@ foreach ($pch_name, $folder_name in $pchs) {
         --client $client `
         --output-dir $outDir `
         --env-file $env_file `
-        --block all
+        --block all `
+        --audit-project-slug project_165
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "✓ $pch_name concluído"

@@ -41,6 +41,7 @@ def main() -> int:
             output_dir=out_dir,
             env_file=r"G:\Meu Drive\Opyta\Opyta_Data\.env",
             block="all",
+            audit_project_slug="project_165",
         )
 
         result = run(params=params, config_root=ROOT / "configs")
