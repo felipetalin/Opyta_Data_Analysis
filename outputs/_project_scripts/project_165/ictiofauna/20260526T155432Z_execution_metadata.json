@@ -1,0 +1,177 @@
+{
+  "executed_at": "2026-05-26T15:54:32.662851Z",
+  "runner_version": "1.2",
+  "project_id": 165,
+  "group": "Ictiofauna",
+  "pipeline": "ictio_partial",
+  "client": "fersam001",
+  "block": "all",
+  "git": {
+    "branch": "main",
+    "commit": "54ff77f",
+    "dirty": true,
+    "status_short_count": 1,
+    "full_dirty": true,
+    "full_status_short_count": 5,
+    "ignored_generated_audit_count": 4
+  },
+  "rows_loaded": 20,
+  "executed_blocks": [
+    "6.1",
+    "6.2",
+    "6.3",
+    "6.4",
+    "6.5",
+    "6.6",
+    "6.7",
+    "6.8"
+  ],
+  "campaigns": [
+    "C028-2026-05-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "RPFOR1",
+    "RPFOR2",
+    "RPFOR3",
+    "TRFOR3",
+    "TRFOR4"
+  ],
+  "points_count": 5,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II",
+  "generated_files_count": 14,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_1_tabela_especies_fortuna_ii.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_1_figura_abundancia_cpue_n_fortuna_ii.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_1_figura_ocorrencia_qualitativa_fortuna_ii.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_2_tabela_estimadores_fortuna_ii.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_2_curva_coletor_dados_fortuna_ii.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_2_curva_coletor_fortuna_ii.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_3_indices_diversidade.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_3_indices_diversidade.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_4_dendrograma_jaccard_por_pontos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_5_diagrama_venn_rp_vs_tr.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_6_6_8_tabela_geral_status.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_relatorio_descritivo_ictio_parcial.txt"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_1_tabela_especies_fortuna_ii.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7494,
+      "modified_at": "2026-05-26T15:54:15.334000Z",
+      "sha256": "a6c5f88fa721b94e676a5b85781f271c7fa5120055f619e0314a0fe1f336e91e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_1_figura_abundancia_cpue_n_fortuna_ii.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 746860,
+      "modified_at": "2026-05-26T15:54:18.086000Z",
+      "sha256": "983d481be57aeb04d26af7f279d1158ca6af30a22a85cb7d92f539d1c12a7f5b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_1_figura_ocorrencia_qualitativa_fortuna_ii.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 650151,
+      "modified_at": "2026-05-26T15:54:20.586000Z",
+      "sha256": "222998b5ac17ec240652f2e132c3f5bce05f76866628027b5205a56d417c0546"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_2_tabela_estimadores_fortuna_ii.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5104,
+      "modified_at": "2026-05-26T15:54:20.720000Z",
+      "sha256": "2bbb88b585885bf4dad8f4e2aa701844b86a1809e3e911cb2d411c007f77933f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_2_curva_coletor_dados_fortuna_ii.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5427,
+      "modified_at": "2026-05-26T15:54:20.831000Z",
+      "sha256": "b68a94f3d88c250ce196f5e47d6bcd75f7e2687a5e536dda85c5d98f4f0f941b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_2_curva_coletor_fortuna_ii.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 880776,
+      "modified_at": "2026-05-26T15:54:24.260000Z",
+      "sha256": "19e6a17f330a84e61e53d4cdbb0173a0a113256d98f098de8d0284bbd248ff2a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_3_indices_diversidade.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5111,
+      "modified_at": "2026-05-26T15:54:24.405000Z",
+      "sha256": "97f776de842bf2173be391a79ede48ca23cbd6898d84921d2c0544e5f775c81a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_3_indices_diversidade.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 730675,
+      "modified_at": "2026-05-26T15:54:27.779000Z",
+      "sha256": "8eb143959e7005b8d44bd8a635753bdcf80a25a5491ef6d46bf90a4aa76b7eb5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5578,
+      "modified_at": "2026-05-26T15:54:27.910000Z",
+      "sha256": "4313fbc254f286312341e973fd2bb224c91303900c703acb92ef44a3bbbfbf67"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_4_dendrograma_jaccard_por_pontos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 360364,
+      "modified_at": "2026-05-26T15:54:30.135000Z",
+      "sha256": "af118177f50c03648ccfb362d23320c8fc9ecb8ca5e65bcc5906d13ed58353aa"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5124,
+      "modified_at": "2026-05-26T15:54:30.241000Z",
+      "sha256": "52fde1c53975897ba765c086b467206e4ab199eec90dc27a32ecb978b0b875c8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_5_diagrama_venn_rp_vs_tr.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 548104,
+      "modified_at": "2026-05-26T15:54:31.912000Z",
+      "sha256": "7880d18aadcfd485e3aaa0a82009227040c8163bddf449c5a127e1ced983fe72"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_6_6_8_tabela_geral_status.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5883,
+      "modified_at": "2026-05-26T15:54:32.034000Z",
+      "sha256": "432b5673856a03e65969c36d6e800bc4a8ea955611c9295c4e4e79b365753fab"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Fortuna II\\6_relatorio_descritivo_ictio_parcial.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1626,
+      "modified_at": "2026-05-26T15:54:32.075000Z",
+      "sha256": "48b8479d65a0da58e3094e38884f033d8062313fbfa37078007161f05efc6740"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\ictiofauna",
+  "warnings": []
+}

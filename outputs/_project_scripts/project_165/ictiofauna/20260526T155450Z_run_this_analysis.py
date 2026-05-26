@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Ictiofauna analysis - fersam001
-Generated: 2026-05-26T15:55:10.027186Z
+Generated: 2026-05-26T15:54:51.245787Z
 
 Usage:
   python _run_this_analysis.py
@@ -21,7 +21,7 @@ from opyta_analysis.runner import run
 def main():
     parser = argparse.ArgumentParser(description="Re-run Ictiofauna analysis")
     parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\28_campanha-Abril_26\Ictiofauna\Senhora do Porto", help="Output directory for generated artifacts")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\28_campanha-Abril_26\Ictiofauna\Jacaré", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='G:\\Meu Drive\\Opyta\\Opyta_Data\\.env', help="Optional .env file path")
     args = parser.parse_args()
 

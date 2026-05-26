@@ -85,6 +85,9 @@ Data: 2026-05-26
 - A regra de `Exotica` deve reconhecer `Nativo/Nativa` como nao exotico e
   `Nao Nativa/Nao Nativo`, `exotico`, `alocotone`, `introduzido` ou `invasor`
   como exotico.
+- Para ictiofauna, a classificacao de uso economico/cinegetico da tabela 6.6-6.8
+  deve usar `valor_economico` do cadastro de especies. O campo `cinegetica`
+  pode ficar vazio para peixes e nao deve ser substituido por habito alimentar.
 - `audit_project_slug` precisa poder ser definido por execucao. Um mesmo
   cliente/config pode atender mais de um projeto operacional, como `sam_metais`
   e `project_165`.

@@ -1,0 +1,167 @@
+{
+  "executed_at": "2026-05-26T15:54:12.004222Z",
+  "runner_version": "1.2",
+  "project_id": 165,
+  "group": "Ictiofauna",
+  "pipeline": "ictio_partial",
+  "client": "fersam001",
+  "block": "all",
+  "git": {
+    "branch": "main",
+    "commit": "54ff77f",
+    "dirty": true,
+    "status_short_count": 1,
+    "full_dirty": true,
+    "full_status_short_count": 1,
+    "ignored_generated_audit_count": 0
+  },
+  "rows_loaded": 14,
+  "executed_blocks": [
+    "6.1",
+    "6.2",
+    "6.3",
+    "6.4",
+    "6.5",
+    "6.6",
+    "6.7",
+    "6.8"
+  ],
+  "campaigns": [
+    "C028-2026-05-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "RPDGN0",
+    "RPDGN1",
+    "RPDGN2",
+    "RPDGN3"
+  ],
+  "points_count": 4,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães",
+  "generated_files_count": 13,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_1_tabela_especies_dores_de_guanhaes.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_1_figura_abundancia_cpue_n_dores_de_guanhaes.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_2_tabela_estimadores_dores_de_guanhaes.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_2_curva_coletor_dados_dores_de_guanhaes.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_2_curva_coletor_dores_de_guanhaes.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_3_indices_diversidade.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_3_indices_diversidade.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_4_dendrograma_jaccard_por_pontos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_5_diagrama_venn_rp_vs_tr.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_6_6_8_tabela_geral_status.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_relatorio_descritivo_ictio_parcial.txt"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_1_tabela_especies_dores_de_guanhaes.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6406,
+      "modified_at": "2026-05-26T15:53:52.570000Z",
+      "sha256": "ae59bed45c195280e16ed8b6ba9b1252e1bc7ba62f7e10d692080352c9825504"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_1_figura_abundancia_cpue_n_dores_de_guanhaes.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 715016,
+      "modified_at": "2026-05-26T15:53:58.878000Z",
+      "sha256": "5882a68d39493d7f7cab86536c0c108dcb497618c3e6975ff11fe1fa9bf39660"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_2_tabela_estimadores_dores_de_guanhaes.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5108,
+      "modified_at": "2026-05-26T15:53:59.071000Z",
+      "sha256": "5e16a1d62af65262018e792dfd730c6638887e1322ca5ddeb6e8da8482bf257a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_2_curva_coletor_dados_dores_de_guanhaes.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5219,
+      "modified_at": "2026-05-26T15:53:59.186000Z",
+      "sha256": "0a10438fa5ce372b87c1f923e8666877042db23f2743c56719f5b16ecf6449de"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_2_curva_coletor_dores_de_guanhaes.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 820409,
+      "modified_at": "2026-05-26T15:54:02.188000Z",
+      "sha256": "c17c1d5439eb020fff9401ebc88631dff321829c0567d1b7d7c79ccd98d6a7b5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_3_indices_diversidade.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5081,
+      "modified_at": "2026-05-26T15:54:02.323000Z",
+      "sha256": "45cbdab605a2376267ad8e330f2d8785c04f54fca2fc6605498a1ac4e40d40ed"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_3_indices_diversidade.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 672803,
+      "modified_at": "2026-05-26T15:54:06.335000Z",
+      "sha256": "fdabb71996a6c6247b88d1dd2dab6887b32774aea13b65679c63414c0090cc15"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5637,
+      "modified_at": "2026-05-26T15:54:06.550000Z",
+      "sha256": "1e72cb354295fb9e73d370334590ded287fd760b7ec345026cd25c27791c84e0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_4_dendrograma_jaccard_por_pontos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 379040,
+      "modified_at": "2026-05-26T15:54:08.746000Z",
+      "sha256": "c74155ccb2d8d5826a7483cd981ca99ed0fb9a0b9e08f1ace9defc6e421f2ae4"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5135,
+      "modified_at": "2026-05-26T15:54:08.980000Z",
+      "sha256": "cb54ccac29e998c51aa9b4362149b51b9a3ccf9bef310d8522fa4b9574a6819f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_5_diagrama_venn_rp_vs_tr.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 595603,
+      "modified_at": "2026-05-26T15:54:11.094000Z",
+      "sha256": "e0ed3540803860bafa9ba9d9e2e1b4ae6511ca8f46536c82081486de771c0b1b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_6_6_8_tabela_geral_status.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5597,
+      "modified_at": "2026-05-26T15:54:11.244000Z",
+      "sha256": "ed176627061c940abfb0d206eb6b61fc0b54fe2a83329de83540da0e86b3e150"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Ictiofauna\\Dores de Guanhães\\6_relatorio_descritivo_ictio_parcial.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1633,
+      "modified_at": "2026-05-26T15:54:11.284000Z",
+      "sha256": "b941965fd202a716b8f9948c2fcda9e878504c139f9826fd8ff57ebaa7282e9c"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\ictiofauna",
+  "warnings": []
+}

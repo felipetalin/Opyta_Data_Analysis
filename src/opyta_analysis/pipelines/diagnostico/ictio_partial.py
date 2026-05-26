@@ -7,7 +7,8 @@ Espelha a estrutura Herp/Masto/Primatas (blocos 6.1-6.8), com adaptacoes:
 - 6.3 Diversidade calculada sobre CPUEn (Quantitativos); Quali so reporta riqueza.
 - 6.4 Jaccard entre pontos Quantitativos do empreendimento (sem Controle).
 - 6.5 Diagrama de Venn substitui PCH x Controle por RP x TR (ambientes).
-- 6.6-6.8 reaproveita `mastofauna._save_general_status_tables` (compativel).
+- 6.6-6.8 reaproveita status geral, usando `valor_economico` como fonte de
+  uso economico/cinegetico para ictiofauna.
 
 CPUEn = numero_de_individuos / esforco * 100   (memoria do projeto)
 CPUEb = pc_g / esforco * 100                   (peso corporal em g)
@@ -76,6 +77,20 @@ def _ambiente_from_ponto(nome_ponto: str) -> str:
     if p.startswith("TR"):
         return "TR"
     return "?"
+
+
+def _yes_no_flag(value: object) -> bool:
+    """Converte campos Sim/Nao do cadastro em booleano conservador."""
+    if isinstance(value, bool):
+        return value
+    if value is None or pd.isna(value):
+        return False
+    txt = _norm(value)
+    if txt in {"sim", "s", "yes", "y", "true", "1"} or txt.startswith("sim"):
+        return True
+    if txt in {"nao", "n", "no", "false", "0", ""} or txt.startswith("nao"):
+        return False
+    return False
 
 
 # --------------------------------------------------------------------------- #
@@ -150,7 +165,7 @@ def _load_ictio_partial_df(
             "status_ameaca_global,status_ameaca_nacional,status_copam,cites,"
             "dependencia_florestal,endemismo,habito_alimentar,guilda_alimentar,"
             "sensibilidade_ambiental,migratorio,raridade,origem,distribuicao,cinegetica,"
-            "xerimbabo,observacoes"
+            "valor_economico,xerimbabo,observacoes"
         ),
     )
     esp_map = {e["id_especie"]: e for e in esp_rows}
@@ -192,6 +207,7 @@ def _load_ictio_partial_df(
                 "origem": esp.get("origem"),
                 "distribuicao": esp.get("distribuicao"),
                 "cinegetica_db": esp.get("cinegetica"),
+                "valor_economico_db": esp.get("valor_economico"),
                 "xerimbabo_db": esp.get("xerimbabo"),
                 "especie_obs": esp.get("observacoes"),
                 "contagem": r.get("numero_de_individuos"),
@@ -766,7 +782,10 @@ def _save_block_6_5(
 def _save_block_6_6_8(df_emp: pd.DataFrame, output_dir: Path, generated_files: list[str]) -> None:
     if df_emp.empty:
         return
-    masto._save_general_status_tables(df_emp, output_dir, generated_files)
+    df_status = df_emp.copy()
+    if "valor_economico_db" in df_status.columns:
+        df_status["cinegetica_db"] = df_status["valor_economico_db"].map(_yes_no_flag)
+    masto._save_general_status_tables(df_status, output_dir, generated_files)
 
 
 # --------------------------------------------------------------------------- #
@@ -810,6 +829,7 @@ def _save_descriptive_report(details: dict, output_dir: Path, generated_files: l
         "",
         "6.6-6.8 Tabela geral:",
         "- Consolidacao de ameacadas/endemicas/raras/exoticas (status DB).",
+        "- Em ictiofauna, a coluna Cinegetica usa `valor_economico` do cadastro de especies.",
         "",
         "Observacao: o projeto 165 (ictiofauna) NAO possui pontos controle. As analises",
         "deste relatorio parcial sao internas ao empreendimento.",
