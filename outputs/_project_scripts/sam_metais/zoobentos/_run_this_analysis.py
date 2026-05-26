@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Zoobentos analysis - fersam001
-Generated: 2026-05-07T13:30:54.410765Z
+Generated: 2026-05-26T00:16:47.616733Z
 
 Usage:
   python _run_this_analysis.py
@@ -21,8 +21,8 @@ from opyta_analysis.runner import run
 def main():
     parser = argparse.ArgumentParser(description="Re-run Zoobentos analysis")
     parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Ferreira Rocha\SAM Metais\Produtos\Resultados\Zoobentos", help="Output directory for generated artifacts")
-    parser.add_argument("--env-file", default=None, help="Optional .env file path")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Ferreira Rocha\SAM Metais\Produtos\Resultados\Bentos", help="Output directory for generated artifacts")
+    parser.add_argument("--env-file", default='.env', help="Optional .env file path")
     args = parser.parse_args()
 
     params = RunParams(

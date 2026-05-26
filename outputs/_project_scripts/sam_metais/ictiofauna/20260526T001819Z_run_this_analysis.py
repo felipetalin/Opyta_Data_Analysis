@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-Reproducer script for Zooplancton analysis - fersam001
-Generated: 2026-05-26T00:17:28.811345Z
+Reproducer script for Ictiofauna analysis - fersam001
+Generated: 2026-05-26T00:18:21.557422Z
 
 Usage:
   python _run_this_analysis.py
@@ -19,16 +19,16 @@ from opyta_analysis.config import RunParams
 from opyta_analysis.runner import run
 
 def main():
-    parser = argparse.ArgumentParser(description="Re-run Zooplancton analysis")
+    parser = argparse.ArgumentParser(description="Re-run Ictiofauna analysis")
     parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Ferreira Rocha\SAM Metais\Produtos\Resultados\Zooplancton", help="Output directory for generated artifacts")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Ferreira Rocha\SAM Metais\Produtos\Resultados\Ictio", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='.env', help="Optional .env file path")
     args = parser.parse_args()
 
     params = RunParams(
         project_id=62,
-        group='Zooplancton',
-        pipeline='zooplancton',
+        group='Ictiofauna',
+        pipeline='ictio',
         client='fersam001',
         output_dir=Path(args.output_dir),
         env_file=args.env_file,

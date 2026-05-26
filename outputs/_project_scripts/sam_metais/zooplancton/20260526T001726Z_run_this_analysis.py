@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-Reproducer script for Fitoplancton analysis - fersam001
-Generated: 2026-05-07T13:30:54.066511Z
+Reproducer script for Zooplancton analysis - fersam001
+Generated: 2026-05-26T00:17:28.811345Z
 
 Usage:
   python _run_this_analysis.py
@@ -19,16 +19,16 @@ from opyta_analysis.config import RunParams
 from opyta_analysis.runner import run
 
 def main():
-    parser = argparse.ArgumentParser(description="Re-run Fitoplancton analysis")
+    parser = argparse.ArgumentParser(description="Re-run Zooplancton analysis")
     parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Ferreira Rocha\SAM Metais\Produtos\Resultados\Fitoplancton", help="Output directory for generated artifacts")
-    parser.add_argument("--env-file", default=None, help="Optional .env file path")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Ferreira Rocha\SAM Metais\Produtos\Resultados\Zooplancton", help="Output directory for generated artifacts")
+    parser.add_argument("--env-file", default='.env', help="Optional .env file path")
     args = parser.parse_args()
 
     params = RunParams(
         project_id=62,
-        group='Fitoplancton',
-        pipeline='fitoplancton',
+        group='Zooplancton',
+        pipeline='zooplancton',
         client='fersam001',
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
