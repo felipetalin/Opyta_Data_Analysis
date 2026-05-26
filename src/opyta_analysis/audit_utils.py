@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
@@ -40,7 +41,7 @@ def run_git(args: Sequence[str], repo_root: Path) -> str | None:
 
 
 def _status_path(line: str) -> str:
-    path = line[3:] if len(line) > 3 else ""
+    path = re.sub(r"^[ MADRCU?!]{1,2}\s+", "", line, count=1)
     if " -> " in path:
         path = path.split(" -> ", 1)[1]
     return path.strip().strip('"')
