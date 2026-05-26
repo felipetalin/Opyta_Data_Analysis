@@ -44,3 +44,20 @@ com status conhecido:
 Centralizar metricas ecologicas comuns em um modulo compartilhado de fauna
 antes de ampliar novas migracoes. Prioridade: riqueza, abundancia, Shannon,
 Pielou, Bray-Curtis/Jaccard, curva de suficiencia e exportacao DarwinCore.
+
+## Ajuste ICTIO - CPUE
+
+Data: 2026-05-26
+
+O calculo de CPUEn/CPUEb da ictio foi revisado para evitar superestimativa em
+pontos com mais de um metodo de captura ou esforco repetido por especie.
+
+Regra aprovada:
+
+- somar a abundancia/biomassa por campanha e ponto;
+- somar todo o esforco usado no ponto, contando cada metodo/unidade/esforco uma
+  unica vez;
+- calcular `CPUEn = abundancia_total / esforco_total_ponto * 100`;
+- calcular `CPUEb = biomassa_total / esforco_total_ponto * 100`;
+- para CPUE por especie, calcular a especie dentro de cada ponto com o mesmo
+  denominador de esforco total do ponto e depois agregar por campanha/especie.

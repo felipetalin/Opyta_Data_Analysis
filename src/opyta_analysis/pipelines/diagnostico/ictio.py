@@ -152,6 +152,22 @@ def _normalizar_tipo_amostragem(valor: str) -> str:
     return "outro"
 
 
+def _esforco_total_por_ponto(df_quant: pd.DataFrame) -> pd.DataFrame:
+    """Sum the sampling effort used at each campaign/point once per method."""
+    group_cols = ["nome_campanha", "nome_ponto"]
+    method_cols = [c for c in ["metodo_de_captura", "unidade_esforco"] if c in df_quant.columns]
+    dedup_cols = group_cols + method_cols + ["esforco"]
+    efforts = df_quant[dedup_cols].dropna(subset=["esforco"]).drop_duplicates()
+    return (
+        efforts.groupby(group_cols, dropna=False)
+        .agg(
+            esforco_total_ponto=("esforco", "sum"),
+            unidades_esforco=("esforco", "size"),
+        )
+        .reset_index()
+    )
+
+
 def _run_block_3(df_projeto: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
     group_slug = _safe_group_name(group)
     out_xlsx = output_dir / f"01_tabela_composicao_{group_slug}.xlsx"
@@ -432,7 +448,18 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     out_png_cpueb = output_dir / f"07_grafico_cpueb_por_ponto_{group_slug}.png"
 
     if df_projeto.empty:
-        pd.DataFrame(columns=["nome_campanha", "nome_ponto", "cpuen", "cpueb"]).to_excel(
+        pd.DataFrame(
+            columns=[
+                "nome_campanha",
+                "nome_ponto",
+                "abundancia_total",
+                "biomassa_total",
+                "esforco_total_ponto",
+                "unidades_esforco",
+                "cpuen",
+                "cpueb",
+            ]
+        ).to_excel(
             out_df, index=False, engine="openpyxl"
         )
         generated_files.append(str(out_df))
@@ -448,34 +475,61 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     df_quant = df_quant[tipo_norm == "quantitativo"].copy()
 
     if df_quant.empty:
-        pd.DataFrame(columns=["nome_campanha", "nome_ponto", "cpuen", "cpueb"]).to_excel(
+        pd.DataFrame(
+            columns=[
+                "nome_campanha",
+                "nome_ponto",
+                "abundancia_total",
+                "biomassa_total",
+                "esforco_total_ponto",
+                "unidades_esforco",
+                "cpuen",
+                "cpueb",
+            ]
+        ).to_excel(
             out_df, index=False, engine="openpyxl"
         )
         generated_files.append(str(out_df))
         return {"campaigns": [], "points": [], "warning": "sem registros quantitativos para CPUE"}
 
     df_quant["esforco"] = pd.to_numeric(df_quant["esforco"], errors="coerce")
-    df_quant["contagem"] = pd.to_numeric(df_quant["contagem"], errors="coerce")
-    df_quant["biomassa"] = pd.to_numeric(df_quant["biomassa"], errors="coerce")
+    df_quant["contagem"] = pd.to_numeric(df_quant["contagem"], errors="coerce").fillna(0)
+    df_quant["biomassa"] = pd.to_numeric(df_quant["biomassa"], errors="coerce").fillna(0)
 
     df_quant = df_quant.dropna(subset=["esforco"]).copy()
     df_quant = df_quant[df_quant["esforco"] > 0].copy()
 
     if df_quant.empty:
-        pd.DataFrame(columns=["nome_campanha", "nome_ponto", "cpuen", "cpueb"]).to_excel(
+        pd.DataFrame(
+            columns=[
+                "nome_campanha",
+                "nome_ponto",
+                "abundancia_total",
+                "biomassa_total",
+                "esforco_total_ponto",
+                "unidades_esforco",
+                "cpuen",
+                "cpueb",
+            ]
+        ).to_excel(
             out_df, index=False, engine="openpyxl"
         )
         generated_files.append(str(out_df))
         return {"campaigns": [], "points": [], "warning": "esforco invalido para CPUE"}
 
-    df_quant["cpuen"] = (df_quant["contagem"].fillna(0) / df_quant["esforco"]) * 100
-    df_quant["cpueb"] = (df_quant["biomassa"].fillna(0) / df_quant["esforco"]) * 100
-
-    df_cpue = (
-        df_quant.groupby(["nome_campanha", "nome_ponto"], dropna=False)[["cpuen", "cpueb"]]
-        .sum()
+    df_totals = (
+        df_quant.groupby(["nome_campanha", "nome_ponto"], dropna=False)
+        .agg(
+            abundancia_total=("contagem", "sum"),
+            biomassa_total=("biomassa", "sum"),
+        )
         .reset_index()
     )
+    df_effort = _esforco_total_por_ponto(df_quant)
+    df_cpue = df_totals.merge(df_effort, on=["nome_campanha", "nome_ponto"], how="left")
+    df_cpue = df_cpue[df_cpue["esforco_total_ponto"].notna() & (df_cpue["esforco_total_ponto"] > 0)].copy()
+    df_cpue["cpuen"] = (df_cpue["abundancia_total"] / df_cpue["esforco_total_ponto"]) * 100
+    df_cpue["cpueb"] = (df_cpue["biomassa_total"] / df_cpue["esforco_total_ponto"]) * 100
 
     df_cpue["nome_campanha"] = df_cpue["nome_campanha"].astype(str).str.strip()
     df_cpue["nome_ponto"] = df_cpue["nome_ponto"].astype(str).str.strip()
@@ -552,7 +606,11 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     _plot_metric("cpuen", "CPUEn (ind/100m2)", out_png_cpuen, decimals=2)
     _plot_metric("cpueb", "CPUEb (g/100m2)", out_png_cpueb, decimals=2)
 
-    return {"campaigns": campaigns, "points": points}
+    return {
+        "campaigns": campaigns,
+        "points": points,
+        "cpue_formula": "(sum_abundance_or_biomass / sum_distinct_effort_by_campaign_point) * 100",
+    }
 
 
 def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
@@ -570,7 +628,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         generated_files.extend([str(out_df_cpuen), str(out_df_cpueb)])
         return {"campaigns": [], "species": 0, "warning": "dataset vazio para os filtros informados"}
 
-    required = ["nome_campanha", "nome_cientifico", "tipo_amostragem", "esforco", "contagem", "biomassa"]
+    required = ["nome_campanha", "nome_ponto", "nome_cientifico", "tipo_amostragem", "esforco", "contagem", "biomassa"]
     missing = [c for c in required if c not in df_projeto.columns]
     if missing:
         raise RuntimeError(f"[ERRO] Colunas obrigatorias ausentes no Bloco 9 ICTIO: {', '.join(missing)}")
@@ -590,11 +648,24 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         generated_files.extend([str(out_df_cpuen), str(out_df_cpueb)])
         return {"campaigns": [], "species": 0, "warning": "sem dados quantitativos validos para CPUE por especie"}
 
-    df_quant["cpuen"] = (df_quant["contagem"] / df_quant["esforco"]) * 100
-    df_quant["cpueb"] = (df_quant["biomassa"] / df_quant["esforco"]) * 100
+    df_species_point = (
+        df_quant.groupby(["nome_campanha", "nome_ponto", "nome_cientifico"], dropna=False)
+        .agg(
+            contagem=("contagem", "sum"),
+            biomassa=("biomassa", "sum"),
+        )
+        .reset_index()
+    )
+    df_effort = _esforco_total_por_ponto(df_quant)
+    df_species_point = df_species_point.merge(df_effort, on=["nome_campanha", "nome_ponto"], how="left")
+    df_species_point = df_species_point[
+        df_species_point["esforco_total_ponto"].notna() & (df_species_point["esforco_total_ponto"] > 0)
+    ].copy()
+    df_species_point["cpuen"] = (df_species_point["contagem"] / df_species_point["esforco_total_ponto"]) * 100
+    df_species_point["cpueb"] = (df_species_point["biomassa"] / df_species_point["esforco_total_ponto"]) * 100
 
     df_cpue_sp = (
-        df_quant.groupby(["nome_campanha", "nome_cientifico"], dropna=False)[["cpuen", "cpueb"]]
+        df_species_point.groupby(["nome_campanha", "nome_cientifico"], dropna=False)[["cpuen", "cpueb"]]
         .sum()
         .reset_index()
     )
@@ -688,7 +759,11 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     _plot_horizontal(cpuen_sp, "CPUEn (ind/100m2)", out_png_cpuen)
     _plot_horizontal(cpueb_sp, "CPUEb (g/100m2)", out_png_cpueb)
 
-    return {"campaigns": campaigns[:2], "species": int(len(order_species))}
+    return {
+        "campaigns": campaigns[:2],
+        "species": int(len(order_species)),
+        "cpue_formula": "(species_abundance_or_biomass_at_point / sum_distinct_effort_by_campaign_point) * 100",
+    }
 
 
 def _shannon(counts: np.ndarray) -> float:
