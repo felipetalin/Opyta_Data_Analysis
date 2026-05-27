@@ -89,6 +89,33 @@ No projeto SAM Metais, a regra validada foi:
 Assim, uma especie registrada em 13 pontos na seca fica com `13/18 = 72%`, e
 uma especie registrada em 11 pontos na chuva fica com `11/22 = 50%`.
 
+## Ajuste FITO - padronizacao de filo
+
+Data: 2026-05-27
+
+Fitoplancton deve consolidar `filo` sem diferenciar maiuscula/minuscula.
+No projeto SAM Metais, o cadastro `especies` tinha variantes como
+`BACILLARIOPHYTA` e `Bacillariophyta`, gerando categorias duplicadas nos
+graficos de riqueza por filo.
+
+Correcao aplicada:
+
+- 106 registros de `especies` foram padronizados no banco;
+- o pipeline de Fitoplancton tambem normaliza `filo` na carga e nos blocos
+  taxonomicos, para evitar regressao em novas importacoes;
+- a riqueza por filo passou de 14 categorias textuais para 8 filos reais.
+
+Resultado validado no bloco 7:
+
+- `Bacillariophyta`: 82 taxons;
+- `Charophyta`: 40 taxons;
+- `Euglenophyta`: 15 taxons;
+- `Chlorophyta`: 14 taxons;
+- `Cyanobacteria`: 12 taxons;
+- `Dinophyta`: 3 taxons;
+- `Ochrophyta`: 2 taxons;
+- `Cryptophyta`: 1 taxon.
+
 ## Auditoria Itatiaia/Guanhaes - campanha 28
 
 Data: 2026-05-26

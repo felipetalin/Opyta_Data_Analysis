@@ -59,6 +59,13 @@ def _normalizar_tipo_amostragem(valor: str) -> str:
     return "outro"
 
 
+def _normalizar_rotulo_taxonomico(valor) -> str:
+    txt = str(valor).strip()
+    if not txt or txt.lower() == "nan":
+        return ""
+    return " ".join(part[:1].upper() + part[1:].lower() for part in txt.split())
+
+
 def _rotulo_campanha(campanha: str) -> str:
     c = str(campanha).strip()
     mapa = {
@@ -165,6 +172,9 @@ def _load_fitoplancton_df(project_id: int, group: str, env_file: str | None) -> 
         return pd.DataFrame()
 
     df = df[df["grupo_biologico"].astype(str).map(lambda x: _group_matches(x, group))].copy()
+    for col in ["filo", "phylum"]:
+        if col in df.columns:
+            df[col] = df[col].map(_normalizar_rotulo_taxonomico)
     return df.reset_index(drop=True)
 
 
@@ -373,6 +383,7 @@ def _run_block_3(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
 
     agg_dict: dict = {}
     if c_filo:
+        df_tmp[c_filo] = df_tmp[c_filo].map(_normalizar_rotulo_taxonomico)
         agg_dict["filo"] = (c_filo, _mode_or_first)
     if c_classe:
         agg_dict["classe"] = (c_classe, _mode_or_first)
@@ -567,7 +578,7 @@ def _run_block_6(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     df_base["nome_ponto"] = df_base["nome_ponto"].astype(str).str.strip()
     df_base["nome_campanha"] = df_base["nome_campanha"].astype(str).str.strip()
     df_base["nome_cientifico"] = df_base["nome_cientifico"].astype(str).str.strip()
-    df_base[col_filo] = df_base[col_filo].astype(str).str.strip()
+    df_base[col_filo] = df_base[col_filo].map(_normalizar_rotulo_taxonomico)
     df_base[col_tipo] = df_base[col_tipo].astype(str).str.strip()
     df_base["contagem"] = pd.Series(pd.to_numeric(df_base["contagem"], errors="coerce"), index=df_base.index).fillna(0)
 
@@ -747,7 +758,7 @@ def _run_block_7(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         return {"filos": 0, "taxa_total": 0, "warning": "coluna filo nao encontrada"}
 
     df_base = df_projeto.copy()
-    df_base["filo"] = df_base["filo"].astype(str).str.strip()
+    df_base["filo"] = df_base["filo"].map(_normalizar_rotulo_taxonomico)
     if "nome_cientifico" in df_base.columns:
         df_base["nome_cientifico"] = df_base["nome_cientifico"].astype(str).str.strip()
 
