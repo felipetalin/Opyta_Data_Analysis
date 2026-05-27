@@ -353,7 +353,12 @@ def _run_block_4(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
     df_tmp["campanha_layout"] = df_tmp["nome_campanha"].map(_rotulo_campanha)
 
     campaigns = sorted(df_tmp["campanha_layout"].dropna().unique().tolist(), key=_campanha_sort_key)
-    points = _ordenar_pontos(df_tmp["nome_ponto"].dropna().unique().tolist())
+    points_by_campaign = {
+        camp: _ordenar_pontos(
+            df_tmp.loc[df_tmp["campanha_layout"] == camp, "nome_ponto"].dropna().unique().tolist()
+        )
+        for camp in campaigns
+    }
 
     registros = []
     for (taxon, campanha, ponto), grupo_local in df_tmp.groupby(
@@ -385,25 +390,26 @@ def _run_block_4(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
         )
 
         for camp in campaigns:
-            for point in points:
+            for point in points_by_campaign.get(camp, []):
                 col = f"{camp}|||{point}"
                 if col not in tabela_final.columns:
                     tabela_final[col] = ""
 
         for camp in campaigns:
-            cols_camp = [f"{camp}|||{point}" for point in points]
+            points_camp = points_by_campaign.get(camp, [])
+            cols_camp = [f"{camp}|||{point}" for point in points_camp]
             tabela_final[f"{camp}|||OC"] = tabela_final.apply(
                 lambda row: _conta_ocorrencias_validas(row, cols_camp),
                 axis=1,
             )
-            total_points = len(cols_camp)
+            total_points = len(points_camp)
             tabela_final[f"{camp}|||%OC"] = tabela_final[f"{camp}|||OC"].apply(
                 lambda x: f"{round((x / total_points) * 100):.0f}%" if total_points else "0%"
             )
 
         final_cols = ["Taxon"]
         for camp in campaigns:
-            for point in points:
+            for point in points_by_campaign.get(camp, []):
                 col = f"{camp}|||{point}"
                 if col in tabela_final.columns:
                     final_cols.append(col)
@@ -425,7 +431,12 @@ def _run_block_4(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
     tabela_export.columns = [f"{camp} - {sub}" if "|||" in col and (camp := col.split("|||", 1)[0]) and (sub := col.split("|||", 1)[1]) else col for col in tabela_export.columns]
     tabela_export.to_excel(out_xlsx, index=False, engine="openpyxl")
     generated_files.append(str(out_xlsx))
-    return {"rows_input": int(len(df_projeto)), "rows_valid": int(len(df_tmp)), "taxa_total": int(len(tabela_final))}
+    return {
+        "rows_input": int(len(df_projeto)),
+        "rows_valid": int(len(df_tmp)),
+        "taxa_total": int(len(tabela_final)),
+        "pontos_por_campanha": {camp: len(points) for camp, points in points_by_campaign.items()},
+    }
 
 
 def _run_block_5(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:

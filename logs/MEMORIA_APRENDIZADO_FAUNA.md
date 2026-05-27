@@ -75,6 +75,20 @@ tambem foram alinhados:
 - ICTIO passa a gerar riqueza por ordem e por familia, com tabelas, barras e
   graficos de rosca.
 
+## Ajuste ICTIO - ocorrencia por campanha
+
+Data: 2026-05-27
+
+A tabela de distribuicao da ictio deve calcular `%OC` com o numero de pontos
+com dados dentro de cada campanha, nao com a lista global de pontos do projeto.
+No projeto SAM Metais, a regra validada foi:
+
+- `1a Campanha (Seca)`: 18 pontos com dados;
+- `2a Campanha (Chuva)`: 22 pontos com dados.
+
+Assim, uma especie registrada em 13 pontos na seca fica com `13/18 = 72%`, e
+uma especie registrada em 11 pontos na chuva fica com `11/22 = 50%`.
+
 ## Auditoria Itatiaia/Guanhaes - campanha 28
 
 Data: 2026-05-26
