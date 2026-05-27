@@ -152,6 +152,43 @@ def _normalizar_tipo_amostragem(valor: str) -> str:
     return "outro"
 
 
+def _rotulo_campanha(campanha: str) -> str:
+    c_norm = _normalize_text(campanha)
+    if "1" in c_norm and "seca" in c_norm:
+        return "1a Campanha (Seca)"
+    if "2" in c_norm and "chuva" in c_norm:
+        return "2a Campanha (Chuva)"
+    return str(campanha).strip()
+
+
+def _valor_ocorrencia(grupo: pd.DataFrame, col_contagem: str):
+    tem_quanti = (grupo["tipo_norm"] == "quantitativo").any()
+    if tem_quanti:
+        soma_quanti = pd.to_numeric(
+            grupo.loc[grupo["tipo_norm"] == "quantitativo", col_contagem], errors="coerce"
+        ).sum()
+        if pd.isna(soma_quanti):
+            return ""
+        if float(soma_quanti).is_integer():
+            return int(soma_quanti)
+        return round(float(soma_quanti), 2)
+
+    tem_quali = (grupo["tipo_norm"] == "qualitativo").any()
+    if tem_quali:
+        return "X"
+
+    return ""
+
+
+def _conta_ocorrencias_validas(row: pd.Series, colunas: list[str]) -> int:
+    total = 0
+    for c in colunas:
+        v = row.get(c, "")
+        if str(v).strip() != "" and str(v).strip() != "0":
+            total += 1
+    return total
+
+
 def _esforco_total_por_ponto(df_quant: pd.DataFrame) -> pd.DataFrame:
     """Sum the sampling effort used at each campaign/point once per method."""
     group_cols = ["nome_campanha", "nome_ponto"]
@@ -166,6 +203,40 @@ def _esforco_total_por_ponto(df_quant: pd.DataFrame) -> pd.DataFrame:
         )
         .reset_index()
     )
+
+
+def _cpuen_por_especie_ponto(df_projeto: pd.DataFrame) -> pd.DataFrame:
+    required = ["nome_campanha", "nome_ponto", "nome_cientifico", "tipo_amostragem", "esforco", "contagem"]
+    missing = [c for c in required if c not in df_projeto.columns]
+    if missing:
+        raise RuntimeError(f"[ERRO] Colunas obrigatorias ausentes para matriz CPUEn ICTIO: {', '.join(missing)}")
+
+    df_quant = df_projeto.copy()
+    tipo_norm = df_quant["tipo_amostragem"].astype(str).map(_normalizar_tipo_amostragem)
+    df_quant = df_quant[tipo_norm == "quantitativo"].copy()
+    if df_quant.empty:
+        return pd.DataFrame(columns=["nome_campanha", "nome_ponto", "nome_cientifico", "contagem", "esforco_total_ponto", "cpuen"])
+
+    for c in ["nome_campanha", "nome_ponto", "nome_cientifico"]:
+        df_quant[c] = df_quant[c].astype(str).str.strip()
+    df_quant["esforco"] = pd.to_numeric(df_quant["esforco"], errors="coerce")
+    df_quant["contagem"] = pd.to_numeric(df_quant["contagem"], errors="coerce").fillna(0)
+    df_quant = df_quant[df_quant["esforco"].notna() & (df_quant["esforco"] > 0)].copy()
+    if df_quant.empty:
+        return pd.DataFrame(columns=["nome_campanha", "nome_ponto", "nome_cientifico", "contagem", "esforco_total_ponto", "cpuen"])
+
+    df_species_point = (
+        df_quant.groupby(["nome_campanha", "nome_ponto", "nome_cientifico"], dropna=False)
+        .agg(contagem=("contagem", "sum"))
+        .reset_index()
+    )
+    df_effort = _esforco_total_por_ponto(df_quant)
+    df_species_point = df_species_point.merge(df_effort, on=["nome_campanha", "nome_ponto"], how="left")
+    df_species_point = df_species_point[
+        df_species_point["esforco_total_ponto"].notna() & (df_species_point["esforco_total_ponto"] > 0)
+    ].copy()
+    df_species_point["cpuen"] = (df_species_point["contagem"] / df_species_point["esforco_total_ponto"]) * 100
+    return df_species_point
 
 
 def _run_block_3(df_projeto: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
@@ -241,6 +312,120 @@ def _run_block_3(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
     generated_files.append(str(out_xlsx))
 
     return {"taxa_total": int(len(tabela))}
+
+
+def _run_block_4(df_projeto: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
+    group_slug = _safe_group_name(group)
+    out_xlsx = output_dir / f"04_tabela_distribuicao_{group_slug}.xlsx"
+
+    if df_projeto.empty:
+        pd.DataFrame(columns=["Taxon"]).to_excel(out_xlsx, index=False, engine="openpyxl")
+        generated_files.append(str(out_xlsx))
+        return {"rows_input": 0, "rows_valid": 0, "taxa_total": 0, "warning": "dataset vazio"}
+
+    required = ["nome_campanha", "nome_ponto", "nome_cientifico", "tipo_amostragem", "contagem"]
+    missing = [c for c in required if c not in df_projeto.columns]
+    if missing:
+        raise RuntimeError(f"[ERRO] Colunas obrigatorias ausentes no Bloco 4 ICTIO: {', '.join(missing)}")
+
+    df_tmp = df_projeto.copy()
+    for c in ["nome_campanha", "nome_ponto", "nome_cientifico", "tipo_amostragem"]:
+        df_tmp[c] = df_tmp[c].astype(str).str.strip()
+    df_tmp["contagem"] = pd.to_numeric(df_tmp["contagem"], errors="coerce").fillna(0)
+    df_tmp = df_tmp[
+        df_tmp["nome_cientifico"].notna()
+        & (df_tmp["nome_cientifico"] != "")
+        & (df_tmp["nome_cientifico"].str.lower() != "nan")
+        & df_tmp["nome_campanha"].notna()
+        & (df_tmp["nome_campanha"] != "")
+        & (df_tmp["nome_campanha"].str.lower() != "nan")
+        & df_tmp["nome_ponto"].notna()
+        & (df_tmp["nome_ponto"] != "")
+        & (df_tmp["nome_ponto"].str.lower() != "nan")
+    ].copy()
+
+    if df_tmp.empty:
+        pd.DataFrame(columns=["Taxon"]).to_excel(out_xlsx, index=False, engine="openpyxl")
+        generated_files.append(str(out_xlsx))
+        return {"rows_input": int(len(df_projeto)), "rows_valid": 0, "taxa_total": 0}
+
+    df_tmp["tipo_norm"] = df_tmp["tipo_amostragem"].map(_normalizar_tipo_amostragem)
+    df_tmp["campanha_layout"] = df_tmp["nome_campanha"].map(_rotulo_campanha)
+
+    campaigns = sorted(df_tmp["campanha_layout"].dropna().unique().tolist(), key=_campanha_sort_key)
+    points = _ordenar_pontos(df_tmp["nome_ponto"].dropna().unique().tolist())
+
+    registros = []
+    for (taxon, campanha, ponto), grupo_local in df_tmp.groupby(
+        ["nome_cientifico", "campanha_layout", "nome_ponto"], dropna=False
+    ):
+        registros.append(
+            {
+                "Taxon": taxon,
+                "campanha_layout": campanha,
+                "ponto": ponto,
+                "valor": _valor_ocorrencia(grupo_local, "contagem"),
+            }
+        )
+
+    df_ocorr = pd.DataFrame(registros)
+    if df_ocorr.empty:
+        tabela_final = pd.DataFrame(columns=["Taxon"])
+    else:
+        df_ocorr["coluna"] = df_ocorr["campanha_layout"] + "|||" + df_ocorr["ponto"].astype(str)
+        tabela_final = (
+            df_ocorr.pivot_table(
+                index="Taxon",
+                columns="coluna",
+                values="valor",
+                aggfunc="first",
+                fill_value="",
+            )
+            .reset_index()
+        )
+
+        for camp in campaigns:
+            for point in points:
+                col = f"{camp}|||{point}"
+                if col not in tabela_final.columns:
+                    tabela_final[col] = ""
+
+        for camp in campaigns:
+            cols_camp = [f"{camp}|||{point}" for point in points]
+            tabela_final[f"{camp}|||OC"] = tabela_final.apply(
+                lambda row: _conta_ocorrencias_validas(row, cols_camp),
+                axis=1,
+            )
+            total_points = len(cols_camp)
+            tabela_final[f"{camp}|||%OC"] = tabela_final[f"{camp}|||OC"].apply(
+                lambda x: f"{round((x / total_points) * 100):.0f}%" if total_points else "0%"
+            )
+
+        final_cols = ["Taxon"]
+        for camp in campaigns:
+            for point in points:
+                col = f"{camp}|||{point}"
+                if col in tabela_final.columns:
+                    final_cols.append(col)
+            final_cols.extend([c for c in [f"{camp}|||OC", f"{camp}|||%OC"] if c in tabela_final.columns])
+        tabela_final = tabela_final[final_cols]
+
+    meta_cols = [c for c in ["ordem", "familia", "nome_popular"] if c in df_tmp.columns]
+    if meta_cols and not tabela_final.empty:
+        meta = df_tmp.groupby("nome_cientifico", as_index=False).agg(**{c: (c, _mode_or_first) for c in meta_cols})
+        tabela_final = tabela_final.merge(meta, left_on="Taxon", right_on="nome_cientifico", how="left")
+        tabela_final = tabela_final.drop(columns=["nome_cientifico"])
+        rename = {"ordem": "Ordem", "familia": "Familia", "nome_popular": "Nome Popular"}
+        tabela_final = tabela_final.rename(columns=rename)
+        prefix_cols = [rename[c] for c in meta_cols if c in rename]
+        tabela_final = tabela_final[prefix_cols + [c for c in tabela_final.columns if c not in prefix_cols]]
+
+    tabela_final = tabela_final.sort_values([c for c in ["Ordem", "Familia", "Taxon"] if c in tabela_final.columns]).reset_index(drop=True)
+    tabela_export = tabela_final.copy()
+    tabela_export.columns = [f"{camp} - {sub}" if "|||" in col and (camp := col.split("|||", 1)[0]) and (sub := col.split("|||", 1)[1]) else col for col in tabela_export.columns]
+    tabela_export.to_excel(out_xlsx, index=False, engine="openpyxl")
+    generated_files.append(str(out_xlsx))
+    return {"rows_input": int(len(df_projeto)), "rows_valid": int(len(df_tmp)), "taxa_total": int(len(tabela_final))}
 
 
 def _run_block_5(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
@@ -438,6 +623,141 @@ def _run_block_6(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     generated_files.append(str(out_png))
 
     return {"campaigns": campaigns, "points": points}
+
+
+def _save_taxon_richness_outputs(
+    df_projeto: pd.DataFrame,
+    group_slug: str,
+    tax_col: str,
+    tax_label: str,
+    theme: dict,
+    output_dir: Path,
+    generated_files: list[str],
+) -> dict:
+    df_tmp = df_projeto.copy()
+    df_tmp["nome_cientifico"] = df_tmp["nome_cientifico"].astype(str).str.strip()
+    df_tmp[tax_col] = df_tmp[tax_col].fillna("Nao informado").astype(str).str.strip()
+    df_tmp.loc[df_tmp[tax_col].isin(["", "nan", "None"]), tax_col] = "Nao informado"
+
+    richness_df = (
+        df_tmp.groupby(tax_col)["nome_cientifico"]
+        .nunique()
+        .reset_index()
+        .rename(columns={tax_col: tax_col, "nome_cientifico": "numero_de_especies"})
+        .sort_values("numero_de_especies", ascending=False)
+        .reset_index(drop=True)
+    )
+    total_species = int(richness_df["numero_de_especies"].sum())
+    richness_df["percentual"] = np.where(
+        total_species > 0,
+        (richness_df["numero_de_especies"] / total_species) * 100,
+        0,
+    )
+
+    out_df = output_dir / f"04_df_riqueza_por_{tax_col}_{group_slug}.xlsx"
+    richness_df.to_excel(out_df, index=False, engine="openpyxl")
+    generated_files.append(str(out_df))
+
+    size_bar = get_figsize_by_complexity(theme, n_categories=len(richness_df), prefer_landscape=True)
+    fig, ax = plt.subplots(figsize=size_bar, dpi=int(theme.get("dpi", 600)))
+    bars = ax.bar(
+        richness_df[tax_col],
+        richness_df["numero_de_especies"],
+        color=str(theme.get("primary_hex", "#11420C")),
+        edgecolor="black",
+        linewidth=0.8,
+    )
+    apply_theme(ax, theme, xlabel=tax_label, ylabel="Numero de especies", x_tick_rotation=45)
+    for bar, value in zip(bars, richness_df["numero_de_especies"].tolist()):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            float(value),
+            f"{int(value)}",
+            ha="center",
+            va="bottom",
+            fontsize=int(theme.get("annotation_size", theme.get("font_size_base", 14))),
+        )
+    validate_axes_style(ax, theme)
+    fig.tight_layout()
+    out_bar = output_dir / f"04_grafico_riqueza_{tax_col}_barras_{group_slug}.png"
+    fig.savefig(out_bar, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_bar))
+
+    cmap = plt.get_cmap("tab20")
+    colors = [cmap(i % cmap.N) for i in range(max(len(richness_df), 1))]
+    size_donut = get_figsize_by_complexity(theme, n_categories=len(richness_df), prefer_landscape=True)
+    fig, ax = plt.subplots(figsize=size_donut, dpi=int(theme.get("dpi", 600)))
+
+    def _autopct_visible(pct: float) -> str:
+        return f"{pct:.1f}%" if pct >= 4.0 else ""
+
+    wedges, _, _ = ax.pie(
+        richness_df["numero_de_especies"].values,
+        labels=None,
+        colors=colors,
+        startangle=90,
+        wedgeprops={"width": 0.45, "edgecolor": "black", "linewidth": 0.8},
+        autopct=_autopct_visible,
+        pctdistance=0.78,
+        textprops={"fontsize": int(theme.get("font_size_base", 10))},
+    )
+    labels = [str(x) for x in richness_df[tax_col].tolist()]
+    ax.legend(
+        wedges,
+        labels,
+        loc="center left",
+        bbox_to_anchor=(1.02, 0.5),
+        frameon=False,
+        fontsize=int(theme.get("legend_font_size", theme.get("font_size_base", 10))),
+    )
+    ax.text(
+        0,
+        0,
+        f"Total\n{total_species}",
+        ha="center",
+        va="center",
+        fontsize=int(theme.get("annotation_size", theme.get("font_size_base", 14))),
+        fontweight=str(theme.get("title_weight", "bold")),
+    )
+    ax.set_facecolor(str(theme.get("background_color", "white")))
+    fig.set_facecolor(str(theme.get("background_color", "white")))
+    fig.tight_layout()
+    out_donut = output_dir / f"05_grafico_riqueza_{tax_col}_rosca_{group_slug}.png"
+    fig.savefig(out_donut, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_donut))
+    return {"categorias": int(len(richness_df)), "especies_total_somado": total_species}
+
+
+def _run_block_7(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
+    group_slug = _safe_group_name(group)
+    required = ["nome_cientifico", "ordem", "familia"]
+    missing = [c for c in required if c not in df_projeto.columns]
+    if missing:
+        raise RuntimeError(f"[ERRO] Colunas obrigatorias ausentes no Bloco 7 ICTIO: {', '.join(missing)}")
+    if df_projeto.empty:
+        return {"ordens": 0, "familias": 0, "warning": "dataset vazio"}
+
+    ordem = _save_taxon_richness_outputs(
+        df_projeto=df_projeto,
+        group_slug=group_slug,
+        tax_col="ordem",
+        tax_label="Ordem",
+        theme=theme,
+        output_dir=output_dir,
+        generated_files=generated_files,
+    )
+    familia = _save_taxon_richness_outputs(
+        df_projeto=df_projeto,
+        group_slug=group_slug,
+        tax_col="familia",
+        tax_label="Familia",
+        theme=theme,
+        output_dir=output_dir,
+        generated_files=generated_files,
+    )
+    return {"ordens": ordem["categorias"], "familias": familia["categorias"]}
 
 
 def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
@@ -796,17 +1116,13 @@ def _jackknife_1(pa_matrix: np.ndarray) -> float:
 def _run_block_10(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
     group_slug = _safe_group_name(group)
 
-    required = ["nome_campanha", "nome_ponto", "nome_cientifico", "contagem", "tipo_amostragem"]
+    required = ["nome_campanha", "nome_ponto", "nome_cientifico", "contagem", "tipo_amostragem", "esforco"]
     if any(c not in df_projeto.columns for c in required):
         raise RuntimeError("[ERRO] Colunas obrigatorias ausentes no Bloco 10 ICTIO")
 
-    df_div = df_projeto[df_projeto["tipo_amostragem"].astype(str).str.contains("quantit", case=False, na=False)].copy()
+    df_div = _cpuen_por_especie_ponto(df_projeto)
     if df_div.empty:
         return {"campaigns": [], "warning": "sem dados quantitativos"}
-
-    for c in ["nome_campanha", "nome_ponto", "nome_cientifico"]:
-        df_div[c] = df_div[c].astype(str).str.strip()
-    df_div["contagem"] = pd.Series(pd.to_numeric(df_div["contagem"], errors="coerce"), index=df_div.index).fillna(0)
 
     campaigns = sorted(df_div["nome_campanha"].dropna().unique().tolist(), key=_campanha_sort_key)
     rows = []
@@ -817,20 +1133,29 @@ def _run_block_10(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
         mat = df_c.pivot_table(
             index="nome_ponto",
             columns="nome_cientifico",
-            values="contagem",
+            values="cpuen",
             aggfunc="sum",
             fill_value=0,
             observed=False,
         )
         for p in mat.index:
             vec = mat.loc[p].values
-            rows.append({"nome_campanha": camp, "nome_ponto": p, "Shannon_H": _shannon(vec), "Pielou_J": _pielou(vec)})
+            rows.append(
+                {
+                    "nome_campanha": camp,
+                    "nome_ponto": p,
+                    "base_quantitativa": "CPUEn (ind/100m2)",
+                    "Shannon_H": _shannon(vec),
+                    "Pielou_J": _pielou(vec),
+                }
+            )
 
         total_vec = mat.sum(axis=0).values
         rows.append(
             {
                 "nome_campanha": camp,
                 "nome_ponto": f"{camp} (Geral)",
+                "base_quantitativa": "CPUEn (ind/100m2)",
                 "Shannon_H": _shannon(total_vec),
                 "Pielou_J": _pielou(total_vec),
             }
@@ -902,28 +1227,24 @@ def _run_block_10(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
     plt.close(fig)
     generated_files.append(str(out_png))
 
-    return {"campaigns": campaigns}
+    return {"campaigns": campaigns, "base_quantitativa": "CPUEn (ind/100m2)"}
 
 
 def _run_block_11(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
     group_slug = _safe_group_name(group)
 
-    required = ["nome_campanha", "nome_ponto", "nome_cientifico", "contagem", "tipo_amostragem"]
+    required = ["nome_campanha", "nome_ponto", "nome_cientifico", "contagem", "tipo_amostragem", "esforco"]
     if any(c not in df_projeto.columns for c in required):
         raise RuntimeError("[ERRO] Colunas obrigatorias ausentes no Bloco 11 ICTIO")
 
-    df_sim = df_projeto[df_projeto["tipo_amostragem"].astype(str).str.contains("quantit", case=False, na=False)].copy()
+    df_sim = _cpuen_por_especie_ponto(df_projeto)
     if df_sim.empty:
         return {"points": 0, "warning": "sem dados quantitativos"}
-
-    for c in ["nome_campanha", "nome_ponto", "nome_cientifico"]:
-        df_sim[c] = df_sim[c].astype(str).str.strip()
-    df_sim["contagem"] = pd.Series(pd.to_numeric(df_sim["contagem"], errors="coerce"), index=df_sim.index).fillna(0)
 
     mat = df_sim.pivot_table(
         index="nome_ponto",
         columns="nome_cientifico",
-        values="contagem",
+        values="cpuen",
         aggfunc="sum",
         fill_value=0,
         observed=False,
@@ -956,7 +1277,7 @@ def _run_block_11(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
     ax.set_xticks(ticks_dist)
     ax.set_xticklabels([str(t) for t in ticks_sim])
 
-    apply_theme(ax, theme, xlabel="Similaridade de Bray-Curtis (%)", ylabel="")
+    apply_theme(ax, theme, xlabel="Similaridade de Bray-Curtis (%) - matriz CPUEn", ylabel="")
     validate_axes_style(ax, theme)
     fig.tight_layout()
 
@@ -964,7 +1285,7 @@ def _run_block_11(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
     fig.savefig(str(out_png), dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
     generated_files.append(str(out_png))
-    return {"points": int(mat.shape[0])}
+    return {"points": int(mat.shape[0]), "base_quantitativa": "CPUEn (ind/100m2)"}
 
 
 def _run_block_12(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
@@ -1196,6 +1517,15 @@ def run_ictio_pipeline(
         )
         executed_blocks.append("3")
 
+    if block_sel in {"4", "all"}:
+        details["block_4"] = _run_block_4(
+            df_projeto=df,
+            group=group,
+            output_dir=output_dir,
+            generated_files=generated_files,
+        )
+        executed_blocks.append("4")
+
     if block_sel in {"5", "all"}:
         details["block_5"] = _run_block_5(
             df_projeto=df,
@@ -1215,6 +1545,16 @@ def run_ictio_pipeline(
             generated_files=generated_files,
         )
         executed_blocks.append("6")
+
+    if block_sel in {"7", "all"}:
+        details["block_7"] = _run_block_7(
+            df_projeto=df,
+            group=group,
+            theme=theme,
+            output_dir=output_dir,
+            generated_files=generated_files,
+        )
+        executed_blocks.append("7")
 
     if block_sel in {"8", "all"}:
         details["block_8"] = _run_block_8(
@@ -1276,7 +1616,7 @@ def run_ictio_pipeline(
         executed_blocks.append("13")
 
     if not executed_blocks:
-        raise ValueError("Unsupported block for ictio pipeline. Use '3', '5', '6', '8', '9', '10', '11', '12', '13' or 'all'.")
+        raise ValueError("Unsupported block for ictio pipeline. Use '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13' or 'all'.")
 
     details["executed_blocks"] = executed_blocks
     details["generated_files"] = generated_files

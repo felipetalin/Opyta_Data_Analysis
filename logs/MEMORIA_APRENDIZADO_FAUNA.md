@@ -62,6 +62,19 @@ Regra aprovada:
 - para CPUE por especie, calcular a especie dentro de cada ponto com o mesmo
   denominador de esforco total do ponto e depois agregar por campanha/especie.
 
+## Ajuste ICTIO - diversidade, similaridade e produtos taxonomicos
+
+Data: 2026-05-27
+
+Depois da revisao de CPUEn/CPUEb, os blocos derivados de abundancia quantitativa
+tambem foram alinhados:
+
+- diversidade/equitabilidade passam a usar matriz de CPUEn;
+- similaridade de Bray-Curtis passa a usar matriz de CPUEn;
+- ICTIO passa a gerar tabela de distribuicao por campanha/ponto;
+- ICTIO passa a gerar riqueza por ordem e por familia, com tabelas, barras e
+  graficos de rosca.
+
 ## Auditoria Itatiaia/Guanhaes - campanha 28
 
 Data: 2026-05-26

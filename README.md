@@ -93,15 +93,17 @@ Supported `--block` values for Zooplancton core currently:
 
 Supported `--block` values for ICTIO core currently:
 - `3` (Tabela de Composição Taxonômica)
+- `4` (Tabela de Distribuição/Ocorrência por Campanha e Ponto)
 - `5` (Riqueza Taxonômica por Ponto e Campanha)
 - `6` (Abundância Total por Ponto e Campanha)
+- `7` (Riqueza por Ordem e Família - tabelas + gráficos)
 - `8` (CPUE por Ponto: CPUEn e CPUEb)
 - `9` (CPUE por Espécie: CPUEn e CPUEb)
-- `10` (Diversidade Alfa: Shannon e Pielou)
-- `11` (Dendrograma de Similaridade - Bray-Curtis)
+- `10` (Diversidade Alfa: Shannon e Pielou sobre matriz CPUEn)
+- `11` (Dendrograma de Similaridade - Bray-Curtis sobre matriz CPUEn)
 - `12` (Curva de Suficiência Amostral - Jackknife 1)
 - `13` (Exportação DarwinCore)
-- `all` (currently runs blocks 3 + 5 + 6 + 8 + 9 + 10 + 11 + 12 + 13)
+- `all` (currently runs blocks 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13)
 
 ## Rules
 - Do not run pip install inside notebooks.
