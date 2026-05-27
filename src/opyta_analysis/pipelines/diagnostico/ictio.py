@@ -10,6 +10,7 @@ import pandas as pd
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import pdist, squareform
 
+from opyta_analysis.pipelines.diagnostico.darwincore_ief import export_darwincore_ief
 from opyta_analysis.supabase_client import get_client, paginate
 from opyta_analysis.theme import (
     apply_theme,
@@ -1409,89 +1410,13 @@ def _run_block_12(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
 
 
 def _run_block_13(df_projeto: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
-    if df_projeto.empty:
-        out = pd.DataFrame(
-            columns=[
-                "occurrenceID",
-                "basisOfRecord",
-                "scientificName",
-                "individualCount",
-                "organismQuantity",
-                "organismQuantityType",
-            ]
-        )
-    else:
-        c_proj = _get_col(df_projeto, "nome_projeto")
-        c_emp = _get_col(df_projeto, "nome_empresa")
-        c_camp = _get_col(df_projeto, "nome_campanha")
-        c_ponto = _get_col(df_projeto, "nome_ponto")
-        c_sci = _get_col(df_projeto, "nome_cientifico")
-        c_reino = _get_col(df_projeto, "reino", "kingdom")
-        c_filo = _get_col(df_projeto, "filo", "phylum")
-        c_classe = _get_col(df_projeto, "classe", "class")
-        c_ordem = _get_col(df_projeto, "ordem", "order")
-        c_familia = _get_col(df_projeto, "familia", "family")
-        c_genero = _get_col(df_projeto, "genero", "genus")
-        c_lat = _get_col(df_projeto, "latitude", "lat", "decimalLatitude")
-        c_lon = _get_col(df_projeto, "longitude", "lon", "decimalLongitude")
-        c_date = _get_col(df_projeto, "data_campanha", "data_coleta", "eventDate")
-        c_method = _get_col(df_projeto, "metodo", "metodo_amostragem", "samplingProtocol")
-        c_count = _get_col(df_projeto, "contagem", "numero_de_individuos")
-        c_bio = _get_col(df_projeto, "biomassa")
-        c_effort = _get_col(df_projeto, "esforco")
-
-        records = []
-        for _, row in df_projeto.iterrows():
-            proj = str(row.get(c_proj, "")) if c_proj else ""
-            camp = str(row.get(c_camp, "")) if c_camp else ""
-            ponto = str(row.get(c_ponto, "")) if c_ponto else ""
-            sci = str(row.get(c_sci, "")) if c_sci else ""
-            occurrence_id = "|".join([x for x in [proj, camp, ponto, sci] if x])
-
-            count_val = pd.to_numeric(row.get(c_count), errors="coerce") if c_count else np.nan
-            bio_val = pd.to_numeric(row.get(c_bio), errors="coerce") if c_bio else np.nan
-            effort_val = pd.to_numeric(row.get(c_effort), errors="coerce") if c_effort else np.nan
-            effort = "" if pd.isna(effort_val) else float(effort_val)
-
-            records.append(
-                {
-                    "occurrenceID": occurrence_id,
-                    "basisOfRecord": "HumanObservation",
-                    "institutionCode": "Opyta",
-                    "recordedBy": str(row.get(c_emp, "")) if c_emp else "",
-                    "eventDate": str(row.get(c_date, "")) if c_date else "",
-                    "locality": ponto,
-                    "samplingProtocol": str(row.get(c_method, "")) if c_method else "",
-                    "samplingEffort": effort,
-                    "decimalLatitude": row.get(c_lat, "") if c_lat else "",
-                    "decimalLongitude": row.get(c_lon, "") if c_lon else "",
-                    "scientificName": sci,
-                    "kingdom": str(row.get(c_reino, "")) if c_reino else "",
-                    "phylum": str(row.get(c_filo, "")) if c_filo else "",
-                    "class": str(row.get(c_classe, "")) if c_classe else "",
-                    "order": str(row.get(c_ordem, "")) if c_ordem else "",
-                    "family": str(row.get(c_familia, "")) if c_familia else "",
-                    "genus": str(row.get(c_genero, "")) if c_genero else "",
-                    "individualCount": "" if pd.isna(count_val) else int(count_val),
-                    "organismQuantity": "" if pd.isna(bio_val) else float(bio_val),
-                    "organismQuantityType": "grams" if not pd.isna(bio_val) else "",
-                    "occurrenceRemarks": "",
-                }
-            )
-
-        out = pd.DataFrame(records)
-
-    group_clean = _safe_group_name(group)
-    proj_name = "project"
-    if not df_projeto.empty and "nome_projeto" in df_projeto.columns:
-        proj_vals = df_projeto["nome_projeto"].dropna().astype(str)
-        if not proj_vals.empty:
-            proj_name = _safe_group_name(proj_vals.iloc[0])
-
-    out_file = output_dir / f"DarwinCore_{group_clean}_{proj_name}.xlsx"
-    out.to_excel(out_file, index=False, engine="openpyxl")
-    generated_files.append(str(out_file))
-    return {"rows": int(len(out)), "file": str(out_file)}
+    return export_darwincore_ief(
+        df=df_projeto,
+        group=group,
+        output_dir=output_dir,
+        generated_files=generated_files,
+        include_fish_biometrics=True,
+    )
 
 
 def run_ictio_pipeline(

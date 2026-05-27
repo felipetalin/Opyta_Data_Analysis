@@ -10,6 +10,7 @@ import pandas as pd
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import pdist, squareform
 
+from opyta_analysis.pipelines.diagnostico.darwincore_ief import export_darwincore_ief
 from opyta_analysis.supabase_client import get_client, paginate
 from opyta_analysis.theme import (
     apply_theme,
@@ -41,7 +42,10 @@ def _load_zoobentos_df(project_id: int, group: str, env_file: str | None) -> pd.
         sb,
         "pontos_coleta",
         filters={"id_projeto": project_id},
-        select="id_ponto_coleta,nome_ponto,id_campanha",
+        select=(
+            "id_ponto_coleta,nome_ponto,id_campanha,latitude,longitude,"
+            "data_hora_coleta,bacia_hidrografica,curso_d_agua,municipio"
+        ),
     )
     if not pontos:
         return pd.DataFrame()
@@ -51,12 +55,17 @@ def _load_zoobentos_df(project_id: int, group: str, env_file: str | None) -> pd.
 
     campanhas = paginate(sb, "campanhas", select="id_campanha,nome_campanha")
     camp_map = {c["id_campanha"]: c["nome_campanha"] for c in campanhas}
+    projetos = paginate(sb, "projetos", filters={"id_projeto": project_id}, select="nome_projeto")
+    nome_projeto = projetos[0].get("nome_projeto") if projetos else "Projeto"
 
     esforcos = paginate(
         sb,
         "esforcos_amostragem",
         filters={"grupo_biologico": group},
-        select="id_esforco,id_ponto_coleta",
+        select=(
+            "id_esforco,id_ponto_coleta,metodo_de_captura,esforco,"
+            "unidade_esforco,tipo_amostragem,tipo_de_amostragem"
+        ),
     )
     esforcos_proj = [e for e in esforcos if e.get("id_ponto_coleta") in ponto_ids]
     if not esforcos_proj:
@@ -76,7 +85,7 @@ def _load_zoobentos_df(project_id: int, group: str, env_file: str | None) -> pd.
     resultados = paginate(
         sb,
         result_table,
-        select=f"id_esforco,id_especie,{abundance_col}",
+        select=f"id_resultado_bento,id_esforco,id_especie,{abundance_col},tipo_amostragem",
     )
     resultados_proj = [r for r in resultados if r.get("id_esforco") in esforco_ids]
     if not resultados_proj:
@@ -85,7 +94,7 @@ def _load_zoobentos_df(project_id: int, group: str, env_file: str | None) -> pd.
     especies = paginate(
         sb,
         "especies",
-        select="id_especie,nome_cientifico,filo,classe,ordem,familia,genero,bmwp_score",
+        select="id_especie,nome_cientifico,reino,filo,classe,ordem,familia,genero,bmwp_score",
     )
     esp_map = {e["id_especie"]: e for e in especies}
 
@@ -96,9 +105,20 @@ def _load_zoobentos_df(project_id: int, group: str, env_file: str | None) -> pd.
         s = esp_map.get(r.get("id_especie"), {})
         rows.append(
             {
+                "id_resultado_pk": r.get("id_resultado_bento"),
+                "nome_projeto": nome_projeto,
                 "nome_ponto": p.get("nome_ponto"),
                 "nome_campanha": camp_map.get(p.get("id_campanha"), "Campanha desconhecida"),
+                "latitude": p.get("latitude"),
+                "longitude": p.get("longitude"),
+                "data_hora_coleta": p.get("data_hora_coleta"),
+                "bacia_hidrografica": p.get("bacia_hidrografica") or p.get("curso_d_agua"),
+                "metodo_de_captura": e.get("metodo_de_captura"),
+                "esforco": e.get("esforco"),
+                "unidade_esforco": e.get("unidade_esforco"),
+                "tipo_amostragem": r.get("tipo_amostragem") or e.get("tipo_amostragem") or e.get("tipo_de_amostragem"),
                 "nome_cientifico": s.get("nome_cientifico"),
+                "reino": s.get("reino"),
                 "filo": s.get("filo"),
                 "classe": s.get("classe"),
                 "ordem": s.get("ordem"),
@@ -1021,6 +1041,15 @@ def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
     return {"campaigns": campaign_order}
 
 
+def _run_block_13(df: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
+    return export_darwincore_ief(
+        df=df,
+        group=group,
+        output_dir=output_dir,
+        generated_files=generated_files,
+    )
+
+
 def run_zoobentos_pipeline(
     project_id: int,
     group: str,
@@ -1030,8 +1059,8 @@ def run_zoobentos_pipeline(
     block: str = "all",
 ) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
-    if block not in {"all", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}:
-        raise ValueError("Supported block values for zoobentos: all, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12")
+    if block not in {"all", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"}:
+        raise ValueError("Supported block values for zoobentos: all, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13")
 
     df = _load_zoobentos_df(project_id=project_id, group=group, env_file=env_file)
     if df.empty:
@@ -1079,6 +1108,10 @@ def run_zoobentos_pipeline(
     if block in {"all", "12"}:
         _run_block_12(df=df, group=group, theme=theme, output_dir=output_dir, generated_files=generated_files)
         executed_blocks.append("12")
+
+    if block in {"all", "13"}:
+        _run_block_13(df=df, group=group, output_dir=output_dir, generated_files=generated_files)
+        executed_blocks.append("13")
 
     campaign_order = sorted(df["nome_campanha"].dropna().unique().tolist())
     points_order = sorted(df["nome_ponto"].dropna().unique().tolist())

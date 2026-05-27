@@ -116,6 +116,30 @@ Resultado validado no bloco 7:
 - `Ochrophyta`: 2 taxons;
 - `Cryptophyta`: 1 taxon.
 
+## Ajuste DarwinCore - modelo IEF
+
+Data: 2026-05-27
+
+O DarwinCore dos grupos aquaticos deve seguir o modelo IEF validado a partir de
+`Ocorrencia_DWC_Mirai-330216.xlsx`, em workbook multi-abas:
+
+- `Orientacoes`;
+- `Sampling Events`;
+- `Associated Occurrences`;
+- `Fish Biometric data` somente para ictiofauna.
+
+Regra aprovada:
+
+- `county` e `municipality`: `Grao Mogol`;
+- `geodeticDatum`: `WGS84`;
+- `basisOfRecord`: `Especime vivo`;
+- `taxonRank`: `Especie`;
+- `recordedBy`: `Opyta`;
+- `individualCount`: densidade/contagem para Fito, Zoo e Bentos; abundancia
+  para Ictio;
+- coordenadas no formato decimal com simbolo de grau;
+- arquivos oficiais gerados como `DarwinCore_IEF_<grupo>_<projeto>.xlsx`.
+
 ## Auditoria Itatiaia/Guanhaes - campanha 28
 
 Data: 2026-05-26

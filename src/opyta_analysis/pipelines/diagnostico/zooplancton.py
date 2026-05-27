@@ -10,6 +10,7 @@ import pandas as pd
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import pdist, squareform
 
+from opyta_analysis.pipelines.diagnostico.darwincore_ief import export_darwincore_ief
 from opyta_analysis.supabase_client import get_client, paginate
 from opyta_analysis.theme import (
     apply_theme,
@@ -1193,105 +1194,12 @@ def _run_block_12(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
 
 
 def _run_block_13(df_projeto: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
-    if df_projeto.empty:
-        return {"rows": 0, "warning": "dataset vazio"}
-
-    group_clean = re.sub(r"[^A-Za-z0-9]+", "_", _normalize_text(group).title()).strip("_")
-    if "nome_projeto" in df_projeto.columns:
-        projeto = str(df_projeto["nome_projeto"].dropna().mode().iloc[0]) if not df_projeto["nome_projeto"].dropna().empty else "Projeto"
-    else:
-        projeto = "Projeto"
-    projeto_clean = re.sub(r"[^A-Za-z0-9]+", "_", projeto).strip("_")
-
-    cols = [
-        "occurrenceID",
-        "eventID",
-        "basisOfRecord",
-        "country",
-        "stateProvince",
-        "institutionCode",
-        "eventDate",
-        "decimalLatitude",
-        "decimalLongitude",
-        "samplingProtocol",
-        "samplingEffort",
-        "scientificName",
-        "kingdom",
-        "phylum",
-        "class",
-        "order",
-        "family",
-        "genus",
-        "individualCount",
-        "organismQuantity",
-        "organismQuantityType",
-        "occurrenceRemarks",
-    ]
-    out = pd.DataFrame(columns=cols)
-
-    c_id = _get_col(df_projeto, "id_resultado_pk")
-    c_camp = _get_col(df_projeto, "nome_campanha")
-    c_ponto = _get_col(df_projeto, "nome_ponto")
-    c_date = _get_col(df_projeto, "data_hora_coleta")
-    c_lat = _get_col(df_projeto, "latitude")
-    c_lon = _get_col(df_projeto, "longitude")
-    c_method = _get_col(df_projeto, "metodo_de_captura")
-    c_effort = _get_col(df_projeto, "esforco")
-    c_unit = _get_col(df_projeto, "unidade_esforco")
-    c_sci = _get_col(df_projeto, "nome_cientifico")
-    c_reino = _get_col(df_projeto, "reino")
-    c_filo = _get_col(df_projeto, "filo", "phylum")
-    c_classe = _get_col(df_projeto, "classe", "class")
-    c_ordem = _get_col(df_projeto, "ordem", "order")
-    c_familia = _get_col(df_projeto, "familia", "family")
-    c_genero = _get_col(df_projeto, "genero", "genus")
-    c_count = _get_col(df_projeto, "contagem")
-    c_bio = _get_col(df_projeto, "biomassa")
-
-    for i, row in enumerate(df_projeto.reset_index(drop=True).to_dict(orient="records"), start=1):
-        effort = ""
-        if c_effort:
-            effort = str(row.get(c_effort, "") or "").strip()
-            if c_unit:
-                unit = str(row.get(c_unit, "") or "").strip()
-                if unit:
-                    effort = f"{effort} {unit}".strip()
-
-        occurrence_id = str(row.get(c_id)) if c_id else str(i)
-        event_id = f"{str(row.get(c_camp, '')).strip()}|{str(row.get(c_ponto, '')).strip()}"
-
-        count_val = pd.to_numeric(row.get(c_count), errors="coerce") if c_count else np.nan
-        bio_val = pd.to_numeric(row.get(c_bio), errors="coerce") if c_bio else np.nan
-
-        out.loc[len(out)] = {
-            "occurrenceID": occurrence_id,
-            "eventID": event_id,
-            "basisOfRecord": "HumanObservation",
-            "country": "Brazil",
-            "stateProvince": "Minas Gerais",
-            "institutionCode": "Opyta",
-            "eventDate": str(row.get(c_date, "")) if c_date else "",
-            "decimalLatitude": row.get(c_lat, "") if c_lat else "",
-            "decimalLongitude": row.get(c_lon, "") if c_lon else "",
-            "samplingProtocol": str(row.get(c_method, "")) if c_method else "",
-            "samplingEffort": effort,
-            "scientificName": str(row.get(c_sci, "")) if c_sci else "",
-            "kingdom": str(row.get(c_reino, "")) if c_reino else "",
-            "phylum": str(row.get(c_filo, "")) if c_filo else "",
-            "class": str(row.get(c_classe, "")) if c_classe else "",
-            "order": str(row.get(c_ordem, "")) if c_ordem else "",
-            "family": str(row.get(c_familia, "")) if c_familia else "",
-            "genus": str(row.get(c_genero, "")) if c_genero else "",
-            "individualCount": "" if pd.isna(count_val) else int(count_val),
-            "organismQuantity": "" if pd.isna(bio_val) else float(bio_val),
-            "organismQuantityType": "grams" if not pd.isna(bio_val) else "",
-            "occurrenceRemarks": "",
-        }
-
-    out_file = output_dir / f"DarwinCore_{group_clean}_{projeto_clean}.xlsx"
-    out.to_excel(out_file, index=False, engine="openpyxl")
-    generated_files.append(str(out_file))
-    return {"rows": int(len(out)), "file": str(out_file)}
+    return export_darwincore_ief(
+        df=df_projeto,
+        group=group,
+        output_dir=output_dir,
+        generated_files=generated_files,
+    )
 
 
 def run_zooplancton_pipeline(
