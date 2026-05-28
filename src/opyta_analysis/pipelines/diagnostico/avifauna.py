@@ -478,11 +478,28 @@ def _avifauna_guild_codes(value: object) -> str:
     return ", ".join(codes) if codes else text
 
 
-def _save_avifauna_general_status_table(
-    df_all: pd.DataFrame,
-    output_dir: Path,
-    generated_files: list[str],
-) -> None:
+AVIFAUNA_STATUS_HEADERS = [
+    "Ordem",
+    "Fam\u00edlia",
+    "T\u00e1xon",
+    "Nome Comum",
+    "Status",
+    "DAF",
+    "Sens",
+    "Endemismo",
+    "IUCN",
+    "MMA",
+    "COPAM",
+    "CITES",
+    "Guilda",
+]
+AVIFAUNA_STATUS_YEARS = ["", "", "", "", "", "", "", "", "-2025", "-2022", "-2010", "-2025", ""]
+
+
+def _build_avifauna_status_table(df_all: pd.DataFrame) -> pd.DataFrame:
+    if df_all.empty:
+        return pd.DataFrame(columns=AVIFAUNA_STATUS_HEADERS)
+
     species = (
         df_all.groupby("nome_cientifico", as_index=False)
         .agg(
@@ -503,7 +520,7 @@ def _save_avifauna_general_status_table(
         .reset_index(drop=True)
     )
 
-    table = pd.DataFrame(
+    return pd.DataFrame(
         {
             "Ordem": species["ordem"].map(_nonempty_text),
             "Fam\u00edlia": species["familia"].map(_nonempty_text),
@@ -521,36 +538,20 @@ def _save_avifauna_general_status_table(
         }
     )
 
-    out = output_dir / "6_6_6_8_tabela_geral_status.xlsx"
-    headers = [
-        "Ordem",
-        "Fam\u00edlia",
-        "T\u00e1xon",
-        "Nome Comum",
-        "Status",
-        "DAF",
-        "Sens",
-        "Endemismo",
-        "IUCN",
-        "MMA",
-        "COPAM",
-        "CITES",
-        "Guilda",
-    ]
-    years = ["", "", "", "", "", "", "", "", "-2025", "-2022", "-2010", "-2025", ""]
 
+def _write_avifauna_status_workbook(table: pd.DataFrame, out: Path) -> None:
     with pd.ExcelWriter(out, engine="openpyxl") as writer:
         table.to_excel(writer, index=False, header=False, startrow=2, sheet_name="Sheet1")
         ws = writer.book["Sheet1"]
-        for col_idx, header in enumerate(headers, start=1):
+        for col_idx, header in enumerate(AVIFAUNA_STATUS_HEADERS, start=1):
             ws.cell(row=1, column=col_idx, value=header)
-            ws.cell(row=2, column=col_idx, value=years[col_idx - 1])
+            ws.cell(row=2, column=col_idx, value=AVIFAUNA_STATUS_YEARS[col_idx - 1])
 
         from openpyxl.styles import Alignment, Font, PatternFill
         from openpyxl.utils import get_column_letter
 
         fill = PatternFill("solid", fgColor="D9EAD3")
-        for row in ws.iter_rows(min_row=1, max_row=2, max_col=len(headers)):
+        for row in ws.iter_rows(min_row=1, max_row=2, max_col=len(AVIFAUNA_STATUS_HEADERS)):
             for cell in row:
                 cell.font = Font(bold=True)
                 cell.fill = fill
@@ -573,11 +574,19 @@ def _save_avifauna_general_status_table(
         }
         for column, width in widths.items():
             ws.column_dimensions[column].width = width
-        for col_idx in range(1, len(headers) + 1):
+        for col_idx in range(1, len(AVIFAUNA_STATUS_HEADERS) + 1):
             for cell in ws[get_column_letter(col_idx)]:
                 cell.alignment = Alignment(vertical="center")
         ws.freeze_panes = "A3"
 
+
+def _save_avifauna_general_status_table(
+    df_all: pd.DataFrame,
+    output_dir: Path,
+    generated_files: list[str],
+) -> None:
+    out = output_dir / "6_6_6_8_tabela_geral_status.xlsx"
+    _write_avifauna_status_workbook(_build_avifauna_status_table(df_all), out)
     generated_files.append(str(out))
 
 
@@ -626,15 +635,13 @@ def run_avifauna_pipeline(
     _save_premises_table(df, output_dir, generated_files)
 
     if block_sel in {"6.1", "61", "all"}:
-        tab_pch = masto._build_species_list(df_pch)
-        tab_ctrl = masto._build_species_list(df_control)
         pch_slug = masto._area_slug(TARGET_PCH_NAME)
         ctrl_slug = masto._area_slug(TARGET_CONTROL_NAME)
 
         out_pch = output_dir / f"6_1_tabela_especies_{pch_slug}.xlsx"
         out_ctrl = output_dir / f"6_1_tabela_especies_{ctrl_slug}.xlsx"
-        tab_pch.to_excel(out_pch, index=False, engine="openpyxl")
-        tab_ctrl.to_excel(out_ctrl, index=False, engine="openpyxl")
+        _write_avifauna_status_workbook(_build_avifauna_status_table(df_pch), out_pch)
+        _write_avifauna_status_workbook(_build_avifauna_status_table(df_control), out_ctrl)
         generated_files.extend([str(out_pch), str(out_ctrl)])
 
         out_fig_pch = output_dir / f"6_1_figura_abundancia_total_relativa_avifauna_{pch_slug}.png"

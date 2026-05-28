@@ -8,9 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Avifauna general status output now uses the approved two-row table model for
-  Itatiaia/Guanhaes, including DAF, sensitivity, endemism, conservation-list
-  years, and trophic guild codes.
+- Avifauna species and general status outputs now use the approved two-row
+  table model for Itatiaia/Guanhaes, including DAF, sensitivity, endemism,
+  conservation-list years, and trophic guild codes.
 
 ## [0.1.0] - 2026-05-07
 

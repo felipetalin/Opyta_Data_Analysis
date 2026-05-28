@@ -183,7 +183,7 @@ Antes da migracao da Avifauna, criar a arquitetura alvo registrada em
 `docs/FAUNA_ARQUITETURA_MULTIUSO_AUDITORIA.md`, ou pelo menos usar esse desenho
 como criterio para nao repetir scripts especificos e duplicados.
 
-## Ajuste AVIFAUNA - tabela geral de status
+## Ajuste AVIFAUNA - tabelas de especies e status
 
 Data: 2026-05-28
 
@@ -219,3 +219,12 @@ como `DAF=N.A.`:
 
 O modelo foi validado e gerado para os quatro empreendimentos da campanha:
 `Dores de Guanhaes`, `Fortuna II`, `Jacare` e `Senhora do Porto`.
+
+O mesmo modelo aprovado deve ser usado nas tabelas de especies do bloco 6.1:
+
+- `6_1_tabela_especies_<empreendimento>.xlsx`;
+- `6_1_tabela_especies_area_controle.xlsx`.
+
+Essas tabelas devem conter apenas as especies do subconjunto correspondente
+(empreendimento ou Area Controle), mas preservar exatamente o mesmo cabecalho,
+as mesmas conversoes e a mesma segunda linha de anos da tabela geral de status.
