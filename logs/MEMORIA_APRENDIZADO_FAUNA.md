@@ -182,3 +182,40 @@ projeto/campanha e um runner de lote generico.
 Antes da migracao da Avifauna, criar a arquitetura alvo registrada em
 `docs/FAUNA_ARQUITETURA_MULTIUSO_AUDITORIA.md`, ou pelo menos usar esse desenho
 como criterio para nao repetir scripts especificos e duplicados.
+
+## Ajuste AVIFAUNA - tabela geral de status
+
+Data: 2026-05-28
+
+A tabela `6_6_6_8_tabela_geral_status.xlsx` da Avifauna para
+Itatiaia/Guanhaes deve seguir o modelo aprovado com duas linhas de cabecalho:
+
+- linha 1: `Ordem`, `Familia`, `Taxon`, `Nome Comum`, `Status`, `DAF`,
+  `Sens`, `Endemismo`, `IUCN`, `MMA`, `COPAM`, `CITES`, `Guilda`;
+- linha 2: anos apenas sob as listas oficiais: `IUCN=-2025`,
+  `MMA=-2022`, `COPAM=-2010`, `CITES=-2025`.
+
+Regra de preenchimento aprovada:
+
+- usar a tabela `especies` como fonte dos campos taxonomicos e de status;
+- `Status`: usar `migratorio` quando houver valor, caso contrario `BR`;
+- `DAF`: `Dependentes=DEP`, `Semidependente=SED`,
+  `Independente=IND`; valor vazio fica `N.A.`;
+- `Sens`: `Baixo=B`, `Medio=M`, `Alto=A`;
+- `Endemismo`: manter o codigo em caixa alta, como `MA` e `CA`;
+- `IUCN`: status global quando houver valor; vazio fica `LC`;
+- `MMA` e `COPAM`: status quando houver valor; vazio fica `NA`;
+- `CITES`: manter o codigo cadastrado em caixa alta;
+- `Guilda`: converter `Onivoro=ON`, `Insetivoro=IN`, `Frugivoro=FG`,
+  `Granivoro=GR`, `Carnivoro=CR`, `Nectarivoro=NE`, `Necrofago=NC`,
+  preservando combinacoes como `GR, FG` e `IN, CR`.
+
+Especies com `Dependencia_Florestal` vazia no banco, mas aprovadas no output
+como `DAF=N.A.`:
+
+- `Dysithamnus stictothorax`;
+- `Cercomacra brasiliana`;
+- `Jacamaralcyon tridactyla`.
+
+O modelo foi validado e gerado para os quatro empreendimentos da campanha:
+`Dores de Guanhaes`, `Fortuna II`, `Jacare` e `Senhora do Porto`.

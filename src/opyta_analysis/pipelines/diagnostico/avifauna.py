@@ -404,6 +404,183 @@ def _save_descriptive_report(details: dict[str, Any], output_dir: Path, generate
     generated_files.append(str(out_txt))
 
 
+def _nonempty_text(value: object) -> str:
+    if pd.isna(value):
+        return ""
+    text = str(value).strip()
+    if text.lower() in {"", "nan", "none", "null"}:
+        return ""
+    return text
+
+
+def _avifauna_status_code(value: object) -> str:
+    text = _nonempty_text(value)
+    return text.upper() if text else "BR"
+
+
+def _avifauna_dependency_code(value: object) -> str:
+    text = masto._norm(value)
+    if not text:
+        return "N.A."
+    if "indep" in text:
+        return "IND"
+    if "semi" in text:
+        return "SED"
+    if "depend" in text:
+        return "DEP"
+    return _nonempty_text(value)
+
+
+def _avifauna_sensitivity_code(value: object) -> str:
+    text = masto._norm(value)
+    if text.startswith("baix"):
+        return "B"
+    if text.startswith("medi"):
+        return "M"
+    if text.startswith("alt"):
+        return "A"
+    return _nonempty_text(value)
+
+
+def _avifauna_conservation_code(value: object, default: str) -> str:
+    text = _nonempty_text(value)
+    return text.upper() if text else default
+
+
+def _avifauna_endemism_code(value: object) -> str:
+    return _nonempty_text(value).upper()
+
+
+def _avifauna_cites_code(value: object) -> str:
+    return _nonempty_text(value).upper()
+
+
+def _avifauna_guild_codes(value: object) -> str:
+    text = _nonempty_text(value)
+    if not text:
+        return ""
+
+    code_map = {
+        "onivoro": "ON",
+        "insetivoro": "IN",
+        "frugivoro": "FG",
+        "granivoro": "GR",
+        "carnivoro": "CR",
+        "nectarivoro": "NE",
+        "necrofago": "NC",
+    }
+
+    codes: list[str] = []
+    for part in re.split(r"[/,;]+", text):
+        code = code_map.get(masto._norm(part))
+        if code and code not in codes:
+            codes.append(code)
+    return ", ".join(codes) if codes else text
+
+
+def _save_avifauna_general_status_table(
+    df_all: pd.DataFrame,
+    output_dir: Path,
+    generated_files: list[str],
+) -> None:
+    species = (
+        df_all.groupby("nome_cientifico", as_index=False)
+        .agg(
+            ordem=("ordem", "first"),
+            familia=("familia", "first"),
+            nome_popular=("nome_popular", "first"),
+            status=("migratorio", "first"),
+            daf=("dependencia_florestal", "first"),
+            sens=("sensibilidade_ambiental", "first"),
+            endemismo=("endemismo", "first"),
+            iucn=("status_ameaca_global", "first"),
+            mma=("status_ameaca_nacional", "first"),
+            copam=("status_copam", "first"),
+            cites=("cites", "first"),
+            guilda=("guilda_alimentar", "first"),
+        )
+        .sort_values(["ordem", "familia", "nome_cientifico"], na_position="last")
+        .reset_index(drop=True)
+    )
+
+    table = pd.DataFrame(
+        {
+            "Ordem": species["ordem"].map(_nonempty_text),
+            "Fam\u00edlia": species["familia"].map(_nonempty_text),
+            "T\u00e1xon": species["nome_cientifico"].map(_nonempty_text),
+            "Nome Comum": species["nome_popular"].map(_nonempty_text),
+            "Status": species["status"].map(_avifauna_status_code),
+            "DAF": species["daf"].map(_avifauna_dependency_code),
+            "Sens": species["sens"].map(_avifauna_sensitivity_code),
+            "Endemismo": species["endemismo"].map(_avifauna_endemism_code),
+            "IUCN": species["iucn"].map(lambda value: _avifauna_conservation_code(value, "LC")),
+            "MMA": species["mma"].map(lambda value: _avifauna_conservation_code(value, "NA")),
+            "COPAM": species["copam"].map(lambda value: _avifauna_conservation_code(value, "NA")),
+            "CITES": species["cites"].map(_avifauna_cites_code),
+            "Guilda": species["guilda"].map(_avifauna_guild_codes),
+        }
+    )
+
+    out = output_dir / "6_6_6_8_tabela_geral_status.xlsx"
+    headers = [
+        "Ordem",
+        "Fam\u00edlia",
+        "T\u00e1xon",
+        "Nome Comum",
+        "Status",
+        "DAF",
+        "Sens",
+        "Endemismo",
+        "IUCN",
+        "MMA",
+        "COPAM",
+        "CITES",
+        "Guilda",
+    ]
+    years = ["", "", "", "", "", "", "", "", "-2025", "-2022", "-2010", "-2025", ""]
+
+    with pd.ExcelWriter(out, engine="openpyxl") as writer:
+        table.to_excel(writer, index=False, header=False, startrow=2, sheet_name="Sheet1")
+        ws = writer.book["Sheet1"]
+        for col_idx, header in enumerate(headers, start=1):
+            ws.cell(row=1, column=col_idx, value=header)
+            ws.cell(row=2, column=col_idx, value=years[col_idx - 1])
+
+        from openpyxl.styles import Alignment, Font, PatternFill
+        from openpyxl.utils import get_column_letter
+
+        fill = PatternFill("solid", fgColor="D9EAD3")
+        for row in ws.iter_rows(min_row=1, max_row=2, max_col=len(headers)):
+            for cell in row:
+                cell.font = Font(bold=True)
+                cell.fill = fill
+                cell.alignment = Alignment(horizontal="center", vertical="center")
+
+        widths = {
+            "A": 20,
+            "B": 22,
+            "C": 30,
+            "D": 30,
+            "E": 10,
+            "F": 10,
+            "G": 10,
+            "H": 14,
+            "I": 10,
+            "J": 10,
+            "K": 10,
+            "L": 10,
+            "M": 14,
+        }
+        for column, width in widths.items():
+            ws.column_dimensions[column].width = width
+        for col_idx in range(1, len(headers) + 1):
+            for cell in ws[get_column_letter(col_idx)]:
+                cell.alignment = Alignment(vertical="center")
+        ws.freeze_panes = "A3"
+
+    generated_files.append(str(out))
+
+
 def run_avifauna_pipeline(
     project_id: int,
     group: str,
@@ -509,7 +686,7 @@ def run_avifauna_pipeline(
         executed_blocks.append("6.5")
 
     if block_sel in {"6.6", "66", "6.7", "67", "6.8", "68", "all"}:
-        masto._save_general_status_tables(df, output_dir, generated_files)
+        _save_avifauna_general_status_table(df, output_dir, generated_files)
         executed_blocks.extend(["6.6", "6.7", "6.8"])
 
     if block_sel in {"all"}:
