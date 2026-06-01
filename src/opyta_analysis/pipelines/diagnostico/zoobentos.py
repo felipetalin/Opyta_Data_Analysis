@@ -17,7 +17,7 @@ from opyta_analysis.theme import (
     get_figsize,
     get_figsize_by_complexity,
     get_tight_layout_rect,
-    green_palette_from_hex,
+    palette_from_theme,
     place_legend_below_x_axis,
 )
 from opyta_analysis.validators import validate_axes_style
@@ -158,6 +158,41 @@ def _font_campaign(theme: dict) -> int:
     return int(theme.get("campaign_label_size", theme.get("font_size_base", 10)))
 
 
+def _theme_palette(theme: dict, n: int) -> list[str]:
+    return palette_from_theme(theme, max(n, 1))
+
+
+def _taxonomy_palette(n: int) -> list[str]:
+    colors = [
+        "#002060",  # azul Ducal escuro
+        "#5B9BD5",  # azul medio
+        "#00B0F0",  # azul claro vivo
+        "#70AD47",  # verde
+        "#FFC000",  # amarelo
+        "#ED7D31",  # laranja
+        "#C00000",  # vermelho
+        "#7030A0",  # roxo
+        "#A64D79",  # vinho
+        "#7F7F7F",  # cinza
+        "#9E480E",  # marrom
+        "#92D050",  # verde claro
+    ]
+    if n <= len(colors):
+        return colors[:n]
+    cmap = plt.get_cmap("tab20")
+    extra = [cmap(i % cmap.N) for i in range(n - len(colors))]
+    return colors + extra
+
+
+def _category_label(value, fallback: str = "Nao informado") -> str:
+    if pd.isna(value):
+        return fallback
+    text = str(value).strip()
+    if not text or text.lower() in {"nan", "none"}:
+        return fallback
+    return text
+
+
 def _render_campaign_labels(ax, campaigns: list[str], boundaries: list[int], fontsize: int = 12, y: float = -0.24):
     for i in range(len(boundaries) - 1):
         mid = boundaries[i] + (boundaries[i + 1] - boundaries[i]) / 2 - 0.5
@@ -243,18 +278,20 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     plt.close(fig)
     generated_files.append(str(png_06a))
 
-    class_col = "classe"
-    classes = sorted(df[class_col].fillna("Classe desconhecida").astype(str).unique().tolist())
-    # Exception approved by user: use categorical multi-color palette to improve class separability.
-    cmap_classes = plt.get_cmap("tab10")
-    color_map = {klass: cmap_classes(i % cmap_classes.N) for i, klass in enumerate(classes)}
+    tax_col = "ordem"
+    tax_label = "Ordem"
+    df_plot_base = df.copy()
+    df_plot_base[tax_col] = df_plot_base[tax_col].map(lambda v: _category_label(v))
+    tax_categories = sorted(df_plot_base[tax_col].unique().tolist())
+    tax_colors = _taxonomy_palette(len(tax_categories))
+    color_map = {cat: tax_colors[i] for i, cat in enumerate(tax_categories)}
 
     for campaign in campaign_order:
-        df_c = df[df["nome_campanha"] == campaign].copy()
+        df_c = df_plot_base[df_plot_base["nome_campanha"] == campaign].copy()
         pivot = (
             df_c.pivot_table(
                 index="nome_ponto",
-                columns=class_col,
+                columns=tax_col,
                 values="contagem",
                 aggfunc="sum",
                 fill_value=0,
@@ -266,7 +303,7 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
         pivot = pivot[ordered_cols]
         campaign_safe = _safe_name(campaign)
 
-        xlsx_06b = output_dir / f"06B_df_abundancia_classe_{campaign_safe}_{group.lower()}.xlsx"
+        xlsx_06b = output_dir / f"06B_df_abundancia_ordem_{campaign_safe}_{group.lower()}.xlsx"
         pivot.reset_index().to_excel(xlsx_06b, index=False, engine="openpyxl")
         generated_files.append(str(xlsx_06b))
 
@@ -293,21 +330,21 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
             ax,
             theme,
             xlabel="Ponto amostral",
-            ylabel="Abundancia",
+            ylabel=f"Abundancia por {tax_label.lower()}",
             x_tick_rotation=45,
         )
-        place_legend_below_x_axis(fig, ax, theme)
+        place_legend_below_x_axis(fig, ax, theme, ncol=min(len(ordered_cols), int(theme.get("legend_max_cols", 5))))
         validate_axes_style(ax, theme)
-        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.02))
+        fig.tight_layout(rect=(0, 0.02, 1, 0.84))
 
-        png_06b = output_dir / f"06B_grafico_abundancia_classe_{campaign_safe}_{group.lower()}.png"
+        png_06b = output_dir / f"06B_grafico_abundancia_ordem_{campaign_safe}_{group.lower()}.png"
         fig.savefig(png_06b, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
         plt.close(fig)
         generated_files.append(str(png_06b))
 
         pivot_pct = pivot.div(pivot.sum(axis=1).replace(0, np.nan), axis=0) * 100
         pivot_pct = pivot_pct.fillna(0)
-        xlsx_06c = output_dir / f"06C_df_abundancia_relativa_classe_{campaign_safe}_{group.lower()}.xlsx"
+        xlsx_06c = output_dir / f"06C_df_abundancia_relativa_ordem_{campaign_safe}_{group.lower()}.xlsx"
         pivot_pct.reset_index().to_excel(xlsx_06c, index=False, engine="openpyxl")
         generated_files.append(str(xlsx_06c))
 
@@ -335,14 +372,14 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
             ax,
             theme,
             xlabel="Ponto amostral",
-            ylabel="Abundancia relativa (%)",
+            ylabel=f"Abundancia relativa por {tax_label.lower()} (%)",
             x_tick_rotation=45,
         )
-        place_legend_below_x_axis(fig, ax, theme)
+        place_legend_below_x_axis(fig, ax, theme, ncol=min(len(ordered_cols), int(theme.get("legend_max_cols", 5))))
         validate_axes_style(ax, theme)
-        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.02))
+        fig.tight_layout(rect=(0, 0.02, 1, 0.84))
 
-        png_06c = output_dir / f"06C_grafico_abundancia_relativa_classe_{campaign_safe}_{group.lower()}.png"
+        png_06c = output_dir / f"06C_grafico_abundancia_relativa_ordem_{campaign_safe}_{group.lower()}.png"
         fig.savefig(png_06c, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
         plt.close(fig)
         generated_files.append(str(png_06c))
@@ -480,7 +517,7 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     richness.to_excel(out_df, index=False, engine="openpyxl")
     generated_files.append(str(out_df))
 
-    color_list = green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), max(len(campaigns), 1))
+    color_list = _theme_palette(theme, len(campaigns))
     color_map = {c: color_list[i] for i, c in enumerate(campaigns)}
 
     pivot = (
@@ -495,7 +532,18 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     width = 0.8 / n
     for i, c in enumerate(campaigns):
         vals = pivot[c].values
-        ax.bar(x + (i - (n - 1) / 2) * width, vals, width=width, label=c, color=color_map[c], edgecolor="black", linewidth=0.8)
+        bars = ax.bar(x + (i - (n - 1) / 2) * width, vals, width=width, label=c, color=color_map[c], edgecolor="black", linewidth=0.8)
+        for bar, value in zip(bars, vals):
+            if abs(float(value)) < 1e-12:
+                continue
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                float(value),
+                f"{int(value)}",
+                ha="center",
+                va="bottom",
+                fontsize=_font_annotation(theme),
+            )
 
     ax.set_xticks(x)
     ax.set_xticklabels(points, ha="right")
@@ -518,8 +566,10 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
 
 
 def _run_block_7(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
+    df_ordem = df.copy()
+    df_ordem["ordem"] = df_ordem["ordem"].map(lambda v: _category_label(v))
     ordem_df = (
-        df.groupby("ordem")["taxon_final"]
+        df_ordem.groupby("ordem")["taxon_final"]
         .nunique()
         .reset_index()
         .rename(columns={"ordem": "ordem", "taxon_final": "numero_de_taxons"})
@@ -547,9 +597,7 @@ def _run_block_7(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     generated_files.append(str(out_bar))
 
     # Donut chart
-    # Use a categorical palette for better visual separation between orders.
-    cmap = plt.get_cmap("tab20")
-    donut_colors = [cmap(i % cmap.N) for i in range(max(len(ordem_df), 1))]
+    donut_colors = _theme_palette(theme, len(ordem_df))
     size_donut = get_figsize_by_complexity(theme, n_categories=len(ordem_df), prefer_landscape=True)
     fig, ax = plt.subplots(figsize=size_donut, dpi=int(theme.get("dpi", 600)))
 
@@ -766,9 +814,11 @@ def _run_block_8(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     ax2.set_ylim(0, 1.1)
 
     if campaign_order:
-        first_campaign_n = df_div[df_div["nome_campanha"] == campaign_order[0]].shape[0]
-        if 0 < first_campaign_n < len(x):
-            ax1.axvline(x=first_campaign_n - 0.5, color="#888888", linestyle="--", linewidth=1.5)
+        split_n = 0
+        for campaign in campaign_order[:-1]:
+            split_n += df_div[df_div["nome_campanha"] == campaign].shape[0]
+            if 0 < split_n < len(x):
+                ax1.axvline(x=split_n - 0.5, color="#888888", linestyle="--", linewidth=1.5)
 
     h1, l1 = ax1.get_legend_handles_labels()
     h2, l2 = ax2.get_legend_handles_labels()
@@ -987,7 +1037,7 @@ def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
     generated_files.append(str(xlsx_12))
 
     # Figura 12 (indice composto APT): representacao obrigatoria em barra empilhada.
-    apt_colors = green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), 2)
+    apt_colors = _theme_palette(theme, 2)
     ept_color = apt_colors[0]
     chol_color = apt_colors[1]
 

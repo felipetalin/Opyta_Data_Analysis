@@ -48,3 +48,17 @@ gerar qualquer arquivo.
 Novos projetos sem `id_projeto` na view devem ser cadastrados explicitamente
 em `PROJECT_FALLBACK_HINTS` e, se houver codigo interno, em `PROJECT_CODE_BY_ID`
 no carregador do pipeline correspondente.
+
+## Paletas para categorias taxonomicas
+
+O gradiente azul Ducal (`#002060` ate `#DBE5F1`) deve ser usado para escalas,
+campanhas e series ordenadas. Para categorias taxonomicas nominais com muitas
+classes, como Ordem/Familia/Classe em barras empilhadas, o gradiente torna
+categorias vizinhas dificeis de distinguir.
+
+Regra registrada a partir dos graficos 06B/06C de Zoobentos Ducal:
+
+- usar paleta categorica deterministica e de alto contraste;
+- manter algumas cores azuis para preservar a identidade visual do projeto;
+- evitar gradiente sequencial quando a cor representa categoria nominal;
+- manter a atribuicao estavel para facilitar comparacao entre campanhas.

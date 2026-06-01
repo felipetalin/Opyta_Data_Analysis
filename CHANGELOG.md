@@ -14,6 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Ictiofauna consolidated-view loading now fails closed when `id_projeto` is
   absent and no explicit project fallback is registered, preventing accidental
   cross-project result generation.
+- Ducal Zoobentos 06B/06C stacked taxonomic charts now aggregate by order and
+  use a high-contrast categorical palette with selected blues instead of the
+  sequential project gradient.
 
 ### Added
 - Ducal Ictiofauna scope fallback (`project_id=183` -> `DUCGEO001`) and
