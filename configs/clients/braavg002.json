@@ -1,0 +1,46 @@
+{
+  "client_code": "BRAAVG002",
+  "audit_project_slug": "avg_ictio_2026",
+  "theme_override": {
+    "theme_name": "gold_avg_green_2026",
+    "no_chart_title": true,
+    "font_size_base": 21,
+    "annotation_size": 18,
+    "label_size": 20,
+    "legend_size": 18,
+    "title_size": 22,
+    "campaign_label_size": 18,
+    "primary_hex": "#16803A",
+    "secondary_hex": "#7FA33A",
+    "highlight_hex": "#B5D766",
+    "palette_start_hex": "#16803A",
+    "palette_end_hex": "#7FA33A",
+    "categorical_palette": [
+      "#16803A",
+      "#7FA33A",
+      "#0F5F2D",
+      "#A8C957",
+      "#2E8B57",
+      "#5F7F2D",
+      "#4FAF63",
+      "#C4D98B"
+    ],
+    "control_points": ["PIC-10", "PIC-12", "PIC-13"],
+    "control_groups": [
+      {
+        "label": "\u00c1rea de controle 01",
+        "points": ["PIC-01", "PIC-02", "PIC-03", "PIC-04", "PIC-05", "PIC-06", "PIC-07", "PIC-08", "PIC-09", "PIC-11"]
+      },
+      {
+        "label": "\u00c1rea de controle 02",
+        "points": ["PIC-10", "PIC-12", "PIC-13"]
+      }
+    ],
+    "control_area_fill_hex": "#DFF6E4",
+    "control_area_text_hex": "#16803A",
+    "control_area_alpha": 0.35,
+    "legend_max_cols": 5,
+    "legend_ncol": 5,
+    "figsize_standard": [16, 10]
+  }
+}

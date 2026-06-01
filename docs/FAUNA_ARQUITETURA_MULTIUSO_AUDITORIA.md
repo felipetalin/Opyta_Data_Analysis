@@ -207,6 +207,9 @@ O runner deve comparar o esperado vs. gerado e classificar:
   termos explicitos como exotico, alocotone, introduzido ou invasor.
 - Cliente e projeto nao podem ser inferidos apenas de `client`; precisa haver
   `audit_project_slug` por execucao.
+- Em AVG/Ictiofauna, placeholders de captura zero servem apenas para graficos
+  por ponto e CPUE. Eles nao podem entrar em composicao, ordem, familia,
+  diversidade ou DarwinCore, pois criam categorias falsas como `Nao informado`.
 
 ## Avaliacao do uso em lote hoje
 

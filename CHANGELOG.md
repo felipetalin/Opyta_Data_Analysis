@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Avifauna species and general status outputs now use the approved two-row
   table model for Itatiaia/Guanhaes, including DAF, sensitivity, endemism,
   conservation-list years, and trophic guild codes.
+- AVG Ictiofauna April/May 2026 outputs now run through a dedicated runner that
+  cleans final folders, applies AC01/AC02 point ordering, keeps zero-capture
+  points in point/CPUE charts, and prevents zero placeholders from entering
+  taxonomic charts.
 - Ictiofauna consolidated-view loading now fails closed when `id_projeto` is
   absent and no explicit project fallback is registered, preventing accidental
   cross-project result generation.
@@ -19,6 +23,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   sequential project gradient.
 
 ### Added
+- AVG Ictiofauna 2026 operational note in `docs/AVG_ICTIOFAUNA_2026.md`,
+  including control-area point groups, zero-capture placeholder rules, and
+  minimum validation checks.
 - Ducal Ictiofauna scope fallback (`project_id=183` -> `DUCGEO001`) and
   project-scope safety note in `docs/PROJECT_SCOPE_SAFETY.md`.
 

@@ -72,6 +72,11 @@ def _annotation_color_for_value(value: float, vmax: float) -> str:
 
 
 PROJECT_FALLBACK_HINTS = {
+    9: {
+        "codigo_interno_opyta": "BRAAVG002",
+        "nome_empresa_contains": "brandt",
+        "nome_projeto_contains": "brumado",
+    },
     62: {
         "nome_empresa_contains": "rocha consultoria",
         "nome_projeto_contains": "sam metais",
@@ -84,6 +89,7 @@ PROJECT_FALLBACK_HINTS = {
 }
 
 PROJECT_CODE_BY_ID = {
+    9: "BRAAVG002",
     183: "DUCGEO001",
 }
 
@@ -208,6 +214,86 @@ def _extrair_numero(txt: str) -> int:
 
 def _ordenar_pontos(lista_pontos: list[str]) -> list[str]:
     return sorted(lista_pontos, key=lambda x: (_extrair_numero(x), str(x)))
+
+
+def _normalize_point_id(value: str) -> str:
+    return re.sub(r"[^A-Z0-9]+", "", str(value or "").upper())
+
+
+def _get_control_points(theme: dict) -> list[str]:
+    pts = theme.get("control_points")
+    if not isinstance(pts, list):
+        return []
+    return [str(p).strip() for p in pts if str(p).strip()]
+
+
+def _get_control_indices(points: list[str], control_points: list[str]) -> list[int]:
+    if not points or not control_points:
+        return []
+    control_norm = {_normalize_point_id(p) for p in control_points}
+    return [i for i, p in enumerate(points) if _normalize_point_id(p) in control_norm]
+
+
+def _get_control_groups(theme: dict) -> list[dict]:
+    """Returns list of {label, points} dicts for grouped control area brackets.
+
+    Falls back to a single group from ``control_points`` if ``control_groups`` is absent.
+    """
+    raw = theme.get("control_groups")
+    if isinstance(raw, list) and raw:
+        out = []
+        for g in raw:
+            if not isinstance(g, dict):
+                continue
+            label = str(g.get("label", "")).strip()
+            pts = g.get("points") or []
+            if not isinstance(pts, list):
+                continue
+            pts_clean = [str(p).strip() for p in pts if str(p).strip()]
+            if label and pts_clean:
+                out.append({"label": label, "points": pts_clean})
+        return out
+    legacy = _get_control_points(theme)
+    if legacy:
+        return [{"label": "Area controle", "points": legacy}]
+    return []
+
+
+def _draw_control_brackets(ax, points: list[str], theme: dict) -> bool:
+    """Draws bracket-style group labels under x-tick labels for control area groups.
+
+    Returns True if any bracket was drawn, False otherwise.
+    """
+    groups = _get_control_groups(theme)
+    if not points or not groups:
+        return False
+    from matplotlib.transforms import blended_transform_factory
+
+    trans = blended_transform_factory(ax.transData, ax.transAxes)
+    text_color = str(theme.get("control_area_text_hex", "#0B3D20"))
+    fontsize = int(theme.get("label_size", theme.get("font_size_base", 14)))
+    y_bracket = -0.18
+    y_label = -0.22
+    tick = 0.018
+    drew = False
+    for grp in groups:
+        norm = {_normalize_point_id(p) for p in grp.get("points", [])}
+        idxs = [i for i, p in enumerate(points) if _normalize_point_id(p) in norm]
+        if not idxs:
+            continue
+        x0 = min(idxs) - 0.4
+        x1 = max(idxs) + 0.4
+        ax.plot([x0, x1], [y_bracket, y_bracket], color=text_color, lw=1.4,
+                transform=trans, clip_on=False, solid_capstyle="butt")
+        ax.plot([x0, x0], [y_bracket, y_bracket + tick], color=text_color, lw=1.4,
+                transform=trans, clip_on=False)
+        ax.plot([x1, x1], [y_bracket, y_bracket + tick], color=text_color, lw=1.4,
+                transform=trans, clip_on=False)
+        ax.text((x0 + x1) / 2, y_label, str(grp.get("label", "")),
+                ha="center", va="top", transform=trans,
+                fontsize=fontsize, color=text_color)
+        drew = True
+    return drew
 
 
 def _campanha_sort_key(campaign: str) -> tuple[int, str]:
@@ -601,9 +687,13 @@ def _run_block_5(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         ylabel="Riqueza taxonomica",
         x_tick_rotation=45,
     )
-    place_legend_below_x_axis(fig, ax, theme, ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))))
+    if len(campaigns) > 1:
+        place_legend_below_x_axis(fig, ax, theme, ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))))
+
+    has_brackets = _draw_control_brackets(ax, points, theme)
+
     validate_axes_style(ax, theme)
-    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.0))
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=len(campaigns) > 1, extra_bottom=0.08 if has_brackets else 0.0))
 
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
@@ -709,9 +799,13 @@ def _run_block_6(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         ylabel="Abundancia total (n de individuos)",
         x_tick_rotation=45,
     )
-    place_legend_below_x_axis(fig, ax, theme, ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))))
+    if len(campaigns) > 1:
+        place_legend_below_x_axis(fig, ax, theme, ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))))
+
+    has_brackets = _draw_control_brackets(ax, points, theme)
+
     validate_axes_style(ax, theme)
-    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.0))
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=len(campaigns) > 1, extra_bottom=0.08 if has_brackets else 0.0))
 
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
@@ -791,11 +885,20 @@ def _save_taxon_richness_outputs(
         labels=None,
         colors=colors,
         startangle=90,
-        wedgeprops={"width": 0.45, "edgecolor": "black", "linewidth": 0.8},
+        wedgeprops={"width": 0.45, "edgecolor": str(theme.get("background_color", "white")), "linewidth": 1.2},
         autopct=_autopct_visible,
         pctdistance=0.78,
         textprops={"fontsize": int(theme.get("font_size_base", 10))},
     )
+    # Improve label contrast on dark/light slices.
+    for w, t in zip(wedges, ax.texts[-len(wedges):]):
+        txt = t.get_text().strip()
+        if not txt:
+            continue
+        r, g, b = mcolors.to_rgb(w.get_facecolor())
+        luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+        t.set_color("white" if luminance < 0.50 else "black")
+        t.set_fontweight("bold")
     labels = [str(x) for x in richness_df[tax_col].tolist()]
     ax.legend(
         wedges,
@@ -1011,9 +1114,11 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
             ylabel=ylabel,
             x_tick_rotation=45,
         )
-        place_legend_below_x_axis(fig, ax, theme, ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))))
+        if len(campaigns) > 1:
+            place_legend_below_x_axis(fig, ax, theme, ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))))
+        has_brackets = _draw_control_brackets(ax, points, theme)
         validate_axes_style(ax, theme)
-        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.0))
+        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=len(campaigns) > 1, extra_bottom=0.08 if has_brackets else 0.0))
 
         fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
         plt.close(fig)
@@ -1177,14 +1282,15 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
                     fontsize=int(theme.get("annotation_size", 11)),
                 )
 
-        place_legend_below_x_axis(
-            fig,
-            ax,
-            theme,
-            ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))),
-        )
+        if len(campaigns) > 1:
+            place_legend_below_x_axis(
+                fig,
+                ax,
+                theme,
+                ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))),
+            )
         validate_axes_style(ax, theme)
-        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.0))
+        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=len(campaigns) > 1, extra_bottom=0.0))
         fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
         plt.close(fig)
         generated_files.append(str(out_png))
@@ -1474,12 +1580,10 @@ def _run_block_12(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
         fill_value=0,
         observed=False,
     )
-    mat = mat.loc[mat.sum(axis=1) > 0]
     if mat.empty:
-        return {"samples": 0, "warning": "amostras sem abundancia"}
+        return {"samples": 0, "warning": "amostras sem dados"}
 
     mat_pa = (mat > 0).astype(int)
-    mat_pa = mat_pa.loc[mat_pa.sum(axis=1) > 0]
     n_samples = int(mat_pa.shape[0])
     if n_samples < 2:
         return {"samples": n_samples, "warning": "amostras insuficientes"}
