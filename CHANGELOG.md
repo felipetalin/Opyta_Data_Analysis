@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Avifauna species and general status outputs now use the approved two-row
   table model for Itatiaia/Guanhaes, including DAF, sensitivity, endemism,
   conservation-list years, and trophic guild codes.
+- Ictiofauna consolidated-view loading now fails closed when `id_projeto` is
+  absent and no explicit project fallback is registered, preventing accidental
+  cross-project result generation.
+
+### Added
+- Ducal Ictiofauna scope fallback (`project_id=183` -> `DUCGEO001`) and
+  project-scope safety note in `docs/PROJECT_SCOPE_SAFETY.md`.
 
 ## [0.1.0] - 2026-05-07
 

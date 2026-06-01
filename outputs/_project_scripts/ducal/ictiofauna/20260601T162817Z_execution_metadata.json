@@ -1,0 +1,301 @@
+{
+  "executed_at": "2026-06-01T16:28:18.437114Z",
+  "runner_version": "1.2",
+  "project_id": 183,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "ducgeo001",
+  "block": "all",
+  "git": {
+    "branch": "main",
+    "commit": "397da58",
+    "dirty": true,
+    "status_short_count": 3,
+    "full_dirty": true,
+    "full_status_short_count": 4,
+    "ignored_generated_audit_count": 1
+  },
+  "rows_loaded": 69,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "C001-2024-04-SC",
+    "C002-2024-10-CH",
+    "C003-2025-04-SC",
+    "C004-2025-10-CH",
+    "C005-2026-04-SC"
+  ],
+  "campaigns_count": 5,
+  "points": [
+    "ICTIO01",
+    "ICTIO02",
+    "ICTIO03",
+    "ICTIO04",
+    "ICTIO05"
+  ],
+  "points_count": 5,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna",
+  "generated_files_count": 27,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\01_tabela_composicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_tabela_distribuicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\08_grafico_cpuen_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\09_grafico_cpueb_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\12_df_curva_suficiencia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\12_curva_suficiencia_amostral_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\DarwinCore_IEF_Ictiofauna_Monitoramento_Ducal.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\01_tabela_composicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5525,
+      "modified_at": "2026-06-01T16:27:52.164000Z",
+      "sha256": "59c67823fd9bd9a6dfd905a5898cca9e28d7acc648a88663099b9d76b7e0feb5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_tabela_distribuicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6694,
+      "modified_at": "2026-06-01T16:27:52.367000Z",
+      "sha256": "40329f4b09f14d216aba93fefedbfd07577674ad181666c386c0810c9137de83"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5218,
+      "modified_at": "2026-06-01T16:27:52.457000Z",
+      "sha256": "59056e1c0b2bd67ba3e6a42b5a1c90ace295b4ae0b29035a917207c44e136142"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 474626,
+      "modified_at": "2026-06-01T16:27:54.691000Z",
+      "sha256": "04f6cd06df363d4c108ffebe4b1f53a685d66247f259ee2185f79c9a80bd7541"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5249,
+      "modified_at": "2026-06-01T16:27:54.835000Z",
+      "sha256": "171595e3f8ac34ef29de21dfd4c84bc221fe2d5009e52170afef5a6d37aeb0af"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 545932,
+      "modified_at": "2026-06-01T16:27:56.712000Z",
+      "sha256": "2ba17d2a1a21cdef69b7211a7f68b6b5c9b517d100928ed6817a67706477a0fe"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 4976,
+      "modified_at": "2026-06-01T16:27:56.870000Z",
+      "sha256": "0c26ac43c3ea5066967a0b0e87454585d6aa88c4fac5542ef8492ade1e8614e9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 618542,
+      "modified_at": "2026-06-01T16:27:58.615000Z",
+      "sha256": "bfdd4caa1d05b56e56095121283f6e2339a59ccc6a773e35eb74e86f69e74e8a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 688949,
+      "modified_at": "2026-06-01T16:28:00.171000Z",
+      "sha256": "5ac226e6584fcb13dec100469c53b0fdfbb4aefa8b67c3cca978509ebe5f5333"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5049,
+      "modified_at": "2026-06-01T16:28:00.310000Z",
+      "sha256": "6369101c3094723a2440fc4dd3ff4b48e20f39bc736d3798acaac1bd0fb4f14d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 844791,
+      "modified_at": "2026-06-01T16:28:01.940000Z",
+      "sha256": "f83217645cd96de1784ed6afb52c334c9fb1048536871538b98ec8ad7c6546db"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 861548,
+      "modified_at": "2026-06-01T16:28:03.491000Z",
+      "sha256": "86cd7e54ab597f605c72a680e3eeec5d1f441d1939e823959b7825f58a767a45"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5869,
+      "modified_at": "2026-06-01T16:28:03.651000Z",
+      "sha256": "a3cdcf5ca732e8d069212e868ec351234a5c108798d33d7ed15be0c52808d513"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 598559,
+      "modified_at": "2026-06-01T16:28:05.350000Z",
+      "sha256": "f794dcc76394845c6a685b4411b20c23375a1ad384d7169e9d476062476afa0d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 653410,
+      "modified_at": "2026-06-01T16:28:07.014000Z",
+      "sha256": "e4be7dbb85f800ce5675d719375916fde9db049fd2fe06958f37af166012a43c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5474,
+      "modified_at": "2026-06-01T16:28:07.173000Z",
+      "sha256": "019b91b6e438f85abe6380211141a3c10d19f8b2fb1d486f340fc4e561206458"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5511,
+      "modified_at": "2026-06-01T16:28:07.264000Z",
+      "sha256": "bd2cd1641bbc0b622d029e09d5e02534c26d6adc310e5be757426386bec04084"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\08_grafico_cpuen_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1068254,
+      "modified_at": "2026-06-01T16:28:09.406000Z",
+      "sha256": "05d41af25971d61e77781deecef7a300a7c66d7130266ee25f7f591c7107fb9a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\09_grafico_cpueb_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1098070,
+      "modified_at": "2026-06-01T16:28:11.720000Z",
+      "sha256": "73cd0e47c6bc62698be56b286917fea7b6c45e837b880bd577c97a5987778549"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5999,
+      "modified_at": "2026-06-01T16:28:11.868000Z",
+      "sha256": "a40f17f8249ba4075c22fe880c8af1ac54baccde23d4a98ec8ac95e919b63853"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1096578,
+      "modified_at": "2026-06-01T16:28:13.748000Z",
+      "sha256": "53da4e429f0d57bf068830acc0e036531f83e06428618dbee0eb8bf47da9ccef"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5392,
+      "modified_at": "2026-06-01T16:28:13.927000Z",
+      "sha256": "dc1791ae18980e0aa8a4e3e8f8effcd8d326b0c4c6d90a4d5a641f3765415d84"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5108,
+      "modified_at": "2026-06-01T16:28:14.009000Z",
+      "sha256": "192631f16ef2fe501d21c1b94512eb3e7bf12d9a6c067ab99521687affa56c7d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 387101,
+      "modified_at": "2026-06-01T16:28:15.298000Z",
+      "sha256": "e4aaa5a104c68ee9a89fdfbf6ccc245a6a05f7891b0189a604160a955c9ef433"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\12_df_curva_suficiencia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6141,
+      "modified_at": "2026-06-01T16:28:15.516000Z",
+      "sha256": "5dd7d1526181e2a3b08892e19a296720404ffa5be65c67aebad687cd3495c4b2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\12_curva_suficiencia_amostral_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 846170,
+      "modified_at": "2026-06-01T16:28:17.270000Z",
+      "sha256": "2f62fcd474e8f61e76c715b3841a5c5edca94ecce55b23b92b45efb63e46cd6d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\DarwinCore_IEF_Ictiofauna_Monitoramento_Ducal.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 17409,
+      "modified_at": "2026-06-01T16:28:17.607000Z",
+      "sha256": "52060e565bb4003f99fdeddf3b7d1bcf7b9b9c3f7335581a8440787c86ba0aa5"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ducal\\ictiofauna",
+  "warnings": []
+}

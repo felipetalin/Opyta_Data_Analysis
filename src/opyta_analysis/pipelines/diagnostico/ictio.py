@@ -4,6 +4,7 @@ import re
 import unicodedata
 from pathlib import Path
 
+import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -16,7 +17,7 @@ from opyta_analysis.theme import (
     apply_theme,
     get_figsize_by_complexity,
     get_tight_layout_rect,
-    green_palette_from_hex,
+    palette_from_theme,
     place_legend_below_x_axis,
 )
 from opyta_analysis.validators import validate_axes_style
@@ -55,19 +56,60 @@ def _safe_group_name(group: str) -> str:
     return re.sub(r"[^a-z0-9_]+", "", normalized)
 
 
+def _campaign_palette(theme: dict, n: int) -> list[str]:
+    return palette_from_theme(theme, max(n, 1))
+
+
+def _theme_gradient_cmap(theme: dict, name: str = "opyta_theme_gradient"):
+    colors = _campaign_palette(theme, 2)
+    return mcolors.LinearSegmentedColormap.from_list(name, colors)
+
+
+def _annotation_color_for_value(value: float, vmax: float) -> str:
+    if not np.isfinite(vmax) or vmax <= 0:
+        return "black"
+    return "black" if value >= (0.65 * vmax) else "white"
+
+
+PROJECT_FALLBACK_HINTS = {
+    62: {
+        "nome_empresa_contains": "rocha consultoria",
+        "nome_projeto_contains": "sam metais",
+    },
+    183: {
+        "codigo_interno_opyta": "DUCGEO001",
+        "nome_empresa_contains": "geomil",
+        "nome_projeto_contains": "monitoramento ducal",
+    },
+}
+
+PROJECT_CODE_BY_ID = {
+    183: "DUCGEO001",
+}
+
+
 def _apply_project_fallback_filter(df: pd.DataFrame, project_id: int) -> pd.DataFrame:
     if "id_projeto" in df.columns:
         return df
 
-    project_hints = {
-        62: {
-            "nome_empresa_contains": "rocha consultoria",
-            "nome_projeto_contains": "sam metais",
-        }
-    }
-
-    hint = project_hints.get(int(project_id))
+    hint = PROJECT_FALLBACK_HINTS.get(int(project_id))
     if not hint:
+        raise RuntimeError(
+            "A view biota_analise_consolidada nao expoe id_projeto e nao ha "
+            f"fallback de escopo cadastrado para project_id={project_id}. "
+            "Cadastrar codigo_interno_opyta/nome_projeto antes de executar para evitar mistura de projetos."
+        )
+
+    if hint.get("codigo_interno_opyta") and "codigo_interno_opyta" not in df.columns:
+        raise RuntimeError(
+            "Fallback de escopo exige codigo_interno_opyta, mas a coluna nao veio na view consolidada."
+        )
+
+    if "codigo_interno_opyta" in df.columns and hint.get("codigo_interno_opyta"):
+        code_norm = _normalize_text(str(hint["codigo_interno_opyta"]))
+        df = df[df["codigo_interno_opyta"].astype(str).map(_normalize_text) == code_norm].copy()
+
+    if df.empty:
         return df
 
     if "nome_empresa" not in df.columns or "nome_projeto" not in df.columns:
@@ -81,16 +123,52 @@ def _apply_project_fallback_filter(df: pd.DataFrame, project_id: int) -> pd.Data
     return df[mask].copy()
 
 
+def _validate_project_scope(df: pd.DataFrame, project_id: int) -> None:
+    if df.empty:
+        return
+
+    if "id_projeto" in df.columns:
+        unique_ids = sorted(pd.to_numeric(df["id_projeto"], errors="coerce").dropna().astype(int).unique().tolist())
+        if unique_ids != [int(project_id)]:
+            raise RuntimeError(f"Escopo de projeto inconsistente: esperado {project_id}, obtido {unique_ids}.")
+        return
+
+    expected_code = PROJECT_CODE_BY_ID.get(int(project_id))
+    if expected_code and "codigo_interno_opyta" in df.columns:
+        codes = sorted(df["codigo_interno_opyta"].dropna().astype(str).unique().tolist())
+        if codes != [expected_code]:
+            raise RuntimeError(
+                f"Escopo de projeto inconsistente: esperado codigo_interno_opyta={expected_code}, obtido {codes}."
+            )
+        return
+
+    identity_cols = [c for c in ["codigo_interno_opyta", "nome_empresa", "nome_projeto"] if c in df.columns]
+    if identity_cols:
+        unique_scope = df[identity_cols].drop_duplicates()
+        if len(unique_scope) > 1:
+            sample = unique_scope.head(10).to_dict("records")
+            raise RuntimeError(
+                "Filtro de projeto retornou multiplas identidades de projeto. "
+                f"project_id={project_id}; exemplos={sample}"
+            )
+
+
 def _load_ictio_df(project_id: int, group: str, env_file: str | None) -> pd.DataFrame:
     sb = get_client(env_file)
 
     # Fast path: request only the target biological group from the backend.
-    rows = paginate(
-        sb,
-        "biota_analise_consolidada",
-        filters={"grupo_biologico": group},
-        select="*",
-    )
+    filters = {"grupo_biologico": group}
+    if int(project_id) in PROJECT_CODE_BY_ID:
+        filters["codigo_interno_opyta"] = PROJECT_CODE_BY_ID[int(project_id)]
+
+    rows = paginate(sb, "biota_analise_consolidada", filters=filters, select="*")
+    if not rows and "codigo_interno_opyta" in filters:
+        rows = paginate(
+            sb,
+            "biota_analise_consolidada",
+            filters={"codigo_interno_opyta": filters["codigo_interno_opyta"]},
+            select="*",
+        )
     if not rows:
         rows = paginate(
             sb,
@@ -111,6 +189,7 @@ def _load_ictio_df(project_id: int, group: str, env_file: str | None) -> pd.Data
         return pd.DataFrame()
 
     df = df[df["grupo_biologico"].astype(str).map(lambda x: _group_matches(x, group))].copy()
+    _validate_project_scope(df, project_id)
     return df.reset_index(drop=True)
 
 
@@ -475,7 +554,7 @@ def _run_block_5(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if not campaigns or not points:
         return {"campaigns": campaigns, "points": points}
 
-    color_list = green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), max(len(campaigns), 1))
+    color_list = _campaign_palette(theme, len(campaigns))
     color_map = {c: color_list[i] for i, c in enumerate(campaigns)}
 
     pivot = (
@@ -502,6 +581,8 @@ def _run_block_5(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
             linewidth=0.8,
         )
         for bar, v in zip(bars, values):
+            if abs(float(v)) < 1e-12:
+                continue
             ax.text(
                 bar.get_x() + bar.get_width() / 2,
                 float(v),
@@ -575,7 +656,7 @@ def _run_block_6(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if abundancia.empty or not campaigns or not points:
         return {"campaigns": campaigns, "points": points}
 
-    color_list = green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), max(len(campaigns), 1))
+    color_list = _campaign_palette(theme, len(campaigns))
     color_map = {c: color_list[i] for i, c in enumerate(campaigns)}
 
     pivot = (
@@ -608,6 +689,8 @@ def _run_block_6(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
             linewidth=0.8,
         )
         for bar, v in zip(bars, values):
+            if abs(float(v)) < 1e-12:
+                continue
             ax.text(
                 bar.get_x() + bar.get_width() / 2,
                 float(v),
@@ -696,8 +779,7 @@ def _save_taxon_richness_outputs(
     plt.close(fig)
     generated_files.append(str(out_bar))
 
-    cmap = plt.get_cmap("tab20")
-    colors = [cmap(i % cmap.N) for i in range(max(len(richness_df), 1))]
+    colors = _campaign_palette(theme, len(richness_df))
     size_donut = get_figsize_by_complexity(theme, n_categories=len(richness_df), prefer_landscape=True)
     fig, ax = plt.subplots(figsize=size_donut, dpi=int(theme.get("dpi", 600)))
 
@@ -875,7 +957,7 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if df_cpue.empty or not campaigns or not points:
         return {"campaigns": campaigns, "points": points}
 
-    color_list = green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), max(len(campaigns), 1))
+    color_list = _campaign_palette(theme, len(campaigns))
     color_map = {c: color_list[i] for i, c in enumerate(campaigns)}
 
     def _plot_metric(metric_col: str, ylabel: str, out_png: Path, decimals: int) -> None:
@@ -909,6 +991,8 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
                 linewidth=0.8,
             )
             for bar, v in zip(bars, values):
+                if abs(float(v)) < 1e-12:
+                    continue
                 ax.text(
                     bar.get_x() + bar.get_width() / 2,
                     float(v),
@@ -953,7 +1037,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     out_png_cpuen = output_dir / f"08_grafico_cpuen_por_especie_{group_slug}.png"
     out_png_cpueb = output_dir / f"09_grafico_cpueb_por_especie_{group_slug}.png"
 
-    base_cols = ["nome_cientifico", "campanha_1", "campanha_2"]
+    base_cols = ["nome_cientifico"]
     if df_projeto.empty:
         pd.DataFrame(columns=base_cols).to_excel(out_df_cpuen, index=False, engine="openpyxl")
         pd.DataFrame(columns=base_cols).to_excel(out_df_cpueb, index=False, engine="openpyxl")
@@ -1005,8 +1089,8 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     df_cpue_sp["nome_cientifico"] = df_cpue_sp["nome_cientifico"].astype(str).str.strip()
 
     campaigns = sorted(df_cpue_sp["nome_campanha"].dropna().unique().tolist(), key=_campanha_sort_key)
-    if len(campaigns) < 2:
-        campaigns = campaigns + ["campanha_2"]
+    if not campaigns:
+        campaigns = ["campanha_1"]
 
     cpuen_sp = (
         df_cpue_sp.pivot_table(
@@ -1016,7 +1100,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
             aggfunc="sum",
             fill_value=0,
         )
-        .reindex(columns=campaigns[:2], fill_value=0)
+        .reindex(columns=campaigns, fill_value=0)
         .fillna(0)
     )
 
@@ -1028,7 +1112,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
             aggfunc="sum",
             fill_value=0,
         )
-        .reindex(columns=campaigns[:2], fill_value=0)
+        .reindex(columns=campaigns, fill_value=0)
         .fillna(0)
     )
 
@@ -1040,20 +1124,30 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     cpueb_sp.to_excel(out_df_cpueb, index=False, engine="openpyxl")
     generated_files.extend([str(out_df_cpuen), str(out_df_cpueb)])
 
-    c1 = campaigns[0]
-    c2 = campaigns[1]
-    colors = green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), 2)
+    colors = _campaign_palette(theme, len(campaigns))
+    color_map = {c: colors[i] for i, c in enumerate(campaigns)}
 
     def _plot_horizontal(df_plot: pd.DataFrame, metric_label: str, out_png: Path) -> None:
         labels = df_plot["nome_cientifico"].tolist()
         y = np.arange(len(labels))
-        height = 0.38
+        n_campaigns = max(len(campaigns), 1)
+        height = min(0.18, 0.82 / n_campaigns)
 
         fig_h = max(8.0, 0.32 * max(len(labels), 10))
         fig, ax = plt.subplots(figsize=(15, fig_h), dpi=int(theme.get("dpi", 600)))
 
-        bars_1 = ax.barh(y - height / 2, df_plot[c1].values, height, label=c1, color=colors[0], edgecolor="black")
-        bars_2 = ax.barh(y + height / 2, df_plot[c2].values, height, label=c2, color=colors[1], edgecolor="black")
+        all_bars = []
+        for i, campaign in enumerate(campaigns):
+            offset = (i - (n_campaigns - 1) / 2) * height
+            bars = ax.barh(
+                y + offset,
+                df_plot[campaign].values,
+                height,
+                label=campaign,
+                color=color_map[campaign],
+                edgecolor="black",
+            )
+            all_bars.append(bars)
 
         ax.set_yticks(y)
         ax.set_yticklabels(labels, fontstyle="italic")
@@ -1067,11 +1161,13 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         ax.grid(axis="y", linestyle="-", linewidth=0.7, alpha=0.35)
         ax.grid(axis="x", visible=False)
 
-        for bars in (bars_1, bars_2):
+        for bars in all_bars:
             xmax = max((b.get_width() for b in bars), default=0)
             offset = xmax * 0.02 if xmax > 0 else 0.1
             for b in bars:
                 w = b.get_width()
+                if abs(float(w)) < 1e-12:
+                    continue
                 ax.text(
                     w + offset,
                     b.get_y() + b.get_height() / 2,
@@ -1081,18 +1177,68 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
                     fontsize=int(theme.get("annotation_size", 11)),
                 )
 
-        place_legend_below_x_axis(fig, ax, theme, ncol=2)
+        place_legend_below_x_axis(
+            fig,
+            ax,
+            theme,
+            ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))),
+        )
         validate_axes_style(ax, theme)
         fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.0))
         fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
         plt.close(fig)
         generated_files.append(str(out_png))
 
-    _plot_horizontal(cpuen_sp, "CPUEn (ind/100m2)", out_png_cpuen)
-    _plot_horizontal(cpueb_sp, "CPUEb (g/100m2)", out_png_cpueb)
+    def _plot_heatmap(df_plot: pd.DataFrame, metric_label: str, out_png: Path) -> None:
+        labels = df_plot["nome_cientifico"].tolist()
+        values = df_plot[campaigns].to_numpy(dtype=float)
+        vmax = float(np.nanmax(values)) if values.size else 0.0
+
+        fig_w = max(10.5, 1.35 * len(campaigns) + 4.5)
+        fig_h = max(7.0, 0.42 * max(len(labels), 10))
+        fig, ax = plt.subplots(figsize=(fig_w, fig_h), dpi=int(theme.get("dpi", 600)))
+        im = ax.imshow(values, aspect="auto", cmap=_theme_gradient_cmap(theme), vmin=0, vmax=vmax if vmax > 0 else 1)
+
+        ax.set_xticks(np.arange(len(campaigns)))
+        ax.set_xticklabels(campaigns, rotation=35, ha="right")
+        ax.set_yticks(np.arange(len(labels)))
+        ax.set_yticklabels(labels, fontstyle="italic")
+        apply_theme(ax, theme, xlabel="Campanha", ylabel="Especie", x_tick_rotation=None)
+        ax.grid(axis="y", visible=bool(theme.get("grid_y", True)), alpha=0.0)
+        ax.grid(axis="x", visible=bool(theme.get("grid_x", False)))
+
+        for i in range(values.shape[0]):
+            for j in range(values.shape[1]):
+                v = values[i, j]
+                if abs(float(v)) < 1e-12:
+                    continue
+                ax.text(
+                    j,
+                    i,
+                    f"{float(v):.2f}",
+                    ha="center",
+                    va="center",
+                    fontsize=int(theme.get("annotation_size", 11)),
+                    color=_annotation_color_for_value(float(v), vmax),
+                )
+
+        cbar = fig.colorbar(im, ax=ax, fraction=0.035, pad=0.02)
+        cbar.set_label(metric_label)
+        validate_axes_style(ax, theme)
+        fig.tight_layout()
+        fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+        plt.close(fig)
+        generated_files.append(str(out_png))
+
+    if len(campaigns) > 3:
+        _plot_heatmap(cpuen_sp, "CPUEn (ind/100m2)", out_png_cpuen)
+        _plot_heatmap(cpueb_sp, "CPUEb (g/100m2)", out_png_cpueb)
+    else:
+        _plot_horizontal(cpuen_sp, "CPUEn (ind/100m2)", out_png_cpuen)
+        _plot_horizontal(cpueb_sp, "CPUEb (g/100m2)", out_png_cpueb)
 
     return {
-        "campaigns": campaigns[:2],
+        "campaigns": campaigns,
         "species": int(len(order_species)),
         "cpue_formula": "(species_abundance_or_biomass_at_point / sum_distinct_effort_by_campaign_point) * 100",
     }
@@ -1214,11 +1360,15 @@ def _run_block_10(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
     ax2.set_ylim(0, 1.1)
 
     if campaigns:
-        split_n = df_out[df_out["nome_campanha"] == campaigns[0]].shape[0]
-        if 0 < split_n < len(x):
-            ax1.axvline(x=split_n - 0.5, color="#888888", linestyle="--", linewidth=1.2)
+        split_n = 0
+        for camp in campaigns[:-1]:
+            split_n += df_out[df_out["nome_campanha"] == camp].shape[0]
+            if 0 < split_n < len(x):
+                ax1.axvline(x=split_n - 0.5, color="#888888", linestyle="--", linewidth=1.2)
 
     for b, v in zip(bars, sh):
+        if abs(float(v)) < 1e-12:
+            continue
         ax1.text(
             b.get_x() + b.get_width() / 2,
             float(v),

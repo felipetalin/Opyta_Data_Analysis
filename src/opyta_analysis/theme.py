@@ -84,6 +84,37 @@ def green_palette_from_hex(base_hex: str, n: int) -> List[str]:
     return colors
 
 
+def gradient_palette_from_hex(start_hex: str, end_hex: str, n: int) -> List[str]:
+    """Build a discrete linear gradient between two HEX colors."""
+    start = _hex_to_rgb(start_hex)
+    end = _hex_to_rgb(end_hex)
+
+    colors = []
+    for i in range(max(n, 1)):
+        t = i / max(n - 1, 1)
+        rgb = tuple(start[j] + (end[j] - start[j]) * t for j in range(3))
+        colors.append(_rgb_to_hex(rgb))
+    return colors
+
+
+def palette_from_theme(theme: Dict, n: int) -> List[str]:
+    """Return the categorical palette requested by the active theme."""
+    explicit = theme.get("categorical_palette")
+    if isinstance(explicit, list) and explicit:
+        if len(explicit) >= n:
+            return [str(c) for c in explicit[:n]]
+        start = str(explicit[0])
+        end = str(explicit[-1])
+        return gradient_palette_from_hex(start, end, n)
+
+    start_hex = theme.get("palette_start_hex")
+    end_hex = theme.get("palette_end_hex")
+    if start_hex and end_hex:
+        return gradient_palette_from_hex(str(start_hex), str(end_hex), n)
+
+    return green_palette_from_hex(str(theme.get("primary_hex", "#11420C")), n)
+
+
 def apply_theme(
     ax,
     theme: Dict,

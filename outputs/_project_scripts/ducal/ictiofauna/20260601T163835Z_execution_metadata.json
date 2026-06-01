@@ -1,0 +1,66 @@
+{
+  "executed_at": "2026-06-01T16:38:35.810201Z",
+  "runner_version": "1.2",
+  "project_id": 183,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "ducgeo001",
+  "block": "10",
+  "git": {
+    "branch": "main",
+    "commit": "397da58",
+    "dirty": true,
+    "status_short_count": 5,
+    "full_dirty": true,
+    "full_status_short_count": 6,
+    "ignored_generated_audit_count": 1
+  },
+  "rows_loaded": 69,
+  "executed_blocks": [
+    "10"
+  ],
+  "campaigns": [
+    "C001-2024-04-SC",
+    "C002-2024-10-CH",
+    "C003-2025-04-SC",
+    "C004-2025-10-CH",
+    "C005-2026-04-SC"
+  ],
+  "campaigns_count": 5,
+  "points": [
+    "ICTIO01",
+    "ICTIO02",
+    "ICTIO03",
+    "ICTIO04",
+    "ICTIO05"
+  ],
+  "points_count": 5,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna",
+  "generated_files_count": 2,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6000,
+      "modified_at": "2026-06-01T16:38:27.608000Z",
+      "sha256": "cdd5fe8f9d24ac47de51fa32eec09d5b64a0e80befbf0267a1adea3fd4c352f5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1049936,
+      "modified_at": "2026-06-01T16:38:35.620000Z",
+      "sha256": "f5eb2dd308babfcb475c0113e823f04ad67a927cdecd048909879116610efcd6"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ducal\\ictiofauna",
+  "warnings": []
+}

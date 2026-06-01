@@ -1,0 +1,14 @@
+{
+  "client_code": "DUCGEO001",
+  "audit_project_slug": "ducal",
+  "theme_override": {
+    "primary_hex": "#002060",
+    "secondary_hex": "#5B9BD5",
+    "highlight_hex": "#1F4E79",
+    "palette_start_hex": "#002060",
+    "palette_end_hex": "#DBE5F1",
+    "legend_max_cols": 5,
+    "legend_ncol": 5,
+    "figsize_standard": [16, 10]
+  }
+}
