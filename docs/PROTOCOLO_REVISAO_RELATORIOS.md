@@ -13,6 +13,7 @@ posterior, revisao semantica assistida por IA.
 ```text
 src/opyta_analysis/revisao/
   docx_audit.py        # extrai estrutura, texto, estilos, legendas, referencias, tabelas e comentarios
+  html_report.py       # gera uma revisao visual em HTML com filtros, cards e contexto destacado
   resultados_audit.py  # inventaria PNG/XLSX gerados e valida imagens/planilhas
   numeric_audit.py     # extrai metricas numericas das planilhas e procura mencoes no texto
   rules.py             # regras deterministicas iniciais e severidade dos achados
@@ -70,6 +71,7 @@ O runner gera uma pasta `_revisao_qualidade/piloto_biota_aquatica` ao lado do DO
 - `04_texto_extraido.md`
 - `05_metricas_numericas.xlsx`
 - `06_divergencias_numericas_candidatas.xlsx`
+- `07_revisao_visual.html`
 - `00_documento_extraido.json`
 - `00_resultados_inventario.json`
 
@@ -82,8 +84,14 @@ O runner gera uma pasta `_revisao_qualidade/piloto_biota_aquatica` ao lado do DO
 
 ## Registro de erros e alertas
 
-O arquivo mestre de tomada de decisao e `03_inconsistencias.xlsx`. Ele recebe
-apenas inconsistencias ou alertas que precisam de acao/revisao humana.
+O arquivo mais amigavel para leitura e `07_revisao_visual.html`. Ele apresenta
+os achados em cards, com filtros por severidade, categoria e grupo, alem de
+contexto textual destacado para facilitar a conferencia.
+
+O arquivo mestre auditavel continua sendo `03_inconsistencias.xlsx`. A aba
+`checklist` deve conter apenas achados documentais mais rastreaveis. Alertas
+numericos e divergencias candidatas ficam separados na aba `triagem_numerica`,
+pois sao apoio de investigacao, nao erro confirmado.
 As colunas `procede?`, `acao`, `responsavel`, `status` e
 `observacao_revisor` foram reservadas para transformar a saida em checklist
 operacional de revisao. A aba `dicionario_revisao` descreve os valores
@@ -95,10 +103,15 @@ metrica. Quando uma metrica-chave nao e localizada na narrativa do respectivo
 grupo, ela tambem e registrada como `Numeros/conferencia` em
 `03_inconsistencias.xlsx`.
 
-O arquivo `06_divergencias_numericas_candidatas.xlsx` guarda os casos em que a
-automacao encontrou paragrafo relevante para uma metrica e numeros diferentes
-do valor de referencia. Esses casos entram como candidatos e devem ser
-confirmados pelo revisor antes de qualquer alteracao no relatorio.
+O arquivo `06_divergencias_numericas_candidatas.xlsx` guarda, em modo
+laboratorio, os casos em que a automacao encontrou paragrafo relevante para uma
+metrica e numeros diferentes do valor de referencia. Essa camada ainda nao deve
+ser usada como checklist visual padrao, porque pode confundir contexto biologico
+com divergencia real.
+
+Regra de confianca: a automacao nunca deve misturar hipotese numerica com erro
+confirmado. O HTML pode mostrar a hipotese como triagem, mas o revisor precisa
+validar contexto, tabela de origem e regra biologica antes de qualquer ajuste.
 
 ## Aprendizados do piloto
 

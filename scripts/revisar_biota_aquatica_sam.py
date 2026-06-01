@@ -15,6 +15,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from opyta_analysis.revisao.docx_audit import extract_docx_audit, render_extracted_markdown
+from opyta_analysis.revisao.html_report import render_visual_review_html
 from opyta_analysis.revisao.numeric_audit import (
     audit_metric_mentions,
     build_numeric_divergence_issues,
@@ -90,6 +91,7 @@ def _render_review_report(
     metric_review: list[dict[str, Any]],
     divergence_candidates: list[dict[str, Any]],
     issues: list[dict[str, str]],
+    numeric_triage_issues: list[dict[str, str]],
     output_dir: Path,
     metrics_path: Path,
     divergences_path: Path,
@@ -97,10 +99,9 @@ def _render_review_report(
     captions_body = [c for c in doc.get("captions", []) if not c.get("is_toc")]
     captions_toc = [c for c in doc.get("captions", []) if c.get("is_toc")]
     severity_counts = pd.Series([i["severidade"] for i in issues]).value_counts().to_dict() if issues else {}
-    numeric_alerts = [m for m in metric_review if m.get("registrar_em_inconsistencias")]
     likely_divergences = [
-        c for c in divergence_candidates
-        if not c.get("valor_resultado_aparece_no_contexto")
+        i for i in numeric_triage_issues
+        if i.get("categoria") == "Numeros/divergencia_candidata"
     ]
 
     lines = [
@@ -141,17 +142,18 @@ def _render_review_report(
             "",
             "## Camada numerica inicial",
             "",
+            "- A camada numerica e triagem assistida. Ela nao deve ser tratada como erro confirmado sem leitura humana.",
             f"- Metricas extraidas das planilhas: {len(metric_mentions)}",
             f"- Metricas com mencao numerica no texto do respectivo grupo: {sum(1 for item in metric_mentions if item.get('mencionado_no_texto_do_grupo'))}",
             f"- Metricas sem mencao numerica detectada no texto do respectivo grupo: {sum(1 for item in metric_mentions if not item.get('mencionado_no_texto_do_grupo'))}",
-            f"- Alertas numericos registrados no `03_inconsistencias.xlsx`: {len(numeric_alerts)}",
-            f"- Divergencias numericas candidatas: {len(likely_divergences)}",
+            f"- Itens de triagem numerica separados do checklist principal: {len(numeric_triage_issues)}",
+            f"- Divergencias numericas candidatas avaliaveis: {len(likely_divergences)}",
             f"- Detalhe completo em `{metrics_path.name}`.",
             f"- Planilha especifica em `{divergences_path.name}`.",
             "",
-            "## Achados iniciais",
+            "## Checklist principal",
             "",
-            f"- Total de inconsistencias/alertas: {len(issues)}",
+            f"- Total de achados documentais no checklist: {len(issues)}",
             f"- Por severidade: {severity_counts}",
             "",
         ]
@@ -179,8 +181,8 @@ def _render_review_report(
             "",
             "## Proximas camadas recomendadas",
             "",
-            "1. Cruzar numeros do texto com planilhas de composicao, riqueza, abundancia, diversidade, similaridade e suficiencia.",
-            "2. Refinar a tolerancia das mencoes numericas para separar numero correto, ausente e potencialmente divergente.",
+            "1. Revisar primeiro o checklist principal; ele contem os achados mais rastreaveis.",
+            "2. Usar a triagem numerica apenas como apoio visual, confirmando manualmente cada caso antes de corrigir.",
             "3. Mapear quais PNG/XLSX foram efetivamente incorporados ao DOCX.",
             "4. Revisar semanticamente as secoes de conclusao e indicadores por grupo.",
             "5. Evoluir para DOCX com comentarios automáticos somente depois de validar a planilha de inconsistencias.",
@@ -216,8 +218,10 @@ def main() -> int:
     numeric_issues = build_numeric_issues(metric_review)
     divergence_candidates = detect_numeric_divergence_candidates(metric_review, doc)
     divergence_issues = build_numeric_divergence_issues(divergence_candidates)
-    issues = build_initial_issues(doc, results) + numeric_issues + divergence_issues
+    numeric_triage_issues = numeric_issues
+    issues = build_initial_issues(doc, results)
     checklist_issues = prepare_issues_checklist(issues)
+    numeric_triage_checklist = prepare_issues_checklist(numeric_triage_issues)
 
     (output_dir / "00_documento_extraido.json").write_text(
         json.dumps(doc, indent=2, ensure_ascii=False),
@@ -256,6 +260,7 @@ def main() -> int:
         output_dir / "03_inconsistencias.xlsx",
         {
             "checklist": checklist_issues,
+            "triagem_numerica": numeric_triage_checklist,
             "dicionario_revisao": review_status_dictionary(),
         },
     )
@@ -284,17 +289,34 @@ def main() -> int:
             metric_review,
             divergence_candidates,
             issues,
+            numeric_triage_issues,
             output_dir,
             metrics_path,
             divergences_path,
         ),
         encoding="utf-8",
     )
+    (output_dir / "07_revisao_visual.html").write_text(
+        render_visual_review_html(
+            doc=doc,
+            results=results,
+            checklist_issues=checklist_issues,
+            numeric_triage_issues=numeric_triage_checklist,
+            metric_review=metric_review,
+            divergence_candidates=[],
+            output_dir=output_dir,
+            metrics_path=metrics_path,
+            divergences_path=divergences_path,
+        ),
+        encoding="utf-8",
+    )
 
-    print(f"[revisao] Issues: {len(issues)}")
+    print(f"[revisao] Issues documentais: {len(issues)}")
+    print(f"[revisao] Triagem numerica: {len(numeric_triage_issues)}")
     print(f"[revisao] Metricas numericas: {len(metric_mentions)}")
     for issue in issues[:10]:
         print(f"  [{issue['severidade']}] {issue['categoria']}: {issue['problema']}")
+    print(f"[revisao] HTML visual: {output_dir / '07_revisao_visual.html'}")
     print("[revisao] Pacote gerado com sucesso.")
     return 0
 
