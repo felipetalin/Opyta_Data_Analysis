@@ -26,6 +26,87 @@ Observacao: no Windows, a pasta acima aparece como `Migracao` com acento. Em scr
   `Campanha + Ponto + Metodo_de_Captura`.
 - Para Porto Estrela, apos limpeza, nao ha duplicidade perigosa nessa chave do migrador.
 
+## Premissas Analiticas Aprovadas
+
+Registro aprovado pelo usuario em 2026-06-02 para orientar as analises de
+ictiofauna de Porto Estrela.
+
+Base de especies:
+
+- Especies com resultados migrados: 61.
+- Especies no cadastro definitivo: 61.
+- Migradoras derivadas: 12.
+- Nao migradoras derivadas: 49.
+- Nativas: 40.
+- Nao nativas: 21.
+- Ameacadas de extincao: 4.
+
+Separacao de amostragem:
+
+- Amostragem qualitativa: usar em composicao, ocorrencia, curva do coletor,
+  suficiencia amostral e demais analises de presenca/ausencia.
+- Amostragem quantitativa: usar como motor analitico do relatorio, com
+  abundancia e biomassa padronizadas por esforco.
+- `CPUEn` e a metrica central de abundancia padronizada. Ela deve orientar as
+  analises estatisticas, diversidade quantitativa, similaridade e series
+  temporais de abundancia.
+
+Regra oficial de CPUE para Porto Estrela:
+
+- O esforco deve ser interpretado por linha analitica.
+- `CPUEn_linha = Numero_de_Individuos / Esforco * 100`.
+- `PC_g` representa peso individual.
+- `Biomassa_g_linha = Numero_de_Individuos * PC_g`.
+- `CPUEb_linha = Biomassa_g_linha / Esforco * 100`.
+- Depois do calculo por linha, agregar por soma conforme campanha, ano
+  hidrologico, ponto, trecho, especie ou grupo ecologico.
+- Para `CPUEb`, usar a planilha validada/pre-migracao como base de calculo
+  quando necessario, pois o migrador oficial agrega `PC_g` por media ao
+  consolidar especie+esforco.
+
+Corte temporal aprovado:
+
+- Rodar a primeira bateria ate dezembro de 2025.
+- O corte operacional e `AAAAMM <= 202512` no codigo de campanha
+  `PE###_AH####_AAAAMM`.
+- Confirmacao em banco: a ultima campanha migrada e `PE090_AH2526_202512`;
+  portanto as 90 campanhas ja estao dentro do corte aprovado.
+- A campanha `PE055_AH1617_201703_R2` possui sufixo de rodada, mas deve ser
+  interpretada temporalmente como `201703` e mantida no corte.
+
+Trechos espaciais aprovados:
+
+- Montante, em ordem geografica de montante para jusante: `P4`, `P5`, `P2`,
+  `P1`.
+- Jusante, em ordem geografica de montante para jusante: `P3`, `P6`, `P7`,
+  `P8`, `P9`.
+
+Regra reprodutiva aprovada:
+
+- A analise reprodutiva usa as colunas `Sexo` e `EMG`.
+- A classificacao macroscopica segue Bazzoli (2003):
+  - `F1`/`M1`: repouso.
+  - `F2`/`M2`: maturacao inicial.
+  - `F3`/`M3`: maturacao avancada/maduro.
+  - `F4`/`M4`: desovado/esgotado.
+- A evidencia reprodutiva forte do relatorio e definida por `F3`, `M3`,
+  `F4` e `M4`.
+- A metrica principal e abundancia de individuos por EMG, agregada por especie,
+  ponto, campanha, ano hidrologico, trecho e grupos ecologicos.
+- A analise principal deve priorizar especies migradoras e/ou ameacadas, com
+  aba complementar para todas as especies com `EMG` informado.
+
+Aprendizado incorporado:
+
+- Scripts anteriores de ictiofauna ja usam CPUE como `valor / esforco * 100`.
+- Diversidade e similaridade quantitativas devem usar matriz baseada em
+  `CPUEn`.
+- Linhas auxiliares de captura zero podem completar graficos por ponto, mas
+  nao devem entrar em composicao, taxonomia, curvas ou analises comunitarias
+  como registros reais de especie.
+- Para Porto Estrela, se houver conflito com scripts que usam esforco total por
+  ponto, prevalece a regra por linha definida acima.
+
 ## Arquivos Gerados
 
 Na pasta de migracao do cliente:
@@ -41,9 +122,35 @@ Na pasta de migracao do cliente:
 No repositorio:
 
 - `scripts/validar_migracao_ictiofauna.py`
+- `scripts/gerar_base_analitica_porto_estrela_ictio.py`
+- `scripts/gerar_modelos_graficos_porto_estrela_ictio.py`
+- `scripts/gerar_resultados_porto_estrela_ictio.py`
 - `outputs/validacoes/porto_estrela/validacao_porto_estrela_ictiofauna_20260602.*`
 
 Os arquivos em `outputs/validacoes` sao ignorados pelo git por configuracao do repositorio.
+
+Na pasta temporaria de resultados do cliente:
+
+- `caracterizacao_especies_porto_estrela_20260602.xlsx`
+- `de_para_pontos_trechos_porto_estrela_20260602.xlsx`
+- `base_analitica_ictiofauna_porto_estrela_20260602.xlsx`
+- `base_analitica_ictiofauna_porto_estrela_20260602.md`
+- `modelos_graficos_porto_estrela_20260602\`
+- `resultados_ictiofauna_porto_estrela_20260602\`
+
+Na pasta oficial de resultados gerada em 2026-06-02:
+
+- Saida unica, sem subpastas numeradas, para facilitar revisao visual.
+- Cada produto possui prefixo proprio no nome do arquivo, como `tabela_05`,
+  `figura_13`, `secao_663`.
+- O script oficial continua modular por bloco e permite rerodar apenas um
+  subconjunto com `--only`, por exemplo:
+  `python scripts\gerar_resultados_porto_estrela_ictio.py --only 14`
+
+Documentos de apoio:
+
+- `docs/PORTO_ESTRELA_LAYOUT_GRAFICOS_REFERENCIA_DUCAL_20260602.md`
+- `docs/PORTO_ESTRELA_MATRIZ_PRODUTOS_ICTIOFAUNA_20260602.md`
 
 ## Estado das Abas
 
@@ -183,3 +290,23 @@ Comecar pela decisao taxonomica. A pergunta central e:
 - quais devem permanecer como unidades operacionais de relatorio.
 
 Depois disso, aplicar o de/para nos resultados ou cadastrar as especies pendentes e rodar nova validacao.
+
+## Correcoes Taxonomicas Aprovadas
+
+- 2026-06-02: corrigida a familia `Acestrorhamphinae` para `Acestrorhamphidae` no Supabase (`especies`, 9 registros), na caracterizacao local e no cadastro definitivo de especies. Produtos afetados regenerados: Tabela 5 e Figura 11.
+
+## Checkpoint Para Retomada
+
+Registro de fechamento em 2026-06-02:
+
+- Resultados previstos gerados na pasta unica
+  `resultados_ictiofauna_porto_estrela_20260602`, sem subpastas numeradas.
+- Script oficial modular por bloco:
+  `scripts/gerar_resultados_porto_estrela_ictio.py`.
+- O parametro `--only` aceita codigos com ou sem zero a esquerda, por exemplo
+  `--only 5`, `--only 05`, `--only 10` ou listas como `--only 13,14`.
+- Figura 10 ajustada para deixar explicito que a curva observada e a media das
+  aleatorizacoes, o Jackknife 1 e a estimativa media e as faixas sombreadas sao
+  `+/- 1 DP`.
+- A revisao de amanha deve seguir item a item, ajustando e rerodando somente o
+  bloco afetado.
