@@ -205,6 +205,8 @@ Recomendacao tecnica inicial:
 
 - Produto de apoio a redacao aprovado em 2026-06-04:
   `relatorio_tecnico_ictiofauna_porto_estrela_20260604.html`.
+- Versao para abertura em celular:
+  `relatorio_tecnico_ictiofauna_porto_estrela_20260604_autonomo_celular.html`.
 - Local:
   `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603`.
 - Script:
@@ -214,6 +216,9 @@ Recomendacao tecnica inicial:
   editado manualmente como fonte primaria.
 - Validacao final do HTML: 33 figuras, 13 tabelas e 105 links internos entre
   PNG/XLSX, sem links quebrados.
+- A versao `autonomo_celular` embute as 33 figuras em base64 no proprio HTML.
+  Ela e maior, mas evita falha de carregamento de imagens em visualizadores de
+  celular quando o HTML e aberto fora da pasta original.
 
 ## Resultados oficiais gerados
 

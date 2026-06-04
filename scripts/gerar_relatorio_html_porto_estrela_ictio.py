@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 from datetime import date
+import base64
 from html import escape
+import mimetypes
 from pathlib import Path
 import unicodedata
 
@@ -20,6 +22,10 @@ REFERENCE_DOCX = Path(
     r"\Relatório Consolidado - UHE Porto Estrela - 2004 a 2026 - 260603.docx"
 )
 OUTPUT_HTML = RESULTADOS_DIR / "relatorio_tecnico_ictiofauna_porto_estrela_20260604.html"
+OUTPUT_HTML_EMBEDDED = (
+    RESULTADOS_DIR / "relatorio_tecnico_ictiofauna_porto_estrela_20260604_autonomo_celular.html"
+)
+EMBED_ASSETS = False
 
 RECENT_AH = ["AH2324", "AH2425", "AH2526"]
 BLOCK_FILES = {
@@ -77,6 +83,17 @@ def _link(filename: str, label: str | None = None) -> str:
     return f"<a href='{escape(filename)}'>{escape(label)}</a>"
 
 
+def _asset_src(filename: str) -> str:
+    if not EMBED_ASSETS:
+        return filename
+    path = RESULTADOS_DIR / filename
+    if not path.exists():
+        return filename
+    mime = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:{mime};base64,{encoded}"
+
+
 def _table(headers: list[str], rows: list[list[object]], css_class: str = "") -> str:
     cls = f" class='{css_class}'" if css_class else ""
     head = "".join(f"<th>{escape(str(h))}</th>" for h in headers)
@@ -92,9 +109,10 @@ def _figure(filename: str, caption: str, excel: str | None = None) -> str:
     links = [_link(filename, "PNG")]
     if excel:
         links.append(_link(excel, "Excel"))
+    src = _asset_src(filename)
     return f"""
     <figure>
-      <img src="{escape(filename)}" alt="{escape(caption)}">
+      <img src="{escape(src)}" alt="{escape(caption)}">
       <figcaption>{escape(caption)} <span class="file-links">{" · ".join(links)}</span></figcaption>
     </figure>
     """
@@ -958,12 +976,18 @@ def _build_html(data: dict[str, object]) -> str:
 
 
 def main() -> None:
+    global EMBED_ASSETS
     if not RESULTADOS_DIR.exists():
         raise FileNotFoundError(RESULTADOS_DIR)
     data = _summaries()
+    EMBED_ASSETS = False
     html = _build_html(data)
     OUTPUT_HTML.write_text(html, encoding="utf-8")
     print(f"Relatorio HTML gerado: {OUTPUT_HTML}")
+    EMBED_ASSETS = True
+    html_embedded = _build_html(data)
+    OUTPUT_HTML_EMBEDDED.write_text(html_embedded, encoding="utf-8")
+    print(f"Relatorio HTML autonomo gerado: {OUTPUT_HTML_EMBEDDED}")
 
 
 if __name__ == "__main__":

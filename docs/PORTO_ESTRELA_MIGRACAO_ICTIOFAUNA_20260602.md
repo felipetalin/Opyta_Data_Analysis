@@ -521,11 +521,17 @@ Registro de fechamento em 2026-06-02:
   `scripts/gerar_resultados_porto_estrela_ictio.py`.
 - Relatorio tecnico HTML de apoio a redacao:
   `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603\relatorio_tecnico_ictiofauna_porto_estrela_20260604.html`.
+- Versao autonoma para celular, com figuras embutidas no proprio HTML:
+  `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603\relatorio_tecnico_ictiofauna_porto_estrela_20260604_autonomo_celular.html`.
 - Script do relatorio HTML:
   `scripts/gerar_relatorio_html_porto_estrela_ictio.py`.
 - Validacao do relatorio HTML em 2026-06-04: `py_compile` aprovado; 33 figuras,
   13 tabelas e 105 referencias internas entre imagens e planilhas, sem links
   quebrados.
+- Validacao da versao autonoma para celular: 33 imagens embutidas em base64,
+  aproximadamente 22,5 MB; permanece com links relativos para os Excels de
+  apoio quando aberta no computador, mas nao depende dos PNG externos para
+  exibir as figuras.
 - Os modelos aprovados devem ser ajustados sempre pelo script/bloco de origem,
   preservando Excel de apoio, manifesto e nomes oficiais dos arquivos.
 - Este registro encerra a etapa de organizacao dos resultados analiticos de
