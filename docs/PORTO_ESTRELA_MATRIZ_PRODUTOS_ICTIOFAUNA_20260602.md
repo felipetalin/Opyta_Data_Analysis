@@ -48,9 +48,11 @@ relatorio de monitoramento da ictiofauna da UHE Porto Estrela.
 | Figura 13d | CPUEb jusante x anos hidrologicos | Quantitativa | CPUEb | Trecho Jusante, serie temporal, regressao linear | `.xlsx` + `.png` |
 | Figura 14 | CPUE percentual por migracao e origem | Quantitativa | CPUEn (%) e CPUEb (%) | Migradoras nativas, migradoras nao nativas, nao migradoras nativas, nao migradoras nao nativas; 4 graficos: montante CPUEn, montante CPUEb, jusante CPUEn, jusante CPUEb | `.xlsx` + 4 `.png` |
 | Figura 15 | CPUE percentual das especies nativas | Quantitativa | CPUEn (%) e CPUEb (%) | Nativas; 4 graficos: montante CPUEn, montante CPUEb, jusante CPUEn, jusante CPUEb | `.xlsx` + 4 `.png` |
-| Figura 16 | Recorte dos dois ultimos anos hidrologicos | Quantitativa | CPUEn (%) e CPUEb (%) | Mesmo recorte da Figura 15, somente anos hidrologicos finais | `.xlsx` + 4 `.png` |
-| Secao 6.6.3 | Variacoes temporal e espacial das CPUEs das migradoras nativas e nao nativas | Quantitativa | CPUEn (%) e CPUEb (%) | Migradoras x origem x montante/jusante x ano hidrologico | `.xlsx` + graficos |
-| Secao 6.6.4 | Variacao temporal e espacial das CPUEs das ameacadas | Quantitativa | CPUEn (%) e CPUEb (%) | Ameacadas x montante/jusante x ano hidrologico | `.xlsx` + graficos |
+| Figura 16 | Recorte atual das especies nativas | Quantitativa | CPUEn (%) e CPUEb (%) | `AH2324`, `AH2425`, `AH2526`; tornado Montante x Jusante com ate 10 especies + `Outras` | `.xlsx` + `.png` |
+| Secao 6.6.1 | Variacao temporal e composicao das CPUEs de todas as especies | Quantitativa | CPUEn (%) e CPUEb (%) | Todas as especies; tornado/top 10 + `Outras`, pizza espacial por grupos migracao x origem e temporal com sombreado/inflexoes | `.xlsx` + graficos |
+| Secao 6.6.2 | Variacao temporal e espacial das CPUEs das nativas e nao nativas | Quantitativa | CPUEn (%) e CPUEb (%) | Nativas x nao nativas; tornado/top 10 + `Outras`, pizza espacial por origem e temporal com sombreado/inflexoes | `.xlsx` + graficos |
+| Secao 6.6.3 | Variacoes temporal e espacial das CPUEs das migradoras nativas e nao nativas | Quantitativa | CPUEn (%) e CPUEb (%) | Migradoras x origem; tornado/top 10 + `Outras`, pizza espacial por migradora nativa/nao nativa e temporal com sombreado/inflexoes | `.xlsx` + graficos |
+| Secao 6.6.4 | Variacao temporal e espacial das CPUEs das ameacadas | Quantitativa | CPUEn (%) e CPUEb (%) | Ameacadas por especie, excluindo `Lophiosilurus alexandri` do bloco de ameacadas de Porto Estrela por ser exotica na bacia | `.xlsx` + graficos |
 | Figura 30 | Diversidade e equitabilidade | Quantitativa | Shannon e Pielou sobre matriz CPUEn | Montante e Jusante ao longo do monitoramento | `.xlsx` + `.png` |
 | Figura 32 | Estadios reprodutivos de femeas migradoras nativas | Linhas com Sexo/EMG | Abundancia por EMG | Femeas, migradoras nativas, F1-F4, periodo completo | `.xlsx` + `.png` |
 | Figura 33 | Estadios reprodutivos de femeas migradoras nao nativas | Linhas com Sexo/EMG | Abundancia por EMG | Femeas, migradoras nao nativas, F1-F4, periodo completo | `.xlsx` + `.png` |
@@ -67,6 +69,21 @@ relatorio de monitoramento da ictiofauna da UHE Porto Estrela.
 - Figura 15: produto geral para especies nativas no periodo completo.
 - Figura 16: produto complementar para condicao atual, com recorte
   `AH2324`, `AH2425` e `AH2526`.
+- Figura 16: layout aprovado como grafico espelhado (`butterfly`/`tornado`),
+  comparando Montante x Jusante para `CPUEn (%)` e `CPUEb (%)`, com ate 10
+  especies + `Outras` sempre na ultima linha.
+- Blocos de CPUE por grupo biologico: usar o ritual tornado/top 10 + `Outras`,
+  pizza espacial por ponto e temporal com sombreado/inflexoes.
+- Fatias espaciais aprovadas:
+  - todas as especies: `Migradora nativa`, `Migradora nao nativa`,
+    `Nao migradora nativa`, `Nao migradora nao nativa`;
+  - nativas/nao nativas: `Nativa`, `Nao nativa`;
+  - migradoras: `Migradora nativa`, `Migradora nao nativa`;
+  - ameacadas: especies ameacadas individualmente.
+- `Lophiosilurus alexandri` fica fora do bloco de ameacadas de Porto Estrela
+  por ser exotica na bacia, mas permanece nos blocos gerais/nao nativas quando
+  aplicavel.
+- Tabela 8 aprovada.
 - Series temporais: testar modelos por `Ano_Hidrologico` e por campanha
   individual. A decisao final fica condicionada a legibilidade; a tendencia
   esperada e usar `Ano_Hidrologico` como eixo principal e campanha individual
@@ -112,7 +129,9 @@ Quando o produto pedir `CPUEn (%)` ou `CPUEb (%)`, regra sugerida:
 
 ## Decisoes de layout apos revisao dos modelos
 
-- Todos os graficos devem ser gerados em paisagem.
+- A maior parte dos graficos deve ser gerada em paisagem. Quando o produto
+  tiver dois paineis comparativos que precisam de largura util, como reproducao
+  e mapas empilhados, usar paineis verticais (`2 x 1`) dentro do mesmo arquivo.
 - A fonte deve ser aumentada ao maximo possivel sem perda de legibilidade.
 - Referencia usada nos modelos revisados:
   - fonte base: `17`;
@@ -130,6 +149,12 @@ Quando o produto pedir `CPUEn (%)` ou `CPUEb (%)`, regra sugerida:
 - Para roscas de ordem/familia, usar cores alternadas fora da paleta azul para
   diferenciar melhor as categorias.
 - Para reproducao, separar tambem Montante/Jusante.
+- Para reproducao, usar legenda descritiva de EMG (`F1 - Repouso`,
+  `F2 - Maturacao inicial`, `F3 - Maduro`, `F4 - Desovado`) e empilhar
+  Montante/Jusante verticalmente.
+- Para diversidade/equitabilidade e demais series aprovadas, incluir legenda
+  do sombreado dos anos hidrologicos recentes quando o sombreado estiver no
+  grafico.
 
 ## Modelos graficos gerados para avaliacao
 
@@ -180,7 +205,7 @@ Recomendacao tecnica inicial:
 
 Pasta:
 
-- `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_20260602`
+- `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603`
 
 Decisao operacional:
 
@@ -191,3 +216,8 @@ Decisao operacional:
 - Manifestos gerados:
   - `manifesto_resultados_ictiofauna_porto_estrela.xlsx`;
   - `manifesto_resultados_ictiofauna_porto_estrela.md`.
+- O manifesto oficial contem 51 produtos do pipeline. A pasta pode conter
+  arquivos manuais de apoio fora do manifesto, por exemplo `Layout tabelas.xlsx`.
+- O script `scripts/gerar_resultados_porto_estrela_ictio.py` mantem a lista
+  oficial de produtos. Quando todos os produtos ja existem na pasta, uma
+  execucao parcial com `--only` recompõe o manifesto completo.

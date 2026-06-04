@@ -64,6 +64,28 @@ Regra oficial de CPUE para Porto Estrela:
   quando necessario, pois o migrador oficial agrega `PC_g` por media ao
   consolidar especie+esforco.
 
+Pipeline de CPUE aprovado em 2026-06-03:
+
+- Secao `6.6.1`: variacao temporal e composicao das CPUEs de todas as
+  especies a Montante e Jusante. Para o grafico de especies, usar tornado/top
+  10 + `Outras`, sem filtro de origem.
+- Para os blocos de CPUE por grupo biologico, manter o mesmo ritual de
+  entrega: grafico de especies tipo tornado/top 10 + `Outras`, grafico
+  espacial tipo pizza por ponto e grafico temporal com sombreado/inflexoes,
+  sempre com Excel correspondente.
+- Mapa espacial de todas as especies: fatias `Migradora nativa`,
+  `Migradora nao nativa`, `Nao migradora nativa` e
+  `Nao migradora nao nativa`.
+- Mapa espacial de nativas/nao nativas: fatias `Nativa` e `Nao nativa`.
+- Mapa espacial de migradoras: fatias `Migradora nativa` e
+  `Migradora nao nativa`.
+- Mapa espacial de ameacadas: fatias por especie ameacada, pois o grupo e
+  pequeno.
+- `Lophiosilurus alexandri` deve ser excluida do bloco/grafico de especies
+  ameacadas para Porto Estrela, pois e exotica na bacia. Manter a especie nos
+  blocos gerais e nos blocos de nao nativas/exoticas quando aplicavel.
+- Tabela 8 esta aprovada.
+
 Corte temporal aprovado:
 
 - Rodar a primeira bateria ate dezembro de 2025.
@@ -295,6 +317,15 @@ Depois disso, aplicar o de/para nos resultados ou cadastrar as especies pendente
 
 - 2026-06-02: corrigida a familia `Acestrorhamphinae` para `Acestrorhamphidae` no Supabase (`especies`, 9 registros), na caracterizacao local e no cadastro definitivo de especies. Produtos afetados regenerados: Tabela 5 e Figura 11.
 
+## Correcoes De Pontos
+
+- 2026-06-03: corrigida a coordenada do ponto `P1` no Supabase
+  (`pontos_coleta`, `BIOPOR001`, `id_projeto=186`), em 90 linhas:
+  latitude `-19.108602` e longitude `-42.662967`.
+- Os mapas espaciais exploratorios gerados antes dessa correcao nao foram
+  regenerados por decisao do usuario; eles permanecem apenas como prova visual
+  de conceito. O proximo rerun deve usar a coordenada corrigida.
+
 ## Checkpoint Para Retomada
 
 Registro de fechamento em 2026-06-02:
@@ -310,3 +341,171 @@ Registro de fechamento em 2026-06-02:
   `+/- 1 DP`.
 - A revisao de amanha deve seguir item a item, ajustando e rerodando somente o
   bloco afetado.
+
+## Analises Exploratorias Fora do Escopo
+
+- 2026-06-03: criada bancada separada para testar diversidade beta temporal
+  Montante x Jusante, LCBD, PCoA exploratoria e pontos de inflexao em CPUE.
+- Registro tecnico: `docs/PORTO_ESTRELA_ANALISES_EXPLORATORIAS_BETA_INFLEXAO_20260603.md`.
+- Pasta de teste:
+  `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_20260602\testes_analises_exploratorias_beta_inflexao_20260603`.
+- Estes produtos permanecem fora do escopo oficial ate avaliacao e aprovacao.
+- 2026-06-03: geradas duas alternativas em paleta azul, sem titulo interno,
+  para os componentes de diversidade beta por presenca/ausencia entre anos
+  hidrologicos consecutivos: `exploratoria_10_beta_pa_componentes_trechos_comparativo_azul.png`
+  (Montante e Jusante no mesmo painel) e
+  `exploratoria_11_beta_pa_componentes_por_area_azul.png` (paineis separados
+  por area). Metricas: Turnover (`beta-sim`), `beta-Sorensen` (`beta-sor`) e
+  Nestedness (`beta-nes`).
+- 2026-06-03: criada bancada separada para testar visualizacoes espaciais
+  exploratorias com mapas de bolhas, pizzas espaciais, colares de bolhas,
+  mapas de calor ponto x ano hidrologico e perfil longitudinal.
+- Pasta de teste:
+  `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_20260602\testes_analises_exploratorias_espaciais_bolhas_colar_20260603`.
+
+## Padroes Graficos Aprovados
+
+- 2026-06-03: Figura 16 ajustada para grafico espelhado
+  (`butterfly`/`tornado`) comparando `CPUEn (%)` e `CPUEb (%)` entre
+  Montante e Jusante no recorte atual (`AH2324`, `AH2425`, `AH2526`).
+  Regra de exibicao: selecionar ate 10 especies nativas principais por
+  metrica, agregando as demais em `Outras especies nativas`, sempre como a
+  ultima linha do painel, independentemente do percentual.
+- 2026-06-03: aprovado como referencia espacial o mapa de pizzas por ponto,
+  sem imagem satelite, sem titulo interno, com legenda horizontal superior,
+  linhas de trecho em azul/laranja, rotulos afastados com linhas guia e P1 com
+  coordenada corrigida. Arquivo de referencia:
+  `espacial_03_mapa_pizzas_grupos_cpuen_pontos_teste_relatorio.png`.
+- A versao com imagem satelite foi testada e nao foi aprovada para este fim,
+  pois reduz a legibilidade analitica.
+- 2026-06-03: aprovado como referencia temporal com inflexao o painel sem
+  linha de tendencia, em paleta azul, sem titulo interno, com serie temporal
+  limpa, linhas verticais discretas nos pontos de inflexao fortes e sombreado
+  das ultimas AHs. Arquivo de referencia:
+  `exploratoria_06_inflexao_cpueb_migracao_origem_v3_sem_tendencia_azul.png`.
+- Para graficos temporais com inflexao, manter o sombreado das ultimas AHs
+  (`AH2324`, `AH2425`, `AH2526`) e usar paleta azul. A versao com regressao
+  fracionada antes/depois foi testada, mas ficou visualmente carregada para o
+  painel principal. Recomendacao atual: usar serie temporal limpa com linhas
+  verticais discretas nos pontos de inflexao fortes; manter as regressões como
+  apoio tecnico em tabela/nota metodologica.
+
+## Producao De Resultados
+
+- 2026-06-03: gerada nova pasta de producao dos resultados:
+  `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603`.
+- A pasta antiga `resultados_ictiofauna_porto_estrela_20260602` foi mantida
+  como historico/referencia.
+- O script oficial `scripts/gerar_resultados_porto_estrela_ictio.py` passou a
+  gerar, por padrao, a pasta de producao `20260603`, usando as bases aprovadas
+  `base_analitica_ictiofauna_porto_estrela_20260602.xlsx` e
+  `caracterizacao_especies_porto_estrela_20260602.xlsx`.
+- Producao oficial do pipeline: 53 arquivos, sendo 51 produtos no manifesto
+  mais `manifesto_resultados_ictiofauna_porto_estrela.xlsx` e
+  `manifesto_resultados_ictiofauna_porto_estrela.md`.
+- A pasta tambem pode conter arquivos manuais de apoio fora do manifesto, como
+  `Layout tabelas.xlsx`; esses nao sao saidas oficiais do pipeline.
+- Manifestos finais:
+  `manifesto_resultados_ictiofauna_porto_estrela.xlsx` e
+  `manifesto_resultados_ictiofauna_porto_estrela.md`.
+- Blocos novos incorporados em producao:
+  - `661`: 6.6.1, todas as especies;
+  - `662`: 6.6.2, nativas/nao nativas;
+  - `663`: 6.6.3, migradoras nativas/nao nativas;
+  - `664`: 6.6.4, ameacadas, excluindo `Lophiosilurus alexandri`;
+  - `31`: diversidade beta temporal por area;
+  - `32_33`: reproducao com abundancia relativa e mapa espacial de EMG.
+
+## Pontos De Inflexao Aprovados
+
+- 2026-06-03: aprovado como padrao estatistico para os graficos temporais de
+  CPUE o teste de `ponto de inflexao` por regressao segmentada.
+- Metodo aprovado: regressao linear simples como modelo nulo; regressao
+  segmentada com termo hinge e ponto de inflexao escolhido por menor SSE como
+  modelo alternativo; minimo de 5 anos hidrologicos por segmento; teste global
+  por permutacao dos residuos sob o modelo linear nulo; correcao
+  Benjamini-Hochberg entre as series testadas.
+- Regra grafica aprovada: marcar linha vertical somente quando `p_BH <= 0,05`.
+  O sombreado dos anos hidrologicos recentes deve cobrir explicitamente
+  `AH2324`, `AH2425` e `AH2526`.
+- O teste foi incorporado aos graficos temporais de CPUE dos blocos `661`,
+  `662`, `663` e `664`, tanto para `CPUEn` quanto para `CPUEb`.
+- Os resultados estatisticos ficam dentro do Excel de cada bloco, nas abas
+  `Ponto_Inflexao_CPUEn` e `Ponto_Inflexao_CPUEb`.
+- Arquivos avulsos de teste (`teste_estatistico_*`) foram removidos da pasta
+  de producao para manter apenas os produtos oficiais incorporados aos blocos.
+
+## Padroes De Rotulos De Especies
+
+- 2026-06-03: padronizado o destaque dos nomes de especies em graficos tipo
+  tornado/lollipop com o nome cientifico limpo, sem sufixos como `MN` ou
+  `MNN`. A classificacao biologica deve aparecer por cor no rotulo do eixo
+  vertical e por legenda superior do grafico.
+- Paleta aprovada para rotulos de especies: `MN` = migradora nativa em verde
+  escuro (`#00441B`); `MNN` = migradora nao nativa em vermelho escuro
+  (`#67000D`); `NMN` = nao migradora nativa em verde (`#41AB5D`);
+  `NMNN` = nao migradora nao nativa em vermelho alaranjado (`#EF6548`). Os codigos ficam
+  apenas como classe interna/Excel (`Classe_Biologica`), nao no nome exibido.
+- A legenda superior dos graficos com nomes de especies deve representar as
+  categorias biologicas presentes no grafico. A indicacao Montante/Jusante
+  permanece no corpo do tornado, pelas laterais e cores das barras.
+- Os rotulos de especies nos eixos devem ficar em italico e negrito quando
+  representarem nome cientifico; `Outras especies` permanece sem italico.
+- Padrao aplicado nos graficos com nomes de especies dos blocos `15`, `16`,
+  `661`, `662`, `663` e `664`.
+- No bloco `664` (ameacadas), a linha `Outras especies` nao deve ser gerada:
+  o tornado deve exibir apenas as 3 especies validas para Porto Estrela,
+  excluindo `Lophiosilurus alexandri` conforme decisao tecnica do projeto.
+
+## Ajustes De Layout - 2026-06-04
+
+- Figura 12 deve usar o mesmo sombreado dos anos hidrologicos recentes
+  (`AH2324`, `AH2425`, `AH2526`) e incluir esse item na legenda superior.
+- Figura 30 deve seguir a mesma regra: sombreado dos anos hidrologicos
+  recentes e legenda superior com `Montante`, `Jusante` e
+  `Anos hidrologicos recentes`.
+- Graficos temporais dos blocos `661`, `662`, `663` e `664`: usar legenda
+  superior sem sobrepor os titulos dos paineis, eixo Y compartilhado por
+  metrica (`CPUEn` ou `CPUEb`) e sombreado dos anos recentes.
+- No bloco `664`, titulos dos paineis temporais e legenda do mapa de pizza
+  devem usar italico, pois representam nomes cientificos.
+- Figuras 32 e 33: paineis Montante/Jusante devem ficar empilhados
+  verticalmente (`2 x 1`), nao lado a lado, para ganhar largura util e
+  melhorar encaixe no relatorio.
+- Figura 34: mapa de pizzas de EMG de femeas migradoras deve ser separado em
+  dois paineis verticais no mesmo arquivo, `Migradoras nativas` e
+  `Migradoras nao nativas`. A legenda de EMG deve ser descritiva:
+  `F1 - Repouso`, `F2 - Maturacao inicial`, `F3 - Maduro`,
+  `F4 - Desovado`.
+
+## Padrao Gold Reutilizavel Dos Blocos
+
+- O script oficial dos resultados e `scripts/gerar_resultados_porto_estrela_ictio.py`.
+  Ele deve ser a fonte dos graficos e planilhas finais; ajustes manuais em
+  imagem devem ser evitados.
+- Cada produto grafico deve ter uma planilha `.xlsx` correspondente com os
+  dados usados na figura. Para blocos compostos (`661` a `664`), o Excel deve
+  conter abas de especies, tornado, temporal, ponto de inflexao e espacial.
+- A pasta de producao deve permanecer em nivel unico, sem subpastas numeradas,
+  para facilitar revisao visual e ajustes pontuais. A modularidade fica no
+  codigo e nos nomes dos arquivos.
+- O comando `--only` deve ser usado para rerodar blocos especificos. Quando os
+  51 produtos oficiais ja existem na pasta, o script recompõe o manifesto
+  oficial completo mesmo apos execucao parcial.
+- Sombreamento de anos recentes: aplicar de forma consistente a `AH2324`,
+  `AH2425` e `AH2526` nas series temporais aprovadas e incluir legenda
+  explicita do sombreado.
+- Pontos de inflexao: usar regressao segmentada com teste por permutacao e
+  correcao Benjamini-Hochberg; marcar no grafico somente quando
+  `p_BH <= 0,05`.
+- Graficos de especies por trecho: priorizar tornado/butterfly para comparar
+  Montante x Jusante; nomes cientificos limpos, em italico/negrito, e classe
+  biologica indicada por cor e legenda superior.
+- Mapas de pizza: usar fundo limpo, sem satelite; linhas de trecho em
+  azul/laranja; rotulos de pontos afastados com linhas guia; legenda superior
+  horizontal; P1 com coordenada corrigida.
+- Reproducao: usar barras empilhadas por EMG e mapas de pizza por EMG; quando
+  houver comparacao Montante/Jusante ou nativa/nao nativa, preferir paineis
+  verticais para maximizar largura util.
+- Arquivos manuais de apoio, como `Layout tabelas.xlsx`, podem permanecer na
+  pasta, mas nao entram no manifesto oficial do pipeline.
