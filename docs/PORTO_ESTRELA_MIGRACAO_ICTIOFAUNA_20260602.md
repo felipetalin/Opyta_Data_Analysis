@@ -509,3 +509,25 @@ Registro de fechamento em 2026-06-02:
   verticais para maximizar largura util.
 - Arquivos manuais de apoio, como `Layout tabelas.xlsx`, podem permanecer na
   pasta, mas nao entram no manifesto oficial do pipeline.
+
+## Fechamento Final - 2026-06-04
+
+- Todos os modelos finais de graficos e tabelas foram aprovados como padrao
+  gold para Porto Estrela e como referencia reutilizavel para outros projetos
+  de ictiofauna.
+- Pasta oficial de producao:
+  `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603`.
+- Pipeline oficial de resultados:
+  `scripts/gerar_resultados_porto_estrela_ictio.py`.
+- Relatorio tecnico HTML de apoio a redacao:
+  `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603\relatorio_tecnico_ictiofauna_porto_estrela_20260604.html`.
+- Script do relatorio HTML:
+  `scripts/gerar_relatorio_html_porto_estrela_ictio.py`.
+- Validacao do relatorio HTML em 2026-06-04: `py_compile` aprovado; 33 figuras,
+  13 tabelas e 105 referencias internas entre imagens e planilhas, sem links
+  quebrados.
+- Os modelos aprovados devem ser ajustados sempre pelo script/bloco de origem,
+  preservando Excel de apoio, manifesto e nomes oficiais dos arquivos.
+- Este registro encerra a etapa de organizacao dos resultados analiticos de
+  Porto Estrela. A proxima etapa e revisao de texto/interpretacao fina no
+  relatorio consolidado.

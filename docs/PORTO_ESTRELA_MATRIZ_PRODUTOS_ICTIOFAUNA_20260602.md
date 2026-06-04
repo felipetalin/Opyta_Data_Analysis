@@ -201,6 +201,20 @@ Recomendacao tecnica inicial:
   A abordagem e util, mas nao exige novas bibliotecas alem de `pandas`,
   `numpy` e `matplotlib`.
 
+## Relatorio tecnico HTML
+
+- Produto de apoio a redacao aprovado em 2026-06-04:
+  `relatorio_tecnico_ictiofauna_porto_estrela_20260604.html`.
+- Local:
+  `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603`.
+- Script:
+  `scripts/gerar_relatorio_html_porto_estrela_ictio.py`.
+- O HTML consolida texto tecnico, figuras oficiais e links para as planilhas
+  de apoio. Ele deve ser regenerado apos ajustes nos blocos oficiais, e nao
+  editado manualmente como fonte primaria.
+- Validacao final do HTML: 33 figuras, 13 tabelas e 105 links internos entre
+  PNG/XLSX, sem links quebrados.
+
 ## Resultados oficiais gerados
 
 Pasta:
