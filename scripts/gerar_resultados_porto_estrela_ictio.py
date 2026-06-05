@@ -103,6 +103,10 @@ ORIGIN_COLORS = {
     "Nativa": "#2E7D32",
     "N\u00e3o nativa": "#C0392B",
 }
+MIGRATORY_ORIGIN_COLORS = {
+    "Migradora nativa": "#00441B",
+    "Migradora n\u00e3o nativa": "#67000D",
+}
 SPECIES_CLASS_ORDER = ["MN", "MNN", "NMN", "NMNN"]
 SPECIES_CLASS_LABELS = {
     "MN": "Migradora nativa",
@@ -1956,7 +1960,7 @@ def _spatial_group_tables(base: pd.DataFrame, mode: str) -> tuple[pd.DataFrame, 
         q = q.loc[q["Migracao_Modelo"].eq("Migradora")].copy()
         q["Categoria"] = ["Migradora " + str(o).lower() for o in q["Origem_Modelo"]]
         order = ["Migradora nativa", "Migradora n\u00e3o nativa"]
-        colors = GROUP_COLORS
+        colors = MIGRATORY_ORIGIN_COLORS
     elif mode == "ameacadas":
         q = q.loc[q["Ameaca_Modelo"].eq("Sim") & ~q["Nome_Cientifico"].isin(THREAT_EXCLUDE_PORTO_ESTRELA)].copy()
         q["Categoria"] = q["Nome_Cientifico"]

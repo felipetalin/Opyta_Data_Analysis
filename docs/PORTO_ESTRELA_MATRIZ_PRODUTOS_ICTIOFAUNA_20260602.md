@@ -163,6 +163,9 @@ Quando o produto pedir `CPUEn (%)` ou `CPUEb (%)`, regra sugerida:
 - No bloco `662`, usar paleta especifica para origem: `Nativa` em verde
   (`#2E7D32`) e `Nao nativa` em vermelho (`#C0392B`). Esta regra evita conflito
   visual com a legenda espacial de Montante/Jusante.
+- No bloco `663`, usar paleta especifica para migradoras por origem:
+  `Migradora nativa` em verde escuro (`#00441B`) e `Migradora nao nativa` em
+  vermelho escuro (`#67000D`).
 
 ## Modelos graficos gerados para avaliacao
 

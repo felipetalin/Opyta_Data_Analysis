@@ -514,6 +514,10 @@ Registro de fechamento em 2026-06-02:
   `Nativa` em verde (`#2E7D32`) e `Nao nativa` em vermelho (`#C0392B`), para
   nao confundir as categorias biologicas com as linhas de trecho
   Montante/Jusante.
+- No mapa espacial do bloco `663` (migradoras nativas/nao nativas), a paleta
+  aprovada e: `Migradora nativa` em verde escuro (`#00441B`) e
+  `Migradora nao nativa` em vermelho escuro (`#67000D`), coerente com as
+  classes biologicas internas `MN` e `MNN`.
 - Reproducao: usar barras empilhadas por EMG e mapas de pizza por EMG; quando
   houver comparacao Montante/Jusante ou nativa/nao nativa, preferir paineis
   verticais para maximizar largura util.
