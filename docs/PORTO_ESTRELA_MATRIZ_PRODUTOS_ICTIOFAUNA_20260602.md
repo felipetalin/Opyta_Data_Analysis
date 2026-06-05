@@ -160,6 +160,9 @@ Quando o produto pedir `CPUEn (%)` ou `CPUEb (%)`, regra sugerida:
   arquivo legado `mapa_pizzas_cpuen.png` foi mantido para preservar os links,
   mas o conteudo aprovado passa a incluir as duas metricas. O formato aprovado
   e A4 paisagem (`16,54 x 11,69` pol., 300 dpi).
+- No bloco `662`, usar paleta especifica para origem: `Nativa` em verde
+  (`#2E7D32`) e `Nao nativa` em vermelho (`#C0392B`). Esta regra evita conflito
+  visual com a legenda espacial de Montante/Jusante.
 
 ## Modelos graficos gerados para avaliacao
 

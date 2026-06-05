@@ -510,6 +510,10 @@ Registro de fechamento em 2026-06-02:
   As escalas de tamanho das pizzas sao independentes por metrica. O canvas
   aprovado e A4 em paisagem (`16,54 x 11,69` pol., 300 dpi) para encaixe no
   relatorio.
+- No mapa espacial do bloco `662` (nativas/nao nativas), a paleta aprovada e:
+  `Nativa` em verde (`#2E7D32`) e `Nao nativa` em vermelho (`#C0392B`), para
+  nao confundir as categorias biologicas com as linhas de trecho
+  Montante/Jusante.
 - Reproducao: usar barras empilhadas por EMG e mapas de pizza por EMG; quando
   houver comparacao Montante/Jusante ou nativa/nao nativa, preferir paineis
   verticais para maximizar largura util.
