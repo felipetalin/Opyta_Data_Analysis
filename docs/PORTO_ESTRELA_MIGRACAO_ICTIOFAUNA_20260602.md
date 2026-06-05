@@ -507,7 +507,9 @@ Registro de fechamento em 2026-06-02:
 - Mapas de pizza dos blocos de CPUE (`661`, `662`, `663` e `664`): o arquivo
   espacial deve conter dois paineis verticais no mesmo PNG, com `CPUEn` acima e
   `CPUEb` abaixo, mantendo a mesma legenda de grupos biologicos e de trechos.
-  As escalas de tamanho das pizzas sao independentes por metrica.
+  As escalas de tamanho das pizzas sao independentes por metrica. O canvas
+  aprovado e A4 em paisagem (`16,54 x 11,69` pol., 300 dpi) para encaixe no
+  relatorio.
 - Reproducao: usar barras empilhadas por EMG e mapas de pizza por EMG; quando
   houver comparacao Montante/Jusante ou nativa/nao nativa, preferir paineis
   verticais para maximizar largura util.

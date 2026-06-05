@@ -254,9 +254,12 @@ def _save_fig(fig: plt.Figure, path: Path) -> Path:
     return path
 
 
-def _save_fig_preserve_layout(fig: plt.Figure, path: Path) -> Path:
+def _save_fig_preserve_layout(fig: plt.Figure, path: Path, tight: bool = True) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, dpi=DPI, bbox_inches="tight")
+    save_kwargs = {"dpi": DPI}
+    if tight:
+        save_kwargs["bbox_inches"] = "tight"
+    fig.savefig(path, **save_kwargs)
     plt.close(fig)
     return path
 
@@ -454,7 +457,7 @@ def _plot_spatial_pie_map(
     legend_labels: dict[str, str] | None = None,
     italic_legend: bool = False,
 ) -> None:
-    fig, axes = plt.subplots(2, 1, figsize=(12.5, 13.4))
+    fig, axes = plt.subplots(2, 1, figsize=(16.54, 11.69))
     _draw_spatial_pie_panel(axes[0], group_point, point_total, group_order, colors, metric="CPUEn")
     _draw_spatial_pie_panel(axes[1], group_point, point_total, group_order, colors, metric="CPUEb")
     handles = [
@@ -487,8 +490,8 @@ def _plot_spatial_pie_map(
         for text in group_legend.get_texts():
             text.set_fontstyle("italic")
     fig.legend(handles=trecho_handles, loc="upper center", bbox_to_anchor=(0.5, 0.865), ncol=2, frameon=False, columnspacing=1.4, handlelength=2.6)
-    fig.subplots_adjust(top=0.79, bottom=0.06, hspace=0.28)
-    _save_fig_preserve_layout(fig, path)
+    fig.subplots_adjust(top=0.78, bottom=0.07, hspace=0.30)
+    _save_fig_preserve_layout(fig, path, tight=False)
 
 
 def _block_dir(code: str, label: str) -> Path:

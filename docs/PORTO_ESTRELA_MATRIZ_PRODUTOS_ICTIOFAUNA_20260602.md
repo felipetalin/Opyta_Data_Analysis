@@ -158,7 +158,8 @@ Quando o produto pedir `CPUEn (%)` ou `CPUEb (%)`, regra sugerida:
 - Para mapas espaciais de CPUE dos blocos `661`, `662`, `663` e `664`, usar
   painel vertical unico por bloco: `CPUEn` acima e `CPUEb` abaixo. O nome do
   arquivo legado `mapa_pizzas_cpuen.png` foi mantido para preservar os links,
-  mas o conteudo aprovado passa a incluir as duas metricas.
+  mas o conteudo aprovado passa a incluir as duas metricas. O formato aprovado
+  e A4 paisagem (`16,54 x 11,69` pol., 300 dpi).
 
 ## Modelos graficos gerados para avaliacao
 
