@@ -155,6 +155,10 @@ Quando o produto pedir `CPUEn (%)` ou `CPUEb (%)`, regra sugerida:
 - Para diversidade/equitabilidade e demais series aprovadas, incluir legenda
   do sombreado dos anos hidrologicos recentes quando o sombreado estiver no
   grafico.
+- Para mapas espaciais de CPUE dos blocos `661`, `662`, `663` e `664`, usar
+  painel vertical unico por bloco: `CPUEn` acima e `CPUEb` abaixo. O nome do
+  arquivo legado `mapa_pizzas_cpuen.png` foi mantido para preservar os links,
+  mas o conteudo aprovado passa a incluir as duas metricas.
 
 ## Modelos graficos gerados para avaliacao
 

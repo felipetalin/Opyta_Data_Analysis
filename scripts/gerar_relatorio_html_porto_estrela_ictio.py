@@ -817,7 +817,7 @@ def _build_html(data: dict[str, object]) -> str:
         ('secao_661_cpue_todas_especies_temporal_cpuen.png', 'CPUEn temporal por grupo biológico - todas as espécies.', 'secao_661_cpue_todas_especies_dados.xlsx'),
         ('secao_661_cpue_todas_especies_temporal_cpueb.png', 'CPUEb temporal por grupo biológico - todas as espécies.', 'secao_661_cpue_todas_especies_dados.xlsx'),
         ('secao_661_cpue_todas_especies_tornado_especies.png', 'Gráfico tornado de CPUEn e CPUEb - todas as espécies.', 'secao_661_cpue_todas_especies_dados.xlsx'),
-        ('secao_661_cpue_todas_especies_mapa_pizzas_cpuen.png', 'Mapa de pizzas da composição espacial de CPUEn - todas as espécies.', 'secao_661_cpue_todas_especies_dados.xlsx'),
+        ('secao_661_cpue_todas_especies_mapa_pizzas_cpuen.png', 'Mapa de pizzas da composição espacial de CPUEn e CPUEb - todas as espécies.', 'secao_661_cpue_todas_especies_dados.xlsx'),
     ])}
 
     <h3>6.6.2 - Nativas e não nativas</h3>
@@ -829,7 +829,7 @@ def _build_html(data: dict[str, object]) -> str:
         ('secao_662_cpue_nativas_nao_nativas_temporal_cpuen.png', 'CPUEn temporal - espécies nativas e não nativas.', 'secao_662_cpue_nativas_nao_nativas_dados.xlsx'),
         ('secao_662_cpue_nativas_nao_nativas_temporal_cpueb.png', 'CPUEb temporal - espécies nativas e não nativas.', 'secao_662_cpue_nativas_nao_nativas_dados.xlsx'),
         ('secao_662_cpue_nativas_nao_nativas_tornado_especies.png', 'Gráfico tornado por espécie - nativas e não nativas.', 'secao_662_cpue_nativas_nao_nativas_dados.xlsx'),
-        ('secao_662_cpue_nativas_nao_nativas_mapa_pizzas_cpuen.png', 'Mapa de pizzas de CPUEn - nativas e não nativas.', 'secao_662_cpue_nativas_nao_nativas_dados.xlsx'),
+        ('secao_662_cpue_nativas_nao_nativas_mapa_pizzas_cpuen.png', 'Mapa de pizzas de CPUEn e CPUEb - nativas e não nativas.', 'secao_662_cpue_nativas_nao_nativas_dados.xlsx'),
     ])}
 
     <h3>6.6.3 - Migradoras nativas e não nativas</h3>
@@ -843,7 +843,7 @@ def _build_html(data: dict[str, object]) -> str:
         ('secao_663_cpue_migradoras_nativas_nao_nativas_temporal_cpuen.png', 'CPUEn temporal - migradoras nativas e não nativas.', 'secao_663_cpue_migradoras_nativas_nao_nativas_dados.xlsx'),
         ('secao_663_cpue_migradoras_nativas_nao_nativas_temporal_cpueb.png', 'CPUEb temporal - migradoras nativas e não nativas.', 'secao_663_cpue_migradoras_nativas_nao_nativas_dados.xlsx'),
         ('secao_663_cpue_migradoras_nativas_nao_nativas_tornado_especies.png', 'Gráfico tornado por espécie - migradoras.', 'secao_663_cpue_migradoras_nativas_nao_nativas_dados.xlsx'),
-        ('secao_663_cpue_migradoras_nativas_nao_nativas_mapa_pizzas_cpuen.png', 'Mapa de pizzas de CPUEn - migradoras.', 'secao_663_cpue_migradoras_nativas_nao_nativas_dados.xlsx'),
+        ('secao_663_cpue_migradoras_nativas_nao_nativas_mapa_pizzas_cpuen.png', 'Mapa de pizzas de CPUEn e CPUEb - migradoras.', 'secao_663_cpue_migradoras_nativas_nao_nativas_dados.xlsx'),
     ])}
 
     <h3>6.6.4 - Espécies ameaçadas de extinção</h3>
@@ -857,7 +857,7 @@ def _build_html(data: dict[str, object]) -> str:
         ('secao_664_cpue_ameacadas_temporal_cpuen.png', 'CPUEn temporal - espécies ameaçadas.', 'secao_664_cpue_ameacadas_dados.xlsx'),
         ('secao_664_cpue_ameacadas_temporal_cpueb.png', 'CPUEb temporal - espécies ameaçadas.', 'secao_664_cpue_ameacadas_dados.xlsx'),
         ('secao_664_cpue_ameacadas_tornado_especies.png', 'Gráfico tornado por espécie - ameaçadas.', 'secao_664_cpue_ameacadas_dados.xlsx'),
-        ('secao_664_cpue_ameacadas_mapa_pizzas_cpuen.png', 'Mapa de pizzas de CPUEn - ameaçadas.', 'secao_664_cpue_ameacadas_dados.xlsx'),
+        ('secao_664_cpue_ameacadas_mapa_pizzas_cpuen.png', 'Mapa de pizzas de CPUEn e CPUEb - ameaçadas.', 'secao_664_cpue_ameacadas_dados.xlsx'),
     ])}
   </section>
 

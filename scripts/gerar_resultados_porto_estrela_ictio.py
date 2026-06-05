@@ -396,17 +396,18 @@ def _draw_spatial_pie_panel(
     point_total: pd.DataFrame,
     group_order: list[str],
     colors: dict[str, str],
+    metric: str = "CPUEn",
 ) -> None:
     coords = point_total.sort_values("Ordem_Espacial").copy()
     _draw_point_path(ax, coords)
-    vmax = max(float(point_total["CPUEn"].max()), 1.0)
+    vmax = max(float(point_total[metric].max()), 1.0)
     x_span = float(coords["Longitude"].max() - coords["Longitude"].min())
     y_span = float(coords["Latitude"].max() - coords["Latitude"].min())
     base_radius = min(x_span, y_span) * 0.035
 
     for _, point in coords.iterrows():
         subset = group_point.loc[group_point["Ponto"].eq(point["Ponto"])].set_index("Categoria")
-        values = np.array([subset["CPUEn"].get(group, 0.0) for group in group_order], dtype=float)
+        values = np.array([subset[metric].get(group, 0.0) for group in group_order], dtype=float)
         total = values.sum()
         radius = base_radius * (0.50 + 1.50 * math.sqrt(total / vmax)) if total > 0 else base_radius * 0.45
         if total <= 0:
@@ -437,6 +438,8 @@ def _draw_spatial_pie_panel(
     ax.set_ylim(ymin, ymax)
     ax.set_xlabel("Longitude")
     ax.set_ylabel("Latitude")
+    metric_label = "CPUEn (ind/100m²)" if metric == "CPUEn" else "CPUEb (g/100m²)"
+    ax.set_title(metric_label, loc="center", fontweight="bold", color=PRIMARY, pad=8)
     ax.set_aspect("equal", adjustable="box")
     ax.set_anchor("N")
     _style_axes(ax, grid_axis="both")
@@ -451,8 +454,9 @@ def _plot_spatial_pie_map(
     legend_labels: dict[str, str] | None = None,
     italic_legend: bool = False,
 ) -> None:
-    fig, ax = plt.subplots(figsize=(12.5, 7.2))
-    _draw_spatial_pie_panel(ax, group_point, point_total, group_order, colors)
+    fig, axes = plt.subplots(2, 1, figsize=(12.5, 13.4))
+    _draw_spatial_pie_panel(axes[0], group_point, point_total, group_order, colors, metric="CPUEn")
+    _draw_spatial_pie_panel(axes[1], group_point, point_total, group_order, colors, metric="CPUEb")
     handles = [
         Line2D(
             [0],
@@ -483,7 +487,7 @@ def _plot_spatial_pie_map(
         for text in group_legend.get_texts():
             text.set_fontstyle("italic")
     fig.legend(handles=trecho_handles, loc="upper center", bbox_to_anchor=(0.5, 0.865), ncol=2, frameon=False, columnspacing=1.4, handlelength=2.6)
-    fig.subplots_adjust(top=0.70, bottom=0.10)
+    fig.subplots_adjust(top=0.79, bottom=0.06, hspace=0.28)
     _save_fig_preserve_layout(fig, path)
 
 
