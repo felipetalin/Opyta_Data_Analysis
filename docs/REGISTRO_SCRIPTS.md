@@ -41,3 +41,21 @@
 - Data de registro: 2026-05-18
 - Responsável: [Seu nome ou responsável pelo commit]
 - Observações: Script validado e executado com sucesso. Pronto para uso em produção e versionamento.
+
+- Script: scripts/migrar_bentos_avg_2026.py
+- Descricao: Valida e migra a planilha revisada de Zoobentos AVG 2026 para as tabelas base, integrando o validador oficial do Opyta Data, normalizacao de campanhas e auditoria da carga.
+- Data de registro: 2026-06-08
+- Responsavel: Codex/Felipe
+- Observacoes: Usado na migracao da planilha `projeto_bentos_real - AVG- 260608 - Rev.xlsx`; resolve campanhas por chave canonica/id e registra auditoria em `outputs/_migration/avg_bentos_2026/`.
+
+- Script: scripts/consolidar_bentos_avg_2026.py
+- Descricao: Consolida a fatia AVG/Zoobentos das tabelas base para `biota_analise_consolidada`, com backup da fatia anterior e resumo comparativo fonte/destino.
+- Data de registro: 2026-06-08
+- Responsavel: Codex/Felipe
+- Observacoes: Substitui somente `codigo_interno_opyta = BRAAVG002` e `grupo_biologico = Zoobentos`; backup preservado em tabela `bkp_biota_avg_zoobentos_20260608_112425`.
+
+- Script: scripts/run_bentos_avg_2026_por_campanha.py
+- Descricao: Gera os resultados de Zoobentos AVG 2026 separadamente para fevereiro e marco, filtrando as campanhas finais antes da execucao dos blocos do pipeline.
+- Data de registro: 2026-06-08
+- Responsavel: Codex/Felipe
+- Observacoes: Saidas finais em `Resultados bentos/2026/Fevereir-26` e `Resultados bentos/2026/marco-26`; usado apos ajustes de paleta verde, rosca e remocao de `Nao informado`.

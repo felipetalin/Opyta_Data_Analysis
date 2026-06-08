@@ -162,6 +162,32 @@ def _theme_palette(theme: dict, n: int) -> list[str]:
     return palette_from_theme(theme, max(n, 1))
 
 
+def _contrasting_green_palette(theme: dict, n: int) -> list[str]:
+    primary = str(theme.get("primary_hex", "#16803A"))
+    colors = [
+        primary,
+        "#D7E85E",
+        "#064B29",
+        "#7FA33A",
+        "#00A15A",
+        "#4B681D",
+        "#B5D766",
+        "#0B6E4F",
+        "#A0B81F",
+        "#2E8B57",
+        "#E7F28A",
+        "#005A32",
+        "#63C77A",
+        "#6A7F1E",
+        "#C4D98B",
+        "#013220",
+    ]
+    if n <= len(colors):
+        return colors[:n]
+    extra = palette_from_theme(theme, n - len(colors))
+    return colors + extra
+
+
 def _taxonomy_palette(n: int) -> list[str]:
     colors = [
         "#002060",  # azul Ducal escuro
@@ -191,6 +217,17 @@ def _category_label(value, fallback: str = "Nao informado") -> str:
     if not text or text.lower() in {"nan", "none"}:
         return fallback
     return text
+
+
+def _category_label_from_row(row: pd.Series, primary_col: str, fallback_cols: list[str]) -> str:
+    primary = _category_label(row.get(primary_col), fallback="")
+    if primary:
+        return primary
+    for col in fallback_cols:
+        fallback = _category_label(row.get(col), fallback="")
+        if fallback:
+            return fallback
+    return "Taxon nao identificado"
 
 
 def _render_campaign_labels(ax, campaigns: list[str], boundaries: list[int], fontsize: int = 12, y: float = -0.24):
@@ -279,11 +316,14 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     generated_files.append(str(png_06a))
 
     tax_col = "ordem"
-    tax_label = "Ordem"
+    tax_label = "Ordem/taxon"
     df_plot_base = df.copy()
-    df_plot_base[tax_col] = df_plot_base[tax_col].map(lambda v: _category_label(v))
+    df_plot_base[tax_col] = df_plot_base.apply(
+        lambda row: _category_label_from_row(row, tax_col, ["taxon_final", "familia", "classe", "filo"]),
+        axis=1,
+    )
     tax_categories = sorted(df_plot_base[tax_col].unique().tolist())
-    tax_colors = _taxonomy_palette(len(tax_categories))
+    tax_colors = _contrasting_green_palette(theme, len(tax_categories))
     color_map = {cat: tax_colors[i] for i, cat in enumerate(tax_categories)}
 
     for campaign in campaign_order:
@@ -554,9 +594,8 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
         ylabel="Riqueza",
         x_tick_rotation=45,
     )
-    place_legend_below_x_axis(fig, ax, theme)
     validate_axes_style(ax, theme)
-    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.02))
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.02))
 
     out_png = output_dir / f"02_grafico_riqueza_por_ponto_{group.lower()}.png"
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
@@ -567,7 +606,10 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
 
 def _run_block_7(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
     df_ordem = df.copy()
-    df_ordem["ordem"] = df_ordem["ordem"].map(lambda v: _category_label(v))
+    df_ordem["ordem"] = df_ordem.apply(
+        lambda row: _category_label_from_row(row, "ordem", ["taxon_final", "familia", "classe", "filo"]),
+        axis=1,
+    )
     ordem_df = (
         df_ordem.groupby("ordem")["taxon_final"]
         .nunique()
@@ -586,7 +628,7 @@ def _run_block_7(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     size_bar = get_figsize_by_complexity(theme, n_categories=len(ordem_df), prefer_landscape=True)
     fig, ax = plt.subplots(figsize=size_bar, dpi=int(theme.get("dpi", 600)))
     bars = ax.bar(ordem_df["ordem"], ordem_df["numero_de_taxons"], color=str(theme.get("primary_hex", "#11420C")), edgecolor="black", linewidth=0.8)
-    apply_theme(ax, theme, xlabel="Ordem", ylabel="Número de táxons", x_tick_rotation=45)
+    apply_theme(ax, theme, xlabel="Ordem/taxon", ylabel="Número de táxons", x_tick_rotation=45)
     for b, v in zip(bars, ordem_df["numero_de_taxons"].tolist()):
         ax.text(b.get_x() + b.get_width() / 2, v, f"{int(v)}", ha="center", va="bottom", fontsize=_font_annotation(theme))
     validate_axes_style(ax, theme)
@@ -597,7 +639,11 @@ def _run_block_7(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     generated_files.append(str(out_bar))
 
     # Donut chart
-    donut_colors = _theme_palette(theme, len(ordem_df))
+    ordem_categories = sorted(ordem_df["ordem"].astype(str).tolist())
+    donut_color_map = {
+        cat: color for cat, color in zip(ordem_categories, _contrasting_green_palette(theme, len(ordem_categories)))
+    }
+    donut_colors = [donut_color_map[str(name)] for name in ordem_df["ordem"].tolist()]
     size_donut = get_figsize_by_complexity(theme, n_categories=len(ordem_df), prefer_landscape=True)
     fig, ax = plt.subplots(figsize=size_donut, dpi=int(theme.get("dpi", 600)))
 
