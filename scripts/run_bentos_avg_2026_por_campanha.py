@@ -5,10 +5,13 @@ import json
 import re
 import sys
 import unicodedata
+import warnings
 from datetime import datetime
 from decimal import Decimal
 from pathlib import Path
 from typing import Any
+
+import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,7 +53,30 @@ TARGETS = [
         "campaign": "44a-Mar-26",
         "folder": "marco-26",
     },
+    {
+        "campaign": "45a-Abr-26",
+        "folder": "abril-26",
+    },
 ]
+
+AREA_01 = "\u00c1rea de controle 01"
+AREA_02 = "\u00c1rea de controle 02"
+AC01_POINTS = [
+    "PIC-01",
+    "PIC-02",
+    "PIC-03",
+    "PIC-04",
+    "PIC-05",
+    "PIC-06",
+    "PIC-07",
+    "PIC-08",
+    "PIC-09",
+    "PIC-11",
+]
+AC02_POINTS = ["PIC-10", "PIC-12", "PIC-13"]
+POINT_ORDER = AC01_POINTS + AC02_POINTS
+AREA_BY_POINT = {p: AREA_01 for p in AC01_POINTS} | {p: AREA_02 for p in AC02_POINTS}
+POINT_RANK = {point: idx + 1 for idx, point in enumerate(POINT_ORDER)}
 
 
 def _json_default(value: Any) -> Any:
@@ -87,42 +113,92 @@ def _filter_campaign(df, campaign: str):
     return filtered
 
 
-def _run_all_blocks(df, theme: dict, output_dir: Path) -> dict[str, Any]:
+def _add_point_area_metadata(df):
+    out = df.copy()
+    out["nome_ponto"] = out["nome_ponto"].astype(str).str.strip()
+    out["area_controle"] = out["nome_ponto"].map(AREA_BY_POINT)
+    out["ordem_ponto"] = out["nome_ponto"].map(POINT_RANK)
+    return out
+
+
+def _pad_zero_points(df_campaign):
+    df = _add_point_area_metadata(df_campaign)
+    observed_points = set(df["nome_ponto"].dropna().astype(str).str.strip())
+    missing_points = [point for point in POINT_ORDER if point not in observed_points]
+    if not missing_points:
+        return df
+
+    template = df.iloc[0].to_dict()
+    pad_rows = []
+    for point in missing_points:
+        row = {col: pd.NA for col in df.columns}
+        for col in [
+            "nome_projeto",
+            "nome_campanha",
+            "bacia_hidrografica",
+            "metodo_de_captura",
+            "esforco",
+            "unidade_esforco",
+            "tipo_amostragem",
+        ]:
+            if col in row:
+                row[col] = template.get(col)
+        row["nome_ponto"] = point
+        row["area_controle"] = AREA_BY_POINT[point]
+        row["ordem_ponto"] = POINT_RANK[point]
+        row["contagem"] = 0
+        row["bmwp_score"] = 0
+        if "taxon_final" in row:
+            row["taxon_final"] = pd.NA
+        if "nome_cientifico" in row:
+            row["nome_cientifico"] = pd.NA
+        pad_rows.append(row)
+
+    with warnings.catch_warnings():
+        warnings.filterwarnings(
+            "ignore",
+            category=FutureWarning,
+            message="The behavior of DataFrame concatenation with empty or all-NA entries is deprecated.*",
+        )
+        return pd.concat([df, pd.DataFrame(pad_rows, columns=df.columns)], ignore_index=True)
+
+
+def _run_all_blocks(df_observed, df_point_metrics, theme: dict, output_dir: Path) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     generated_files: list[str] = []
     executed_blocks: list[str] = []
 
-    _run_block_3(df=df, group=GROUP, output_dir=output_dir, generated_files=generated_files)
+    _run_block_3(df=df_observed, group=GROUP, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("3")
 
-    _run_block_4(df=df, group=GROUP, output_dir=output_dir, generated_files=generated_files)
+    _run_block_4(df=df_observed, group=GROUP, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("4")
 
-    _run_block_5(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_5(df=df_point_metrics, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("5")
 
-    _run_block_6(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_6(df=df_point_metrics, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("6")
 
-    _run_block_7(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_7(df=df_observed, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("7")
 
-    _run_block_8(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_8(df=df_point_metrics, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("8")
 
-    _run_block_9(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_9(df=df_observed, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("9")
 
-    _run_block_10(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_10(df=df_observed, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("10")
 
-    _run_block_11(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_11(df=df_point_metrics, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("11")
 
-    _run_block_12(df=df, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
+    _run_block_12(df=df_point_metrics, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("12")
 
-    _run_block_13(df=df, group=GROUP, output_dir=output_dir, generated_files=generated_files)
+    _run_block_13(df=df_observed, group=GROUP, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("13")
 
     return {
@@ -132,10 +208,14 @@ def _run_all_blocks(df, theme: dict, output_dir: Path) -> dict[str, Any]:
 
 
 def _summarize_df(df) -> dict[str, Any]:
+    points_with_result = sorted(df["nome_ponto"].dropna().astype(str).unique().tolist())
+    zero_points = [point for point in POINT_ORDER if point not in set(points_with_result)]
     return {
         "records": int(len(df)),
         "campaigns": sorted(df["nome_campanha"].dropna().astype(str).unique().tolist()),
-        "points": sorted(df["nome_ponto"].dropna().astype(str).unique().tolist()),
+        "points": POINT_ORDER,
+        "points_with_result": points_with_result,
+        "zero_points": zero_points,
         "taxa": int(df["taxon_final"].nunique()),
         "abundancia_total": float(df["contagem"].sum()),
     }
@@ -150,8 +230,9 @@ def run(output_root: Path, env_file: str | None) -> dict[str, Any]:
     results: list[dict[str, Any]] = []
     for target in TARGETS:
         df_campaign = _filter_campaign(df_all, target["campaign"])
+        df_point_metrics = _pad_zero_points(df_campaign)
         output_dir = output_root / target["folder"]
-        block_result = _run_all_blocks(df_campaign, theme, output_dir)
+        block_result = _run_all_blocks(df_campaign, df_point_metrics, theme, output_dir)
         payload = {
             "generated_at": datetime.now().isoformat(timespec="seconds"),
             "project_id": PROJECT_ID,
@@ -177,7 +258,7 @@ def run(output_root: Path, env_file: str | None) -> dict[str, Any]:
         "campaign_results": results,
     }
     output_root.mkdir(parents=True, exist_ok=True)
-    (output_root / "metadata_resultados_zoobentos_fev_mar_2026.json").write_text(
+    (output_root / "metadata_resultados_zoobentos_fev_mar_abr_2026.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2, default=_json_default),
         encoding="utf-8",
     )

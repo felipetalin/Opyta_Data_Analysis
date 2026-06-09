@@ -230,6 +230,110 @@ def _category_label_from_row(row: pd.Series, primary_col: str, fallback_cols: li
     return "Taxon nao identificado"
 
 
+def _ordered_points_from_df(df: pd.DataFrame) -> list[str]:
+    if "ordem_ponto" in df.columns:
+        meta = df[["nome_ponto", "ordem_ponto"]].dropna(subset=["nome_ponto"]).copy()
+        if not meta.empty:
+            meta["nome_ponto"] = meta["nome_ponto"].astype(str).str.strip()
+            meta["ordem_ponto"] = pd.to_numeric(meta["ordem_ponto"], errors="coerce")
+            order = (
+                meta.dropna(subset=["ordem_ponto"])
+                .groupby("nome_ponto", as_index=False)["ordem_ponto"]
+                .min()
+                .sort_values(["ordem_ponto", "nome_ponto"])
+            )
+            if not order.empty:
+                return order["nome_ponto"].tolist()
+    return sorted(df["nome_ponto"].dropna().astype(str).str.strip().unique().tolist())
+
+
+def _taxon_present(value: object) -> bool:
+    return bool(_category_label(value, fallback=""))
+
+
+def _nonzero_taxon_rows(df: pd.DataFrame) -> pd.DataFrame:
+    mask = pd.Series(True, index=df.index)
+    if "contagem" in df.columns:
+        mask &= pd.to_numeric(df["contagem"], errors="coerce").fillna(0) > 0
+    if "taxon_final" in df.columns:
+        mask &= df["taxon_final"].map(_taxon_present)
+    return df.loc[mask].copy()
+
+
+def _point_area_meta(df: pd.DataFrame) -> dict[str, str]:
+    if "area_controle" not in df.columns:
+        return {}
+    meta = df[["nome_ponto", "area_controle"]].dropna(subset=["nome_ponto", "area_controle"]).copy()
+    if meta.empty:
+        return {}
+    meta["nome_ponto"] = meta["nome_ponto"].astype(str).str.strip()
+    meta["area_controle"] = meta["area_controle"].astype(str).str.strip()
+    meta = meta[(meta["nome_ponto"] != "") & (meta["area_controle"] != "")]
+    return meta.drop_duplicates("nome_ponto").set_index("nome_ponto")["area_controle"].to_dict()
+
+
+def _area_color_map(theme: dict, labels: list[str]) -> dict[str, str]:
+    base = [
+        str(theme.get("primary_hex", "#16803A")),
+        "#7FA33A",
+        "#064B29",
+        "#B5D766",
+    ]
+    return {label: base[i % len(base)] for i, label in enumerate(labels)}
+
+
+def _draw_area_groups(ax, points: list[str], df: pd.DataFrame, theme: dict, *, y: float = -0.13) -> bool:
+    area_by_point = _point_area_meta(df)
+    if not points or not area_by_point:
+        return False
+
+    labels = [area_by_point.get(str(point)) for point in points]
+    if not any(labels):
+        return False
+
+    unique_labels = []
+    for label in labels:
+        if label and label not in unique_labels:
+            unique_labels.append(label)
+    colors = _area_color_map(theme, unique_labels)
+
+    start = None
+    current = None
+    for i, label in enumerate(labels + [None]):
+        if label != current:
+            if current is not None and start is not None:
+                end = i - 1
+                x_mid = (start + end) / 2
+                ax.text(
+                    x_mid,
+                    y,
+                    current,
+                    transform=ax.get_xaxis_transform(),
+                    ha="center",
+                    va="top",
+                    fontsize=_font_campaign(theme),
+                    color=colors.get(current, str(theme.get("primary_hex", "#16803A"))),
+                )
+            if i > 0 and i < len(labels):
+                ax.axvline(i - 0.5, color="#5A6B48", linewidth=1.2, linestyle="--", ymin=0.0, ymax=0.96)
+            start = i
+            current = label
+    return True
+
+
+def _point_area_colors(points: list[str], df: pd.DataFrame, theme: dict) -> list[str] | None:
+    area_by_point = _point_area_meta(df)
+    if not area_by_point:
+        return None
+    ordered_labels = []
+    for point in points:
+        label = area_by_point.get(str(point))
+        if label and label not in ordered_labels:
+            ordered_labels.append(label)
+    colors = _area_color_map(theme, ordered_labels)
+    return [colors.get(area_by_point.get(str(point), ""), str(theme.get("primary_hex", "#16803A"))) for point in points]
+
+
 def _render_campaign_labels(ax, campaigns: list[str], boundaries: list[int], fontsize: int = 12, y: float = -0.24):
     for i in range(len(boundaries) - 1):
         mid = boundaries[i] + (boundaries[i + 1] - boundaries[i]) / 2 - 0.5
@@ -276,7 +380,7 @@ def _jackknife_1(pres_abs: np.ndarray) -> float:
 
 
 def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
-    points_order = sorted(df["nome_ponto"].dropna().unique().tolist())
+    points_order = _ordered_points_from_df(df)
     campaign_order = sorted(df["nome_campanha"].dropna().unique().tolist())
 
     df_rich = (
@@ -284,18 +388,24 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
         .nunique()
         .reset_index()
         .rename(columns={"taxon_final": "riqueza_taxons"})
-        .sort_values("nome_ponto")
     )
+    if points_order:
+        df_rich = (
+            df_rich.set_index("nome_ponto")
+            .reindex(points_order, fill_value=0)
+            .reset_index()
+        )
     xlsx_06a = output_dir / f"06A_df_riqueza_total_por_ponto_{group.lower()}.xlsx"
     df_rich.to_excel(xlsx_06a, index=False, engine="openpyxl")
     generated_files.append(str(xlsx_06a))
 
     size_06a = get_figsize_by_complexity(theme, n_categories=len(df_rich), prefer_landscape=True)
     fig, ax = plt.subplots(figsize=(size_06a[0], size_06a[1]), dpi=int(theme.get("dpi", 600)))
+    area_colors = _point_area_colors(df_rich["nome_ponto"].astype(str).tolist(), df, theme)
     bars = ax.bar(
         df_rich["nome_ponto"].tolist(),
         df_rich["riqueza_taxons"].tolist(),
-        color=str(theme.get("primary_hex", "#11420C")),
+        color=area_colors or str(theme.get("primary_hex", "#11420C")),
         edgecolor="black",
         linewidth=1.0,
     )
@@ -304,12 +414,25 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
         theme,
         xlabel="Ponto amostral",
         ylabel="Numero de taxons",
-        x_tick_rotation=45,
+        x_tick_rotation=0 if area_colors else 45,
     )
     for bar, value in zip(bars, df_rich["riqueza_taxons"].tolist()):
-        ax.text(bar.get_x() + bar.get_width() / 2, value, f"{int(value)}", ha="center", va="bottom", fontsize=_font_annotation(theme))
+        y_top = ax.get_ylim()[1]
+        y_value = float(value)
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            y_value if y_value > 0 else y_top * 0.025,
+            f"{int(value)}",
+            ha="center",
+            va="bottom",
+            fontsize=_font_annotation(theme),
+            color="black" if y_value > 0 else "#666666",
+        )
 
+    area_drawn = _draw_area_groups(ax, df_rich["nome_ponto"].astype(str).tolist(), df, theme, y=-0.13)
     validate_axes_style(ax, theme)
+    if area_drawn:
+        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.10))
     png_06a = output_dir / f"06A_grafico_riqueza_total_por_ponto_{group.lower()}.png"
     fig.savefig(png_06a, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
     plt.close(fig)
@@ -317,7 +440,7 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
 
     tax_col = "ordem"
     tax_label = "Ordem/taxon"
-    df_plot_base = df.copy()
+    df_plot_base = _nonzero_taxon_rows(df)
     df_plot_base[tax_col] = df_plot_base.apply(
         lambda row: _category_label_from_row(row, tax_col, ["taxon_final", "familia", "classe", "filo"]),
         axis=1,
@@ -328,17 +451,20 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
 
     for campaign in campaign_order:
         df_c = df_plot_base[df_plot_base["nome_campanha"] == campaign].copy()
-        pivot = (
-            df_c.pivot_table(
-                index="nome_ponto",
-                columns=tax_col,
-                values="contagem",
-                aggfunc="sum",
-                fill_value=0,
+        if df_c.empty:
+            pivot = pd.DataFrame(index=points_order)
+        else:
+            pivot = (
+                df_c.pivot_table(
+                    index="nome_ponto",
+                    columns=tax_col,
+                    values="contagem",
+                    aggfunc="sum",
+                    fill_value=0,
+                )
+                .reindex(points_order)
+                .fillna(0)
             )
-            .reindex(points_order)
-            .fillna(0)
-        )
         ordered_cols = sorted(pivot.columns.astype(str).tolist())
         pivot = pivot[ordered_cols]
         campaign_safe = _safe_name(campaign)
@@ -365,17 +491,18 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
             bottom += values
 
         ax.set_xticks(x)
-        ax.set_xticklabels(pivot.index.astype(str), ha="right")
+        ax.set_xticklabels(pivot.index.astype(str), ha="center")
         apply_theme(
             ax,
             theme,
             xlabel="Ponto amostral",
             ylabel=f"Abundancia por {tax_label.lower()}",
-            x_tick_rotation=45,
+            x_tick_rotation=0 if _point_area_meta(df) else 45,
         )
+        area_drawn = _draw_area_groups(ax, pivot.index.astype(str).tolist(), df, theme, y=-0.16)
         place_legend_below_x_axis(fig, ax, theme, ncol=min(len(ordered_cols), int(theme.get("legend_max_cols", 5))))
         validate_axes_style(ax, theme)
-        fig.tight_layout(rect=(0, 0.02, 1, 0.84))
+        fig.tight_layout(rect=(0, 0.08 if area_drawn else 0.02, 1, 0.84))
 
         png_06b = output_dir / f"06B_grafico_abundancia_ordem_{campaign_safe}_{group.lower()}.png"
         fig.savefig(png_06b, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
@@ -406,18 +533,19 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
             bottom += values
 
         ax.set_xticks(x)
-        ax.set_xticklabels(pivot_pct.index.astype(str), ha="right")
+        ax.set_xticklabels(pivot_pct.index.astype(str), ha="center")
         ax.set_ylim(0, 100)
         apply_theme(
             ax,
             theme,
             xlabel="Ponto amostral",
             ylabel=f"Abundancia relativa por {tax_label.lower()} (%)",
-            x_tick_rotation=45,
+            x_tick_rotation=0 if _point_area_meta(df) else 45,
         )
+        area_drawn = _draw_area_groups(ax, pivot_pct.index.astype(str).tolist(), df, theme, y=-0.16)
         place_legend_below_x_axis(fig, ax, theme, ncol=min(len(ordered_cols), int(theme.get("legend_max_cols", 5))))
         validate_axes_style(ax, theme)
-        fig.tight_layout(rect=(0, 0.02, 1, 0.84))
+        fig.tight_layout(rect=(0, 0.08 if area_drawn else 0.02, 1, 0.84))
 
         png_06c = output_dir / f"06C_grafico_abundancia_relativa_ordem_{campaign_safe}_{group.lower()}.png"
         fig.savefig(png_06c, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
@@ -551,7 +679,17 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     richness["nome_ponto"] = richness["nome_ponto"].astype(str).str.strip()
 
     campaigns = sorted(richness["nome_campanha"].dropna().unique().tolist())
-    points = sorted(richness["nome_ponto"].dropna().unique().tolist())
+    points = _ordered_points_from_df(df)
+    if "ordem_ponto" in df.columns and campaigns and points:
+        full_index = pd.MultiIndex.from_product([campaigns, points], names=["nome_campanha", "nome_ponto"])
+        richness = (
+            richness.set_index(["nome_campanha", "nome_ponto"])
+            .reindex(full_index, fill_value=0)
+            .reset_index()
+        )
+    point_rank = {point: i for i, point in enumerate(points)}
+    richness["_ordem_ponto"] = richness["nome_ponto"].map(point_rank).fillna(len(point_rank))
+    richness = richness.sort_values(["nome_campanha", "_ordem_ponto", "nome_ponto"]).drop(columns="_ordem_ponto")
 
     out_df = output_dir / f"02_df_riqueza_por_ponto_{group.lower()}.xlsx"
     richness.to_excel(out_df, index=False, engine="openpyxl")
@@ -572,17 +710,27 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     width = 0.8 / n
     for i, c in enumerate(campaigns):
         vals = pivot[c].values
-        bars = ax.bar(x + (i - (n - 1) / 2) * width, vals, width=width, label=c, color=color_map[c], edgecolor="black", linewidth=0.8)
+        colors = _point_area_colors(points, df, theme) if len(campaigns) == 1 else None
+        bars = ax.bar(
+            x + (i - (n - 1) / 2) * width,
+            vals,
+            width=width,
+            label=c,
+            color=colors or color_map[c],
+            edgecolor="black",
+            linewidth=0.8,
+        )
         for bar, value in zip(bars, vals):
-            if abs(float(value)) < 1e-12:
-                continue
+            y_top = ax.get_ylim()[1]
+            y_value = float(value)
             ax.text(
                 bar.get_x() + bar.get_width() / 2,
-                float(value),
+                y_value if y_value > 0 else y_top * 0.025,
                 f"{int(value)}",
                 ha="center",
                 va="bottom",
                 fontsize=_font_annotation(theme),
+                color="black" if y_value > 0 else "#666666",
             )
 
     ax.set_xticks(x)
@@ -592,10 +740,11 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
         theme,
         xlabel="Ponto amostral",
         ylabel="Riqueza",
-        x_tick_rotation=45,
+        x_tick_rotation=0 if _point_area_meta(df) else 45,
     )
+    area_drawn = _draw_area_groups(ax, points, df, theme, y=-0.13)
     validate_axes_style(ax, theme)
-    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.02))
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.10 if area_drawn else 0.02))
 
     out_png = output_dir / f"02_grafico_riqueza_por_ponto_{group.lower()}.png"
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
@@ -779,20 +928,27 @@ def _run_block_9(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
 def _run_block_8(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
     species_col = "nome_cientifico"
     campaign_order = sorted(df["nome_campanha"].dropna().unique().tolist())
+    points_order = _ordered_points_from_df(df)
 
     results: list[dict] = []
     for campaign in campaign_order:
         df_c = df[df["nome_campanha"] == campaign].copy()
         if df_c.empty:
             continue
-        mat = df_c.pivot_table(
-            index="nome_ponto",
-            columns=species_col,
-            values="contagem",
-            aggfunc="sum",
-            fill_value=0,
-            observed=False,
-        )
+        df_c_calc = _nonzero_taxon_rows(df_c)
+        if df_c_calc.empty:
+            mat = pd.DataFrame(index=points_order)
+        else:
+            mat = df_c_calc.pivot_table(
+                index="nome_ponto",
+                columns=species_col,
+                values="contagem",
+                aggfunc="sum",
+                fill_value=0,
+                observed=False,
+            )
+            if points_order:
+                mat = mat.reindex(points_order, fill_value=0)
         for point in mat.index:
             row = mat.loc[point].values
             results.append(
@@ -986,13 +1142,23 @@ def _run_block_10(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
 
 
 def _run_block_11(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
+    points_order = _ordered_points_from_df(df)
+    point_rank = {point: i for i, point in enumerate(points_order)}
     df_bmwp = df.drop_duplicates(subset=["nome_campanha", "nome_ponto", "taxon_final"]).copy()
     df_bmwp["bmwp_score"] = pd.to_numeric(df_bmwp["bmwp_score"], errors="coerce").fillna(0)
 
     bmwp_scores = df_bmwp.groupby(["nome_campanha", "nome_ponto"], as_index=False)["bmwp_score"].sum()
     campaign_order = sorted(bmwp_scores["nome_campanha"].dropna().unique().tolist())
+    if points_order and campaign_order:
+        full_index = pd.MultiIndex.from_product([campaign_order, points_order], names=["nome_campanha", "nome_ponto"])
+        bmwp_scores = (
+            bmwp_scores.set_index(["nome_campanha", "nome_ponto"])
+            .reindex(full_index, fill_value=0)
+            .reset_index()
+        )
     bmwp_scores["nome_campanha"] = pd.Categorical(bmwp_scores["nome_campanha"], categories=campaign_order, ordered=True)
-    bmwp_scores = bmwp_scores.sort_values(["nome_campanha", "nome_ponto"]).reset_index(drop=True)
+    bmwp_scores["_ordem_ponto"] = bmwp_scores["nome_ponto"].map(point_rank).fillna(len(point_rank))
+    bmwp_scores = bmwp_scores.sort_values(["nome_campanha", "_ordem_ponto", "nome_ponto"]).drop(columns="_ordem_ponto").reset_index(drop=True)
     bmwp_scores["classificacao"] = bmwp_scores["bmwp_score"].apply(_classify_bmwp)
 
     xlsx_11 = output_dir / f"11_df_bmwp_{group.lower()}.xlsx"
@@ -1031,21 +1197,24 @@ def _run_block_11(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
     )
     labels = bmwp_scores["nome_ponto"].astype(str).tolist()
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=90, ha="center")
+    ax.set_xticklabels(labels, rotation=0 if _point_area_meta(df) else 90, ha="center")
 
     for i, (bar, val) in enumerate(zip(bars, bmwp_scores["bmwp_score"].values)):
         ax.text(i, bar.get_height() + 2, f"{val:.0f}", ha="center", fontsize=_font_annotation(theme))
 
-    campaigns = bmwp_scores["nome_campanha"].astype(str).tolist()
-    boundaries = _campaign_boundaries(campaigns)
-    for boundary in boundaries[1:-1]:
-        ax.axvline(x=boundary - 0.5, color="#888888", linestyle="--", linewidth=1.5)
-    _render_campaign_labels(ax, campaigns, boundaries, fontsize=_font_campaign(theme), y=-0.20)
+    if _point_area_meta(df):
+        _draw_area_groups(ax, labels, df, theme, y=-0.15)
+    else:
+        campaigns = bmwp_scores["nome_campanha"].astype(str).tolist()
+        boundaries = _campaign_boundaries(campaigns)
+        for boundary in boundaries[1:-1]:
+            ax.axvline(x=boundary - 0.5, color="#888888", linestyle="--", linewidth=1.5)
+        _render_campaign_labels(ax, campaigns, boundaries, fontsize=_font_campaign(theme), y=-0.20)
 
     handles = [Patch(facecolor=colors_map[k], edgecolor="black", label=k) for k in legend_order]
     place_legend_below_x_axis(fig, ax, theme, handles=handles, labels=legend_order, ncol=len(legend_order))
     validate_axes_style(ax, theme)
-    fig.subplots_adjust(left=0.08, right=0.98, top=0.92, bottom=0.22)
+    fig.subplots_adjust(left=0.08, right=0.98, top=0.92, bottom=0.28 if _point_area_meta(df) else 0.22)
 
     png_11 = output_dir / f"11_grafico_bmwp_{group.lower()}.png"
     fig.savefig(png_11, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
@@ -1056,6 +1225,8 @@ def _run_block_11(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
 
 
 def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
+    points_order = _ordered_points_from_df(df)
+    point_rank = {point: i for i, point in enumerate(points_order)}
     ordens_ept = {"ephemeroptera", "plecoptera", "trichoptera"}
     familias_chol = {"chironomidae"}
 
@@ -1071,12 +1242,20 @@ def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
     chol_ab = grp.apply(lambda d: d.loc[d["eh_chol"], "contagem"].sum()).rename("chol")
 
     df_index = pd.concat([total, ept_ab, chol_ab], axis=1).reset_index()
+    campaign_order = sorted(df_index["nome_campanha"].dropna().unique().tolist())
+    if points_order and campaign_order:
+        full_index = pd.MultiIndex.from_product([campaign_order, points_order], names=["nome_campanha", "nome_ponto"])
+        df_index = (
+            df_index.set_index(["nome_campanha", "nome_ponto"])
+            .reindex(full_index, fill_value=0)
+            .reset_index()
+        )
     df_index["pct_ept"] = (df_index["ept"] / df_index["total"].replace(0, np.nan) * 100).fillna(0)
     df_index["pct_chol"] = (df_index["chol"] / df_index["total"].replace(0, np.nan) * 100).fillna(0)
 
-    campaign_order = sorted(df_index["nome_campanha"].dropna().unique().tolist())
     df_index["nome_campanha"] = pd.Categorical(df_index["nome_campanha"], categories=campaign_order, ordered=True)
-    df_index = df_index.sort_values(["nome_campanha", "nome_ponto"]).reset_index(drop=True)
+    df_index["_ordem_ponto"] = df_index["nome_ponto"].map(point_rank).fillna(len(point_rank))
+    df_index = df_index.sort_values(["nome_campanha", "_ordem_ponto", "nome_ponto"]).drop(columns="_ordem_ponto").reset_index(drop=True)
 
     xlsx_12 = output_dir / f"12_df_ept_chol_{group.lower()}.xlsx"
     df_index.to_excel(xlsx_12, index=False, engine="openpyxl")
@@ -1117,17 +1296,21 @@ def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
         ylabel="% por ponto",
     )
     ax.set_xticks(x)
-    ax.set_xticklabels(df_index["nome_ponto"].astype(str).tolist(), rotation=90, ha="center")
+    point_labels = df_index["nome_ponto"].astype(str).tolist()
+    ax.set_xticklabels(point_labels, rotation=0 if _point_area_meta(df) else 90, ha="center")
 
-    campaigns = df_index["nome_campanha"].astype(str).tolist()
-    boundaries = _campaign_boundaries(campaigns)
-    for boundary in boundaries[1:-1]:
-        ax.axvline(x=boundary - 0.5, color="#888888", linestyle="--", linewidth=1.5)
-    _render_campaign_labels(ax, campaigns, boundaries, fontsize=_font_campaign(theme), y=-0.20)
+    if _point_area_meta(df):
+        _draw_area_groups(ax, point_labels, df, theme, y=-0.15)
+    else:
+        campaigns = df_index["nome_campanha"].astype(str).tolist()
+        boundaries = _campaign_boundaries(campaigns)
+        for boundary in boundaries[1:-1]:
+            ax.axvline(x=boundary - 0.5, color="#888888", linestyle="--", linewidth=1.5)
+        _render_campaign_labels(ax, campaigns, boundaries, fontsize=_font_campaign(theme), y=-0.20)
 
     place_legend_below_x_axis(fig, ax, theme, ncol=2)
     validate_axes_style(ax, theme)
-    fig.subplots_adjust(left=0.08, right=0.98, top=0.92, bottom=0.22)
+    fig.subplots_adjust(left=0.08, right=0.98, top=0.92, bottom=0.28 if _point_area_meta(df) else 0.22)
 
     png_12 = output_dir / f"12_grafico_ept_chol_{group.lower()}.png"
     fig.savefig(png_12, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
