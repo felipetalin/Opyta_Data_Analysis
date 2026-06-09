@@ -1,5 +1,5 @@
 {
-  "executed_at": "2026-06-09T16:39:40.185399Z",
+  "executed_at": "2026-06-09T14:54:19.633640Z",
   "runner_version": "1.2",
   "project_id": 183,
   "group": "Zoobentos",
@@ -10,10 +10,10 @@
     "branch": "main",
     "commit": "33af88f",
     "dirty": true,
-    "status_short_count": 2,
+    "status_short_count": 1,
     "full_dirty": true,
-    "full_status_short_count": 15,
-    "ignored_generated_audit_count": 13
+    "full_status_short_count": 6,
+    "ignored_generated_audit_count": 5
   },
   "rows_loaded": 145,
   "executed_blocks": [
@@ -95,329 +95,329 @@
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\01_tabela_composicao_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 6168,
-      "modified_at": "2026-06-09T16:38:29.179000Z",
-      "sha256": "cb9d5f7c2b800131df02d8939f15949d35f7c4aaa0d0ee76d233e0313fc98a12"
+      "size_bytes": 6169,
+      "modified_at": "2026-06-09T14:53:39.971000Z",
+      "sha256": "9eefc3a522cb3776284efe6a5226757f4620d4c8f47d88992cad8848965edffe"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\04_5_tabela_ocorrencia_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 9641,
-      "modified_at": "2026-06-09T16:38:29.858000Z",
-      "sha256": "7f6994b39af900bce7bb6742dacfcfe4be9a7485c9e68e4d8e9693b63c25a2c3"
+      "size_bytes": 9642,
+      "modified_at": "2026-06-09T14:53:40.504000Z",
+      "sha256": "ff0e901a6f769fc2a30f81374112e18d51b2c0561658e7f860fe0fa6da7433b3"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5352,
-      "modified_at": "2026-06-09T16:38:29.966000Z",
-      "sha256": "6c9a9bcd4ed1b6dbcc2b447816a5dd108566d1542f1fd7cf251ba98f53aea5e9"
+      "size_bytes": 5353,
+      "modified_at": "2026-06-09T14:53:40.631000Z",
+      "sha256": "c23887a4afbeebc4142e9f9dcb13a2ca0357b1c55bd41b08172811c54c0f9c22"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 398339,
-      "modified_at": "2026-06-09T16:38:35.363000Z",
+      "modified_at": "2026-06-09T14:53:42.456000Z",
       "sha256": "f7ae925479f53c8b878959bea5f70ff0c8621d321dd6e05d50e7c5710d7eeffc"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5029,
-      "modified_at": "2026-06-09T16:38:35.563000Z",
-      "sha256": "5aca0a623ab517f25ae090efa8663a640ca1702d72b8b2ba341e1f9e6943070c"
+      "size_bytes": 5030,
+      "modified_at": "2026-06-09T14:53:42.579000Z",
+      "sha256": "8f3886aa17cae690cc9fbc27f0d732405f104e3cd8eab27e0d87fe2552ae6495"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 358828,
-      "modified_at": "2026-06-09T16:38:37.683000Z",
+      "modified_at": "2026-06-09T14:53:44.102000Z",
       "sha256": "286c8937e3fa0708837cdf70cc76fe1db6a9258c96442569d9a0dc6fcf483ad5"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_df_abundancia_ordem_C001_2024_04_SC_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5277,
-      "modified_at": "2026-06-09T16:38:37.833000Z",
-      "sha256": "db15d2086621a02e60ea73317a7b5e0c0874c20dcea979afcced7b65723e4c77"
+      "size_bytes": 5278,
+      "modified_at": "2026-06-09T14:53:44.241000Z",
+      "sha256": "5f0fc9100d6f89ce1e6cd8f63695046428081715bde023f5869d6f2e9e93debf"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_grafico_abundancia_ordem_C001_2024_04_SC_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 592734,
-      "modified_at": "2026-06-09T16:38:40.459000Z",
-      "sha256": "be1f882d51cd13ba57ab1d78c857d1a73c4a6f186e98a44621e37944e00a413d"
+      "size_bytes": 592281,
+      "modified_at": "2026-06-09T14:53:46.073000Z",
+      "sha256": "e8913677a70e3bc04a2a6139c09bb4d980362f5570738c72904fb4c3dd080401"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_df_abundancia_relativa_ordem_C001_2024_04_SC_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5451,
-      "modified_at": "2026-06-09T16:38:40.582000Z",
-      "sha256": "e4ba7db77ec1996ccf712c697d0eedddfb1d8b535d3e1555bedda46ddeedd3a0"
+      "size_bytes": 5452,
+      "modified_at": "2026-06-09T14:53:46.195000Z",
+      "sha256": "82c32d310b75b93a989822a35b2dec5c693bf494cc714642745a856eb4dd86dc"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_grafico_abundancia_relativa_ordem_C001_2024_04_SC_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 627924,
-      "modified_at": "2026-06-09T16:38:44.012000Z",
-      "sha256": "f075fdca10a4c376d2cb97867197bf0b0645e2e8cee9fcbf76647bca2f0c1348"
+      "size_bytes": 627838,
+      "modified_at": "2026-06-09T14:53:48.085000Z",
+      "sha256": "e77dca9d2bcbf39b2d17da5e57c70fa311276d2401379a19ba83608b597f6bb7"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_df_abundancia_ordem_C002_2024_10_CH_zoobentos.xlsx",
       "exists": true,
       "type": "file",
       "size_bytes": 5208,
-      "modified_at": "2026-06-09T16:38:44.105000Z",
-      "sha256": "ce913a9285c0668b10f746d180525cbe0881d7f5359d1afc16e854ee63470a0b"
+      "modified_at": "2026-06-09T14:53:48.209000Z",
+      "sha256": "0a097df2a2ecbc263a9b7d25097f9d0af746afb02ac5788000640896bb6b7d37"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_grafico_abundancia_ordem_C002_2024_10_CH_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 549807,
-      "modified_at": "2026-06-09T16:38:47.146000Z",
-      "sha256": "63668783a8b8dada827d086d4f4a78624e2a9d5562d1d512858b84452c2da449"
+      "size_bytes": 550207,
+      "modified_at": "2026-06-09T14:53:50.057000Z",
+      "sha256": "9be01db9665a2efccf9c69b64e02b1418a67428644a18304654985d405be5756"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_df_abundancia_relativa_ordem_C002_2024_10_CH_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5305,
-      "modified_at": "2026-06-09T16:38:47.260000Z",
-      "sha256": "5fc9136c25c8fdbef5f52ad70e7a2c1877b039d1c2ee1e04ae29fc9cf7458be7"
+      "size_bytes": 5304,
+      "modified_at": "2026-06-09T14:53:50.161000Z",
+      "sha256": "f74f3d1395ec9852f95ba0e281b1956ecfdb1152107191ba317a4b9ef2bafd1b"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_grafico_abundancia_relativa_ordem_C002_2024_10_CH_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 588853,
-      "modified_at": "2026-06-09T16:38:50.857000Z",
-      "sha256": "271eabc7a6e793cff14f7c20a624f470906c02df9a9eda47f4af17b19a7ac2f0"
+      "size_bytes": 589076,
+      "modified_at": "2026-06-09T14:53:51.992000Z",
+      "sha256": "efd6d16984e2b18025d13cb1bc62cd5d860ac62203f5a483ee49cc9a45bc6ddb"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_df_abundancia_ordem_C003_2025_04_SC_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5195,
-      "modified_at": "2026-06-09T16:38:50.973000Z",
-      "sha256": "60915e8cd9ae3b1c9b8618450b737065858f6334ac676321d23d50b3e9753d53"
+      "size_bytes": 5196,
+      "modified_at": "2026-06-09T14:53:52.123000Z",
+      "sha256": "9e98e7da9b64423424d0eb34d2bdd07f1f60a1fba5e569b2a99084dfdca6b163"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_grafico_abundancia_ordem_C003_2025_04_SC_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 547848,
-      "modified_at": "2026-06-09T16:38:54.483000Z",
-      "sha256": "80e035fbea5b0dd3fb405994f1613d3e0251ab67211ee6211a8b21903d09d448"
+      "size_bytes": 547185,
+      "modified_at": "2026-06-09T14:53:53.940000Z",
+      "sha256": "449dc7f41b446043731f9dc98348c6facbd55486d2c694093dbb38fc08c4418c"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_df_abundancia_relativa_ordem_C003_2025_04_SC_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5238,
-      "modified_at": "2026-06-09T16:38:54.640000Z",
-      "sha256": "beabe125f1be359a0d1dc245fb53ab299121120348c42edc40f5dcd3e9de5af3"
+      "size_bytes": 5237,
+      "modified_at": "2026-06-09T14:53:54.037000Z",
+      "sha256": "1988159b634041b61dd5a3d847ff50a6485c14c6bfbf0be5f41686751d304e22"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_grafico_abundancia_relativa_ordem_C003_2025_04_SC_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 584695,
-      "modified_at": "2026-06-09T16:38:58.865000Z",
-      "sha256": "4618adc87e773307c4f6610793bd8e72ca133c300e84625e3215d853269289ec"
+      "size_bytes": 584731,
+      "modified_at": "2026-06-09T14:53:55.883000Z",
+      "sha256": "308a7b22bc3b85bb1b2c184585c8509d80432e5a220ea8c75e7e9d9b363e2106"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_df_abundancia_ordem_C004_2025_10_CH_zoobentos.xlsx",
       "exists": true,
       "type": "file",
       "size_bytes": 5206,
-      "modified_at": "2026-06-09T16:38:59.031000Z",
-      "sha256": "119ad429a050dc47049a6dd33bbcd04172b580140041cf6d61ef95185261112f"
+      "modified_at": "2026-06-09T14:53:56.006000Z",
+      "sha256": "7e27b86c0c54c222b1615ff5e883d9fbd0a72493e3ee9255c6bc93dbccc6be12"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_grafico_abundancia_ordem_C004_2025_10_CH_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 581928,
-      "modified_at": "2026-06-09T16:39:03.400000Z",
-      "sha256": "e0f69336898a9db4917f3fdf4617de8f6821ad193e16e1f206bdde8f216fb5ea"
+      "size_bytes": 579921,
+      "modified_at": "2026-06-09T14:53:57.938000Z",
+      "sha256": "735ff4dee0e0eae108e42447170f26c6d6087d20f88ea71f700bbf287dc3ad2c"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_df_abundancia_relativa_ordem_C004_2025_10_CH_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5317,
-      "modified_at": "2026-06-09T16:39:03.537000Z",
-      "sha256": "35b60e46a7ee0dc689e2af7167d61df2616660f10fdbdae103b169819d767e34"
+      "size_bytes": 5318,
+      "modified_at": "2026-06-09T14:53:58.065000Z",
+      "sha256": "def3003f422d9bc76c4ee7cfc844dbcbd0520b329e86b793b62b0405a48c7790"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_grafico_abundancia_relativa_ordem_C004_2025_10_CH_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 585997,
-      "modified_at": "2026-06-09T16:39:07.065000Z",
-      "sha256": "966bf476cc67ff438ac0ac0232f0e0fd865d15561d66abd8d8616d847caa061c"
+      "size_bytes": 586232,
+      "modified_at": "2026-06-09T14:53:59.899000Z",
+      "sha256": "53cc35071c970802f52e32ccbb3062c395a068df297c8464d7fba398b4822bd5"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_df_abundancia_ordem_C005_2026_04_SC_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5015,
-      "modified_at": "2026-06-09T16:39:07.225000Z",
-      "sha256": "a4fccdb76cea4fedb54212396b75f1102e7b4642acea5cefeba2c2b8aaca57dd"
+      "size_bytes": 5016,
+      "modified_at": "2026-06-09T14:54:00.113000Z",
+      "sha256": "40c2df0dfaf18e2771e4c564d05149836383c05511626c9605ed5ce891f0715c"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06B_grafico_abundancia_ordem_C005_2026_04_SC_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 465576,
-      "modified_at": "2026-06-09T16:39:10.492000Z",
-      "sha256": "1ec0ece307999b6927cd33e3314c6d9deb228168ea6aa623eb90e688eaa46704"
+      "size_bytes": 463109,
+      "modified_at": "2026-06-09T14:54:01.965000Z",
+      "sha256": "52c5bc1be23d84a99928c122911227efa84bc7e9702fe94e03352a1f92766079"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_df_abundancia_relativa_ordem_C005_2026_04_SC_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5015,
-      "modified_at": "2026-06-09T16:39:10.591000Z",
-      "sha256": "276164835482bc420cf953878b7492387ece734e50a6aaecf9608f3ea661b7f3"
+      "size_bytes": 5016,
+      "modified_at": "2026-06-09T14:54:02.074000Z",
+      "sha256": "51e4dadbc2a1f5c21b96aaab5ff0e04a50f0879bd5a3d70ba994ea73f12854ed"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\06C_grafico_abundancia_relativa_ordem_C005_2026_04_SC_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 473254,
-      "modified_at": "2026-06-09T16:39:14.209000Z",
-      "sha256": "44bc74cc0fc7a62590ff9ba584789ad4f04616532b787ca640c7493ad7903d2d"
+      "size_bytes": 472316,
+      "modified_at": "2026-06-09T14:54:03.850000Z",
+      "sha256": "712ee642f5ce25635b80e397b6177921efb473fec805839241d7e186a26205ea"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5114,
-      "modified_at": "2026-06-09T16:39:14.326000Z",
-      "sha256": "206f9cc6d054859cedaf82fce230851499c549b390420d42bed40bcc5ff993fd"
+      "size_bytes": 5115,
+      "modified_at": "2026-06-09T14:54:03.987000Z",
+      "sha256": "5da7df06849f3064f5c2be3b001a40907893be35490a9f52c8b5ad97fc000f22"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 907795,
-      "modified_at": "2026-06-09T16:39:18.057000Z",
+      "modified_at": "2026-06-09T14:54:05.825000Z",
       "sha256": "0b7a4ee249e3fd7d008c28e5004638e44898941558e41ed16270680542151279"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 1206112,
-      "modified_at": "2026-06-09T16:39:22.099000Z",
-      "sha256": "3afd3abc5421a965b0addd8bf4d2371cb50cb5758c047e37305490651ec14777"
+      "size_bytes": 1189568,
+      "modified_at": "2026-06-09T14:54:07.795000Z",
+      "sha256": "24767278795eff812eeb1a66804b34add4121ca440df792859168aff4113e5b0"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\10_df_diversidade_alfa_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 6191,
-      "modified_at": "2026-06-09T16:39:22.255000Z",
-      "sha256": "b60c9d581f84720b1e63995ac6842475fa4fdc648adab538670cfef60893fc0d"
+      "size_bytes": 6192,
+      "modified_at": "2026-06-09T14:54:07.937000Z",
+      "sha256": "6ec9dc8a797ec2664c9ac0a1f60890ded3eed5271b2f66f322fe5240e2d0b471"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\10_grafico_diversidade_alfa_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 844628,
-      "modified_at": "2026-06-09T16:39:25.906000Z",
+      "modified_at": "2026-06-09T14:54:10.033000Z",
       "sha256": "4959690e809eadfce833874702f88590371ae3708de7a7385ccbbacbe8327653"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\11_df_matriz_comunidade_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5818,
-      "modified_at": "2026-06-09T16:39:26.055000Z",
-      "sha256": "bd12400cb52532be988dbc4345113b21ac9d658efa3a0d388b0108ab87b43fdc"
+      "size_bytes": 5815,
+      "modified_at": "2026-06-09T14:54:10.150000Z",
+      "sha256": "e8e541b7ca37c0a6c58686205bba38318d65c408c2c51bc6bafd1e02c747cf43"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5215,
-      "modified_at": "2026-06-09T16:39:26.143000Z",
-      "sha256": "3ecd97b0d31348d8ea3b5ab54c78bb5578672cefd2484867a807dd7344ae473c"
+      "size_bytes": 5216,
+      "modified_at": "2026-06-09T14:54:10.278000Z",
+      "sha256": "b3097c7929666d1475efb3d2cf24cd7648e01370d3940a80360770ec711b1134"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\11_dendrograma_similaridade_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 396917,
-      "modified_at": "2026-06-09T16:39:29.447000Z",
+      "modified_at": "2026-06-09T14:54:11.964000Z",
       "sha256": "ed53cb4aa38fcac0c69345a8b6e446925233a4f51900f95bb588a7cddcc9a719"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\12_df_curva_suficiencia_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 6429,
-      "modified_at": "2026-06-09T16:39:29.742000Z",
-      "sha256": "b1bd6973ea0f85f4d85b0b118a8a41201be13f4f88ff94263eaf72c576975e40"
+      "size_bytes": 6430,
+      "modified_at": "2026-06-09T14:54:12.156000Z",
+      "sha256": "ee925c11f02b2ef82b4cd80a3088e6325aded2171e18318010d3bfac1715cea9"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\12_curva_suficiencia_amostral_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 907077,
-      "modified_at": "2026-06-09T16:39:33.083000Z",
+      "modified_at": "2026-06-09T14:54:13.939000Z",
       "sha256": "bf2fd2cfcf79f11b0605364389fcf27e58dcd1d211b53df75711387beefb01d0"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\11_df_bmwp_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5562,
-      "modified_at": "2026-06-09T16:39:33.190000Z",
-      "sha256": "2583a48be7abb421e5d46881bb949d2ca3f38dbce2123c0d07ef407b879ba4e4"
+      "size_bytes": 5563,
+      "modified_at": "2026-06-09T14:54:14.060000Z",
+      "sha256": "71cf4cfa427b87ed88ddb9a4ea0c7e174cb98ac1d4618d464764ff0ed2d00571"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\11_grafico_bmwp_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 567331,
-      "modified_at": "2026-06-09T16:39:36.206000Z",
+      "modified_at": "2026-06-09T14:54:15.922000Z",
       "sha256": "9840a47fcc76ecca5776deebf8d1dcd0fc1b842671b832b7ccd97fc2f8b053a6"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\12_df_ept_chol_zoobentos.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5980,
-      "modified_at": "2026-06-09T16:39:36.344000Z",
-      "sha256": "6e67596cec104aac50b502c3089d38ae0b06e2e66e81aded350fe5f98111596b"
+      "size_bytes": 5981,
+      "modified_at": "2026-06-09T14:54:16.073000Z",
+      "sha256": "316b609fda64f746f38a3da57348cdb25449faeaf68eacec451d189b0fa73a52"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\12_grafico_ept_chol_zoobentos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 439093,
-      "modified_at": "2026-06-09T16:39:39.084000Z",
+      "modified_at": "2026-06-09T14:54:18.014000Z",
       "sha256": "80fdd1132fd8752029d052f514b024d6f9ccecd023e527ceb58bcab3e68f64c0"
     },
     {
       "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Ducal\\Produtos\\Resultados\\Campanha 05\\Zoobentos\\DarwinCore_IEF_Zoobentos_Monitoramento_Ducal.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 21547,
-      "modified_at": "2026-06-09T16:39:39.348000Z",
-      "sha256": "6333fef23bb9352bf468d5105b40ec6a7ac4cf707fc7e733e7076d1040e9a316"
+      "size_bytes": 21549,
+      "modified_at": "2026-06-09T14:54:18.310000Z",
+      "sha256": "a009550e7929396739d4a51de4ccccaa11c74b6886c788d928a096279852ff7c"
     }
   ],
   "generated_files_missing_count": 0,

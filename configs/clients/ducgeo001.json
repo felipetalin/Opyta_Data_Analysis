@@ -7,6 +7,8 @@
     "highlight_hex": "#1F4E79",
     "palette_start_hex": "#002060",
     "palette_end_hex": "#DBE5F1",
+    "annotation_size": 15,
+    "label_size": 15,
     "legend_max_cols": 5,
     "legend_ncol": 5,
     "figsize_standard": [16, 10]

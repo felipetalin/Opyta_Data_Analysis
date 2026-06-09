@@ -228,3 +228,28 @@ O mesmo modelo aprovado deve ser usado nas tabelas de especies do bloco 6.1:
 Essas tabelas devem conter apenas as especies do subconjunto correspondente
 (empreendimento ou Area Controle), mas preservar exatamente o mesmo cabecalho,
 as mesmas conversoes e a mesma segunda linha de anos da tabela geral de status.
+
+## Ducal - Campanha 05 - padrao visual Ictiofauna e Zoobentos
+
+Data: 2026-06-09
+
+Conhecimento incorporado para `DUCGEO001`:
+
+- Os graficos oficiais devem manter `font_size_base=17`, com `label_size=15`
+  e `annotation_size=15`.
+- A paleta institucional Ducal/Ictiofauna e o gradiente de `#002060` ate
+  `#DBE5F1`.
+- Ictiofauna usa essa paleta sequencial diretamente para campanhas e roscas.
+- Zoobentos deve seguir a mesma identidade azul, mas os graficos empilhados
+  `06B` e `06C` precisam de maior contraste. Para esses graficos, usar a
+  mesma paleta Ducal em ordem alternada de extremos:
+  escuro, claro, segundo escuro, segundo claro, etc.
+- Os contornos internos dos empilhados `06B` e `06C` devem ser mais visiveis
+  (`linewidth=0.7`) para separar fatias pequenas.
+- O grafico BMWP e excecao: deve preservar as cores tecnicas por categoria
+  (`Muito boa`, `Boa`, `Regular`, `Ruim`, `Pessima`) e nao deve ser forçado
+  para a paleta azul institucional.
+- Os reprodutores oficiais da entrega ficam em:
+  `outputs/_project_scripts/ducal/ictiofauna/_run_this_analysis.py` e
+  `outputs/_project_scripts/ducal/zoobentos/_run_this_analysis.py`, ambos com
+  `--block all` como padrao.

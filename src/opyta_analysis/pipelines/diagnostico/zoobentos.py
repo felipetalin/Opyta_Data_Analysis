@@ -162,52 +162,22 @@ def _theme_palette(theme: dict, n: int) -> list[str]:
     return palette_from_theme(theme, max(n, 1))
 
 
-def _contrasting_green_palette(theme: dict, n: int) -> list[str]:
-    primary = str(theme.get("primary_hex", "#16803A"))
-    colors = [
-        primary,
-        "#D7E85E",
-        "#064B29",
-        "#7FA33A",
-        "#00A15A",
-        "#4B681D",
-        "#B5D766",
-        "#0B6E4F",
-        "#A0B81F",
-        "#2E8B57",
-        "#E7F28A",
-        "#005A32",
-        "#63C77A",
-        "#6A7F1E",
-        "#C4D98B",
-        "#013220",
-    ]
-    if n <= len(colors):
-        return colors[:n]
-    extra = palette_from_theme(theme, n - len(colors))
-    return colors + extra
+def _theme_taxonomy_palette(theme: dict, n: int) -> list[str]:
+    return _theme_palette(theme, n)
 
 
-def _taxonomy_palette(n: int) -> list[str]:
-    colors = [
-        "#002060",  # azul Ducal escuro
-        "#5B9BD5",  # azul medio
-        "#00B0F0",  # azul claro vivo
-        "#70AD47",  # verde
-        "#FFC000",  # amarelo
-        "#ED7D31",  # laranja
-        "#C00000",  # vermelho
-        "#7030A0",  # roxo
-        "#A64D79",  # vinho
-        "#7F7F7F",  # cinza
-        "#9E480E",  # marrom
-        "#92D050",  # verde claro
-    ]
-    if n <= len(colors):
-        return colors[:n]
-    cmap = plt.get_cmap("tab20")
-    extra = [cmap(i % cmap.N) for i in range(n - len(colors))]
-    return colors + extra
+def _theme_stacked_contrast_palette(theme: dict, n: int) -> list[str]:
+    colors = _theme_palette(theme, n)
+    order: list[int] = []
+    left = 0
+    right = len(colors) - 1
+    while left <= right:
+        order.append(left)
+        if left != right:
+            order.append(right)
+        left += 1
+        right -= 1
+    return [colors[i] for i in order]
 
 
 def _category_label(value, fallback: str = "Nao informado") -> str:
@@ -273,12 +243,7 @@ def _point_area_meta(df: pd.DataFrame) -> dict[str, str]:
 
 
 def _area_color_map(theme: dict, labels: list[str]) -> dict[str, str]:
-    base = [
-        str(theme.get("primary_hex", "#16803A")),
-        "#7FA33A",
-        "#064B29",
-        "#B5D766",
-    ]
+    base = _theme_palette(theme, max(len(labels), 1))
     return {label: base[i % len(base)] for i, label in enumerate(labels)}
 
 
@@ -312,10 +277,17 @@ def _draw_area_groups(ax, points: list[str], df: pd.DataFrame, theme: dict, *, y
                     ha="center",
                     va="top",
                     fontsize=_font_campaign(theme),
-                    color=colors.get(current, str(theme.get("primary_hex", "#16803A"))),
+                    color=colors.get(current, str(theme.get("primary_hex", "#002060"))),
                 )
             if i > 0 and i < len(labels):
-                ax.axvline(i - 0.5, color="#5A6B48", linewidth=1.2, linestyle="--", ymin=0.0, ymax=0.96)
+                ax.axvline(
+                    i - 0.5,
+                    color=str(theme.get("highlight_hex", theme.get("primary_hex", "#002060"))),
+                    linewidth=1.2,
+                    linestyle="--",
+                    ymin=0.0,
+                    ymax=0.96,
+                )
             start = i
             current = label
     return True
@@ -331,7 +303,7 @@ def _point_area_colors(points: list[str], df: pd.DataFrame, theme: dict) -> list
         if label and label not in ordered_labels:
             ordered_labels.append(label)
     colors = _area_color_map(theme, ordered_labels)
-    return [colors.get(area_by_point.get(str(point), ""), str(theme.get("primary_hex", "#16803A"))) for point in points]
+    return [colors.get(area_by_point.get(str(point), ""), str(theme.get("primary_hex", "#002060"))) for point in points]
 
 
 def _render_campaign_labels(ax, campaigns: list[str], boundaries: list[int], fontsize: int = 12, y: float = -0.24):
@@ -446,7 +418,7 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
         axis=1,
     )
     tax_categories = sorted(df_plot_base[tax_col].unique().tolist())
-    tax_colors = _contrasting_green_palette(theme, len(tax_categories))
+    tax_colors = _theme_stacked_contrast_palette(theme, len(tax_categories))
     color_map = {cat: tax_colors[i] for i, cat in enumerate(tax_categories)}
 
     for campaign in campaign_order:
@@ -486,7 +458,7 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
                 label=klass,
                 color=color_map.get(klass, str(theme.get("primary_hex", "#11420C"))),
                 edgecolor="black",
-                linewidth=0.4,
+                linewidth=0.7,
             )
             bottom += values
 
@@ -528,7 +500,7 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
                 label=klass,
                 color=color_map.get(klass, str(theme.get("primary_hex", "#11420C"))),
                 edgecolor="black",
-                linewidth=0.4,
+                linewidth=0.7,
             )
             bottom += values
 
@@ -790,7 +762,7 @@ def _run_block_7(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     # Donut chart
     ordem_categories = sorted(ordem_df["ordem"].astype(str).tolist())
     donut_color_map = {
-        cat: color for cat, color in zip(ordem_categories, _contrasting_green_palette(theme, len(ordem_categories)))
+        cat: color for cat, color in zip(ordem_categories, _theme_taxonomy_palette(theme, len(ordem_categories)))
     }
     donut_colors = [donut_color_map[str(name)] for name in ordem_df["ordem"].tolist()]
     size_donut = get_figsize_by_complexity(theme, n_categories=len(ordem_df), prefer_landscape=True)
@@ -1165,6 +1137,7 @@ def _run_block_11(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
     bmwp_scores.to_excel(xlsx_11, index=False, engine="openpyxl")
     generated_files.append(str(xlsx_11))
 
+    legend_order = ["Muito boa", "Boa", "Regular", "Ruim", "Pessima"]
     use_technical = bool(theme.get("use_technical_colors", True))
     if use_technical:
         colors_map = {
@@ -1175,15 +1148,11 @@ def _run_block_11(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
             "Pessima": str(theme.get("bmwp_color_pessima", "#ff0000")),
         }
     else:
+        theme_colors = _theme_palette(theme, len(legend_order))
         colors_map = {
-            "Muito boa": str(theme.get("primary_hex", "#2E6F95")),
-            "Boa": str(theme.get("secondary_hex", "#E07A5F")),
-            "Regular": str(theme.get("highlight_hex", "#3D5A80")),
-            "Ruim": str(theme.get("secondary_hex", "#E07A5F")),
-            "Pessima": str(theme.get("highlight_hex", "#3D5A80")),
+            label: theme_colors[i]
+            for i, label in enumerate(legend_order)
         }
-    legend_order = ["Muito boa", "Boa", "Regular", "Ruim", "Pessima"]
-
     fig, ax = plt.subplots(figsize=get_figsize(theme, "wide"), dpi=int(theme.get("dpi", 600)))
     x = np.arange(len(bmwp_scores))
     bar_colors = [colors_map.get(v, "#cccccc") for v in bmwp_scores["classificacao"]]

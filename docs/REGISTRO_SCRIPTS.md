@@ -59,3 +59,15 @@
 - Data de registro: 2026-06-08
 - Responsavel: Codex/Felipe
 - Observacoes: Saidas finais em `Resultados bentos/2026/Fevereir-26` e `Resultados bentos/2026/marco-26`; usado apos ajustes de paleta verde, rosca e remocao de `Nao informado`.
+
+- Script: outputs/_project_scripts/ducal/ictiofauna/_run_this_analysis.py
+- Descricao: Reprodutor oficial dos outputs de Ictiofauna Ducal Campanha 05, apontando para `pipeline=ictio`, `client=ducgeo001`, `project_id=183` e `--block all`.
+- Data de registro: 2026-06-09
+- Responsavel: Codex/Felipe
+- Observacoes: Snapshot completo em `outputs/_project_scripts/ducal/ictiofauna/20260609T144110Z_run_this_analysis.py`; metadados em `20260609T144110Z_execution_metadata.json`; 27 arquivos gerados, 69 linhas carregadas e sem warnings.
+
+- Script: outputs/_project_scripts/ducal/zoobentos/_run_this_analysis.py
+- Descricao: Reprodutor oficial dos outputs de Zoobentos Ducal Campanha 05, apontando para `pipeline=zoobentos`, `client=ducgeo001`, `project_id=183` e `--block all`.
+- Data de registro: 2026-06-09
+- Responsavel: Codex/Felipe
+- Observacoes: Snapshot completo em `outputs/_project_scripts/ducal/zoobentos/20260609T163939Z_run_this_analysis.py`; metadados em `20260609T163939Z_execution_metadata.json`; 41 arquivos gerados, 145 linhas carregadas e sem warnings. Os graficos `06B`/`06C` usam paleta azul Ducal alternada para contraste; BMWP preserva cores tecnicas por categoria.
