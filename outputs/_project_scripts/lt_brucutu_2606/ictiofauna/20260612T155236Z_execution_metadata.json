@@ -1,0 +1,304 @@
+{
+  "executed_at": "2026-06-12T15:52:37.378747Z",
+  "runner_version": "1.2",
+  "project_id": 187,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "totval001",
+  "block": "all",
+  "git": {
+    "branch": "main",
+    "commit": "cae1fe9",
+    "dirty": true,
+    "status_short_count": 4,
+    "full_dirty": true,
+    "full_status_short_count": 6,
+    "ignored_generated_audit_count": 2
+  },
+  "rows_loaded": 19,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "C030-2025-01-CH",
+    "C031-2025-03-CH",
+    "C033-2025-08-SC",
+    "C034-2025-10-SC"
+  ],
+  "campaigns_count": 4,
+  "points": [
+    "ICTIO 1",
+    "ICTIO 10",
+    "ICTIO 6",
+    "ICTIO 7",
+    "ICTIO 8",
+    "ICTIO 9",
+    "ICTTBÇU01",
+    "ITABI01",
+    "ITABI03"
+  ],
+  "points_count": 9,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC",
+  "generated_files_count": 27,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\01_tabela_composicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_tabela_distribuicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\08_grafico_cpuen_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\09_grafico_cpueb_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\10_grafico_diversidade_alfa_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\12_df_curva_suficiencia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\12_curva_suficiencia_amostral_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\DarwinCore_IEF_Ictiofauna_Diagnostico_Lt_Brucutu.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\01_tabela_composicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5518,
+      "modified_at": "2026-06-12T15:51:54.406000Z",
+      "sha256": "453948c9144808dd28bdcab9f97c52d3ed5d8d45832a98f6e7c43a929d6f21e5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_tabela_distribuicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6329,
+      "modified_at": "2026-06-12T15:51:54.576000Z",
+      "sha256": "0cd6d3816b92f6738700ac32f0bc3c57160cf2efd570b8edb7c08faf4295f365"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5143,
+      "modified_at": "2026-06-12T15:51:54.649000Z",
+      "sha256": "ca830fc23957126599ce056349357388a5ae1cdacb812ec618d5f0e68acf0f1c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 743489,
+      "modified_at": "2026-06-12T15:52:04.593000Z",
+      "sha256": "68e0b2c3325a25e3eea3f2d521a03314661406b6c5f65b2355d5a2a37db53939"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5166,
+      "modified_at": "2026-06-12T15:52:04.757000Z",
+      "sha256": "9c9612dc1bb5f9954be5a030928ebcbb2df5b0dad0accbe0360c6f61a05fbe79"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 734210,
+      "modified_at": "2026-06-12T15:52:06.852000Z",
+      "sha256": "8c719f4c4f45f62f81968bedb448de90cd9b9bae2d5b1b4c24288f81d50321b2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 4978,
+      "modified_at": "2026-06-12T15:52:07.594000Z",
+      "sha256": "9fdbf0e2699eca63b781a8f92a154be4b4cf5449045cf0800e4a70820d893a55"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 706084,
+      "modified_at": "2026-06-12T15:52:10.236000Z",
+      "sha256": "87bed7f908ec5a8ed7f6d3a051736bf1480431a935d60f2a21da3530f7f9678b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 584418,
+      "modified_at": "2026-06-12T15:52:12.618000Z",
+      "sha256": "2e95a1666c80f56f240cb836210cecdc8d657cba04b1e03553fe0de7f9286a5e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5043,
+      "modified_at": "2026-06-12T15:52:12.803000Z",
+      "sha256": "5f6527e0936a4b3709ec7ac6340bc5783457b7c27f0b2c43601f1fab8e1a944f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 961511,
+      "modified_at": "2026-06-12T15:52:15.413000Z",
+      "sha256": "c5f1a4b90c3eaa0cd7fbddf8243d83455e2b7ea254f08176db84f374fadf058c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 744648,
+      "modified_at": "2026-06-12T15:52:17.450000Z",
+      "sha256": "fc2a954d45d34166a719e4f45872c960dee2e34cd68be692f975fea40859a594"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5552,
+      "modified_at": "2026-06-12T15:52:17.653000Z",
+      "sha256": "bc0204e2d25ebe2c8269390be645d6b92789d6ed0354abd07e0809b257211cbb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 768879,
+      "modified_at": "2026-06-12T15:52:20.206000Z",
+      "sha256": "61d7592ee066682ed0810cc2a815b66809fbb69694838b9fc5483cc39e8e0119"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 852116,
+      "modified_at": "2026-06-12T15:52:22.725000Z",
+      "sha256": "3e8d45488586d64880549bfb56322c0400ac54bbbde41cb87703064f69e2eb3e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5317,
+      "modified_at": "2026-06-12T15:52:23.023000Z",
+      "sha256": "201304c2d2bc9115f0ecf6d1ec3e23aa3fbdb6364d002683010d76f1e8b83f92"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5335,
+      "modified_at": "2026-06-12T15:52:23.105000Z",
+      "sha256": "5ac2a08392970ae81926c39531d11098f35315d3ca41f0cfec4cced2c9ad847c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\08_grafico_cpuen_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1105645,
+      "modified_at": "2026-06-12T15:52:25.832000Z",
+      "sha256": "85789cc0839d040bb1a31c8bcbf4ad197d0befbe5f72eb2f48255645b01e1d66"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\09_grafico_cpueb_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1149720,
+      "modified_at": "2026-06-12T15:52:28.128000Z",
+      "sha256": "8bef19dd8e6b39fb887344a06054854192758ad2a928417b66eca53eaf889355"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5597,
+      "modified_at": "2026-06-12T15:52:28.338000Z",
+      "sha256": "35521c4c5ba1e635ec04d224d012dac5d693bef5af29f3e5e1669d7cb87d9940"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1269100,
+      "modified_at": "2026-06-12T15:52:31.168000Z",
+      "sha256": "b54706d7308884ffb6d0e8619118366ef9b0597907335e61ccdec2d97bfc7cfa"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5462,
+      "modified_at": "2026-06-12T15:52:31.402000Z",
+      "sha256": "628a86b4e64bbebafef6ebf2523cce2edff92298fbc51b28760cc5503423471c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5322,
+      "modified_at": "2026-06-12T15:52:31.477000Z",
+      "sha256": "c6e137d68db19e0bc7ba1d28241cf27930c02baec9e796ae8270579ae8fef122"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 489192,
+      "modified_at": "2026-06-12T15:52:33.347000Z",
+      "sha256": "e79e982c4c0d68660ac670e5e1322a3e2e598828ba164f680222e6eb582972e6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\12_df_curva_suficiencia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5800,
+      "modified_at": "2026-06-12T15:52:33.695000Z",
+      "sha256": "0631d54c4e3e2dbaf819adb32ca38389a529396ce2a893abd92b92d8d3d69f6c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\12_curva_suficiencia_amostral_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 962549,
+      "modified_at": "2026-06-12T15:52:36.128000Z",
+      "sha256": "2284e3993007b5d0498a4772b56d6066f24ab7c93a8b94df517411e93327ddcb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Total\\LT_Brucutu_2606\\Resultados_regenerados_20260612_SC\\DarwinCore_IEF_Ictiofauna_Diagnostico_Lt_Brucutu.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10815,
+      "modified_at": "2026-06-12T15:52:36.505000Z",
+      "sha256": "3bb980a06dca6d8833a0eb756e43df1661db33efaa2b66e96733a95c02ada837"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\lt_brucutu_2606\\ictiofauna",
+  "warnings": []
+}

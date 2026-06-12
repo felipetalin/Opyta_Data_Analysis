@@ -86,12 +86,64 @@ PROJECT_FALLBACK_HINTS = {
         "nome_empresa_contains": "geomil",
         "nome_projeto_contains": "monitoramento ducal",
     },
+    187: {
+        "codigo_interno_opyta": "TOTVAL001",
+        "nome_empresa_contains": "total",
+        "nome_projeto_contains": "brucutu",
+    },
 }
 
 PROJECT_CODE_BY_ID = {
     9: "BRAAVG002",
     183: "DUCGEO001",
+    187: "TOTVAL001",
 }
+
+PROJECT_CAMPAIGN_OVERRIDES = {
+    187: {
+        "C034-2025-10-CH": "C034-2025-10-SC",
+    },
+}
+
+
+def _apply_project_campaign_overrides(
+    df: pd.DataFrame,
+    project_id: int,
+    group: str,
+) -> tuple[pd.DataFrame, list[dict]]:
+    if df.empty or "nome_campanha" not in df.columns:
+        return df, []
+
+    if "ictio" not in _normalize_text(group):
+        return df, []
+
+    replacements = PROJECT_CAMPAIGN_OVERRIDES.get(int(project_id), {})
+    if not replacements:
+        return df, []
+
+    df_out = df
+    applied: list[dict] = []
+    campaign_values = df["nome_campanha"].astype(str).str.strip()
+    for old, new in replacements.items():
+        mask = campaign_values == old
+        rows = int(mask.sum())
+        if rows == 0:
+            continue
+        if df_out is df:
+            df_out = df.copy()
+        df_out.loc[mask, "nome_campanha"] = new
+        applied.append(
+            {
+                "project_id": int(project_id),
+                "group": group,
+                "column": "nome_campanha",
+                "from": old,
+                "to": new,
+                "rows": rows,
+            }
+        )
+
+    return df_out, applied
 
 
 def _apply_project_fallback_filter(df: pd.DataFrame, project_id: int) -> pd.DataFrame:
@@ -1684,6 +1736,7 @@ def run_ictio_pipeline(
 ) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     df = _load_ictio_df(project_id=project_id, group=group, env_file=env_file)
+    df, campaign_overrides = _apply_project_campaign_overrides(df, project_id, group)
 
     block_sel = str(block).strip().lower()
     executed_blocks: list[str] = []
@@ -1696,6 +1749,7 @@ def run_ictio_pipeline(
         if "nome_campanha" in df.columns
         else [],
         "points": sorted(df["nome_ponto"].dropna().astype(str).unique().tolist()) if "nome_ponto" in df.columns else [],
+        "campaign_overrides": campaign_overrides,
     }
 
     if block_sel in {"3", "all"}:

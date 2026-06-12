@@ -1,0 +1,35 @@
+{
+  "client_code": "TOTVAL001",
+  "audit_project_slug": "lt_brucutu_2606",
+  "theme_override": {
+    "theme_name": "total_brucutu_green_2026",
+    "no_chart_title": true,
+    "font_size_base": 21,
+    "annotation_size": 18,
+    "label_size": 20,
+    "legend_size": 18,
+    "title_size": 22,
+    "campaign_label_size": 18,
+    "primary_hex": "#16803A",
+    "secondary_hex": "#7FA33A",
+    "highlight_hex": "#B5D766",
+    "palette_start_hex": "#16803A",
+    "palette_end_hex": "#7FA33A",
+    "categorical_palette": [
+      "#16803A",
+      "#7FA33A",
+      "#0F5F2D",
+      "#A8C957",
+      "#2E8B57",
+      "#5F7F2D",
+      "#4FAF63",
+      "#C4D98B"
+    ],
+    "legend_max_cols": 5,
+    "legend_ncol": 5,
+    "figsize_standard": [
+      16,
+      10
+    ]
+  }
+}

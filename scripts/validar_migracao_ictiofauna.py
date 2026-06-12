@@ -441,11 +441,11 @@ def add_complementary_checks(
         ),
         "Metadados_Esforco": (
             df_esforco,
-            ["Ponto", "Campanha", "Grupo_Biologico", "Metodo_de_Captura", "Esforco", "Unidade_Esforco", "Tipo_de_Amostragem"],
+            ["Ponto", "Campanha", "Grupo_Biologico", "Metodo_de_Captura", "Unidade_Esforco", "Tipo_de_Amostragem"],
         ),
         "Resultados_Ictiofauna": (
             df_resultados,
-            ["Ponto", "Campanha", "Metodo_de_Captura", "Tipo_de_Amostragem", "Nome_Cientifico", "Numero_de_Individuos", "CT_cm", "CP_cm", "PC_g"],
+            ["Ponto", "Campanha", "Metodo_de_Captura", "Tipo_de_Amostragem", "Nome_Cientifico", "Numero_de_Individuos"],
         ),
     }
     if not df_especies.empty:
@@ -465,6 +465,9 @@ def add_complementary_checks(
                 missing_required_rows.append({"aba": sheet, "coluna": col, "linhas": "todas", "n": len(df), "tipo": "COLUNA_AUSENTE"})
                 continue
             mask = df[col].isna() | (df[col].astype(str).str.strip() == "")
+            if sheet == "Metadados_Esforco" and col in {"Unidade_Esforco"} and "Tipo_de_Amostragem" in df.columns:
+                is_qualitative = df["Tipo_de_Amostragem"].astype(str).map(norm).str.contains("qualit", na=False)
+                mask = mask & ~is_qualitative
             if mask.any():
                 missing_required_rows.append(
                     {
@@ -496,6 +499,10 @@ def add_complementary_checks(
             if col not in df.columns:
                 continue
             for idx, value in df[col].items():
+                if sheet == "Metadados_Esforco" and col == "Esforco" and "Tipo_de_Amostragem" in df.columns:
+                    tipo = norm(df.at[idx, "Tipo_de_Amostragem"])
+                    if "qualit" in tipo and clean(value) == "":
+                        continue
                 parsed = to_float(value)
                 if isinstance(parsed, float) and math.isnan(parsed):
                     numeric_rows.append({"aba": sheet, "coluna": col, "linha_excel": int(idx + 2), "valor": value, "problema": "nao numerico"})
@@ -511,18 +518,29 @@ def add_complementary_checks(
     )
 
     date_rows: list[dict[str, Any]] = []
+    campaign_patterns = [
+        (re.compile(r"^C(\d{3})-(\d{4})-(\d{2})-(SC|CH)$"), 2, 3),
+        (re.compile(r"^BG_(?:BAG|STP)_C\d+_(\d{4})(\d{2})$", re.IGNORECASE), 1, 2),
+    ]
     if not df_pontos.empty and {"Campanha", "Data"}.issubset(df_pontos.columns):
         for idx, row in df_pontos.iterrows():
             camp = clean(row.get("Campanha"))
-            match = re.match(r"^C(\d{3})-(\d{4})-(\d{2})-(SC|CH)$", camp)
+            match_info = next(
+                ((m, year_group, month_group) for pattern, year_group, month_group in campaign_patterns if (m := pattern.match(camp))),
+                None,
+            )
             parsed = pd.to_datetime(row.get("Data"), errors="coerce")
             problems: list[str] = []
-            if not match:
+            if not match_info:
                 problems.append("formato do codigo")
             if pd.isna(parsed):
                 problems.append("data invalida")
-            elif match and (parsed.year != int(match.group(2)) or parsed.month != int(match.group(3))):
-                problems.append(f"data {parsed.date()} nao bate com {match.group(2)}-{match.group(3)}")
+            elif match_info:
+                match, year_group, month_group = match_info
+                expected_year = int(match.group(year_group))
+                expected_month = int(match.group(month_group))
+                if parsed.year != expected_year or parsed.month != expected_month:
+                    problems.append(f"data {parsed.date()} nao bate com {expected_year}-{expected_month:02d}")
             if problems:
                 date_rows.append(
                     {
@@ -538,7 +556,7 @@ def add_complementary_checks(
             "Validacao complementar",
             "BLOQUEIO" if date_rows else "INFO",
             "CAMPAIGN_DATE_MISMATCH" if date_rows else "CAMPAIGN_DATE_OK",
-            f"{len(date_rows)} ponto(s) com inconsistencia entre data e campanha." if date_rows else "Codigos de campanha e datas estao consistentes quanto a ano/mes e formato C###-AAAA-MM-SC/CH.",
+            f"{len(date_rows)} ponto(s) com inconsistencia entre data e campanha." if date_rows else "Codigos de campanha e datas estao consistentes quanto a ano/mes e formato reconhecido.",
         )
     )
 
@@ -645,16 +663,40 @@ def add_complementary_checks(
             )
         )
 
-    species_results = {clean(v) for v in col_values(df_resultados, "Nome_Cientifico").dropna() if clean(v) and clean(v).upper() != "N.A."}
-    species_catalog = {clean(v) for v in col_values(df_especies, "Nome_Cientifico").dropna() if clean(v)} if not df_especies.empty else set()
-    missing_in_catalog = sorted(species_results - species_catalog) if species_catalog else []
+    species_results = {
+        norm(v): clean(v)
+        for v in col_values(df_resultados, "Nome_Cientifico").dropna()
+        if clean(v) and clean(v).upper() != "N.A."
+    }
+    species_catalog = (
+        {norm(v) for v in col_values(df_especies, "Nome_Cientifico").dropna() if clean(v)}
+        if not df_especies.empty
+        else set()
+    )
+    species_db = (
+        {norm(v) for v in col_values(db["species"], "nome_cientifico").dropna() if clean(v)}
+        if not db["species"].empty
+        else set()
+    )
+    missing_in_catalog = (
+        sorted(
+            original
+            for species_key, original in species_results.items()
+            if species_key not in species_catalog and species_key not in species_db
+        )
+        if species_catalog
+        else []
+    )
     if species_catalog:
+        reference_label = "cadastro fornecido ou banco" if species_db else "cadastro fornecido"
         findings.append(
             issue(
                 "Validacao complementar",
                 "BLOQUEIO" if missing_in_catalog else "INFO",
                 "RESULT_SPECIES_NOT_IN_CATALOG" if missing_in_catalog else "RESULT_SPECIES_CATALOG_MATCH",
-                f"Especies dos resultados ausentes no cadastro fornecido: {missing_in_catalog}" if missing_in_catalog else f"Todas as {len(species_results)} especies dos resultados estao presentes no cadastro fornecido.",
+                f"Especies dos resultados ausentes no {reference_label}: {missing_in_catalog}"
+                if missing_in_catalog
+                else f"Todas as {len(species_results)} especies dos resultados estao presentes no {reference_label}.",
             )
         )
 
@@ -675,9 +717,9 @@ def add_complementary_checks(
     findings.append(
         issue(
             "Validacao complementar",
-            "BLOQUEIO" if not exact_dups.empty else "INFO",
+            "AVISO" if not exact_dups.empty else "INFO",
             "EXACT_RESULT_DUPLICATES" if not exact_dups.empty else "NO_EXACT_RESULT_DUPLICATES",
-            f"{len(exact_dups)} resultados sao duplicatas exatas." if not exact_dups.empty else "Nao ha linhas exatamente duplicadas na aba Resultados_Ictiofauna.",
+            f"{len(exact_dups)} resultados sao duplicatas exatas; revisar se representam individuos/lotes distintos antes de deduplicar." if not exact_dups.empty else "Nao ha linhas exatamente duplicadas na aba Resultados_Ictiofauna.",
         )
     )
 
