@@ -1,0 +1,25 @@
+{
+  "client_code": "GEOHER001",
+  "audit_project_slug": "geoher001_recorte_2022_2025",
+  "theme_override": {
+    "primary_hex": "#002060",
+    "secondary_hex": "#5B9BD5",
+    "highlight_hex": "#1F4E79",
+    "ept_good_hex": "#1F77B4",
+    "chol_bad_hex": "#C00000",
+    "chironomidae_bad_hex": "#C00000",
+    "palette_start_hex": "#002060",
+    "palette_end_hex": "#DBE5F1",
+    "font_size_base": 11,
+    "annotation_size": 9,
+    "campaign_label_size": 9,
+    "label_size": 10,
+    "legend_size": 9,
+    "legend_max_cols": 4,
+    "legend_ncol": 4,
+    "legend_figure_y": 1.01,
+    "tight_layout_top": 0.82,
+    "figsize_standard": [11.69, 8.27],
+    "dpi": 600
+  }
+}

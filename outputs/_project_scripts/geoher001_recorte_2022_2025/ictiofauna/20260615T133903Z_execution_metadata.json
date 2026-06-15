@@ -1,0 +1,333 @@
+{
+  "executed_at": "2026-06-15T13:39:04.934745Z",
+  "runner_version": "1.2",
+  "project_id": 30,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "geoher001",
+  "block": "all",
+  "campaign_filter": [
+    "C21-03-2022-CH",
+    "C22-05-2022-SC",
+    "C23-08-2022-SC",
+    "C24-11-2022-CH",
+    "C25-02-2023-CH",
+    "C26-05-2023-SC",
+    "C27-08-2023-SC",
+    "C28-11-2023-CH",
+    "C29-02-2024-CH",
+    "C30-05-2024-SC",
+    "C31-08-2024-SC",
+    "C32-11-2024-CH",
+    "C33-02-2025-CH",
+    "C34-05-2025-SC",
+    "C35-08-2025-SC",
+    "C36-11-2025-CH"
+  ],
+  "git": {
+    "branch": "main",
+    "commit": "a139ed9",
+    "dirty": true,
+    "status_short_count": 10,
+    "full_dirty": true,
+    "full_status_short_count": 11,
+    "ignored_generated_audit_count": 1
+  },
+  "rows_loaded": 157,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "C21-03-2022-CH",
+    "C22-05-2022-SC",
+    "C23-08-2022-SC",
+    "C24-11-2022-CH",
+    "C25-02-2023-CH",
+    "C26-05-2023-SC",
+    "C27-08-2023-SC",
+    "C28-11-2023-CH",
+    "C29-02-2024-CH",
+    "C30-05-2024-SC",
+    "C31-08-2024-SC",
+    "C32-11-2024-CH",
+    "C33-02-2025-CH",
+    "C34-05-2025-SC",
+    "C35-08-2025-SC",
+    "C36-11-2025-CH"
+  ],
+  "campaigns_count": 16,
+  "points": [
+    "Pt10",
+    "Pt11",
+    "Pt12",
+    "Pt13",
+    "Pt2",
+    "Pt3",
+    "Pt7",
+    "Pt8"
+  ],
+  "points_count": 8,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna",
+  "generated_files_count": 27,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\01_tabela_composicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_tabela_distribuicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\08_grafico_cpuen_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\09_grafico_cpueb_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\12_df_curva_suficiencia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\12_curva_suficiencia_amostral_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\DarwinCore_IEF_Ictiofauna_Monitoramento_De_Ictio_E_Bentos_Herculano.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\01_tabela_composicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5552,
+      "modified_at": "2026-06-15T13:38:32.938000Z",
+      "sha256": "7d4f65fea32b3529688b5fa5c847d4c85e8059febd4a14a15aee6a56950bc33b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_tabela_distribuicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10267,
+      "modified_at": "2026-06-15T13:38:33.148000Z",
+      "sha256": "b5872cb89370cd51bbac7bca704c1b09e8f96b19b8f6b9a0d5b54ccb2426f9f7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6914,
+      "modified_at": "2026-06-15T13:38:33.250000Z",
+      "sha256": "b02307e70dd5bf80ba128e9e34652d4dca149de514c07ba715c3fc99256897e0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 396927,
+      "modified_at": "2026-06-15T13:38:38.093000Z",
+      "sha256": "a799b582025d4d397704c0e3f198f155e66245766786ce07c082987c8245bf34"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6950,
+      "modified_at": "2026-06-15T13:38:38.233000Z",
+      "sha256": "066b94fec4a69244712c9dfc82c88e659f59f000742fdd431f28f80b34e93201"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 399124,
+      "modified_at": "2026-06-15T13:38:39.501000Z",
+      "sha256": "34a406211d51f4191691766d81ae2e49fd083afd122ce542cc54e39c5d0ce67e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5008,
+      "modified_at": "2026-06-15T13:38:39.605000Z",
+      "sha256": "5893b7e1d2fa622d204259f1e6db18f5382edcab628c46c3c1859dfbbe66a15f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 273725,
+      "modified_at": "2026-06-15T13:38:40.657000Z",
+      "sha256": "6e873ea5d6cf169fd77355066c318169fad21ff0bc615cb7dcacb04279484ae8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 322230,
+      "modified_at": "2026-06-15T13:38:41.787000Z",
+      "sha256": "1b59919357faf216fe74c36fc44257311c31eb14f89244483db3c9e5ca8ec01e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5079,
+      "modified_at": "2026-06-15T13:38:41.905000Z",
+      "sha256": "34ce8db0f3c5539a41ad67820c2d4721e0f9263cffc8eba7e9f6615e2226e0e7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 386906,
+      "modified_at": "2026-06-15T13:38:42.991000Z",
+      "sha256": "f2410849897f329dae8b524fe10ced93dc9c1044b11613a48be9be9995291829"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 396699,
+      "modified_at": "2026-06-15T13:38:44.083000Z",
+      "sha256": "d2afadcb5feedd0ae3fb6d64ce26432a301ea4ca32699c6c3c712ad5d0331bbd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 9477,
+      "modified_at": "2026-06-15T13:38:44.212000Z",
+      "sha256": "8edfed41d9110e565d5496d869889227238e40a96bdeccb88f94ee7760398718"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 476051,
+      "modified_at": "2026-06-15T13:38:45.499000Z",
+      "sha256": "351299790b1db577c11a7dd6b72c4db1d9123ef64346546db037ec3fcc926d87"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 566159,
+      "modified_at": "2026-06-15T13:38:46.800000Z",
+      "sha256": "0bf6719aabb1de7ee85dec9c5bec83606c6b911e333f2e12e6ac3a051896373c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5783,
+      "modified_at": "2026-06-15T13:38:46.927000Z",
+      "sha256": "074fd548243d7d76d7fb800c747fb8fc91230c1be53fae21f901b0e946161e1e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5952,
+      "modified_at": "2026-06-15T13:38:47.019000Z",
+      "sha256": "99aa8601475e55e9ee477edce12b26dd017ed2d9e0e78134e911578515c0d61e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\08_grafico_cpuen_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 973023,
+      "modified_at": "2026-06-15T13:38:52.677000Z",
+      "sha256": "6d2701157849794ee02406b667c5019d341a08a19a7848eac143e1021895d55d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\09_grafico_cpueb_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1033356,
+      "modified_at": "2026-06-15T13:38:58.255000Z",
+      "sha256": "0fe5f8d90fd81181a2f212673120e7add2aa2a68ed1604a2a180a2e87e52bcfd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 8879,
+      "modified_at": "2026-06-15T13:38:58.453000Z",
+      "sha256": "b02428625bfdad60e4c7afed648363af7b86af92a93021a48e010369c06741bd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 789408,
+      "modified_at": "2026-06-15T13:39:00.290000Z",
+      "sha256": "cc6f9c215de25ab4838cb50c6fdbb7ebdbf4c17f6586680b6ad79a22bbf1db17"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5492,
+      "modified_at": "2026-06-15T13:39:00.404000Z",
+      "sha256": "9315ef8071494b34c255068e273c897ad7f77fafb789143f3df417e05722214f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5380,
+      "modified_at": "2026-06-15T13:39:00.496000Z",
+      "sha256": "bdc4d14ce51d5b7ccf3854359ccaf71b64b9bd1bcd29dca4189f159fe3006184"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 236405,
+      "modified_at": "2026-06-15T13:39:01.438000Z",
+      "sha256": "0827bc2d47065675f97686f81505e05f62968f332fb32329b8d5fe71d8ad1374"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\12_df_curva_suficiencia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 13213,
+      "modified_at": "2026-06-15T13:39:01.866000Z",
+      "sha256": "e1341a6c7a1fb543910de6455070ef951566f3ee10846db5f5307e878767b056"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\12_curva_suficiencia_amostral_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 555885,
+      "modified_at": "2026-06-15T13:39:03.094000Z",
+      "sha256": "57dc793f30d4be0727517bbbb3d619753f2f6f89f67478f03bd273a5a90a5fb2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Ictiofauna\\DarwinCore_IEF_Ictiofauna_Monitoramento_De_Ictio_E_Bentos_Herculano.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 18534,
+      "modified_at": "2026-06-15T13:39:03.410000Z",
+      "sha256": "13c1b4155c25be78e3baae88794fa443290a2a62ea4a969d167959b8c350efa7"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\geoher001_recorte_2022_2025\\ictiofauna",
+  "warnings": []
+}

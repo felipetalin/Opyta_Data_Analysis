@@ -84,6 +84,7 @@ def _generate_execution_metadata(
         "pipeline": params.pipeline,
         "client": params.client,
         "block": params.block,
+        "campaign_filter": params.campaigns,
         "git": git_context(config_root.parent),
         "rows_loaded": details.get("rows_loaded", 0),
         "executed_blocks": details.get("executed_blocks", []),
@@ -121,6 +122,7 @@ def _generate_reproducer_script(params: RunParams, config_root: Path, audit_dir:
     env_file_literal = repr(params.env_file)
     block_literal = repr(params.block)
     audit_project_slug_literal = repr(params.audit_project_slug)
+    campaigns_literal = repr(params.campaigns)
 
     script_content = f'''#!/usr/bin/env python
 """
@@ -147,7 +149,9 @@ def main():
     parser.add_argument("--block", default={block_literal}, help="Block to execute (default: {params.block})")
     parser.add_argument("--output-dir", default=r"{default_output_dir}", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default={env_file_literal}, help="Optional .env file path")
+    parser.add_argument("--campaigns", default=None, help="Override comma-separated campaign filter")
     args = parser.parse_args()
+    campaigns = [c.strip() for c in args.campaigns.split(",") if c.strip()] if args.campaigns else {campaigns_literal}
 
     params = RunParams(
         project_id={params.project_id},
@@ -158,6 +162,7 @@ def main():
         env_file=args.env_file,
         block=args.block,
         audit_project_slug={audit_project_slug_literal},
+        campaigns=campaigns,
     )
 
     config_root = Path(r"{config_root_resolved}")
@@ -218,6 +223,7 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             output_dir=params.output_dir,
             env_file=params.env_file,
             block=params.block,
+            campaign_filter=params.campaigns,
         )
     elif params.pipeline.lower() in {"fitoplancton", "fito"}:
         details = run_fitoplancton_pipeline(
@@ -245,6 +251,7 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             output_dir=params.output_dir,
             env_file=params.env_file,
             block=params.block,
+            campaign_filter=params.campaigns,
         )
     elif params.pipeline.lower() in {"ictio_partial", "ictiofauna_parcial", "ictio_parcial"}:
         details = run_ictio_partial_pipeline(

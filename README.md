@@ -17,10 +17,17 @@ shared Supabase access, and a global plotting standard.
 ## Folder Structure
 - src/opyta_analysis/: core package
 - src/opyta_analysis/pipelines/: modular analysis blocks
-- configs/: global and client configs
-- scripts/: command line entry points
-- outputs/: local technical area for reproducibility backups (`_project_scripts`) only
+- configs/: global, client and project recipes
+- configs/projects/: reproducible project recipes (campaigns, outputs, visual decisions)
+- scripts/: operational commands; see `scripts/README.md` and `scripts/SCRIPT_CATALOG.md`
+- docs/patterns/: reusable visual/methodological patterns
+- docs/projects/: project-level technical notes
+- outputs/: local technical area for reproducibility backups and run manifests
 - logs/: execution logs and learning journal
+
+See `docs/ORGANIZACAO_REPOSITORIO.md` for the current organization policy.
+Use `docs/CHECKLIST_PROJETO.md` at project opening/closing and run
+`python scripts/validation/check_repo_organization.py` to audit the structure.
 
 ## Quick Start
 1. Create one conda env (recommended):
@@ -31,11 +38,16 @@ shared Supabase access, and a global plotting standard.
 3. Create .env from .env.example and fill Supabase credentials.
 4. Run pipeline:
    - python scripts/run_pipeline.py --project-id 62 --group Zoobentos --pipeline zoobentos --client fersam001 --output-dir "g:/Meu Drive/Opyta/Clientes/.../Resultados/Bentos" --env-file "g:/Meu Drive/Opyta/Opyta_Data/.env" --block 6
+5. Run a registered project recipe:
+   - python scripts/run/run_project_recipe.py geoher001_herculano_2022_2025 --env-file .env --dry-run
+6. Check repository organization before closing a project:
+   - python scripts/validation/check_repo_organization.py
 
 ## Output Policy (Gold Operational Rule)
 - `--output-dir` must always point to the final client/project delivery folder for business artifacts (`.xlsx`, `.png`, etc.).
 - Local workspace `outputs/` must not accumulate validation-by-block folders or temporary delivery copies.
 - Technical backup for reproducibility is written automatically to `outputs/_project_scripts/<project_name>/<group_name>/`.
+- New run-level manifests and scratch artifacts should use `outputs/_runs/` and `outputs/_scratch/`.
 - Each group backup folder must keep only:
    - `execution_metadata.json`
    - `_run_this_analysis.py`

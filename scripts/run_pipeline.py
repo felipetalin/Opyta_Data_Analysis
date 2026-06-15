@@ -24,11 +24,18 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--env-file", type=str, default=None, help="Optional path to .env with Supabase credentials")
     p.add_argument("--block", type=str, default="all", help="Pipeline block selector, ex: 6")
     p.add_argument("--audit-project-slug", type=str, default=None, help="Optional outputs/_project_scripts project folder override")
+    p.add_argument(
+        "--campaigns",
+        type=str,
+        default=None,
+        help="Optional comma-separated campaign filter, ex: C21-03-2022-CH,C22-05-2022-SC",
+    )
     return p.parse_args()
 
 
 def main() -> int:
     args = parse_args()
+    campaigns = [c.strip() for c in str(args.campaigns).split(",") if c.strip()] if args.campaigns else None
 
     params = RunParams(
         project_id=args.project_id,
@@ -39,6 +46,7 @@ def main() -> int:
         env_file=args.env_file,
         block=args.block,
         audit_project_slug=args.audit_project_slug,
+        campaigns=campaigns,
     )
 
     result = run(params=params, config_root=ROOT / "configs")

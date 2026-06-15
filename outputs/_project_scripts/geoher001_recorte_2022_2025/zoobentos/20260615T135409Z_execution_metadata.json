@@ -1,0 +1,855 @@
+{
+  "executed_at": "2026-06-15T13:54:14.181996Z",
+  "runner_version": "1.2",
+  "project_id": 30,
+  "group": "Zoobentos",
+  "pipeline": "zoobentos",
+  "client": "geoher001",
+  "block": "all",
+  "campaign_filter": [
+    "C21-03-2022-CH",
+    "C22-05-2022-SC",
+    "C23-08-2022-SC",
+    "C24-11-2022-CH",
+    "C25-02-2023-CH",
+    "C26-05-2023-SC",
+    "C27-08-2023-SC",
+    "C28-11-2023-CH",
+    "C29-02-2024-CH",
+    "C30-05-2024-SC",
+    "C31-08-2024-SC",
+    "C32-11-2024-CH",
+    "C33-02-2025-CH",
+    "C34-05-2025-SC",
+    "C35-08-2025-SC",
+    "C36-11-2025-CH"
+  ],
+  "git": {
+    "branch": "main",
+    "commit": "a139ed9",
+    "dirty": true,
+    "status_short_count": 10,
+    "full_dirty": true,
+    "full_status_short_count": 12,
+    "ignored_generated_audit_count": 2
+  },
+  "rows_loaded": 730,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "C21-03-2022-CH",
+    "C22-05-2022-SC",
+    "C23-08-2022-SC",
+    "C24-11-2022-CH",
+    "C25-02-2023-CH",
+    "C26-05-2023-SC",
+    "C27-08-2023-SC",
+    "C28-11-2023-CH",
+    "C29-02-2024-CH",
+    "C30-05-2024-SC",
+    "C31-08-2024-SC",
+    "C32-11-2024-CH",
+    "C33-02-2025-CH",
+    "C34-05-2025-SC",
+    "C35-08-2025-SC",
+    "C36-11-2025-CH"
+  ],
+  "campaigns_count": 16,
+  "points": [
+    "Pt10",
+    "Pt11",
+    "Pt12",
+    "Pt13",
+    "Pt2",
+    "Pt3",
+    "Pt7",
+    "Pt8"
+  ],
+  "points_count": 8,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos",
+  "generated_files_count": 85,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\01_tabela_composicao_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C21_03_2022_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C21_03_2022_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C21_03_2022_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C21_03_2022_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C22_05_2022_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C22_05_2022_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C22_05_2022_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C22_05_2022_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C23_08_2022_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C23_08_2022_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C23_08_2022_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C23_08_2022_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C24_11_2022_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C24_11_2022_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C24_11_2022_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C24_11_2022_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C25_02_2023_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C25_02_2023_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C25_02_2023_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C25_02_2023_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C26_05_2023_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C26_05_2023_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C26_05_2023_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C26_05_2023_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C27_08_2023_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C27_08_2023_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C27_08_2023_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C27_08_2023_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C28_11_2023_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C28_11_2023_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C28_11_2023_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C28_11_2023_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C29_02_2024_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C29_02_2024_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C29_02_2024_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C29_02_2024_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C30_05_2024_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C30_05_2024_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C30_05_2024_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C30_05_2024_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C31_08_2024_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C31_08_2024_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C31_08_2024_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C31_08_2024_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C32_11_2024_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C32_11_2024_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C32_11_2024_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C32_11_2024_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C33_02_2025_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C33_02_2025_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C33_02_2025_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C33_02_2025_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C34_05_2025_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C34_05_2025_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C34_05_2025_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C34_05_2025_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C35_08_2025_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C35_08_2025_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C35_08_2025_SC_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C35_08_2025_SC_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C36_11_2025_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C36_11_2025_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C36_11_2025_CH_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C36_11_2025_CH_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\10_grafico_diversidade_alfa_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_dendrograma_similaridade_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_curva_suficiencia_amostral_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_df_bmwp_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_grafico_bmwp_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_df_ept_chol_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_grafico_ept_chol_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\DarwinCore_IEF_Zoobentos_Monitoramento_De_Ictio_E_Bentos_Herculano.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\01_tabela_composicao_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7962,
+      "modified_at": "2026-06-15T13:51:28.600000Z",
+      "sha256": "59e435f593b33e22c0ea63062e7d986cef1e5316748950b01060d536c719a954"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 39982,
+      "modified_at": "2026-06-15T13:51:29.633000Z",
+      "sha256": "b686694c91ccb7645acb2480f0e5035011df73c63afcdc8cf44b5c0570798dcb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6834,
+      "modified_at": "2026-06-15T13:51:29.749000Z",
+      "sha256": "ed42193388300c88a40c69b70748d07ffbbc18cd1206c520ebe5ef5a6479b21f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 414980,
+      "modified_at": "2026-06-15T13:51:33.882000Z",
+      "sha256": "0b62aaf90de4aa6f49889b446091589e26d9a55fd5434d8328fe45402b9834ff"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5060,
+      "modified_at": "2026-06-15T13:51:33.966000Z",
+      "sha256": "c55ebd2dad21ec2bca33976a4a6e56bd1dc39124716d384f94ed66bef8514a41"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 232036,
+      "modified_at": "2026-06-15T13:51:36.185000Z",
+      "sha256": "347a647952d7d31a1dded7979db92806466b8ef0498a9bb6477c409f3d0791f1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C21_03_2022_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5119,
+      "modified_at": "2026-06-15T13:51:36.299000Z",
+      "sha256": "df4232b2790f68ba8c7abeb94d13102329bb41bfe2fb7fe8900941d48184f926"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C21_03_2022_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 316155,
+      "modified_at": "2026-06-15T13:51:40.058000Z",
+      "sha256": "76849f6dfc5cafabcfcba0a3b77008e7c6613780e1d29a9b208f2151e7c09869"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C21_03_2022_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5120,
+      "modified_at": "2026-06-15T13:51:40.315000Z",
+      "sha256": "10bcd9b2052f5138f936ef5e412f679784ff6ca0fb8e51309e948a6363114749"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C21_03_2022_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 310866,
+      "modified_at": "2026-06-15T13:51:44.486000Z",
+      "sha256": "abeab9660b8503158c489cfa10d689bc483317f36c087fe6e1309daef4898362"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C22_05_2022_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5247,
+      "modified_at": "2026-06-15T13:51:44.607000Z",
+      "sha256": "9b51884eca4e6f91ed6ec6d4ede8eeefb73b218bed02593ec7d0d1f3c24d6061"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C22_05_2022_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 322202,
+      "modified_at": "2026-06-15T13:51:48.701000Z",
+      "sha256": "c533227df33b46f4186809f00f05d16b446b6c2d4f9b54ad925ca6bb80ef6305"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C22_05_2022_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5274,
+      "modified_at": "2026-06-15T13:51:48.886000Z",
+      "sha256": "4490032b686220c5ca0b28049f83f3d349a9c4cc7586e20cc5bab472de85a643"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C22_05_2022_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 343036,
+      "modified_at": "2026-06-15T13:51:53.176000Z",
+      "sha256": "bc99f2cb6057a36542c7012e5c429c2508542d026a88b775db7f4bb2a71c8f4f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C23_08_2022_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5287,
+      "modified_at": "2026-06-15T13:51:53.340000Z",
+      "sha256": "13ccb9c88aed946d033f737c3a3eecdc464bec89908a831db562ab0d94c89676"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C23_08_2022_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 331224,
+      "modified_at": "2026-06-15T13:51:57.817000Z",
+      "sha256": "6483230d464946f7b1b1d93ba613166f230de6f3359a5a0ec2eac2447f43821b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C23_08_2022_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5348,
+      "modified_at": "2026-06-15T13:51:57.969000Z",
+      "sha256": "3d50f76c24869197d3a4a6495146f9799a48ad96103b6a822f42d8e85999b3f6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C23_08_2022_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 352899,
+      "modified_at": "2026-06-15T13:52:02.608000Z",
+      "sha256": "581bd8ad6cbe46f81942d1748be4112e306cc7e292541ddefe1223f2566c8b3f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C24_11_2022_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5342,
+      "modified_at": "2026-06-15T13:52:02.779000Z",
+      "sha256": "c531e1e929dffb3cd08dd92215a2cae75f932d71b5c3cb626850a77527057a73"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C24_11_2022_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 345409,
+      "modified_at": "2026-06-15T13:52:07.309000Z",
+      "sha256": "628bdcf346efdc1da519b6ac149b6e41d94ea7fb321ed403d40427d4b5339486"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C24_11_2022_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5510,
+      "modified_at": "2026-06-15T13:52:07.540000Z",
+      "sha256": "32751e28b070fa43b47b6e558aca5aa9c4b2f12693dd6371cb7fdd4db10e2133"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C24_11_2022_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 363867,
+      "modified_at": "2026-06-15T13:52:12.765000Z",
+      "sha256": "8985c04316281d088066ac621db7af02caac7ccfef192cc26b37690c85f37574"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C25_02_2023_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5327,
+      "modified_at": "2026-06-15T13:52:12.922000Z",
+      "sha256": "95e4ecfc773f86192ecc2a1678e339068e60bec88e9f9f5ccabda61ad9fac2d2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C25_02_2023_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 340394,
+      "modified_at": "2026-06-15T13:52:17.191000Z",
+      "sha256": "8095d6cb920fd0b643f599e432b09c1e079da9581120a74508b95c0d67985fb2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C25_02_2023_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5356,
+      "modified_at": "2026-06-15T13:52:17.397000Z",
+      "sha256": "5dea99906638d0442cb7b1683ebf50f1daade1521aeb4565b5d4078637894765"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C25_02_2023_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 363250,
+      "modified_at": "2026-06-15T13:52:21.463000Z",
+      "sha256": "269daa9afeec54f47f1789c886734631b78da5f531d0c12ef17b975a49ce5332"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C26_05_2023_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5320,
+      "modified_at": "2026-06-15T13:52:21.626000Z",
+      "sha256": "589b35c0d4949dbbe9838ed708f02392d432aaaccceb57eb905d546d3faa184f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C26_05_2023_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 342269,
+      "modified_at": "2026-06-15T13:52:25.624000Z",
+      "sha256": "e37f4cd72359994d8241fb3994fd3a37355cfc0299521f16e3218bcff44087be"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C26_05_2023_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5413,
+      "modified_at": "2026-06-15T13:52:25.778000Z",
+      "sha256": "bea8a95af4d5fee4fb4f7a8bf21abb35ed91e60038292e32615ba14edac7d13b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C26_05_2023_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 365613,
+      "modified_at": "2026-06-15T13:52:30.390000Z",
+      "sha256": "d8fb76bdbc96eafb2f6469fdb279969e6a95f0d4951c857ea13cb8ecd71ff594"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C27_08_2023_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5367,
+      "modified_at": "2026-06-15T13:52:30.519000Z",
+      "sha256": "5e54932964c2377f6e839679856addbec0473d52b2111df017f0202972286ce1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C27_08_2023_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 352507,
+      "modified_at": "2026-06-15T13:52:34.313000Z",
+      "sha256": "d72948fbf9cc281c7067616b97c93250607ff4b424a0799fabfb01068b3f7496"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C27_08_2023_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5488,
+      "modified_at": "2026-06-15T13:52:34.459000Z",
+      "sha256": "5f7354e6183e7123cc2b2174338ee9a573d926424684b8758969f8b59306d760"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C27_08_2023_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 370641,
+      "modified_at": "2026-06-15T13:52:38.474000Z",
+      "sha256": "0402fdd1172810f6ea16c2457d6675384f9d29b8eecfcdf213dc46b6e9181ee1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C28_11_2023_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5425,
+      "modified_at": "2026-06-15T13:52:38.629000Z",
+      "sha256": "109edf9c74265179fd945d37472910b93fee5143ccc3060194707ef78a708fad"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C28_11_2023_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 369375,
+      "modified_at": "2026-06-15T13:52:42.718000Z",
+      "sha256": "8226de0ecfc96a3391a082550225b79900694f9cb4c2eb3b5a3efcfd28a318b9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C28_11_2023_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5661,
+      "modified_at": "2026-06-15T13:52:42.889000Z",
+      "sha256": "41435b94bba2a6fee49b269b2b265ec8acabc7800de5d12b27efb5af64881e73"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C28_11_2023_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 384654,
+      "modified_at": "2026-06-15T13:52:46.892000Z",
+      "sha256": "0cd4fa719621fe87606c484f4ca61cea1bc9f97911b930911edffd3fd5967fe7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C29_02_2024_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5154,
+      "modified_at": "2026-06-15T13:52:47.014000Z",
+      "sha256": "9fd971af86023837ef836af34486a3c7953c758a8c5273d5b3e462efa04d03b5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C29_02_2024_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 319662,
+      "modified_at": "2026-06-15T13:52:50.401000Z",
+      "sha256": "43c634e1ca06e9765656d82dc2acfa1074d0f786805f2599522cf5b52533faf0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C29_02_2024_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5156,
+      "modified_at": "2026-06-15T13:52:50.544000Z",
+      "sha256": "20088ae65e3cc262430cf2a1b62db28d497bc4a5a9b1166cacae2d8beea56267"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C29_02_2024_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 322650,
+      "modified_at": "2026-06-15T13:52:54.321000Z",
+      "sha256": "5eef0fe26c8b0997c35c0755ce2142167a6ec7e5c2d5b1096d7e193adbe44f96"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C30_05_2024_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5334,
+      "modified_at": "2026-06-15T13:52:54.489000Z",
+      "sha256": "270750431e2012f8bedee256b28ec812e3bcefb07931c60d6d37e2df9b7ddb85"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C30_05_2024_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 354671,
+      "modified_at": "2026-06-15T13:52:58.747000Z",
+      "sha256": "5bd5cafdd1752ca381ad937c3f5867bd33aa0294e843839538faf35f3a000bfc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C30_05_2024_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5453,
+      "modified_at": "2026-06-15T13:52:58.928000Z",
+      "sha256": "47b1004a409b5b229a15728f8970476f9160276050cbe597d471c1d3debb0d50"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C30_05_2024_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 370742,
+      "modified_at": "2026-06-15T13:53:03.264000Z",
+      "sha256": "ab9e089f25d7857690452aa5803cf4d3b1f62f91ebcd5214b19fde2f91ca9d42"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C31_08_2024_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5386,
+      "modified_at": "2026-06-15T13:53:03.443000Z",
+      "sha256": "9e309da69f2972370d8a83309d5d1a26d6e37e14119e7d0ba452a3daa75ca053"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C31_08_2024_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 362398,
+      "modified_at": "2026-06-15T13:53:07.860000Z",
+      "sha256": "7ae1308b0189ec0bb14dbfbbd0d985d2f73ca5a414031dc06fdd8742f293cb2e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C31_08_2024_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5596,
+      "modified_at": "2026-06-15T13:53:07.997000Z",
+      "sha256": "bd3f4923b1aec67c471e6a9dee444c9c9ae1c418494719f4d0e962933602a98e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C31_08_2024_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 379854,
+      "modified_at": "2026-06-15T13:53:12.224000Z",
+      "sha256": "ba8b263453b62c70c427c82f8f965b83436d6432ee6cac913bad6ad60d878123"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C32_11_2024_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5438,
+      "modified_at": "2026-06-15T13:53:12.389000Z",
+      "sha256": "183865ceb679b1ff57cf2ed39cc7141901a6ce959150da5d6bab6460c0f3aee2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C32_11_2024_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 374318,
+      "modified_at": "2026-06-15T13:53:16.663000Z",
+      "sha256": "60e8fb3b1ab707871ee18ca41b69eb58c72b9d27e01b3d410707ce5907345c7c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C32_11_2024_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5648,
+      "modified_at": "2026-06-15T13:53:16.833000Z",
+      "sha256": "f8be9a30a371907ae1bd0c3d7edaea99e79fe022f0e78002dce2c2437a729bbe"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C32_11_2024_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 394527,
+      "modified_at": "2026-06-15T13:53:21.516000Z",
+      "sha256": "931329a63e6b65a0f96549028c6722c8f8afad119b47a5dc5227a632f0061e9d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C33_02_2025_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5344,
+      "modified_at": "2026-06-15T13:53:21.653000Z",
+      "sha256": "c6d79ef9ed7b6f7c8b5aadc59148097ead3471ee9577690cd3fbae2745045ca2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C33_02_2025_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 361517,
+      "modified_at": "2026-06-15T13:53:24.826000Z",
+      "sha256": "b1aa2d5dcb3d2203fc3bfccd81a530c66bcf194823f29babf7613370ac46ac5a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C33_02_2025_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5477,
+      "modified_at": "2026-06-15T13:53:24.942000Z",
+      "sha256": "0aa557edf3b31113eb0bcfd9d35c1bad02b3a1c7b56709952af47b7fdff10631"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C33_02_2025_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 372524,
+      "modified_at": "2026-06-15T13:53:28.490000Z",
+      "sha256": "92425e8217cf7ef313999056f6358f98b96d32c2e0c809bdcda0c208f67cd9ed"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C34_05_2025_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5341,
+      "modified_at": "2026-06-15T13:53:28.635000Z",
+      "sha256": "ea623b5ac74f529e1877341a45a4889032b398028f595c21884d264b2ea66c62"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C34_05_2025_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 359798,
+      "modified_at": "2026-06-15T13:53:31.601000Z",
+      "sha256": "01c11ef401931b53f5a3563fad7bf40a599c40d6702db3aed8b6d51a81e350fd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C34_05_2025_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5498,
+      "modified_at": "2026-06-15T13:53:31.703000Z",
+      "sha256": "328782f51d7ea491450508afd03c59625bc3c21ffaf145040c0319a27d6b98a2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C34_05_2025_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 367363,
+      "modified_at": "2026-06-15T13:53:34.034000Z",
+      "sha256": "36b7f5c821805d861cfdf87b63642fbc3622bad876893fc22238f669b32d3b46"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C35_08_2025_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5327,
+      "modified_at": "2026-06-15T13:53:34.166000Z",
+      "sha256": "5d6b93f53c3593d7c205302640622604e0d6978c531a48ee6cbd1b349a931182"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C35_08_2025_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 348753,
+      "modified_at": "2026-06-15T13:53:36.644000Z",
+      "sha256": "cdc7b901a2ec8559acaa329776192b53447a4d9f9173a6b0cb6d38e954cd4ebd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C35_08_2025_SC_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5533,
+      "modified_at": "2026-06-15T13:53:36.794000Z",
+      "sha256": "74906aadbe4c982b9b0ee692b8d514c827ad254fe300d063f3184b5e894f8692"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C35_08_2025_SC_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 357194,
+      "modified_at": "2026-06-15T13:53:39.330000Z",
+      "sha256": "ecec95818ffdca9422babbd01e98b7a32777ff41dd7380be6cb57462500ba25f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_df_abundancia_ordem_C36_11_2025_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5354,
+      "modified_at": "2026-06-15T13:53:39.459000Z",
+      "sha256": "9234f5b2998a69b22a5698fa4b3fd3eb885c9433c2267d76d3679aab7706be63"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06B_grafico_abundancia_ordem_C36_11_2025_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 361680,
+      "modified_at": "2026-06-15T13:53:41.471000Z",
+      "sha256": "85a33ccf2f0693f207292ab2c20b60f6fe156e82f6effd7da908df20945660b2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_df_abundancia_relativa_ordem_C36_11_2025_CH_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5512,
+      "modified_at": "2026-06-15T13:53:41.588000Z",
+      "sha256": "6fb11da9a498d1e6be757eb752951741e6a8b086c92c5a86c6b04681c457fab6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\06C_grafico_abundancia_relativa_ordem_C36_11_2025_CH_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 369348,
+      "modified_at": "2026-06-15T13:53:43.846000Z",
+      "sha256": "979fbd728cd2eb172d14fcfdd565da2d61526c7c2ec449f00654863a65c3d79f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5206,
+      "modified_at": "2026-06-15T13:53:43.991000Z",
+      "sha256": "817a98e52071ac00de1e26c04b1199e8d0f4b5c019de9247b621617ef1709f2a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 635993,
+      "modified_at": "2026-06-15T13:53:46.374000Z",
+      "sha256": "a1a8de0dba4b0ebdb32ad77f0aa66b471226785d6f5c52f9065c31ddda434aa7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1048019,
+      "modified_at": "2026-06-15T13:53:48.823000Z",
+      "sha256": "2d12c6bca201d129b6b2ae93685474ce6916d2e1e451fc2416845adcb97f74ec"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10246,
+      "modified_at": "2026-06-15T13:53:49.092000Z",
+      "sha256": "ffc3df07f35be6829dd1adb50cd63819a3b604595b78f5dffb0575c616fbe6d0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\10_grafico_diversidade_alfa_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 773796,
+      "modified_at": "2026-06-15T13:53:52.466000Z",
+      "sha256": "55c991ebe215ccc92f8f0dc68d50b82624ba6ea72bdf37c285dce861b22578ab"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7653,
+      "modified_at": "2026-06-15T13:53:52.615000Z",
+      "sha256": "495699581a203c3f0f0e8376961a8a91bcd4ed62d62d6c47d9ed1600108ea7c5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5584,
+      "modified_at": "2026-06-15T13:53:52.731000Z",
+      "sha256": "13996497856f848660ed88e6bbf8ac200bb7a0db7a1dedfa274c8584144d8c18"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_dendrograma_similaridade_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 232040,
+      "modified_at": "2026-06-15T13:53:54.181000Z",
+      "sha256": "09048e3510ec9d3c652e556c240d1a7c9bcf8348239a37686bf9d69220a6365c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 12696,
+      "modified_at": "2026-06-15T13:53:55.605000Z",
+      "sha256": "7fc7d8a3b555ad96d64a5de38cb62b90b90413ec5bb597af501db9be644e2f09"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_curva_suficiencia_amostral_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 556599,
+      "modified_at": "2026-06-15T13:53:58.509000Z",
+      "sha256": "7d06507b9f4175bc66c108e09e6043b6ca99977a92805a42ee27e437159a2b87"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_df_bmwp_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7672,
+      "modified_at": "2026-06-15T13:53:58.748000Z",
+      "sha256": "a37016daac6c4659a91fac9007b3512742d15f49aafd0a5e652a14146ac78b65"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\11_grafico_bmwp_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 714167,
+      "modified_at": "2026-06-15T13:54:04.945000Z",
+      "sha256": "c3588f0ddf1c1f17642d96a16484eadf775e4a0518b3108a285a744c09a8f1bc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_df_ept_chol_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 9578,
+      "modified_at": "2026-06-15T13:54:05.185000Z",
+      "sha256": "8a6a47397c697bfdf66c1dc410f3e924098c7d15c3ec606c67000965afe777ac"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\12_grafico_ept_chol_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1248506,
+      "modified_at": "2026-06-15T13:54:08.708000Z",
+      "sha256": "97071981e31f8cf52bd0bf4a0adf3cb807dde8ad4f3bf0517208e1fb0912757a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Herculano - Informações Complementares Licenciamento Pilhas\\Resultados\\Bentos\\DarwinCore_IEF_Zoobentos_Monitoramento_De_Ictio_E_Bentos_Herculano.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 78964,
+      "modified_at": "2026-06-15T13:54:09.714000Z",
+      "sha256": "f41bd1e9df44ebfe1a24d917bbe1ba6d033883d20a210a32ab66f535c10d48a2"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\geoher001_recorte_2022_2025\\zoobentos",
+  "warnings": []
+}

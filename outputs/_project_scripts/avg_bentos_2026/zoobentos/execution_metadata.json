@@ -1,0 +1,1878 @@
+{
+  "executed_at": "2026-06-08T14:42:35.360179Z",
+  "runner_version": "1.2",
+  "project_id": 9,
+  "group": "Zoobentos",
+  "pipeline": "zoobentos",
+  "client": "braavg002",
+  "block": "all",
+  "git": {
+    "branch": "main",
+    "commit": "59ed1ca",
+    "dirty": true,
+    "status_short_count": 3,
+    "full_dirty": true,
+    "full_status_short_count": 3,
+    "ignored_generated_audit_count": 0
+  },
+  "rows_loaded": 3876,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "10ª-Mai-23",
+    "11ª-Jun-23",
+    "12ª-Jul-23",
+    "13ª-Ago-23",
+    "14ª-Set-23",
+    "15ª-Out-23",
+    "16ª-Nov-23",
+    "17ª-Dez-23",
+    "18ª-Jan-24",
+    "19ª-Fev-24",
+    "1ª-Ago-22",
+    "20ª-Mar-24",
+    "21ª-Abr-24",
+    "22ª-Mai-24",
+    "23ª-Jun-24",
+    "24ª-Jul-24",
+    "25ª-Ago-24",
+    "26ª-Set-24",
+    "27ª-Out-24",
+    "28ª-Nov-24",
+    "29ª-Dez-24",
+    "2ª-Set-22",
+    "30ª-Jan-25",
+    "31ª-Fev-25",
+    "32ª-Mar-25",
+    "33ª-Abr-25",
+    "34ª-Mai-25",
+    "35ª-Jun-25",
+    "36ª-Jul-25",
+    "37ª-Ago-25",
+    "38ª-Set-25",
+    "39ª-Out-25",
+    "3ª-Out-22",
+    "40ª-Nov-25",
+    "41ª-Dez-25",
+    "42ª-Jan-26",
+    "43ª-Fev-26",
+    "44ª-Mar-26",
+    "4ª-Nov-22",
+    "5ª-Dez-22",
+    "6ª-Jan-23",
+    "7ª-Fev-23",
+    "8ª-Mar-23",
+    "9ª-Abr-23"
+  ],
+  "campaigns_count": 44,
+  "points": [
+    "PIC-01",
+    "PIC-02",
+    "PIC-03",
+    "PIC-04",
+    "PIC-05",
+    "PIC-06",
+    "PIC-07",
+    "PIC-08",
+    "PIC-09",
+    "PIC-10",
+    "PIC-11",
+    "PIC-12",
+    "PIC-13"
+  ],
+  "points_count": 13,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026",
+  "generated_files_count": 197,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\01_tabela_composicao_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\02_grafico_riqueza_por_ponto_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_10_Mai_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_10_Mai_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_10_Mai_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_10_Mai_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_11_Jun_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_11_Jun_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_11_Jun_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_11_Jun_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_12_Jul_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_12_Jul_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_12_Jul_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_12_Jul_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_13_Ago_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_13_Ago_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_13_Ago_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_13_Ago_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_14_Set_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_14_Set_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_14_Set_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_14_Set_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_15_Out_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_15_Out_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_15_Out_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_15_Out_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_16_Nov_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_16_Nov_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_16_Nov_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_16_Nov_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_17_Dez_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_17_Dez_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_17_Dez_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_17_Dez_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_18_Jan_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_18_Jan_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_18_Jan_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_18_Jan_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_19_Fev_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_19_Fev_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_19_Fev_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_19_Fev_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_1_Ago_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_1_Ago_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_1_Ago_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_1_Ago_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_20_Mar_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_20_Mar_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_20_Mar_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_20_Mar_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_21_Abr_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_21_Abr_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_21_Abr_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_21_Abr_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_22_Mai_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_22_Mai_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_22_Mai_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_22_Mai_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_23_Jun_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_23_Jun_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_23_Jun_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_23_Jun_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_24_Jul_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_24_Jul_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_24_Jul_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_24_Jul_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_25_Ago_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_25_Ago_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_25_Ago_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_25_Ago_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_26_Set_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_26_Set_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_26_Set_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_26_Set_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_27_Out_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_27_Out_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_27_Out_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_27_Out_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_28_Nov_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_28_Nov_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_28_Nov_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_28_Nov_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_29_Dez_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_29_Dez_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_29_Dez_24_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_29_Dez_24_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_2_Set_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_2_Set_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_2_Set_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_2_Set_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_30_Jan_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_30_Jan_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_30_Jan_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_30_Jan_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_31_Fev_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_31_Fev_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_31_Fev_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_31_Fev_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_32_Mar_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_32_Mar_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_32_Mar_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_32_Mar_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_33_Abr_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_33_Abr_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_33_Abr_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_33_Abr_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_34_Mai_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_34_Mai_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_34_Mai_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_34_Mai_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_35_Jun_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_35_Jun_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_35_Jun_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_35_Jun_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_36_Jul_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_36_Jul_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_36_Jul_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_36_Jul_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_37_Ago_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_37_Ago_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_37_Ago_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_37_Ago_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_38_Set_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_38_Set_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_38_Set_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_38_Set_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_39_Out_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_39_Out_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_39_Out_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_39_Out_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_3_Out_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_3_Out_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_3_Out_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_3_Out_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_40_Nov_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_40_Nov_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_40_Nov_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_40_Nov_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_41_Dez_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_41_Dez_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_41_Dez_25_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_41_Dez_25_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_42_Jan_26_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_42_Jan_26_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_42_Jan_26_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_42_Jan_26_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_43_Fev_26_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_43_Fev_26_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_43_Fev_26_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_43_Fev_26_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_44_Mar_26_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_44_Mar_26_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_44_Mar_26_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_44_Mar_26_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_4_Nov_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_4_Nov_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_4_Nov_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_4_Nov_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_5_Dez_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_5_Dez_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_5_Dez_22_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_5_Dez_22_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_6_Jan_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_6_Jan_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_6_Jan_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_6_Jan_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_7_Fev_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_7_Fev_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_7_Fev_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_7_Fev_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_8_Mar_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_8_Mar_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_8_Mar_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_8_Mar_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_9_Abr_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_9_Abr_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_9_Abr_23_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_9_Abr_23_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\10_df_diversidade_alfa_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\10_grafico_diversidade_alfa_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_df_matriz_comunidade_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_df_distancias_braycurtis_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_dendrograma_similaridade_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_df_curva_suficiencia_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_curva_suficiencia_amostral_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_df_bmwp_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_grafico_bmwp_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_df_ept_chol_zoobentos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_grafico_ept_chol_zoobentos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\DarwinCore_IEF_Zoobentos_Monitoramento_De_Ictio_E_Bentos_Brumado_Avg.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\01_tabela_composicao_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10258,
+      "modified_at": "2026-06-08T14:36:32.515000Z",
+      "sha256": "b5a4d49dd115fc185ec110e4dc4edbf20fccf49412c7aba589e8e177c275c283"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\04_5_tabela_ocorrencia_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 212686,
+      "modified_at": "2026-06-08T14:36:34.154000Z",
+      "sha256": "55c55588168a159ae4d286e1cfb06c4e14b99dae316ec223d43c8bca15b9752e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 13381,
+      "modified_at": "2026-06-08T14:36:34.294000Z",
+      "sha256": "a35da2b4c44e7296cbde9538c0640c331a7899f3bdb0667ad06285058d9a5efe"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\02_grafico_riqueza_por_ponto_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 2633127,
+      "modified_at": "2026-06-08T14:37:03.247000Z",
+      "sha256": "d7aa51c3ec4079ca76def200a53b2f914efe7e5a5e180bc6207c8cf32945a129"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06A_df_riqueza_total_por_ponto_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5142,
+      "modified_at": "2026-06-08T14:37:03.674000Z",
+      "sha256": "76382810e4e577529d815bb4ee91ba995d3d7e80495fbc346d15ce4e9a277bb8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06A_grafico_riqueza_total_por_ponto_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 553228,
+      "modified_at": "2026-06-08T14:37:07.547000Z",
+      "sha256": "d3cd8d093ae9888f922afbd825d0e74a12c0030011d456840b07c0b969eb357d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_10_Mai_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5584,
+      "modified_at": "2026-06-08T14:37:07.714000Z",
+      "sha256": "3afdf803ebad12e35e7946db6fe7d0179d39c99613d7ae16a92c94205498e48c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_10_Mai_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 699639,
+      "modified_at": "2026-06-08T14:37:12.423000Z",
+      "sha256": "df742c3964f1e5a51d512657d5f19f8b6e783784e4e8afa624a4988082c23c31"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_10_Mai_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5726,
+      "modified_at": "2026-06-08T14:37:12.596000Z",
+      "sha256": "67790b80529dd76b3f7ca2ac8f8a3a0f1cdb4f4972b46c781e83b3194f859e91"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_10_Mai_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 744241,
+      "modified_at": "2026-06-08T14:37:16.543000Z",
+      "sha256": "4b8ff657d29f87312f281177b230a92e412c9f4f7d515dadae7e32fd35159b42"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_11_Jun_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5551,
+      "modified_at": "2026-06-08T14:37:16.692000Z",
+      "sha256": "7f17abe21b8dd7e6fae3873b9b659220442c8a6e4040c7f6236e949b1db97462"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_11_Jun_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 700971,
+      "modified_at": "2026-06-08T14:37:19.631000Z",
+      "sha256": "a12634091b770c3ffcd4f780744b7362e186fc9d2cb4561a1dd29db498535c14"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_11_Jun_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5685,
+      "modified_at": "2026-06-08T14:37:19.784000Z",
+      "sha256": "adb1ac264bdc3725c01d8e023b9bfa26951f4c855eb885c3d9369acf06a3cfad"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_11_Jun_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 742387,
+      "modified_at": "2026-06-08T14:37:23.704000Z",
+      "sha256": "5d6e3b2f0d5f82da849afc1cd41931818d0abdf8d7f4541d07fc8fb897eba9d7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_12_Jul_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5569,
+      "modified_at": "2026-06-08T14:37:23.812000Z",
+      "sha256": "efc299bad2e69f043ba0d8e9e609e73818162e05e039c9a86a57534a5404c6e9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_12_Jul_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 698654,
+      "modified_at": "2026-06-08T14:37:26.581000Z",
+      "sha256": "965063d412de8c62d79b3cbea3d6184bad1a0bcf05d3499d3e7f9d2f6ae30472"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_12_Jul_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5727,
+      "modified_at": "2026-06-08T14:37:26.697000Z",
+      "sha256": "a6b7a6d7e21c45a42bfc04176ba46989a5d080817476fff52db0b7eeb32dbdca"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_12_Jul_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 742838,
+      "modified_at": "2026-06-08T14:37:29.479000Z",
+      "sha256": "58f94c608fa35771c332ec583b83bf15676c6e0ad401e0e47a9c200a6ac6f404"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_13_Ago_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5546,
+      "modified_at": "2026-06-08T14:37:29.600000Z",
+      "sha256": "7b67de177b434ae37c7d9f8736f7f18532676f60c296f8f9f3a5085ab64f1324"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_13_Ago_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 673747,
+      "modified_at": "2026-06-08T14:37:31.875000Z",
+      "sha256": "c5bf491f0e99f7335a2ff6422ccf778fb6e1b18418fbf183b517a930d3a1e8f7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_13_Ago_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5757,
+      "modified_at": "2026-06-08T14:37:31.990000Z",
+      "sha256": "ab0010e45909ac0503542f8acf96930a7e88fce82b2f927657676a91d9189c4a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_13_Ago_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 728310,
+      "modified_at": "2026-06-08T14:37:35.267000Z",
+      "sha256": "a8a1e5bb1ada0e9d2ceb669f5c204ee8721b399ea54bd7ca9db47af15e6ebdbe"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_14_Set_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5587,
+      "modified_at": "2026-06-08T14:37:35.395000Z",
+      "sha256": "1bc42dced9220b9aaaa5deed8b7758ae2bb493bb64385d256b14a4c136dd4e9f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_14_Set_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 719450,
+      "modified_at": "2026-06-08T14:37:38.522000Z",
+      "sha256": "574345b1926f0d93f93a265720fcebdf5357b117ffedc29ba711b27bb50cf53f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_14_Set_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5806,
+      "modified_at": "2026-06-08T14:37:38.637000Z",
+      "sha256": "82610662c4b20ba2f78b4c9462436f4efe65ec0cd90a4c974b0c6703eef05fe9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_14_Set_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 745640,
+      "modified_at": "2026-06-08T14:37:41.877000Z",
+      "sha256": "9afc1503eeffd9161063440f5f5a0a66599f7ec0075601040d4c4b7e5d5d1575"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_15_Out_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5627,
+      "modified_at": "2026-06-08T14:37:42.013000Z",
+      "sha256": "ecf07561b370a4fe6b1dbf50f80da557207f66c25f0f1712d73d1390c68bb694"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_15_Out_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 741948,
+      "modified_at": "2026-06-08T14:37:44.983000Z",
+      "sha256": "85db9960b090b94a8c15d841810d1eb8bd65371f3b8fa0271440062a794adccc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_15_Out_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5888,
+      "modified_at": "2026-06-08T14:37:45.113000Z",
+      "sha256": "7aa28245cbd679650ff20920b8e9b0d1cef661c5d1f0938fe6bff204ccdce531"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_15_Out_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 767518,
+      "modified_at": "2026-06-08T14:37:48.519000Z",
+      "sha256": "68db644fd1861fc19e4f8f260969102e77f45f8daa6076f6fb108feb9d070c14"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_16_Nov_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5643,
+      "modified_at": "2026-06-08T14:37:48.657000Z",
+      "sha256": "238da75f5e6c48c5631bfc87d2395628da6785ee620b5eed696603c234a86678"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_16_Nov_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 754648,
+      "modified_at": "2026-06-08T14:37:52.495000Z",
+      "sha256": "104fdbcd19f750169ea432762b41c6cc408d717a221b94184dbb0214f8daa2d1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_16_Nov_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5817,
+      "modified_at": "2026-06-08T14:37:52.611000Z",
+      "sha256": "07677b0278e314e5d8d0e31d40b61d51415c078e71dbf6e860823d4470e9e3f5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_16_Nov_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 793109,
+      "modified_at": "2026-06-08T14:37:55.796000Z",
+      "sha256": "14a0914bdf8a6bb89ba1b0c1ba97db178a5396e56406f3421fe45d83755d06d8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_17_Dez_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5509,
+      "modified_at": "2026-06-08T14:37:55.949000Z",
+      "sha256": "0ba1fce1bca44eb76788bc536418b67a9146e320e296785216669030a4b58617"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_17_Dez_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 674614,
+      "modified_at": "2026-06-08T14:37:58.575000Z",
+      "sha256": "23877c1798660742ee04a8c85de69be32692d78b78edbf826bdc53392ca5906a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_17_Dez_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5658,
+      "modified_at": "2026-06-08T14:37:58.676000Z",
+      "sha256": "8a750b6ac3d424459cb561e1ea776e9bbf7982df19213a2cd1271e58de760440"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_17_Dez_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 728208,
+      "modified_at": "2026-06-08T14:38:01.352000Z",
+      "sha256": "9311ebf7fd90d6bcb0e841da99e0ec4eb038c7380727f9ce1132e56c246ce186"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_18_Jan_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5561,
+      "modified_at": "2026-06-08T14:38:01.461000Z",
+      "sha256": "91fd13c8be46ca7636532d0d27c319eab11ee34db7b4e34f5c2d5239e5e10183"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_18_Jan_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 698771,
+      "modified_at": "2026-06-08T14:38:04.475000Z",
+      "sha256": "69750fa70e2d60a9354ff90e473ef7ee77743e580fdf5595228b893e12146182"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_18_Jan_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5699,
+      "modified_at": "2026-06-08T14:38:04.647000Z",
+      "sha256": "c8182a0c52fe6670fcca45d6ea383845a65a2e3497a4bb44524217ce4abdd444"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_18_Jan_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 743458,
+      "modified_at": "2026-06-08T14:38:08.488000Z",
+      "sha256": "7f6d79c985e3b53a068d4d38f54133bb781da04dd13e3a7538fc81aaef80fa20"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_19_Fev_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5596,
+      "modified_at": "2026-06-08T14:38:08.627000Z",
+      "sha256": "43298c463c4baffbb628ce8ba75cb9d883e9476f9624d5fcb88376c5a125489a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_19_Fev_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 728517,
+      "modified_at": "2026-06-08T14:38:12.369000Z",
+      "sha256": "0bb4d95952371a7db5f13086de11e7775f2a1e804644b5aad9e8b67a24754daf"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_19_Fev_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5844,
+      "modified_at": "2026-06-08T14:38:12.507000Z",
+      "sha256": "1e48f56cfd1bc958d7e154cc154113a6947e0919038b50fa2438be8a77db35d9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_19_Fev_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 744242,
+      "modified_at": "2026-06-08T14:38:15.501000Z",
+      "sha256": "a8ae014073425d3dd2b304ba6494c4bd8838710b00250c1022a0d0abac1be1ce"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_1_Ago_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5436,
+      "modified_at": "2026-06-08T14:38:15.628000Z",
+      "sha256": "c3c55c914536ceb05a4766136940ec5491e3ef0bdcf3f23a9a583f5be7fefe8d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_1_Ago_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 641006,
+      "modified_at": "2026-06-08T14:38:18.336000Z",
+      "sha256": "e6ec50f0527ac208e9f3f37e6d8e8f31531331535c5dd5256de5655fda5234a2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_1_Ago_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5605,
+      "modified_at": "2026-06-08T14:38:18.439000Z",
+      "sha256": "d512b0a9fd16089674e006fbe3384737dfceba8e3bdd5759027987ce7b70c544"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_1_Ago_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 693042,
+      "modified_at": "2026-06-08T14:38:21.384000Z",
+      "sha256": "4b1ef4d62d9a4af69624781d6a8cfe797c72c13ec268e108814617c41013ab81"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_20_Mar_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5528,
+      "modified_at": "2026-06-08T14:38:21.588000Z",
+      "sha256": "7e8a66a713867e1f2ce0588d91072cf7e0e9e3936494be49f34bfd6d272154b3"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_20_Mar_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 693581,
+      "modified_at": "2026-06-08T14:38:24.735000Z",
+      "sha256": "659d51973312581774146c1a89c2237fee641f8c2b8d54f8aac6a899ed1957da"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_20_Mar_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5676,
+      "modified_at": "2026-06-08T14:38:24.854000Z",
+      "sha256": "b58db583805b90746ddbb77bf5b0ab57b853d150f4f558efa1114d22ee136126"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_20_Mar_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 735101,
+      "modified_at": "2026-06-08T14:38:27.864000Z",
+      "sha256": "c2df4fb37a06f3980518208ad2bd245b08e87777c9790bb3b2a8f8cbd245708a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_21_Abr_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5579,
+      "modified_at": "2026-06-08T14:38:28.003000Z",
+      "sha256": "2f08848bde3897f2bb6c4075661ef4d74130f69fbb879ef392547a54e618a33e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_21_Abr_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 728827,
+      "modified_at": "2026-06-08T14:38:32.438000Z",
+      "sha256": "ccf15ef097add947ba4512f14f4b711e47b51a9d37ff6b1753247c7daacdfa05"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_21_Abr_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5781,
+      "modified_at": "2026-06-08T14:38:32.573000Z",
+      "sha256": "62aa007ce02fdf89a5bbf47838315614641a95b7b169f331d80a1ecf5b73dab6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_21_Abr_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 743942,
+      "modified_at": "2026-06-08T14:38:35.986000Z",
+      "sha256": "93bfcaaf78db90bcbe2d5bdb6a7044f5c3c53dcbb5942ac75df28632da8dd337"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_22_Mai_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5590,
+      "modified_at": "2026-06-08T14:38:36.219000Z",
+      "sha256": "0f8fcd620af4bf4df31e535be3a14036017ad0b50d8de4f1398be8bfa39083c0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_22_Mai_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 691008,
+      "modified_at": "2026-06-08T14:38:39.951000Z",
+      "sha256": "cfa21fc06d6aae054039d6eaeefa5b2cd5671abce9e08ca3efd58984ff054e8d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_22_Mai_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5841,
+      "modified_at": "2026-06-08T14:38:40.082000Z",
+      "sha256": "a0071c4018a64bcbd47de903ca1edcf4796c3e50d37614e447cca64b42d56398"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_22_Mai_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 736208,
+      "modified_at": "2026-06-08T14:38:43.863000Z",
+      "sha256": "0035761df7f9fede4aa7fc67f33888692558ec5397afcb8f84b9b6dacaaa0526"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_23_Jun_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5637,
+      "modified_at": "2026-06-08T14:38:43.975000Z",
+      "sha256": "21778b7bec432409bdc30f0f51e494738717aa7fd3a86ac3ee5bb57476293d47"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_23_Jun_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 758319,
+      "modified_at": "2026-06-08T14:38:47.504000Z",
+      "sha256": "30eb0fc346a7d7992a2b7f934b6049802b0d7ba04b11cd93acf0325d616e0e05"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_23_Jun_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5901,
+      "modified_at": "2026-06-08T14:38:47.614000Z",
+      "sha256": "41de3e9f2799d68b73a087757a31c4be9d85c4438c23f0d1f6f7f244e1a7b6f2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_23_Jun_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 784364,
+      "modified_at": "2026-06-08T14:38:51.107000Z",
+      "sha256": "e96030e239752e92c9a41603b2892c6d111c54897c4346a3293abfb3ffbde585"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_24_Jul_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5601,
+      "modified_at": "2026-06-08T14:38:51.242000Z",
+      "sha256": "8119b1c01245b16ed34df5e0fbfd7704427167a73fb9a00c488058deeadbecf4"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_24_Jul_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 690413,
+      "modified_at": "2026-06-08T14:38:53.870000Z",
+      "sha256": "674466f9296447e9eeed5bf546ef0efb1d2aa0980e77eb27799be547d7474cfa"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_24_Jul_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5834,
+      "modified_at": "2026-06-08T14:38:53.977000Z",
+      "sha256": "645cb765aea2a720771b9c3c1f3f744dc21e467f24f2790a095b7ee2701f9ca1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_24_Jul_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 744946,
+      "modified_at": "2026-06-08T14:38:57.141000Z",
+      "sha256": "a7ac3067e6b832058aeda81ccbe38041088477e899e47bdca39a6931e8465b2e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_25_Ago_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5627,
+      "modified_at": "2026-06-08T14:38:57.265000Z",
+      "sha256": "f95f347711c7ba3561b5e6b25faf42b52062ad5f8657aa216e08e4343f6b63b9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_25_Ago_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 729480,
+      "modified_at": "2026-06-08T14:39:00.313000Z",
+      "sha256": "2a983fc84c4bd10f2601749b9451168f6a0ed2f80b21d1b4ece26ac99820a438"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_25_Ago_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5906,
+      "modified_at": "2026-06-08T14:39:00.444000Z",
+      "sha256": "23b9c5637e3b94c371c70493bf164958c3a9be890277e48bdb1aba91afad09eb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_25_Ago_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 783851,
+      "modified_at": "2026-06-08T14:39:03.909000Z",
+      "sha256": "27762ad7353ac1ad5f172000c7815c0894ec71053f7d58ad90a471702d361d41"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_26_Set_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5585,
+      "modified_at": "2026-06-08T14:39:04.047000Z",
+      "sha256": "f43fddd2b0b93dd56d87b8229a1c59e0da1267a2faa5d5bc88381c605bdeeba9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_26_Set_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 742505,
+      "modified_at": "2026-06-08T14:39:08.174000Z",
+      "sha256": "972546ad61dd97b4f6acad8681b04ebb0c614af377572f8c3bec7ff0aa900102"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_26_Set_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5724,
+      "modified_at": "2026-06-08T14:39:08.291000Z",
+      "sha256": "1812d692246c9ebbaae0a6d4380024b278e46099f1e385e259bd2681ce0916ef"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_26_Set_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 767657,
+      "modified_at": "2026-06-08T14:39:11.902000Z",
+      "sha256": "4930654a042647649a755346f0eb752c900b886be3005ee2a4c8110db75ce670"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_27_Out_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5512,
+      "modified_at": "2026-06-08T14:39:12.014000Z",
+      "sha256": "cda50732977ea362cb4ec0dbf51d8aabdaca4468e590eedc64731a494d8f2a05"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_27_Out_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 699020,
+      "modified_at": "2026-06-08T14:39:15.239000Z",
+      "sha256": "afd87699c755253dca6cf3734987bb927c06cc1ba49841d14036c408b04e9a7f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_27_Out_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5666,
+      "modified_at": "2026-06-08T14:39:15.351000Z",
+      "sha256": "50fbf66a67523f07c97c3c217fedc91020446c02276d72deb56f426cf4e6a591"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_27_Out_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 742937,
+      "modified_at": "2026-06-08T14:39:17.958000Z",
+      "sha256": "58ddba5babccb36bdc23e1bbf541c4726bc095ff2ef3088c9787d188bbd323b9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_28_Nov_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5615,
+      "modified_at": "2026-06-08T14:39:18.081000Z",
+      "sha256": "51ffe7e778dba2087e0e291c81ab1609cc25d6a0a64e1006b6f138122740611a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_28_Nov_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 745751,
+      "modified_at": "2026-06-08T14:39:20.469000Z",
+      "sha256": "1cb45560612aa9836209a3de086a48723eb155ca339bbde6245a3c3bb300bf32"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_28_Nov_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5847,
+      "modified_at": "2026-06-08T14:39:20.580000Z",
+      "sha256": "baa52eb7f05e1b15d37dc1574d3c3aa0d17c3f5fad7d80cf60109c1723eca0eb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_28_Nov_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 783029,
+      "modified_at": "2026-06-08T14:39:23.801000Z",
+      "sha256": "09d90742d626b26620476e9f19854c605631db80cc0f99fcd0d36c02b32e1175"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_29_Dez_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5593,
+      "modified_at": "2026-06-08T14:39:23.954000Z",
+      "sha256": "307da52d4f51b7076af33b006277ea51d4650e1fbef59f53b0dbc96548cc60a1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_29_Dez_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 699888,
+      "modified_at": "2026-06-08T14:39:27.561000Z",
+      "sha256": "f02dd9656abfec068082679c6e2548765f67ed5af4848bdc3cdfd689ace1e95b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_29_Dez_24_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5870,
+      "modified_at": "2026-06-08T14:39:27.695000Z",
+      "sha256": "1547affa5b666c47dbc1ef46d2fa04a1de930a9fa2d188d27d30b0b57cc6c73a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_29_Dez_24_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 744096,
+      "modified_at": "2026-06-08T14:39:31.285000Z",
+      "sha256": "e7c4e30642abc33bb9df1429d936c0642237196bd65644eff2ca22ccf0188f9a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_2_Set_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5472,
+      "modified_at": "2026-06-08T14:39:31.402000Z",
+      "sha256": "8f6aa693928268c7a13ee00c48451e1feb87b2b411193f6b7f42484a52c0ec98"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_2_Set_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 680912,
+      "modified_at": "2026-06-08T14:39:34.039000Z",
+      "sha256": "52d4deb68d273368eae586fb3d99895cfc7070c24bc52420db9f8d32466f2a16"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_2_Set_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5587,
+      "modified_at": "2026-06-08T14:39:34.147000Z",
+      "sha256": "27c61d9a73c74a9a2a1f9d6b2ba90ff705907c51c4dfce08abdd8bd75c20d7e7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_2_Set_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 706495,
+      "modified_at": "2026-06-08T14:39:36.902000Z",
+      "sha256": "c1382e002d05002572cbf1e48d302e976291853cd03ad8bce89610238e7c0ef8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_30_Jan_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5532,
+      "modified_at": "2026-06-08T14:39:37.025000Z",
+      "sha256": "e064bd3591049e179302878dc9933acb3a291f574f8c2dbb0aff85ffad87d661"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_30_Jan_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 685903,
+      "modified_at": "2026-06-08T14:39:39.617000Z",
+      "sha256": "e54f2b68de11cee19550cc814ff95ee15686d9b1d65733a9c42f0d7010dff3aa"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_30_Jan_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5737,
+      "modified_at": "2026-06-08T14:39:39.729000Z",
+      "sha256": "9ac4d9e2d097c0e9a3e6ee156444a29a03e9922c28cf403d6f3bb0442367858c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_30_Jan_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 727535,
+      "modified_at": "2026-06-08T14:39:43.111000Z",
+      "sha256": "4048d1ace30403026fa7f1b13dcb4670b783dfe82e0b8eb1ff7a62de31846262"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_31_Fev_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5559,
+      "modified_at": "2026-06-08T14:39:43.244000Z",
+      "sha256": "f4797c502bdb0f15ec1bcfc865ce34c8bbe1c36e3a75681bb7c17b05cf2be11e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_31_Fev_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 708513,
+      "modified_at": "2026-06-08T14:39:46.295000Z",
+      "sha256": "8faeb9a3dc78c4d1b1e800549deb5afe9dc394ca4f2ef7af2368e2d89965044e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_31_Fev_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5745,
+      "modified_at": "2026-06-08T14:39:46.411000Z",
+      "sha256": "5c0500e191a91e7e080832d2ceb0c9108811482a018361b4a463061741cb292e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_31_Fev_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 741194,
+      "modified_at": "2026-06-08T14:39:49.101000Z",
+      "sha256": "3b71b60ceb3e9cacb269eeb570b2899629188fe01a82082b59ed5f592055ce2b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_32_Mar_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5566,
+      "modified_at": "2026-06-08T14:39:49.212000Z",
+      "sha256": "de74f51d507afa2c99590f7ec7cf05ea21c3f8e71ff8d94d5c0f34c11e5e8a6c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_32_Mar_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 696167,
+      "modified_at": "2026-06-08T14:39:52.762000Z",
+      "sha256": "50a6911efe1579e57730e1ffabc0ed8e2ffe6f2c8939932e01d693f4a07452c3"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_32_Mar_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5775,
+      "modified_at": "2026-06-08T14:39:52.892000Z",
+      "sha256": "97842c59fab9a3071facad2f9a517b15e8518bb26965615fc67763c58c46ed8a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_32_Mar_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 744100,
+      "modified_at": "2026-06-08T14:39:56.533000Z",
+      "sha256": "1e2ebdf14f57d56a9c94532cc3259146096031651cd84d86d46ac6d878732108"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_33_Abr_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5572,
+      "modified_at": "2026-06-08T14:39:56.706000Z",
+      "sha256": "e5c786f404eb0dbda4d4be964847aee9413249479744d26c69cead54cca040f1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_33_Abr_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 725802,
+      "modified_at": "2026-06-08T14:39:59.149000Z",
+      "sha256": "086153b49505ceb17c326b36d7ac18b02f8cbb33ee690ca24ba9c8e6121ea381"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_33_Abr_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5804,
+      "modified_at": "2026-06-08T14:39:59.272000Z",
+      "sha256": "4ec46cc0b7d2f300298a9525c82a8c4cc7deb664e9eac1b5f3c4cffea7149a81"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_33_Abr_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 770014,
+      "modified_at": "2026-06-08T14:40:03.213000Z",
+      "sha256": "fce38e6e11d224e8bc116dc36eadc2752468b7d72c6eb1a466d261763f955e27"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_34_Mai_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5673,
+      "modified_at": "2026-06-08T14:40:03.319000Z",
+      "sha256": "7125f76f58ce93e4783dfc6e8faddc5adb74d631f9d975b3480bd420a2adad44"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_34_Mai_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 771997,
+      "modified_at": "2026-06-08T14:40:06.699000Z",
+      "sha256": "1afdef1aa19745a517b1882ce8580a7ef19d340eb09b84ce5ebe55657dc7715a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_34_Mai_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5970,
+      "modified_at": "2026-06-08T14:40:06.807000Z",
+      "sha256": "6b706b47c46ba47e741b0e5decca3ab4a586ab2d9cf84f3a6615ea27e6aab132"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_34_Mai_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 798180,
+      "modified_at": "2026-06-08T14:40:09.102000Z",
+      "sha256": "811db718a44d2e1fe2d20f920b55b997f8367a84f5c93fc5dfceb6f301f97d4a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_35_Jun_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5630,
+      "modified_at": "2026-06-08T14:40:09.221000Z",
+      "sha256": "ba9173bc5942a6dbd2b1948cc02c037baea3d46f7e6d9588b52a2099c87b458c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_35_Jun_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 748107,
+      "modified_at": "2026-06-08T14:40:11.335000Z",
+      "sha256": "bd746be4ff32e7ad14d19044c0c34c876904bbf8696d0931f7802a27d400e58b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_35_Jun_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5865,
+      "modified_at": "2026-06-08T14:40:11.455000Z",
+      "sha256": "a729429835164ceb75fecc1f828da690eac487597a808595b2f1d0e54a926440"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_35_Jun_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 785035,
+      "modified_at": "2026-06-08T14:40:13.701000Z",
+      "sha256": "ef509cf0ba825296be6d45c1f2699859fd410880fe5e834849d86fc1cf800eb2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_36_Jul_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5604,
+      "modified_at": "2026-06-08T14:40:13.807000Z",
+      "sha256": "db810474d6bc359c4e6bdf3dc6a69f5ca1017ba674f140d032244cabd2ba8271"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_36_Jul_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 714562,
+      "modified_at": "2026-06-08T14:40:15.874000Z",
+      "sha256": "ea79082d7d9d653262ab70d677b577c34cfad43c8beb0f154b5fba9f32b92b93"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_36_Jul_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5879,
+      "modified_at": "2026-06-08T14:40:15.975000Z",
+      "sha256": "cda8e2dd2cb6e5671be6580cc4e1d4ce1be2959c433a3e170af11d5dbaafdc2c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_36_Jul_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 745082,
+      "modified_at": "2026-06-08T14:40:18.193000Z",
+      "sha256": "b82447ee5279ff2e0e09943ff686132920f40a1999b1fd80d315991d1bb6c319"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_37_Ago_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5640,
+      "modified_at": "2026-06-08T14:40:18.317000Z",
+      "sha256": "3924790596c4719542eab3774386bcb183186e62244bb47a67ef6a67c7704e8f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_37_Ago_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 769105,
+      "modified_at": "2026-06-08T14:40:20.422000Z",
+      "sha256": "a21cde46500e25806a1a1ec8343ec9a34ffffce7239b65931b75c4992ad15239"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_37_Ago_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5877,
+      "modified_at": "2026-06-08T14:40:20.531000Z",
+      "sha256": "a09d90628ed616ffba5a9e6dc76fb77a5fe8452ea2106101841a657ee3a085ac"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_37_Ago_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 784622,
+      "modified_at": "2026-06-08T14:40:22.823000Z",
+      "sha256": "a969efc9233d61e4ea4f7ba6a3a6af22dbfc4b3253cb1c10d1242f707d6c105b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_38_Set_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5590,
+      "modified_at": "2026-06-08T14:40:22.939000Z",
+      "sha256": "ce8c80c224c3a87d0379178d63695128db5d97fa15af06eb724ea696c24e8908"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_38_Set_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 732911,
+      "modified_at": "2026-06-08T14:40:25.027000Z",
+      "sha256": "7e9a81fbc3ae3b26ab0395c894ace3e8c1d702a6465faaa5cd9dd610d92b9ab8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_38_Set_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5847,
+      "modified_at": "2026-06-08T14:40:25.157000Z",
+      "sha256": "bf9b2dfbbb4403db0f7908dc1881b71c65afd447faf9236dfb10ed776e4ccf91"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_38_Set_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 758037,
+      "modified_at": "2026-06-08T14:40:27.301000Z",
+      "sha256": "2651d5c8e96cc05db54e0aa08b66900f27ebffb1720f6855dc922aab7934dee6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_39_Out_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5550,
+      "modified_at": "2026-06-08T14:40:27.412000Z",
+      "sha256": "76d13556478dca2fe5ac899be811dd88b2e0da71b8ce41c8a1fe7b04bcb9f1e6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_39_Out_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 722486,
+      "modified_at": "2026-06-08T14:40:29.575000Z",
+      "sha256": "cb94eec057e8074abdb77304942789883b667f289a1e069b066cbf0bfb8eee72"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_39_Out_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5757,
+      "modified_at": "2026-06-08T14:40:29.684000Z",
+      "sha256": "7792b485ec4a8f6d66135336f4d74fbbcbd6441d4d2119e533888e2ef6983ec0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_39_Out_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 746181,
+      "modified_at": "2026-06-08T14:40:31.717000Z",
+      "sha256": "37f7e7af6d2d10be30894ed442e3d5142aba32b0e71f398eff189b67f373dec5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_3_Out_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5563,
+      "modified_at": "2026-06-08T14:40:31.826000Z",
+      "sha256": "c6391dfa81f70f755ee7e416f5ac0dc4144fadeae271eb38dd002736944853fa"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_3_Out_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 717293,
+      "modified_at": "2026-06-08T14:40:33.941000Z",
+      "sha256": "344348485ba9b6290117f310855559585acce69f5069f0167834539b6e26f12f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_3_Out_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5768,
+      "modified_at": "2026-06-08T14:40:34.045000Z",
+      "sha256": "5b3cbff9753400190bc9dfcd0ac70a7ddf7de89a267c6438e34bac511ec10ebe"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_3_Out_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 743184,
+      "modified_at": "2026-06-08T14:40:36.220000Z",
+      "sha256": "14208b0620974000a24cc812e4ad6549567c6b38adbbbac3cff73c6a1afb9917"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_40_Nov_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5653,
+      "modified_at": "2026-06-08T14:40:36.346000Z",
+      "sha256": "d9d7263205aeead70861736a7d0cde979512e19aafc4b6f5cb817fcb61f65035"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_40_Nov_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 772324,
+      "modified_at": "2026-06-08T14:40:38.506000Z",
+      "sha256": "53a0707ac9c3943dc0e193e4ce8127809f9bcb8c6b82f3011085b30f5fa61efa"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_40_Nov_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5985,
+      "modified_at": "2026-06-08T14:40:38.634000Z",
+      "sha256": "bfb5696d3321c8e17f12b22df4dbb5b85554638edccdc951599d4ddc751362a7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_40_Nov_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 799360,
+      "modified_at": "2026-06-08T14:40:41.348000Z",
+      "sha256": "aa775366f3ebbdd482b07494c0146a2bdd5495e69238d92cb2db8fa924ceeaa2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_41_Dez_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5534,
+      "modified_at": "2026-06-08T14:40:41.481000Z",
+      "sha256": "243808e1cee0089329ab84bc33af8d63429b1f2514f83374dad135d083056871"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_41_Dez_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 714678,
+      "modified_at": "2026-06-08T14:40:43.508000Z",
+      "sha256": "6b5072be95610f10c51cdb5689d513d518d1a08e6085d43e37a686b9207d23ef"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_41_Dez_25_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5670,
+      "modified_at": "2026-06-08T14:40:43.624000Z",
+      "sha256": "378bba8009f1378f376c60096c19f3130a664d0014db432df4fef53350f5dfa1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_41_Dez_25_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 741118,
+      "modified_at": "2026-06-08T14:40:45.833000Z",
+      "sha256": "5db93c307e8aea4e68672595c6842d738b869c8fe0d6f261f4eb9e62266dee53"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_42_Jan_26_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5460,
+      "modified_at": "2026-06-08T14:40:45.942000Z",
+      "sha256": "f512802deaac1a6166d686cf6f6c8d540b95787f3aa39ff756153da28a702509"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_42_Jan_26_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 684329,
+      "modified_at": "2026-06-08T14:40:48.009000Z",
+      "sha256": "dba01951ccf81e1c393e92076d2b1eb16453113f64d18dbd3642d5a0ae5e276c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_42_Jan_26_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5569,
+      "modified_at": "2026-06-08T14:40:48.118000Z",
+      "sha256": "87aca01e2732932670797840eeee36fb2e3b3117509190aacac4e139c5f30582"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_42_Jan_26_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 709044,
+      "modified_at": "2026-06-08T14:40:50.363000Z",
+      "sha256": "05f379159b20280f4410c2a092e6c2db0fd950d3319ebf74c6c90836a9598a1d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_43_Fev_26_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5516,
+      "modified_at": "2026-06-08T14:40:50.480000Z",
+      "sha256": "b098241b3c4e378bfc7f8896be498785236b80fe0219d1d0ca04b40a1f27e44b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_43_Fev_26_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 694573,
+      "modified_at": "2026-06-08T14:40:52.708000Z",
+      "sha256": "54784684629dab1569307828de5ee75efabd130ab2070ba37c51a94516e4788f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_43_Fev_26_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5641,
+      "modified_at": "2026-06-08T14:40:52.831000Z",
+      "sha256": "aac8d49186b569df443f2f5fbc4bcbb4793a7bc39226c2dea8381d7216e69cfd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_43_Fev_26_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 726933,
+      "modified_at": "2026-06-08T14:40:55.413000Z",
+      "sha256": "04297ec077e6602f8b42def7f2621c44cabf2c74f9433c459b0aab2e8c876120"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_44_Mar_26_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5454,
+      "modified_at": "2026-06-08T14:40:55.518000Z",
+      "sha256": "909d32c2112ab1f20cfa22b63dc46b10242ba6a65d16ed764e71835e3f9c84e2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_44_Mar_26_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 682595,
+      "modified_at": "2026-06-08T14:40:57.820000Z",
+      "sha256": "0dbe6dbd2eb2ffff0e6dd8bbda9e061e2c38ff6822641014aeb035a571b0cd05"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_44_Mar_26_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5529,
+      "modified_at": "2026-06-08T14:40:57.948000Z",
+      "sha256": "38ed2a120ba4cf9671ad0542997c2b1fe48dffe7436c649959fae6dba238e4cd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_44_Mar_26_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 713709,
+      "modified_at": "2026-06-08T14:41:00.090000Z",
+      "sha256": "60d6c5b71f62a3421cd7f70663efa9f07179453de2abfd9ad037e2b16e6d0eef"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_4_Nov_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5627,
+      "modified_at": "2026-06-08T14:41:00.215000Z",
+      "sha256": "5769f7016400711452fe7156fff571c166d79c7074da79377ba8a1f70ab4211e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_4_Nov_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 771191,
+      "modified_at": "2026-06-08T14:41:02.292000Z",
+      "sha256": "800780851e3c5c4d796ba8dbc19e26dccfdf271c151f574853cf8b945614ee25"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_4_Nov_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5870,
+      "modified_at": "2026-06-08T14:41:02.404000Z",
+      "sha256": "da7d7f27bd5444d441113167c2d16e76014a15a6e5b0bc2a1145473425185612"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_4_Nov_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 776468,
+      "modified_at": "2026-06-08T14:41:04.699000Z",
+      "sha256": "28096d9c165908a9b9734113b708095e44f58ede01ec10c31bbcdd37e39c6b59"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_5_Dez_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5639,
+      "modified_at": "2026-06-08T14:41:04.884000Z",
+      "sha256": "f5bd5cdfd97e2a9a5e5a6bc4d8c66535664284ccca7173978364d5b6375a1e3f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_5_Dez_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 751652,
+      "modified_at": "2026-06-08T14:41:10.429000Z",
+      "sha256": "86f3ed3c4e3b66d843859db088ecaa2f64fa53a70705bd68b5512e4867d9c913"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_5_Dez_22_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5830,
+      "modified_at": "2026-06-08T14:41:10.578000Z",
+      "sha256": "dab9e906793bf46761ac54ad0c28929bd92af6797e92be8b741ab853e36ac605"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_5_Dez_22_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 776856,
+      "modified_at": "2026-06-08T14:41:17.355000Z",
+      "sha256": "852cfa5b0358759df31301e4c39de9af83f07dcea6bbd45e2277f3efb6a77f91"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_6_Jan_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5587,
+      "modified_at": "2026-06-08T14:41:17.515000Z",
+      "sha256": "3d65216577120a7c9e5eb012174dd98c7804f4753ebca8cc53e5ed93b811a929"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_6_Jan_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 706329,
+      "modified_at": "2026-06-08T14:41:21.840000Z",
+      "sha256": "e835a26f5c6af8188705722f395952fcdac35efc0d56cec1e05f92af44f61a5b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_6_Jan_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5759,
+      "modified_at": "2026-06-08T14:41:22.098000Z",
+      "sha256": "fcbebf2ea23f31f465a2f93097b717e264a079a9069302bb7b7a02aa9fcd45de"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_6_Jan_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 743787,
+      "modified_at": "2026-06-08T14:41:25.407000Z",
+      "sha256": "d17225c706b8abfef702e6832caf3e7e4e5de34ec8ddaaa6327d672dad0c9f50"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_7_Fev_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5539,
+      "modified_at": "2026-06-08T14:41:25.536000Z",
+      "sha256": "e9508c239d3911c78dcadc59a46c20813fcba73e126e1929f854154e574ee87c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_7_Fev_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 695408,
+      "modified_at": "2026-06-08T14:41:27.890000Z",
+      "sha256": "d8aa9563701db04c9b8f542c4733cf75961ec529a79a740eb65b4e6876273560"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_7_Fev_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5663,
+      "modified_at": "2026-06-08T14:41:28.015000Z",
+      "sha256": "4f0ae3e5c35d4ad5894db9b23da83cb93c7a2387ef887c13d008c4204696107b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_7_Fev_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 727360,
+      "modified_at": "2026-06-08T14:41:30.623000Z",
+      "sha256": "3484a6f721481ab9a9542e539471ff12cac22535597f8e38f0e8e7045e610fde"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_8_Mar_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5588,
+      "modified_at": "2026-06-08T14:41:30.789000Z",
+      "sha256": "ee7dbbe8b64e6aab07817f5a9212ec733b79658c164e8d8177ad4346795b4cee"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_8_Mar_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 717436,
+      "modified_at": "2026-06-08T14:41:33.166000Z",
+      "sha256": "da7e5144dc55407708bad2834e0ad1eef84f6a9b076942481e6f0e15fb29b41e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_8_Mar_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5818,
+      "modified_at": "2026-06-08T14:41:33.271000Z",
+      "sha256": "4e7b91c278da74e9865160228d19ffea34166190de2eec4d06206272d166984a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_8_Mar_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 743511,
+      "modified_at": "2026-06-08T14:41:35.563000Z",
+      "sha256": "766c193a5471c5cc8fa7d7d16fe15d98529447f029912f7a951fa90e553afc0a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_df_abundancia_ordem_9_Abr_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5565,
+      "modified_at": "2026-06-08T14:41:35.690000Z",
+      "sha256": "4d104750005d97daad7fff7587186d0fe901428188611b445800121b032300dd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06B_grafico_abundancia_ordem_9_Abr_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 701015,
+      "modified_at": "2026-06-08T14:41:37.785000Z",
+      "sha256": "be99c4b39316fec05e1a47f6911ece9db9d22733736d4b7b2d10b5f813982aef"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_df_abundancia_relativa_ordem_9_Abr_23_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5726,
+      "modified_at": "2026-06-08T14:41:37.891000Z",
+      "sha256": "1ccf4b910c0d0ea3e25d1bf30f7a6adf90b10c8dbc58c5cc6c4e037abefa97b0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\06C_grafico_abundancia_relativa_ordem_9_Abr_23_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 751552,
+      "modified_at": "2026-06-08T14:41:40.428000Z",
+      "sha256": "7b670cc450a02fce0c85d71a76d6dd7ebdbff4047dae0f9bc3722065356ae78e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5222,
+      "modified_at": "2026-06-08T14:41:40.549000Z",
+      "sha256": "fb554b2bc1a54e0d1fad9a86407b1ce59a5010998898fbcc0b9c45f9f3d6d1c0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1554018,
+      "modified_at": "2026-06-08T14:41:42.804000Z",
+      "sha256": "cf4df67e6bfabc7af14fda76eea97f6e0fb1d81128c2696c5aed135edee1381b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1628923,
+      "modified_at": "2026-06-08T14:41:45.265000Z",
+      "sha256": "c82eba8ed334fe58cca02c46ea71bd51914ea39fb59f6151a50ec241949b3ab7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\10_df_diversidade_alfa_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 26642,
+      "modified_at": "2026-06-08T14:41:45.620000Z",
+      "sha256": "077e47c9d7547fdb2cc1a4c8c5965b8dcd5b078c489fee5d80ba5ecef8b9d64d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\10_grafico_diversidade_alfa_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 2516708,
+      "modified_at": "2026-06-08T14:41:53.048000Z",
+      "sha256": "50ce1d45fa4e21efad3cf50d418541402dcd93a213a022b92e9e7dc1f0695f59"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_df_matriz_comunidade_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10987,
+      "modified_at": "2026-06-08T14:41:53.192000Z",
+      "sha256": "a1486ca9b4d93750e8f7669915c357e041ce4e51136707153d92cf1c586d79fe"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_df_distancias_braycurtis_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6623,
+      "modified_at": "2026-06-08T14:41:53.286000Z",
+      "sha256": "b7e9e111c5826199ad40c071cf01b2dd696be94a207daea978e06089a0d1600b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_dendrograma_similaridade_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 540509,
+      "modified_at": "2026-06-08T14:41:55.129000Z",
+      "sha256": "f61942f4048b7b34b984d07a511a76c0b71affa2477a352b575b763a492bf7e1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_df_curva_suficiencia_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 39758,
+      "modified_at": "2026-06-08T14:42:01.515000Z",
+      "sha256": "28faa74d4ab189adcbb89a6fab132b7a4b0849fe81f221e1016063f224e9f382"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_curva_suficiencia_amostral_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 910052,
+      "modified_at": "2026-06-08T14:42:05.319000Z",
+      "sha256": "1669efd5af6eed23874cea9024d4abd301c9ee002c3ae1311b841e2fd391a382"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_df_bmwp_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 16067,
+      "modified_at": "2026-06-08T14:42:05.490000Z",
+      "sha256": "eee0ca7703852ab4a25a31e4cfb103be493bfc7cb26bdc9c20d4131ebb7e3b70"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\11_grafico_bmwp_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1726008,
+      "modified_at": "2026-06-08T14:42:15.919000Z",
+      "sha256": "849a796bb365e3da01f5cf09044d12e4fe286d67097fa1a2e1906c06cee3b632"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_df_ept_chol_zoobentos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 24285,
+      "modified_at": "2026-06-08T14:42:16.440000Z",
+      "sha256": "a3be947a5952b99d48de8d2a0e60b73d2f2955671af10b3d303e305499b04027"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\12_grafico_ept_chol_zoobentos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 746497,
+      "modified_at": "2026-06-08T14:42:23.427000Z",
+      "sha256": "4dfeb51eeb5a20a902dbaa4ea616ea5e6df29e9a187d777d9017da39271febcd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\2026\\DarwinCore_IEF_Zoobentos_Monitoramento_De_Ictio_E_Bentos_Brumado_Avg.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 386558,
+      "modified_at": "2026-06-08T14:42:26.425000Z",
+      "sha256": "ccb54bb48a15868d7c267da9d466a6f15c22dbb62b3ee5833d9a08492ba12cbf"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\avg_bentos_2026\\zoobentos",
+  "warnings": []
+}

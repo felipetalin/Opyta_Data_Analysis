@@ -3,7 +3,9 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
@@ -141,6 +143,19 @@ def _load_zoobentos_df(project_id: int, group: str, env_file: str | None) -> pd.
     return df
 
 
+def _apply_campaign_filter(df: pd.DataFrame, campaign_filter: list[str] | None) -> tuple[pd.DataFrame, dict]:
+    requested = [str(c).strip() for c in campaign_filter or [] if str(c).strip()]
+    if not requested or "nome_campanha" not in df.columns:
+        return df, {"requested": requested, "matched": [], "missing": []}
+
+    campaign_values = df["nome_campanha"].astype(str).str.strip()
+    available = set(campaign_values.dropna().unique().tolist())
+    matched = [campaign for campaign in requested if campaign in available]
+    missing = [campaign for campaign in requested if campaign not in available]
+    filtered = df[campaign_values.isin(requested)].copy()
+    return filtered.reset_index(drop=True), {"requested": requested, "matched": matched, "missing": missing}
+
+
 def _campaign_boundaries(campaigns: list[str]) -> list[int]:
     boundaries = [0]
     for i in range(1, len(campaigns)):
@@ -180,6 +195,45 @@ def _theme_stacked_contrast_palette(theme: dict, n: int) -> list[str]:
     return [colors[i] for i in order]
 
 
+def _campaign_short_label(campaign: str) -> str:
+    match = re.match(r"^C0*(\d+)", str(campaign).strip(), flags=re.IGNORECASE)
+    if match:
+        return f"C{int(match.group(1)):02d}"
+    return str(campaign).strip()
+
+
+def _campaign_year(campaign: str) -> int | None:
+    match = re.search(r"(20\d{2}|19\d{2})", str(campaign))
+    return int(match.group(1)) if match else None
+
+
+def _campaign_season(campaign: str) -> str:
+    text = str(campaign).upper()
+    if re.search(r"(^|[-_\s])CH($|[-_\s])", text):
+        return "CH"
+    if re.search(r"(^|[-_\s])SC($|[-_\s])", text):
+        return "SC"
+    return ""
+
+
+def _season_colors(theme: dict) -> dict[str, str]:
+    return {
+        "CH": str(theme.get("primary_hex", "#002060")),
+        "SC": str(theme.get("secondary_hex", "#5B9BD5")),
+    }
+
+
+def _mean_label(value: float, decimals: int = 1) -> str:
+    return f"Media geral ({value:.{decimals}f})"
+
+
+def _add_year_separators(ax, campaigns: list[str]) -> None:
+    years = [_campaign_year(campaign) for campaign in campaigns]
+    for i in range(1, len(years)):
+        if years[i] != years[i - 1]:
+            ax.axvline(i - 0.5, color="#D0D0D0", linewidth=0.7, linestyle="-", zorder=0)
+
+
 def _category_label(value, fallback: str = "Nao informado") -> str:
     if pd.isna(value):
         return fallback
@@ -214,7 +268,10 @@ def _ordered_points_from_df(df: pd.DataFrame) -> list[str]:
             )
             if not order.empty:
                 return order["nome_ponto"].tolist()
-    return sorted(df["nome_ponto"].dropna().astype(str).str.strip().unique().tolist())
+    return sorted(
+        df["nome_ponto"].dropna().astype(str).str.strip().unique().tolist(),
+        key=lambda value: (int(match.group(1)) if (match := re.search(r"(\d+)", str(value))) else 999999, str(value)),
+    )
 
 
 def _taxon_present(value: object) -> bool:
@@ -351,6 +408,314 @@ def _jackknife_1(pres_abs: np.ndarray) -> float:
     return float(s_obs + q1 * ((k - 1) / k))
 
 
+def _small_multiple_metric(
+    table: pd.DataFrame,
+    value_col: str,
+    ylabel: str,
+    out_png: Path,
+    theme: dict,
+    points: list[str],
+    campaigns: list[str],
+    *,
+    decimals: int = 1,
+) -> None:
+    if not points or not campaigns:
+        return
+
+    colors = _season_colors(theme)
+    ncols = min(4, max(1, len(points)))
+    nrows = int(np.ceil(len(points) / ncols))
+    base_size = theme.get("figsize_standard", [11.69, 8.27])
+    fig_width = float(base_size[0])
+    fig_height = max(float(base_size[1]), 3.0 * nrows)
+    fig, axes = plt.subplots(
+        nrows,
+        ncols,
+        figsize=(fig_width, fig_height),
+        dpi=int(theme.get("dpi", 600)),
+        sharex=True,
+        sharey=True,
+        squeeze=False,
+    )
+
+    x = np.arange(len(campaigns))
+    labels = [_campaign_short_label(c) for c in campaigns]
+    values_all = pd.to_numeric(table[value_col], errors="coerce").fillna(0)
+    overall_mean = float(values_all.mean()) if not values_all.empty else 0.0
+    ymax = max(float(values_all.max()) if not values_all.empty else 0.0, overall_mean)
+    ymax = max(ymax * 1.15, 1.0)
+
+    for ax, point in zip(axes.ravel(), points):
+        point_data = table[table["nome_ponto"] == point].set_index("nome_campanha").reindex(campaigns).reset_index()
+        values = pd.to_numeric(point_data[value_col], errors="coerce").fillna(0).to_numpy(dtype=float)
+        seasons = [_campaign_season(c) for c in campaigns]
+        ax.plot(x, values, color="#606060", linewidth=1.0, zorder=1)
+        for season in ["CH", "SC"]:
+            mask = np.array([s == season for s in seasons])
+            ax.scatter(
+                x[mask],
+                values[mask],
+                s=24,
+                color=colors[season],
+                edgecolor="black",
+                linewidth=0.4,
+                zorder=2,
+            )
+        ax.axhline(overall_mean, color="#7F7F7F", linewidth=0.9, linestyle="--", zorder=0)
+        ax.text(0.02, 0.92, point, transform=ax.transAxes, ha="left", va="top", fontweight="bold")
+        ax.set_ylim(0, ymax)
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, rotation=90)
+        _add_year_separators(ax, campaigns)
+        apply_theme(ax, theme, xlabel="", ylabel="")
+
+    for ax in axes.ravel()[len(points):]:
+        ax.axis("off")
+    for ax in axes[:, 0]:
+        ax.set_ylabel(ylabel)
+    for ax in axes[-1, :]:
+        ax.set_xlabel("Campanha")
+
+    handles = [
+        Line2D([0], [0], marker="o", color="none", markerfacecolor=colors["CH"], markeredgecolor="black", label="CH"),
+        Line2D([0], [0], marker="o", color="none", markerfacecolor=colors["SC"], markeredgecolor="black", label="SC"),
+        Line2D(
+            [0],
+            [0],
+            color="#7F7F7F",
+            linestyle="--",
+            linewidth=0.9,
+            label=_mean_label(overall_mean, decimals),
+        ),
+    ]
+    fig.legend(handles=handles, loc="upper center", ncol=3, frameon=False)
+    fig.tight_layout(rect=[0.02, 0.03, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+
+
+def _small_multiple_diversity(
+    diversity: pd.DataFrame,
+    out_png: Path,
+    theme: dict,
+    points: list[str],
+    campaigns: list[str],
+) -> None:
+    if not points or not campaigns:
+        return
+
+    primary = str(theme.get("primary_hex", "#002060"))
+    secondary = str(theme.get("secondary_hex", "#5B9BD5"))
+    plot_data = diversity[diversity["nome_ponto"].isin(points)].copy()
+    shannon_all = pd.to_numeric(plot_data["Shannon_H"], errors="coerce").fillna(0)
+    pielou_all = pd.to_numeric(plot_data["Pielou_J"], errors="coerce").fillna(0)
+    shannon_mean = float(shannon_all.mean()) if not shannon_all.empty else 0.0
+    pielou_mean = float(pielou_all.mean()) if not pielou_all.empty else 0.0
+    ymax = max(
+        float(shannon_all.max()) if not shannon_all.empty else 0.0,
+        float(pielou_all.max()) if not pielou_all.empty else 0.0,
+        shannon_mean,
+        pielou_mean,
+        1.0,
+    ) * 1.15
+
+    ncols = min(4, max(1, len(points)))
+    nrows = int(np.ceil(len(points) / ncols))
+    base_size = theme.get("figsize_standard", [11.69, 8.27])
+    fig_width = float(base_size[0])
+    fig_height = max(float(base_size[1]), 3.0 * nrows)
+    fig, axes = plt.subplots(
+        nrows,
+        ncols,
+        figsize=(fig_width, fig_height),
+        dpi=int(theme.get("dpi", 600)),
+        sharex=True,
+        sharey=True,
+        squeeze=False,
+    )
+
+    x = np.arange(len(campaigns))
+    labels = [_campaign_short_label(c) for c in campaigns]
+    for ax, point in zip(axes.ravel(), points):
+        point_data = plot_data[plot_data["nome_ponto"] == point].set_index("nome_campanha").reindex(campaigns).reset_index()
+        shannon = pd.to_numeric(point_data["Shannon_H"], errors="coerce").fillna(0).to_numpy(dtype=float)
+        pielou = pd.to_numeric(point_data["Pielou_J"], errors="coerce").fillna(0).to_numpy(dtype=float)
+        ax.plot(x, shannon, color=primary, marker="o", markersize=3, linewidth=1.1)
+        ax.plot(x, pielou, color=secondary, marker="s", markersize=3, linewidth=1.1)
+        ax.axhline(shannon_mean, color=primary, linewidth=0.8, linestyle="--", alpha=0.75)
+        ax.axhline(pielou_mean, color=secondary, linewidth=0.8, linestyle="--", alpha=0.75)
+        ax.text(0.02, 0.92, point, transform=ax.transAxes, ha="left", va="top", fontweight="bold")
+        ax.set_ylim(0, ymax)
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels, rotation=90)
+        _add_year_separators(ax, campaigns)
+        apply_theme(ax, theme, xlabel="", ylabel="")
+
+    for ax in axes.ravel()[len(points):]:
+        ax.axis("off")
+    for ax in axes[:, 0]:
+        ax.set_ylabel("Indice")
+    for ax in axes[-1, :]:
+        ax.set_xlabel("Campanha")
+
+    handles = [
+        Line2D([0], [0], marker="o", color=primary, label="Shannon"),
+        Line2D([0], [0], marker="s", color=secondary, label="Pielou"),
+        Line2D([0], [0], color=primary, linestyle="--", linewidth=0.8, label=f"Media Shannon ({shannon_mean:.2f})"),
+        Line2D([0], [0], color=secondary, linestyle="--", linewidth=0.8, label=f"Media Pielou ({pielou_mean:.2f})"),
+    ]
+    fig.legend(handles=handles, loc="upper center", ncol=4, frameon=False)
+    fig.tight_layout(rect=[0.02, 0.03, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+
+
+def _group_low_abundance_orders(df_year: pd.DataFrame, max_categories: int = 8) -> tuple[pd.DataFrame, list[str]]:
+    totals = df_year.groupby("ordem_plot")["contagem"].sum().sort_values(ascending=False)
+    top_orders = totals.head(max_categories).index.tolist()
+    has_other = len(totals) > len(top_orders)
+
+    df_grouped = df_year.copy()
+    df_grouped["ordem_plot_agrupada"] = np.where(
+        df_grouped["ordem_plot"].isin(top_orders),
+        df_grouped["ordem_plot"],
+        "Demais ordens",
+    )
+    categories = top_orders + (["Demais ordens"] if has_other else [])
+    return df_grouped, categories
+
+
+def _plot_06_year_panels(
+    df_plot_base: pd.DataFrame,
+    group: str,
+    theme: dict,
+    output_dir: Path,
+    generated_files: list[str],
+    points_order: list[str],
+    campaign_order: list[str],
+) -> dict:
+    if df_plot_base.empty or not points_order or not campaign_order:
+        return {"years": []}
+
+    group_slug = group.lower()
+    work = df_plot_base.copy()
+    work["ordem_plot"] = work.apply(
+        lambda row: _category_label_from_row(row, "ordem", ["taxon_final", "familia", "classe", "filo"]),
+        axis=1,
+    )
+    work["ano"] = work["nome_campanha"].map(_campaign_year)
+
+    absolute_rows: list[pd.DataFrame] = []
+    relative_rows: list[pd.DataFrame] = []
+    years: list[int] = []
+    base_size = theme.get("figsize_standard", [11.69, 8.27])
+
+    for year in sorted(work["ano"].dropna().astype(int).unique().tolist()):
+        year_campaigns = [campaign for campaign in campaign_order if _campaign_year(campaign) == year]
+        if not year_campaigns:
+            continue
+        years.append(int(year))
+
+        df_year = work[work["nome_campanha"].isin(year_campaigns)].copy()
+        df_year, categories = _group_low_abundance_orders(df_year)
+        palette = _theme_stacked_contrast_palette(theme, len(categories))
+        color_map = {category: palette[i] for i, category in enumerate(categories)}
+
+        grouped = (
+            df_year.groupby(["nome_campanha", "nome_ponto", "ordem_plot_agrupada"], as_index=False)["contagem"]
+            .sum()
+            .rename(columns={"ordem_plot_agrupada": "ordem"})
+        )
+
+        abs_tables: dict[str, pd.DataFrame] = {}
+        rel_tables: dict[str, pd.DataFrame] = {}
+        max_total = 0.0
+        for campaign in year_campaigns:
+            pivot = (
+                grouped[grouped["nome_campanha"] == campaign]
+                .pivot_table(index="nome_ponto", columns="ordem", values="contagem", aggfunc="sum", fill_value=0)
+                .reindex(index=points_order, columns=categories, fill_value=0)
+            )
+            abs_tables[campaign] = pivot
+            max_total = max(max_total, float(pivot.sum(axis=1).max()))
+            rel_tables[campaign] = pivot.div(pivot.sum(axis=1).replace(0, np.nan), axis=0).fillna(0) * 100
+
+            abs_export = pivot.reset_index().melt(id_vars="nome_ponto", var_name="ordem", value_name="abundancia")
+            abs_export.insert(0, "nome_campanha", campaign)
+            abs_export.insert(0, "ano", year)
+            absolute_rows.append(abs_export)
+
+            rel_export = rel_tables[campaign].reset_index().melt(
+                id_vars="nome_ponto",
+                var_name="ordem",
+                value_name="abundancia_relativa_pct",
+            )
+            rel_export.insert(0, "nome_campanha", campaign)
+            rel_export.insert(0, "ano", year)
+            relative_rows.append(rel_export)
+
+        for suffix, tables, ylabel, relative in [
+            ("06B_grafico_abundancia_ordem_por_ano", abs_tables, "Abundancia", False),
+            ("06C_grafico_abundancia_relativa_ordem_por_ano", rel_tables, "Abundancia relativa (%)", True),
+        ]:
+            fig, axes = plt.subplots(
+                2,
+                2,
+                figsize=(float(base_size[0]), float(base_size[1])),
+                dpi=int(theme.get("dpi", 600)),
+                sharey=True,
+            )
+            for ax, campaign in zip(axes.ravel(), year_campaigns):
+                pivot = tables[campaign]
+                x = np.arange(len(points_order))
+                bottom = np.zeros(len(points_order))
+                for category in categories:
+                    values = pivot[category].to_numpy(dtype=float)
+                    ax.bar(
+                        x,
+                        values,
+                        bottom=bottom,
+                        color=color_map[category],
+                        edgecolor="black",
+                        linewidth=0.45,
+                        width=0.72,
+                    )
+                    bottom += values
+                ax.text(0.02, 0.92, _campaign_short_label(campaign), transform=ax.transAxes, ha="left", va="top", fontweight="bold")
+                ax.set_xticks(x)
+                ax.set_xticklabels(points_order, rotation=0)
+                ax.set_ylim(0, 100 if relative else max(max_total * 1.12, 1.0))
+                apply_theme(ax, theme, xlabel="", ylabel="")
+
+            for ax in axes[:, 0]:
+                ax.set_ylabel(ylabel)
+            for ax in axes[-1, :]:
+                ax.set_xlabel("Ponto amostral")
+            for ax in axes.ravel()[len(year_campaigns):]:
+                ax.axis("off")
+
+            handles = [Patch(facecolor=color_map[category], edgecolor="black", label=category) for category in categories]
+            fig.legend(handles=handles, loc="upper center", ncol=min(4, max(1, len(categories))), frameon=False)
+            fig.tight_layout(rect=[0.02, 0.03, 1.0, 0.90])
+            out_png = output_dir / f"{suffix}_{year}_{group_slug}.png"
+            fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+            plt.close(fig)
+            generated_files.append(str(out_png))
+
+    absolute = pd.concat(absolute_rows, ignore_index=True) if absolute_rows else pd.DataFrame()
+    relative = pd.concat(relative_rows, ignore_index=True) if relative_rows else pd.DataFrame()
+    if not absolute.empty:
+        out_abs = output_dir / f"06B_df_abundancia_ordem_por_ano_{group_slug}.xlsx"
+        absolute.to_excel(out_abs, index=False, engine="openpyxl")
+        generated_files.append(str(out_abs))
+    if not relative.empty:
+        out_rel = output_dir / f"06C_df_abundancia_relativa_ordem_por_ano_{group_slug}.xlsx"
+        relative.to_excel(out_rel, index=False, engine="openpyxl")
+        generated_files.append(str(out_rel))
+
+    return {"years": years}
+
+
 def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
     points_order = _ordered_points_from_df(df)
     campaign_order = sorted(df["nome_campanha"].dropna().unique().tolist())
@@ -410,121 +775,18 @@ def _run_block_6(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     plt.close(fig)
     generated_files.append(str(png_06a))
 
-    tax_col = "ordem"
-    tax_label = "Ordem/taxon"
     df_plot_base = _nonzero_taxon_rows(df)
-    df_plot_base[tax_col] = df_plot_base.apply(
-        lambda row: _category_label_from_row(row, tax_col, ["taxon_final", "familia", "classe", "filo"]),
-        axis=1,
+    year_result = _plot_06_year_panels(
+        df_plot_base=df_plot_base,
+        group=group,
+        theme=theme,
+        output_dir=output_dir,
+        generated_files=generated_files,
+        points_order=points_order,
+        campaign_order=campaign_order,
     )
-    tax_categories = sorted(df_plot_base[tax_col].unique().tolist())
-    tax_colors = _theme_stacked_contrast_palette(theme, len(tax_categories))
-    color_map = {cat: tax_colors[i] for i, cat in enumerate(tax_categories)}
 
-    for campaign in campaign_order:
-        df_c = df_plot_base[df_plot_base["nome_campanha"] == campaign].copy()
-        if df_c.empty:
-            pivot = pd.DataFrame(index=points_order)
-        else:
-            pivot = (
-                df_c.pivot_table(
-                    index="nome_ponto",
-                    columns=tax_col,
-                    values="contagem",
-                    aggfunc="sum",
-                    fill_value=0,
-                )
-                .reindex(points_order)
-                .fillna(0)
-            )
-        ordered_cols = sorted(pivot.columns.astype(str).tolist())
-        pivot = pivot[ordered_cols]
-        campaign_safe = _safe_name(campaign)
-
-        xlsx_06b = output_dir / f"06B_df_abundancia_ordem_{campaign_safe}_{group.lower()}.xlsx"
-        pivot.reset_index().to_excel(xlsx_06b, index=False, engine="openpyxl")
-        generated_files.append(str(xlsx_06b))
-
-        size_06b = get_figsize_by_complexity(theme, n_categories=len(pivot.index), prefer_landscape=True)
-        fig, ax = plt.subplots(figsize=(size_06b[0], size_06b[1]), dpi=int(theme.get("dpi", 600)))
-        x = np.arange(len(pivot.index))
-        bottom = np.zeros(len(pivot.index))
-        for klass in ordered_cols:
-            values = pivot[klass].values
-            ax.bar(
-                x,
-                values,
-                bottom=bottom,
-                label=klass,
-                color=color_map.get(klass, str(theme.get("primary_hex", "#11420C"))),
-                edgecolor="black",
-                linewidth=0.7,
-            )
-            bottom += values
-
-        ax.set_xticks(x)
-        ax.set_xticklabels(pivot.index.astype(str), ha="center")
-        apply_theme(
-            ax,
-            theme,
-            xlabel="Ponto amostral",
-            ylabel=f"Abundancia por {tax_label.lower()}",
-            x_tick_rotation=0 if _point_area_meta(df) else 45,
-        )
-        area_drawn = _draw_area_groups(ax, pivot.index.astype(str).tolist(), df, theme, y=-0.16)
-        place_legend_below_x_axis(fig, ax, theme, ncol=min(len(ordered_cols), int(theme.get("legend_max_cols", 5))))
-        validate_axes_style(ax, theme)
-        fig.tight_layout(rect=(0, 0.08 if area_drawn else 0.02, 1, 0.84))
-
-        png_06b = output_dir / f"06B_grafico_abundancia_ordem_{campaign_safe}_{group.lower()}.png"
-        fig.savefig(png_06b, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
-        plt.close(fig)
-        generated_files.append(str(png_06b))
-
-        pivot_pct = pivot.div(pivot.sum(axis=1).replace(0, np.nan), axis=0) * 100
-        pivot_pct = pivot_pct.fillna(0)
-        xlsx_06c = output_dir / f"06C_df_abundancia_relativa_ordem_{campaign_safe}_{group.lower()}.xlsx"
-        pivot_pct.reset_index().to_excel(xlsx_06c, index=False, engine="openpyxl")
-        generated_files.append(str(xlsx_06c))
-
-        size_06c = get_figsize_by_complexity(theme, n_categories=len(pivot_pct.index), prefer_landscape=True)
-        fig, ax = plt.subplots(figsize=(size_06c[0], size_06c[1]), dpi=int(theme.get("dpi", 600)))
-        x = np.arange(len(pivot_pct.index))
-        bottom = np.zeros(len(pivot_pct.index))
-        for klass in ordered_cols:
-            values = pivot_pct[klass].values
-            ax.bar(
-                x,
-                values,
-                bottom=bottom,
-                label=klass,
-                color=color_map.get(klass, str(theme.get("primary_hex", "#11420C"))),
-                edgecolor="black",
-                linewidth=0.7,
-            )
-            bottom += values
-
-        ax.set_xticks(x)
-        ax.set_xticklabels(pivot_pct.index.astype(str), ha="center")
-        ax.set_ylim(0, 100)
-        apply_theme(
-            ax,
-            theme,
-            xlabel="Ponto amostral",
-            ylabel=f"Abundancia relativa por {tax_label.lower()} (%)",
-            x_tick_rotation=0 if _point_area_meta(df) else 45,
-        )
-        area_drawn = _draw_area_groups(ax, pivot_pct.index.astype(str).tolist(), df, theme, y=-0.16)
-        place_legend_below_x_axis(fig, ax, theme, ncol=min(len(ordered_cols), int(theme.get("legend_max_cols", 5))))
-        validate_axes_style(ax, theme)
-        fig.tight_layout(rect=(0, 0.08 if area_drawn else 0.02, 1, 0.84))
-
-        png_06c = output_dir / f"06C_grafico_abundancia_relativa_ordem_{campaign_safe}_{group.lower()}.png"
-        fig.savefig(png_06c, dpi=int(theme.get("dpi", 300)), bbox_inches="tight")
-        plt.close(fig)
-        generated_files.append(str(png_06c))
-
-    return {"campaigns": campaign_order}
+    return {"campaigns": campaign_order, **year_result}
 
 
 def _run_block_3(df: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
@@ -652,7 +914,7 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
 
     campaigns = sorted(richness["nome_campanha"].dropna().unique().tolist())
     points = _ordered_points_from_df(df)
-    if "ordem_ponto" in df.columns and campaigns and points:
+    if campaigns and points:
         full_index = pd.MultiIndex.from_product([campaigns, points], names=["nome_campanha", "nome_ponto"])
         richness = (
             richness.set_index(["nome_campanha", "nome_ponto"])
@@ -667,61 +929,50 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     richness.to_excel(out_df, index=False, engine="openpyxl")
     generated_files.append(str(out_df))
 
-    color_list = _theme_palette(theme, len(campaigns))
-    color_map = {c: color_list[i] for i, c in enumerate(campaigns)}
-
-    pivot = (
-        richness.pivot_table(index="nome_ponto", columns="nome_campanha", values="riqueza", aggfunc="sum", fill_value=0)
-        .reindex(index=points, columns=campaigns, fill_value=0)
-    )
-
-    size_5 = get_figsize_by_complexity(theme, n_categories=len(points), prefer_landscape=True)
-    fig, ax = plt.subplots(figsize=size_5, dpi=int(theme.get("dpi", 600)))
-    x = np.arange(len(points))
-    n = max(len(campaigns), 1)
-    width = 0.8 / n
-    for i, c in enumerate(campaigns):
-        vals = pivot[c].values
-        colors = _point_area_colors(points, df, theme) if len(campaigns) == 1 else None
-        bars = ax.bar(
-            x + (i - (n - 1) / 2) * width,
-            vals,
-            width=width,
-            label=c,
-            color=colors or color_map[c],
-            edgecolor="black",
-            linewidth=0.8,
-        )
-        for bar, value in zip(bars, vals):
-            y_top = ax.get_ylim()[1]
-            y_value = float(value)
-            ax.text(
-                bar.get_x() + bar.get_width() / 2,
-                y_value if y_value > 0 else y_top * 0.025,
-                f"{int(value)}",
-                ha="center",
-                va="bottom",
-                fontsize=_font_annotation(theme),
-                color="black" if y_value > 0 else "#666666",
-            )
-
-    ax.set_xticks(x)
-    ax.set_xticklabels(points, ha="right")
-    apply_theme(
-        ax,
-        theme,
-        xlabel="Ponto amostral",
-        ylabel="Riqueza",
-        x_tick_rotation=0 if _point_area_meta(df) else 45,
-    )
-    area_drawn = _draw_area_groups(ax, points, df, theme, y=-0.13)
-    validate_axes_style(ax, theme)
-    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.10 if area_drawn else 0.02))
-
     out_png = output_dir / f"02_grafico_riqueza_por_ponto_{group.lower()}.png"
-    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
-    plt.close(fig)
+    _small_multiple_metric(
+        table=richness,
+        value_col="riqueza",
+        ylabel="Riqueza",
+        out_png=out_png,
+        theme=theme,
+        points=points,
+        campaigns=campaigns,
+        decimals=1,
+    )
     generated_files.append(str(out_png))
+
+    abundance = (
+        df.groupby(["nome_campanha", "nome_ponto"], dropna=False)["contagem"]
+        .sum()
+        .reset_index()
+        .rename(columns={"contagem": "abundancia_total"})
+    )
+    abundance["nome_campanha"] = abundance["nome_campanha"].astype(str).str.strip()
+    abundance["nome_ponto"] = abundance["nome_ponto"].astype(str).str.strip()
+    if campaigns and points:
+        full_index = pd.MultiIndex.from_product([campaigns, points], names=["nome_campanha", "nome_ponto"])
+        abundance = (
+            abundance.set_index(["nome_campanha", "nome_ponto"])
+            .reindex(full_index, fill_value=0)
+            .reset_index()
+        )
+    out_abundance_df = output_dir / f"03_df_abundancia_por_ponto_{group.lower()}.xlsx"
+    abundance.to_excel(out_abundance_df, index=False, engine="openpyxl")
+    generated_files.append(str(out_abundance_df))
+
+    out_abundance_png = output_dir / f"03_grafico_abundancia_por_ponto_{group.lower()}.png"
+    _small_multiple_metric(
+        table=abundance,
+        value_col="abundancia_total",
+        ylabel="Abundancia total",
+        out_png=out_abundance_png,
+        theme=theme,
+        points=points,
+        campaigns=campaigns,
+        decimals=1,
+    )
+    generated_files.append(str(out_abundance_png))
     return {"campaigns": campaigns}
 
 
@@ -949,60 +1200,14 @@ def _run_block_8(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     df_div.to_excel(xlsx_10, index=False, engine="openpyxl")
     generated_files.append(str(xlsx_10))
 
-    labels = df_div["nome_ponto"].tolist()
-    shannon_vals = df_div["Shannon_H"].tolist()
-    pielou_vals = df_div["Pielou_J"].tolist()
-    x = np.arange(len(labels))
-
-    size_8 = get_figsize_by_complexity(theme, n_categories=len(labels), prefer_landscape=True)
-    fig, ax1 = plt.subplots(figsize=(size_8[0], size_8[1]), dpi=int(theme.get("dpi", 600)))
-    ax1.bar(
-        x,
-        shannon_vals,
-        color=str(theme.get("primary_hex", "#11420C")),
-        edgecolor="black",
-        linewidth=1.0,
-        label="Diversidade (H')",
-    )
-    ax1.set_xticks(x)
-    ax1.set_xticklabels(labels, ha="right")
-    apply_theme(
-        ax1,
-        theme,
-        xlabel="Ponto amostral",
-        ylabel="Shannon (H')",
-        x_tick_rotation=45,
-    )
-
-    ax2 = ax1.twinx()
-    ax2.plot(
-        x,
-        pielou_vals,
-        marker="o",
-        linestyle="None",
-        color=str(theme.get("secondary_hex", "#6A8F63")),
-        markersize=6,
-        label="Equitabilidade (J')",
-    )
-    ax2.set_ylabel("Pielou (J')")
-    ax2.set_ylim(0, 1.1)
-
-    if campaign_order:
-        split_n = 0
-        for campaign in campaign_order[:-1]:
-            split_n += df_div[df_div["nome_campanha"] == campaign].shape[0]
-            if 0 < split_n < len(x):
-                ax1.axvline(x=split_n - 0.5, color="#888888", linestyle="--", linewidth=1.5)
-
-    h1, l1 = ax1.get_legend_handles_labels()
-    h2, l2 = ax2.get_legend_handles_labels()
-    place_legend_below_x_axis(fig, ax1, theme, handles=h1 + h2, labels=l1 + l2)
-    validate_axes_style(ax1, theme)
-    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.06))
-
     png_10 = output_dir / f"10_grafico_diversidade_alfa_{group.lower()}.png"
-    fig.savefig(png_10, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
-    plt.close(fig)
+    _small_multiple_diversity(
+        diversity=df_div,
+        out_png=png_10,
+        theme=theme,
+        points=points_order,
+        campaigns=campaign_order,
+    )
     generated_files.append(str(png_10))
 
     return {"campaigns": campaign_order}
@@ -1153,6 +1358,68 @@ def _run_block_11(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
             label: theme_colors[i]
             for i, label in enumerate(legend_order)
         }
+
+    dense_threshold = int(theme.get("dense_indicator_heatmap_threshold", 80))
+    if len(bmwp_scores) > dense_threshold and campaign_order and points_order:
+        score_mat = (
+            bmwp_scores.pivot_table(
+                index="nome_campanha",
+                columns="nome_ponto",
+                values="bmwp_score",
+                aggfunc="sum",
+                fill_value=0,
+                observed=False,
+            )
+            .reindex(index=campaign_order, columns=points_order, fill_value=0)
+        )
+        class_mat = score_mat.applymap(_classify_bmwp)
+        class_index = {label: i for i, label in enumerate(legend_order)}
+        color_values = class_mat.replace(class_index).to_numpy(dtype=float)
+
+        cmap = mcolors.ListedColormap([colors_map[label] for label in legend_order])
+        norm = mcolors.BoundaryNorm(np.arange(len(legend_order) + 1) - 0.5, cmap.N)
+
+        fig, ax = plt.subplots(figsize=get_figsize(theme, "wide"), dpi=int(theme.get("dpi", 600)))
+        ax.imshow(color_values, cmap=cmap, norm=norm, aspect="auto")
+        ax.set_xticks(np.arange(len(points_order)))
+        ax.set_xticklabels(points_order, rotation=0)
+        ax.set_yticks(np.arange(len(campaign_order)))
+        ax.set_yticklabels(campaign_order)
+        apply_theme(ax, theme, xlabel="Ponto amostral", ylabel="Campanha")
+        ax.grid(False)
+        ax.set_xticks(np.arange(-0.5, len(points_order), 1), minor=True)
+        ax.set_yticks(np.arange(-0.5, len(campaign_order), 1), minor=True)
+        ax.grid(which="minor", color="white", linestyle="-", linewidth=1.0)
+        ax.tick_params(which="minor", bottom=False, left=False)
+
+        for y, campaign in enumerate(campaign_order):
+            for x, point in enumerate(points_order):
+                value = float(score_mat.loc[campaign, point])
+                label = class_mat.loc[campaign, point]
+                face = colors_map.get(label, "#cccccc")
+                r, g, b = mcolors.to_rgb(face)
+                luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+                ax.text(
+                    x,
+                    y,
+                    f"{value:.0f}",
+                    ha="center",
+                    va="center",
+                    fontsize=_font_annotation(theme),
+                    color="white" if luminance < 0.45 else "black",
+                )
+
+        handles = [Patch(facecolor=colors_map[k], edgecolor="black", label=k) for k in legend_order]
+        place_legend_below_x_axis(fig, ax, theme, handles=handles, labels=legend_order, ncol=len(legend_order))
+        validate_axes_style(ax, {**theme, "grid_y": False, "grid_x": False})
+        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.02))
+
+        png_11 = output_dir / f"11_grafico_bmwp_{group.lower()}.png"
+        fig.savefig(png_11, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+        plt.close(fig)
+        generated_files.append(str(png_11))
+        return {"campaigns": campaign_order, "visual_layout": "heatmap"}
+
     fig, ax = plt.subplots(figsize=get_figsize(theme, "wide"), dpi=int(theme.get("dpi", 600)))
     x = np.arange(len(bmwp_scores))
     bar_colors = [colors_map.get(v, "#cccccc") for v in bmwp_scores["classificacao"]]
@@ -1197,20 +1464,29 @@ def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
     points_order = _ordered_points_from_df(df)
     point_rank = {point: i for i, point in enumerate(points_order)}
     ordens_ept = {"ephemeroptera", "plecoptera", "trichoptera"}
-    familias_chol = {"chironomidae"}
+    familias_chironomidae = {"chironomidae"}
+    oligochaeta_terms = {"oligochaeta", "oligoqueta"}
 
     df_ept = df.copy()
-    df_ept["ordem"] = df_ept["ordem"].astype(str).str.strip().str.lower()
-    df_ept["familia"] = df_ept["familia"].astype(str).str.strip().str.lower()
+    for col in ["classe", "ordem", "familia", "nome_cientifico", "taxon_final"]:
+        if col not in df_ept.columns:
+            df_ept[col] = ""
+        df_ept[col] = df_ept[col].astype(str).str.strip().str.lower()
     df_ept["eh_ept"] = df_ept["ordem"].isin(ordens_ept)
-    df_ept["eh_chol"] = df_ept["familia"].isin(familias_chol)
+    df_ept["eh_chironomidae"] = df_ept["familia"].isin(familias_chironomidae)
+    df_ept["eh_oligochaeta"] = df_ept[["classe", "ordem", "familia", "nome_cientifico", "taxon_final"]].isin(
+        oligochaeta_terms
+    ).any(axis=1)
+    df_ept["eh_chol"] = df_ept["eh_chironomidae"] | df_ept["eh_oligochaeta"]
 
     grp = df_ept.groupby(["nome_campanha", "nome_ponto"])
     total = grp["contagem"].sum().rename("total")
     ept_ab = grp.apply(lambda d: d.loc[d["eh_ept"], "contagem"].sum()).rename("ept")
+    chir_ab = grp.apply(lambda d: d.loc[d["eh_chironomidae"], "contagem"].sum()).rename("chironomidae")
+    oligo_ab = grp.apply(lambda d: d.loc[d["eh_oligochaeta"], "contagem"].sum()).rename("oligochaeta")
     chol_ab = grp.apply(lambda d: d.loc[d["eh_chol"], "contagem"].sum()).rename("chol")
 
-    df_index = pd.concat([total, ept_ab, chol_ab], axis=1).reset_index()
+    df_index = pd.concat([total, ept_ab, chir_ab, oligo_ab, chol_ab], axis=1).reset_index()
     campaign_order = sorted(df_index["nome_campanha"].dropna().unique().tolist())
     if points_order and campaign_order:
         full_index = pd.MultiIndex.from_product([campaign_order, points_order], names=["nome_campanha", "nome_ponto"])
@@ -1230,10 +1506,82 @@ def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
     df_index.to_excel(xlsx_12, index=False, engine="openpyxl")
     generated_files.append(str(xlsx_12))
 
-    # Figura 12 (indice composto APT): representacao obrigatoria em barra empilhada.
-    apt_colors = _theme_palette(theme, 2)
-    ept_color = apt_colors[0]
-    chol_color = apt_colors[1]
+    # Figura 12: EPT em azul (indicador positivo) e CHOL em vermelho (pressao organica).
+    ept_color = str(theme.get("ept_good_hex", "#1F77B4"))
+    chol_color = str(theme.get("chol_bad_hex", theme.get("chironomidae_bad_hex", "#C00000")))
+
+    dense_threshold = int(theme.get("dense_indicator_heatmap_threshold", 80))
+    if len(df_index) > dense_threshold and campaign_order and points_order:
+        ept_mat = (
+            df_index.pivot_table(
+                index="nome_campanha",
+                columns="nome_ponto",
+                values="pct_ept",
+                aggfunc="sum",
+                fill_value=0,
+                observed=False,
+            )
+            .reindex(index=campaign_order, columns=points_order, fill_value=0)
+        )
+        chol_mat = (
+            df_index.pivot_table(
+                index="nome_campanha",
+                columns="nome_ponto",
+                values="pct_chol",
+                aggfunc="sum",
+                fill_value=0,
+                observed=False,
+            )
+            .reindex(index=campaign_order, columns=points_order, fill_value=0)
+        )
+
+        cmap_ept = mcolors.LinearSegmentedColormap.from_list("ept_heatmap", ["#ffffff", ept_color])
+        cmap_chol = mcolors.LinearSegmentedColormap.from_list("chol_heatmap", ["#ffffff", chol_color])
+        fig, axes = plt.subplots(2, 1, figsize=get_figsize(theme, "wide"), dpi=int(theme.get("dpi", 600)), sharex=True)
+        for ax, mat, cmap, label in [
+            (axes[0], ept_mat, cmap_ept, "%EPT"),
+            (axes[1], chol_mat, cmap_chol, "%CHOL"),
+        ]:
+            im = ax.imshow(mat.to_numpy(dtype=float), cmap=cmap, vmin=0, vmax=100, aspect="auto")
+            ax.set_yticks(np.arange(len(campaign_order)))
+            ax.set_yticklabels(campaign_order)
+            ax.set_xticks(np.arange(len(points_order)))
+            ax.set_xticklabels(points_order, rotation=0)
+            apply_theme(ax, theme, xlabel="", ylabel=label)
+            ax.grid(False)
+            ax.set_xticks(np.arange(-0.5, len(points_order), 1), minor=True)
+            ax.set_yticks(np.arange(-0.5, len(campaign_order), 1), minor=True)
+            ax.grid(which="minor", color="#D9D9D9", linestyle="-", linewidth=0.7)
+            ax.tick_params(which="minor", bottom=False, left=False)
+
+            values = mat.to_numpy(dtype=float)
+            for y in range(values.shape[0]):
+                for x in range(values.shape[1]):
+                    value = float(values[y, x])
+                    if abs(value) < 1e-12:
+                        continue
+                    ax.text(
+                        x,
+                        y,
+                        f"{value:.0f}",
+                        ha="center",
+                        va="center",
+                        fontsize=_font_annotation(theme),
+                        color="white" if value >= 65 else "black",
+                    )
+            cbar = fig.colorbar(im, ax=ax, fraction=0.025, pad=0.01)
+            cbar.set_label(label)
+
+        axes[-1].set_xlabel("Ponto amostral")
+        validate_axes_style(axes[0], {**theme, "grid_y": False, "grid_x": False})
+        validate_axes_style(axes[1], {**theme, "grid_y": False, "grid_x": False})
+        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.02))
+
+        png_12 = output_dir / f"12_grafico_ept_chol_{group.lower()}.png"
+        fig.savefig(png_12, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+        plt.close(fig)
+        generated_files.append(str(png_12))
+        return {"campaigns": campaign_order, "visual_layout": "heatmap"}
 
     fig, ax = plt.subplots(figsize=get_figsize(theme, "wide"), dpi=int(theme.get("dpi", 600)))
     x = np.arange(len(df_index))
@@ -1252,7 +1600,7 @@ def _run_block_12(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, g
         df_index["pct_chol"].values,
         bottom=df_index["pct_ept"].values,
         width=width,
-        label="%Chironomidae",
+        label="%CHOL",
         color=chol_color,
         edgecolor="black",
         linewidth=0.8,
@@ -1305,14 +1653,16 @@ def run_zoobentos_pipeline(
     output_dir: Path,
     env_file: str | None,
     block: str = "all",
+    campaign_filter: list[str] | None = None,
 ) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     if block not in {"all", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"}:
         raise ValueError("Supported block values for zoobentos: all, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13")
 
     df = _load_zoobentos_df(project_id=project_id, group=group, env_file=env_file)
+    df, campaign_filter_details = _apply_campaign_filter(df, campaign_filter)
     if df.empty:
-        raise RuntimeError("No rows loaded from Supabase for the selected project/group")
+        raise RuntimeError("No rows loaded from Supabase for the selected project/group/campaign filter")
 
     generated_files: list[str] = []
 
@@ -1369,6 +1719,7 @@ def run_zoobentos_pipeline(
         "rows_loaded": rows_loaded,
         "campaigns": campaign_order,
         "points": points_order,
+        "campaign_filter": campaign_filter_details,
         "executed_blocks": executed_blocks,
         "generated_files": generated_files,
     }

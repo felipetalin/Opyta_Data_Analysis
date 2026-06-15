@@ -1,5 +1,9 @@
 # Registro de script inserido no sistema
 
+> Registro historico. O indice operacional atual fica em
+> `scripts/SCRIPT_CATALOG.md`. Novos scripts devem ser registrados primeiro no
+> catalogo e, quando forem padroes reutilizaveis, tambem em `docs/patterns/`.
+
 - Script: scripts/validar_migracao_ictiofauna.py
 - Descricao: Validador CLI reutilizavel para pre-migracao de workbooks de Ictiofauna, integrando validadores oficiais de `Opyta_Data`, checagens complementares de pontos, esforcos, resultados, especies e premissas de contagem.
 - Data de registro: 2026-06-02
