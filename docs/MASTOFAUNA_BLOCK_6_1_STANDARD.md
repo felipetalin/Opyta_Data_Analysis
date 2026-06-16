@@ -232,7 +232,7 @@ G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\
 
 **Metadata de Execução:**
 ```
-outputs\_project_scripts\project_165\mastofauna\
+outputs\_project_scripts\ITAGUA001__monitoramento_da_fauna\mastofauna\
   20260513T173906Z_execution_metadata.json
   20260513T173906Z_run_this_analysis.py (reproducer)
 ```

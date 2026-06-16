@@ -90,9 +90,25 @@ def normalized_stem(path: Path) -> str:
 def collect_report(root: Path) -> dict[str, object]:
     scripts_dir = root / "scripts"
     configs_projects = root / "configs" / "projects"
+    docs_dir = root / "docs"
+    control_center_dir = docs_dir / "control_center"
+    registry_dir = docs_dir / "registry"
     docs_projects = root / "docs" / "projects"
     outputs_projects = root / "outputs" / "_project_scripts"
     catalog_path = scripts_dir / "SCRIPT_CATALOG.md"
+    required_docs = [
+        docs_dir / "README.md",
+        control_center_dir / "README.md",
+        control_center_dir / "PROJECTS.md",
+        control_center_dir / "PORTFOLIO.md",
+        control_center_dir / "LEARNING_SYSTEM.md",
+        control_center_dir / "NAMING_STANDARD.md",
+    ]
+    registry_files = [
+        registry_dir / "project_registry.json",
+        registry_dir / "pattern_registry.json",
+        registry_dir / "portfolio_registry.json",
+    ]
 
     all_script_files = files_under(scripts_dir, {".py", ".ps1", ".sql"})
     python_files = [path for path in all_script_files if path.suffix.lower() == ".py"]
@@ -120,6 +136,41 @@ def collect_report(root: Path) -> dict[str, object]:
 
     if not catalog_path.exists():
         findings.append(Finding("error", "missing_catalog", "scripts/SCRIPT_CATALOG.md not found."))
+
+    for path in required_docs:
+        if not path.exists():
+            findings.append(
+                Finding(
+                    "warning",
+                    "missing_control_center_doc",
+                    "Required Knowledge Hub/Control Center document is missing.",
+                    rel(path, root),
+                )
+            )
+
+    loaded_registries: dict[str, dict] = {}
+    for path in registry_files:
+        if not path.exists():
+            findings.append(
+                Finding(
+                    "warning",
+                    "missing_registry",
+                    "Required registry JSON is missing.",
+                    rel(path, root),
+                )
+            )
+            continue
+        try:
+            loaded_registries[path.name] = json.loads(read_text(path))
+        except json.JSONDecodeError as exc:
+            findings.append(
+                Finding(
+                    "error",
+                    "invalid_registry_json",
+                    f"Registry is not valid JSON: {exc}",
+                    rel(path, root),
+                )
+            )
 
     for path in root_regular:
         findings.append(
@@ -171,7 +222,7 @@ def collect_report(root: Path) -> dict[str, object]:
 
     for recipe in recipes:
         try:
-            json.loads(read_text(recipe))
+            recipe_data = json.loads(read_text(recipe))
         except json.JSONDecodeError as exc:
             findings.append(
                 Finding(
@@ -181,6 +232,45 @@ def collect_report(root: Path) -> dict[str, object]:
                     rel(recipe, root),
                 )
             )
+            continue
+        if not recipe_data.get("canonical_key"):
+            findings.append(
+                Finding(
+                    "warning",
+                    "recipe_without_canonical_key",
+                    "Project recipe should declare canonical_key based on Supabase code and name.",
+                    rel(recipe, root),
+                )
+            )
+
+    project_registry = loaded_registries.get("project_registry.json", {})
+    registered_project_paths = set()
+    for item in project_registry.get("projects", []):
+        for field in ("recipes", "docs", "scripts", "audit"):
+            for value in item.get(field, []) or []:
+                registered_project_paths.add(str(value).replace("\\", "/"))
+                path = root / value
+                if not path.exists():
+                    findings.append(
+                        Finding(
+                            "info",
+                            "registered_path_missing",
+                            f"Registered {field} path does not exist yet.",
+                            str(value),
+                        )
+                    )
+
+    for recipe in recipes:
+        recipe_rel = rel(recipe, root)
+        if recipe_rel not in registered_project_paths:
+            findings.append(
+                Finding(
+                    "warning",
+                    "recipe_not_in_project_registry",
+                    "Project recipe is not listed in project_registry.json.",
+                    recipe_rel,
+                )
+            )
 
     summary = {
         "projects": {
@@ -188,6 +278,13 @@ def collect_report(root: Path) -> dict[str, object]:
             "project_docs": len(project_docs),
             "script_project_dirs": len(project_script_dirs),
             "output_project_dirs": len(output_project_dirs),
+            "registry_projects": len(project_registry.get("projects", [])),
+        },
+        "knowledge_hub": {
+            "control_center_docs": len(files_under(control_center_dir, {".md"})),
+            "registry_files": len([path for path in registry_files if path.exists()]),
+            "template_files": len(files_under(docs_dir / "templates", {".md"})),
+            "pattern_docs": len(files_under(docs_dir / "patterns", {".md"})),
         },
         "scripts": {
             "total_py_ps1_sql": len(all_script_files),
@@ -232,6 +329,11 @@ def print_human(report: dict[str, object]) -> None:
     print("")
     print("Projects")
     for key, value in projects.items():
+        print(f"- {key}: {value}")
+
+    print("")
+    print("Knowledge hub")
+    for key, value in report["knowledge_hub"].items():
         print(f"- {key}: {value}")
 
     print("")

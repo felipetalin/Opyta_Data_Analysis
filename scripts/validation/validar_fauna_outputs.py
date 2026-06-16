@@ -31,7 +31,7 @@ def parse_args() -> argparse.Namespace:
         "--project",
         type=str,
         default=None,
-        help="Optional project audit folder name, for example sam_metais or project_62.",
+        help="Optional project audit folder name, for example FERSAM001__sam_metais_diagnostico.",
     )
     parser.add_argument(
         "--output",

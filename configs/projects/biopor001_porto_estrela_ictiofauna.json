@@ -1,0 +1,47 @@
+{
+  "project_code": "BIOPOR001",
+  "project_id": 186,
+  "project_name": "Monitoramento da ictiofauna da UHE Porto Estrela",
+  "canonical_key": "BIOPOR001__monitoramento_da_ictiofauna_da_uhe_porto_estrela",
+  "supabase_source": {
+    "table": "projetos",
+    "id_field": "id_projeto",
+    "code_field": "codigo_interno_opyta",
+    "name_field": "nome_projeto"
+  },
+  "analysis_name": "Indexacao do lastro externo de entrega de ictiofauna",
+  "client_config": null,
+  "audit_project_slug": "BIOPOR001__monitoramento_da_ictiofauna_da_uhe_porto_estrela",
+  "external_output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Bios/Porto Estrela/Planilha/Resultados",
+  "primary_delivery_folder": "resultados_ictiofauna_porto_estrela_producao_20260603",
+  "groups": [
+    {
+      "group": "Ictiofauna",
+      "pipeline": "porto_estrela_legacy",
+      "status": "lastro_externo_de_entrega"
+    }
+  ],
+  "inventory_observed_on": "2026-06-16",
+  "inventory": {
+    "non_hidden_files": 138,
+    "xlsx": 43,
+    "png": 87,
+    "md": 6,
+    "html": 2,
+    "py": 0,
+    "json": 0,
+    "ipynb": 0
+  },
+  "technical_lastro_status": {
+    "execution_metadata_found": false,
+    "run_this_analysis_found": false,
+    "script_snapshot_found": false,
+    "hash_manifest_found": false,
+    "needs_retrofit": true
+  },
+  "data_notes": [
+    "Lastro de produto localizado no Drive, com bases analiticas, figuras, planilhas, manifestos e relatorio HTML.",
+    "Scripts versionados relacionados ficam em scripts/projects/porto_estrela.",
+    "Antes de reutilizar como pipeline padrao, retrofitar execution_metadata, parametros, hashes e reprodutor."
+  ]
+}

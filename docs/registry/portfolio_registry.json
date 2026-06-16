@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "key": "series_longas_biota_aquatica",
+      "name": "Series longas de biota aquatica",
+      "status": "approved",
+      "project": "GEOHER001__monitoramento_de_ictio_e_bentos_herculano",
+      "patterns": [
+        "minigraficos_temporais",
+        "cpue_por_ano",
+        "ept_chol",
+        "paleta_azul_opyta"
+      ],
+      "use_when": "Recortes com muitas campanhas e todos os pontos amostrais mantidos."
+    },
+    {
+      "key": "meio_fisico_conformidade_sam",
+      "name": "Meio fisico - conformidade por matriz",
+      "status": "reference",
+      "project": "FERSAM001__sam_metais_diagnostico",
+      "patterns": [
+        "gold_legacy"
+      ],
+      "use_when": "Produtos de conformidade, matriz, parametros e sintese regulatoria."
+    },
+    {
+      "key": "ictio_migracao_porto_estrela",
+      "name": "Ictiofauna - migracao e matriz de produtos",
+      "status": "reference",
+      "project": "BIOPOR001__monitoramento_da_ictiofauna_da_uhe_porto_estrela",
+      "patterns": [],
+      "use_when": "Migracao, validacao e desenho de matriz de produtos para ictiofauna."
+    },
+    {
+      "key": "fauna_multigrupo_itagua001",
+      "name": "Fauna multi-grupo",
+      "status": "reference",
+      "project": "ITAGUA001__monitoramento_da_fauna",
+      "patterns": [],
+      "use_when": "Consulta historica de pipelines multi-grupo e auditoria."
+    }
+  ]
+}

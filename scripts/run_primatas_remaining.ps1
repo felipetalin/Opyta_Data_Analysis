@@ -29,7 +29,7 @@ foreach ($pch_name, $folder_name in $pchs) {
         --output-dir $outDir `
         --env-file $env_file `
         --block all `
-        --audit-project-slug project_165
+        --audit-project-slug ITAGUA001__monitoramento_da_fauna
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host "✓ $pch_name concluído"

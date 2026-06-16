@@ -241,7 +241,7 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame,
 
 **Metadata de Execução:**
 ```
-outputs\_project_scripts\project_165\mastofauna\
+outputs\_project_scripts\ITAGUA001__monitoramento_da_fauna\mastofauna\
   20260513T174858Z_execution_metadata.json
   20260513T174858Z_run_this_analysis.py (reproducer)
 ```

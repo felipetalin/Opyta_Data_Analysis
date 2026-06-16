@@ -74,7 +74,7 @@ Exemplo de alvo desejado:
 
 ```json
 {
-  "project_slug": "project_165",
+  "project_slug": "ITAGUA001__monitoramento_da_fauna",
   "project_id": 165,
   "client": "fersam001",
   "campaign": {

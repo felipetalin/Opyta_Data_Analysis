@@ -1,6 +1,6 @@
 {
   "client_code": "BRAAVG002",
-  "audit_project_slug": "avg_ictio_2026",
+  "audit_project_slug": "BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg",
   "theme_override": {
     "theme_name": "gold_avg_green_2026",
     "no_chart_title": true,

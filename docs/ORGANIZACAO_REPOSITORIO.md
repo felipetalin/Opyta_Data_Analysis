@@ -44,6 +44,16 @@ raiz para nao quebrar documentos e comandos historicos.
 
 ### Memoria tecnica
 
+`docs/README.md` e a entrada principal da base tecnica.
+
+`docs/control_center/` guarda a navegacao estilo SaaS: projetos, portfolio,
+aprendizados, backlog e modelo operacional.
+
+`docs/registry/` guarda cadastros JSON versionados.
+
+`docs/templates/` guarda modelos para novos dossies, patterns, decisoes e casos
+de portfolio.
+
 `docs/patterns/` guarda padroes reutilizaveis.
 
 `docs/projects/` guarda decisoes e contexto por projeto.
@@ -72,3 +82,4 @@ raiz para nao quebrar documentos e comandos historicos.
 2. Criar manifests consolidados em `outputs/_runs/`.
 3. Reduzir gradualmente wrappers de raiz quando os documentos antigos forem atualizados.
 4. Promover funcoes repetidas de scripts de projeto para `src/opyta_analysis/`.
+5. Curar documentos historicos para `docs/projects`, `docs/patterns` ou portfolio.

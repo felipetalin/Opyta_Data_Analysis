@@ -1,6 +1,6 @@
 {
   "client_code": "FERSAM001",
-  "audit_project_slug": "sam_metais",
+  "audit_project_slug": "FERSAM001__sam_metais_diagnostico",
   "theme_override": {
     "primary_hex": "#11420C",
     "secondary_hex": "#6A8F63",

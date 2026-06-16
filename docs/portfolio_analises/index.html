@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio de Analises - Opyta</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --line: #d8e0ea;
+      --text: #17212f;
+      --muted: #5d6b7a;
+      --blue: #185a9d;
+      --blue-soft: #e7f0fa;
+      --green: #1e7d5b;
+      --red: #b54747;
+      --amber: #a66b00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      padding: 28px 36px 22px;
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 24px 48px;
+    }
+    h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: 0; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; margin-bottom: 14px; }
+    h3 { font-size: 16px; margin-bottom: 8px; }
+    p { margin: 8px 0 0; color: var(--muted); }
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    .grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    section {
+      margin-top: 26px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .real-card {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .thumb {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      aspect-ratio: 900 / 520;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .path-details {
+      margin-top: 8px;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .path-details summary {
+      cursor: pointer;
+      color: var(--blue);
+      font-weight: 700;
+    }
+    .path-details code {
+      display: block;
+      margin-top: 6px;
+      padding: 8px;
+      border-radius: 6px;
+      background: #f2f5f8;
+      color: #26384d;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      font-size: 12px;
+    }
+    .model-card {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 12px;
+      min-height: 360px;
+    }
+    .model-card .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+    .model-card .code {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .spec {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px;
+      background: #fbfdff;
+    }
+    .spec b {
+      display: block;
+      color: #203247;
+      font-size: 12px;
+      margin-bottom: 3px;
+    }
+    .spec span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .figure-preview {
+      height: 150px;
+      margin: 12px 0 10px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      overflow: hidden;
+    }
+    .figure-preview svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .axis { stroke: #a8b6c5; stroke-width: 1; }
+    .gridline { stroke: #e4ebf2; stroke-width: 1; }
+    .series-blue {
+      fill: none;
+      stroke: var(--blue);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .series-green {
+      fill: none;
+      stroke: var(--green);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .avg-line {
+      stroke: #798898;
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+    }
+    .bar-blue { fill: #2b6fae; }
+    .bar-blue-soft { fill: #8ab8df; }
+    .bar-green { fill: #3d9b78; }
+    .bar-red { fill: #c95c5c; }
+    .bar-amber { fill: #d89b31; }
+    .bar-muted { fill: #b8c4cf; }
+    .preview-text {
+      fill: #4c5c6c;
+      font-size: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .preview-title {
+      fill: #203247;
+      font-size: 9px;
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .metric {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .metric strong {
+      font-size: 24px;
+      color: var(--blue);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      margin: 2px 4px 2px 0;
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+    .tag.green { background: #e6f3ee; color: var(--green); }
+    .tag.red { background: #f8e9e9; color: var(--red); }
+    .tag.amber { background: #fbf0d9; color: var(--amber); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    th {
+      background: #eef3f8;
+      color: #203247;
+      font-size: 13px;
+    }
+    tr:last-child td { border-bottom: 0; }
+    ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    li { margin: 4px 0; }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .step {
+      border-left: 4px solid var(--blue);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 86px;
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .step span {
+      display: block;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .note {
+      border-left: 4px solid var(--amber);
+      background: #fff9ec;
+      padding: 12px 14px;
+      border-radius: 8px;
+      color: #4d3a16;
+    }
+    @media (max-width: 900px) {
+      .grid.cols-4, .grid.cols-3, .grid.cols-2, .flow {
+        grid-template-columns: 1fr;
+      }
+      .spec-grid { grid-template-columns: 1fr; }
+      header { padding: 22px 20px; }
+      main { padding: 22px 16px 36px; }
+      table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Opyta Analysis</div>
+    <h1>Portfolio de Analises</h1>
+    <p>Ponto de decisao antes da recipe: escolha o tipo de analise olhando exemplos reais ja desenvolvidos, specs tecnicas e contexto de uso.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Fluxo de decisao</h2>
+      <div class="flow">
+        <div class="step"><span>1</span><strong>Dados</strong><p>Confirmar fonte, grupos, campanhas e pontos.</p></div>
+        <div class="step"><span>2</span><strong>Complexidade</strong><p>Classificar volume temporal e espacial.</p></div>
+        <div class="step"><span>3</span><strong>Objetivo</strong><p>Diagnostico, tendencia, validacao ou sintese.</p></div>
+        <div class="step"><span>4</span><strong>Modulos</strong><p>Selecionar blocos analiticos necessarios.</p></div>
+        <div class="step"><span>5</span><strong>Graficos</strong><p>Escolher formas que cabem no layout.</p></div>
+        <div class="step"><span>6</span><strong>Recipe</strong><p>Registrar decisao antes de rodar.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Classificacao rapida</h2>
+      <div class="grid cols-4">
+        <div class="card"><h3>Poucas campanhas</h3><div class="metric"><strong>1-4</strong><span>campanhas</span></div><p>Comparacao direta e leitura descritiva.</p></div>
+        <div class="card"><h3>Serie media</h3><div class="metric"><strong>5-8</strong><span>campanhas</span></div><p>Paineis e comparacao temporal moderada.</p></div>
+        <div class="card"><h3>Serie longa</h3><div class="metric"><strong>9+</strong><span>campanhas</span></div><p>Minigraficos, agregacao anual e sintese.</p></div>
+        <div class="card"><h3>Muitos pontos</h3><div class="metric"><strong>13+</strong><span>pontos</span></div><p>Rankings, mapas e agrupamentos por trecho.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Matriz de escolha</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Cenario</th>
+            <th>Priorizar</th>
+            <th>Usar com cuidado</th>
+            <th>Evitar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Poucas campanhas e poucos pontos</td>
+            <td>Barras, pontos, tabelas sinteticas</td>
+            <td>Mapas se houver coordenadas</td>
+            <td>Tendencias fortes</td>
+          </tr>
+          <tr>
+            <td>Poucas campanhas e muitos pontos</td>
+            <td>Rankings, mapas, barras horizontais</td>
+            <td>Facetamento por trecho</td>
+            <td>Paineis com excesso de categorias</td>
+          </tr>
+          <tr>
+            <td>Muitas campanhas e poucos pontos</td>
+            <td>Linhas, minigraficos, media geral</td>
+            <td>Modelos simples de tendencia</td>
+            <td>Barras por campanha muito longas</td>
+          </tr>
+          <tr>
+            <td>Muitas campanhas e muitos pontos</td>
+            <td>Minigraficos, paineis por ano, sinteses</td>
+            <td>Heatmaps como apoio</td>
+            <td>Um unico grafico com todos os rotulos</td>
+          </tr>
+          <tr>
+            <td>Esforco variavel</td>
+            <td>CPUE, padronizacao, alerta metodologico</td>
+            <td>Abundancia bruta como dado complementar</td>
+            <td>Comparar contagens sem esforco</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Cardapio real</h2>
+      <div class="grid cols-2">
+        <div class="card real-card">
+          <div>
+            <h3>M01 - Minigraficos temporais</h3>
+            <p>Exemplo real: riqueza temporal por ponto em zoobentos, Herculano.</p>
+            <div class="meta-row">
+              <span class="tag green">aprovado</span><span class="tag">GEOHER001</span><span class="tag">series longas</span>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="assets/thumbs/m01_herculano_bentos_riqueza_temporal.png" alt="Exemplo real de minigraficos temporais de riqueza por ponto em zoobentos">
+          </div>
+          <p>Usar quando ha muitas campanhas e a leitura por ponto e mais importante que uma matriz unica. A media geral ajuda a interpretar desvios por ponto.</p>
+          <div class="spec-grid">
+            <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
+            <div class="spec"><b>DPI</b><span>600</span></div>
+            <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+            <div class="spec"><b>Quando evitar</b><span>poucas campanhas ou foco taxonomico detalhado</span></div>
+          </div>
+          <details class="path-details">
+            <summary>Caminhos</summary>
+            <code>Original: G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Herculano - Informacoes Complementares Licenciamento Pilhas\Resultados\Bentos\02_grafico_riqueza_por_ponto_zoobentos.png</code>
+            <code>Lastro: outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano/zoobentos</code>
+          </details>
+        </div>
+
+        <div class="card real-card">
+          <div>
+            <h3>M02 - Barras por ano</h3>
+            <p>Exemplo real: CPUEn anual de ictiofauna, Herculano.</p>
+            <div class="meta-row">
+              <span class="tag green">aprovado</span><span class="tag">GEOHER001</span><span class="tag">CPUE</span>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="assets/thumbs/m02_herculano_ictio_cpuen_ano.png" alt="Exemplo real de grafico de CPUEn por ano em ictiofauna">
+          </div>
+          <p>Usar quando barras por campanha ficam densas demais. A separacao por ano preserva o detalhe temporal sem sacrificar legibilidade.</p>
+          <div class="spec-grid">
+            <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
+            <div class="spec"><b>DPI</b><span>600</span></div>
+            <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+            <div class="spec"><b>Quando evitar</b><span>pergunta centrada em campanhas individuais</span></div>
+          </div>
+          <details class="path-details">
+            <summary>Caminhos</summary>
+            <code>Original: G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Herculano - Informacoes Complementares Licenciamento Pilhas\Resultados\Ictiofauna\06_grafico_cpuen_por_ano_2025_ictiofauna.png</code>
+            <code>Lastro: outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano/ictiofauna</code>
+          </details>
+        </div>
+
+        <div class="card real-card">
+          <div>
+            <h3>M03 - Ranking horizontal</h3>
+            <p>Exemplo real: tornado de CPUE por especie, Porto Estrela.</p>
+            <div class="meta-row">
+              <span class="tag">BIOPOR001</span><span class="tag">top especies</span><span class="tag amber">comparativo</span>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="assets/thumbs/m03_porto_estrela_tornado_especies.png" alt="Exemplo real de ranking horizontal tipo tornado por especie">
+          </div>
+          <p>Usar para comparar especies ou grupos entre trechos, margens ou areas. Funciona bem quando nomes longos inviabilizam barras verticais.</p>
+          <div class="spec-grid">
+            <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
+            <div class="spec"><b>DPI</b><span>300-600</span></div>
+            <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+            <div class="spec"><b>Quando evitar</b><span>muitos itens sem corte top N</span></div>
+          </div>
+          <details class="path-details">
+            <summary>Caminhos</summary>
+            <code>Original: G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603\secao_661_cpue_todas_especies_tornado_especies.png</code>
+            <code>Lastro: outputs/_project_scripts/BIOPOR001__monitoramento_da_ictiofauna_da_uhe_porto_estrela</code>
+          </details>
+        </div>
+
+        <div class="card real-card">
+          <div>
+            <h3>M04 - Indicadores ecologicos</h3>
+            <p>Exemplo real: EPT/CHOL em zoobentos, Herculano.</p>
+            <div class="meta-row">
+              <span class="tag green">EPT</span><span class="tag red">CHOL</span><span class="tag">diagnostico</span>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="assets/thumbs/m04_herculano_bentos_ept_chol.png" alt="Exemplo real de indicadores EPT e CHOL em zoobentos">
+          </div>
+          <p>Usar para leitura ecologica rapida. CHOL deve somar Chironomidae e Oligochaeta/Oligoqueta, com EPT em azul e CHOL em vermelho.</p>
+          <div class="spec-grid">
+            <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
+            <div class="spec"><b>DPI</b><span>600</span></div>
+            <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+            <div class="spec"><b>Quando evitar</b><span>taxonomia incompleta ou regra CHOL incerta</span></div>
+          </div>
+          <details class="path-details">
+            <summary>Caminhos</summary>
+            <code>Original: G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Herculano - Informacoes Complementares Licenciamento Pilhas\Resultados\Bentos\12_grafico_ept_chol_zoobentos.png</code>
+            <code>Lastro: outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano/zoobentos</code>
+          </details>
+        </div>
+
+        <div class="card real-card">
+          <div>
+            <h3>M05 - Composicao taxonomica</h3>
+            <p>Exemplo real: percentual por ordem, Porto Estrela.</p>
+            <div class="meta-row">
+              <span class="tag">BIOPOR001</span><span class="tag">ordem</span><span class="tag">composicao</span>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="assets/thumbs/m05_porto_estrela_composicao_ordem.png" alt="Exemplo real de composicao percentual por ordem">
+          </div>
+          <p>Usar para explicar dominancia taxonomica. Quando houver muitas categorias, limitar top N e manter tabela completa como suporte.</p>
+          <div class="spec-grid">
+            <div class="spec"><b>Figura</b><span>A4 paisagem ou painel duplo</span></div>
+            <div class="spec"><b>DPI</b><span>300-600</span></div>
+            <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+            <div class="spec"><b>Quando evitar</b><span>roscas com muitas fatias pequenas</span></div>
+          </div>
+          <details class="path-details">
+            <summary>Caminhos</summary>
+            <code>Original: G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\resultados_ictiofauna_porto_estrela_producao_20260603\figura_11a_percentual_ordem.png</code>
+            <code>Lastro: outputs/_project_scripts/BIOPOR001__monitoramento_da_ictiofauna_da_uhe_porto_estrela</code>
+          </details>
+        </div>
+
+        <div class="card real-card">
+          <div>
+            <h3>M06 - Sintese executiva</h3>
+            <p>Exemplo real: painel editorial de diversidade, Porto Estrela.</p>
+            <div class="meta-row">
+              <span class="tag">BIOPOR001</span><span class="tag amber">dashboard</span><span class="tag">HTML/slide</span>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="assets/thumbs/m06_porto_estrela_dashboard_editorial.png" alt="Exemplo real de painel executivo editorial">
+          </div>
+          <p>Usar para decisao e apresentacao. Resume metricas, tendencia e mensagem tecnica, mas nao substitui o caderno tecnico completo.</p>
+          <div class="spec-grid">
+            <div class="spec"><b>Figura</b><span>10 x 5.6 in ou HTML responsivo</span></div>
+            <div class="spec"><b>DPI</b><span>300-600</span></div>
+            <div class="spec"><b>Fonte</b><span>Arial/system sans-serif</span></div>
+            <div class="spec"><b>Quando evitar</b><span>antes do QA e da validacao tecnica</span></div>
+          </div>
+          <details class="path-details">
+            <summary>Caminhos</summary>
+            <code>Original: G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Bios\Porto Estrela\Planilha\Resultados\_prototipos_design\NIVEL_B_dashboard_editorial.png</code>
+            <code>Lastro: outputs/_project_scripts/BIOPOR001__monitoramento_da_ictiofauna_da_uhe_porto_estrela</code>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Fichas tecnicas base</h2>
+      <div class="grid cols-2">
+        <div class="card model-card">
+          <div class="topline">
+            <div>
+              <h3>Minigraficos temporais</h3>
+              <p>Serie longa por ponto, com linha ou valor de media geral.</p>
+            </div>
+            <div class="code">M01</div>
+          </div>
+          <div>
+            <span class="tag green">aprovado</span><span class="tag">9+ campanhas</span><span class="tag">muitos pontos</span>
+            <div class="figure-preview" aria-label="Miniatura de minigraficos temporais com media geral">
+              <svg viewBox="0 0 420 150" role="img">
+                <text x="8" y="12" class="preview-title">M01 - pequenos multiplos temporais</text>
+                <g transform="translate(8 24)">
+                  <g transform="translate(0 0)">
+                    <rect x="0" y="0" width="122" height="48" rx="4" fill="#fff" stroke="#d8e0ea"/>
+                    <line x1="10" y1="35" x2="112" y2="35" class="axis"/>
+                    <line x1="10" y1="22" x2="112" y2="22" class="avg-line"/>
+                    <path d="M12 31 L28 25 L44 30 L60 18 L76 21 L92 14 L108 19" class="series-blue"/>
+                    <text x="10" y="45" class="preview-text">P1</text>
+                  </g>
+                  <g transform="translate(142 0)">
+                    <rect x="0" y="0" width="122" height="48" rx="4" fill="#fff" stroke="#d8e0ea"/>
+                    <line x1="10" y1="35" x2="112" y2="35" class="axis"/>
+                    <line x1="10" y1="21" x2="112" y2="21" class="avg-line"/>
+                    <path d="M12 28 L28 30 L44 22 L60 24 L76 18 L92 20 L108 12" class="series-green"/>
+                    <text x="10" y="45" class="preview-text">P2</text>
+                  </g>
+                  <g transform="translate(284 0)">
+                    <rect x="0" y="0" width="122" height="48" rx="4" fill="#fff" stroke="#d8e0ea"/>
+                    <line x1="10" y1="35" x2="112" y2="35" class="axis"/>
+                    <line x1="10" y1="24" x2="112" y2="24" class="avg-line"/>
+                    <path d="M12 33 L28 27 L44 24 L60 29 L76 19 L92 16 L108 22" class="series-blue"/>
+                    <text x="10" y="45" class="preview-text">P3</text>
+                  </g>
+                  <g transform="translate(0 62)">
+                    <rect x="0" y="0" width="122" height="48" rx="4" fill="#fff" stroke="#d8e0ea"/>
+                    <line x1="10" y1="35" x2="112" y2="35" class="axis"/>
+                    <line x1="10" y1="20" x2="112" y2="20" class="avg-line"/>
+                    <path d="M12 30 L28 26 L44 18 L60 20 L76 23 L92 14 L108 16" class="series-blue"/>
+                    <text x="10" y="45" class="preview-text">P4</text>
+                  </g>
+                  <g transform="translate(142 62)">
+                    <rect x="0" y="0" width="122" height="48" rx="4" fill="#fff" stroke="#d8e0ea"/>
+                    <line x1="10" y1="35" x2="112" y2="35" class="axis"/>
+                    <line x1="10" y1="25" x2="112" y2="25" class="avg-line"/>
+                    <path d="M12 34 L28 29 L44 31 L60 27 L76 23 L92 21 L108 18" class="series-green"/>
+                    <text x="10" y="45" class="preview-text">P5</text>
+                  </g>
+                  <g transform="translate(284 62)">
+                    <rect x="0" y="0" width="122" height="48" rx="4" fill="#fff" stroke="#d8e0ea"/>
+                    <line x1="10" y1="35" x2="112" y2="35" class="axis"/>
+                    <line x1="10" y1="23" x2="112" y2="23" class="avg-line"/>
+                    <path d="M12 29 L28 20 L44 24 L60 17 L76 20 L92 15 L108 11" class="series-blue"/>
+                    <text x="10" y="45" class="preview-text">P6</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <ul>
+              <li>Usar para riqueza, diversidade, CPUE e indicadores por ponto.</li>
+              <li>Evitar quando a pergunta principal for composicao taxonomica detalhada.</li>
+              <li>Referencia: GEOHER001 series longas.</li>
+            </ul>
+            <div class="spec-grid">
+              <div class="spec"><b>Figura</b><span>A4 paisagem, 11.69 x 8.27 in</span></div>
+              <div class="spec"><b>DPI</b><span>600 para relatorio tecnico</span></div>
+              <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+              <div class="spec"><b>Tamanhos</b><span>titulo 12-14 pt; eixos 8-9 pt</span></div>
+            </div>
+          </div>
+          <p>Saidas: PNG + XLSX de dados + decisao registrada na recipe.</p>
+        </div>
+
+        <div class="card model-card">
+          <div class="topline">
+            <div>
+              <h3>Barras por ano</h3>
+              <p>Agrega campanhas em anos ou periodo hidrologico para reduzir excesso visual.</p>
+            </div>
+            <div class="code">M02</div>
+          </div>
+          <div>
+            <span class="tag green">aprovado</span><span class="tag">CPUE</span><span class="tag">abundancia</span>
+            <div class="figure-preview" aria-label="Miniatura de barras agrupadas por ano">
+              <svg viewBox="0 0 420 150" role="img">
+                <text x="8" y="12" class="preview-title">M02 - barras agrupadas por ano</text>
+                <line x1="34" y1="124" x2="402" y2="124" class="axis"/>
+                <line x1="34" y1="35" x2="34" y2="124" class="axis"/>
+                <line x1="34" y1="92" x2="402" y2="92" class="gridline"/>
+                <line x1="34" y1="62" x2="402" y2="62" class="gridline"/>
+                <g transform="translate(58 0)">
+                  <rect x="0" y="72" width="14" height="52" class="bar-blue"/>
+                  <rect x="18" y="86" width="14" height="38" class="bar-green"/>
+                  <rect x="36" y="54" width="14" height="70" class="bar-amber"/>
+                  <text x="2" y="138" class="preview-text">2022</text>
+                </g>
+                <g transform="translate(142 0)">
+                  <rect x="0" y="64" width="14" height="60" class="bar-blue"/>
+                  <rect x="18" y="75" width="14" height="49" class="bar-green"/>
+                  <rect x="36" y="48" width="14" height="76" class="bar-amber"/>
+                  <text x="2" y="138" class="preview-text">2023</text>
+                </g>
+                <g transform="translate(226 0)">
+                  <rect x="0" y="58" width="14" height="66" class="bar-blue"/>
+                  <rect x="18" y="70" width="14" height="54" class="bar-green"/>
+                  <rect x="36" y="42" width="14" height="82" class="bar-amber"/>
+                  <text x="2" y="138" class="preview-text">2024</text>
+                </g>
+                <g transform="translate(310 0)">
+                  <rect x="0" y="76" width="14" height="48" class="bar-blue"/>
+                  <rect x="18" y="82" width="14" height="42" class="bar-green"/>
+                  <rect x="36" y="60" width="14" height="64" class="bar-amber"/>
+                  <text x="2" y="138" class="preview-text">2025</text>
+                </g>
+              </svg>
+            </div>
+            <ul>
+              <li>Usar quando barras por campanha ficarem ilegíveis.</li>
+              <li>Bom para CPUE, abundancia por classe, ordem ou origem.</li>
+              <li>Evitar quando cada campanha individual for a pergunta central.</li>
+            </ul>
+            <div class="spec-grid">
+              <div class="spec"><b>Figura</b><span>A4 paisagem, paineis por ano</span></div>
+              <div class="spec"><b>DPI</b><span>600</span></div>
+              <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+              <div class="spec"><b>Tamanhos</b><span>titulo 12 pt; legenda 8-9 pt</span></div>
+            </div>
+          </div>
+          <p>Saidas: PNG + XLSX com agregacao anual e valores originais.</p>
+        </div>
+
+        <div class="card model-card">
+          <div class="topline">
+            <div>
+              <h3>Ranking horizontal</h3>
+              <p>Ordena especies, pontos ou parametros para comparacao direta.</p>
+            </div>
+            <div class="code">M03</div>
+          </div>
+          <div>
+            <span class="tag">top N</span><span class="tag">muitos pontos</span><span class="tag amber">executivo</span>
+            <div class="figure-preview" aria-label="Miniatura de ranking horizontal">
+              <svg viewBox="0 0 420 150" role="img">
+                <text x="8" y="12" class="preview-title">M03 - ranking horizontal top N</text>
+                <line x1="96" y1="26" x2="96" y2="130" class="axis"/>
+                <text x="12" y="39" class="preview-text">Especie A</text>
+                <rect x="96" y="29" width="260" height="12" rx="2" class="bar-blue"/>
+                <text x="362" y="39" class="preview-text">52</text>
+                <text x="12" y="61" class="preview-text">Especie B</text>
+                <rect x="96" y="51" width="220" height="12" rx="2" class="bar-blue-soft"/>
+                <text x="322" y="61" class="preview-text">44</text>
+                <text x="12" y="83" class="preview-text">Especie C</text>
+                <rect x="96" y="73" width="182" height="12" rx="2" class="bar-green"/>
+                <text x="284" y="83" class="preview-text">36</text>
+                <text x="12" y="105" class="preview-text">Especie D</text>
+                <rect x="96" y="95" width="136" height="12" rx="2" class="bar-amber"/>
+                <text x="238" y="105" class="preview-text">27</text>
+                <text x="12" y="127" class="preview-text">Outras</text>
+                <rect x="96" y="117" width="96" height="12" rx="2" class="bar-muted"/>
+                <text x="198" y="127" class="preview-text">19</text>
+              </svg>
+            </div>
+            <ul>
+              <li>Usar para top especies, maiores CPUEs, pontos mais ricos ou parametros criticos.</li>
+              <li>Mostrar top N no grafico e tabela completa em XLSX.</li>
+              <li>Evitar barras verticais com nomes longos.</li>
+            </ul>
+            <div class="spec-grid">
+              <div class="spec"><b>Figura</b><span>A4 retrato ou paisagem</span></div>
+              <div class="spec"><b>DPI</b><span>600 relatorio; 300 preview</span></div>
+              <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+              <div class="spec"><b>Tamanhos</b><span>rotulos 8-10 pt; notas 7 pt</span></div>
+            </div>
+          </div>
+          <p>Saidas: PNG + XLSX completo + nota de criterio de corte.</p>
+        </div>
+
+        <div class="card model-card">
+          <div class="topline">
+            <div>
+              <h3>Indicadores ecologicos</h3>
+              <p>Sintetiza resposta ambiental por grupos sensiveis e tolerantes.</p>
+            </div>
+            <div class="code">M04</div>
+          </div>
+          <div>
+            <span class="tag green">EPT azul</span><span class="tag red">CHOL vermelho</span><span class="tag">diagnostico</span>
+            <div class="figure-preview" aria-label="Miniatura de indicadores EPT e CHOL">
+              <svg viewBox="0 0 420 150" role="img">
+                <text x="8" y="12" class="preview-title">M04 - indicadores ecologicos</text>
+                <line x1="42" y1="124" x2="390" y2="124" class="axis"/>
+                <line x1="42" y1="34" x2="42" y2="124" class="axis"/>
+                <g transform="translate(70 0)">
+                  <rect x="0" y="56" width="28" height="68" class="bar-blue"/>
+                  <rect x="34" y="88" width="28" height="36" class="bar-red"/>
+                  <text x="8" y="138" class="preview-text">P1</text>
+                </g>
+                <g transform="translate(150 0)">
+                  <rect x="0" y="70" width="28" height="54" class="bar-blue"/>
+                  <rect x="34" y="64" width="28" height="60" class="bar-red"/>
+                  <text x="8" y="138" class="preview-text">P2</text>
+                </g>
+                <g transform="translate(230 0)">
+                  <rect x="0" y="44" width="28" height="80" class="bar-blue"/>
+                  <rect x="34" y="96" width="28" height="28" class="bar-red"/>
+                  <text x="8" y="138" class="preview-text">P3</text>
+                </g>
+                <g transform="translate(310 0)">
+                  <rect x="0" y="82" width="28" height="42" class="bar-blue"/>
+                  <rect x="34" y="52" width="28" height="72" class="bar-red"/>
+                  <text x="8" y="138" class="preview-text">P4</text>
+                </g>
+                <rect x="292" y="22" width="10" height="10" class="bar-blue"/>
+                <text x="306" y="31" class="preview-text">EPT</text>
+                <rect x="338" y="22" width="10" height="10" class="bar-red"/>
+                <text x="352" y="31" class="preview-text">CHOL</text>
+              </svg>
+            </div>
+            <ul>
+              <li>Usar para EPT/CHOL, BMWP e grupos funcionais.</li>
+              <li>CHOL deve somar Chironomidae + Oligochaeta/Oligoqueta.</li>
+              <li>Evitar se a classificacao taxonomica estiver incerta.</li>
+            </ul>
+            <div class="spec-grid">
+              <div class="spec"><b>Figura</b><span>A4 paisagem ou painel por ponto</span></div>
+              <div class="spec"><b>DPI</b><span>600</span></div>
+              <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+              <div class="spec"><b>Tamanhos</b><span>titulo 12 pt; eixos 8-9 pt</span></div>
+            </div>
+          </div>
+          <p>Saidas: PNG + tabela interpretativa + regra taxonomica documentada.</p>
+        </div>
+
+        <div class="card model-card">
+          <div class="topline">
+            <div>
+              <h3>Composicao taxonomica top N</h3>
+              <p>Mostra grupos dominantes sem esconder a tabela completa.</p>
+            </div>
+            <div class="code">M05</div>
+          </div>
+          <div>
+            <span class="tag">ordem</span><span class="tag">familia</span><span class="tag">classe</span>
+            <div class="figure-preview" aria-label="Miniatura de composicao taxonomica top N">
+              <svg viewBox="0 0 420 150" role="img">
+                <text x="8" y="12" class="preview-title">M05 - composicao top N + Outros</text>
+                <g transform="translate(28 38)">
+                  <rect x="0" y="0" width="290" height="20" rx="4" class="bar-blue"/>
+                  <rect x="0" y="32" width="238" height="20" rx="4" class="bar-green"/>
+                  <rect x="0" y="64" width="180" height="20" rx="4" class="bar-amber"/>
+                  <rect x="0" y="96" width="128" height="20" rx="4" class="bar-muted"/>
+                  <text x="302" y="14" class="preview-text">Ordem A</text>
+                  <text x="250" y="46" class="preview-text">Ordem B</text>
+                  <text x="192" y="78" class="preview-text">Ordem C</text>
+                  <text x="140" y="110" class="preview-text">Outros</text>
+                </g>
+                <circle cx="350" cy="76" r="33" fill="none" stroke="#2b6fae" stroke-width="15"/>
+                <path d="M350 43 A33 33 0 0 1 382 84" fill="none" stroke="#3d9b78" stroke-width="15"/>
+                <path d="M382 84 A33 33 0 0 1 340 108" fill="none" stroke="#d89b31" stroke-width="15"/>
+              </svg>
+            </div>
+            <ul>
+              <li>Usar para composicao por ordem, familia, classe ou origem.</li>
+              <li>Agrupar cauda longa como "Outros" quando necessario.</li>
+              <li>Evitar roscas com muitas fatias pequenas.</li>
+            </ul>
+            <div class="spec-grid">
+              <div class="spec"><b>Figura</b><span>A4 paisagem, top N + Outros</span></div>
+              <div class="spec"><b>DPI</b><span>600</span></div>
+              <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
+              <div class="spec"><b>Tamanhos</b><span>legenda 8 pt; rotulos internos apenas se couber</span></div>
+            </div>
+          </div>
+          <p>Saidas: PNG + XLSX com composicao completa e agrupamento.</p>
+        </div>
+
+        <div class="card model-card">
+          <div class="topline">
+            <div>
+              <h3>Sintese executiva</h3>
+              <p>Condensa achados para decisao, sem substituir o caderno tecnico.</p>
+            </div>
+            <div class="code">M06</div>
+          </div>
+          <div>
+            <span class="tag amber">resumo</span><span class="tag">HTML</span><span class="tag">scorecard</span>
+            <div class="figure-preview" aria-label="Miniatura de sintese executiva">
+              <svg viewBox="0 0 420 150" role="img">
+                <text x="8" y="12" class="preview-title">M06 - painel executivo</text>
+                <g transform="translate(10 28)">
+                  <rect x="0" y="0" width="118" height="44" rx="6" fill="#e7f0fa" stroke="#c6d6e8"/>
+                  <text x="12" y="18" class="preview-text">Riqueza</text>
+                  <text x="12" y="35" class="preview-title">+12%</text>
+                  <rect x="140" y="0" width="118" height="44" rx="6" fill="#e6f3ee" stroke="#c4e1d5"/>
+                  <text x="152" y="18" class="preview-text">Indicador</text>
+                  <text x="152" y="35" class="preview-title">Estavel</text>
+                  <rect x="280" y="0" width="118" height="44" rx="6" fill="#fbf0d9" stroke="#ead49c"/>
+                  <text x="292" y="18" class="preview-text">Atencao</text>
+                  <text x="292" y="35" class="preview-title">2 pontos</text>
+                  <rect x="0" y="62" width="398" height="54" rx="6" fill="#fff" stroke="#d8e0ea"/>
+                  <line x1="18" y1="100" x2="370" y2="100" class="axis"/>
+                  <path d="M18 94 L76 86 L134 92 L192 74 L250 78 L308 64 L370 70" class="series-blue"/>
+                  <line x1="18" y1="82" x2="370" y2="82" class="avg-line"/>
+                </g>
+              </svg>
+            </div>
+            <ul>
+              <li>Usar para abrir relatorio, reuniao ou validacao com cliente.</li>
+              <li>Trazer poucos indicadores, tendencia e mensagem tecnica.</li>
+              <li>Evitar quando ainda nao houve QA dos dados.</li>
+            </ul>
+            <div class="spec-grid">
+              <div class="spec"><b>Figura</b><span>10 x 5.6 in ou HTML responsivo</span></div>
+              <div class="spec"><b>DPI</b><span>300-600 conforme destino</span></div>
+              <div class="spec"><b>Fonte</b><span>Arial/system sans-serif</span></div>
+              <div class="spec"><b>Tamanhos</b><span>titulo 13-15 pt; texto 9-10 pt</span></div>
+            </div>
+          </div>
+          <p>Saidas: PNG/HTML + quadro de achados e links para evidencias.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Modulos analiticos</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Base obrigatoria</h3>
+          <span class="tag green">QA</span><span class="tag green">completude</span><span class="tag green">esforco</span>
+          <ul>
+            <li>campanhas x pontos</li>
+            <li>lacunas e duplicidades</li>
+            <li>nomenclatura e taxonomia</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Temporal</h3>
+          <span class="tag">minigraficos</span><span class="tag">media geral</span><span class="tag">ano</span>
+          <ul>
+            <li>riqueza por campanha</li>
+            <li>diversidade alfa</li>
+            <li>CPUE e abundancia</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Espacial</h3>
+          <span class="tag">mapas</span><span class="tag">rankings</span><span class="tag">trechos</span>
+          <ul>
+            <li>comparacao de pontos</li>
+            <li>montante/jusante</li>
+            <li>areas controle/impacto</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Taxonomico</h3>
+          <span class="tag amber">top N</span><span class="tag amber">classes</span><span class="tag amber">ordens</span>
+          <ul>
+            <li>composicao por grupo</li>
+            <li>ocorrencia e frequencia</li>
+            <li>caracterizacao biologica</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Indicadores</h3>
+          <span class="tag green">EPT</span><span class="tag red">CHOL</span><span class="tag">BMWP</span>
+          <ul>
+            <li>sensibilidade/tolerancia</li>
+            <li>grupos funcionais</li>
+            <li>sintese ecologica</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Estrutura</h3>
+          <span class="tag">beta</span><span class="tag">dendrograma</span><span class="tag">ordenacao</span>
+          <ul>
+            <li>similaridade</li>
+            <li>turnover</li>
+            <li>padroes comunitarios</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Regra para muitas campanhas</h2>
+      <div class="note">
+        Para series longas, a decisao deve favorecer leitura por padrao, nao exibir tudo em um unico grafico. Minigraficos, agregacao anual e medias gerais entram antes de heatmaps gigantes ou barras com rotulos excessivos.
+      </div>
+    </section>
+  </main>
+</body>
+</html>

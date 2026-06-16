@@ -25,7 +25,8 @@ shared Supabase access, and a global plotting standard.
 - outputs/: local technical area for reproducibility backups and run manifests
 - logs/: execution logs and learning journal
 
-See `docs/ORGANIZACAO_REPOSITORIO.md` for the current organization policy.
+See `docs/README.md` for the Knowledge Hub and `docs/ORGANIZACAO_REPOSITORIO.md`
+for the current organization policy.
 Use `docs/CHECKLIST_PROJETO.md` at project opening/closing and run
 `python scripts/validation/check_repo_organization.py` to audit the structure.
 
@@ -42,6 +43,8 @@ Use `docs/CHECKLIST_PROJETO.md` at project opening/closing and run
    - python scripts/run/run_project_recipe.py geoher001_herculano_2022_2025 --env-file .env --dry-run
 6. Check repository organization before closing a project:
    - python scripts/validation/check_repo_organization.py
+7. Build the knowledge inventory:
+   - python scripts/validation/build_knowledge_inventory.py --output outputs/_runs/knowledge_inventory_latest.json
 
 ## Output Policy (Gold Operational Rule)
 - `--output-dir` must always point to the final client/project delivery folder for business artifacts (`.xlsx`, `.png`, etc.).
@@ -62,9 +65,9 @@ Example for SAM Metais:
    - `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos/Resultados/Zooplancton`
    - `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Ferreira Rocha/SAM Metais/Produtos/Resultados/Zoobentos`
 - technical backups:
-   - `outputs/_project_scripts/sam_metais/fitoplancton`
-   - `outputs/_project_scripts/sam_metais/zooplancton`
-   - `outputs/_project_scripts/sam_metais/zoobentos`
+   - `outputs/_project_scripts/FERSAM001__sam_metais_diagnostico/fitoplancton`
+   - `outputs/_project_scripts/FERSAM001__sam_metais_diagnostico/zooplancton`
+   - `outputs/_project_scripts/FERSAM001__sam_metais_diagnostico/zoobentos`
 
 Supported `--block` values for Zoobentos core currently:
 - `3` (Tabela de Composição Taxonômica)
@@ -138,7 +141,7 @@ Supported `--block` values for ICTIO core currently:
 ## Fauna Audit Documentation
 - Technical README: `docs/README_FAUNA_AUDITORIA.md`
 - Learning memory and operational lessons: `logs/MEMORIA_APRENDIZADO_FAUNA.md`
-- Audit command: `python scripts/validar_fauna_outputs.py --project sam_metais`
+- Audit command: `python scripts/validation/validar_fauna_outputs.py --project FERSAM001__sam_metais_diagnostico`
 
 ## Next Steps
 - Start modular migration for next biological groups not yet delivered.

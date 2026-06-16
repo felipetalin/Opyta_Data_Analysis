@@ -23,7 +23,7 @@ Auditoria aplicavel aos grupos:
 Auditar um projeto especifico:
 
 ```bash
-python scripts/validar_fauna_outputs.py --project sam_metais
+python scripts/validation/validar_fauna_outputs.py --project FERSAM001__sam_metais_diagnostico
 ```
 
 Auditar todos os projetos com memorias em `outputs/_project_scripts`:
@@ -39,7 +39,8 @@ outputs/_project_scripts/<projeto>/fauna_inventory.json
 ```
 
 O nome do projeto pode ser definido no arquivo do cliente com
-`audit_project_slug`. Para `fersam001`, o lastro oficial usa `sam_metais`.
+`audit_project_slug`. Para `fersam001`, o lastro oficial usa
+`FERSAM001__sam_metais_diagnostico`.
 
 ## O que a auditoria confere
 

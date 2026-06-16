@@ -32,8 +32,8 @@ rastreabilidade sem depender de memoria ou de busca manual em pastas de cliente.
 | --- | --- | --- |
 | Porto Estrela | `scripts/projects/porto_estrela/` | Ictiofauna: bases analiticas, exploratorias, graficos, HTML e resultados. |
 | AVG | `scripts/projects/avg/` | Bentos/ictio 2026: migracao, consolidacao e geracao por campanha. |
-| Project 165 | `scripts/projects/project_165/` | Pipeline historico de ictiofauna documentado em `docs/PIPELINE_ICTIO_165.md`. |
-| SAM Metais | `scripts/projects/sam_metais/` | Meio fisico, conformidade e revisao de biota aquatica. |
+| ITAGUA001 / Monitoramento da Fauna | `scripts/projects/project_165/` | Pipeline historico de ictiofauna documentado em `docs/PIPELINE_ICTIO_165.md`. |
+| FERSAM001 / Sam Metais Diagnostico | `scripts/projects/sam_metais/` | Meio fisico, conformidade e revisao de biota aquatica. |
 
 ## Geradores De Meio Fisico
 
@@ -66,6 +66,8 @@ os referencia por nome.
 
 | Script | Uso |
 | --- | --- |
+| `scripts/validation/audit_supabase_project_coverage.py` | Compara `public.projetos` do Supabase com `project_registry.json`. |
+| `scripts/validation/build_knowledge_inventory.py` | Gera inventario da base tecnica, registries, docs e lastros. |
 | `scripts/validation/check_repo_organization.py` | Auditoria da organizacao do repositorio, scripts e recipes. |
 | `scripts/validation/validar_fauna_outputs.py` | Auditoria pos-run dos outputs de fauna. |
 | `scripts/validation/validar_meio_fisico_outputs.py` | Auditoria pos-run dos outputs de meio fisico. |

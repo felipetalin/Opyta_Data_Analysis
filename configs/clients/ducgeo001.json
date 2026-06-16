@@ -1,6 +1,6 @@
 {
   "client_code": "DUCGEO001",
-  "audit_project_slug": "ducal",
+  "audit_project_slug": "DUCGEO001__monitoramento_ducal",
   "theme_override": {
     "primary_hex": "#002060",
     "secondary_hex": "#5B9BD5",

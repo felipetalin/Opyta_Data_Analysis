@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "patterns": [
+    {
+      "key": "minigraficos_temporais",
+      "name": "Minigraficos temporais por ponto",
+      "status": "approved",
+      "doc": "docs/patterns/minigraficos_temporais.md",
+      "best_for": [
+        "series longas",
+        "muitos periodos",
+        "comparacao por ponto"
+      ],
+      "validated_in": [
+        "GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+      ]
+    },
+    {
+      "key": "cpue_por_ano",
+      "name": "CPUE por ano",
+      "status": "approved",
+      "doc": "docs/patterns/cpue_por_ano.md",
+      "best_for": [
+        "ictiofauna",
+        "series temporais extensas",
+        "barras por campanha ilegíveis"
+      ],
+      "validated_in": [
+        "GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+      ]
+    },
+    {
+      "key": "ept_chol",
+      "name": "EPT/CHOL",
+      "status": "approved",
+      "doc": "docs/patterns/ept_chol.md",
+      "best_for": [
+        "zoobentos",
+        "indicadores ecologicos",
+        "leitura bom vs ruim"
+      ],
+      "validated_in": [
+        "GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+      ]
+    },
+    {
+      "key": "paleta_azul_opyta",
+      "name": "Paleta azul Opyta",
+      "status": "approved",
+      "doc": "docs/patterns/paleta_azul_opyta.md",
+      "best_for": [
+        "Geomil",
+        "Ducal",
+        "Herculano",
+        "produtos com identidade azul"
+      ],
+      "validated_in": [
+        "DUCGEO001__monitoramento_ducal",
+        "GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+      ]
+    },
+    {
+      "key": "gold_legacy",
+      "name": "Gold legado",
+      "status": "reference",
+      "doc": "docs/PADRAO_GOLD_APROVADO.md",
+      "best_for": [
+        "consulta historica",
+        "comparacao de padroes"
+      ],
+      "validated_in": [
+        "FERSAM001__sam_metais_diagnostico"
+      ]
+    }
+  ]
+}
