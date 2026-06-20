@@ -137,6 +137,43 @@ O commit registra conjuntamente:
 - patterns, registries, catalogo de scripts e dossie do projeto;
 - retencao controlada do lastro reprodutivel gerado pelo runner.
 
+## Fechamento operacional em 2026-06-20
+
+Apos a liberacao dos arquivos no Excel, o pipeline de Zoobentos foi executado
+integralmente na pasta final do cliente.
+
+- execucao: `block=all`;
+- registros carregados: 725;
+- campanhas: 16;
+- pontos: 8;
+- blocos executados: 3 a 13;
+- produtos declarados: 42;
+- produtos ausentes: 0;
+- hashes SHA-256: presentes nos 42 produtos;
+- avisos do runner: 0.
+
+Lastro reprodutivel oficial:
+
+- `outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano/zoobentos/execution_metadata.json`;
+- `outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano/zoobentos/20260620T145722Z_execution_metadata.json`;
+- `outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano/zoobentos/20260620T145722Z_run_this_analysis.py`;
+- `outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano/fauna_inventory.json`.
+
+Validacoes finais:
+
+- auditoria oficial de fauna: `OK`;
+- erros: 0;
+- avisos: 0;
+- auditoria taxonomica no banco: zero pendencias;
+- ordem artificial `Insecta`: ausente;
+- riqueza de Ephemeroptera: 10 taxons;
+- EPT: 1.024 de 2.596 organismos, equivalente a 39,45%;
+- Darwin Core: niveis taxonomicos distribuidos entre familia, genero, ordem e
+  classe, sem ordem `Insecta` indevida;
+- cobertura Supabase x registry: nenhum projeto ausente;
+- alias tecnico `geoher001_recorte_2022_2025`: removido;
+- retencao: um unico par timestamped de metadata e reprodutor por grupo.
+
 ## Observacoes de dados
 
 - A campanha C37 de Bentos foi corrigida como fevereiro/2026 e ficou fora do

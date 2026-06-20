@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Zoobentos analysis - geoher001
-Generated: 2026-06-15T13:46:29.417329Z
+Generated: 2026-06-20T14:57:26.307790Z
 
 Usage:
   python _run_this_analysis.py
@@ -35,7 +35,7 @@ def main():
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
         block=args.block,
-        audit_project_slug='geoher001_recorte_2022_2025',
+        audit_project_slug='GEOHER001__monitoramento_de_ictio_e_bentos_herculano',
         campaigns=campaigns,
     )
 

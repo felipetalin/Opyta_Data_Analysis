@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Zoobentos analysis - geoher001
-Generated: 2026-06-15T18:41:38.707217Z
+Generated: 2026-06-20T14:57:26.307790Z
 
 Usage:
   python _run_this_analysis.py
@@ -20,7 +20,7 @@ from opyta_analysis.runner import run
 
 def main():
     parser = argparse.ArgumentParser(description="Re-run Zoobentos analysis")
-    parser.add_argument("--block", default='12', help="Block to execute (default: 12)")
+    parser.add_argument("--block", default='all', help="Block to execute (default: all)")
     parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Herculano - Informações Complementares Licenciamento Pilhas\Resultados\Bentos", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='.env', help="Optional .env file path")
     parser.add_argument("--campaigns", default=None, help="Override comma-separated campaign filter")
@@ -35,7 +35,7 @@ def main():
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
         block=args.block,
-        audit_project_slug='geoher001_recorte_2022_2025',
+        audit_project_slug='GEOHER001__monitoramento_de_ictio_e_bentos_herculano',
         campaigns=campaigns,
     )
 

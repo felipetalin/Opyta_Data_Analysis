@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-Reproducer script for Zoobentos analysis - geoher001
-Generated: 2026-06-15T13:40:35.912650Z
+Reproducer script for Ictiofauna analysis - geoher001
+Generated: 2026-06-19T15:41:44.134562Z
 
 Usage:
   python _run_this_analysis.py
@@ -19,9 +19,9 @@ from opyta_analysis.config import RunParams
 from opyta_analysis.runner import run
 
 def main():
-    parser = argparse.ArgumentParser(description="Re-run Zoobentos analysis")
-    parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Herculano - Informações Complementares Licenciamento Pilhas\Resultados\Bentos", help="Output directory for generated artifacts")
+    parser = argparse.ArgumentParser(description="Re-run Ictiofauna analysis")
+    parser.add_argument("--block", default='4', help="Block to execute (default: 4)")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Herculano - Informações Complementares Licenciamento Pilhas\Resultados\Ictiofauna", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='.env', help="Optional .env file path")
     parser.add_argument("--campaigns", default=None, help="Override comma-separated campaign filter")
     args = parser.parse_args()
@@ -29,13 +29,13 @@ def main():
 
     params = RunParams(
         project_id=30,
-        group='Zoobentos',
-        pipeline='zoobentos',
+        group='Ictiofauna',
+        pipeline='ictio',
         client='geoher001',
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
         block=args.block,
-        audit_project_slug='geoher001_recorte_2022_2025',
+        audit_project_slug='GEOHER001__monitoramento_de_ictio_e_bentos_herculano',
         campaigns=campaigns,
     )
 
