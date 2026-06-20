@@ -11,6 +11,8 @@ saida.
 - `minigraficos_temporais.md`
 - `cpue_por_ano.md`
 - `ept_chol.md`
+- `figuras_word_alta_resolucao.md`
+- `ocorrencia_multicampanha.md`
 - `paleta_azul_opyta.md`
 
 ## Regra de promocao

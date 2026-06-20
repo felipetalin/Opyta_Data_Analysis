@@ -100,12 +100,57 @@ def _clean(value) -> str:
     return "" if text.lower() == "nan" else text
 
 
+def _taxon_rank_and_qualifier(
+    scientific_name,
+    *,
+    genus=None,
+    family=None,
+    order=None,
+    taxon_class=None,
+    phylum=None,
+) -> tuple[str, str]:
+    name = _clean(scientific_name)
+    normalized_name = name.casefold()
+
+    hierarchy = (
+        (family, "Família"),
+        (order, "Ordem"),
+        (taxon_class, "Classe"),
+        (phylum, "Filo"),
+    )
+    for value, rank in hierarchy:
+        normalized_value = _clean(value).casefold()
+        if normalized_value not in {"", "-"} and normalized_name == normalized_value:
+            return rank, ""
+
+    if re.search(r"\bsp\.?$", name, flags=re.IGNORECASE):
+        return "Gênero", "sp."
+
+    normalized_genus = _clean(genus).casefold()
+    if normalized_genus not in {"", "-"} and normalized_name == normalized_genus:
+        return "Gênero", ""
+
+    return TAXON_RANK, ""
+
+
 def _numeric_or_blank(value):
     num = pd.to_numeric(value, errors="coerce")
     if pd.isna(num):
         return ""
     num = float(num)
     return int(num) if num.is_integer() else round(num, 6)
+
+
+def _identifier_or_blank(value) -> str:
+    text = _clean(value)
+    if not text:
+        return ""
+    number = pd.to_numeric(value, errors="coerce")
+    if not pd.isna(number):
+        number = float(number)
+        if number.is_integer():
+            return str(int(number))
+    return text
 
 
 def _date_or_blank(value):
@@ -174,6 +219,9 @@ def export_darwincore_ief(
     output_dir: Path,
     generated_files: list[str],
     include_fish_biometrics: bool = False,
+    output_filename: str | None = None,
+    county_default: str = COUNTY,
+    municipality_default: str = MUNICIPALITY,
 ) -> dict:
     if df.empty:
         return {"rows": 0, "warning": "dataset vazio"}
@@ -183,6 +231,8 @@ def export_darwincore_ief(
     c_date = _get_col(df, "data_hora_coleta", "data_campanha", "data_coleta", "eventDate")
     c_lat = _get_col(df, "latitude", "lat", "decimalLatitude")
     c_lon = _get_col(df, "longitude", "lon", "decimalLongitude")
+    c_county = _get_col(df, "county", "municipio", "municipality")
+    c_municipality = _get_col(df, "municipality", "municipio", "county")
     c_method = _get_col(df, "metodo_de_captura", "metodo", "metodo_amostragem", "samplingProtocol")
     c_effort = _get_col(df, "esforco", "samplingEffort")
     c_unit = _get_col(df, "unidade_esforco", "sampleSizeUnit")
@@ -192,8 +242,9 @@ def export_darwincore_ief(
     c_classe = _get_col(df, "classe", "class")
     c_ordem = _get_col(df, "ordem", "order")
     c_familia = _get_col(df, "familia", "family")
+    c_genero = _get_col(df, "genero", "genus")
     c_count = _get_col(df, "contagem", "numero_de_individuos", "abundancia", "individualCount")
-    c_water = _get_col(df, "bacia_hidrografica", "curso_d_agua", "waterBody")
+    c_water = _get_col(df, "curso_d_agua", "waterBody", "bacia_hidrografica")
     c_weight = _get_col(df, "biomassa", "peso", "weight")
     c_standard_length = _get_col(df, "medida_1", "comprimento_padrao", "standard_length", "StandardLength")
     c_total_length = _get_col(df, "medida_2", "comprimento_total", "total_length", "TotalLength")
@@ -210,9 +261,21 @@ def export_darwincore_ief(
 
     for idx, row in enumerate(df_work.to_dict(orient="records"), start=1):
         locality = _clean(row.get(c_ponto)) if c_ponto else ""
-        event_id = f"{idx}-{locality}" if locality else str(idx)
+        source_id = _identifier_or_blank(row.get(c_id)) if c_id else ""
+        event_base = source_id or str(idx)
+        event_id = f"{event_base}-{locality}" if locality else event_base
         occurrence_id = event_id
         individual_count = _numeric_or_blank(row.get(c_count)) if c_count else ""
+        county = _clean(row.get(c_county)) if c_county else ""
+        municipality = _clean(row.get(c_municipality)) if c_municipality else ""
+        taxon_rank, identification_qualifier = _taxon_rank_and_qualifier(
+            row.get(c_sci) if c_sci else "",
+            genus=row.get(c_genero) if c_genero else "",
+            family=row.get(c_familia) if c_familia else "",
+            order=row.get(c_ordem) if c_ordem else "",
+            taxon_class=row.get(c_classe) if c_classe else "",
+            phylum=row.get(c_filo) if c_filo else "",
+        )
 
         sampling_rows.append(
             {
@@ -223,8 +286,8 @@ def export_darwincore_ief(
                 "sampleSizeUnit": _clean(row.get(c_unit)) if c_unit else "",
                 "eventDate": _date_or_blank(row.get(c_date)) if c_date else "",
                 "eventRemarks": "",
-                "county": COUNTY,
-                "municipality": MUNICIPALITY,
+                "county": county or county_default,
+                "municipality": municipality or municipality_default,
                 "waterBody": _clean(row.get(c_water)) if c_water else "",
                 "locality": locality,
                 "decimalLatitude": _coord_or_blank(row.get(c_lat)) if c_lat else "",
@@ -244,8 +307,8 @@ def export_darwincore_ief(
                 "class": _clean(row.get(c_classe)) if c_classe else "",
                 "order": _clean(row.get(c_ordem)) if c_ordem else "",
                 "family": _clean(row.get(c_familia)) if c_familia else "",
-                "taxonRank": TAXON_RANK,
-                "identificationQualifier": "",
+                "taxonRank": taxon_rank,
+                "identificationQualifier": identification_qualifier,
                 "recordedBy": RECORDED_BY,
                 "individualCount": individual_count,
                 "sex": "",
@@ -289,7 +352,8 @@ def export_darwincore_ief(
         _write_dataframe(ws_fish, fish_df)
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    out_file = output_dir / f"DarwinCore_IEF_{_slug_title(group)}_{_project_slug(df_work)}.xlsx"
+    filename = output_filename or f"DarwinCore_IEF_{_slug_title(group)}_{_project_slug(df_work)}.xlsx"
+    out_file = output_dir / filename
     wb.save(out_file)
     generated_files.append(str(out_file))
 

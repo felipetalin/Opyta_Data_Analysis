@@ -60,6 +60,36 @@
       ]
     },
     {
+      "key": "figuras_word_alta_resolucao",
+      "name": "Figuras para Word em alta resolucao",
+      "status": "approved",
+      "doc": "docs/patterns/figuras_word_alta_resolucao.md",
+      "best_for": [
+        "relatorios tecnicos em Word",
+        "paginas A4 paisagem",
+        "series temporais e mapas de calor",
+        "figuras para impressao"
+      ],
+      "validated_in": [
+        "GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+      ]
+    },
+    {
+      "key": "ocorrencia_multicampanha",
+      "name": "Ocorrencia em series com muitas campanhas",
+      "status": "candidate",
+      "doc": "docs/patterns/ocorrencia_multicampanha.md",
+      "best_for": [
+        "presenca e ausencia",
+        "muitas campanhas e pontos",
+        "sintese temporal e espacial",
+        "relatorios com quadro de ocorrencia muito largo"
+      ],
+      "validated_in": [
+        "GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+      ]
+    },
+    {
       "key": "gold_legacy",
       "name": "Gold legado",
       "status": "reference",

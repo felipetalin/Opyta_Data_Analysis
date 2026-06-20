@@ -86,6 +86,8 @@ os referencia por nome.
 | --- | --- | --- |
 | `scripts/maintenance/geoher001/fix_geoher001_campaigns_supabase.py` | GEOHER001 | Correcao de nomenclatura de campanhas no Supabase. |
 | `scripts/maintenance/geoher001/merge_geoher001_bentos_c37_nov_into_c36.py` | GEOHER001 | Script historico de investigacao/correcao. |
+| `scripts/maintenance/geoher001/normalize_geoher001_bentos_taxonomy.py` | GEOHER001 | Auditoria e normalizacao transacional da taxonomia de Zoobentos, com dry-run, backup e verificacao pos-aplicacao. |
+| `scripts/maintenance/geoher001/resolve_geoher001_bentos_pending_taxa.py` | GEOHER001 | Resolucao de taxons pendentes e consolidacao controlada de registros duplicados. |
 | `scripts/maintenance/geoher001/restore_geoher001_bentos_c37_feb.py` | GEOHER001 | Restauracao da campanha C37 fevereiro/2026. |
 
 ## Wrappers Temporarios Na Raiz

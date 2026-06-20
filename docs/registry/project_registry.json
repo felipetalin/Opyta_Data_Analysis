@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source_of_truth": "Supabase public.projetos",
-  "last_verified": "2026-06-16",
+  "last_verified": "2026-06-19",
   "excluded_supabase_codes": [
     {
       "codigo_interno_opyta": "TESTE001",
@@ -37,12 +37,21 @@
         "scripts/prototypes/prototipar_geoher001_bentos_layouts.py"
       ],
       "audit": [
-        "outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+        "outputs/_project_scripts/GEOHER001__monitoramento_de_ictio_e_bentos_herculano",
+        "outputs/_migration/geoher001_bentos_taxonomy"
       ],
       "learning": [
         "Series longas funcionam melhor com minigraficos temporais do que com heatmaps em alguns blocos.",
         "CHOL deve somar Chironomidae e Oligochaeta/Oligoqueta.",
-        "CPUE por ano melhora leitura quando ha muitas campanhas."
+        "CPUE por ano melhora leitura quando ha muitas campanhas.",
+        "Para relatorios em Word, usar figuras em A4 paisagem e 600 dpi com fonte-base de 15 pt, rotulos de 16 pt, legendas de 13 pt e anotacoes de 12 pt.",
+        "Mapas de calor devem ter largura fixa de A4; gerar figuras muito largas e reduzi-las no Word prejudica a leitura.",
+        "EPT e CHOL ficam mais legiveis em dois paineis lado a lado, e os codigos das campanhas anuais devem ficar no cabecalho do painel.",
+        "Quadros de ocorrencia com 16 campanhas devem ser sintetizados em frequencia por campanha e por ponto; o detalhamento completo permanece em workbook anual e base longa.",
+        "Para zoobentos com 74 taxons, dividir os mapas de ocorrencia em partes preservando grupos taxonomicos evita perda de legibilidade.",
+        "Em identificacoes no nivel de familia, o campo genero deve permanecer vazio; nunca repetir nomes terminados em -idae como genero.",
+        "O campo genero deve conter apenas o genero, enquanto o qualificador sp. permanece no nome cientifico e no identificationQualifier do Darwin Core.",
+        "Alteracoes na hierarquia taxonomica exigem regeneracao integral dos produtos dependentes e auditoria pos-execucao, pois podem alterar riqueza por ordem e indicadores como EPT."
       ]
     },
     {

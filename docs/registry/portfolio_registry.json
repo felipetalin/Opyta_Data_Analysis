@@ -10,9 +10,20 @@
         "minigraficos_temporais",
         "cpue_por_ano",
         "ept_chol",
-        "paleta_azul_opyta"
+        "paleta_azul_opyta",
+        "figuras_word_alta_resolucao"
       ],
       "use_when": "Recortes com muitas campanhas e todos os pontos amostrais mantidos."
+    },
+    {
+      "key": "figuras_word_relatorio_tecnico",
+      "name": "Figuras para Word em alta resolucao",
+      "status": "approved",
+      "project": "GEOHER001__monitoramento_de_ictio_e_bentos_herculano",
+      "patterns": [
+        "figuras_word_alta_resolucao"
+      ],
+      "use_when": "Relatorios tecnicos em Word com figuras de pagina inteira, series temporais, paineis, mapas de calor, dendrogramas ou curvas amostrais."
     },
     {
       "key": "meio_fisico_conformidade_sam",

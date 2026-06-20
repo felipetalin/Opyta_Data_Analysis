@@ -13,6 +13,7 @@ from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import pdist, squareform
 
 from opyta_analysis.pipelines.diagnostico.darwincore_ief import export_darwincore_ief
+from opyta_analysis.pipelines.diagnostico.occurrence_summary import export_occurrence_summary
 from opyta_analysis.supabase_client import get_client, paginate
 from opyta_analysis.theme import (
     apply_theme,
@@ -523,6 +524,9 @@ def _small_multiple_metric(
         return
 
     colors = _season_colors(theme)
+    marker_size = float(theme.get("small_multiple_marker_size", 24))
+    line_width = float(theme.get("small_multiple_linewidth", 1.0))
+    point_label_size = int(theme.get("point_label_size", theme.get("font_size_base", 11)))
     ncols = min(4, max(1, len(points)))
     nrows = int(np.ceil(len(points) / ncols))
     base_size = theme.get("figsize_standard", [11.69, 8.27])
@@ -550,20 +554,29 @@ def _small_multiple_metric(
         values = pd.to_numeric(point_data[value_col], errors="coerce").fillna(0).to_numpy(dtype=float)
         seasons = [_campaign_season(c) for c in campaigns]
 
-        ax.plot(x, values, color="#606060", linewidth=1.0, zorder=1)
+        ax.plot(x, values, color="#606060", linewidth=line_width, zorder=1)
         for season in ["CH", "SC"]:
             mask = np.array([s == season for s in seasons])
             ax.scatter(
                 x[mask],
                 values[mask],
-                s=24,
+                s=marker_size,
                 color=colors[season],
                 edgecolor="black",
                 linewidth=0.4,
                 zorder=2,
             )
         ax.axhline(overall_mean, color="#7F7F7F", linewidth=0.9, linestyle="--", zorder=0)
-        ax.text(0.02, 0.92, point, transform=ax.transAxes, ha="left", va="top", fontweight="bold")
+        ax.text(
+            0.02,
+            0.92,
+            point,
+            transform=ax.transAxes,
+            ha="left",
+            va="top",
+            fontweight="bold",
+            fontsize=point_label_size,
+        )
         ax.set_ylim(0, ymax)
         ax.set_xticks(x)
         ax.set_xticklabels(labels, rotation=90)
@@ -607,6 +620,9 @@ def _small_multiple_diversity(
 
     primary = str(theme.get("primary_hex", "#002060"))
     secondary = str(theme.get("secondary_hex", "#5B9BD5"))
+    marker_size = max(float(theme.get("small_multiple_marker_size", 38)) ** 0.5, 3.0)
+    line_width = float(theme.get("small_multiple_linewidth", 1.1))
+    point_label_size = int(theme.get("point_label_size", theme.get("font_size_base", 11)))
     plot_data = diversity[diversity["nome_ponto"].isin(points)].copy()
     shannon_all = pd.to_numeric(plot_data["Shannon_H"], errors="coerce").fillna(0)
     pielou_all = pd.to_numeric(plot_data["Pielou_J"], errors="coerce").fillna(0)
@@ -641,11 +657,20 @@ def _small_multiple_diversity(
         point_data = plot_data[plot_data["nome_ponto"] == point].set_index("nome_campanha").reindex(campaigns).reset_index()
         shannon = pd.to_numeric(point_data["Shannon_H"], errors="coerce").fillna(0).to_numpy(dtype=float)
         pielou = pd.to_numeric(point_data["Pielou_J"], errors="coerce").fillna(0).to_numpy(dtype=float)
-        ax.plot(x, shannon, color=primary, marker="o", markersize=3, linewidth=1.1)
-        ax.plot(x, pielou, color=secondary, marker="s", markersize=3, linewidth=1.1)
+        ax.plot(x, shannon, color=primary, marker="o", markersize=marker_size, linewidth=line_width)
+        ax.plot(x, pielou, color=secondary, marker="s", markersize=marker_size, linewidth=line_width)
         ax.axhline(shannon_mean, color=primary, linewidth=0.8, linestyle="--", alpha=0.75)
         ax.axhline(pielou_mean, color=secondary, linewidth=0.8, linestyle="--", alpha=0.75)
-        ax.text(0.02, 0.92, point, transform=ax.transAxes, ha="left", va="top", fontweight="bold")
+        ax.text(
+            0.02,
+            0.92,
+            point,
+            transform=ax.transAxes,
+            ha="left",
+            va="top",
+            fontweight="bold",
+            fontsize=point_label_size,
+        )
         ax.set_ylim(0, ymax)
         ax.set_xticks(x)
         ax.set_xticklabels(labels, rotation=90)
@@ -690,6 +715,7 @@ def _plot_yearly_metric_panels(
 
     season_colors = _season_colors(theme)
     base_size = theme.get("figsize_standard", [11.69, 8.27])
+    panel_title_size = int(theme.get("point_label_size", theme.get("font_size_base", 11)))
     for year in sorted({year for year in (_campaign_year(c) for c in campaigns) if year is not None}):
         year_campaigns = [campaign for campaign in campaigns if _campaign_year(campaign) == year]
         if not year_campaigns:
@@ -732,11 +758,17 @@ def _plot_yearly_metric_panels(
                     va="bottom",
                     fontsize=int(theme.get("annotation_size", theme.get("font_size_base", 9))),
                 )
-            ax.text(0.02, 0.92, _campaign_short_label(campaign), transform=ax.transAxes, ha="left", va="top", fontweight="bold")
             ax.set_xticks(x)
             ax.set_xticklabels(points, rotation=0)
             ax.set_ylim(0, max(max_value * 1.15, 1.0))
             apply_theme(ax, theme, xlabel="", ylabel="")
+            ax.set_title(
+                _campaign_short_label(campaign),
+                loc="left",
+                fontsize=panel_title_size,
+                fontweight="bold",
+                pad=6,
+            )
 
         for ax in axes.ravel()[len(year_campaigns):]:
             ax.axis("off")
@@ -942,7 +974,13 @@ def _run_block_3(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
     return {"taxa_total": int(len(tabela))}
 
 
-def _run_block_4(df_projeto: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
+def _run_block_4(
+    df_projeto: pd.DataFrame,
+    group: str,
+    theme: dict,
+    output_dir: Path,
+    generated_files: list[str],
+) -> dict:
     group_slug = _safe_group_name(group)
     out_xlsx = output_dir / f"04_tabela_distribuicao_{group_slug}.xlsx"
 
@@ -1063,11 +1101,29 @@ def _run_block_4(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
     tabela_export.columns = [f"{camp} - {sub}" if "|||" in col and (camp := col.split("|||", 1)[0]) and (sub := col.split("|||", 1)[1]) else col for col in tabela_export.columns]
     tabela_export.to_excel(out_xlsx, index=False, engine="openpyxl")
     generated_files.append(str(out_xlsx))
+    occurrence_summary = export_occurrence_summary(
+        records=df_tmp,
+        sampling_units=layout_df[["nome_campanha", "nome_ponto"]].drop_duplicates(),
+        taxon_col="nome_cientifico",
+        campaign_col="nome_campanha",
+        point_col="nome_ponto",
+        abundance_col="contagem",
+        metadata_map={
+            "ordem": "Ordem",
+            "familia": "Família",
+            "nome_popular": "Nome popular",
+        },
+        group_slug=group_slug,
+        output_dir=output_dir,
+        theme=theme,
+        generated_files=generated_files,
+    )
     return {
         "rows_input": int(len(df_projeto)),
         "rows_valid": int(len(df_tmp)),
         "taxa_total": int(len(tabela_final)),
         "pontos_por_campanha": {camp: len(points) for camp, points in points_by_campaign.items()},
+        "sintese_ocorrencia": occurrence_summary,
     }
 
 
@@ -1636,16 +1692,21 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         values = df_plot[campaigns].to_numpy(dtype=float)
         vmax = float(np.nanmax(values)) if values.size else 0.0
 
-        fig_w = max(10.5, 1.35 * len(campaigns) + 4.5)
-        fig_h = max(7.0, 0.42 * max(len(labels), 10))
+        configured_size = theme.get("figsize_heatmap", theme.get("figsize_standard", [11.69, 7.2]))
+        fig_w = float(configured_size[0])
+        fig_h = max(float(configured_size[1]), 0.58 * max(len(labels), 10))
         fig, ax = plt.subplots(figsize=(fig_w, fig_h), dpi=int(theme.get("dpi", 600)))
         im = ax.imshow(values, aspect="auto", cmap=_theme_gradient_cmap(theme), vmin=0, vmax=vmax if vmax > 0 else 1)
 
         ax.set_xticks(np.arange(len(campaigns)))
-        ax.set_xticklabels(campaigns, rotation=35, ha="right")
+        ax.set_xticklabels([_campaign_short_label(c) for c in campaigns], rotation=0, ha="center")
         ax.set_yticks(np.arange(len(labels)))
         ax.set_yticklabels(labels, fontstyle="italic")
         apply_theme(ax, theme, xlabel="Campanha", ylabel="Especie", x_tick_rotation=None)
+        ax.tick_params(
+            axis="both",
+            labelsize=int(theme.get("heatmap_tick_size", theme.get("font_size_base", 11))),
+        )
         ax.grid(axis="y", visible=bool(theme.get("grid_y", True)), alpha=0.0)
         ax.grid(axis="x", visible=bool(theme.get("grid_x", False)))
 
@@ -1660,7 +1721,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
                     f"{float(v):.2f}",
                     ha="center",
                     va="center",
-                    fontsize=int(theme.get("annotation_size", 11)),
+                    fontsize=int(theme.get("heatmap_annotation_size", theme.get("annotation_size", 11))),
                     color=_annotation_color_for_value(float(v), vmax),
                 )
 
@@ -2004,6 +2065,7 @@ def run_ictio_pipeline(
         details["block_4"] = _run_block_4(
             df_projeto=df,
             group=group,
+            theme=theme,
             output_dir=output_dir,
             generated_files=generated_files,
         )

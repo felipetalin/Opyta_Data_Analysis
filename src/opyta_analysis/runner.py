@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Dict, Any
@@ -191,6 +192,20 @@ if __name__ == "__main__":
     return str(reproducer_file)
 
 
+def _prune_timestamped_audit_artifacts(audit_dir: Path, keep_run_id: str) -> None:
+    """Keep only the latest timestamped metadata/reproducer pair."""
+    timestamped_name = re.compile(
+        r"^\d{8}T\d{6}Z_(execution_metadata\.json|run_this_analysis\.py)$"
+    )
+    keep_names = {
+        f"{keep_run_id}_execution_metadata.json",
+        f"{keep_run_id}_run_this_analysis.py",
+    }
+    for path in audit_dir.iterdir():
+        if path.is_file() and timestamped_name.fullmatch(path.name) and path.name not in keep_names:
+            path.unlink()
+
+
 def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
     theme = load_theme(config_root, params.client)
 
@@ -333,6 +348,7 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
         audit_dir = _get_project_audit_dir(params, config_root, details)
         metadata_path = _generate_execution_metadata(params, result, config_root, audit_dir, run_id)
         reproducer_path = _generate_reproducer_script(params, config_root, audit_dir, run_id)
+        _prune_timestamped_audit_artifacts(audit_dir, keep_run_id=run_id)
         result["audit_trail"] = {
             "metadata_file": metadata_path,
             "reproducer_script": reproducer_path,

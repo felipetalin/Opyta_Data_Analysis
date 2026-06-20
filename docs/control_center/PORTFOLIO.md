@@ -13,6 +13,7 @@ aprovadas para problemas recorrentes.
 | CPUE por ano | Muitas campanhas em ictiofauna, barras ficam ilegíveis por campanha | approved | GEOHER001/Herculano |
 | EPT/CHOL com semantica ambiental | Indicador bentonico com leitura "bom vs ruim" | approved | GEOHER001/Herculano |
 | Paleta azul Opyta | Produtos Geomil/Ducal/Herculano com identidade azul | approved | Ducal/Porto Estrela/GEOHER001 |
+| Figuras para Word em alta resolucao | Relatorios tecnicos com figuras de pagina inteira, paineis e mapas de calor | approved | GEOHER001/Herculano |
 | Meio fisico conformidade | Produtos tabulares e graficos por matriz/parametro | reference | SAM Metais |
 | Migracao ictiofauna Porto Estrela | Fluxo de validacao e geracao de base analitica | reference | BIOPOR001 |
 | Project 165 fauna multi-grupo | Pipeline historico multi-grupo | reference | ITAGUA001 |
