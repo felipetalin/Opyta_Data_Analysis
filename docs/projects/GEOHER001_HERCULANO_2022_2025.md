@@ -116,6 +116,27 @@ Boas praticas aplicadas no fechamento:
 - auditoria oficial de fauna apos a geracao;
 - retencao de apenas um par timestamped de metadata e reprodutor por grupo.
 
+## Lastro Git
+
+- Repositorio:
+  [`felipetalin/Opyta_Data_Analysis`](https://github.com/felipetalin/Opyta_Data_Analysis)
+- Branch publicada: `main`
+- Commit de implementacao: `2bb06890fe92566586e1a789432871c18e6c1709`
+- Link permanente:
+  [`2bb0689 - Aprimora resultados e taxonomia GEOHER001`](https://github.com/felipetalin/Opyta_Data_Analysis/commit/2bb06890fe92566586e1a789432871c18e6c1709)
+- Publicado em: `2026-06-20T08:49:20-03:00`
+- Base anterior: `77c6240`
+
+O commit registra conjuntamente:
+
+- normalizacao taxonomica de Zoobentos;
+- correcao do nivel taxonomico no Darwin Core;
+- sintese de ocorrencia multicampanha;
+- perfil de figuras em alta resolucao para Word;
+- atualizacoes nos pipelines de Ictiofauna e Zoobentos;
+- patterns, registries, catalogo de scripts e dossie do projeto;
+- retencao controlada do lastro reprodutivel gerado pelo runner.
+
 ## Observacoes de dados
 
 - A campanha C37 de Bentos foi corrigida como fevereiro/2026 e ficou fora do
