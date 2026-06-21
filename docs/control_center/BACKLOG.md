@@ -7,6 +7,7 @@
 - Criar dossies para BRAAVG002, FERSAM001, DUCGEO001, ITAGUA001 e TOTVAL001.
 - Criar dossies para BIOPOR001, MICGAG001, BRAVAL004, GEOHER003, BRAANG01 e BRACED001 quando entrarem no fluxo.
 - Migrar gradualmente docs raiz para dossies, patterns ou portfolio.
+- Promover geracao de HTML textual rastreavel ao pipeline apenas apos validar o `padrao_redacao_tecnica_rastreavel_opyta_v1.md` em pelo menos dois projetos.
 
 ## Media Prioridade
 

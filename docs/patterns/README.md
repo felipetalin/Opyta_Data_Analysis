@@ -13,6 +13,8 @@ saida.
 - `ept_chol.md`
 - `figuras_word_alta_resolucao.md`
 - `ocorrencia_multicampanha.md`
+- `linguagem_tecnica_rastreavel.md`
+- `padrao_redacao_tecnica_rastreavel_opyta_v1.md`
 - `paleta_azul_opyta.md`
 
 ## Regra de promocao
