@@ -90,6 +90,21 @@
       ]
     },
     {
+      "key": "linguagem_tecnica_rastreavel",
+      "name": "Linguagem tecnica rastreavel",
+      "status": "approved",
+      "doc": "docs/patterns/linguagem_tecnica_rastreavel.md",
+      "best_for": [
+        "relatorios tecnicos em HTML",
+        "narrativas atualizadas por planilhas",
+        "revisao de causalidade",
+        "rastreabilidade entre texto e resultados"
+      ],
+      "validated_in": [
+        "GEOHER001__monitoramento_de_ictio_e_bentos_herculano"
+      ]
+    },
+    {
       "key": "gold_legacy",
       "name": "Gold legado",
       "status": "reference",

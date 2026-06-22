@@ -17,6 +17,16 @@
 - recorte espacial:
 - dados de origem:
 
+## Central De Controle
+
+- operacao atual:
+- estado operacional:
+- registro da operacao:
+- proxima acao:
+- Gate A — dados:
+- Gate B — especies:
+- Gate C — analises:
+
 ## Metodologia
 
 - pipelines:

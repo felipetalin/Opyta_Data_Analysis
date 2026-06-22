@@ -34,6 +34,7 @@ rastreabilidade sem depender de memoria ou de busca manual em pastas de cliente.
 | AVG | `scripts/projects/avg/` | Bentos/ictio 2026: migracao, consolidacao e geracao por campanha. |
 | ITAGUA001 / Monitoramento da Fauna | `scripts/projects/project_165/` | Pipeline historico de ictiofauna documentado em `docs/PIPELINE_ICTIO_165.md`. |
 | FERSAM001 / Sam Metais Diagnostico | `scripts/projects/sam_metais/` | Meio fisico, conformidade e revisao de biota aquatica. |
+| VIRITA001 / Itabrita | `scripts/projects/virita001/` | Ictiofauna: relatorio tecnico HTML e evidencias da Campanha 1, seguindo o padrao analitico FERSAM001 para duas campanhas. |
 
 ## Geradores De Meio Fisico
 
@@ -79,6 +80,12 @@ os referencia por nome.
 | --- | --- | --- |
 | `scripts/prototypes/prototipar_geoher001_bentos_layouts.py` | GEOHER001/Herculano | Aprovado parcialmente; logica de minigraficos e 06 anual promovida para `src/opyta_analysis/pipelines/diagnostico/`. |
 | `scripts/prototypes/prototipos_design_porto_estrela.py` | Porto Estrela | Referencia visual historica. |
+
+## Relatorios Textuais
+
+| Script | Projeto | Status |
+| --- | --- | --- |
+| `scripts/projects/geoher001/generate_bentos_textual_pilot.py` | GEOHER001/Herculano | Narrativa tecnica calibrada pela policy mestre Opyta, com HTML, matriz de evidencias e validacao sincronizados. |
 
 ## Manutencao
 

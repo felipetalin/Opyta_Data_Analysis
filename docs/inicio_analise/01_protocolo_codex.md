@@ -6,13 +6,18 @@ Este arquivo e uma instrucao operacional para futuras conversas.
 
 Se o usuario disser algo como:
 
+- "center_control";
+- "center_cotrol";
+- "central de controle";
 - "use a pasta inicio_analise";
 - "vamos comecar uma analise";
 - "seguir o fluxo de inicio de analise";
 - "abra o protocolo de nova analise";
 - "use o sistema de lastro";
 
-o Codex deve abrir esta pasta e seguir o checklist antes de implementar.
+o Codex deve abrir primeiro `docs/control_center/README.md`, seguir
+`docs/control_center/WORKFLOW.md` e usar esta pasta na etapa de configuracao das
+analises.
 
 ## Primeira Resposta Esperada
 
@@ -27,15 +32,18 @@ dossie, recipe, portfolio e lastro existente; depois alinhamos produtos antes de
 
 ## Ordem De Trabalho
 
-1. Consultar `docs/registry/project_registry.json`.
-2. Conferir `docs/control_center/PROJECTS.md`.
-3. Localizar ou criar dossie em `docs/projects/`.
-4. Consultar `docs/portfolio_analises` para decidir o tipo de analise.
-5. Localizar ou criar recipe em `configs/projects/`.
-6. Consultar `docs/registry/pattern_registry.json` e `docs/registry/portfolio_registry.json`.
-7. Conferir lastro em `outputs/_project_scripts/<canonical_key>`.
-8. Definir outputs finais no Drive do cliente.
-9. So gerar analises depois do alinhamento metodologico.
+1. Conferir `docs/control_center/ACTIVE_OPERATIONS.md`.
+2. Localizar ou criar o registro da operacao.
+3. Consultar `docs/registry/project_registry.json`.
+4. Conferir `docs/control_center/PROJECTS.md`.
+5. Localizar ou criar dossie em `docs/projects/`.
+6. Consultar `docs/portfolio_analises` para decidir o tipo de analise.
+7. Localizar ou criar recipe em `configs/projects/`.
+8. Consultar `docs/registry/pattern_registry.json` e `docs/registry/portfolio_registry.json`.
+9. Conferir lastro em `outputs/_project_scripts/<canonical_key>`.
+10. Propor template, paleta, outputs finais e pasta no Drive do cliente.
+11. Registrar a aprovacao do Gate C.
+12. So gerar analises depois do alinhamento metodologico.
 
 ## Regras De Cuidado
 

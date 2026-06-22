@@ -1,0 +1,26 @@
+{
+  "client_code": "VIRITA001",
+  "audit_project_slug": "VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita",
+  "theme_override": {
+    "ictio_line_level_source_excel": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Virtual/São Gonçalo/Campanha/Junho 26/Planilha/Opyta-Virtual-Itabrita-Ictio-2026_260621_MIGRACAO_CORRIGIDA.xlsx",
+    "theme_name": "fersam001_few_campaigns_reference",
+    "primary_hex": "#11420C",
+    "secondary_hex": "#6A8F63",
+    "highlight_hex": "#3F5F3B",
+    "palette_start_hex": "#237C1A",
+    "palette_end_hex": "#19FF00",
+    "categorical_palette": ["#237C1A", "#19FF00"],
+    "font_size_base": 17,
+    "annotation_size": 12,
+    "campaign_label_size": 14,
+    "label_size": 12,
+    "legend_size": 17,
+    "title_size": 17,
+    "legend_max_cols": 2,
+    "legend_ncol": 2,
+    "legend_below_x_axis": false,
+    "legend_figure_y": 0.995,
+    "figsize_standard": [15, 10],
+    "dpi": 600
+  }
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portfolio de Analises - Opyta</title>
+  <title>Portfólio de Análises - Opyta</title>
   <style>
     :root {
       --bg: #f6f8fb;
@@ -18,6 +18,7 @@
       --amber: #a66b00;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--bg);
@@ -25,10 +26,52 @@
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.45;
     }
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--blue);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 0 0 8px 0;
+      z-index: 100;
+    }
+    .skip-link:focus { left: 0; }
     header {
       background: var(--surface);
       border-bottom: 1px solid var(--line);
       padding: 28px 36px 22px;
+    }
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topnav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      align-items: center;
+    }
+    .topnav a {
+      display: inline-block;
+      padding: 12px 12px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      border-bottom: 2px solid transparent;
+    }
+    .topnav a:hover { color: var(--blue); }
+    .topnav a.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
     }
     main {
       max-width: 1180px;
@@ -62,6 +105,7 @@
     }
     section {
       margin-top: 26px;
+      scroll-margin-top: 70px;
     }
     .card {
       background: var(--surface);
@@ -74,13 +118,40 @@
       gap: 12px;
       align-content: start;
     }
+    .real-card {
+      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
+    .real-card:hover {
+      box-shadow: 0 6px 20px rgba(24, 90, 157, 0.10);
+      border-color: #b9cde2;
+      transform: translateY(-2px);
+    }
+    .real-card.is-hidden { display: none; }
     .thumb {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
       overflow: hidden;
       aspect-ratio: 900 / 520;
+      cursor: zoom-in;
+      position: relative;
     }
+    .thumb::after {
+      content: "ampliar";
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      background: rgba(23, 33, 47, 0.72);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      pointer-events: none;
+    }
+    .thumb:hover::after { opacity: 1; }
     .thumb img {
       width: 100%;
       height: 100%;
@@ -291,6 +362,112 @@
       border-radius: 8px;
       color: #4d3a16;
     }
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .filterbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .filter-btn {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+    }
+    .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .filter-btn.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .filter-empty {
+      display: none;
+      color: var(--muted);
+      padding: 16px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 33, 0.86);
+      padding: 28px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 96vw;
+      max-height: 86vh;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    .lightbox-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: #e7eef6;
+      font-size: 13px;
+      padding: 0 20px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .lightbox-close:hover { background: rgba(255, 255, 255, 0.28); }
+    .to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 50;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--blue);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      box-shadow: 0 6px 18px rgba(24, 90, 157, 0.32);
+    }
+    .to-top.show { opacity: 1; pointer-events: auto; }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
     @media (max-width: 900px) {
       .grid.cols-4, .grid.cols-3, .grid.cols-2, .flow {
         grid-template-columns: 1fr;
@@ -300,39 +477,59 @@
       main { padding: 22px 16px 36px; }
       table { display: block; overflow-x: auto; }
     }
+    @media print {
+      .topnav, .to-top, .filterbar, .skip-link, .thumb::after { display: none !important; }
+      body { background: #fff; }
+      .real-card, .card, .model-card { break-inside: avoid; box-shadow: none; }
+      .path-details { display: none; }
+      a { color: inherit; text-decoration: none; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#cardapio">Pular para o cardápio</a>
   <header>
     <div class="eyebrow">Opyta Analysis</div>
-    <h1>Portfolio de Analises</h1>
-    <p>Ponto de decisao antes da recipe: escolha o tipo de analise olhando exemplos reais ja desenvolvidos, specs tecnicas e contexto de uso.</p>
+    <h1>Portfólio de Análises</h1>
+    <p>Ponto de decisão antes da recipe: escolha o tipo de análise olhando exemplos reais já desenvolvidos, specs técnicas e contexto de uso.</p>
   </header>
 
+  <nav class="topnav" aria-label="Navegação do portfólio">
+    <div class="topnav-inner">
+      <a href="#fluxo">Fluxo</a>
+      <a href="#classificacao">Classificação</a>
+      <a href="#matriz">Matriz</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#fichas">Fichas técnicas</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#regra">Regra</a>
+    </div>
+  </nav>
+
   <main>
-    <section>
-      <h2>Fluxo de decisao</h2>
+    <section id="fluxo">
+      <h2>Fluxo de decisão</h2>
       <div class="flow">
         <div class="step"><span>1</span><strong>Dados</strong><p>Confirmar fonte, grupos, campanhas e pontos.</p></div>
         <div class="step"><span>2</span><strong>Complexidade</strong><p>Classificar volume temporal e espacial.</p></div>
-        <div class="step"><span>3</span><strong>Objetivo</strong><p>Diagnostico, tendencia, validacao ou sintese.</p></div>
-        <div class="step"><span>4</span><strong>Modulos</strong><p>Selecionar blocos analiticos necessarios.</p></div>
-        <div class="step"><span>5</span><strong>Graficos</strong><p>Escolher formas que cabem no layout.</p></div>
-        <div class="step"><span>6</span><strong>Recipe</strong><p>Registrar decisao antes de rodar.</p></div>
+        <div class="step"><span>3</span><strong>Objetivo</strong><p>Diagnóstico, tendência, validação ou síntese.</p></div>
+        <div class="step"><span>4</span><strong>Módulos</strong><p>Selecionar blocos analíticos necessários.</p></div>
+        <div class="step"><span>5</span><strong>Gráficos</strong><p>Escolher formas que cabem no layout.</p></div>
+        <div class="step"><span>6</span><strong>Recipe</strong><p>Registrar decisão antes de rodar.</p></div>
       </div>
     </section>
 
-    <section>
-      <h2>Classificacao rapida</h2>
+    <section id="classificacao">
+      <h2>Classificação rápida</h2>
       <div class="grid cols-4">
-        <div class="card"><h3>Poucas campanhas</h3><div class="metric"><strong>1-4</strong><span>campanhas</span></div><p>Comparacao direta e leitura descritiva.</p></div>
-        <div class="card"><h3>Serie media</h3><div class="metric"><strong>5-8</strong><span>campanhas</span></div><p>Paineis e comparacao temporal moderada.</p></div>
-        <div class="card"><h3>Serie longa</h3><div class="metric"><strong>9+</strong><span>campanhas</span></div><p>Minigraficos, agregacao anual e sintese.</p></div>
+        <div class="card"><h3>Poucas campanhas</h3><div class="metric"><strong>1-4</strong><span>campanhas</span></div><p>Comparação direta e leitura descritiva.</p></div>
+        <div class="card"><h3>Série média</h3><div class="metric"><strong>5-8</strong><span>campanhas</span></div><p>Painéis e comparação temporal moderada.</p></div>
+        <div class="card"><h3>Série longa</h3><div class="metric"><strong>9+</strong><span>campanhas</span></div><p>Minigráficos, agregação anual e síntese.</p></div>
         <div class="card"><h3>Muitos pontos</h3><div class="metric"><strong>13+</strong><span>pontos</span></div><p>Rankings, mapas e agrupamentos por trecho.</p></div>
       </div>
     </section>
 
-    <section>
+    <section id="matriz">
       <h2>Matriz de escolha</h2>
       <table>
         <thead>
@@ -346,58 +543,68 @@
         <tbody>
           <tr>
             <td>Poucas campanhas e poucos pontos</td>
-            <td>Barras, pontos, tabelas sinteticas</td>
+            <td>Barras, pontos, tabelas sintéticas</td>
             <td>Mapas se houver coordenadas</td>
-            <td>Tendencias fortes</td>
+            <td>Tendências fortes</td>
           </tr>
           <tr>
             <td>Poucas campanhas e muitos pontos</td>
             <td>Rankings, mapas, barras horizontais</td>
             <td>Facetamento por trecho</td>
-            <td>Paineis com excesso de categorias</td>
+            <td>Painéis com excesso de categorias</td>
           </tr>
           <tr>
             <td>Muitas campanhas e poucos pontos</td>
-            <td>Linhas, minigraficos, media geral</td>
-            <td>Modelos simples de tendencia</td>
+            <td>Linhas, minigráficos, média geral</td>
+            <td>Modelos simples de tendência</td>
             <td>Barras por campanha muito longas</td>
           </tr>
           <tr>
             <td>Muitas campanhas e muitos pontos</td>
-            <td>Minigraficos, paineis por ano, sinteses</td>
+            <td>Minigráficos, painéis por ano, sínteses</td>
             <td>Heatmaps como apoio</td>
-            <td>Um unico grafico com todos os rotulos</td>
+            <td>Um único gráfico com todos os rótulos</td>
           </tr>
           <tr>
-            <td>Esforco variavel</td>
-            <td>CPUE, padronizacao, alerta metodologico</td>
-            <td>Abundancia bruta como dado complementar</td>
-            <td>Comparar contagens sem esforco</td>
+            <td>Esforço variável</td>
+            <td>CPUE, padronização, alerta metodológico</td>
+            <td>Abundância bruta como dado complementar</td>
+            <td>Comparar contagens sem esforço</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <section>
-      <h2>Cardapio real</h2>
-      <div class="grid cols-2">
-        <div class="card real-card">
+    <section id="cardapio">
+      <div class="section-head">
+        <h2>Cardápio real</h2>
+      </div>
+      <div class="filterbar" id="cardapio-filtros" role="group" aria-label="Filtrar cardápio">
+        <button type="button" class="filter-btn active" data-filter="todos">Todos</button>
+        <button type="button" class="filter-btn" data-filter="bentos">Zoobentos</button>
+        <button type="button" class="filter-btn" data-filter="ictio">Ictiofauna</button>
+        <button type="button" class="filter-btn" data-filter="aprovado">Aprovados</button>
+        <button type="button" class="filter-btn" data-filter="executivo">Executivo</button>
+      </div>
+      <p class="filter-empty" id="cardapio-vazio">Nenhum exemplo com esse filtro.</p>
+      <div class="grid cols-2" id="cardapio-grid">
+        <div class="card real-card" data-tags="bentos aprovado temporal">
           <div>
-            <h3>M01 - Minigraficos temporais</h3>
+            <h3>M01 - Minigráficos temporais</h3>
             <p>Exemplo real: riqueza temporal por ponto em zoobentos, Herculano.</p>
             <div class="meta-row">
-              <span class="tag green">aprovado</span><span class="tag">GEOHER001</span><span class="tag">series longas</span>
+              <span class="tag green">aprovado</span><span class="tag">GEOHER001</span><span class="tag">séries longas</span>
             </div>
           </div>
           <div class="thumb">
-            <img src="assets/thumbs/m01_herculano_bentos_riqueza_temporal.png" alt="Exemplo real de minigraficos temporais de riqueza por ponto em zoobentos">
+            <img src="assets/thumbs/m01_herculano_bentos_riqueza_temporal.png" alt="Exemplo real de minigráficos temporais de riqueza por ponto em zoobentos">
           </div>
-          <p>Usar quando ha muitas campanhas e a leitura por ponto e mais importante que uma matriz unica. A media geral ajuda a interpretar desvios por ponto.</p>
+          <p>Usar quando há muitas campanhas e a leitura por ponto é mais importante que uma matriz única. A média geral ajuda a interpretar desvios por ponto.</p>
           <div class="spec-grid">
             <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
             <div class="spec"><b>DPI</b><span>600</span></div>
             <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
-            <div class="spec"><b>Quando evitar</b><span>poucas campanhas ou foco taxonomico detalhado</span></div>
+            <div class="spec"><b>Quando evitar</b><span>poucas campanhas ou foco taxonômico detalhado</span></div>
           </div>
           <details class="path-details">
             <summary>Caminhos</summary>
@@ -406,7 +613,7 @@
           </details>
         </div>
 
-        <div class="card real-card">
+        <div class="card real-card" data-tags="ictio aprovado temporal">
           <div>
             <h3>M02 - Barras por ano</h3>
             <p>Exemplo real: CPUEn anual de ictiofauna, Herculano.</p>
@@ -415,9 +622,9 @@
             </div>
           </div>
           <div class="thumb">
-            <img src="assets/thumbs/m02_herculano_ictio_cpuen_ano.png" alt="Exemplo real de grafico de CPUEn por ano em ictiofauna">
+            <img src="assets/thumbs/m02_herculano_ictio_cpuen_ano.png" alt="Exemplo real de gráfico de CPUEn por ano em ictiofauna">
           </div>
-          <p>Usar quando barras por campanha ficam densas demais. A separacao por ano preserva o detalhe temporal sem sacrificar legibilidade.</p>
+          <p>Usar quando barras por campanha ficam densas demais. A separação por ano preserva o detalhe temporal sem sacrificar legibilidade.</p>
           <div class="spec-grid">
             <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
             <div class="spec"><b>DPI</b><span>600</span></div>
@@ -431,18 +638,18 @@
           </details>
         </div>
 
-        <div class="card real-card">
+        <div class="card real-card" data-tags="ictio executivo espacial">
           <div>
             <h3>M03 - Ranking horizontal</h3>
-            <p>Exemplo real: tornado de CPUE por especie, Porto Estrela.</p>
+            <p>Exemplo real: tornado de CPUE por espécie, Porto Estrela.</p>
             <div class="meta-row">
-              <span class="tag">BIOPOR001</span><span class="tag">top especies</span><span class="tag amber">comparativo</span>
+              <span class="tag">BIOPOR001</span><span class="tag">top espécies</span><span class="tag amber">comparativo</span>
             </div>
           </div>
           <div class="thumb">
-            <img src="assets/thumbs/m03_porto_estrela_tornado_especies.png" alt="Exemplo real de ranking horizontal tipo tornado por especie">
+            <img src="assets/thumbs/m03_porto_estrela_tornado_especies.png" alt="Exemplo real de ranking horizontal tipo tornado por espécie">
           </div>
-          <p>Usar para comparar especies ou grupos entre trechos, margens ou areas. Funciona bem quando nomes longos inviabilizam barras verticais.</p>
+          <p>Usar para comparar espécies ou grupos entre trechos, margens ou áreas. Funciona bem quando nomes longos inviabilizam barras verticais.</p>
           <div class="spec-grid">
             <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
             <div class="spec"><b>DPI</b><span>300-600</span></div>
@@ -456,18 +663,18 @@
           </details>
         </div>
 
-        <div class="card real-card">
+        <div class="card real-card" data-tags="bentos diagnostico">
           <div>
-            <h3>M04 - Indicadores ecologicos</h3>
+            <h3>M04 - Indicadores ecológicos</h3>
             <p>Exemplo real: EPT/CHOL em zoobentos, Herculano.</p>
             <div class="meta-row">
-              <span class="tag green">EPT</span><span class="tag red">CHOL</span><span class="tag">diagnostico</span>
+              <span class="tag green">EPT</span><span class="tag red">CHOL</span><span class="tag">diagnóstico</span>
             </div>
           </div>
           <div class="thumb">
             <img src="assets/thumbs/m04_herculano_bentos_ept_chol.png" alt="Exemplo real de indicadores EPT e CHOL em zoobentos">
           </div>
-          <p>Usar para leitura ecologica rapida. CHOL deve somar Chironomidae e Oligochaeta/Oligoqueta, com EPT em azul e CHOL em vermelho.</p>
+          <p>Usar para leitura ecológica rápida. CHOL deve somar Chironomidae e Oligochaeta/Oligoqueta, com EPT em azul e CHOL em vermelho.</p>
           <div class="spec-grid">
             <div class="spec"><b>Figura</b><span>A4 paisagem</span></div>
             <div class="spec"><b>DPI</b><span>600</span></div>
@@ -481,18 +688,18 @@
           </details>
         </div>
 
-        <div class="card real-card">
+        <div class="card real-card" data-tags="ictio taxonomico">
           <div>
-            <h3>M05 - Composicao taxonomica</h3>
+            <h3>M05 - Composição taxonômica</h3>
             <p>Exemplo real: percentual por ordem, Porto Estrela.</p>
             <div class="meta-row">
-              <span class="tag">BIOPOR001</span><span class="tag">ordem</span><span class="tag">composicao</span>
+              <span class="tag">BIOPOR001</span><span class="tag">ordem</span><span class="tag">composição</span>
             </div>
           </div>
           <div class="thumb">
-            <img src="assets/thumbs/m05_porto_estrela_composicao_ordem.png" alt="Exemplo real de composicao percentual por ordem">
+            <img src="assets/thumbs/m05_porto_estrela_composicao_ordem.png" alt="Exemplo real de composição percentual por ordem">
           </div>
-          <p>Usar para explicar dominancia taxonomica. Quando houver muitas categorias, limitar top N e manter tabela completa como suporte.</p>
+          <p>Usar para explicar dominância taxonômica. Quando houver muitas categorias, limitar top N e manter tabela completa como suporte.</p>
           <div class="spec-grid">
             <div class="spec"><b>Figura</b><span>A4 paisagem ou painel duplo</span></div>
             <div class="spec"><b>DPI</b><span>300-600</span></div>
@@ -506,9 +713,9 @@
           </details>
         </div>
 
-        <div class="card real-card">
+        <div class="card real-card" data-tags="ictio executivo">
           <div>
-            <h3>M06 - Sintese executiva</h3>
+            <h3>M06 - Síntese executiva</h3>
             <p>Exemplo real: painel editorial de diversidade, Porto Estrela.</p>
             <div class="meta-row">
               <span class="tag">BIOPOR001</span><span class="tag amber">dashboard</span><span class="tag">HTML/slide</span>
@@ -517,12 +724,12 @@
           <div class="thumb">
             <img src="assets/thumbs/m06_porto_estrela_dashboard_editorial.png" alt="Exemplo real de painel executivo editorial">
           </div>
-          <p>Usar para decisao e apresentacao. Resume metricas, tendencia e mensagem tecnica, mas nao substitui o caderno tecnico completo.</p>
+          <p>Usar para decisão e apresentação. Resume métricas, tendência e mensagem técnica, mas não substitui o caderno técnico completo.</p>
           <div class="spec-grid">
             <div class="spec"><b>Figura</b><span>10 x 5.6 in ou HTML responsivo</span></div>
             <div class="spec"><b>DPI</b><span>300-600</span></div>
             <div class="spec"><b>Fonte</b><span>Arial/system sans-serif</span></div>
-            <div class="spec"><b>Quando evitar</b><span>antes do QA e da validacao tecnica</span></div>
+            <div class="spec"><b>Quando evitar</b><span>antes do QA e da validação técnica</span></div>
           </div>
           <details class="path-details">
             <summary>Caminhos</summary>
@@ -533,14 +740,14 @@
       </div>
     </section>
 
-    <section>
-      <h2>Fichas tecnicas base</h2>
+    <section id="fichas">
+      <h2>Fichas técnicas base</h2>
       <div class="grid cols-2">
         <div class="card model-card">
           <div class="topline">
             <div>
-              <h3>Minigraficos temporais</h3>
-              <p>Serie longa por ponto, com linha ou valor de media geral.</p>
+              <h3>Minigráficos temporais</h3>
+              <p>Série longa por ponto, com linha ou valor de média geral.</p>
             </div>
             <div class="code">M01</div>
           </div>
@@ -548,7 +755,7 @@
             <span class="tag green">aprovado</span><span class="tag">9+ campanhas</span><span class="tag">muitos pontos</span>
             <div class="figure-preview" aria-label="Miniatura de minigraficos temporais com media geral">
               <svg viewBox="0 0 420 150" role="img">
-                <text x="8" y="12" class="preview-title">M01 - pequenos multiplos temporais</text>
+                <text x="8" y="12" class="preview-title">M01 - pequenos múltiplos temporais</text>
                 <g transform="translate(8 24)">
                   <g transform="translate(0 0)">
                     <rect x="0" y="0" width="122" height="48" rx="4" fill="#fff" stroke="#d8e0ea"/>
@@ -597,24 +804,24 @@
             </div>
             <ul>
               <li>Usar para riqueza, diversidade, CPUE e indicadores por ponto.</li>
-              <li>Evitar quando a pergunta principal for composicao taxonomica detalhada.</li>
-              <li>Referencia: GEOHER001 series longas.</li>
+              <li>Evitar quando a pergunta principal for composição taxonômica detalhada.</li>
+              <li>Referência: GEOHER001 séries longas.</li>
             </ul>
             <div class="spec-grid">
               <div class="spec"><b>Figura</b><span>A4 paisagem, 11.69 x 8.27 in</span></div>
-              <div class="spec"><b>DPI</b><span>600 para relatorio tecnico</span></div>
+              <div class="spec"><b>DPI</b><span>600 para relatório técnico</span></div>
               <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
-              <div class="spec"><b>Tamanhos</b><span>titulo 12-14 pt; eixos 8-9 pt</span></div>
+              <div class="spec"><b>Tamanhos</b><span>título 12-14 pt; eixos 8-9 pt</span></div>
             </div>
           </div>
-          <p>Saidas: PNG + XLSX de dados + decisao registrada na recipe.</p>
+          <p>Saídas: PNG + XLSX de dados + decisão registrada na recipe.</p>
         </div>
 
         <div class="card model-card">
           <div class="topline">
             <div>
               <h3>Barras por ano</h3>
-              <p>Agrega campanhas em anos ou periodo hidrologico para reduzir excesso visual.</p>
+              <p>Agrega campanhas em anos ou período hidrológico para reduzir excesso visual.</p>
             </div>
             <div class="code">M02</div>
           </div>
@@ -655,24 +862,24 @@
             </div>
             <ul>
               <li>Usar quando barras por campanha ficarem ilegíveis.</li>
-              <li>Bom para CPUE, abundancia por classe, ordem ou origem.</li>
+              <li>Bom para CPUE, abundância por classe, ordem ou origem.</li>
               <li>Evitar quando cada campanha individual for a pergunta central.</li>
             </ul>
             <div class="spec-grid">
-              <div class="spec"><b>Figura</b><span>A4 paisagem, paineis por ano</span></div>
+              <div class="spec"><b>Figura</b><span>A4 paisagem, painéis por ano</span></div>
               <div class="spec"><b>DPI</b><span>600</span></div>
               <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
-              <div class="spec"><b>Tamanhos</b><span>titulo 12 pt; legenda 8-9 pt</span></div>
+              <div class="spec"><b>Tamanhos</b><span>título 12 pt; legenda 8-9 pt</span></div>
             </div>
           </div>
-          <p>Saidas: PNG + XLSX com agregacao anual e valores originais.</p>
+          <p>Saídas: PNG + XLSX com agregação anual e valores originais.</p>
         </div>
 
         <div class="card model-card">
           <div class="topline">
             <div>
               <h3>Ranking horizontal</h3>
-              <p>Ordena especies, pontos ou parametros para comparacao direta.</p>
+              <p>Ordena espécies, pontos ou parâmetros para comparação direta.</p>
             </div>
             <div class="code">M03</div>
           </div>
@@ -700,25 +907,25 @@
               </svg>
             </div>
             <ul>
-              <li>Usar para top especies, maiores CPUEs, pontos mais ricos ou parametros criticos.</li>
-              <li>Mostrar top N no grafico e tabela completa em XLSX.</li>
+              <li>Usar para top espécies, maiores CPUEs, pontos mais ricos ou parâmetros críticos.</li>
+              <li>Mostrar top N no gráfico e tabela completa em XLSX.</li>
               <li>Evitar barras verticais com nomes longos.</li>
             </ul>
             <div class="spec-grid">
               <div class="spec"><b>Figura</b><span>A4 retrato ou paisagem</span></div>
-              <div class="spec"><b>DPI</b><span>600 relatorio; 300 preview</span></div>
+              <div class="spec"><b>DPI</b><span>600 relatório; 300 preview</span></div>
               <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
-              <div class="spec"><b>Tamanhos</b><span>rotulos 8-10 pt; notas 7 pt</span></div>
+              <div class="spec"><b>Tamanhos</b><span>rótulos 8-10 pt; notas 7 pt</span></div>
             </div>
           </div>
-          <p>Saidas: PNG + XLSX completo + nota de criterio de corte.</p>
+          <p>Saídas: PNG + XLSX completo + nota de critério de corte.</p>
         </div>
 
         <div class="card model-card">
           <div class="topline">
             <div>
-              <h3>Indicadores ecologicos</h3>
-              <p>Sintetiza resposta ambiental por grupos sensiveis e tolerantes.</p>
+              <h3>Indicadores ecológicos</h3>
+              <p>Sintetiza resposta ambiental por grupos sensíveis e tolerantes.</p>
             </div>
             <div class="code">M04</div>
           </div>
@@ -726,7 +933,7 @@
             <span class="tag green">EPT azul</span><span class="tag red">CHOL vermelho</span><span class="tag">diagnostico</span>
             <div class="figure-preview" aria-label="Miniatura de indicadores EPT e CHOL">
               <svg viewBox="0 0 420 150" role="img">
-                <text x="8" y="12" class="preview-title">M04 - indicadores ecologicos</text>
+                <text x="8" y="12" class="preview-title">M04 - indicadores ecológicos</text>
                 <line x1="42" y1="124" x2="390" y2="124" class="axis"/>
                 <line x1="42" y1="34" x2="42" y2="124" class="axis"/>
                 <g transform="translate(70 0)">
@@ -758,22 +965,22 @@
             <ul>
               <li>Usar para EPT/CHOL, BMWP e grupos funcionais.</li>
               <li>CHOL deve somar Chironomidae + Oligochaeta/Oligoqueta.</li>
-              <li>Evitar se a classificacao taxonomica estiver incerta.</li>
+              <li>Evitar se a classificação taxonômica estiver incerta.</li>
             </ul>
             <div class="spec-grid">
               <div class="spec"><b>Figura</b><span>A4 paisagem ou painel por ponto</span></div>
               <div class="spec"><b>DPI</b><span>600</span></div>
               <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
-              <div class="spec"><b>Tamanhos</b><span>titulo 12 pt; eixos 8-9 pt</span></div>
+              <div class="spec"><b>Tamanhos</b><span>título 12 pt; eixos 8-9 pt</span></div>
             </div>
           </div>
-          <p>Saidas: PNG + tabela interpretativa + regra taxonomica documentada.</p>
+          <p>Saídas: PNG + tabela interpretativa + regra taxonômica documentada.</p>
         </div>
 
         <div class="card model-card">
           <div class="topline">
             <div>
-              <h3>Composicao taxonomica top N</h3>
+              <h3>Composição taxonômica top N</h3>
               <p>Mostra grupos dominantes sem esconder a tabela completa.</p>
             </div>
             <div class="code">M05</div>
@@ -782,7 +989,7 @@
             <span class="tag">ordem</span><span class="tag">familia</span><span class="tag">classe</span>
             <div class="figure-preview" aria-label="Miniatura de composicao taxonomica top N">
               <svg viewBox="0 0 420 150" role="img">
-                <text x="8" y="12" class="preview-title">M05 - composicao top N + Outros</text>
+                <text x="8" y="12" class="preview-title">M05 - composição top N + Outros</text>
                 <g transform="translate(28 38)">
                   <rect x="0" y="0" width="290" height="20" rx="4" class="bar-blue"/>
                   <rect x="0" y="32" width="238" height="20" rx="4" class="bar-green"/>
@@ -799,25 +1006,25 @@
               </svg>
             </div>
             <ul>
-              <li>Usar para composicao por ordem, familia, classe ou origem.</li>
-              <li>Agrupar cauda longa como "Outros" quando necessario.</li>
+              <li>Usar para composição por ordem, família, classe ou origem.</li>
+              <li>Agrupar cauda longa como "Outros" quando necessário.</li>
               <li>Evitar roscas com muitas fatias pequenas.</li>
             </ul>
             <div class="spec-grid">
               <div class="spec"><b>Figura</b><span>A4 paisagem, top N + Outros</span></div>
               <div class="spec"><b>DPI</b><span>600</span></div>
               <div class="spec"><b>Fonte</b><span>Arial/DejaVu Sans</span></div>
-              <div class="spec"><b>Tamanhos</b><span>legenda 8 pt; rotulos internos apenas se couber</span></div>
+              <div class="spec"><b>Tamanhos</b><span>legenda 8 pt; rótulos internos apenas se couber</span></div>
             </div>
           </div>
-          <p>Saidas: PNG + XLSX com composicao completa e agrupamento.</p>
+          <p>Saídas: PNG + XLSX com composição completa e agrupamento.</p>
         </div>
 
         <div class="card model-card">
           <div class="topline">
             <div>
-              <h3>Sintese executiva</h3>
-              <p>Condensa achados para decisao, sem substituir o caderno tecnico.</p>
+              <h3>Síntese executiva</h3>
+              <p>Condensa achados para decisão, sem substituir o caderno técnico.</p>
             </div>
             <div class="code">M06</div>
           </div>
@@ -844,28 +1051,28 @@
               </svg>
             </div>
             <ul>
-              <li>Usar para abrir relatorio, reuniao ou validacao com cliente.</li>
-              <li>Trazer poucos indicadores, tendencia e mensagem tecnica.</li>
-              <li>Evitar quando ainda nao houve QA dos dados.</li>
+              <li>Usar para abrir relatório, reunião ou validação com cliente.</li>
+              <li>Trazer poucos indicadores, tendência e mensagem técnica.</li>
+              <li>Evitar quando ainda não houve QA dos dados.</li>
             </ul>
             <div class="spec-grid">
               <div class="spec"><b>Figura</b><span>10 x 5.6 in ou HTML responsivo</span></div>
               <div class="spec"><b>DPI</b><span>300-600 conforme destino</span></div>
               <div class="spec"><b>Fonte</b><span>Arial/system sans-serif</span></div>
-              <div class="spec"><b>Tamanhos</b><span>titulo 13-15 pt; texto 9-10 pt</span></div>
+              <div class="spec"><b>Tamanhos</b><span>título 13-15 pt; texto 9-10 pt</span></div>
             </div>
           </div>
-          <p>Saidas: PNG/HTML + quadro de achados e links para evidencias.</p>
+          <p>Saídas: PNG/HTML + quadro de achados e links para evidências.</p>
         </div>
       </div>
     </section>
 
-    <section>
-      <h2>Modulos analiticos</h2>
+    <section id="modulos">
+      <h2>Módulos analíticos</h2>
       <div class="grid cols-3">
         <div class="card">
-          <h3>Base obrigatoria</h3>
-          <span class="tag green">QA</span><span class="tag green">completude</span><span class="tag green">esforco</span>
+          <h3>Base obrigatória</h3>
+          <span class="tag green">QA</span><span class="tag green">completude</span><span class="tag green">esforço</span>
           <ul>
             <li>campanhas x pontos</li>
             <li>lacunas e duplicidades</li>
@@ -874,58 +1081,157 @@
         </div>
         <div class="card">
           <h3>Temporal</h3>
-          <span class="tag">minigraficos</span><span class="tag">media geral</span><span class="tag">ano</span>
+          <span class="tag">minigráficos</span><span class="tag">média geral</span><span class="tag">ano</span>
           <ul>
             <li>riqueza por campanha</li>
             <li>diversidade alfa</li>
-            <li>CPUE e abundancia</li>
+            <li>CPUE e abundância</li>
           </ul>
         </div>
         <div class="card">
           <h3>Espacial</h3>
           <span class="tag">mapas</span><span class="tag">rankings</span><span class="tag">trechos</span>
           <ul>
-            <li>comparacao de pontos</li>
+            <li>comparação de pontos</li>
             <li>montante/jusante</li>
-            <li>areas controle/impacto</li>
+            <li>áreas controle/impacto</li>
           </ul>
         </div>
         <div class="card">
-          <h3>Taxonomico</h3>
+          <h3>Taxonômico</h3>
           <span class="tag amber">top N</span><span class="tag amber">classes</span><span class="tag amber">ordens</span>
           <ul>
-            <li>composicao por grupo</li>
-            <li>ocorrencia e frequencia</li>
-            <li>caracterizacao biologica</li>
+            <li>composição por grupo</li>
+            <li>ocorrência e frequência</li>
+            <li>caracterização biológica</li>
           </ul>
         </div>
         <div class="card">
           <h3>Indicadores</h3>
           <span class="tag green">EPT</span><span class="tag red">CHOL</span><span class="tag">BMWP</span>
           <ul>
-            <li>sensibilidade/tolerancia</li>
+            <li>sensibilidade/tolerância</li>
             <li>grupos funcionais</li>
-            <li>sintese ecologica</li>
+            <li>síntese ecológica</li>
           </ul>
         </div>
         <div class="card">
           <h3>Estrutura</h3>
-          <span class="tag">beta</span><span class="tag">dendrograma</span><span class="tag">ordenacao</span>
+          <span class="tag">beta</span><span class="tag">dendrograma</span><span class="tag">ordenação</span>
           <ul>
             <li>similaridade</li>
             <li>turnover</li>
-            <li>padroes comunitarios</li>
+            <li>padrões comunitários</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="regra">
       <h2>Regra para muitas campanhas</h2>
       <div class="note">
-        Para series longas, a decisao deve favorecer leitura por padrao, nao exibir tudo em um unico grafico. Minigraficos, agregacao anual e medias gerais entram antes de heatmaps gigantes ou barras com rotulos excessivos.
+        Para séries longas, a decisão deve favorecer leitura por padrão, não exibir tudo em um único gráfico. Minigráficos, agregação anual e médias gerais entram antes de heatmaps gigantes ou barras com rótulos excessivos.
       </div>
     </section>
   </main>
+
+  <button type="button" class="to-top" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo">&#8593;</button>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // ----- Filtro do cardapio -----
+      var filtros = document.getElementById("cardapio-filtros");
+      var grid = document.getElementById("cardapio-grid");
+      var vazio = document.getElementById("cardapio-vazio");
+      if (filtros && grid) {
+        var cards = Array.prototype.slice.call(grid.querySelectorAll(".real-card"));
+        filtros.addEventListener("click", function (e) {
+          var btn = e.target.closest(".filter-btn");
+          if (!btn) return;
+          filtros.querySelectorAll(".filter-btn").forEach(function (b) {
+            b.classList.toggle("active", b === btn);
+          });
+          var f = btn.getAttribute("data-filter");
+          var visiveis = 0;
+          cards.forEach(function (card) {
+            var tags = card.getAttribute("data-tags") || "";
+            var show = f === "todos" || tags.split(/\s+/).indexOf(f) !== -1;
+            card.classList.toggle("is-hidden", !show);
+            if (show) visiveis++;
+          });
+          if (vazio) vazio.style.display = visiveis === 0 ? "block" : "none";
+        });
+      }
+
+      // ----- Lightbox das miniaturas -----
+      var lb = document.getElementById("lightbox");
+      var lbImg = document.getElementById("lightboxImg");
+      var lbCap = document.getElementById("lightboxCaption");
+      var lbClose = document.getElementById("lightboxClose");
+      function abrirLightbox(src, alt) {
+        lbImg.setAttribute("src", src);
+        lbImg.setAttribute("alt", alt || "");
+        lbCap.textContent = alt || "";
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function fecharLightbox() {
+        lb.classList.remove("open");
+        lbImg.setAttribute("src", "");
+        document.body.style.overflow = "";
+      }
+      document.querySelectorAll(".thumb img").forEach(function (img) {
+        img.parentElement.addEventListener("click", function () {
+          abrirLightbox(img.getAttribute("src"), img.getAttribute("alt"));
+        });
+      });
+      if (lb) {
+        lbClose.addEventListener("click", fecharLightbox);
+        lb.addEventListener("click", function (e) {
+          if (e.target === lb) fecharLightbox();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && lb.classList.contains("open")) fecharLightbox();
+        });
+      }
+
+      // ----- Voltar ao topo -----
+      var toTop = document.getElementById("toTop");
+      if (toTop) {
+        window.addEventListener("scroll", function () {
+          toTop.classList.toggle("show", window.scrollY > 600);
+        }, { passive: true });
+        toTop.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // ----- Destaque do menu conforme a secao visivel -----
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll(".topnav a"));
+      var secoes = navLinks
+        .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+        .filter(Boolean);
+      if ("IntersectionObserver" in window && secoes.length) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              navLinks.forEach(function (a) {
+                a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id);
+              });
+            }
+          });
+        }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+        secoes.forEach(function (s) { obs.observe(s); });
+      }
+    })();
+  </script>
 </body>
 </html>

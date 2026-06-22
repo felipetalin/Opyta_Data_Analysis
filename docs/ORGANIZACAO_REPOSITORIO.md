@@ -46,8 +46,14 @@ raiz para nao quebrar documentos e comandos historicos.
 
 `docs/README.md` e a entrada principal da base tecnica.
 
-`docs/control_center/` guarda a navegacao estilo SaaS: projetos, portfolio,
-aprendizados, backlog e modelo operacional.
+`docs/control_center/` e a Central de Controle: guarda o fluxo operacional,
+operacoes ativas, gates de aprovacao, projetos, portfolio, aprendizados,
+backlog e modelo operacional.
+
+Quando `center_control`, `center_cotrol`, `control_center` ou "central de
+controle" for mencionado, o caminho oficial e
+`docs/control_center/README.md -> WORKFLOW.md -> ACTIVE_OPERATIONS.md ->
+registro da operacao`.
 
 `docs/registry/` guarda cadastros JSON versionados.
 

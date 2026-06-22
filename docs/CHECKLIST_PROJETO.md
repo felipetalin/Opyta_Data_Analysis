@@ -5,6 +5,8 @@ script solto, output perdido e padrao grafico esquecido.
 
 ## Abertura
 
+- [ ] Registro criado em `docs/control_center/operations/`.
+- [ ] Operacao incluida em `docs/control_center/ACTIVE_OPERATIONS.md`.
 - [ ] Codigo do projeto definido.
 - [ ] Cliente definido em `configs/clients/` quando houver paleta/tema proprio.
 - [ ] Recipe criada em `configs/projects/` para execucoes reproduziveis.
@@ -17,6 +19,8 @@ script solto, output perdido e padrao grafico esquecido.
 
 ## Durante O Desenvolvimento
 
+- [ ] Gates A, B e C registrados conforme `docs/control_center/WORKFLOW.md`.
+- [ ] Estado e proxima acao da operacao atualizados.
 - [ ] Prototipos ficam em `scripts/prototypes/`.
 - [ ] Scripts especificos ficam em `scripts/projects/<projeto>/`.
 - [ ] Migracoes ficam em `scripts/migrations/<tema>/`.
@@ -27,6 +31,8 @@ script solto, output perdido e padrao grafico esquecido.
 
 ## Fechamento
 
+- [ ] Registro da operacao atualizado para `completed` ou pendencia explicita.
+- [ ] Linha da operacao movida para "Concluidas" no painel.
 - [ ] Produtos finais gerados na pasta do cliente.
 - [ ] Manifests/auditorias conferidos.
 - [ ] `scripts/SCRIPT_CATALOG.md` atualizado.

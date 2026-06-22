@@ -1,12 +1,30 @@
-# Opyta Analysis Knowledge Hub
+# Opyta Analysis — Central De Controle E Memoria Tecnica
 
 Esta pasta e a entrada principal para a memoria tecnica da Opyta Analysis.
 
-## Control Center
+Para iniciar ou retomar uma operacao, use `center_control` e abra:
 
-- [Inicio de analise](inicio_analise/README.md): protocolo obrigatorio para abrir
-  uma nova analise sem depender de memoria do chat.
-- [Control Center](control_center/README.md): painel geral em formato SaaS.
+1. [Central de Controle](control_center/README.md)
+2. [Fluxo operacional](control_center/WORKFLOW.md)
+3. [Operacoes ativas](control_center/ACTIVE_OPERATIONS.md)
+
+O nome fisico da pasta continua sendo `docs` porque ela tambem guarda dossies,
+registries, patterns, templates e referencias tecnicas.
+
+## Documento Mestre
+
+- [Padrao Mestre de Redacao Tecnica Opyta](PADRAO_MESTRE_REDACAO_TECNICA_OPYTA.md):
+  policy editorial evolutiva que governa a geracao automatica e assistida dos
+  relatorios tecnicos apos a conclusao das analises.
+
+## Central De Controle
+
+- [Central de Controle](control_center/README.md): entrada operacional oficial.
+- [Fluxo operacional](control_center/WORKFLOW.md): validacao, gates, migracao,
+  consolidacao, configuracao, geracao e fechamento.
+- [Operacoes ativas](control_center/ACTIVE_OPERATIONS.md): estado atual e proxima acao.
+- [Inicio de analise](inicio_analise/README.md): modulo de abertura e decisao
+  analitica usado dentro do fluxo oficial.
 - [Modelo operacional](control_center/OPERATING_MODEL.md): como um projeto nasce,
   aprende e vira referencia.
 - [Padrao de nomes](control_center/NAMING_STANDARD.md): regra `SIGLA__nome_supabase`.
@@ -25,6 +43,7 @@ Esta pasta e a entrada principal para a memoria tecnica da Opyta Analysis.
 
 ## Templates
 
+- [Registro de operacao](templates/operation_record_template.md)
 - [Dossie de projeto](templates/project_dossier_template.md)
 - [Card de padrao](templates/pattern_card_template.md)
 - [Registro de decisao](templates/decision_record_template.md)

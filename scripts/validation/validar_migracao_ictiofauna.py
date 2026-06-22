@@ -524,6 +524,14 @@ def add_complementary_checks(
     campaign_patterns = [
         (re.compile(r"^C(\d{3})-(\d{4})-(\d{2})-(SC|CH)$"), 2, 3),
         (re.compile(r"^BG_(?:BAG|STP)_C\d+_(\d{4})(\d{2})$", re.IGNORECASE), 1, 2),
+        (
+            re.compile(
+                r"^[A-Z0-9]+_AH\d{4}_(\d{4})(\d{2})(?:_R\d+)?$",
+                re.IGNORECASE,
+            ),
+            1,
+            2,
+        ),
     ]
     if not df_pontos.empty and {"Campanha", "Data"}.issubset(df_pontos.columns):
         for idx, row in df_pontos.iterrows():

@@ -2,8 +2,9 @@
 
 ## Status
 
-- status: candidato
+- status: aprovado
 - criado em: 2026-06-20
+- aprovado em: 2026-06-20
 - projeto piloto: `GEOHER001__monitoramento_de_ictio_e_bentos_herculano`
 - grupo piloto: Zoobentos
 - referência editorial: relatório consolidado de Bentos entregue ao cliente
@@ -16,7 +17,7 @@ das conclusões e identificar qual planilha sustenta cada afirmação.
 
 ## Estrutura Obrigatória
 
-Cada tema deve ser redigido em cinco camadas:
+Cada tema deve ser estruturado pelo sistema em cinco camadas:
 
 1. resultado observado;
 2. comparação espacial, temporal ou entre grupos;
@@ -24,8 +25,10 @@ Cada tema deve ser redigido em cinco camadas:
 4. limitação da evidência;
 5. implicação ou recomendação para o monitoramento.
 
-Nem todas as camadas precisam ocupar parágrafos separados, mas resultado e
-interpretação não devem ser apresentados como se fossem a mesma coisa.
+Nem todas as camadas precisam aparecer como parágrafos separados. Evidências e
+limitações podem permanecer na camada técnica de auditoria, enquanto o corpo do
+relatório apresenta uma narrativa direta. Resultado e interpretação não devem
+ser apresentados como se fossem a mesma coisa.
 
 ## Níveis De Inferência
 
@@ -41,7 +44,8 @@ interpretação não devem ser apresentados como se fossem a mesma coisa.
 
 - Toda afirmação numérica deve ter arquivo-fonte.
 - Todo parágrafo deve apontar uma ou mais evidências.
-- Interpretações devem registrar limitações.
+- Interpretações devem registrar limitações na evidência, sem necessidade de
+  repeti-las em todos os parágrafos visíveis.
 - Percentuais devem ser lidos com seus denominadores.
 - Ausência de registro não equivale automaticamente à ausência ecológica.
 - Diferença visual não equivale à diferença estatisticamente significativa.
@@ -50,6 +54,10 @@ interpretação não devem ser apresentados como se fossem a mesma coisa.
 - O nível taxonômico deve ser respeitado; usar “táxon” quando a identificação não
   alcançar espécie.
 - Nomes científicos devem ser apresentados em itálico.
+- A narrativa principal deve evitar metalinguagem e frases defensivas
+  recorrentes.
+- O lastro de auditoria não deve tornar o texto mecânico ou interromper sua
+  fluidez.
 
 ## Arquitetura
 
@@ -68,19 +76,19 @@ Em `outputs/_scratch/textual_pilot_geoher001`:
 - `validacao_textual_geoher001_bentos.json`;
 - `calibracao_relatorio_referencia.md`.
 
-## Critério Para Promoção
+## Aprovação
 
-O padrão poderá passar para `approved` após:
+O piloto foi aprovado após revisão humana do HTML e confirmação de que o tom,
+a organização e a legibilidade representam a linguagem técnica desejada pela
+Opyta. A validação final registrou zero erros e zero avisos.
 
-1. revisão técnica do HTML piloto;
-2. confirmação de que o tom representa a linguagem desejada pela Opyta;
-3. validação de pelo menos um segundo grupo biológico;
-4. incorporação das correções editoriais resultantes da revisão humana.
+A aplicação em um segundo grupo biológico permanece como etapa de ampliação da
+base de validação, sem impedir o uso do padrão aprovado em novos relatórios.
 
 ## Desdobramento Editorial
 
 Em 2026-06-21 foi criado o documento
-`padrao_redacao_tecnica_rastreavel_opyta_v1.md` para formalizar a regua de
-redacao da Opyta antes da automacao plena no pipeline. Este pattern permanece
-como guarda-chuva tecnico da abordagem; o documento v1 concentra a politica de
-voz, inferencia, limitacao e recomendacao.
+`docs/PADRAO_MESTRE_REDACAO_TECNICA_OPYTA.md` para formalizar a regua evolutiva
+de redacao da Opyta e governar a geracao automatica posterior ao fechamento
+analitico. Este pattern registra a abordagem tecnica rastreavel; o documento
+mestre concentra a policy de voz, inferencia, limitacao e recomendacao.

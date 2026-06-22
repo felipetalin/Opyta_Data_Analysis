@@ -6,4 +6,5 @@ __all__ = [
     "runner",
     "audit_utils",
     "fauna",
+    "textual",
 ]

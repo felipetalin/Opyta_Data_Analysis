@@ -1,0 +1,34 @@
+{
+  "project_code": "VIRITA001",
+  "project_id": 189,
+  "project_name": "Diagnóstico da ictiofauna do Projeto Itabrita",
+  "canonical_key": "VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita",
+  "supabase_source": {
+    "table": "projetos",
+    "id_field": "id_projeto",
+    "code_field": "codigo_interno_opyta",
+    "name_field": "nome_projeto"
+  },
+  "analysis_name": "Diagnóstico de ictiofauna - Campanha 1 de junho de 2026",
+  "client_config": "virita001",
+  "audit_project_slug": "VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita",
+  "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Virtual/São Gonçalo/Resultados/Ictiofauna/Campanha_1",
+  "groups": [
+    {
+      "group": "Ictiofauna",
+      "pipeline": "ictio",
+      "output_subdir": "."
+    }
+  ],
+  "campaigns": [
+    "ITA001_AH2526_202606"
+  ],
+  "data_notes": [
+    "Campanha única realizada em 17 e 18 de junho de 2026.",
+    "O estudo terá somente duas campanhas; os gráficos comparativos seguem o padrão FERSAM001, com barras agrupadas por campanha e layout Gold.",
+    "Sete pontos cadastrados; cinco possuem capturas e dois possuem apenas esforço amostral.",
+    "Resultados originais com 31 linhas foram agregados pelo migrador em 20 combinações únicas, preservando 132 indivíduos.",
+    "Rhamdiopsis microcephala foi confirmada sem o qualificador cf.",
+    "Hypostomus francisci e Cichlasoma sanctifranciscense não foram cadastradas como endêmicas."
+  ]
+}

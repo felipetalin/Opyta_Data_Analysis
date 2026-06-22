@@ -2,16 +2,21 @@
 
 ## Alta Prioridade
 
+- Automatizar a criacao e atualizacao dos registros em
+  `docs/control_center/operations/`.
+- Criar validador dos gates e transicoes do fluxo operacional.
 - Confirmar/corrigir duplicidade `GEOHER003` no Supabase (`id_projeto=31` e `95`).
 - Confirmar se todo o lastro `FERSAM001__sam_metais_diagnostico__historico_id_62` pertence a FERSAM001.
 - Criar dossies para BRAAVG002, FERSAM001, DUCGEO001, ITAGUA001 e TOTVAL001.
 - Criar dossies para BIOPOR001, MICGAG001, BRAVAL004, GEOHER003, BRAANG01 e BRACED001 quando entrarem no fluxo.
 - Migrar gradualmente docs raiz para dossies, patterns ou portfolio.
-- Promover geracao de HTML textual rastreavel ao pipeline apenas apos validar o `padrao_redacao_tecnica_rastreavel_opyta_v1.md` em pelo menos dois projetos.
+- Promover geracao de HTML textual rastreavel ao pipeline apenas apos validar o
+  `docs/PADRAO_MESTRE_REDACAO_TECNICA_OPYTA.md` em pelo menos dois projetos.
 
 ## Media Prioridade
 
-- Criar `scripts/run/new_project.py` para abrir projeto com template.
+- Criar `scripts/run/new_project.py` para abrir projeto, dossie, recipe e
+  registro de operacao com templates.
 - Criar gerador de decision record.
 - Criar preview HTML simples do Control Center.
 - Reduzir wrappers temporarios na raiz de `scripts`.

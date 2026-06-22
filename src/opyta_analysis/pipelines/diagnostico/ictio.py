@@ -74,10 +74,18 @@ def _annotation_color_for_value(value: float, vmax: float) -> str:
 
 
 def _campaign_short_label(campaign: str) -> str:
-    match = re.match(r"^C0*(\d+)", str(campaign).strip(), flags=re.IGNORECASE)
+    campaign_text = str(campaign).strip()
+    match = re.match(r"^C0*(\d+)", campaign_text, flags=re.IGNORECASE)
     if match:
         return f"C{int(match.group(1)):02d}"
-    return str(campaign).strip()
+    hydrologic = re.match(
+        r"^([A-Z0-9]+)_AH\d{4}_(\d{4})(\d{2})(?:_R\d+)?$",
+        campaign_text,
+        flags=re.IGNORECASE,
+    )
+    if hydrologic:
+        return f"{hydrologic.group(1)}\n{hydrologic.group(3)}/{hydrologic.group(2)}"
+    return campaign_text
 
 
 def _campaign_year(campaign: str) -> int | None:
@@ -96,14 +104,19 @@ def _campaign_season(campaign: str) -> str:
         return "CH"
     if "seca" in norm:
         return "SC"
-    return ""
+    return "ND"
 
 
 def _season_colors(theme: dict) -> dict[str, str]:
     return {
         "CH": str(theme.get("primary_hex", "#002060")),
         "SC": str(theme.get("secondary_hex", "#5B9BD5")),
+        "ND": str(theme.get("highlight_hex", theme.get("primary_hex", "#1F4E79"))),
     }
+
+
+def _season_label(season: str) -> str:
+    return {"CH": "CH", "SC": "SC", "ND": "Campanha"}.get(season, season)
 
 
 def _mean_label(value: float, decimals: int = 1) -> str:
@@ -412,6 +425,62 @@ def _load_ictio_df(project_id: int, group: str, env_file: str | None) -> pd.Data
     return df.reset_index(drop=True)
 
 
+def _attach_line_level_biomass(df: pd.DataFrame, theme: dict) -> pd.DataFrame:
+    source_value = theme.get("ictio_line_level_source_excel")
+    if not source_value:
+        return df
+
+    source = Path(str(source_value))
+    if not source.exists():
+        raise FileNotFoundError(f"Planilha de biomassa analitica nao encontrada: {source}")
+
+    source_df = pd.read_excel(source, sheet_name="Resultados_Ictiofauna")
+    required = [
+        "Campanha",
+        "Ponto",
+        "Metodo_de_Captura",
+        "Tipo_de_Amostragem",
+        "Nome_Cientifico",
+        "Numero_de_Individuos",
+        "PC_g",
+    ]
+    missing = [column for column in required if column not in source_df.columns]
+    if missing:
+        raise RuntimeError(
+            "Planilha de biomassa analitica sem colunas obrigatorias: "
+            + ", ".join(missing)
+        )
+
+    source_df = source_df[required].dropna(subset=["Nome_Cientifico"]).copy()
+    source_df["Numero_de_Individuos"] = pd.to_numeric(
+        source_df["Numero_de_Individuos"], errors="coerce"
+    ).fillna(0)
+    source_df["PC_g"] = pd.to_numeric(source_df["PC_g"], errors="coerce")
+    source_df["biomassa_total_analitica"] = (
+        source_df["Numero_de_Individuos"] * source_df["PC_g"]
+    )
+
+    source_keys = {
+        "Campanha": "nome_campanha",
+        "Ponto": "nome_ponto",
+        "Metodo_de_Captura": "metodo_de_captura",
+        "Tipo_de_Amostragem": "tipo_amostragem",
+        "Nome_Cientifico": "nome_cientifico",
+    }
+    grouped = (
+        source_df.rename(columns=source_keys)
+        .groupby(list(source_keys.values()), dropna=False)["biomassa_total_analitica"]
+        .sum(min_count=1)
+        .reset_index()
+    )
+
+    merge_keys = list(source_keys.values())
+    result = df.merge(grouped, on=merge_keys, how="left")
+    result.attrs["biomass_source"] = str(source)
+    result.attrs["biomass_formula"] = "Numero_de_Individuos * PC_g por linha, agregado por soma"
+    return result
+
+
 def _mode_or_first(series: pd.Series):
     s = series.dropna()
     if s.empty:
@@ -544,6 +613,9 @@ def _small_multiple_metric(
 
     x = np.arange(len(campaigns))
     labels = [_campaign_short_label(c) for c in campaigns]
+    label_rotation = 0 if len(campaigns) <= 2 else 90
+    season_order = ["CH", "SC", "ND"]
+    seasons_present = [season for season in season_order if season in {_campaign_season(c) for c in campaigns}]
     values_all = pd.to_numeric(table[value_col], errors="coerce").fillna(0)
     overall_mean = float(values_all.mean()) if not values_all.empty else 0.0
     ymax = max(float(values_all.max()) if not values_all.empty else 0.0, overall_mean)
@@ -555,7 +627,7 @@ def _small_multiple_metric(
         seasons = [_campaign_season(c) for c in campaigns]
 
         ax.plot(x, values, color="#606060", linewidth=line_width, zorder=1)
-        for season in ["CH", "SC"]:
+        for season in seasons_present:
             mask = np.array([s == season for s in seasons])
             ax.scatter(
                 x[mask],
@@ -579,7 +651,7 @@ def _small_multiple_metric(
         )
         ax.set_ylim(0, ymax)
         ax.set_xticks(x)
-        ax.set_xticklabels(labels, rotation=90)
+        ax.set_xticklabels(labels, rotation=label_rotation)
         _add_year_separators(ax, campaigns)
         apply_theme(ax, theme, xlabel="", ylabel="")
 
@@ -591,8 +663,18 @@ def _small_multiple_metric(
         ax.set_xlabel("Campanha")
 
     handles = [
-        Line2D([0], [0], marker="o", color="none", markerfacecolor=colors["CH"], markeredgecolor="black", label="CH"),
-        Line2D([0], [0], marker="o", color="none", markerfacecolor=colors["SC"], markeredgecolor="black", label="SC"),
+        Line2D(
+            [0],
+            [0],
+            marker="o",
+            color="none",
+            markerfacecolor=colors[season],
+            markeredgecolor="black",
+            label=_season_label(season),
+        )
+        for season in seasons_present
+    ]
+    handles.append(
         Line2D(
             [0],
             [0],
@@ -600,10 +682,83 @@ def _small_multiple_metric(
             linestyle="--",
             linewidth=0.9,
             label=_mean_label(overall_mean, decimals),
-        ),
-    ]
-    fig.legend(handles=handles, loc="upper center", ncol=3, frameon=False)
+        )
+    )
+    fig.legend(handles=handles, loc="upper center", ncol=len(handles), frameon=False)
     fig.tight_layout(rect=[0.02, 0.03, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+
+
+def _plot_grouped_campaign_bars(
+    *,
+    table: pd.DataFrame,
+    value_col: str,
+    ylabel: str,
+    out_png: Path,
+    theme: dict,
+    points: list[str],
+    campaigns: list[str],
+    decimals: int,
+) -> None:
+    pivot = (
+        table.pivot_table(
+            index="nome_ponto",
+            columns="nome_campanha",
+            values=value_col,
+            aggfunc="sum",
+            fill_value=0,
+        )
+        .reindex(index=points, columns=campaigns, fill_value=0)
+    )
+    colors = palette_from_theme(theme, max(len(campaigns), 1))
+    size = get_figsize_by_complexity(theme, n_categories=len(points), prefer_landscape=True)
+    fig, ax = plt.subplots(figsize=size, dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(points))
+    width = 0.8 / max(len(campaigns), 1)
+
+    for index, campaign in enumerate(campaigns):
+        values = pivot[campaign].to_numpy(dtype=float)
+        bars = ax.bar(
+            x + (index - (len(campaigns) - 1) / 2) * width,
+            values,
+            width=width,
+            label=_campaign_short_label(campaign).replace("\n", " - "),
+            color=colors[index],
+            edgecolor="black",
+            linewidth=0.8,
+        )
+        for bar, value in zip(bars, values):
+            if decimals == 0:
+                label = f"{int(round(float(value)))}"
+            else:
+                label = f"{float(value):.{decimals}f}"
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                float(value),
+                label,
+                ha="center",
+                va="bottom",
+                fontsize=int(theme.get("annotation_size", theme.get("font_size_base", 14))),
+            )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(points, ha="right")
+    apply_theme(
+        ax,
+        theme,
+        xlabel="Ponto amostral",
+        ylabel=ylabel,
+        x_tick_rotation=45,
+    )
+    place_legend_below_x_axis(
+        fig,
+        ax,
+        theme,
+        ncol=min(len(campaigns), int(theme.get("legend_max_cols", 2))),
+    )
+    validate_axes_style(ax, theme)
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.0))
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
 
@@ -653,6 +808,7 @@ def _small_multiple_diversity(
 
     x = np.arange(len(campaigns))
     labels = [_campaign_short_label(c) for c in campaigns]
+    label_rotation = 0 if len(campaigns) <= 2 else 90
     for ax, point in zip(axes.ravel(), points):
         point_data = plot_data[plot_data["nome_ponto"] == point].set_index("nome_campanha").reindex(campaigns).reset_index()
         shannon = pd.to_numeric(point_data["Shannon_H"], errors="coerce").fillna(0).to_numpy(dtype=float)
@@ -673,7 +829,7 @@ def _small_multiple_diversity(
         )
         ax.set_ylim(0, ymax)
         ax.set_xticks(x)
-        ax.set_xticklabels(labels, rotation=90)
+        ax.set_xticklabels(labels, rotation=label_rotation)
         _add_year_separators(ax, campaigns)
         apply_theme(ax, theme, xlabel="", ylabel="")
 
@@ -692,6 +848,83 @@ def _small_multiple_diversity(
     ]
     fig.legend(handles=handles, loc="upper center", ncol=4, frameon=False)
     fig.tight_layout(rect=[0.02, 0.03, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+
+
+def _plot_few_campaign_diversity(
+    *,
+    diversity: pd.DataFrame,
+    out_png: Path,
+    theme: dict,
+    campaigns: list[str],
+) -> None:
+    x = np.arange(len(diversity))
+    labels = []
+    for _, row in diversity.iterrows():
+        point = str(row["nome_ponto"])
+        if point.endswith("(Geral)"):
+            campaign_label = _campaign_short_label(str(row["nome_campanha"])).replace("\n", " - ")
+            labels.append(f"{campaign_label} (Geral)")
+        else:
+            labels.append(point)
+    shannon = pd.to_numeric(diversity["Shannon_H"], errors="coerce").fillna(0).to_numpy(dtype=float)
+    pielou = pd.to_numeric(diversity["Pielou_J"], errors="coerce").fillna(0).to_numpy(dtype=float)
+
+    size = get_figsize_by_complexity(theme, n_categories=len(labels), prefer_landscape=True)
+    fig, ax1 = plt.subplots(figsize=size, dpi=int(theme.get("dpi", 600)))
+    bars = ax1.bar(
+        x,
+        shannon,
+        color=str(theme.get("primary_hex", "#11420C")),
+        edgecolor="black",
+        linewidth=0.8,
+        label="Diversidade (H')",
+    )
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(labels, ha="right")
+    apply_theme(ax1, theme, xlabel="Ponto amostral", ylabel="Shannon (H')", x_tick_rotation=45)
+
+    ax2 = ax1.twinx()
+    ax2.plot(
+        x,
+        pielou,
+        marker="o",
+        linestyle="None",
+        color=str(theme.get("secondary_hex", "#6A8F63")),
+        markersize=7,
+        label="Equitabilidade (J')",
+    )
+    ax2.set_ylabel("Pielou (J')")
+    ax2.set_ylim(0, 1.1)
+
+    for campaign in campaigns[:-1]:
+        split_n = diversity[diversity["nome_campanha"].isin(campaigns[: campaigns.index(campaign) + 1])].shape[0]
+        if 0 < split_n < len(x):
+            ax1.axvline(x=split_n - 0.5, color="#888888", linestyle="--", linewidth=1.2)
+
+    for bar, value in zip(bars, shannon):
+        ax1.text(
+            bar.get_x() + bar.get_width() / 2,
+            float(value),
+            f"{float(value):.2f}",
+            ha="center",
+            va="bottom",
+            fontsize=int(theme.get("annotation_size", 14)),
+        )
+
+    handles_1, labels_1 = ax1.get_legend_handles_labels()
+    handles_2, labels_2 = ax2.get_legend_handles_labels()
+    place_legend_below_x_axis(
+        fig,
+        ax1,
+        theme,
+        handles=handles_1 + handles_2,
+        labels=labels_1 + labels_2,
+        ncol=2,
+    )
+    validate_axes_style(ax1, theme)
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.06))
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
 
@@ -777,11 +1010,25 @@ def _plot_yearly_metric_panels(
         for ax in axes[-1, :]:
             ax.set_xlabel("Ponto amostral")
 
-        handles = [
-            Line2D([0], [0], marker="s", color="none", markerfacecolor=season_colors["CH"], markeredgecolor="black", label="CH"),
-            Line2D([0], [0], marker="s", color="none", markerfacecolor=season_colors["SC"], markeredgecolor="black", label="SC"),
+        season_order = ["CH", "SC", "ND"]
+        seasons_present = [
+            season
+            for season in season_order
+            if season in {_campaign_season(campaign) for campaign in year_campaigns}
         ]
-        fig.legend(handles=handles, loc="upper center", ncol=2, frameon=False)
+        handles = [
+            Line2D(
+                [0],
+                [0],
+                marker="s",
+                color="none",
+                markerfacecolor=season_colors[season],
+                markeredgecolor="black",
+                label=_season_label(season),
+            )
+            for season in seasons_present
+        ]
+        fig.legend(handles=handles, loc="upper center", ncol=max(len(handles), 1), frameon=False)
         fig.tight_layout(rect=[0.02, 0.03, 1.0, 0.94])
 
         out_png = output_dir / f"{file_prefix}_por_ano_{year}_{group_slug}.png"
@@ -974,6 +1221,22 @@ def _run_block_3(df_projeto: pd.DataFrame, group: str, output_dir: Path, generat
     return {"taxa_total": int(len(tabela))}
 
 
+def _export_occurrence_summary_when_needed(**kwargs) -> dict:
+    records = kwargs.get("records")
+    campaign_col = str(kwargs.get("campaign_col", "nome_campanha"))
+    campaign_count = (
+        int(records[campaign_col].dropna().astype(str).str.strip().nunique())
+        if isinstance(records, pd.DataFrame) and campaign_col in records.columns
+        else 0
+    )
+    if campaign_count <= 2:
+        return {
+            "status": "not_required",
+            "reason": "A tabela completa de distribuicao e suficiente para ate duas campanhas.",
+        }
+    return export_occurrence_summary(**kwargs)
+
+
 def _run_block_4(
     df_projeto: pd.DataFrame,
     group: str,
@@ -1101,7 +1364,7 @@ def _run_block_4(
     tabela_export.columns = [f"{camp} - {sub}" if "|||" in col and (camp := col.split("|||", 1)[0]) and (sub := col.split("|||", 1)[1]) else col for col in tabela_export.columns]
     tabela_export.to_excel(out_xlsx, index=False, engine="openpyxl")
     generated_files.append(str(out_xlsx))
-    occurrence_summary = export_occurrence_summary(
+    occurrence_summary = _export_occurrence_summary_when_needed(
         records=df_tmp,
         sampling_units=layout_df[["nome_campanha", "nome_ponto"]].drop_duplicates(),
         taxon_col="nome_cientifico",
@@ -1165,16 +1428,28 @@ def _run_block_5(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if not campaigns or not points:
         return {"campaigns": campaigns, "points": points}
 
-    _small_multiple_metric(
-        table=richness,
-        value_col="riqueza",
-        ylabel="Riqueza taxonomica",
-        out_png=out_png,
-        theme=theme,
-        points=points,
-        campaigns=campaigns,
-        decimals=1,
-    )
+    if len(campaigns) <= 2:
+        _plot_grouped_campaign_bars(
+            table=richness,
+            value_col="riqueza",
+            ylabel="Riqueza taxonomica",
+            out_png=out_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=0,
+        )
+    else:
+        _small_multiple_metric(
+            table=richness,
+            value_col="riqueza",
+            ylabel="Riqueza taxonomica",
+            out_png=out_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=1,
+        )
     generated_files.append(str(out_png))
 
     return {"campaigns": campaigns, "points": points}
@@ -1231,16 +1506,28 @@ def _run_block_6(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if abundancia.empty or not campaigns or not points:
         return {"campaigns": campaigns, "points": points}
 
-    _small_multiple_metric(
-        table=abundancia,
-        value_col="abundancia_total",
-        ylabel="Abundancia total (n de individuos)",
-        out_png=out_png,
-        theme=theme,
-        points=points,
-        campaigns=campaigns,
-        decimals=1,
-    )
+    if len(campaigns) <= 2:
+        _plot_grouped_campaign_bars(
+            table=abundancia,
+            value_col="abundancia_total",
+            ylabel="Abundancia total (n de individuos)",
+            out_png=out_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=0,
+        )
+    else:
+        _small_multiple_metric(
+            table=abundancia,
+            value_col="abundancia_total",
+            ylabel="Abundancia total (n de individuos)",
+            out_png=out_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=1,
+        )
     generated_files.append(str(out_png))
 
     return {"campaigns": campaigns, "points": points}
@@ -1444,6 +1731,10 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     df_quant["esforco"] = pd.to_numeric(df_quant["esforco"], errors="coerce")
     df_quant["contagem"] = pd.to_numeric(df_quant["contagem"], errors="coerce").fillna(0)
     df_quant["biomassa"] = pd.to_numeric(df_quant["biomassa"], errors="coerce").fillna(0)
+    if "biomassa_total_analitica" in df_quant.columns:
+        df_quant["biomassa_total_analitica"] = pd.to_numeric(
+            df_quant["biomassa_total_analitica"], errors="coerce"
+        ).fillna(0)
 
     df_quant = df_quant.dropna(subset=["esforco"]).copy()
     df_quant = df_quant[df_quant["esforco"] > 0].copy()
@@ -1466,11 +1757,16 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         generated_files.append(str(out_df))
         return {"campaigns": [], "points": [], "warning": "esforco invalido para CPUE"}
 
+    biomass_col = (
+        "biomassa_total_analitica"
+        if "biomassa_total_analitica" in df_quant.columns
+        else "biomassa"
+    )
     df_totals = (
         df_quant.groupby(["nome_campanha", "nome_ponto"], dropna=False)
         .agg(
             abundancia_total=("contagem", "sum"),
-            biomassa_total=("biomassa", "sum"),
+            biomassa_total=(biomass_col, "sum"),
         )
         .reset_index()
     )
@@ -1492,32 +1788,55 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if df_cpue.empty or not campaigns or not points:
         return {"campaigns": campaigns, "points": points}
 
-    _plot_yearly_metric_panels(
-        table=df_cpue,
-        metric_col="cpuen",
-        ylabel="CPUEn (ind/100m2)",
-        output_dir=output_dir,
-        group_slug=group_slug,
-        file_prefix="06_grafico_cpuen",
-        theme=theme,
-        points=points,
-        campaigns=campaigns,
-        generated_files=generated_files,
-        decimals=2,
-    )
-    _plot_yearly_metric_panels(
-        table=df_cpue,
-        metric_col="cpueb",
-        ylabel="CPUEb (g/100m2)",
-        output_dir=output_dir,
-        group_slug=group_slug,
-        file_prefix="07_grafico_cpueb",
-        theme=theme,
-        points=points,
-        campaigns=campaigns,
-        generated_files=generated_files,
-        decimals=2,
-    )
+    if len(campaigns) <= 2:
+        _plot_grouped_campaign_bars(
+            table=df_cpue,
+            value_col="cpuen",
+            ylabel="CPUEn (ind/100m2)",
+            out_png=out_png_cpuen,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=2,
+        )
+        _plot_grouped_campaign_bars(
+            table=df_cpue,
+            value_col="cpueb",
+            ylabel="CPUEb (g/100m2)",
+            out_png=out_png_cpueb,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=2,
+        )
+        generated_files.extend([str(out_png_cpuen), str(out_png_cpueb)])
+    else:
+        _plot_yearly_metric_panels(
+            table=df_cpue,
+            metric_col="cpuen",
+            ylabel="CPUEn (ind/100m2)",
+            output_dir=output_dir,
+            group_slug=group_slug,
+            file_prefix="06_grafico_cpuen",
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            generated_files=generated_files,
+            decimals=2,
+        )
+        _plot_yearly_metric_panels(
+            table=df_cpue,
+            metric_col="cpueb",
+            ylabel="CPUEb (g/100m2)",
+            output_dir=output_dir,
+            group_slug=group_slug,
+            file_prefix="07_grafico_cpueb",
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            generated_files=generated_files,
+            decimals=2,
+        )
 
     return {
         "campaigns": campaigns,
@@ -1553,6 +1872,10 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     df_quant["esforco"] = pd.to_numeric(df_quant["esforco"], errors="coerce")
     df_quant["contagem"] = pd.to_numeric(df_quant["contagem"], errors="coerce").fillna(0)
     df_quant["biomassa"] = pd.to_numeric(df_quant["biomassa"], errors="coerce").fillna(0)
+    if "biomassa_total_analitica" in df_quant.columns:
+        df_quant["biomassa_total_analitica"] = pd.to_numeric(
+            df_quant["biomassa_total_analitica"], errors="coerce"
+        ).fillna(0)
     df_quant = df_quant[df_quant["esforco"].notna() & (df_quant["esforco"] > 0)].copy()
 
     if df_quant.empty:
@@ -1561,11 +1884,16 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         generated_files.extend([str(out_df_cpuen), str(out_df_cpueb)])
         return {"campaigns": [], "species": 0, "warning": "sem dados quantitativos validos para CPUE por especie"}
 
+    biomass_col = (
+        "biomassa_total_analitica"
+        if "biomassa_total_analitica" in df_quant.columns
+        else "biomassa"
+    )
     df_species_point = (
         df_quant.groupby(["nome_campanha", "nome_ponto", "nome_cientifico"], dropna=False)
         .agg(
             contagem=("contagem", "sum"),
-            biomassa=("biomassa", "sum"),
+            biomassa=(biomass_col, "sum"),
         )
         .reset_index()
     )
@@ -1833,13 +2161,21 @@ def _run_block_10(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
     out_png = output_dir / f"10_grafico_diversidade_alfa_{group_slug}.png"
     points = _ordenar_pontos(df_projeto["nome_ponto"].dropna().astype(str).str.strip().unique().tolist())
     points = [point for point in points if point and point.lower() != "nan"]
-    _small_multiple_diversity(
-        diversity=df_out,
-        out_png=out_png,
-        theme=theme,
-        points=points,
-        campaigns=campaigns,
-    )
+    if len(campaigns) <= 2:
+        _plot_few_campaign_diversity(
+            diversity=df_out,
+            out_png=out_png,
+            theme=theme,
+            campaigns=campaigns,
+        )
+    else:
+        _small_multiple_diversity(
+            diversity=df_out,
+            out_png=out_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+        )
     generated_files.append(str(out_png))
 
     return {"campaigns": campaigns, "base_quantitativa": "CPUEn (ind/100m2)"}
@@ -2032,6 +2368,7 @@ def run_ictio_pipeline(
 ) -> dict:
     output_dir.mkdir(parents=True, exist_ok=True)
     df = _load_ictio_df(project_id=project_id, group=group, env_file=env_file)
+    df = _attach_line_level_biomass(df, theme)
     df, campaign_overrides = _apply_project_campaign_overrides(df, project_id, group)
     df, campaign_filter_details = _apply_campaign_filter(df, campaign_filter)
     if df.empty:
@@ -2050,6 +2387,8 @@ def run_ictio_pipeline(
         "points": sorted(df["nome_ponto"].dropna().astype(str).unique().tolist()) if "nome_ponto" in df.columns else [],
         "campaign_overrides": campaign_overrides,
         "campaign_filter": campaign_filter_details,
+        "biomass_source": df.attrs.get("biomass_source"),
+        "biomass_formula": df.attrs.get("biomass_formula"),
     }
 
     if block_sel in {"3", "all"}:

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source_of_truth": "Supabase public.projetos",
-  "last_verified": "2026-06-19",
+  "last_verified": "2026-06-22",
   "excluded_supabase_codes": [
     {
       "codigo_interno_opyta": "TESTE001",
@@ -72,9 +72,6 @@
         "Zoobentos"
       ],
       "recipes": [],
-      "recipes": [
-        "configs/projects/biopor001_porto_estrela_ictiofauna.json"
-      ],
       "docs": [
         "docs/AVG_BENTOS_INVENTARIO_BANCO_20260608.md",
         "docs/AVG_ICTIOFAUNA_2026.md"
@@ -283,6 +280,42 @@
       ]
     },
     {
+      "canonical_key": "VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita",
+      "supabase": {
+        "id_projeto": 189,
+        "codigo_interno_opyta": "VIRITA001",
+        "nome_projeto": "Diagnóstico da ictiofauna do Projeto Itabrita"
+      },
+      "status": "active",
+      "aliases": [
+        "virita001_itabrita",
+        "sao_goncalo_ictiofauna"
+      ],
+      "domains": [
+        "Ictiofauna",
+        "Migracao",
+        "Diagnostico",
+        "HTML"
+      ],
+      "recipes": [
+        "configs/projects/virita001_itabrita_ictiofauna.json"
+      ],
+      "docs": [
+        "docs/projects/VIRITA001_ITABRITA_ICTIOFAUNA.md",
+        "docs/control_center/operations/VIRITA001_ICTIOFAUNA_CAMPANHA_1.md"
+      ],
+      "scripts": [
+        "scripts/projects/virita001"
+      ],
+      "audit": [
+        "outputs/_project_scripts/VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita"
+      ],
+      "learning": [
+        "Estudos de ictiofauna com ate duas campanhas devem usar barras agrupadas e painel de diversidade no padrao FERSAM001.",
+        "Quando PC_g representar peso individual ou medio por linha, CPUEb deve reconstruir biomassa como Numero_de_Individuos vezes PC_g antes da agregacao."
+      ]
+    },
+    {
       "canonical_key": "BRAVAL004__diagnostico_biota_aquatica_pder_itambe",
       "supabase": {
         "id_projeto": 1,
@@ -344,12 +377,14 @@
       ],
       "recipes": [],
       "docs": [
-        "docs/README_MEIO_FISICO.md"
+        "docs/README_MEIO_FISICO.md",
+        "docs/projects/BRAANG01_ANGLOGOLD_MEIO_FISICO.md"
       ],
       "scripts": [],
       "audit": [],
       "learning": [
-        "README_MEIO_FISICO indica dados presentes e utilizaveis para teste de pipeline."
+        "README_MEIO_FISICO indica dados presentes e utilizaveis para teste de pipeline.",
+        "Em BRAANG01, os pontos de efluente MCB907E e MCB907S possuem Frequencia=Mensal na planilha original e devem permanecer como series mensais nos graficos."
       ]
     },
     {

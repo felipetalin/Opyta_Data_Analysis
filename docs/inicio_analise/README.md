@@ -1,18 +1,23 @@
 # Inicio De Analise
 
-Esta pasta e o ponto de entrada obrigatorio para qualquer nova analise no
-repositorio Opyta Analysis.
+Esta pasta e o modulo de abertura e configuracao analitica da
+[Central de Controle](../control_center/README.md).
+
+O fluxo completo, incluindo validacao, cadastro de especies, migracao e
+consolidacao, esta em
+[WORKFLOW.md](../control_center/WORKFLOW.md).
 
 Quando o usuario mencionar `docs/inicio_analise`, `inicio_analise`,
 `pasta de inicio de analise` ou equivalente, o procedimento esperado e:
 
-1. Ler esta pasta antes de criar scripts, graficos ou outputs.
-2. Identificar o projeto pelo Supabase e pelo registry local.
-3. Abrir ou criar o dossie tecnico do projeto.
-4. Criar ou revisar a recipe da analise.
-5. Consultar portfolio, patterns e aprendizados aprovados.
-6. Definir produtos, recorte, destino final e lastro tecnico.
-7. So entao iniciar processamento ou geracao de analises.
+1. Conferir primeiro a Central de Controle e a operacao ativa.
+2. Ler esta pasta antes de criar scripts, graficos ou outputs.
+3. Identificar o projeto pelo Supabase e pelo registry local.
+4. Abrir ou criar o dossie tecnico do projeto.
+5. Criar ou revisar a recipe da analise.
+6. Consultar portfolio, patterns e aprendizados aprovados.
+7. Definir produtos, recorte, destino final e lastro tecnico.
+8. Registrar o Gate C antes da geracao.
 
 ## Arquivos
 
@@ -24,6 +29,7 @@ Quando o usuario mencionar `docs/inicio_analise`, `inicio_analise`,
 
 ## Regra Curta
 
-Nenhuma analise nova comeca por script solto. Toda analise comeca por:
+Nenhuma analise nova comeca por script solto. Dentro da Central de Controle, o
+modulo analitico percorre:
 
 `Supabase -> registry -> dossie -> portfolio de analises -> recipe -> execucao -> lastro -> aprendizado`

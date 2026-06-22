@@ -23,6 +23,24 @@ SCRIPT_ROOT_ALLOWLIST = {
     "gerar_resumo_tecnico.py",
 }
 
+OPERATION_STATES = {
+    "intake",
+    "validating",
+    "awaiting_data_approval",
+    "registering_species",
+    "awaiting_species_approval",
+    "ready_to_migrate",
+    "migrating",
+    "consolidating",
+    "configuring_analysis",
+    "awaiting_analysis_approval",
+    "generating_products",
+    "reviewing_outputs",
+    "reviewing_layout",
+    "completed",
+    "blocked",
+}
+
 
 @dataclass
 class Finding:
@@ -92,17 +110,23 @@ def collect_report(root: Path) -> dict[str, object]:
     configs_projects = root / "configs" / "projects"
     docs_dir = root / "docs"
     control_center_dir = docs_dir / "control_center"
+    operations_dir = control_center_dir / "operations"
     registry_dir = docs_dir / "registry"
     docs_projects = root / "docs" / "projects"
     outputs_projects = root / "outputs" / "_project_scripts"
     catalog_path = scripts_dir / "SCRIPT_CATALOG.md"
     required_docs = [
+        root / "AGENTS.md",
         docs_dir / "README.md",
         control_center_dir / "README.md",
+        control_center_dir / "WORKFLOW.md",
+        control_center_dir / "ACTIVE_OPERATIONS.md",
+        operations_dir / "README.md",
         control_center_dir / "PROJECTS.md",
         control_center_dir / "PORTFOLIO.md",
         control_center_dir / "LEARNING_SYSTEM.md",
         control_center_dir / "NAMING_STANDARD.md",
+        docs_dir / "templates" / "operation_record_template.md",
     ]
     registry_files = [
         registry_dir / "project_registry.json",
@@ -130,6 +154,11 @@ def collect_report(root: Path) -> dict[str, object]:
     recipes = files_under(configs_projects, {".json"})
     project_docs = files_under(docs_projects, {".md"})
     output_project_dirs = dirs_under(outputs_projects)
+    operation_files = [
+        path
+        for path in files_under(operations_dir, {".md"})
+        if path.name.lower() != "readme.md"
+    ]
 
     catalog_text = read_text(catalog_path).lower() if catalog_path.exists() else ""
     findings: list[Finding] = []
@@ -181,6 +210,42 @@ def collect_report(root: Path) -> dict[str, object]:
                 rel(path, root),
             )
         )
+
+    for operation in operation_files:
+        text = read_text(operation)
+        lower_text = text.lower()
+        required_markers = {
+            "operation_missing_project": "- projeto:",
+            "operation_missing_state": "- estado atual:",
+            "operation_missing_next_action": "- proxima acao:",
+            "operation_missing_progress": "## progresso",
+            "operation_missing_gates": "## gates",
+        }
+        for code, marker in required_markers.items():
+            if marker not in lower_text:
+                findings.append(
+                    Finding(
+                        "warning",
+                        code,
+                        f"Operation record is missing required marker: {marker}",
+                        rel(operation, root),
+                    )
+                )
+
+        state = None
+        for line in text.splitlines():
+            if line.strip().lower().startswith("- estado atual:"):
+                state = line.split(":", 1)[1].strip().strip("`")
+                break
+        if state and state not in OPERATION_STATES:
+            findings.append(
+                Finding(
+                    "warning",
+                    "invalid_operation_state",
+                    f"Operation state is not defined in Control Center workflow: {state}",
+                    rel(operation, root),
+                )
+            )
 
     for project_dir in project_script_dirs:
         name = project_dir.name.lower()
@@ -282,6 +347,7 @@ def collect_report(root: Path) -> dict[str, object]:
         },
         "knowledge_hub": {
             "control_center_docs": len(files_under(control_center_dir, {".md"})),
+            "operation_records": len(operation_files),
             "registry_files": len([path for path in registry_files if path.exists()]),
             "template_files": len(files_under(docs_dir / "templates", {".md"})),
             "pattern_docs": len(files_under(docs_dir / "patterns", {".md"})),

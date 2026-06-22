@@ -174,6 +174,38 @@ Validacoes finais:
 - alias tecnico `geoher001_recorte_2022_2025`: removido;
 - retencao: um unico par timestamped de metadata e reprodutor por grupo.
 
+## Piloto de relatorio textual em HTML em 2026-06-20
+
+O diagnostico consolidado de Bentos fornecido pelo cliente foi usado como
+referencia editorial. O piloto preserva a voz impessoal, a organizacao por
+modulos ecologicos e a comparacao espacial e temporal, mas atualiza os
+resultados pelas planilhas validadas do pipeline e acrescenta controles de
+rastreabilidade e inferencia.
+
+Produtos gerados em `outputs/_scratch/textual_pilot_geoher001/`:
+
+- `relatorio_piloto_geoher001_bentos.html`;
+- `evidencias_geoher001_bentos.json`;
+- `validacao_textual_geoher001_bentos.json`;
+- `calibracao_relatorio_referencia.md`.
+
+O HTML contem 12 evidencias, nove figuras incorporadas e uma matriz que liga
+cada paragrafo aos arquivos-fonte, metricas e limitacoes aplicaveis. A
+validacao final registrou zero erros e zero avisos.
+
+O piloto e o pattern `linguagem_tecnica_rastreavel` foram aprovados em
+2026-06-20 apos revisao humana do HTML.
+
+Em 2026-06-21, o HTML foi regenerado conforme o
+`docs/PADRAO_MESTRE_REDACAO_TECNICA_OPYTA.md`. A calibracao reduziu
+metalinguagem e ressalvas repetitivas, incorporou a leitura dos extremos por
+campanha e ponto, registrou os agrupamentos de Bray-Curtis e separou a
+narrativa principal do lastro de auditoria. HTML, evidencias e validacao foram
+gerados na mesma execucao, com zero erros e zero avisos.
+
+Gerador:
+`scripts/projects/geoher001/generate_bentos_textual_pilot.py`.
+
 ## Observacoes de dados
 
 - A campanha C37 de Bentos foi corrigida como fevereiro/2026 e ficou fora do
@@ -191,9 +223,11 @@ Validacoes finais:
 
 ## Padroes relacionados
 
+- `docs/PADRAO_MESTRE_REDACAO_TECNICA_OPYTA.md`
 - `docs/patterns/minigraficos_temporais.md`
 - `docs/patterns/cpue_por_ano.md`
 - `docs/patterns/ept_chol.md`
 - `docs/patterns/figuras_word_alta_resolucao.md`
+- `docs/patterns/linguagem_tecnica_rastreavel.md`
 - `docs/patterns/ocorrencia_multicampanha.md`
 - `docs/patterns/paleta_azul_opyta.md`

@@ -14,8 +14,10 @@ saida.
 - `figuras_word_alta_resolucao.md`
 - `ocorrencia_multicampanha.md`
 - `linguagem_tecnica_rastreavel.md`
-- `padrao_redacao_tecnica_rastreavel_opyta_v1.md`
 - `paleta_azul_opyta.md`
+
+A policy editorial principal nao e um pattern isolado. Ela permanece em
+`docs/PADRAO_MESTRE_REDACAO_TECNICA_OPYTA.md`.
 
 ## Regra de promocao
 

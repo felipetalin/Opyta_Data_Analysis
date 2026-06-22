@@ -32,7 +32,7 @@ def _utc_now() -> datetime:
 
 
 def _slug(value: str) -> str:
-    safe = [c.lower() if c.isalnum() else "_" for c in value]
+    safe = [c if c.isalnum() else "_" for c in value]
     return "".join(safe).strip("_") or "unknown"
 
 
@@ -53,7 +53,7 @@ def _get_project_audit_dir(params: RunParams, config_root: Path, details: Dict[s
     root = config_root.parent
     project_name = params.audit_project_slug or details.get("project_name") or _client_audit_project_slug(params, config_root)
     project_folder = _slug(project_name) if project_name else f"project_{params.project_id}"
-    group_folder = _slug(params.group)
+    group_folder = _slug(params.group).lower()
     audit_dir = root / "outputs" / "_project_scripts" / project_folder / group_folder
     audit_dir.mkdir(parents=True, exist_ok=True)
     return audit_dir

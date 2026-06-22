@@ -1,0 +1,302 @@
+{
+  "executed_at": "2026-06-22T11:50:16.598396Z",
+  "runner_version": "1.2",
+  "project_id": 189,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "virita001",
+  "block": "all",
+  "campaign_filter": [
+    "ITA001_AH2526_202606"
+  ],
+  "git": {
+    "branch": "main",
+    "commit": "f1c64b9",
+    "dirty": true,
+    "status_short_count": 23,
+    "full_dirty": true,
+    "full_status_short_count": 24,
+    "ignored_generated_audit_count": 1
+  },
+  "rows_loaded": 22,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "ITA001_AH2526_202606"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "Ictio_01",
+    "Ictio_02",
+    "Ictio_03",
+    "Ictio_04",
+    "Ictio_05",
+    "Ictio_06",
+    "Ictio_07"
+  ],
+  "points_count": 7,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1",
+  "generated_files_count": 27,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\01_tabela_composicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_tabela_distribuicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\08_grafico_cpuen_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\09_grafico_cpueb_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\10_grafico_diversidade_alfa_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\12_df_curva_suficiencia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\12_curva_suficiencia_amostral_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\DarwinCore_IEF_Ictiofauna_Diagnostico_Da_Ictiofauna_Do_Projeto_Itabrita.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\01_tabela_composicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5757,
+      "modified_at": "2026-06-22T11:49:45.481000Z",
+      "sha256": "c96bccb0df6797f9f6b0ecab4386b26cc6b720738162a82c2af59cbcf595ca0c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_tabela_distribuicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6136,
+      "modified_at": "2026-06-22T11:49:45.612000Z",
+      "sha256": "0a53d1c26a76bac883304156f9a51bde4c1854f7f19fd3060daf21beae85a61d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5105,
+      "modified_at": "2026-06-22T11:49:45.707000Z",
+      "sha256": "735e4b7971b9c3329eda966347ce91a36681702f9d234182aa93b8462e2586d2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 421380,
+      "modified_at": "2026-06-22T11:49:47.780000Z",
+      "sha256": "7169ace6610455a1839a8cbefb3fb16776d483d5edd442a849812e2003679b08"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5021,
+      "modified_at": "2026-06-22T11:49:47.904000Z",
+      "sha256": "3ed1ca296c46c27bc33e85634c9e4b30aa48921af0fa134d8ac09b134340b08b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 403420,
+      "modified_at": "2026-06-22T11:49:50.023000Z",
+      "sha256": "00bea13bff136eb13a84149c21c07249a52d88da5474ace1914c43ce750eec8f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5059,
+      "modified_at": "2026-06-22T11:49:50.161000Z",
+      "sha256": "fb2d4f12f44ec769b09a530b1b78367ad0d22c319134dff1b939a4d3e050d5d6"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 577328,
+      "modified_at": "2026-06-22T11:49:52.433000Z",
+      "sha256": "f35c81c8b3f5f95201753d979d0a91831c004e2c6f52026af2856016f79e5786"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 558113,
+      "modified_at": "2026-06-22T11:49:54.537000Z",
+      "sha256": "f1f8988b3ff868ca227f80c85a9547d391d34f90837d88e35b2e6567b3684d8c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5226,
+      "modified_at": "2026-06-22T11:49:54.658000Z",
+      "sha256": "fead7cd1a7c533fe838099c82fac5c6f469cff8a740c76737ba122e4411e789b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1104540,
+      "modified_at": "2026-06-22T11:49:57.412000Z",
+      "sha256": "b79c7e18df147680ef310c3c25d2da12637fb76928696c565ad5c32f2d7ba9c0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 969666,
+      "modified_at": "2026-06-22T11:49:59.788000Z",
+      "sha256": "91b93bda88241b25eeccf57aa4a792fc15e47b597651e138b56203e3049f8aa4"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5144,
+      "modified_at": "2026-06-22T11:49:59.924000Z",
+      "sha256": "ea355d7ae0d130401924696478f20a7896dda6bcd87cf4a3a1768761136c79d8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 375474,
+      "modified_at": "2026-06-22T11:50:02.061000Z",
+      "sha256": "a03f40a10ce4cc70ed8291343f626103df5b2194f49fdff7fc4f35fc97079243"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 462708,
+      "modified_at": "2026-06-22T11:50:04.182000Z",
+      "sha256": "197058dbff14f83c1936a242662086e4862ef6c6e8c450dfdb2741010acca974"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5212,
+      "modified_at": "2026-06-22T11:50:04.357000Z",
+      "sha256": "995856dd62573bb5734054a88ad7b20a4f35c4123930aded9ecd36a75010652b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5239,
+      "modified_at": "2026-06-22T11:50:04.451000Z",
+      "sha256": "4e53f15d0b8d3ac3207095c88a04a5b6de45296e97dba969631580939ec27352"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\08_grafico_cpuen_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 751032,
+      "modified_at": "2026-06-22T11:50:06.090000Z",
+      "sha256": "18b8ad1b1dbc5a05bee4184e4dfb7e6c1c6a8f01a24b306d3342b80940bcb723"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\09_grafico_cpueb_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 790888,
+      "modified_at": "2026-06-22T11:50:07.704000Z",
+      "sha256": "989ded77c7120f77b52b0cc8bbce2398eac98dff3b8ca5cb88fbf4d2034e7eb2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5186,
+      "modified_at": "2026-06-22T11:50:07.841000Z",
+      "sha256": "11b596948d8ab2d377263298af99bcf8f1e43ae8e76f6600a07e423dbe942dff"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 592843,
+      "modified_at": "2026-06-22T11:50:09.898000Z",
+      "sha256": "0430055b2b0ca6fa5fe1b1dd1b1f86dc2de3c37db69461bcfc49ae497fc5dbd5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5226,
+      "modified_at": "2026-06-22T11:50:10.049000Z",
+      "sha256": "42b55107c961eaadc529226ba5392561f827abdb0caecc7867bc464cce855173"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5003,
+      "modified_at": "2026-06-22T11:50:10.132000Z",
+      "sha256": "24092ae1481c2fc002a7d214154b487eda35de8db05b966b59b0002f6b639cb5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 331983,
+      "modified_at": "2026-06-22T11:50:12.261000Z",
+      "sha256": "19254b6e59186111876040481beea47962a099769c36d835cbd2a06a7255aec7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\12_df_curva_suficiencia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5099,
+      "modified_at": "2026-06-22T11:50:12.449000Z",
+      "sha256": "bd6e596044b3917812fc4b234efccaec956ae96b0ddf0bc3f5de6238b170e8dc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\12_curva_suficiencia_amostral_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 823390,
+      "modified_at": "2026-06-22T11:50:14.750000Z",
+      "sha256": "aa0b25a5565170de0f16e0d8903c81a43e42ad1f5dad07d6fa8080e782925ff2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\DarwinCore_IEF_Ictiofauna_Diagnostico_Da_Ictiofauna_Do_Projeto_Itabrita.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10967,
+      "modified_at": "2026-06-22T11:50:15.017000Z",
+      "sha256": "710e1f9a15a8c3718f922804bd50c7f6803fa12b7711d9e1b8c65972bf2891c3"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita\\Ictiofauna",
+  "warnings": []
+}
