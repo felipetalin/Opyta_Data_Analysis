@@ -17,7 +17,7 @@ Os seguintes termos acionam o protocolo completo:
 
 Quando acionada, a execucao deve comecar pelo
 [fluxo operacional](WORKFLOW.md), consultar as
-[operacoes ativas](ACTIVE_OPERATIONS.md) e respeitar os tres portoes de
+[operacoes ativas](ACTIVE_OPERATIONS.md) e respeitar os gates aplicaveis de
 aprovacao do usuario.
 
 ## Status Atual
@@ -25,8 +25,10 @@ aprovacao do usuario.
 | Area | Estado | Onde acessar |
 | --- | --- | --- |
 | Fluxo operacional | Oficial | [WORKFLOW.md](WORKFLOW.md) |
+| Fluxo de revisao | Oficial | [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md) |
 | Operacoes ativas | Ativo | [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md) |
 | Registros por execucao | Ativo | [operations](operations/README.md) |
+| Registros de revisao | Ativo | [reviews](reviews/README.md) |
 | Inicio de analise | Ativo | [../inicio_analise](../inicio_analise) |
 | Projetos | Em consolidacao | [PROJECTS.md](PROJECTS.md) |
 | Portfolio | Primeira curadoria criada | [PORTFOLIO.md](PORTFOLIO.md) |
@@ -74,19 +76,32 @@ Os detalhes, estados e evidencias obrigatorias estao em
 | A | Dados validados e ajustes aceitos. |
 | B | Cadastro e atributos das especies aceitos. |
 | C | Template, paleta, pasta de saida e produtos aceitos. |
+| R | Pacote revisado aceito depois da comparacao antes/depois. |
 
 O trabalho pode avancar automaticamente dentro de uma etapa, mas deve parar
 quando chegar a um gate ainda nao aprovado.
 
+## Quando For Revisao
+
+Use [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md). A revisao comeca pela linha de
+base e por uma triagem de impacto:
+
+- texto/layout sem alterar resultados: revisar apenas produtos dependentes;
+- metodo/calculo: regenerar a cadeia analitica afetada;
+- dados/taxonomia: reabrir Gate A ou B e repetir as etapas posteriores;
+- toda revisao termina no Gate R.
+
 ## Ordem De Consulta
 
 1. [WORKFLOW.md](WORKFLOW.md)
-2. [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md)
-3. registro da operacao em [operations](operations/README.md)
-4. [PROJECTS.md](PROJECTS.md) e registry
-5. dossie, recipe e lastro
-6. portfolio e patterns aplicaveis
-7. validadores e fechamento
+2. [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md), quando for revisao
+3. [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md)
+4. registro da operacao em [operations](operations/README.md)
+5. registro da revisao em [reviews](reviews/README.md), quando aplicavel
+6. [PROJECTS.md](PROJECTS.md) e registry
+7. dossie, recipe e lastro
+8. portfolio e patterns aplicaveis
+9. validadores e fechamento
 
 ## Comandos
 

@@ -26,6 +26,8 @@
 - Gate A — dados:
 - Gate B — especies:
 - Gate C — analises:
+- Gate R — revisao:
+- registro de revisao:
 
 ## Metodologia
 

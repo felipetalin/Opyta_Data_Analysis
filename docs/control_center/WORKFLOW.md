@@ -75,8 +75,13 @@ FECHAMENTO E APRENDIZADO
 | 5. Configuracao | Propor template pelo numero de campanhas, paleta, pasta de saida e produtos | Mapa de decisao analitica | `awaiting_analysis_approval` |
 | Gate C | Confirmar template, paleta e pasta de saida | Aprovacao explicita do usuario | `generating_products` |
 | 6. Geracao | Gerar bases, tabelas, graficos, HTML e manifesto | Produtos e lastro reprodutivel | `reviewing_outputs` |
-| 7. Revisao | Conferir numeros, texto, layout e integridade | Validadores, hashes e pendencias visuais | `completed` ou `reviewing_layout` |
+| 7. Revisao | Conferir numeros, texto, layout e integridade | Validadores, hashes e pendencias visuais | `completed`, `review_planned` ou fluxo de revisao |
 | 8. Fechamento | Atualizar dossie, registries, patterns, portfolio e backlog | Registro da operacao encerrado | `completed` |
+
+Quando houver pedido de correcao ou nova rodada de revisao, seguir
+[REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md). O protocolo de revisao decide se a
+operacao volta ao Gate A, B ou C ou se segue diretamente para texto, layout ou
+empacotamento.
 
 ## Portoes De Aprovacao
 
@@ -132,6 +137,18 @@ aprovacao quando houver mais de uma escolha razoavel.
 | `generating_products` | Bases, tabelas, figuras e relatorio em geracao. |
 | `reviewing_outputs` | Auditoria numerica, textual e de arquivos. |
 | `reviewing_layout` | Produtos corretos, com ajustes visuais pendentes. |
+| `review_planned` | Revisao futura registrada, ainda sem escopo executavel. |
+| `review_scoping` | Tipo, impacto e linha de base da revisao em definicao. |
+| `awaiting_review_scope_approval` | Escopo de revisao aguardando usuario. |
+| `revising_data` | Revisao de dados e dependencias em andamento. |
+| `revising_taxonomy` | Revisao taxonomica e dependencias em andamento. |
+| `revising_analysis` | Revisao metodologica ou numerica em andamento. |
+| `revising_text` | Revisao textual em andamento. |
+| `revising_layout` | Revisao visual em andamento. |
+| `revising_package` | Revisao de pacote, nomes ou manifesto em andamento. |
+| `validating_revision` | Produtos revisados em auditoria. |
+| `awaiting_revision_approval` | Gate R aguardando usuario. |
+| `review_completed` | Revisao aprovada e documentada. |
 | `completed` | Operacao concluida e documentada. |
 | `blocked` | Existe impedimento objetivo registrado. |
 

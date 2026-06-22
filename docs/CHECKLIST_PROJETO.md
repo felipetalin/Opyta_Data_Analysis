@@ -21,6 +21,9 @@ script solto, output perdido e padrao grafico esquecido.
 
 - [ ] Gates A, B e C registrados conforme `docs/control_center/WORKFLOW.md`.
 - [ ] Estado e proxima acao da operacao atualizados.
+- [ ] Revisoes classificadas por tipo e impacto conforme
+      `docs/control_center/REVIEW_WORKFLOW.md`.
+- [ ] Gate R registrado quando houver pacote revisado.
 - [ ] Prototipos ficam em `scripts/prototypes/`.
 - [ ] Scripts especificos ficam em `scripts/projects/<projeto>/`.
 - [ ] Migracoes ficam em `scripts/migrations/<tema>/`.

@@ -81,6 +81,12 @@
 
 -
 
+## Revisoes
+
+| Revisao | Tipo | Impacto | Estado | Registro |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
 ## Fechamento E Aprendizados
 
 - validadores:

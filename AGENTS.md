@@ -24,3 +24,22 @@ O fluxo oficial e:
 `validacao -> aprovacao dos dados -> cadastro e auditoria de especies ->
 aprovacao taxonomica -> migracao -> consolidacao -> configuracao das analises ->
 aprovacao de template/paleta/saida -> geracao -> revisao -> fechamento`
+
+## Gatilho De Revisao
+
+Quando o usuario pedir `center_control revisao`, "revisar", "ajustes de
+layout", "ajustes de texto", "corrigir resultados" ou equivalente:
+
+1. abrir `docs/control_center/REVIEW_WORKFLOW.md`;
+2. localizar a operacao e preservar a linha de base;
+3. classificar a revisao como dados, taxonomia, analise, texto, layout, pacote
+   ou completa;
+4. definir o impacto `R0`, `R1`, `R2` ou `R3`;
+5. reabrir Gate A, B ou C apenas quando a mudanca afetar aquele gate;
+6. criar registro em `docs/control_center/reviews/` quando houver escopo
+   executavel;
+7. finalizar no Gate R, com comparacao antes/depois e aprovacao do usuario.
+
+Uma revisao visual ou textual nao deve refazer migracao/consolidacao sem
+dependencia tecnica. Uma revisao de dados ou taxonomia deve regenerar toda a
+cadeia posterior afetada.

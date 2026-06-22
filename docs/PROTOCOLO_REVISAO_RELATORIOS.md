@@ -2,6 +2,11 @@
 
 Status: piloto em desenvolvimento
 
+Este documento e uma ferramenta especializada para auditoria de DOCX e
+relatorios consolidados. A abertura, classificacao de impacto, versionamento e
+aprovacao de qualquer revisao seguem o protocolo principal da
+[Central de Controle](control_center/REVIEW_WORKFLOW.md).
+
 ## Objetivo
 
 Criar uma central de revisao reproduzivel para relatorios tecnicos em DOCX,

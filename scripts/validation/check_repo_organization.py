@@ -37,6 +37,18 @@ OPERATION_STATES = {
     "generating_products",
     "reviewing_outputs",
     "reviewing_layout",
+    "review_planned",
+    "review_scoping",
+    "awaiting_review_scope_approval",
+    "revising_data",
+    "revising_taxonomy",
+    "revising_analysis",
+    "revising_text",
+    "revising_layout",
+    "revising_package",
+    "validating_revision",
+    "awaiting_revision_approval",
+    "review_completed",
     "completed",
     "blocked",
 }
@@ -111,6 +123,7 @@ def collect_report(root: Path) -> dict[str, object]:
     docs_dir = root / "docs"
     control_center_dir = docs_dir / "control_center"
     operations_dir = control_center_dir / "operations"
+    reviews_dir = control_center_dir / "reviews"
     registry_dir = docs_dir / "registry"
     docs_projects = root / "docs" / "projects"
     outputs_projects = root / "outputs" / "_project_scripts"
@@ -120,13 +133,16 @@ def collect_report(root: Path) -> dict[str, object]:
         docs_dir / "README.md",
         control_center_dir / "README.md",
         control_center_dir / "WORKFLOW.md",
+        control_center_dir / "REVIEW_WORKFLOW.md",
         control_center_dir / "ACTIVE_OPERATIONS.md",
         operations_dir / "README.md",
+        reviews_dir / "README.md",
         control_center_dir / "PROJECTS.md",
         control_center_dir / "PORTFOLIO.md",
         control_center_dir / "LEARNING_SYSTEM.md",
         control_center_dir / "NAMING_STANDARD.md",
         docs_dir / "templates" / "operation_record_template.md",
+        docs_dir / "templates" / "review_record_template.md",
     ]
     registry_files = [
         registry_dir / "project_registry.json",
@@ -157,6 +173,11 @@ def collect_report(root: Path) -> dict[str, object]:
     operation_files = [
         path
         for path in files_under(operations_dir, {".md"})
+        if path.name.lower() != "readme.md"
+    ]
+    review_files = [
+        path
+        for path in files_under(reviews_dir, {".md"})
         if path.name.lower() != "readme.md"
     ]
 
@@ -244,6 +265,44 @@ def collect_report(root: Path) -> dict[str, object]:
                     "invalid_operation_state",
                     f"Operation state is not defined in Control Center workflow: {state}",
                     rel(operation, root),
+                )
+            )
+
+    for review in review_files:
+        text = read_text(review)
+        lower_text = text.lower()
+        required_markers = {
+            "review_missing_project": "- projeto:",
+            "review_missing_source_operation": "- operacao de origem:",
+            "review_missing_state": "- estado atual:",
+            "review_missing_scope": "## escopo",
+            "review_missing_baseline": "## linha de base",
+            "review_missing_progress": "## progresso",
+            "review_missing_gate_r": "## gate r",
+        }
+        for code, marker in required_markers.items():
+            if marker not in lower_text:
+                findings.append(
+                    Finding(
+                        "warning",
+                        code,
+                        f"Review record is missing required marker: {marker}",
+                        rel(review, root),
+                    )
+                )
+
+        state = None
+        for line in text.splitlines():
+            if line.strip().lower().startswith("- estado atual:"):
+                state = line.split(":", 1)[1].strip().strip("`")
+                break
+        if state and state not in OPERATION_STATES:
+            findings.append(
+                Finding(
+                    "warning",
+                    "invalid_review_state",
+                    f"Review state is not defined in Control Center workflow: {state}",
+                    rel(review, root),
                 )
             )
 
@@ -348,6 +407,7 @@ def collect_report(root: Path) -> dict[str, object]:
         "knowledge_hub": {
             "control_center_docs": len(files_under(control_center_dir, {".md"})),
             "operation_records": len(operation_files),
+            "review_records": len(review_files),
             "registry_files": len([path for path in registry_files if path.exists()]),
             "template_files": len(files_under(docs_dir / "templates", {".md"})),
             "pattern_docs": len(files_under(docs_dir / "patterns", {".md"})),

@@ -18,13 +18,14 @@ Status: `campaign_1_migrated_consolidated_analyzed`
 ## Central De Controle
 
 - operacao: Ictiofauna — Campanha 1
-- estado operacional: `reviewing_layout`
+- estado operacional: `review_planned`
 - registro:
   `docs/control_center/operations/VIRITA001_ICTIOFAUNA_CAMPANHA_1.md`
-- proxima acao: ajustes pontuais de layout quando solicitados
+- proxima acao: abrir a revisao R01 quando os ajustes de layout forem informados
 - Gate A — dados: aprovado
 - Gate B — especies: aprovado
 - Gate C — analises: aprovado
+- Gate R — revisao: pendente; R01 ainda sem escopo executavel
 
 ## Dados De Entrada
 

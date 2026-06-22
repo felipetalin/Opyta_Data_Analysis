@@ -43,6 +43,11 @@ uma execucao usa estados proprios, como `validating`,
 `awaiting_data_approval`, `migrating`, `reviewing_layout` e `completed`,
 documentados em [WORKFLOW.md](WORKFLOW.md).
 
+Revisoes usam uma extensao desse ciclo, documentada em
+[REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md). O principio e retornar apenas ao
+ultimo ponto que deixou de ser confiavel, preservando as etapas anteriores que
+continuam validas.
+
 ## Operacao De Projetos
 
 Cada campanha ou rodada de trabalho deve ter um registro em

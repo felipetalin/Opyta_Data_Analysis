@@ -22,6 +22,8 @@ registries, patterns, templates e referencias tecnicas.
 - [Central de Controle](control_center/README.md): entrada operacional oficial.
 - [Fluxo operacional](control_center/WORKFLOW.md): validacao, gates, migracao,
   consolidacao, configuracao, geracao e fechamento.
+- [Fluxo de revisao](control_center/REVIEW_WORKFLOW.md): triagem por tipo e
+  impacto, retorno seletivo aos gates e aprovacao final.
 - [Operacoes ativas](control_center/ACTIVE_OPERATIONS.md): estado atual e proxima acao.
 - [Inicio de analise](inicio_analise/README.md): modulo de abertura e decisao
   analitica usado dentro do fluxo oficial.
@@ -44,6 +46,7 @@ registries, patterns, templates e referencias tecnicas.
 ## Templates
 
 - [Registro de operacao](templates/operation_record_template.md)
+- [Registro de revisao](templates/review_record_template.md)
 - [Dossie de projeto](templates/project_dossier_template.md)
 - [Card de padrao](templates/pattern_card_template.md)
 - [Registro de decisao](templates/decision_record_template.md)

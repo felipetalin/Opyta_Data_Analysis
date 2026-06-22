@@ -5,10 +5,10 @@
 - projeto: `VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita`
 - grupo: Ictiofauna
 - operacao: Campanha 1
-- estado atual: `reviewing_layout`
+- estado atual: `review_planned`
 - aberta em: 2026-06-22
 - atualizada em: 2026-06-22
-- proxima acao: realizar ajustes pontuais de layout quando solicitados
+- proxima acao: abrir a revisao R01 quando os ajustes de layout forem informados
 
 ## Caminhos
 
@@ -41,6 +41,21 @@
 | Revisao tecnica | concluida | Zero arquivos ausentes e zero divergencias de hash. |
 | Revisao de layout | pendente | Usuario aprovou o conjunto e registrou ajustes pontuais para uma rodada futura. |
 | Fechamento | pendente | Encerrar depois da revisao visual final. |
+
+## Revisoes
+
+| Revisao | Tipo previsto | Impacto previsto | Estado | Registro |
+| --- | --- | --- | --- | --- |
+| R01 | `layout` | `R1` | `review_planned` | Criar quando houver lista executavel de ajustes. |
+
+Regra para R01:
+
+- preservar o manifesto e os produtos atuais como linha de base;
+- nao reabrir Gate A ou B;
+- reabrir Gate C somente se houver troca de paleta, template ou conjunto de
+  produtos previamente aprovado;
+- regenerar apenas figuras, HTML e manifesto dependentes dos ajustes;
+- apresentar comparacao antes/depois no Gate R.
 
 ## Gates
 
