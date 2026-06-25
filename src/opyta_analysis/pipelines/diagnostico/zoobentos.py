@@ -465,6 +465,17 @@ def _small_multiple_metric(
                 linewidth=0.4,
                 zorder=2,
             )
+        unknown_mask = np.array([s not in {"CH", "SC"} for s in seasons])
+        if unknown_mask.any():
+            ax.scatter(
+                x[unknown_mask],
+                values[unknown_mask],
+                s=marker_size,
+                color=str(theme.get("primary_hex", "#11420C")),
+                edgecolor="black",
+                linewidth=0.4,
+                zorder=2,
+            )
         ax.axhline(overall_mean, color="#7F7F7F", linewidth=0.9, linestyle="--", zorder=0)
         ax.text(
             0.02,
@@ -489,9 +500,45 @@ def _small_multiple_metric(
     for ax in axes[-1, :]:
         ax.set_xlabel("Campanha")
 
-    handles = [
-        Line2D([0], [0], marker="o", color="none", markerfacecolor=colors["CH"], markeredgecolor="black", label="CH"),
-        Line2D([0], [0], marker="o", color="none", markerfacecolor=colors["SC"], markeredgecolor="black", label="SC"),
+    seasons_present = {_campaign_season(c) for c in campaigns}
+    handles = []
+    if "CH" in seasons_present:
+        handles.append(
+            Line2D(
+                [0],
+                [0],
+                marker="o",
+                color="none",
+                markerfacecolor=colors["CH"],
+                markeredgecolor="black",
+                label="CH",
+            )
+        )
+    if "SC" in seasons_present:
+        handles.append(
+            Line2D(
+                [0],
+                [0],
+                marker="o",
+                color="none",
+                markerfacecolor=colors["SC"],
+                markeredgecolor="black",
+                label="SC",
+            )
+        )
+    if seasons_present - {"CH", "SC"}:
+        handles.append(
+            Line2D(
+                [0],
+                [0],
+                marker="o",
+                color="none",
+                markerfacecolor=str(theme.get("primary_hex", "#11420C")),
+                markeredgecolor="black",
+                label="Campanha",
+            )
+        )
+    handles.append(
         Line2D(
             [0],
             [0],
@@ -499,10 +546,89 @@ def _small_multiple_metric(
             linestyle="--",
             linewidth=0.9,
             label=_mean_label(overall_mean, decimals),
-        ),
-    ]
-    fig.legend(handles=handles, loc="upper center", ncol=3, frameon=False)
+        )
+    )
+    fig.legend(handles=handles, loc="upper center", ncol=min(3, len(handles)), frameon=False)
     fig.tight_layout(rect=[0.02, 0.03, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+
+
+def _few_campaign_metric(
+    table: pd.DataFrame,
+    value_col: str,
+    ylabel: str,
+    out_png: Path,
+    theme: dict,
+    points: list[str],
+    campaigns: list[str],
+    df: pd.DataFrame,
+) -> None:
+    if not points or not campaigns:
+        return
+
+    pivot = (
+        table.pivot_table(
+            index="nome_ponto",
+            columns="nome_campanha",
+            values=value_col,
+            aggfunc="sum",
+            fill_value=0,
+        )
+        .reindex(index=points, columns=campaigns, fill_value=0)
+    )
+    campaign_colors = _theme_palette(theme, len(campaigns))
+    size = get_figsize_by_complexity(theme, n_categories=len(points), prefer_landscape=True)
+    fig, ax = plt.subplots(figsize=size, dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(points))
+    width = 0.8 / max(len(campaigns), 1)
+    ymax = max(float(pivot.to_numpy(dtype=float).max()), 1.0)
+    ax.set_ylim(0, ymax * 1.14)
+
+    for i, campaign in enumerate(campaigns):
+        values = pivot[campaign].to_numpy(dtype=float)
+        bar_colors = _point_area_colors(points, df, theme) if len(campaigns) == 1 else campaign_colors[i]
+        bars = ax.bar(
+            x + (i - (len(campaigns) - 1) / 2) * width,
+            values,
+            width=width,
+            label=campaign,
+            color=bar_colors,
+            edgecolor="black",
+            linewidth=0.8,
+        )
+        for bar, value in zip(bars, values):
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                float(value) if value > 0 else ymax * 0.015,
+                f"{int(round(value))}",
+                ha="center",
+                va="bottom",
+                fontsize=_font_annotation(theme),
+                color="black" if value > 0 else "#666666",
+            )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(points, ha="right")
+    apply_theme(
+        ax,
+        theme,
+        xlabel="Ponto amostral",
+        ylabel=ylabel,
+        x_tick_rotation=0 if _point_area_meta(df) else 45,
+    )
+    area_drawn = _draw_area_groups(ax, points, df, theme, y=-0.13)
+    has_legend = len(campaigns) > 1
+    if has_legend:
+        place_legend_below_x_axis(fig, ax, theme)
+    validate_axes_style(ax, theme)
+    fig.tight_layout(
+        rect=get_tight_layout_rect(
+            theme,
+            has_legend=has_legend,
+            extra_bottom=0.12 if area_drawn else 0.04,
+        )
+    )
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
 
@@ -997,16 +1123,28 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     generated_files.append(str(out_df))
 
     out_png = output_dir / f"02_grafico_riqueza_por_ponto_{group.lower()}.png"
-    _small_multiple_metric(
-        table=richness,
-        value_col="riqueza",
-        ylabel="Riqueza",
-        out_png=out_png,
-        theme=theme,
-        points=points,
-        campaigns=campaigns,
-        decimals=1,
-    )
+    if len(campaigns) <= 2:
+        _few_campaign_metric(
+            table=richness,
+            value_col="riqueza",
+            ylabel="Riqueza",
+            out_png=out_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            df=df,
+        )
+    else:
+        _small_multiple_metric(
+            table=richness,
+            value_col="riqueza",
+            ylabel="Riqueza",
+            out_png=out_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=1,
+        )
     generated_files.append(str(out_png))
 
     abundance = (
@@ -1029,16 +1167,28 @@ def _run_block_5(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     generated_files.append(str(out_abundance_df))
 
     out_abundance_png = output_dir / f"03_grafico_abundancia_por_ponto_{group.lower()}.png"
-    _small_multiple_metric(
-        table=abundance,
-        value_col="abundancia_total",
-        ylabel="Abundancia total",
-        out_png=out_abundance_png,
-        theme=theme,
-        points=points,
-        campaigns=campaigns,
-        decimals=1,
-    )
+    if len(campaigns) <= 2:
+        _few_campaign_metric(
+            table=abundance,
+            value_col="abundancia_total",
+            ylabel="Abundancia total",
+            out_png=out_abundance_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            df=df,
+        )
+    else:
+        _small_multiple_metric(
+            table=abundance,
+            value_col="abundancia_total",
+            ylabel="Abundancia total",
+            out_png=out_abundance_png,
+            theme=theme,
+            points=points,
+            campaigns=campaigns,
+            decimals=1,
+        )
     generated_files.append(str(out_abundance_png))
     return {"campaigns": campaigns}
 
@@ -1268,13 +1418,72 @@ def _run_block_8(df: pd.DataFrame, group: str, theme: dict, output_dir: Path, ge
     generated_files.append(str(xlsx_10))
 
     png_10 = output_dir / f"10_grafico_diversidade_alfa_{group.lower()}.png"
-    _small_multiple_diversity(
-        diversity=df_div,
-        out_png=png_10,
-        theme=theme,
-        points=points_order,
-        campaigns=campaign_order,
-    )
+    if len(campaign_order) <= 2:
+        labels = df_div["nome_ponto"].tolist()
+        shannon_vals = df_div["Shannon_H"].tolist()
+        pielou_vals = df_div["Pielou_J"].tolist()
+        x = np.arange(len(labels))
+
+        size = get_figsize_by_complexity(theme, n_categories=len(labels), prefer_landscape=True)
+        fig, ax1 = plt.subplots(figsize=size, dpi=int(theme.get("dpi", 600)))
+        ax1.bar(
+            x,
+            shannon_vals,
+            color=str(theme.get("primary_hex", "#11420C")),
+            edgecolor="black",
+            linewidth=1.0,
+            label="Diversidade (H')",
+        )
+        ax1.set_xticks(x)
+        ax1.set_xticklabels(labels, ha="right")
+        apply_theme(
+            ax1,
+            theme,
+            xlabel="Ponto amostral",
+            ylabel="Shannon (H')",
+            x_tick_rotation=45,
+        )
+
+        ax2 = ax1.twinx()
+        ax2.plot(
+            x,
+            pielou_vals,
+            marker="o",
+            linestyle="None",
+            color=str(theme.get("secondary_hex", "#6A8F63")),
+            markersize=6,
+            label="Equitabilidade (J')",
+        )
+        ax2.set_ylabel("Pielou (J')")
+        ax2.set_ylim(0, 1.1)
+
+        split_n = 0
+        for campaign in campaign_order[:-1]:
+            split_n += df_div[df_div["nome_campanha"] == campaign].shape[0]
+            if 0 < split_n < len(x):
+                ax1.axvline(x=split_n - 0.5, color="#888888", linestyle="--", linewidth=1.5)
+
+        handles_1, labels_1 = ax1.get_legend_handles_labels()
+        handles_2, labels_2 = ax2.get_legend_handles_labels()
+        place_legend_below_x_axis(
+            fig,
+            ax1,
+            theme,
+            handles=handles_1 + handles_2,
+            labels=labels_1 + labels_2,
+        )
+        validate_axes_style(ax1, theme)
+        fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.06))
+        fig.savefig(png_10, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+        plt.close(fig)
+    else:
+        _small_multiple_diversity(
+            diversity=df_div,
+            out_png=png_10,
+            theme=theme,
+            points=points_order,
+            campaigns=campaign_order,
+        )
     generated_files.append(str(png_10))
 
     return {"campaigns": campaign_order}

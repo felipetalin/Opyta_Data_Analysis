@@ -1,0 +1,105 @@
+{
+  "executed_at": "2026-06-24T19:11:03.132830Z",
+  "runner_version": "1.2",
+  "project_id": 190,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "geoarc001_arcelor",
+  "block": "10",
+  "campaign_filter": [
+    "C001-2022-03-CH",
+    "C002-2022-07-SC",
+    "C003-2022-09-SC",
+    "C004-2022-12-CH",
+    "C005-2023-03-CH",
+    "C006-2023-06-SC",
+    "C007-2023-09-SC",
+    "C008-2023-12-CH",
+    "C009-2024-03-CH",
+    "C010-2024-06-SC",
+    "C011-2024-09-SC",
+    "C012-2024-12-CH",
+    "C013-2025-03-CH",
+    "C014-2025-06-SC",
+    "C015-2025-09-SC",
+    "C016-2025-12-CH",
+    "C017-2026-03-CH",
+    "C018-2026-06-SC"
+  ],
+  "git": {
+    "branch": "main",
+    "commit": "20de52f",
+    "dirty": true,
+    "status_short_count": 18,
+    "full_dirty": true,
+    "full_status_short_count": 25,
+    "ignored_generated_audit_count": 7
+  },
+  "rows_loaded": 274,
+  "executed_blocks": [
+    "10"
+  ],
+  "campaigns": [
+    "C001-2022-03-CH",
+    "C002-2022-07-SC",
+    "C003-2022-09-SC",
+    "C004-2022-12-CH",
+    "C005-2023-03-CH",
+    "C006-2023-06-SC",
+    "C007-2023-09-SC",
+    "C008-2023-12-CH",
+    "C009-2024-03-CH",
+    "C010-2024-06-SC",
+    "C011-2024-09-SC",
+    "C012-2024-12-CH",
+    "C013-2025-03-CH",
+    "C014-2025-06-SC",
+    "C015-2025-09-SC",
+    "C016-2025-12-CH",
+    "C017-2026-03-CH",
+    "C018-2026-06-SC"
+  ],
+  "campaigns_count": 18,
+  "points": [
+    "IC-ARC-01",
+    "IC-ARC-02",
+    "IC-ARC-04",
+    "IC-ARC-05",
+    "IC-ARC-06",
+    "IC-ARC-07",
+    "IC-ARC-08",
+    "IC-ARC-09",
+    "IC-ARC-10",
+    "IC-ARC-12",
+    "IC-ARC-14"
+  ],
+  "points_count": 11,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Arcellor\\Arcellor Monitoramento\\Produtos\\Resultados\\Resultados\\Ictiofauna",
+  "generated_files_count": 2,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Arcellor\\Arcellor Monitoramento\\Produtos\\Resultados\\Resultados\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Arcellor\\Arcellor Monitoramento\\Produtos\\Resultados\\Resultados\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Arcellor\\Arcellor Monitoramento\\Produtos\\Resultados\\Resultados\\Ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10881,
+      "modified_at": "2026-06-24T19:10:57.257000Z",
+      "sha256": "d72c5c3f6fb20e5ac6dae3313cb30905c39370b71434e280eaa53b1befc7e19d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Arcellor\\Arcellor Monitoramento\\Produtos\\Resultados\\Resultados\\Ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 807120,
+      "modified_at": "2026-06-24T19:11:02.964000Z",
+      "sha256": "e8636ccb0849fa2afb062f1e011ce3b5eff74c044cd56d996bfa453f7338ad15"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\GEOARC001__monitoramento_arcelor\\ictiofauna",
+  "warnings": []
+}

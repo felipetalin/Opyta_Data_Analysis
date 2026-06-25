@@ -1,0 +1,53 @@
+{
+  "project_code": "GEOARC001",
+  "project_id": 190,
+  "project_name": "Monitoramento Arcelor",
+  "canonical_key": "GEOARC001__monitoramento_arcelor",
+  "supabase_source": {
+    "table": "projetos",
+    "id_field": "id_projeto",
+    "code_field": "codigo_interno_opyta",
+    "name_field": "nome_projeto"
+  },
+  "analysis_name": "Monitoramento Arcelor - Ictiofauna - 18 campanhas",
+  "client_config": "geoarc001_arcelor",
+  "audit_project_slug": "GEOARC001__monitoramento_arcelor",
+  "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Geomil/Arcellor/Arcellor Monitoramento/Produtos/Resultados/Resultados",
+  "groups": [
+    {
+      "group": "Ictiofauna",
+      "pipeline": "ictio",
+      "output_subdir": "Ictiofauna"
+    }
+  ],
+  "campaigns": [
+    "C001-2022-03-CH",
+    "C002-2022-07-SC",
+    "C003-2022-09-SC",
+    "C004-2022-12-CH",
+    "C005-2023-03-CH",
+    "C006-2023-06-SC",
+    "C007-2023-09-SC",
+    "C008-2023-12-CH",
+    "C009-2024-03-CH",
+    "C010-2024-06-SC",
+    "C011-2024-09-SC",
+    "C012-2024-12-CH",
+    "C013-2025-03-CH",
+    "C014-2025-06-SC",
+    "C015-2025-09-SC",
+    "C016-2025-12-CH",
+    "C017-2026-03-CH",
+    "C018-2026-06-SC"
+  ],
+  "data_notes": [
+    "Gate A aprovado pelo usuario em 2026-06-23 apos validacao sem bloqueios.",
+    "Gate B aprovado pelo usuario em 2026-06-23; projeto e quatro especies novas cadastrados no banco.",
+    "Planilha de resultados usa taxonomia corrigida em TAXONOMIA_GATE_B_R02.",
+    "Validacao pos-cadastro 20260623_gateb_post_cadastro: 0 bloqueios, 2 avisos.",
+    "Avisos remanescentes: 154 duplicatas exatas e 51 grupos agregaveis pelo migrador.",
+    "Migracao concluida em 2026-06-23: 198 pontos campanha+ponto, 198 esforcos, 150 resultados agregados, 707 individuos e 23 especies.",
+    "Consolidacao oficial concluida em 2026-06-23 com Opyta_Data/scripts/processar_dados.py; backup public.backup_biota_consolidada_before_geoarc001_20260623t191207z.",
+    "Para CPUEb exata, usar a planilha validada como fonte linha-a-linha, pois o script oficial usa PC_g no campo biomassa de ictiofauna."
+  ]
+}

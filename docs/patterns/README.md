@@ -16,6 +16,10 @@ saida.
 - `linguagem_tecnica_rastreavel.md`
 - `paleta_azul_opyta.md`
 
+## Padroes em avaliacao
+
+- `diversidade_beta_inflexao_ictio.md`
+
 A policy editorial principal nao e um pattern isolado. Ela permanece em
 `docs/PADRAO_MESTRE_REDACAO_TECNICA_OPYTA.md`.
 

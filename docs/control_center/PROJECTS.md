@@ -23,6 +23,7 @@ qual etapa uma campanha ou rodada de trabalho esta, consulte
 | `TOTVAL001__diagnostico_lt_brucutu` | 187 | TOTVAL001 | Diagnóstico LT Brucutu | reference | `outputs/_project_scripts/TOTVAL001__diagnostico_lt_brucutu` |
 | `MICGAG001__monitoramento_da_ictiofauna_da_uhe_baguari` | 188 | MICGAG001 | Monitoramento da ictiofauna da UHE Baguari | reference | `outputs/_project_scripts/MICGAG001__monitoramento_da_ictiofauna_da_uhe_baguari` |
 | `VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita` | 189 | VIRITA001 | Diagnóstico da ictiofauna do Projeto Itabrita | active | `outputs/_project_scripts/VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita` |
+| `GEOARC001__monitoramento_arcelor` | 190 | GEOARC001 | Monitoramento Arcelor | active | `outputs/_project_scripts/GEOARC001__monitoramento_arcelor` |
 
 ## Duplicidades/Pendencias Supabase
 

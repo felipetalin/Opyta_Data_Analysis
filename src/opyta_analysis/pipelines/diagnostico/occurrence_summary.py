@@ -157,8 +157,9 @@ def _render_frequency_heatmaps(
             _campaign_short(column) if campaign_columns else str(column)
             for column in page.columns
         ]
+        x_rotation = 0 if campaign_columns else 90
         ax.set_xticks(np.arange(len(page.columns)))
-        ax.set_xticklabels(x_labels, rotation=0, ha="center", fontsize=tick_size)
+        ax.set_xticklabels(x_labels, rotation=x_rotation, ha="center", fontsize=tick_size)
         ax.set_yticks(np.arange(len(taxa_page)))
         ax.set_yticklabels(taxa_page, fontsize=tick_size, fontstyle="italic")
         ax.set_xlabel(xlabel, fontsize=label_size)

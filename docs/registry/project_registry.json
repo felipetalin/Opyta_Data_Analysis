@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source_of_truth": "Supabase public.projetos",
-  "last_verified": "2026-06-22",
+  "last_verified": "2026-06-23",
   "excluded_supabase_codes": [
     {
       "codigo_interno_opyta": "TESTE001",
@@ -74,7 +74,9 @@
       "recipes": [],
       "docs": [
         "docs/AVG_BENTOS_INVENTARIO_BANCO_20260608.md",
-        "docs/AVG_ICTIOFAUNA_2026.md"
+        "docs/AVG_ICTIOFAUNA_2026.md",
+        "docs/control_center/reviews/BRAAVG002_ZOOBENTOS_MARCO_2026_REV_R01.md",
+        "docs/control_center/reviews/BRAAVG002_ZOOBENTOS_JANEIRO_2026_REV_R02.md"
       ],
       "scripts": [
         "scripts/projects/avg"
@@ -408,6 +410,39 @@
       "audit": [],
       "learning": [
         "Usuario mencionou template Cedro Metais como referencia; confirmar relacao com BRACED001."
+      ]
+    },
+    {
+      "canonical_key": "GEOARC001__monitoramento_arcelor",
+      "supabase": {
+        "id_projeto": 190,
+        "codigo_interno_opyta": "GEOARC001",
+        "nome_projeto": "Monitoramento Arcelor"
+      },
+      "status": "active",
+      "aliases": [
+        "geoarc001_arcelor",
+        "arcelor_ictiofauna_18_campanhas"
+      ],
+      "domains": [
+        "Ictiofauna"
+      ],
+      "recipes": [
+        "configs/projects/geoarc001_arcelor_ictiofauna.json"
+      ],
+      "docs": [
+        "docs/projects/GEOARC001_ARCELOR_ICTIOFAUNA.md",
+        "docs/control_center/operations/GEOARC001_ICTIOFAUNA_18_CAMPANHAS.md"
+      ],
+      "scripts": [],
+      "audit": [
+        "outputs/validacoes/geoarc001_arcelor",
+        "outputs/_project_scripts/GEOARC001__monitoramento_arcelor"
+      ],
+      "learning": [
+        "Projeto com 18 campanhas de ictiofauna; configurar analises como serie longa/multicampanha apos consolidacao.",
+        "Migracao consolidou 301 linhas de resultados em 150 registros agregados, preservando 707 individuos.",
+        "Para CPUEb exata em ictiofauna, manter fonte linha-a-linha quando o script oficial de consolidacao preencher biomassa com PC_g."
       ]
     }
   ]

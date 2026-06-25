@@ -1,0 +1,28 @@
+{
+  "client_code": "GEOARC001",
+  "audit_project_slug": "GEOARC001__monitoramento_arcelor",
+  "theme_override": {
+    "primary_hex": "#002060",
+    "secondary_hex": "#5B9BD5",
+    "highlight_hex": "#1F4E79",
+    "palette_start_hex": "#002060",
+    "palette_end_hex": "#DBE5F1",
+    "font_size_base": 13,
+    "annotation_size": 11,
+    "campaign_label_size": 11,
+    "dense_campaign_label_size": 10,
+    "diversity_campaign_label_size": 10,
+    "label_size": 13,
+    "legend_size": 11,
+    "title_size": 14,
+    "point_label_size": 12,
+    "small_multiple_marker_size": 32,
+    "small_multiple_linewidth": 1.2,
+    "legend_max_cols": 3,
+    "legend_ncol": 3,
+    "tight_layout_top": 0.92,
+    "figsize_standard": [11.69, 8.27],
+    "figsize_heatmap": [11.69, 7.0],
+    "dpi": 600
+  }
+}

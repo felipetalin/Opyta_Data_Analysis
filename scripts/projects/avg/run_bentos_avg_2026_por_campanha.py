@@ -174,7 +174,13 @@ def _run_all_blocks(df_observed, df_point_metrics, theme: dict, output_dir: Path
     _run_block_3(df=df_observed, group=GROUP, output_dir=output_dir, generated_files=generated_files)
     executed_blocks.append("3")
 
-    _run_block_4(df=df_observed, group=GROUP, output_dir=output_dir, generated_files=generated_files)
+    _run_block_4(
+        df=df_observed,
+        group=GROUP,
+        theme=theme,
+        output_dir=output_dir,
+        generated_files=generated_files,
+    )
     executed_blocks.append("4")
 
     _run_block_5(df=df_point_metrics, group=GROUP, theme=theme, output_dir=output_dir, generated_files=generated_files)
