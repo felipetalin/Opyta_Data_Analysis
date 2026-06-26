@@ -35,6 +35,7 @@ rastreabilidade sem depender de memoria ou de busca manual em pastas de cliente.
 | ITAGUA001 / Monitoramento da Fauna | `scripts/projects/project_165/` | Pipeline historico de ictiofauna documentado em `docs/PIPELINE_ICTIO_165.md`. |
 | FERSAM001 / Sam Metais Diagnostico | `scripts/projects/sam_metais/` | Meio fisico, conformidade e revisao de biota aquatica. |
 | VIRITA001 / Itabrita | `scripts/projects/virita001/` | Ictiofauna: relatorio tecnico HTML e evidencias da Campanha 1, seguindo o padrao analitico FERSAM001 para duas campanhas. |
+| GEOARC001 / Arcelor | `scripts/projects/geoarc001/` | Ictiofauna: analises exploratorias taxonomicas e funcionais, mapas de grupos sentinelas e assinatura de especies por grupo funcional. |
 
 ## Geradores De Meio Fisico
 
@@ -74,6 +75,9 @@ os referencia por nome.
 | `scripts/validation/validar_meio_fisico_outputs.py` | Auditoria pos-run dos outputs de meio fisico. |
 | `scripts/validation/validar_migracao_ictiofauna.py` | Validacao pre-migracao de planilhas de ictiofauna. |
 
+Observacao: `validar_migracao_ictiofauna.py` aceita `--coordinate-reference`
+para validar coordenadas de pontos contra KMZ/KML antes da migracao.
+
 ## Prototipos
 
 | Script | Origem | Status |
@@ -96,6 +100,7 @@ os referencia por nome.
 | `scripts/maintenance/geoher001/normalize_geoher001_bentos_taxonomy.py` | GEOHER001 | Auditoria e normalizacao transacional da taxonomia de Zoobentos, com dry-run, backup e verificacao pos-aplicacao. |
 | `scripts/maintenance/geoher001/resolve_geoher001_bentos_pending_taxa.py` | GEOHER001 | Resolucao de taxons pendentes e consolidacao controlada de registros duplicados. |
 | `scripts/maintenance/geoher001/restore_geoher001_bentos_c37_feb.py` | GEOHER001 | Restauracao da campanha C37 fevereiro/2026. |
+| `scripts/maintenance/geoarc001/update_geoarc001_coordinates_from_kmz.py` | GEOARC001 | Auditoria dry-run/apply para corrigir `pontos_coleta` no Supabase usando KMZ oficial, com Excel/JSON antes e depois. |
 
 ## Wrappers Temporarios Na Raiz
 

@@ -75,3 +75,33 @@
 - Data de registro: 2026-06-09
 - Responsavel: Codex/Felipe
 - Observacoes: Snapshot completo em `outputs/_project_scripts/ducal/zoobentos/20260609T163939Z_run_this_analysis.py`; metadados em `20260609T163939Z_execution_metadata.json`; 41 arquivos gerados, 145 linhas carregadas e sem warnings. Os graficos `06B`/`06C` usam paleta azul Ducal alternada para contraste; BMWP preserva cores tecnicas por categoria.
+
+- Script: scripts/projects/geoarc001/generate_exploratory_assembly_analysis.py
+- Descricao: Gera pacote exploratorio taxonomico da assembleia de ictiofauna do GEOARC001, incluindo LCBD, NMDS/PERMANOVA, painel temporal de indicadores e beta diversidade particionada.
+- Data de registro: 2026-06-26
+- Responsavel: Codex/Felipe
+- Observacoes: Produto exploratorio para avaliacao interna. Saidas na pasta `Exploratorio_assembleia_ictiofauna`, com PNG, XLSX, JSON e README de apoio.
+
+- Script: scripts/projects/geoarc001/generate_functional_exploratory_analysis.py
+- Descricao: Gera pacote exploratorio funcional da ictiofauna do GEOARC001 a partir da tabela especie x atributos, com composicao funcional, LCBD funcional, NMDS/PERMANOVA funcional, painel de indicadores e heatmap de grupos sentinelas.
+- Data de registro: 2026-06-26
+- Responsavel: Codex/Felipe
+- Observacoes: Base do padrao `docs/patterns/grupos_funcionais_sentinelas_ictio.md`. Os grupos funcionais sentinelas sao independentes e podem compartilhar especies.
+
+- Script: scripts/projects/geoarc001/generate_functional_spatial_mini_maps.py
+- Descricao: Gera mini mapas anuais dos grupos funcionais sentinelas, com ponto amostral no espaco, ano em colunas, grupo em linhas, tamanho de bolha por CPUEn medio anual e cor por participacao no CPUEn total.
+- Data de registro: 2026-06-26
+- Responsavel: Codex/Felipe
+- Observacoes: Usa KMZ/KML oficial como referencia de coordenadas quando informado. O produto aprovado no piloto foi `26_grafico_mini_mapas_funcoes_ecologicas_ano_ictiofauna.png`.
+
+- Script: scripts/projects/geoarc001/generate_functional_species_signature.py
+- Descricao: Gera painel de assinatura das especies por grupos funcionais sentinelas, com nomes cientificos em italico, barras de CPUEn total e marcadores AME/EXO.
+- Data de registro: 2026-06-26
+- Responsavel: Codex/Felipe
+- Observacoes: Complementa o mapa funcional mostrando quais especies compoem cada grupo. O produto aprovado no piloto foi `27_grafico_assinatura_especies_grupos_funcionais_ictiofauna.png`.
+
+- Script: scripts/maintenance/geoarc001/update_geoarc001_coordinates_from_kmz.py
+- Descricao: Auditoria e correcao controlada das coordenadas do GEOARC001 no Supabase usando KMZ oficial.
+- Data de registro: 2026-06-26
+- Responsavel: Codex/Felipe
+- Observacoes: Executado com `--apply` para `id_projeto=190`: 198 linhas avaliadas, 154 linhas corrigidas, 198/198 linhas conferindo apos correcao. Auditoria em `outputs/audits/geoarc001_coordinates/`.

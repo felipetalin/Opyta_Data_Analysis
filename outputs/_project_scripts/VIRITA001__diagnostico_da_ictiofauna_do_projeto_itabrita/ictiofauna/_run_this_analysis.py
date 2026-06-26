@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Ictiofauna analysis - virita001
-Generated: 2026-06-22T11:50:18.008297Z
+Generated: 2026-06-26T12:24:33.520506Z
 
 Usage:
   python _run_this_analysis.py
@@ -20,12 +20,12 @@ from opyta_analysis.runner import run
 
 def main():
     parser = argparse.ArgumentParser(description="Re-run Ictiofauna analysis")
-    parser.add_argument("--block", default='all', help="Block to execute (default: all)")
+    parser.add_argument("--block", default='biometria', help="Block to execute (default: biometria)")
     parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Virtual\São Gonçalo\Resultados\Ictiofauna\Campanha_1", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='.env', help="Optional .env file path")
     parser.add_argument("--campaigns", default=None, help="Override comma-separated campaign filter")
     args = parser.parse_args()
-    campaigns = [c.strip() for c in args.campaigns.split(",") if c.strip()] if args.campaigns else ['ITA001_AH2526_202606']
+    campaigns = [c.strip() for c in args.campaigns.split(",") if c.strip()] if args.campaigns else ['C001-2026-06-SC']
 
     params = RunParams(
         project_id=189,

@@ -12,6 +12,7 @@ saida.
 - `cpue_por_ano.md`
 - `ept_chol.md`
 - `figuras_word_alta_resolucao.md`
+- `grupos_funcionais_sentinelas_ictio.md`
 - `ocorrencia_multicampanha.md`
 - `linguagem_tecnica_rastreavel.md`
 - `paleta_azul_opyta.md`

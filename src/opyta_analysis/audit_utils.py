@@ -128,7 +128,7 @@ def discover_deliverables(
     for pattern in patterns:
         iterator = root_path.rglob(pattern) if recursive else root_path.glob(pattern)
         for path in iterator:
-            if path.is_file():
+            if path.is_file() and not path.name.startswith("~$"):
                 files[str(path)] = path
 
     ordered = sorted(files.values(), key=lambda p: str(p).lower())

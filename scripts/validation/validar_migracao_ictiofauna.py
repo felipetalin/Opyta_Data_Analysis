@@ -26,6 +26,12 @@ REPO_ROOT = next(
     parent for parent in Path(__file__).resolve().parents
     if (parent / "src" / "opyta_analysis").exists()
 )
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from opyta_analysis.geo_reference import haversine_km, read_kml_point_coordinates, standardize_point_name
+
 DEFAULT_OUTPUT_ROOT = REPO_ROOT / "outputs" / "validacoes"
 DEFAULT_OPTYA_DATA_ROOT = Path(r"G:\Meu Drive\Opyta\Opyta_Data")
 GROUP = "Ictiofauna"
@@ -418,8 +424,166 @@ def add_expected_count_checks(args: argparse.Namespace, summary: dict[str, Any],
                     "INFO",
                     f"{code_base}_WITHIN_EXPECTED_RANGE",
                     f"{label.capitalize()} dentro da faixa esperada: {observed}.",
-                )
             )
+        )
+
+
+def add_coordinate_reference_checks(
+    args: argparse.Namespace,
+    sheets: dict[str, pd.DataFrame],
+    summary: dict[str, Any],
+    findings: list[dict[str, Any]],
+) -> dict[str, pd.DataFrame]:
+    if not args.coordinate_reference:
+        summary["validacao_coordenadas_referencia"] = "nao_configurada"
+        return {}
+
+    reference_path = Path(args.coordinate_reference)
+    if not reference_path.exists():
+        findings.append(
+            issue(
+                "Validacao complementar",
+                "BLOQUEIO",
+                "COORDINATE_REFERENCE_NOT_FOUND",
+                f"Arquivo de referencia de coordenadas nao encontrado: {reference_path}",
+                sheet="Pontos_e_Campanhas",
+            )
+        )
+        summary["validacao_coordenadas_referencia"] = "arquivo_nao_encontrado"
+        return {}
+
+    df_pontos = sheets["Pontos_e_Campanhas"]
+    required = {"Ponto", "Latitude", "Longitude"}
+    missing = sorted(required - set(df_pontos.columns))
+    if missing:
+        findings.append(
+            issue(
+                "Validacao complementar",
+                "BLOQUEIO",
+                "COORDINATE_REFERENCE_REQUIRED_COLUMNS_MISSING",
+                f"Colunas ausentes para comparar coordenadas oficiais: {', '.join(missing)}.",
+                sheet="Pontos_e_Campanhas",
+            )
+        )
+        summary["validacao_coordenadas_referencia"] = "colunas_ausentes"
+        return {}
+
+    ref = read_kml_point_coordinates(reference_path)
+    if ref.empty:
+        findings.append(
+            issue(
+                "Validacao complementar",
+                "BLOQUEIO",
+                "COORDINATE_REFERENCE_EMPTY",
+                f"Nenhum ponto foi lido da referencia de coordenadas: {reference_path}",
+                sheet="Pontos_e_Campanhas",
+            )
+        )
+        summary["validacao_coordenadas_referencia"] = "referencia_vazia"
+        return {}
+
+    tolerance_m = float(args.coordinate_tolerance_m)
+    comp = df_pontos.copy()
+    comp["linha_excel"] = comp.index + 2
+    comp["Ponto_padrao"] = comp["Ponto"].map(standardize_point_name)
+    comp["Latitude_planilha"] = comp["Latitude"].map(to_float)
+    comp["Longitude_planilha"] = comp["Longitude"].map(to_float)
+    comp = comp.merge(ref, left_on="Ponto_padrao", right_on="Ponto", how="left", suffixes=("", "_ref_merge"))
+
+    distances: list[float | None] = []
+    statuses: list[str] = []
+    for _, row in comp.iterrows():
+        lat = row.get("Latitude_planilha")
+        lon = row.get("Longitude_planilha")
+        lat_ref = row.get("Latitude_ref")
+        lon_ref = row.get("Longitude_ref")
+        if pd.isna(row.get("Latitude_ref")) or pd.isna(row.get("Longitude_ref")):
+            distances.append(None)
+            statuses.append("ponto_sem_referencia")
+        elif lat is None or lon is None or math.isnan(float(lat)) or math.isnan(float(lon)):
+            distances.append(None)
+            statuses.append("coordenada_planilha_invalida")
+        else:
+            distance_m = haversine_km(float(lat), float(lon), float(lat_ref), float(lon_ref)) * 1000
+            distances.append(distance_m)
+            statuses.append("ok" if distance_m <= tolerance_m else "divergente")
+    comp["distancia_m"] = distances
+    comp["status_coordenada"] = statuses
+
+    observed_points = set(comp["Ponto_padrao"].dropna().astype(str))
+    reference_points = set(ref["Ponto"].dropna().astype(str))
+    missing_in_reference = sorted(observed_points - reference_points)
+    missing_in_sheet = sorted(reference_points - observed_points)
+    mismatches = comp[comp["status_coordenada"].isin(["divergente", "ponto_sem_referencia", "coordenada_planilha_invalida"])].copy()
+
+    summary["arquivo_referencia_coordenadas"] = str(reference_path)
+    summary["tolerancia_coordenadas_m"] = tolerance_m
+    summary["linhas_coordenadas_divergentes"] = int(len(mismatches))
+    summary["pontos_sem_referencia_coordenadas"] = int(len(missing_in_reference))
+    summary["pontos_referencia_ausentes_planilha"] = int(len(missing_in_sheet))
+    summary["validacao_coordenadas_referencia"] = "ok" if mismatches.empty and not missing_in_reference else "bloqueio"
+
+    if missing_in_reference:
+        findings.append(
+            issue(
+                "Validacao complementar",
+                "BLOQUEIO",
+                "COORDINATE_REFERENCE_POINTS_MISSING",
+                f"Pontos da planilha ausentes no KMZ/KML de referencia: {', '.join(missing_in_reference)}.",
+                sheet="Pontos_e_Campanhas",
+            )
+        )
+    if not mismatches.empty:
+        max_dist = pd.to_numeric(mismatches["distancia_m"], errors="coerce").max()
+        findings.append(
+            issue(
+                "Validacao complementar",
+                "BLOQUEIO",
+                "COORDINATE_REFERENCE_MISMATCH",
+                f"{len(mismatches)} linha(s) de coordenadas divergem da referencia oficial acima de {tolerance_m:g} m. Distancia maxima: {max_dist:.1f} m.",
+                sheet="Pontos_e_Campanhas",
+                suggestion="Corrigir Latitude/Longitude na planilha ou atualizar a fonte oficial antes de migrar.",
+            )
+        )
+    if missing_in_sheet:
+        findings.append(
+            issue(
+                "Validacao complementar",
+                "AVISO",
+                "COORDINATE_REFERENCE_EXTRA_POINTS",
+                f"Pontos existentes no KMZ/KML, mas ausentes na planilha: {', '.join(missing_in_sheet)}.",
+                sheet="Pontos_e_Campanhas",
+            )
+        )
+    if mismatches.empty and not missing_in_reference:
+        findings.append(
+            issue(
+                "Validacao complementar",
+                "INFO",
+                "COORDINATE_REFERENCE_OK",
+                f"Todas as coordenadas conferem com a referencia oficial dentro de {tolerance_m:g} m.",
+                sheet="Pontos_e_Campanhas",
+            )
+        )
+
+    comparison_cols = [
+        "linha_excel",
+        "Campanha",
+        "Ponto_padrao",
+        "Latitude_planilha",
+        "Longitude_planilha",
+        "Latitude_ref",
+        "Longitude_ref",
+        "distancia_m",
+        "status_coordenada",
+        "fonte_coordenada",
+    ]
+    available_cols = [col for col in comparison_cols if col in comp.columns]
+    return {
+        "coordinate_ref_points": ref,
+        "coordinate_ref_compare": comp[available_cols],
+        "coordinate_ref_mismatches": mismatches[available_cols] if not mismatches.empty else pd.DataFrame(columns=available_cols),
+    }
 
 
 def add_complementary_checks(
@@ -1136,6 +1300,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--expected-result-lines", type=int, default=None, help="Approximate expected number of result rows.")
     parser.add_argument("--expected-species", type=int, default=None, help="Approximate expected number of species in results.")
     parser.add_argument("--expected-tolerance-pct", type=float, default=10.0, help="Tolerance for approximate counts, in percent.")
+    parser.add_argument("--coordinate-reference", type=Path, default=None, help="Optional KMZ/KML reference used to validate point coordinates before migration.")
+    parser.add_argument("--coordinate-tolerance-m", type=float, default=50.0, help="Maximum accepted distance from the coordinate reference, in meters.")
     parser.add_argument("--stamp", type=str, default=None, help="Date stamp for outputs, default YYYYMMDD.")
     return parser.parse_args()
 
@@ -1203,6 +1369,7 @@ def main() -> int:
     db = query_database(tools, findings)
     species_report, import_report_isolated, import_report_integrated = run_official_validators(args, tools, df_especies, findings)
     tables = add_complementary_checks(sheets, species_sheets, db, summary, findings)
+    tables.update(add_coordinate_reference_checks(args, sheets, summary, findings))
 
     outputs = write_outputs(
         args,

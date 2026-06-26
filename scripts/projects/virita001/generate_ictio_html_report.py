@@ -41,8 +41,58 @@ def _read(name: str) -> pd.DataFrame:
     return pd.read_excel(OUTPUT_DIR / name)
 
 
+def _read_optional(name: str, *, sheet_name: str | int = 0) -> pd.DataFrame:
+    path = OUTPUT_DIR / name
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_excel(path, sheet_name=sheet_name)
+
+
 def _fmt(value: float, digits: int = 2) -> str:
     return f"{float(value):,.{digits}f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def _distance_summary(distance: pd.DataFrame) -> dict:
+    pairs = []
+    if distance.empty or "nome_ponto" not in distance.columns:
+        return {
+            "max_similarity_pct": 0.0,
+            "max_similarity_pair": "sem pares",
+            "min_similarity_pct": 0.0,
+            "min_similarity_pair": "sem pares",
+            "points_compared": 0,
+        }
+
+    points = distance["nome_ponto"].astype(str).tolist()
+    matrix = distance.set_index("nome_ponto")
+    for i, point_a in enumerate(points):
+        for point_b in points[i + 1 :]:
+            if point_b not in matrix.columns:
+                continue
+            value = pd.to_numeric(pd.Series([matrix.loc[point_a, point_b]]), errors="coerce").iloc[0]
+            if pd.isna(value):
+                continue
+            similarity = (1.0 - float(value)) * 100.0
+            pairs.append((point_a, point_b, similarity))
+
+    if not pairs:
+        return {
+            "max_similarity_pct": 0.0,
+            "max_similarity_pair": "sem pares",
+            "min_similarity_pct": 0.0,
+            "min_similarity_pair": "sem pares",
+            "points_compared": len(points),
+        }
+
+    max_pair = max(pairs, key=lambda item: item[2])
+    min_pair = min(pairs, key=lambda item: item[2])
+    return {
+        "max_similarity_pct": max_pair[2],
+        "max_similarity_pair": f"{max_pair[0]} e {max_pair[1]}",
+        "min_similarity_pct": min_pair[2],
+        "min_similarity_pair": f"{min_pair[0]} e {min_pair[1]}",
+        "points_compared": len(points),
+    }
 
 
 def _load_metrics() -> dict:
@@ -57,6 +107,7 @@ def _load_metrics() -> dict:
     diversity = _read("10_df_diversidade_alfa_ictiofauna.xlsx")
     distance = _read("11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx")
     sufficiency = _read("12_df_curva_suficiencia_ictiofauna.xlsx")
+    biometry = _read_optional("13_tabela_biometria_biomassa_ictiofauna.xlsx", sheet_name="Dados")
 
     campaign_col_cpuen = next(column for column in cpuen_species.columns if column != "nome_cientifico")
     campaign_col_cpueb = next(column for column in cpueb_species.columns if column != "nome_cientifico")
@@ -67,8 +118,20 @@ def _load_metrics() -> dict:
     non_native = int(
         composition["Origem"].astype(str).str.contains("Não Nativo", case=False, na=False).sum()
     )
-    distance_value = float(pd.to_numeric(distance.iloc[0, 2], errors="coerce"))
+    distance_metrics = _distance_summary(distance)
     final_sufficiency = sufficiency.iloc[-1]
+    cpue_positive = cpue[pd.to_numeric(cpue["abundancia_total"], errors="coerce").fillna(0) > 0].copy()
+    if cpue_positive.empty:
+        cpue_positive = cpue.copy()
+    if not biometry.empty:
+        for column in ["n", "cp_min_cm", "cp_media_cm", "cp_max_cm", "pc_min_g", "pc_max_g", "biomassa_g"]:
+            biometry[column] = pd.to_numeric(biometry[column], errors="coerce")
+        biometry_top = biometry.sort_values("biomassa_g", ascending=False).iloc[0]
+        astyanax = biometry[biometry["especie"].astype(str).str.lower().eq("astyanax lacustris")]
+        astyanax_row = astyanax.iloc[0] if not astyanax.empty else None
+    else:
+        biometry_top = None
+        astyanax_row = None
 
     return {
         "taxa": int(composition["Nome Cientifico"].nunique()),
@@ -85,12 +148,23 @@ def _load_metrics() -> dict:
         "richness": richness,
         "abundance": abundance,
         "cpue": cpue,
+        "cpue_positive": cpue_positive,
+        "effort_min": float(pd.to_numeric(cpue["esforco_total_ponto"], errors="coerce").min()),
+        "effort_max": float(pd.to_numeric(cpue["esforco_total_ponto"], errors="coerce").max()),
         "cpuen_top_species": str(cpuen_top["nome_cientifico"]),
         "cpuen_top": float(cpuen_top[campaign_col_cpuen]),
         "cpueb_top_species": str(cpueb_top["nome_cientifico"]),
         "cpueb_top": float(cpueb_top[campaign_col_cpueb]),
+        "biometry": biometry,
+        "biometry_species": int(len(biometry)) if not biometry.empty else 0,
+        "biometry_total_biomass": float(biometry["biomassa_g"].sum()) if not biometry.empty else 0.0,
+        "biometry_top_species": str(biometry_top["especie"]) if biometry_top is not None else "sem dados",
+        "biometry_top_biomass": float(biometry_top["biomassa_g"]) if biometry_top is not None else 0.0,
+        "astyanax_n": int(astyanax_row["n"]) if astyanax_row is not None else 0,
+        "astyanax_cp_mean": float(astyanax_row["cp_media_cm"]) if astyanax_row is not None else 0.0,
+        "astyanax_biomass": float(astyanax_row["biomassa_g"]) if astyanax_row is not None else 0.0,
         "diversity": point_diversity,
-        "bray_similarity_pct": (1.0 - distance_value) * 100.0,
+        **distance_metrics,
         "sobs": float(final_sufficiency["riqueza_obs_media"]),
         "jackknife": float(final_sufficiency["riqueza_est_jackknife1_media"]),
         "samples": int(final_sufficiency["n_amostras"]),
@@ -101,6 +175,7 @@ def _build_report(metrics: dict) -> TechnicalReport:
     richness = metrics["richness"].sort_values("riqueza", ascending=False)
     abundance = metrics["abundance"].sort_values("abundancia_total", ascending=False)
     cpue = metrics["cpue"].sort_values("cpuen", ascending=False)
+    cpue_positive = metrics["cpue_positive"].sort_values("cpuen", ascending=False)
     diversity = metrics["diversity"].sort_values("Shannon_H", ascending=False)
 
     evidence = (
@@ -120,7 +195,7 @@ def _build_report(metrics: dict) -> TechnicalReport:
                 "Nativos": metrics["native"],
                 "Não nativos": metrics["non_native"],
             },
-            scope="Campanha ITA001, sete pontos amostrais.",
+            scope="Campanha C001-2026-06-SC, sete pontos amostrais.",
         ),
         Evidence(
             evidence_id="E02",
@@ -174,25 +249,29 @@ def _build_report(metrics: dict) -> TechnicalReport:
                 "Indivíduos quantitativos": int(abundance["abundancia_total"].sum()),
                 "Maior abundância": abundance.iloc[0]["nome_ponto"],
             },
-            scope="Pontos com rede e esforço quantitativo.",
+            scope="Pontos com esforço quantitativo.",
         ),
         Evidence(
             evidence_id="E05",
             title="CPUEn e CPUEb por ponto",
             section="Resultados quantitativos",
             observation=(
-                f"{cpue.iloc[0]['nome_ponto']} apresentou CPUEn de {_fmt(cpue.iloc[0]['cpuen'])} ind/100 m² "
-                f"e CPUEb de {_fmt(cpue.iloc[0]['cpueb'])} g/100 m². Em "
-                f"{cpue.iloc[1]['nome_ponto']}, os valores foram {_fmt(cpue.iloc[1]['cpuen'])} ind/100 m² "
-                f"e {_fmt(cpue.iloc[1]['cpueb'])} g/100 m²."
+                f"{cpue_positive.iloc[0]['nome_ponto']} apresentou CPUEn de "
+                f"{_fmt(cpue_positive.iloc[0]['cpuen'])} ind/100 m² e CPUEb de "
+                f"{_fmt(cpue_positive.iloc[0]['cpueb'])} g/100 m². Entre os pontos com captura, "
+                f"{cpue_positive.iloc[-1]['nome_ponto']} registrou CPUEn de "
+                f"{_fmt(cpue_positive.iloc[-1]['cpuen'])} ind/100 m²."
             ),
             sources=("06_df_cpue_por_ponto_ictiofauna.xlsx",),
             metrics={
-                "Maior CPUEn": f"{cpue.iloc[0]['nome_ponto']} ({_fmt(cpue.iloc[0]['cpuen'])})",
-                "Maior CPUEb": f"{cpue.iloc[0]['nome_ponto']} ({_fmt(cpue.iloc[0]['cpueb'])})",
+                "Maior CPUEn": f"{cpue_positive.iloc[0]['nome_ponto']} ({_fmt(cpue_positive.iloc[0]['cpuen'])})",
+                "Maior CPUEb": f"{cpue.sort_values('cpueb', ascending=False).iloc[0]['nome_ponto']} ({_fmt(cpue.sort_values('cpueb', ascending=False).iloc[0]['cpueb'])})",
                 "Fórmula de biomassa": "Número de indivíduos × PC_g por linha",
             },
-            scope="Amostragem quantitativa; esforço de 120 m²/100 em cada ponto.",
+            scope=(
+                f"Amostragem quantitativa; esforços por ponto entre "
+                f"{_fmt(metrics['effort_min'], 0)} e {_fmt(metrics['effort_max'], 0)} m²/100."
+            ),
         ),
         Evidence(
             evidence_id="E06",
@@ -218,6 +297,31 @@ def _build_report(metrics: dict) -> TechnicalReport:
             scope="CPUEn e CPUEb agregadas por espécie.",
         ),
         Evidence(
+            evidence_id="E10",
+            title="Biometria e biomassa por espécie",
+            section="Resultados quantitativos",
+            observation=(
+                f"A tabela biométrica consolidou {metrics['biometry_species']} espécies, com biomassa "
+                f"total de {_fmt(metrics['biometry_total_biomass'], 1)} g. "
+                f"{metrics['biometry_top_species']} apresentou a maior biomassa acumulada "
+                f"({_fmt(metrics['biometry_top_biomass'], 1)} g)."
+            ),
+            sources=("13_tabela_biometria_biomassa_ictiofauna.xlsx",),
+            metrics={
+                "Espécies na tabela": metrics["biometry_species"],
+                "Biomassa total": f"{_fmt(metrics['biometry_total_biomass'], 1)} g",
+                "Astyanax lacustris": (
+                    f"N={metrics['astyanax_n']}; CP médio={_fmt(metrics['astyanax_cp_mean'])} cm; "
+                    f"biomassa={_fmt(metrics['astyanax_biomass'], 1)} g"
+                ),
+            },
+            limitations=(
+                "A tabela usa a planilha validada linha a linha como fonte; valores digitados como exemplo "
+                "não substituem a fonte oficial sem nova revisão de dados.",
+            ),
+            scope="Capturas da campanha C001-2026-06-SC com N, CP_cm e PC_g informados.",
+        ),
+        Evidence(
             evidence_id="E07",
             title="Diversidade e equitabilidade",
             section="Diversidade",
@@ -238,7 +342,7 @@ def _build_report(metrics: dict) -> TechnicalReport:
                 "dos indivíduos em poucas espécies."
             ),
             limitations=(
-                "Os índices foram calculados para apenas dois pontos quantitativos em uma campanha.",
+                "Os índices foram calculados para uma única campanha; pontos sem captura têm diversidade nula.",
             ),
             scope="Matriz quantitativa baseada em CPUEn.",
             inference_level="interpretativo",
@@ -248,16 +352,20 @@ def _build_report(metrics: dict) -> TechnicalReport:
             title="Similaridade entre pontos quantitativos",
             section="Diversidade",
             observation=(
-                f"A similaridade de Bray-Curtis entre Ictio_06 e Ictio_07 foi de "
-                f"{_fmt(metrics['bray_similarity_pct'])}%."
+                f"A maior similaridade de Bray-Curtis ocorreu entre {metrics['max_similarity_pair']}, "
+                f"com {_fmt(metrics['max_similarity_pct'])}%. A menor similaridade foi "
+                f"{_fmt(metrics['min_similarity_pct'])}%."
             ),
             sources=("11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",),
-            metrics={"Similaridade de Bray-Curtis": f"{_fmt(metrics['bray_similarity_pct'])}%"},
+            metrics={
+                "Maior similaridade de Bray-Curtis": f"{metrics['max_similarity_pair']} ({_fmt(metrics['max_similarity_pct'])}%)",
+                "Menor similaridade de Bray-Curtis": f"{metrics['min_similarity_pair']} ({_fmt(metrics['min_similarity_pct'])}%)",
+            },
             interpretation=(
-                "O valor indica forte diferenciação na estrutura quantitativa observada entre os dois pontos."
+                "Os valores indicam forte diferenciação na estrutura quantitativa observada entre os pontos."
             ),
             limitations=(
-                "A comparação contém apenas dois pontos e não constitui teste de diferença estatística.",
+                "A comparação é descritiva e não constitui teste de diferença estatística.",
             ),
             scope="Matriz de CPUEn da primeira campanha.",
             inference_level="interpretativo",
@@ -281,7 +389,7 @@ def _build_report(metrics: dict) -> TechnicalReport:
                 "com a continuidade do diagnóstico."
             ),
             limitations=(
-                "A curva possui somente duas unidades quantitativas e deve ser atualizada após a segunda campanha.",
+                "A curva deve ser atualizada após a segunda campanha para ampliar a base temporal.",
             ),
             scope="Aleatorização dos pontos quantitativos da primeira campanha.",
             inference_level="interpretativo",
@@ -305,7 +413,7 @@ def _build_report(metrics: dict) -> TechnicalReport:
             ),
             table_rows=(
                 ("Projeto", "VIRITA001 — Diagnóstico da ictiofauna do Projeto Itabrita"),
-                ("Campanha", "ITA001 — junho de 2026"),
+                ("Campanha", "C001-2026-06-SC — junho de 2026"),
                 ("Pontos", "Ictio_01 a Ictio_07"),
                 ("Próxima etapa", "Incorporar a segunda campanha ao mesmo conjunto comparativo"),
             ),
@@ -393,9 +501,10 @@ def _build_report(metrics: dict) -> TechnicalReport:
                 ),
                 NarrativeParagraph(
                     text=(
-                        f"A CPUEn variou de {_fmt(cpue.iloc[1]['cpuen'])} a "
-                        f"{_fmt(cpue.iloc[0]['cpuen'])} ind/100 m², e a CPUEb variou de "
-                        f"{_fmt(cpue.iloc[1]['cpueb'])} a {_fmt(cpue.iloc[0]['cpueb'])} g/100 m². "
+                        f"Entre os pontos com captura, a CPUEn variou de "
+                        f"{_fmt(cpue_positive.iloc[-1]['cpuen'])} a "
+                        f"{_fmt(cpue_positive.iloc[0]['cpuen'])} ind/100 m², e a CPUEb variou de "
+                        f"{_fmt(cpue_positive['cpueb'].min())} a {_fmt(cpue_positive['cpueb'].max())} g/100 m². "
                         f"{metrics['cpuen_top_species']} apresentou os maiores valores por espécie."
                     ),
                     evidence_ids=("E05", "E06"),
@@ -426,6 +535,40 @@ def _build_report(metrics: dict) -> TechnicalReport:
             ),
         ),
         NarrativeSection(
+            section_id="biometria",
+            title="Biometria e biomassa",
+            paragraphs=(
+                NarrativeParagraph(
+                    text=(
+                        f"A Tabela 13 consolida N, comprimento padrão, peso corporal e biomassa por espécie. "
+                        f"A biomassa total calculada a partir da planilha linha a linha foi "
+                        f"{_fmt(metrics['biometry_total_biomass'], 1)} g, com maior contribuição de "
+                        f"{metrics['biometry_top_species']}."
+                    ),
+                    evidence_ids=("E10",),
+                ),
+                NarrativeParagraph(
+                    text=(
+                        f"Para Astyanax lacustris, a fonte validada resultou em N={metrics['astyanax_n']}, "
+                        f"CP médio de {_fmt(metrics['astyanax_cp_mean'])} cm e biomassa de "
+                        f"{_fmt(metrics['astyanax_biomass'], 1)} g."
+                    ),
+                    evidence_ids=("E10",),
+                    role="comparacao",
+                ),
+            ),
+            table_rows=(
+                ("Produto", "13_tabela_biometria_biomassa_ictiofauna.xlsx"),
+                ("Espécies consolidadas", str(metrics["biometry_species"])),
+                ("Maior biomassa", f"{metrics['biometry_top_species']} ({_fmt(metrics['biometry_top_biomass'], 1)} g)"),
+                (
+                    "Astyanax lacustris",
+                    f"N={metrics['astyanax_n']}; CP médio={_fmt(metrics['astyanax_cp_mean'])} cm; "
+                    f"biomassa={_fmt(metrics['astyanax_biomass'], 1)} g",
+                ),
+            ),
+        ),
+        NarrativeSection(
             section_id="diversidade",
             title="Diversidade e similaridade",
             paragraphs=(
@@ -441,9 +584,10 @@ def _build_report(metrics: dict) -> TechnicalReport:
                 ),
                 NarrativeParagraph(
                     text=(
-                        f"A similaridade de Bray-Curtis entre os dois pontos quantitativos foi de "
-                        f"{_fmt(metrics['bray_similarity_pct'])}%, evidenciando estruturas quantitativas "
-                        "distintas na campanha avaliada."
+                        f"A maior similaridade de Bray-Curtis foi de "
+                        f"{_fmt(metrics['max_similarity_pct'])}% entre {metrics['max_similarity_pair']}; "
+                        f"a menor foi {_fmt(metrics['min_similarity_pct'])}%, evidenciando estruturas "
+                        "quantitativas distintas na campanha avaliada."
                     ),
                     evidence_ids=("E08",),
                     role="interpretacao",
@@ -505,7 +649,7 @@ def _build_report(metrics: dict) -> TechnicalReport:
         metadata={
             "Cliente": "Virtual Ambiental",
             "Município": "São Gonçalo do Pará/MG",
-            "Campanha": "ITA001",
+            "Campanha": "C001-2026-06-SC",
             "Padrão analítico": "FERSAM001 — estudos de duas campanhas",
         },
         sections=sections,
@@ -569,13 +713,14 @@ def main() -> None:
         if path.is_file()
         and path.name not in {"desktop.ini", manifest_path.name}
         and not path.name.startswith(".")
+        and not path.name.startswith("~$")
     )
     manifest_payload = {
         "generated_at": datetime.now().astimezone().isoformat(),
         "project_id": 189,
         "project_code": "VIRITA001",
         "canonical_key": "VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita",
-        "campaign": "ITA001_AH2526_202606",
+        "campaign": "C001-2026-06-SC",
         "output_dir": str(OUTPUT_DIR),
         "products_count": len(delivery_files),
         "files": build_file_manifest(delivery_files),

@@ -21,13 +21,13 @@
     }
   ],
   "campaigns": [
-    "ITA001_AH2526_202606"
+    "C001-2026-06-SC"
   ],
   "data_notes": [
     "Campanha única realizada em 17 e 18 de junho de 2026.",
     "O estudo terá somente duas campanhas; os gráficos comparativos seguem o padrão FERSAM001, com barras agrupadas por campanha e layout Gold.",
-    "Sete pontos cadastrados; cinco possuem capturas e dois possuem apenas esforço amostral.",
-    "Resultados originais com 31 linhas foram agregados pelo migrador em 20 combinações únicas, preservando 132 indivíduos.",
+    "Sete pontos cadastrados; todos com esforço quantitativo; cinco possuem capturas e dois possuem apenas esforço amostral.",
+    "Resultados corrigidos com 31 linhas foram agregados pelo migrador em 19 combinações únicas, preservando 132 indivíduos.",
     "Rhamdiopsis microcephala foi confirmada sem o qualificador cf.",
     "Hypostomus francisci e Cichlasoma sanctifranciscense não foram cadastradas como endêmicas."
   ]

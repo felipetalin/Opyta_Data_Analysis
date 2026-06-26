@@ -8,6 +8,9 @@ import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import numpy as np
+from openpyxl import Workbook
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.utils import get_column_letter
 import pandas as pd
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import pdist, squareform
@@ -584,6 +587,187 @@ def _attach_line_level_biomass(df: pd.DataFrame, theme: dict) -> pd.DataFrame:
     result.attrs["biomass_source"] = str(source)
     result.attrs["biomass_formula"] = "Numero_de_Individuos * PC_g por linha, agregado por soma"
     return result
+
+
+def _weighted_mean(values: pd.Series, weights: pd.Series) -> float:
+    numeric_values = pd.to_numeric(values, errors="coerce")
+    numeric_weights = pd.to_numeric(weights, errors="coerce").fillna(0)
+    mask = numeric_values.notna() & numeric_weights.gt(0)
+    if not bool(mask.any()):
+        return float("nan")
+    return float(np.average(numeric_values[mask], weights=numeric_weights[mask]))
+
+
+def _write_biometry_workbook(table: pd.DataFrame, out_xlsx: Path) -> None:
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Biometria"
+
+    ws.merge_cells("A1:A2")
+    ws.merge_cells("B1:B2")
+    ws.merge_cells("C1:E1")
+    ws.merge_cells("F1:H1")
+    headers = {
+        "A1": "ESPÉCIE",
+        "B1": "N",
+        "C1": "COMPRIMENTO PADRÃO (CP) CM",
+        "F1": "PESO CORPORAL (PC) GRAMAS",
+        "C2": "MÍNIMO",
+        "D2": "MÉDIA",
+        "E2": "MÁXIMO",
+        "F2": "MÍNIMO",
+        "G2": "MÁXIMO",
+        "H2": "BIOMASSA",
+    }
+    for cell, value in headers.items():
+        ws[cell] = value
+
+    header_fill = PatternFill("solid", fgColor="D9EAD3")
+    subheader_fill = PatternFill("solid", fgColor="EEF5EC")
+    thin = Side(style="thin", color="B7B7B7")
+    border = Border(left=thin, right=thin, top=thin, bottom=thin)
+    for row in ws.iter_rows(min_row=1, max_row=2, min_col=1, max_col=8):
+        for cell in row:
+            cell.font = Font(bold=True)
+            cell.alignment = Alignment(horizontal="center", vertical="center")
+            cell.fill = header_fill if cell.row == 1 else subheader_fill
+            cell.border = border
+
+    ordered_cols = [
+        "especie",
+        "n",
+        "cp_min_cm",
+        "cp_media_cm",
+        "cp_max_cm",
+        "pc_min_g",
+        "pc_max_g",
+        "biomassa_g",
+    ]
+    for row_index, row in enumerate(table[ordered_cols].itertuples(index=False), start=3):
+        for col_index, value in enumerate(row, start=1):
+            ws.cell(row=row_index, column=col_index, value=value)
+            ws.cell(row=row_index, column=col_index).border = border
+            if col_index == 1:
+                ws.cell(row=row_index, column=col_index).alignment = Alignment(horizontal="left")
+            else:
+                ws.cell(row=row_index, column=col_index).alignment = Alignment(horizontal="right")
+
+    for col in range(2, 9):
+        for cell in ws.iter_cols(min_col=col, max_col=col, min_row=3, max_row=ws.max_row):
+            for item in cell:
+                item.number_format = "0.00" if col != 2 else "0"
+
+    widths = [36, 8, 12, 12, 12, 12, 12, 13]
+    for index, width in enumerate(widths, start=1):
+        ws.column_dimensions[get_column_letter(index)].width = width
+    ws.freeze_panes = "A3"
+    ws.auto_filter.ref = f"A2:H{max(ws.max_row, 2)}"
+
+    data_ws = wb.create_sheet("Dados")
+    flat_headers = [
+        "especie",
+        "n",
+        "cp_min_cm",
+        "cp_media_cm",
+        "cp_max_cm",
+        "pc_min_g",
+        "pc_max_g",
+        "biomassa_g",
+    ]
+    data_ws.append(flat_headers)
+    for row in table[flat_headers].itertuples(index=False):
+        data_ws.append(list(row))
+    for index, width in enumerate(widths, start=1):
+        data_ws.column_dimensions[get_column_letter(index)].width = width
+    data_ws.freeze_panes = "A2"
+
+    wb.save(out_xlsx)
+
+
+def _run_block_biometry(
+    df_projeto: pd.DataFrame,
+    group: str,
+    theme: dict,
+    output_dir: Path,
+    generated_files: list[str],
+) -> dict:
+    group_slug = _safe_group_name(group)
+    out_xlsx = output_dir / f"13_tabela_biometria_biomassa_{group_slug}.xlsx"
+    source_value = theme.get("ictio_line_level_source_excel")
+
+    empty = pd.DataFrame(
+        columns=[
+            "especie",
+            "n",
+            "cp_min_cm",
+            "cp_media_cm",
+            "cp_max_cm",
+            "pc_min_g",
+            "pc_max_g",
+            "biomassa_g",
+        ]
+    )
+    if not source_value:
+        _write_biometry_workbook(empty, out_xlsx)
+        generated_files.append(str(out_xlsx))
+        return {"species": 0, "warning": "fonte linha a linha nao configurada"}
+
+    source = Path(str(source_value))
+    if not source.exists():
+        raise FileNotFoundError(f"Planilha de biometria nao encontrada: {source}")
+
+    source_df = pd.read_excel(source, sheet_name="Resultados_Ictiofauna")
+    required = ["Campanha", "Nome_Cientifico", "Numero_de_Individuos", "CP_cm", "PC_g"]
+    missing = [column for column in required if column not in source_df.columns]
+    if missing:
+        raise RuntimeError(
+            "Planilha de biometria sem colunas obrigatorias: " + ", ".join(missing)
+        )
+
+    source_df = source_df[required].dropna(subset=["Nome_Cientifico"]).copy()
+    campaigns = sorted(df_projeto["nome_campanha"].dropna().astype(str).str.strip().unique().tolist())
+    if campaigns:
+        source_df = source_df[source_df["Campanha"].astype(str).str.strip().isin(campaigns)].copy()
+
+    source_df["Numero_de_Individuos"] = pd.to_numeric(
+        source_df["Numero_de_Individuos"], errors="coerce"
+    ).fillna(0)
+    source_df["CP_cm"] = pd.to_numeric(source_df["CP_cm"], errors="coerce")
+    source_df["PC_g"] = pd.to_numeric(source_df["PC_g"], errors="coerce")
+    source_df = source_df[source_df["Numero_de_Individuos"] > 0].copy()
+    source_df["biomassa_g"] = source_df["Numero_de_Individuos"] * source_df["PC_g"]
+
+    rows = []
+    for species, group_df in source_df.groupby("Nome_Cientifico", dropna=False):
+        rows.append(
+            {
+                "especie": str(species).strip(),
+                "n": int(group_df["Numero_de_Individuos"].sum()),
+                "cp_min_cm": float(group_df["CP_cm"].min()),
+                "cp_media_cm": _weighted_mean(group_df["CP_cm"], group_df["Numero_de_Individuos"]),
+                "cp_max_cm": float(group_df["CP_cm"].max()),
+                "pc_min_g": float(group_df["PC_g"].min()),
+                "pc_max_g": float(group_df["PC_g"].max()),
+                "biomassa_g": float(group_df["biomassa_g"].sum()),
+            }
+        )
+
+    table = pd.DataFrame(rows)
+    if table.empty:
+        table = empty
+    else:
+        table = table.sort_values("especie").reset_index(drop=True)
+
+    _write_biometry_workbook(table, out_xlsx)
+    generated_files.append(str(out_xlsx))
+
+    astyanax = table[table["especie"].astype(str).str.lower().eq("astyanax lacustris")]
+    return {
+        "species": int(len(table)),
+        "campaigns": campaigns,
+        "source": str(source),
+        "astyanax_lacustris": astyanax.iloc[0].to_dict() if not astyanax.empty else None,
+    }
 
 
 def _mode_or_first(series: pd.Series):
@@ -2767,6 +2951,16 @@ def run_ictio_pipeline(
         )
         executed_blocks.append("9")
 
+    if block_sel in {"9b", "biometria", "all"}:
+        details["block_9b"] = _run_block_biometry(
+            df_projeto=df,
+            group=group,
+            theme=theme,
+            output_dir=output_dir,
+            generated_files=generated_files,
+        )
+        executed_blocks.append("9b")
+
     if block_sel in {"10", "all"}:
         details["block_10"] = _run_block_10(
             df_projeto=df,
@@ -2807,7 +3001,7 @@ def run_ictio_pipeline(
         executed_blocks.append("13")
 
     if not executed_blocks:
-        raise ValueError("Unsupported block for ictio pipeline. Use '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13' or 'all'.")
+        raise ValueError("Unsupported block for ictio pipeline. Use '3', '4', '5', '6', '7', '8', '9', '9b', 'biometria', '10', '11', '12', '13' or 'all'.")
 
     details["executed_blocks"] = executed_blocks
     details["generated_files"] = generated_files
