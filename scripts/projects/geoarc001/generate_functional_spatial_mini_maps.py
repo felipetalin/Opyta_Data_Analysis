@@ -9,6 +9,7 @@ from pathlib import Path
 
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection, PolyCollection
 import numpy as np
 import pandas as pd
 
@@ -19,7 +20,12 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from opyta_analysis.config import load_theme
-from opyta_analysis.geo_reference import read_kml_point_coordinates, standardize_point_name
+from opyta_analysis.geo_reference import (
+    read_kml_line_coordinates,
+    read_kml_point_coordinates,
+    read_kml_polygon_coordinates,
+    standardize_point_name,
+)
 
 
 DEFAULT_SOURCE = Path(
@@ -36,6 +42,24 @@ DEFAULT_GROUP_TABLE = DEFAULT_OUTPUT / "23_df_heatmap_funcoes_ecologicas_ictiofa
 DEFAULT_COORD_REFERENCE = Path(
     r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Arcellor"
     r"\Arcellor Monitoramento\Geo\Arcelor_2026.kmz"
+)
+DEFAULT_HYDROLOGY_LAYERS = [
+    Path(
+        r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Arcellor"
+        r"\Arcellor Monitoramento\Geo\Drenagem_AID.kml"
+    ),
+    Path(
+        r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Arcellor"
+        r"\Arcellor Monitoramento\Geo\Drenagem_ADA.kml"
+    ),
+    Path(
+        r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Arcellor"
+        r"\Arcellor Monitoramento\Geo\Talvegue_ADA.kml"
+    ),
+]
+DEFAULT_ADA_LAYER = Path(
+    r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Geomil\Arcellor"
+    r"\Arcellor Monitoramento\Geo\ADA .kml"
 )
 
 POINT_LABEL_OFFSETS = {
@@ -173,11 +197,18 @@ def load_coordinates(source: Path, coordinate_reference: Path | None) -> tuple[p
     return coords, close_pairs, coord_variation
 
 
-def load_group_panel(group_table: Path, coords: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+def load_group_panel(
+    group_table: Path,
+    coords: pd.DataFrame,
+    exclude_groups: set[str] | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     if not group_table.exists():
         raise FileNotFoundError(f"Tabela do produto 23 não encontrada: {group_table}")
     panel = pd.read_excel(group_table, sheet_name="heatmap_funcoes")
     definitions = pd.read_excel(group_table, sheet_name="definicoes_funcoes")
+    if exclude_groups:
+        panel = panel[~panel["grupo_funcional"].isin(exclude_groups)].copy()
+        definitions = definitions[~definitions["codigo"].isin(exclude_groups)].copy()
     required = [
         "grupo_funcional",
         "grupo_rotulo",
@@ -241,7 +272,181 @@ def _point_limits(coords: pd.DataFrame) -> tuple[float, float, float, float]:
     return xmin - xpad, xmax + xpad, ymin - ypad, ymax + ypad
 
 
-def plot_spatial_mini_maps(annual: pd.DataFrame, coords: pd.DataFrame, out_png: Path, theme: dict) -> None:
+def load_hydrology(layers: list[Path]) -> pd.DataFrame:
+    frames = []
+    for layer in layers:
+        if not layer.exists():
+            continue
+        data = read_kml_line_coordinates(layer)
+        if data.empty:
+            continue
+        data["camada"] = layer.stem
+        data["tipo_malha"] = np.where(data["camada"].str.contains("Talvegue", case=False, na=False), "talvegue", "drenagem")
+        frames.append(data)
+    if not frames:
+        return pd.DataFrame(columns=["fonte", "camada", "tipo_malha", "feature_id", "vertex_order", "Longitude", "Latitude"])
+    return pd.concat(frames, ignore_index=True)
+
+
+def summarize_hydrology(hydrology: pd.DataFrame) -> pd.DataFrame:
+    if hydrology.empty:
+        return pd.DataFrame(columns=["camada", "tipo_malha", "feicoes", "vertices", "lon_min", "lon_max", "lat_min", "lat_max"])
+    return (
+        hydrology.groupby(["camada", "tipo_malha"], as_index=False)
+        .agg(
+            feicoes=("feature_id", "nunique"),
+            vertices=("vertex_order", "size"),
+            lon_min=("Longitude", "min"),
+            lon_max=("Longitude", "max"),
+            lat_min=("Latitude", "min"),
+            lat_max=("Latitude", "max"),
+        )
+        .sort_values(["tipo_malha", "camada"])
+    )
+
+
+def load_ada(layer: Path | None) -> pd.DataFrame:
+    columns = [
+        "fonte",
+        "camada",
+        "polygon_id",
+        "ring_id",
+        "ring_type",
+        "nome_feicao",
+        "vertex_order",
+        "Longitude",
+        "Latitude",
+    ]
+    if layer is None or not layer.exists():
+        return pd.DataFrame(columns=columns)
+    data = read_kml_polygon_coordinates(layer)
+    if data.empty:
+        return pd.DataFrame(columns=columns)
+    data["camada"] = layer.stem.strip()
+    return data[columns]
+
+
+def summarize_ada(ada: pd.DataFrame) -> pd.DataFrame:
+    if ada.empty:
+        return pd.DataFrame(columns=["camada", "poligonos", "vertices", "lon_min", "lon_max", "lat_min", "lat_max"])
+    return (
+        ada.groupby("camada", as_index=False)
+        .agg(
+            poligonos=("polygon_id", "nunique"),
+            vertices=("vertex_order", "size"),
+            lon_min=("Longitude", "min"),
+            lon_max=("Longitude", "max"),
+            lat_min=("Latitude", "min"),
+            lat_max=("Latitude", "max"),
+        )
+        .sort_values("camada")
+    )
+
+
+def _hydrology_segments(
+    hydrology: pd.DataFrame,
+    xmin: float,
+    xmax: float,
+    ymin: float,
+    ymax: float,
+) -> dict[str, list[np.ndarray]]:
+    segments = {"drenagem": [], "talvegue": []}
+    if hydrology.empty:
+        return segments
+    for (_source, feature_id), line in hydrology.groupby(["fonte", "feature_id"], sort=False):
+        line = line.sort_values("vertex_order")
+        if line.empty:
+            continue
+        if (
+            float(line["Longitude"].max()) < xmin
+            or float(line["Longitude"].min()) > xmax
+            or float(line["Latitude"].max()) < ymin
+            or float(line["Latitude"].min()) > ymax
+        ):
+            continue
+        coords = line[["Longitude", "Latitude"]].to_numpy(dtype=float)
+        if len(coords) < 2:
+            continue
+        kind = "talvegue" if str(line["tipo_malha"].iloc[0]) == "talvegue" else "drenagem"
+        segments[kind].append(coords)
+    return segments
+
+
+def _ada_polygons(
+    ada: pd.DataFrame,
+    xmin: float,
+    xmax: float,
+    ymin: float,
+    ymax: float,
+) -> list[np.ndarray]:
+    polygons: list[np.ndarray] = []
+    if ada.empty:
+        return polygons
+    outer = ada[ada["ring_type"] == "outer"].copy()
+    for (_source, polygon_id, ring_id), ring in outer.groupby(["fonte", "polygon_id", "ring_id"], sort=False):
+        ring = ring.sort_values("vertex_order")
+        if ring.empty:
+            continue
+        if (
+            float(ring["Longitude"].max()) < xmin
+            or float(ring["Longitude"].min()) > xmax
+            or float(ring["Latitude"].max()) < ymin
+            or float(ring["Latitude"].min()) > ymax
+        ):
+            continue
+        coords = ring[["Longitude", "Latitude"]].to_numpy(dtype=float)
+        if len(coords) < 3:
+            continue
+        polygons.append(coords)
+    return polygons
+
+
+def _add_ada(ax, polygons: list[np.ndarray]) -> None:
+    if not polygons:
+        return
+    ax.add_collection(
+        PolyCollection(
+            polygons,
+            facecolors=[mcolors.to_rgba("#C43D4D", 0.12)],
+            edgecolors="none",
+            zorder=0.05,
+        )
+    )
+    ax.add_collection(
+        PolyCollection(
+            polygons,
+            facecolors="none",
+            edgecolors=[mcolors.to_rgba("#C43D4D", 0.85)],
+            linewidths=0.9,
+            zorder=0.15,
+        )
+    )
+
+
+def _add_hydrology(ax, segments: dict[str, list[np.ndarray]]) -> None:
+    hydrology_segments = []
+    hydrology_segments.extend(segments.get("drenagem", []))
+    hydrology_segments.extend(segments.get("talvegue", []))
+    if hydrology_segments:
+        ax.add_collection(
+            LineCollection(
+                hydrology_segments,
+                colors="#8AC9E8",
+                linewidths=0.38,
+                alpha=1.0,
+                zorder=0.25,
+            )
+        )
+
+
+def plot_spatial_mini_maps(
+    annual: pd.DataFrame,
+    coords: pd.DataFrame,
+    hydrology: pd.DataFrame,
+    ada: pd.DataFrame,
+    out_png: Path,
+    theme: dict,
+) -> None:
     primary, _secondary, _highlight = _theme_colors(theme)
     groups = (
         annual[["ordem_grupo", "grupo_funcional", "grupo_rotulo"]]
@@ -254,7 +459,7 @@ def plot_spatial_mini_maps(annual: pd.DataFrame, coords: pd.DataFrame, out_png: 
     fig, axes = plt.subplots(
         nrows,
         ncols,
-        figsize=(15.5, 11.8),
+        figsize=(15.5, max(7.4, 2.95 * nrows)),
         dpi=int(theme.get("dpi", 600)),
         sharex=True,
         sharey=True,
@@ -262,10 +467,12 @@ def plot_spatial_mini_maps(annual: pd.DataFrame, coords: pd.DataFrame, out_png: 
     if nrows == 1:
         axes = np.array([axes])
     xmin, xmax, ymin, ymax = _point_limits(coords)
+    ada_polygons = _ada_polygons(ada, xmin, xmax, ymin, ymax)
+    hydrology_segments = _hydrology_segments(hydrology, xmin, xmax, ymin, ymax)
     vmax_color = 100.0
     vmax_size = max(float(annual["CPUEn_grupo_medio"].max()), 1.0)
     cmap = mcolors.LinearSegmentedColormap.from_list(
-        "geoarc_spatial_functional", ["#F7F7F7", "#D9E6F2", "#8DBFD2", primary]
+        "geoarc_spatial_functional", ["#F7F7F7", "#DDEEDB", "#8BC28A", "#2F7D4A"]
     )
     norm = mcolors.Normalize(vmin=0, vmax=vmax_color)
 
@@ -274,6 +481,8 @@ def plot_spatial_mini_maps(annual: pd.DataFrame, coords: pd.DataFrame, out_png: 
             ax = axes[row_idx, col_idx]
             data = annual[(annual["grupo_funcional"] == group["grupo_funcional"]) & (annual["ano"] == year)].copy()
             data = data.sort_values("nome_ponto", key=lambda s: s.map(_point_sort_key))
+            _add_ada(ax, ada_polygons)
+            _add_hydrology(ax, hydrology_segments)
             ax.scatter(
                 coords["Longitude"],
                 coords["Latitude"],
@@ -281,7 +490,7 @@ def plot_spatial_mini_maps(annual: pd.DataFrame, coords: pd.DataFrame, out_png: 
                 color="#E4E8EE",
                 edgecolor="#AAB2BD",
                 linewidth=0.35,
-                zorder=1,
+                zorder=1.4,
             )
             nonzero = data[data["CPUEn_grupo_medio"] > 0].copy()
             if not nonzero.empty:
@@ -363,6 +572,8 @@ def write_outputs(
     definitions: pd.DataFrame,
     close_pairs: pd.DataFrame,
     coord_variation: pd.DataFrame,
+    hydrology_summary: pd.DataFrame,
+    ada_summary: pd.DataFrame,
     summary: dict,
 ) -> dict[str, str]:
     xlsx = output_dir / f"{product_prefix}_df_mini_mapas_funcoes_ecologicas_ictiofauna.xlsx"
@@ -373,6 +584,8 @@ def write_outputs(
         definitions.to_excel(writer, sheet_name="definicoes_funcoes", index=False)
         close_pairs.to_excel(writer, sheet_name="diagnostico_sobreposicao", index=False)
         coord_variation.to_excel(writer, sheet_name="diagnostico_variacao_coords", index=False)
+        hydrology_summary.to_excel(writer, sheet_name="malha_hidrica_resumo", index=False)
+        ada_summary.to_excel(writer, sheet_name="ada_resumo", index=False)
     manifest.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
     return {"xlsx": str(xlsx), "manifest": str(manifest)}
 
@@ -382,6 +595,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--source", default=str(DEFAULT_SOURCE), help="Planilha de migração com coordenadas.")
     parser.add_argument("--group-table", default=str(DEFAULT_GROUP_TABLE), help="Planilha do produto 23.")
     parser.add_argument("--coordinate-reference", default=str(DEFAULT_COORD_REFERENCE), help="KMZ/KML com coordenadas oficiais dos pontos.")
+    parser.add_argument("--hydrology-layer", action="append", default=None, help="Camada KML/KMZ de drenagem/talvegue. Pode ser usada mais de uma vez.")
+    parser.add_argument("--no-hydrology", action="store_true", help="Nao desenha malha hidrica nos mini mapas.")
+    parser.add_argument("--ada-layer", default=str(DEFAULT_ADA_LAYER), help="Camada KML/KMZ da ADA.")
+    parser.add_argument("--no-ada", action="store_true", help="Nao desenha a ADA nos mini mapas.")
+    parser.add_argument("--exclude-group", action="append", default=[], help="Codigo de grupo funcional a remover da figura. Pode ser usado mais de uma vez.")
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT), help="Pasta de saída exploratória.")
     parser.add_argument("--product-prefix", default="24", help="Prefixo numerico/textual dos arquivos de saida.")
     parser.add_argument("--client", default="default", help="Tema visual.")
@@ -399,9 +617,21 @@ def main() -> int:
     theme = load_theme(ROOT / "configs", args.client)
 
     coords, close_pairs, coord_variation = load_coordinates(source, coordinate_reference)
-    annual, definitions = load_group_panel(group_table, coords)
+    exclude_groups = {str(group).strip() for group in args.exclude_group if str(group).strip()}
+    annual, definitions = load_group_panel(group_table, coords, exclude_groups)
+    if args.no_hydrology:
+        hydrology_layers: list[Path] = []
+    elif args.hydrology_layer:
+        hydrology_layers = [Path(layer) for layer in args.hydrology_layer]
+    else:
+        hydrology_layers = DEFAULT_HYDROLOGY_LAYERS
+    hydrology = load_hydrology(hydrology_layers)
+    hydrology_summary = summarize_hydrology(hydrology)
+    ada_layer = None if args.no_ada or not args.ada_layer else Path(args.ada_layer)
+    ada = load_ada(ada_layer)
+    ada_summary = summarize_ada(ada)
     out_png = output_dir / f"{product_prefix}_grafico_mini_mapas_funcoes_ecologicas_ano_ictiofauna.png"
-    plot_spatial_mini_maps(annual, coords, out_png, theme)
+    plot_spatial_mini_maps(annual, coords, hydrology, ada, out_png, theme)
 
     summary = {
         "source": str(source),
@@ -412,16 +642,34 @@ def main() -> int:
         "points": int(coords["Ponto"].nunique()),
         "years": sorted(int(y) for y in annual["ano"].dropna().unique().tolist()),
         "groups": definitions[["codigo", "rotulo", "criterio"]].to_dict("records"),
+        "excluded_groups": sorted(exclude_groups),
         "rows": int(len(annual)),
         "max_CPUEn_grupo_medio": float(annual["CPUEn_grupo_medio"].max()),
         "max_perc_CPUEn_medio": float(annual["perc_CPUEn_medio"].max()),
         "coordinate_reference": str(coordinate_reference) if coordinate_reference else None,
         "coordinate_strategy": "referencia_kmz" if coordinate_reference else "primeira_coordenada_valida_planilha",
+        "hydrology_layers": [str(layer) for layer in hydrology_layers],
+        "hydrology_features": int(hydrology[["fonte", "feature_id"]].drop_duplicates().shape[0]) if not hydrology.empty else 0,
+        "hydrology_vertices": int(len(hydrology)),
+        "ada_layer": str(ada_layer) if ada_layer else None,
+        "ada_polygons": int(ada["polygon_id"].nunique()) if not ada.empty else 0,
+        "ada_vertices": int(len(ada)),
         "close_pairs_under_1km": close_pairs[close_pairs["distancia_km"] < 1.0].to_dict("records"),
         "coordinate_note": "Mapa gerado com coordenadas oficiais do KMZ; a variacao das coordenadas da planilha foi mantida em diagnostico_variacao_coords.",
         "note": "Produto exploratório; não substitui os heatmaps temporais nem representa modelagem espacial.",
     }
-    outputs = write_outputs(output_dir, product_prefix, annual, coords, definitions, close_pairs, coord_variation, summary)
+    outputs = write_outputs(
+        output_dir,
+        product_prefix,
+        annual,
+        coords,
+        definitions,
+        close_pairs,
+        coord_variation,
+        hydrology_summary,
+        ada_summary,
+        summary,
+    )
     summary["outputs"] = outputs
     (output_dir / f"{product_prefix}_manifesto_mini_mapas_funcoes_ecologicas_ictiofauna.json").write_text(
         json.dumps(summary, ensure_ascii=False, indent=2),

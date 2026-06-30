@@ -92,7 +92,13 @@
 - Descricao: Gera mini mapas anuais dos grupos funcionais sentinelas, com ponto amostral no espaco, ano em colunas, grupo em linhas, tamanho de bolha por CPUEn medio anual e cor por participacao no CPUEn total.
 - Data de registro: 2026-06-26
 - Responsavel: Codex/Felipe
-- Observacoes: Usa KMZ/KML oficial como referencia de coordenadas quando informado. O produto aprovado no piloto foi `26_grafico_mini_mapas_funcoes_ecologicas_ano_ictiofauna.png`.
+- Observacoes: Usa KMZ/KML oficial como referencia de coordenadas quando informado. Em 2026-06-30 foi consolidada a versao exploratoria com hidrografia azul clara uniforme, ADA vermelha translucida, gradiente verde para bolhas e exclusao opcional de grupos pouco informativos; produto de referencia atualizado: `33_grafico_mini_mapas_funcoes_ecologicas_ano_ictiofauna.png`.
+
+- Script: scripts/projects/geoarc001/generate_functional_spatial_synthesis.py
+- Descricao: Gera mapas de sintese espacial funcional do GEOARC001, incluindo permanencia funcional por ponto e balanco funcional exploratorio por grupos sentinelas.
+- Data de registro: 2026-06-30
+- Responsavel: Codex/Felipe
+- Observacoes: Produto de aprendizado metodologico derivado do piloto GEOARC001. Gera `34_grafico_mapa_permanencia_funcional_ictiofauna.png`, `35_grafico_mapa_balanco_funcional_ictiofauna.png` e planilha `34_35_df_sintese_espacial_funcional_ictiofauna.xlsx`; classifica pontos como refugio funcional, area de transicao, dominancia de generalistas ou sem sinal funcional consistente, com criterios auditaveis na planilha de apoio.
 
 - Script: scripts/projects/geoarc001/generate_functional_species_signature.py
 - Descricao: Gera painel de assinatura das especies por grupos funcionais sentinelas, com nomes cientificos em italico, barras de CPUEn total e marcadores AME/EXO.

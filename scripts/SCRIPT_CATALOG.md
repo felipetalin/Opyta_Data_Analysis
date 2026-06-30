@@ -35,7 +35,17 @@ rastreabilidade sem depender de memoria ou de busca manual em pastas de cliente.
 | ITAGUA001 / Monitoramento da Fauna | `scripts/projects/project_165/` | Pipeline historico de ictiofauna documentado em `docs/PIPELINE_ICTIO_165.md`. |
 | FERSAM001 / Sam Metais Diagnostico | `scripts/projects/sam_metais/` | Meio fisico, conformidade e revisao de biota aquatica. |
 | VIRITA001 / Itabrita | `scripts/projects/virita001/` | Ictiofauna: relatorio tecnico HTML e evidencias da Campanha 1, seguindo o padrao analitico FERSAM001 para duas campanhas. |
-| GEOARC001 / Arcelor | `scripts/projects/geoarc001/` | Ictiofauna: analises exploratorias taxonomicas e funcionais, mapas de grupos sentinelas e assinatura de especies por grupo funcional. |
+| GEOARC001 / Arcelor | `scripts/projects/geoarc001/` | Ictiofauna: analises exploratorias taxonomicas e funcionais, mapas de grupos sentinelas, sintese espacial funcional e assinatura de especies por grupo funcional. |
+
+### Scripts De Projeto - GEOARC001
+
+| Script | Status | Uso |
+| --- | --- | --- |
+| `scripts/projects/geoarc001/generate_exploratory_assembly_analysis.py` | exploratorio | LCBD, NMDS/PERMANOVA, beta particionada e painel integrado da assembleia taxonomica. |
+| `scripts/projects/geoarc001/generate_functional_exploratory_analysis.py` | exploratorio | Composicao funcional, LCBD funcional, NMDS/PERMANOVA funcional e heatmap dos grupos sentinelas. |
+| `scripts/projects/geoarc001/generate_functional_spatial_mini_maps.py` | exploratorio reutilizavel | Mini mapas espaciais anuais dos grupos funcionais sentinelas, com KMZ/KML oficial, hidrografia, ADA e exclusao opcional de grupos pouco informativos. |
+| `scripts/projects/geoarc001/generate_functional_spatial_synthesis.py` | exploratorio reutilizavel | Mapas de permanencia funcional e balanco funcional por ponto, com classificacao heuristica rastreavel. |
+| `scripts/projects/geoarc001/generate_functional_species_signature.py` | exploratorio reutilizavel | Assinatura das especies por grupo funcional sentinela, com barras de CPUEn e marcadores AME/EXO. |
 
 ## Geradores De Meio Fisico
 
