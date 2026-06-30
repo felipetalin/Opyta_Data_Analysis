@@ -112,8 +112,8 @@ Produto de referencia do piloto:
 Objetivo:
 
 - traduzir o padrao funcional em uma matriz interpretativa espacial;
-- apoiar leitura de refugio funcional, area de transicao e dominancia de
-  generalistas;
+- apoiar leitura de refugio funcional, area de transicao e perfil funcional
+  generalista;
 - criar uma sintese exploratoria sem propor indice novo.
 
 Categorias usadas no piloto:
@@ -121,7 +121,7 @@ Categorias usadas no piloto:
 - Refugio funcional:
   funcoes sensiveis ocorreram em pelo menos 3 anos e representaram pelo menos
   25% do CPUEn sentinela acumulado.
-- Dominancia de generalistas:
+- Perfil funcional generalista:
   generalistas ocorreram em pelo menos 3 anos e funcoes sensiveis foram
   ausentes/raras ou generalistas ultrapassaram 75% do CPUEn sentinela
   acumulado.
@@ -137,6 +137,47 @@ Cuidados:
 - manter os criterios e a base por ponto em planilha de apoio;
 - interpretar junto com riqueza, CPUEn, especies dominantes, LCBD, NMDS e
   historico de campo.
+
+### Mapa De Trajetoria Funcional
+
+Produto de referencia do piloto:
+
+- `36_grafico_mapa_trajetoria_funcional_ictiofauna.png`
+
+Objetivo:
+
+- complementar permanencia e balanco funcional com direcao temporal;
+- diferenciar ganho funcional, enfraquecimento funcional, oscilacao e perfil
+  funcional generalista;
+- evitar interpretar frequencia acumulada como estabilidade.
+
+Estrutura recomendada:
+
+- ponto espacial = coordenada oficial do ponto amostral;
+- cor da bolha = tendencia exploratoria;
+- tamanho da bolha = CPUEn sentinela acumulado;
+- planilha de apoio com serie anual por ponto, pico, media inicial, media
+  recente, slope e justificativa da classificacao;
+- nota indicando quando o ultimo ano for parcial.
+
+Categorias usadas no piloto:
+
+- Ganho funcional:
+  funcoes sensiveis ausentes/baixas no inicio e presentes de forma persistente
+  nos anos seguintes/recentes.
+- Estabilidade funcional:
+  funcoes sensiveis presentes em pelo menos 3 anos, com media recente ainda
+  proxima do pico/historico.
+- Oscilacao funcional:
+  funcoes sensiveis aparecem e desaparecem sem direcao clara, ou ocorrem em
+  poucos anos alternados.
+- Enfraquecimento funcional:
+  funcoes sensiveis ja ocorreram, mas a media recente caiu fortemente ou zerou
+  em relacao ao pico/historico.
+- Perfil funcional generalista:
+  funcoes sensiveis ausentes e generalistas persistentes.
+- Sem sinal funcional consistente:
+  CPUEn sentinela acumulado nulo ou residual.
 
 ### Assinatura De Especies Por Grupo
 
@@ -162,6 +203,45 @@ Boas praticas de layout:
 - usar barras discretas como apoio, nao como grafico principal;
 - manter a lista completa na planilha quando houver muitas especies.
 
+### Apresentacao Tecnica Em HTML
+
+Produto de referencia do piloto:
+
+- `37_apresentacao_tecnica_analise_funcional_ictiofauna.html`
+- `37B_apresentacao_tecnica_analise_funcional_ictiofauna_autossuficiente.html`
+
+Objetivo:
+
+- criar um material leve para discussao com equipe tecnica antes de incorporar
+  as analises ao relatorio final;
+- reunir texto de introducao, metodologia, resultados e leitura tecnica em um
+  unico arquivo navegavel;
+- usar caminhos relativos para que as figuras carreguem na mesma pasta de
+  resultados.
+- quando o material for compartilhado como arquivo unico, embutir as figuras em
+  base64 no HTML para evitar perda dos mapas no envio.
+
+Estrutura recomendada:
+
+- introducao tecnica explicando por que complementar taxonomia com funcao;
+- metodologia usando a figura de assinatura de especies (`27`) para mostrar
+  quais especies sustentam cada grupo funcional;
+- resultados com as figuras de mini mapas anuais (`33`), permanencia (`34`),
+  balanco (`35`) e trajetoria (`36`);
+- tabelas-resumo extraidas das planilhas de apoio;
+- secao de cautelas indicando que a classificacao e exploratoria e deve ser
+  interpretada junto com riqueza, CPUEn total, especies dominantes, LCBD,
+  NMDS/PERMANOVA, sazonalidade e historico de campo.
+
+Uso recomendado:
+
+- envio interno para tecnicos revisarem coerencia ecologica, linguagem e
+  interpretacao antes da consolidacao no relatorio;
+- nao substituir o relatorio tecnico formal nem os anexos de dados;
+- manter o HTML leve na mesma pasta das figuras para preservar links relativos;
+- usar a versao autossuficiente (`--embed-images`) quando o HTML for enviado
+  isoladamente por e-mail, Drive ou outro canal de compartilhamento.
+
 ## Coordenadas
 
 O piloto GEOARC001 mostrou que coordenadas podem variar indevidamente por
@@ -181,6 +261,7 @@ Scripts associados:
 
 - `scripts/projects/geoarc001/generate_functional_spatial_mini_maps.py`
 - `scripts/projects/geoarc001/generate_functional_spatial_synthesis.py`
+- `scripts/projects/geoarc001/generate_functional_technical_presentation.py`
 - `scripts/projects/geoarc001/generate_functional_species_signature.py`
 - `scripts/maintenance/geoarc001/update_geoarc001_coordinates_from_kmz.py`
 - `src/opyta_analysis/geo_reference.py`

@@ -95,10 +95,16 @@
 - Observacoes: Usa KMZ/KML oficial como referencia de coordenadas quando informado. Em 2026-06-30 foi consolidada a versao exploratoria com hidrografia azul clara uniforme, ADA vermelha translucida, gradiente verde para bolhas e exclusao opcional de grupos pouco informativos; produto de referencia atualizado: `33_grafico_mini_mapas_funcoes_ecologicas_ano_ictiofauna.png`.
 
 - Script: scripts/projects/geoarc001/generate_functional_spatial_synthesis.py
-- Descricao: Gera mapas de sintese espacial funcional do GEOARC001, incluindo permanencia funcional por ponto e balanco funcional exploratorio por grupos sentinelas.
+- Descricao: Gera mapas de sintese espacial funcional do GEOARC001, incluindo permanencia funcional por ponto, balanco funcional exploratorio e trajetoria funcional por grupos sentinelas.
 - Data de registro: 2026-06-30
 - Responsavel: Codex/Felipe
-- Observacoes: Produto de aprendizado metodologico derivado do piloto GEOARC001. Gera `34_grafico_mapa_permanencia_funcional_ictiofauna.png`, `35_grafico_mapa_balanco_funcional_ictiofauna.png` e planilha `34_35_df_sintese_espacial_funcional_ictiofauna.xlsx`; classifica pontos como refugio funcional, area de transicao, dominancia de generalistas ou sem sinal funcional consistente, com criterios auditaveis na planilha de apoio.
+- Observacoes: Produto de aprendizado metodologico derivado do piloto GEOARC001. Gera `34_grafico_mapa_permanencia_funcional_ictiofauna.png`, `35_grafico_mapa_balanco_funcional_ictiofauna.png`, `36_grafico_mapa_trajetoria_funcional_ictiofauna.png` e planilha `34_36_df_sintese_espacial_funcional_ictiofauna.xlsx`; usa nomenclatura neutra como perfil funcional generalista e classifica trajetorias como ganho, estabilidade, oscilacao, enfraquecimento ou sem sinal consistente, com criterios auditaveis na planilha de apoio.
+
+- Script: scripts/projects/geoarc001/generate_functional_technical_presentation.py
+- Descricao: Gera uma apresentacao tecnica em HTML da analise funcional exploratoria do GEOARC001, integrando introducao, metodologia, resultados e figuras de apoio.
+- Data de registro: 2026-06-30
+- Responsavel: Codex/Felipe
+- Observacoes: Produto para discussao interna com tecnicos. Usa a figura `27` como base metodologica e as figuras `33` a `36` como resultados; gera `37_apresentacao_tecnica_analise_funcional_ictiofauna.html` com links relativos e, com `--embed-images`, gera `37B_apresentacao_tecnica_analise_funcional_ictiofauna_autossuficiente.html` com as figuras embutidas para compartilhamento como arquivo unico. As tabelas-resumo derivam das planilhas `27`, `33` e `34_36`.
 
 - Script: scripts/projects/geoarc001/generate_functional_species_signature.py
 - Descricao: Gera painel de assinatura das especies por grupos funcionais sentinelas, com nomes cientificos em italico, barras de CPUEn total e marcadores AME/EXO.

@@ -54,13 +54,29 @@ GENERALIST_GROUP = "generalistas_tolerantes"
 CATEGORY_COLORS = {
     "Refúgio funcional": "#2F7D4A",
     "Área de transição": "#D9A441",
-    "Dominância de generalistas": "#C46A3A",
+    "Perfil funcional generalista": "#C46A3A",
     "Sem sinal funcional consistente": "#D5D9DE",
 }
 CATEGORY_ORDER = [
     "Refúgio funcional",
     "Área de transição",
-    "Dominância de generalistas",
+    "Perfil funcional generalista",
+    "Sem sinal funcional consistente",
+]
+TRAJECTORY_COLORS = {
+    "Ganho funcional": "#2F7D4A",
+    "Estabilidade funcional": "#5F7C8A",
+    "Oscilação funcional": "#D9A441",
+    "Enfraquecimento funcional": "#B65B5A",
+    "Perfil funcional generalista": "#C46A3A",
+    "Sem sinal funcional consistente": "#D5D9DE",
+}
+TRAJECTORY_ORDER = [
+    "Ganho funcional",
+    "Estabilidade funcional",
+    "Oscilação funcional",
+    "Enfraquecimento funcional",
+    "Perfil funcional generalista",
     "Sem sinal funcional consistente",
 ]
 BALANCE_LABEL_OFFSETS = {
@@ -176,7 +192,7 @@ def build_balance(annual: pd.DataFrame, persistence: pd.DataFrame) -> tuple[pd.D
                 "criterio": "Funções sensíveis ocorreram em pelo menos 3 anos e representaram pelo menos 25% do CPUEn sentinela acumulado.",
             },
             {
-                "categoria": "Dominância de generalistas",
+                "categoria": "Perfil funcional generalista",
                 "criterio": "Generalistas ocorreram em pelo menos 3 anos e funções sensíveis foram ausentes/raras ou generalistas ultrapassaram 75% do CPUEn sentinela acumulado.",
             },
             {
@@ -200,8 +216,165 @@ def _classify_balance(row: pd.Series) -> str:
     if int(row["anos_generalistas"]) >= 3 and (
         int(row["anos_funcoes_sensiveis"]) <= 1 or float(row["perc_CPUEn_generalistas"]) >= 75.0
     ):
-        return "Dominância de generalistas"
+        return "Perfil funcional generalista"
     return "Área de transição"
+
+
+def build_trajectory(annual: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    base = annual[annual["grupo_funcional"].isin(SENTINEL_GROUPS)].copy()
+    yearly = (
+        base.pivot_table(
+            index=["nome_ponto", "Longitude", "Latitude", "ano"],
+            columns="grupo_funcional",
+            values="CPUEn_grupo_medio",
+            aggfunc="sum",
+            fill_value=0.0,
+        )
+        .reset_index()
+        .rename_axis(None, axis=1)
+    )
+    for code in SENTINEL_GROUPS:
+        if code not in yearly.columns:
+            yearly[code] = 0.0
+    yearly["CPUEn_funcoes_sensiveis"] = yearly[SENSITIVE_GROUPS].sum(axis=1)
+    yearly["CPUEn_generalistas"] = yearly[GENERALIST_GROUP]
+    yearly["CPUEn_total_sentinelas"] = yearly["CPUEn_funcoes_sensiveis"] + yearly["CPUEn_generalistas"]
+    yearly["perc_CPUEn_funcoes_sensiveis"] = np.where(
+        yearly["CPUEn_total_sentinelas"] > 0,
+        yearly["CPUEn_funcoes_sensiveis"] / yearly["CPUEn_total_sentinelas"] * 100.0,
+        0.0,
+    )
+    yearly = yearly.sort_values(["nome_ponto", "ano"], key=lambda s: s.map(_point_sort_key) if s.name == "nome_ponto" else s)
+
+    rows = []
+    for point, data in yearly.groupby("nome_ponto", sort=False):
+        data = data.sort_values("ano")
+        years = data["ano"].to_numpy(dtype=float)
+        sensitive = data["CPUEn_funcoes_sensiveis"].to_numpy(dtype=float)
+        generalist = data["CPUEn_generalistas"].to_numpy(dtype=float)
+        rows.append(_summarize_point_trajectory(point, data, years, sensitive, generalist))
+    trajectory = pd.DataFrame(rows)
+    trajectory["cor_trajetoria"] = trajectory["trajetoria_funcional"].map(TRAJECTORY_COLORS)
+    trajectory = trajectory.sort_values("nome_ponto", key=lambda s: s.map(_point_sort_key)).reset_index(drop=True)
+
+    criteria = pd.DataFrame(
+        [
+            {
+                "trajetoria": "Ganho funcional",
+                "criterio": "Funções sensíveis ausentes/baixas no início e presentes de forma persistente nos anos seguintes/recentes.",
+            },
+            {
+                "trajetoria": "Estabilidade funcional",
+                "criterio": "Funções sensíveis presentes em pelo menos 3 anos, com média recente ainda próxima do pico/histórico.",
+            },
+            {
+                "trajetoria": "Oscilação funcional",
+                "criterio": "Funções sensíveis aparecem e desaparecem sem direção clara, ou ocorrem em poucos anos alternados.",
+            },
+            {
+                "trajetoria": "Enfraquecimento funcional",
+                "criterio": "Funções sensíveis já ocorreram, mas a média recente caiu fortemente ou zerou em relação ao pico/histórico.",
+            },
+            {
+                "trajetoria": "Perfil funcional generalista",
+                "criterio": "Funções sensíveis ausentes e generalistas persistentes nos anos monitorados.",
+            },
+            {
+                "trajetoria": "Sem sinal funcional consistente",
+                "criterio": "CPUEn sentinela acumulado nulo ou residual, sem base suficiente para classificar trajetória.",
+            },
+        ]
+    )
+    return trajectory, yearly, criteria
+
+
+def _summarize_point_trajectory(
+    point: str,
+    data: pd.DataFrame,
+    years: np.ndarray,
+    sensitive: np.ndarray,
+    generalist: np.ndarray,
+) -> dict[str, object]:
+    positive = sensitive > 0
+    generalist_positive = generalist > 0
+    positive_years = int(positive.sum())
+    generalist_years = int(generalist_positive.sum())
+    total_sentinel = float(sensitive.sum() + generalist.sum())
+    peak = float(sensitive.max()) if sensitive.size else 0.0
+    first = float(sensitive[0]) if sensitive.size else 0.0
+    last = float(sensitive[-1]) if sensitive.size else 0.0
+    early_mean = float(sensitive[:2].mean()) if sensitive.size >= 2 else first
+    recent_mean = float(sensitive[-2:].mean()) if sensitive.size >= 2 else last
+    historical_mean = float(sensitive.mean()) if sensitive.size else 0.0
+    transitions = int(np.abs(np.diff(positive.astype(int))).sum()) if positive.size > 1 else 0
+    slope = float(np.polyfit(years - years.min(), sensitive, 1)[0]) if len(years) >= 2 else 0.0
+    peak_year = int(data.loc[data["CPUEn_funcoes_sensiveis"].idxmax(), "ano"]) if peak > 0 else None
+    trajectory, rationale = _classify_trajectory(
+        positive_years=positive_years,
+        generalist_years=generalist_years,
+        total_sentinel=total_sentinel,
+        first=first,
+        last=last,
+        early_mean=early_mean,
+        recent_mean=recent_mean,
+        historical_mean=historical_mean,
+        peak=peak,
+        transitions=transitions,
+    )
+    return {
+        "nome_ponto": point,
+        "Longitude": float(data["Longitude"].iloc[0]),
+        "Latitude": float(data["Latitude"].iloc[0]),
+        "trajetoria_funcional": trajectory,
+        "justificativa": rationale,
+        "anos_funcoes_sensiveis": positive_years,
+        "anos_generalistas": generalist_years,
+        "CPUEn_sensivel_inicio": first,
+        "CPUEn_sensivel_final": last,
+        "CPUEn_sensivel_media_inicial": early_mean,
+        "CPUEn_sensivel_media_recente": recent_mean,
+        "CPUEn_sensivel_media_historica": historical_mean,
+        "CPUEn_sensivel_pico": peak,
+        "ano_pico_sensivel": peak_year,
+        "transicoes_presenca_sensivel": transitions,
+        "slope_CPUEn_sensivel": slope,
+        "CPUEn_generalistas_total": float(generalist.sum()),
+        "CPUEn_sentinel_total": total_sentinel,
+    }
+
+
+def _classify_trajectory(
+    *,
+    positive_years: int,
+    generalist_years: int,
+    total_sentinel: float,
+    first: float,
+    last: float,
+    early_mean: float,
+    recent_mean: float,
+    historical_mean: float,
+    peak: float,
+    transitions: int,
+) -> tuple[str, str]:
+    if total_sentinel < 1.0:
+        return "Sem sinal funcional consistente", "CPUEn sentinela acumulado residual (<1)."
+    if peak <= 0:
+        if generalist_years >= 3:
+            return "Perfil funcional generalista", "Funções sensíveis ausentes e generalistas recorrentes."
+        return "Sem sinal funcional consistente", "Sem funções sensíveis e sem recorrência suficiente de generalistas."
+    if early_mean > 0 and recent_mean <= max(0.25 * max(early_mean, peak), 0.01):
+        return "Enfraquecimento funcional", "Funções sensíveis registradas no início/histórico e ausentes ou muito reduzidas no período recente."
+    if positive_years >= 3 and first <= 0 and recent_mean >= 0.35 * peak and last > 0:
+        return "Ganho funcional", "Funções sensíveis ausentes no início e persistentes no período posterior/recente."
+    if positive_years >= 3 and recent_mean <= 0.40 * peak:
+        return "Enfraquecimento funcional", "Média recente das funções sensíveis inferior a 40% do pico histórico."
+    if transitions >= 3 or positive_years <= 2:
+        return "Oscilação funcional", "Presença intermitente de funções sensíveis, sem direção temporal robusta."
+    if positive_years >= 3 and recent_mean >= 0.50 * peak:
+        return "Estabilidade funcional", "Funções sensíveis recorrentes e ainda próximas do pico/histórico recente."
+    if recent_mean > historical_mean * 1.2:
+        return "Ganho funcional", "Média recente superior ao histórico das funções sensíveis."
+    return "Oscilação funcional", "Sinal funcional presente, mas sem direção inequívoca."
 
 
 def _setup_spatial_layers(coords: pd.DataFrame, hydrology: pd.DataFrame, ada: pd.DataFrame) -> tuple[tuple[float, float, float, float], dict[str, list[np.ndarray]], list[np.ndarray]]:
@@ -390,12 +563,74 @@ def plot_balance(
     plt.close(fig)
 
 
+def plot_trajectory(
+    trajectory: pd.DataFrame,
+    coords: pd.DataFrame,
+    hydrology: pd.DataFrame,
+    ada: pd.DataFrame,
+    out_png: Path,
+    theme: dict,
+) -> None:
+    limits, hydrology_segments, ada_polygons = _setup_spatial_layers(coords, hydrology, ada)
+    fig, ax = plt.subplots(figsize=(8.2, 6.2), dpi=int(theme.get("dpi", 600)))
+    _draw_base(ax, coords, limits, hydrology_segments, ada_polygons)
+    sizes = _normalize_sizes(trajectory["CPUEn_sentinel_total"], 150, 560)
+    for category in TRAJECTORY_ORDER:
+        data = trajectory[trajectory["trajetoria_funcional"] == category]
+        if data.empty:
+            continue
+        ax.scatter(
+            data["Longitude"],
+            data["Latitude"],
+            s=sizes[data.index],
+            color=TRAJECTORY_COLORS[category],
+            edgecolor="#1C1C1C",
+            linewidth=0.65,
+            alpha=0.92,
+            zorder=3,
+            label=category,
+        )
+    _annotate_points(ax, coords, fontsize=7, offsets=BALANCE_LABEL_OFFSETS, leader=True)
+    ax.set_title("Mapa de trajetória funcional", loc="left", fontsize=14, fontweight="bold")
+    ax.set_xlabel("Longitude", fontsize=9)
+    ax.set_ylabel("Latitude", fontsize=9)
+    legend_handles = [
+        Line2D(
+            [0],
+            [0],
+            marker="o",
+            color="none",
+            markerfacecolor=TRAJECTORY_COLORS[category],
+            markeredgecolor="#1C1C1C",
+            markersize=8,
+            label=category,
+        )
+        for category in TRAJECTORY_ORDER
+        if category in set(trajectory["trajetoria_funcional"])
+    ]
+    ax.legend(handles=legend_handles, title="Tendência exploratória", loc="upper right", fontsize=8.0, title_fontsize=8.4, frameon=True)
+    fig.text(
+        0.02,
+        0.025,
+        "Classificação baseada na série anual de CPUEn das funções sensíveis; tamanho da bolha = CPUEn sentinela acumulado. 2026 é parcial.",
+        ha="left",
+        fontsize=8.3,
+        color="#404040",
+    )
+    fig.subplots_adjust(left=0.10, right=0.96, top=0.90, bottom=0.12)
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+
+
 def write_outputs(
     output_dir: Path,
     data_prefix: str,
     persistence: pd.DataFrame,
     balance: pd.DataFrame,
     criteria: pd.DataFrame,
+    trajectory: pd.DataFrame,
+    trajectory_yearly: pd.DataFrame,
+    trajectory_criteria: pd.DataFrame,
     annual: pd.DataFrame,
     coords: pd.DataFrame,
     hydrology_summary: pd.DataFrame,
@@ -408,6 +643,9 @@ def write_outputs(
         persistence.to_excel(writer, sheet_name="permanencia_funcional", index=False)
         balance.to_excel(writer, sheet_name="balanco_funcional", index=False)
         criteria.to_excel(writer, sheet_name="criterios_balanco", index=False)
+        trajectory.to_excel(writer, sheet_name="trajetoria_funcional", index=False)
+        trajectory_yearly.to_excel(writer, sheet_name="serie_trajetoria_anual", index=False)
+        trajectory_criteria.to_excel(writer, sheet_name="criterios_trajetoria", index=False)
         annual.to_excel(writer, sheet_name="base_anual", index=False)
         coords.to_excel(writer, sheet_name="coordenadas_pontos", index=False)
         hydrology_summary.to_excel(writer, sheet_name="malha_hidrica_resumo", index=False)
@@ -428,7 +666,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT), help="Pasta de saida exploratoria.")
     parser.add_argument("--permanence-prefix", default="34", help="Prefixo da figura de permanencia.")
     parser.add_argument("--balance-prefix", default="35", help="Prefixo da figura de balanco.")
-    parser.add_argument("--data-prefix", default="34_35", help="Prefixo da planilha/manifesto de apoio.")
+    parser.add_argument("--trajectory-prefix", default="36", help="Prefixo da figura de trajetoria.")
+    parser.add_argument("--data-prefix", default="34_36", help="Prefixo da planilha/manifesto de apoio.")
     parser.add_argument("--client", default="default", help="Tema visual.")
     return parser.parse_args()
 
@@ -448,11 +687,14 @@ def main() -> int:
     hydrology, ada, hydrology_summary, ada_summary = _load_background(args)
     persistence = build_persistence(annual)
     balance, criteria = build_balance(annual, persistence)
+    trajectory, trajectory_yearly, trajectory_criteria = build_trajectory(annual)
 
     permanence_png = output_dir / f"{args.permanence_prefix}_grafico_mapa_permanencia_funcional_ictiofauna.png"
     balance_png = output_dir / f"{args.balance_prefix}_grafico_mapa_balanco_funcional_ictiofauna.png"
+    trajectory_png = output_dir / f"{args.trajectory_prefix}_grafico_mapa_trajetoria_funcional_ictiofauna.png"
     plot_persistence(persistence, coords, hydrology, ada, permanence_png, theme)
     plot_balance(balance, coords, hydrology, ada, balance_png, theme)
+    plot_trajectory(trajectory, coords, hydrology, ada, trajectory_png, theme)
 
     summary = {
         "source": str(source),
@@ -460,6 +702,7 @@ def main() -> int:
         "output_dir": str(output_dir),
         "permanence_figure": str(permanence_png),
         "balance_figure": str(balance_png),
+        "trajectory_figure": str(trajectory_png),
         "data_prefix": str(args.data_prefix),
         "coordinate_reference": str(coordinate_reference) if coordinate_reference else None,
         "groups_considered": definitions[definitions["codigo"].isin(SENTINEL_GROUPS)][["codigo", "rotulo", "criterio"]].to_dict("records"),
@@ -471,6 +714,7 @@ def main() -> int:
         "ada_polygons": int(ada["polygon_id"].nunique()) if not ada.empty else 0,
         "ada_vertices": int(len(ada)),
         "balance_categories": balance["categoria_balanco"].value_counts().to_dict(),
+        "trajectory_categories": trajectory["trajetoria_funcional"].value_counts().to_dict(),
         "close_pairs_under_1km": close_pairs[close_pairs["distancia_km"] < 1.0].to_dict("records"),
         "coordinate_variation_rows": int(len(coord_variation)),
         "note": "Produto exploratorio; classificacao funcional e heuristica e deve ser interpretada junto das series temporais e composicao taxonomica.",
@@ -481,6 +725,9 @@ def main() -> int:
         persistence,
         balance,
         criteria,
+        trajectory,
+        trajectory_yearly,
+        trajectory_criteria,
         annual,
         coords_raw,
         hydrology_summary,

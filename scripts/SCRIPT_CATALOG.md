@@ -44,7 +44,8 @@ rastreabilidade sem depender de memoria ou de busca manual em pastas de cliente.
 | `scripts/projects/geoarc001/generate_exploratory_assembly_analysis.py` | exploratorio | LCBD, NMDS/PERMANOVA, beta particionada e painel integrado da assembleia taxonomica. |
 | `scripts/projects/geoarc001/generate_functional_exploratory_analysis.py` | exploratorio | Composicao funcional, LCBD funcional, NMDS/PERMANOVA funcional e heatmap dos grupos sentinelas. |
 | `scripts/projects/geoarc001/generate_functional_spatial_mini_maps.py` | exploratorio reutilizavel | Mini mapas espaciais anuais dos grupos funcionais sentinelas, com KMZ/KML oficial, hidrografia, ADA e exclusao opcional de grupos pouco informativos. |
-| `scripts/projects/geoarc001/generate_functional_spatial_synthesis.py` | exploratorio reutilizavel | Mapas de permanencia funcional e balanco funcional por ponto, com classificacao heuristica rastreavel. |
+| `scripts/projects/geoarc001/generate_functional_spatial_synthesis.py` | exploratorio reutilizavel | Mapas de permanencia funcional, balanco funcional e trajetoria funcional por ponto, com classificacao heuristica rastreavel. |
+| `scripts/projects/geoarc001/generate_functional_technical_presentation.py` | exploratorio reutilizavel | Apresentacao tecnica HTML da analise funcional, com introducao, metodologia, figuras 27/33/34/35/36, tabelas-resumo e modo `--embed-images` para compartilhamento autossuficiente. |
 | `scripts/projects/geoarc001/generate_functional_species_signature.py` | exploratorio reutilizavel | Assinatura das especies por grupo funcional sentinela, com barras de CPUEn e marcadores AME/EXO. |
 
 ## Geradores De Meio Fisico
