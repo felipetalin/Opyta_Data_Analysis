@@ -112,6 +112,7 @@ para validar coordenadas de pontos contra KMZ/KML antes da migracao.
 | `scripts/maintenance/geoher001/resolve_geoher001_bentos_pending_taxa.py` | GEOHER001 | Resolucao de taxons pendentes e consolidacao controlada de registros duplicados. |
 | `scripts/maintenance/geoher001/restore_geoher001_bentos_c37_feb.py` | GEOHER001 | Restauracao da campanha C37 fevereiro/2026. |
 | `scripts/maintenance/geoarc001/update_geoarc001_coordinates_from_kmz.py` | GEOARC001 | Auditoria dry-run/apply para corrigir `pontos_coleta` no Supabase usando KMZ oficial, com Excel/JSON antes e depois. |
+| `scripts/maintenance/fix_geoambiental_coordinates.py` | Geoambiental | Correcao transacional das coordenadas usadas pela pagina Geoambiental para GEOARC001 e DUCGEO001, com backups, dry-run/apply e auditoria Excel/JSON antes/depois. |
 
 ## Wrappers Temporarios Na Raiz
 
