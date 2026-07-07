@@ -50,6 +50,14 @@
 
 - bloqueios:
 - avisos:
+- coordenadas:
+  - fonte espacial oficial:
+  - CRS/sistema:
+  - pontos sem coordenada:
+  - coordenadas fora da faixa esperada:
+  - variacao por ponto/campanha:
+  - comparacao com KMZ/KML/shapefile/planilha oficial:
+  - estrategia aprovada no Gate A:
 - ajustes aplicados:
 - arquivos corrigidos:
 
@@ -65,6 +73,7 @@
 - IDs:
 - totais da fonte:
 - totais no banco:
+- coordenadas no banco/consolidado:
 - divergencias:
 - backup:
 - totais consolidados:

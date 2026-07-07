@@ -15,6 +15,8 @@
 - grupos/matrizes:
 - recorte temporal:
 - recorte espacial:
+- fonte oficial de coordenadas:
+- estrategia de coordenadas aprovada:
 - dados de origem:
 
 ## Central De Controle
@@ -24,6 +26,7 @@
 - registro da operacao:
 - proxima acao:
 - Gate A — dados:
+- Gate A — coordenadas:
 - Gate B — especies:
 - Gate C — analises:
 - Gate R — revisao:

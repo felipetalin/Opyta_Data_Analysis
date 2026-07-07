@@ -15,12 +15,31 @@ acionada.
 Ao reconhecer um gatilho, abrir nesta ordem:
 
 1. [README.md](README.md)
-2. [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md)
-3. registro da operacao em [operations](operations/README.md)
-4. [project_registry.json](../registry/project_registry.json)
-5. dossie em `docs/projects/`
-6. recipe em `configs/projects/`
-7. portfolio, patterns e lastros aplicaveis
+2. [LLM_CONTEXT_POLICY.md](LLM_CONTEXT_POLICY.md), quando o executor for
+   Codex/LLM
+3. [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md)
+4. registro da operacao alvo em [operations](operations/README.md)
+5. [project_registry.json](../registry/project_registry.json), filtrado pelo
+   projeto/codigo/canonical_key
+6. dossie em `docs/projects/`, somente do projeto alvo
+7. recipe em `configs/projects/`, somente quando existir para a operacao
+8. portfolio, patterns e lastros aplicaveis, sem abrir historico inteiro
+
+## Politica De Contexto Para LLM
+
+Quando a Central for usada por Codex ou outra LLM, aplicar
+[LLM_CONTEXT_POLICY.md](LLM_CONTEXT_POLICY.md).
+
+Regras obrigatorias:
+
+- usar a operacao alvo como limite de contexto;
+- nao abrir `outputs/`, `logs/`, snapshots, planilhas, imagens, HTMLs ou PDFs
+  sem dependencia tecnica registrada;
+- nao carregar todos os registros de operacao ou revisao;
+- consultar registry, dossie, recipe e lastro de forma filtrada;
+- registrar no documento da operacao qualquer abertura de lastro pesado;
+- se o consumo de contexto parecer anormal, parar expansao de contexto e voltar
+  para a operacao e etapa atuais.
 
 ## Fluxo Canonico
 
@@ -66,8 +85,8 @@ FECHAMENTO E APRENDIZADO
 | Etapa | Acao obrigatoria | Evidencia minima | Proximo estado |
 | --- | --- | --- | --- |
 | 0. Abertura | Confirmar projeto, grupo, campanhas, entradas, saida e operacao | Registro da operacao criado | `validating` |
-| 1. Validacao | Validar estrutura, chaves, esforco, resultados, taxonomia e totais | Relatorio de validacao e lista de ajustes | `awaiting_data_approval` |
-| Gate A | Aplicar ajustes permitidos e apresentar o pacote corrigido | Aprovacao explicita do usuario | `registering_species` |
+| 1. Validacao | Validar estrutura, chaves, pontos, coordenadas, esforco, resultados, taxonomia e totais | Relatorio de validacao, auditoria de coordenadas e lista de ajustes | `awaiting_data_approval` |
+| Gate A | Aplicar ajustes permitidos e apresentar o pacote corrigido, incluindo decisao sobre coordenadas | Aprovacao explicita do usuario | `registering_species` |
 | 2. Especies | Identificar especies novas, cadastrar e auditar todos os atributos exigidos | Relatorio de completude taxonomica | `awaiting_species_approval` |
 | Gate B | Resolver campos incertos, endemismo, origem, ameaca e demais atributos | Aprovacao explicita do usuario ou registro `nao aplicavel` | `ready_to_migrate` |
 | 3. Migracao | Executar carga controlada e comparar fonte com banco | Totais Excel x banco, IDs e divergencias | `consolidating` |
@@ -90,6 +109,16 @@ empacotamento.
 Antes de cadastrar especies ou migrar:
 
 - apresentar erros, avisos e correcoes realizadas;
+- auditar coordenadas de todos os pontos antes da aprovacao: presenca,
+  faixa valida, sistema de referencia/CRS, sinais de latitude/longitude
+  invertidas, variacao entre campanhas e comparacao com KMZ/KML, shapefile,
+  planilha oficial ou outra fonte espacial aprovada;
+- registrar a estrategia de coordenadas quando houver conflito, por exemplo
+  `referencia_kmz`, `primeira_coordenada_valida_planilha`,
+  `coordenada_por_campanha` ou `sem_referencia_externa_aprovada`;
+- tratar divergencia de coordenada como pendencia de Gate A. Se a coordenada
+  afetar banco, consolidado, Darwin Core, mapa, tabela espacial ou qualquer
+  produto com latitude/longitude, classificar a revisao como `data/R3`;
 - preservar os arquivos originais;
 - identificar qualquer ajuste que dependa de criterio tecnico do usuario;
 - registrar a mensagem ou decisao que autorizou o avanco.
@@ -164,12 +193,17 @@ patterns e portfolio.
   anteriores somente quando os ajustes e pendencias ja tiverem sido
   apresentados ao usuario.
 - Toda mudanca manual do usuario deve ser revalidada antes da migracao.
+- Coordenadas sem auditoria registrada nao podem passar como Gate A limpo.
+  Quando nao houver referencia espacial externa, essa ausencia deve ser
+  explicitada e aprovada pelo usuario como ressalva antes da migracao.
 - Migracao deve falhar fechada se a validacao ou a auditoria taxonomica tiver
   bloqueios.
 - Consolidacao deve ter backup ou estrategia de reversao registrada.
 - Geracao final deve produzir manifesto ou inventario equivalente.
 - Ajustes apenas de layout podem manter a operacao em `reviewing_layout` sem
   invalidar os resultados numericos ja auditados.
+- Execucoes por LLM devem obedecer a politica de contexto minimo antes de
+  consultar historico, outputs ou lastros pesados.
 
 ## Encerramento
 

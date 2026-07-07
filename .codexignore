@@ -1,0 +1,51 @@
+# Codex context guardrails
+#
+# These paths are operational artifacts, generated outputs, caches, or local
+# environments. They should not be loaded into LLM context unless explicitly
+# requested.
+
+.git/
+.venv/
+venv/
+env/
+__pycache__/
+.pytest_cache/
+.vscode/
+.agents/
+
+# Local secrets and machine files
+.env
+.env.*
+desktop.ini
+Thumbs.db
+
+# Generated outputs and reproducibility backups
+outputs/
+logs/
+
+# Heavy/generated data artifacts
+*.xlsx
+*.xlsm
+*.xls
+*.csv
+*.parquet
+*.feather
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.pdf
+*.html
+*.zip
+*.7z
+*.rar
+
+# Python/build caches
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
