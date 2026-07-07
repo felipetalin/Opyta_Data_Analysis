@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-07-01T14:17:43.778064+00:00",
+  "project_id": 165,
+  "project_code": "ITAGUA001",
+  "group": "Ictiofauna",
+  "outputs": {
+    "html": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\ictiofauna\\dashboard_performance_ambiental\\dashboard_performance_ambiental_ictiofauna_itagua001.html",
+    "xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\ictiofauna\\dashboard_performance_ambiental\\dados_dashboard_performance_ambiental_ictiofauna_itagua001.xlsx",
+    "manifest": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\ictiofauna\\dashboard_performance_ambiental\\manifesto_dashboard_performance_ambiental_ictiofauna_itagua001.json"
+  },
+  "counts": {
+    "rows_total": 3720,
+    "species": 29,
+    "registered_campaigns": 42,
+    "result_campaigns": 41,
+    "quantitative_campaigns": 40
+  },
+  "quality_flags": {
+    "registered_without_results": [
+      "C028-2026-04-SC"
+    ],
+    "results_without_quantitative": [
+      "CR009-2016-12-SC"
+    ]
+  }
+}
