@@ -75,6 +75,7 @@
       "docs": [
         "docs/AVG_BENTOS_INVENTARIO_BANCO_20260608.md",
         "docs/AVG_ICTIOFAUNA_2026.md",
+        "docs/control_center/operations/BRAAVG002_ICTIOFAUNA_JUNHO_2026.md",
         "docs/control_center/reviews/BRAAVG002_ZOOBENTOS_MARCO_2026_REV_R01.md",
         "docs/control_center/reviews/BRAAVG002_ZOOBENTOS_JANEIRO_2026_REV_R02.md"
       ],
@@ -85,7 +86,8 @@
         "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg"
       ],
       "learning": [
-        "Rotinas recentes de bentos/ictio 2026 devem ser avaliadas para virar recipe."
+        "Rotinas recentes de bentos/ictio 2026 devem ser avaliadas para virar recipe.",
+        "Para PNGs grandes em pastas do Google Drive, salvar primeiro em diretorio temporario local e depois copiar para a pasta final reduz risco de arquivo truncado."
       ]
     },
     {

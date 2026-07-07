@@ -9,7 +9,7 @@ Projeto AVG/Brandt:
 - `project_id`: 9
 - `codigo_interno_opyta`: `BRAAVG002`
 - grupo: `Ictiofauna`
-- runner definitivo: `scripts/run_ictio_avg_abril_maio.py`
+- runner definitivo: `scripts/projects/avg/run_ictio_avg_abril_maio.py`
 - tema: `configs/clients/braavg002.json`
 - raiz de saida:
   `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026`
@@ -80,7 +80,7 @@ montagem do Word.
 
 ## Validacoes Minimas Apos Rodar
 
-Depois de executar `python scripts/run_ictio_avg_abril_maio.py`, conferir:
+Depois de executar o runner em `scripts/projects/avg/run_ictio_avg_abril_maio.py`, conferir:
 
 - as pastas `abril` e `maio` nao possuem `corrigidos_word`;
 - os arquivos `02_df_riqueza_por_ponto_ictiofauna.xlsx`,
@@ -95,6 +95,22 @@ Depois de executar `python scripts/run_ictio_avg_abril_maio.py`, conferir:
 - `04_df_riqueza_por_ordem_ictiofauna.xlsx` e
   `04_df_riqueza_por_familia_ictiofauna.xlsx` nao contem `Nao informado`;
 - `01_tabela_composicao_ictiofauna.xlsx` nao contem linha com taxon vazio.
+
+## Junho/2026
+
+Rodada parcial de Ictiofauna AVG encerrada em 2026-07-01.
+
+- campanha: `47ª-Jun-26`;
+- comando recomendado para campanha unica:
+  `python scripts/projects/avg/run_ictio_avg_abril_maio.py --campaign junho`;
+- saida:
+  `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026/junho`;
+- produtos oficiais: 31 arquivos, sendo 15 PNG e 16 XLSX;
+- conferencias finais: 15 PNGs abriram via PIL, 16 XLSX abriram via openpyxl, abundancia total por ponto = 45 individuos, biomassa total = 5,8;
+- aprovacao final do usuario registrada em `docs/control_center/operations/BRAAVG002_ICTIOFAUNA_JUNHO_2026.md`.
+
+Aprendizado operacional: para PNGs grandes em pasta do Google Drive, salvar
+primeiro em diretorio temporario local e depois copiar para a pasta final.
 
 ## Observacao Sobre Ordinais
 

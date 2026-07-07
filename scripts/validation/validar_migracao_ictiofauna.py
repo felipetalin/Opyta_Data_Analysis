@@ -36,6 +36,35 @@ DEFAULT_OUTPUT_ROOT = REPO_ROOT / "outputs" / "validacoes"
 DEFAULT_OPTYA_DATA_ROOT = Path(r"G:\Meu Drive\Opyta\Opyta_Data")
 GROUP = "Ictiofauna"
 
+MONTHS = {
+    "jan": 1,
+    "janeiro": 1,
+    "fev": 2,
+    "fevereiro": 2,
+    "mar": 3,
+    "marco": 3,
+    "março": 3,
+    "abr": 4,
+    "abri": 4,
+    "abril": 4,
+    "mai": 5,
+    "maio": 5,
+    "jun": 6,
+    "junho": 6,
+    "jul": 7,
+    "julho": 7,
+    "ago": 8,
+    "agosto": 8,
+    "set": 9,
+    "setembro": 9,
+    "out": 10,
+    "outubro": 10,
+    "nov": 11,
+    "novembro": 11,
+    "dez": 12,
+    "dezembro": 12,
+}
+
 IMPORT_SHEETS = [
     "Capa_Projeto",
     "Pontos_e_Campanhas",
@@ -63,6 +92,34 @@ def clean(value: object) -> str:
     if value is None or pd.isna(value):
         return ""
     return str(value).replace("\xa0", " ").strip()
+
+
+def parse_ordinal_campaign(value: object) -> tuple[int, int] | None:
+    text = norm(value)
+    text = (
+        text.replace("ª", "a")
+        .replace("º", "o")
+        .replace("°", "o")
+        .replace("Ã‚Âª", "a")
+        .replace("Ã‚Âº", "o")
+        .replace("Ã‚Â°", "o")
+    )
+    text = re.sub(r"[^a-z0-9]+", " ", text).strip()
+    match = re.match(r"^\d+\s*(?:a|o)?\s+(.*)$", text)
+    if not match:
+        return None
+    month = None
+    year = None
+    for token in match.group(1).split():
+        if token in MONTHS:
+            month = MONTHS[token]
+        elif re.fullmatch(r"\d{2,4}", token):
+            year = int(token)
+            if year < 100:
+                year += 2000
+    if month is None or year is None:
+        return None
+    return year, month
 
 
 def slugify(value: object) -> str:
@@ -707,13 +764,19 @@ def add_complementary_checks(
             parsed = pd.to_datetime(row.get("Data"), errors="coerce")
             problems: list[str] = []
             if not match_info:
-                problems.append("formato do codigo")
+                ordinal_parts = parse_ordinal_campaign(camp)
+                if ordinal_parts is None:
+                    problems.append("formato do codigo")
+                else:
+                    expected_year, expected_month = ordinal_parts
+                    match_info = True
             if pd.isna(parsed):
                 problems.append("data invalida")
             elif match_info:
-                match, year_group, month_group = match_info
-                expected_year = int(match.group(year_group))
-                expected_month = int(match.group(month_group))
+                if match_info is not True:
+                    match, year_group, month_group = match_info
+                    expected_year = int(match.group(year_group))
+                    expected_month = int(match.group(month_group))
                 if parsed.year != expected_year or parsed.month != expected_month:
                     problems.append(f"data {parsed.date()} nao bate com {expected_year}-{expected_month:02d}")
             if problems:
@@ -732,6 +795,37 @@ def add_complementary_checks(
             "BLOQUEIO" if date_rows else "INFO",
             "CAMPAIGN_DATE_MISMATCH" if date_rows else "CAMPAIGN_DATE_OK",
             f"{len(date_rows)} ponto(s) com inconsistencia entre data e campanha." if date_rows else "Codigos de campanha e datas estao consistentes quanto a ano/mes e formato reconhecido.",
+        )
+    )
+
+    campaign_set_rows: list[dict[str, Any]] = []
+    campaign_sets = {
+        "Pontos_e_Campanhas": set(col_values(df_pontos, "Campanha").dropna().astype(str).str.strip()),
+        "Metadados_Esforco": set(col_values(df_esforco, "Campanha").dropna().astype(str).str.strip()),
+        "Resultados_Ictiofauna": set(col_values(df_resultados, "Campanha").dropna().astype(str).str.strip()),
+    }
+    all_campaigns = set().union(*campaign_sets.values())
+    for sheet, values in campaign_sets.items():
+        missing = sorted(all_campaigns - values)
+        if missing:
+            campaign_set_rows.append(
+                {
+                    "aba": sheet,
+                    "campanhas_ausentes_nesta_aba": "; ".join(missing),
+                    "n": len(missing),
+                }
+            )
+    findings.append(
+        issue(
+            "Validacao complementar",
+            "BLOQUEIO" if campaign_set_rows else "INFO",
+            "CAMPAIGN_SET_MISMATCH" if campaign_set_rows else "CAMPAIGN_SET_OK",
+            "As campanhas nao coincidem exatamente entre as abas principais."
+            if campaign_set_rows
+            else "As campanhas coincidem exatamente entre Pontos, Esforco e Resultados.",
+            suggestion="Padronizar a grafia da campanha em todas as abas antes de migrar."
+            if campaign_set_rows
+            else "",
         )
     )
 
@@ -1120,6 +1214,7 @@ def add_complementary_checks(
         "missing_required_rows": pd.DataFrame(missing_required_rows),
         "numeric_rows": pd.DataFrame(numeric_rows),
         "date_rows": pd.DataFrame(date_rows),
+        "campaign_set_rows": pd.DataFrame(campaign_set_rows),
         "missing_effort_records": pd.DataFrame(missing_effort_records),
         "exact_mismatch_records": pd.DataFrame(exact_mismatch_records),
         "effort_value_mismatch": pd.DataFrame(effort_value_mismatch),
