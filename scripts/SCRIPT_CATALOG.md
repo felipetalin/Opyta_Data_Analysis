@@ -34,6 +34,7 @@ rastreabilidade sem depender de memoria ou de busca manual em pastas de cliente.
 | AVG | `scripts/projects/avg/` | Bentos/ictio 2026: migracao, consolidacao e geracao por campanha. |
 | ITAGUA001 / Monitoramento da Fauna | `scripts/projects/project_165/` | Pipeline historico de ictiofauna documentado em `docs/PIPELINE_ICTIO_165.md`. |
 | FERSAM001 / Sam Metais Diagnostico | `scripts/projects/sam_metais/` | Meio fisico, conformidade e revisao de biota aquatica. |
+| BRAAEG001 / A&G Mineracao | `scripts/projects/braaeg001/` | Meio fisico e biota: auditorias de Gate A/B, dry-run controlado e validacao da nova base bioaquatica. |
 | VIRITA001 / Itabrita | `scripts/projects/virita001/` | Ictiofauna: relatorio tecnico HTML e evidencias da Campanha 1, seguindo o padrao analitico FERSAM001 para duas campanhas. |
 | GEOARC001 / Arcelor | `scripts/projects/geoarc001/` | Ictiofauna: analises exploratorias taxonomicas e funcionais, mapas de grupos sentinelas, sintese espacial funcional e assinatura de especies por grupo funcional. |
 
@@ -47,6 +48,18 @@ rastreabilidade sem depender de memoria ou de busca manual em pastas de cliente.
 | `scripts/projects/geoarc001/generate_functional_spatial_synthesis.py` | exploratorio reutilizavel | Mapas de permanencia funcional, balanco funcional e trajetoria funcional por ponto, com classificacao heuristica rastreavel. |
 | `scripts/projects/geoarc001/generate_functional_technical_presentation.py` | exploratorio reutilizavel | Apresentacao tecnica HTML da analise funcional, com introducao, metodologia, figuras 27/33/34/35/36, tabelas-resumo e modo `--embed-images` para compartilhamento autossuficiente. |
 | `scripts/projects/geoarc001/generate_functional_species_signature.py` | exploratorio reutilizavel | Assinatura das especies por grupo funcional sentinela, com barras de CPUEn e marcadores AME/EXO. |
+
+### Scripts De Projeto - BRAAEG001
+
+| Script | Status | Uso |
+| --- | --- | --- |
+| `scripts/projects/braaeg001/auditar_parametros_meio_fisico.py` | operacional | Auditoria de parametros/VMP contra `parametros_analise` para o Gate B. |
+| `scripts/projects/braaeg001/preparar_gate_b_problemas_meio_fisico.py` | operacional | Recorte de problemas do Gate B com aba de decisao do usuario. |
+| `scripts/projects/braaeg001/preparar_migracao_controlada_meio_fisico.py` | operacional | Dry-run controlado com plano de cadastro/VMP, SQL apply/rollback e preview da carga consolidada. |
+| `scripts/projects/braaeg001/aplicar_migracao_controlada_meio_fisico.py` | operacional | Aplicacao REST controlada do dry-run, com rollback automatico em caso de falha. |
+| `scripts/projects/braaeg001/validar_nova_base_biota.py` | operacional | Valida a nova base bioaquatica, compara esforcos/pontos/cursos d'agua e audita taxons contra `public.especies`. |
+| `scripts/projects/braaeg001/aplicar_decisoes_gate_ab_biota.py` | operacional | Aplica decisoes aprovadas dos Gates A/B da biota, com backup de planilhas, cadastro taxonomico aditivo e lastro em Excel. |
+| `scripts/projects/braaeg001/migrar_biota_aquatica.py` | operacional | Executa dry-run/apply transacional da biota aquatica BRAAEG001, cria backups por tabela, carrega resultados base e consolida em `biota_analise_consolidada`. |
 
 ## Geradores De Meio Fisico
 

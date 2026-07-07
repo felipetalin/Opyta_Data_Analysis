@@ -7,6 +7,9 @@ continua em [PROJECTS.md](PROJECTS.md).
 
 | Operacao | Projeto | Grupo | Estado atual | Proxima acao | Registro |
 | --- | --- | --- | --- | --- | --- |
+| Migracao inicial - meio fisico | BRAAEG001 / A&G Mineracao | Meio fisico | `awaiting_analysis_approval` | Aguardar segunda campanha antes da geracao; antes de produtos, replicar nomes de cursos d'agua da nova base da biota | [BRAAEG001_MEIO_FISICO_MIGRACAO.md](operations/BRAAEG001_MEIO_FISICO_MIGRACAO.md) |
+| Migracao inicial - biota aquatica | BRAAEG001 / A&G Mineracao | Fito, Zoo, Bentos e Ictiofauna | `configuring_analysis` | Configurar recorte analitico, template, paleta, pasta de saida e produtos para Gate C; nao gerar produtos sem aprovacao | [BRAAEG001_BIOTA_AQUATICA_CAMPANHA_1.md](operations/BRAAEG001_BIOTA_AQUATICA_CAMPANHA_1.md) |
+| Migracao inicial - meio fisico | FERSAM001 / Sam Metais Diagnostico | Meio fisico | `awaiting_data_approval` | Aprovar Gate A dos dados validados antes da migracao | [FERSAM001_MEIO_FISICO_MIGRACAO.md](operations/FERSAM001_MEIO_FISICO_MIGRACAO.md) |
 | Migracao inicial - 18 campanhas | GEOARC001 / Monitoramento Arcelor | Ictiofauna | `configuring_analysis` | Configurar template multicampanha, paleta, pasta final e produtos para Gate C | [GEOARC001_ICTIOFAUNA_18_CAMPANHAS.md](operations/GEOARC001_ICTIOFAUNA_18_CAMPANHAS.md) |
 | Revisao R03 - figura 10 | GEOARC001 / Monitoramento Arcelor | Ictiofauna | `awaiting_revision_approval` | Aprovar figura 10 revisada no Gate R | [GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R03.md](reviews/GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R03.md) |
 | Revisao R04 - Harttia ameacadas | GEOARC001 / Monitoramento Arcelor | Ictiofauna | `awaiting_revision_approval` | Aprovar figura 14 e planilha de apoio no Gate R | [GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R04.md](reviews/GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R04.md) |
@@ -30,4 +33,7 @@ registro em [reviews](reviews/README.md) quando houver escopo executavel.
 
 | Operacao | Projeto | Grupo | Estado final | Concluida em | Registro |
 | --- | --- | --- | --- | --- | --- |
+| Contencao de contexto LLM | Sistema Opyta / Central de Controle | Governanca operacional | `completed` | 2026-07-07 | [SISTEMA_CONTEXT_GUARDRAILS_LLM.md](operations/SISTEMA_CONTEXT_GUARDRAILS_LLM.md) |
+| Migracao ate junho/2026 | BRAAVG002 / Brumado AVG | Ictiofauna | `completed` | 2026-07-01 | [BRAAVG002_ICTIOFAUNA_JUNHO_2026.md](operations/BRAAVG002_ICTIOFAUNA_JUNHO_2026.md) |
+| Revisao R01 - 45a-Abr-26 | BRAAVG002 / Brumado AVG | Ictiofauna | `review_completed` | 2026-07-07 | [BRAAVG002_ICTIOFAUNA_ABRIL_2026_REV_R01.md](reviews/BRAAVG002_ICTIOFAUNA_ABRIL_2026_REV_R01.md) |
 | Revisao R02 — 42ª-Jan-26 | BRAAVG002 / Brumado AVG | Zoobentos | `review_completed` | 2026-06-22 | [BRAAVG002_ZOOBENTOS_JANEIRO_2026_REV_R02.md](reviews/BRAAVG002_ZOOBENTOS_JANEIRO_2026_REV_R02.md) |
