@@ -549,7 +549,15 @@ def plot_balance(
         for category in CATEGORY_ORDER
         if category in set(balance["categoria_balanco"])
     ]
-    ax.legend(handles=legend_handles, title="Classificação exploratória", loc="upper right", fontsize=8.2, title_fontsize=8.6, frameon=True)
+    ax.legend(
+        handles=legend_handles,
+        title="Classificação exploratória",
+        loc="upper left",
+        bbox_to_anchor=(1.01, 1.0),
+        fontsize=8.2,
+        title_fontsize=8.6,
+        frameon=True,
+    )
     fig.text(
         0.02,
         0.025,
@@ -558,7 +566,7 @@ def plot_balance(
         fontsize=8.3,
         color="#404040",
     )
-    fig.subplots_adjust(left=0.10, right=0.96, top=0.90, bottom=0.12)
+    fig.subplots_adjust(left=0.10, right=0.74, top=0.90, bottom=0.12)
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
 
@@ -608,7 +616,15 @@ def plot_trajectory(
         for category in TRAJECTORY_ORDER
         if category in set(trajectory["trajetoria_funcional"])
     ]
-    ax.legend(handles=legend_handles, title="Tendência exploratória", loc="upper right", fontsize=8.0, title_fontsize=8.4, frameon=True)
+    ax.legend(
+        handles=legend_handles,
+        title="Tendência exploratória",
+        loc="upper left",
+        bbox_to_anchor=(1.01, 1.0),
+        fontsize=8.0,
+        title_fontsize=8.4,
+        frameon=True,
+    )
     fig.text(
         0.02,
         0.025,
@@ -617,7 +633,7 @@ def plot_trajectory(
         fontsize=8.3,
         color="#404040",
     )
-    fig.subplots_adjust(left=0.10, right=0.96, top=0.90, bottom=0.12)
+    fig.subplots_adjust(left=0.10, right=0.74, top=0.90, bottom=0.12)
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
 

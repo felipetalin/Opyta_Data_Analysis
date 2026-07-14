@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import math
 import re
 import shutil
@@ -36,6 +37,7 @@ import opyta_analysis.pipelines.diagnostico.ictio as ictio_mod
 from core.engine import get_engine
 
 
+CONFIG_PATH = ROOT / "configs" / "projects" / "braavg002_ictiofauna_2026.json"
 PROJECT_ID = 9
 GROUP = "Ictiofauna"
 CLIENT = "braavg002"
@@ -103,6 +105,92 @@ MONTHS = {
     "dez": "Dez",
     "dezembro": "Dez",
 }
+
+
+def _json_default(value: object) -> object:
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, np.integer):
+        return int(value)
+    if isinstance(value, np.floating):
+        return float(value)
+    return str(value)
+
+
+def _load_recipe(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _apply_recipe(recipe: dict) -> None:
+    if not recipe:
+        return
+
+    global PROJECT_ID, GROUP, CLIENT, BASE_OUT, CAMPAIGNS
+    global AREA_01, AREA_02, AC01_POINTS, AC02_POINTS, POINT_ORDER, AREA_BY_POINT, AREA_COLORS
+
+    PROJECT_ID = int(recipe.get("project_id", PROJECT_ID))
+    CLIENT = str(recipe.get("client_config", CLIENT))
+    if recipe.get("output_root"):
+        BASE_OUT = Path(recipe["output_root"])
+
+    groups = recipe.get("groups") or []
+    if groups:
+        GROUP = str(groups[0].get("group", GROUP))
+
+    targets = recipe.get("generation", {}).get("targets") or []
+    parsed_targets = {}
+    for target in targets:
+        folder = target.get("folder") or target.get("key")
+        campaign = target.get("campaign")
+        if folder and campaign:
+            parsed_targets[str(folder)] = str(campaign)
+    if parsed_targets:
+        CAMPAIGNS = parsed_targets
+
+    layout = recipe.get("point_layout") or {}
+    control_groups = layout.get("control_groups") or []
+    if len(control_groups) >= 2:
+        AREA_01 = str(control_groups[0].get("label", AREA_01))
+        AREA_02 = str(control_groups[1].get("label", AREA_02))
+        AC01_POINTS = [str(point) for point in control_groups[0].get("points", AC01_POINTS)]
+        AC02_POINTS = [str(point) for point in control_groups[1].get("points", AC02_POINTS)]
+        POINT_ORDER = AC01_POINTS + AC02_POINTS
+        AREA_BY_POINT = {p: AREA_01 for p in AC01_POINTS} | {p: AREA_02 for p in AC02_POINTS}
+
+    colors = layout.get("control_area_colors") or {}
+    AREA_COLORS = {
+        AREA_01: str(colors.get("area_01", colors.get(AREA_01, AREA_COLORS.get(AREA_01, "#16803A")))),
+        AREA_02: str(colors.get("area_02", colors.get(AREA_02, AREA_COLORS.get(AREA_02, "#7FA33A")))),
+    }
+
+
+def _selected_campaigns(campaign_key: str | None) -> dict[str, str]:
+    if not campaign_key:
+        return CAMPAIGNS
+    if campaign_key not in CAMPAIGNS:
+        choices = ", ".join(sorted(CAMPAIGNS))
+        raise RuntimeError(f"Campanha nao cadastrada: {campaign_key}. Opcoes: {choices}")
+    return {campaign_key: CAMPAIGNS[campaign_key]}
+
+
+def _list_campaigns_payload(recipe_path: Path) -> dict:
+    return {
+        "recipe": recipe_path,
+        "project_id": PROJECT_ID,
+        "client": CLIENT,
+        "group": GROUP,
+        "output_root": BASE_OUT,
+        "campaigns": [
+            {
+                "key": folder,
+                "campaign": campaign,
+                "output_dir": BASE_OUT / folder,
+            }
+            for folder, campaign in CAMPAIGNS.items()
+        ],
+    }
 
 
 def _norm(value: object) -> str:
@@ -250,6 +338,77 @@ def _pad_zero_catch(df_camp: pd.DataFrame, df_esf_camp: pd.DataFrame) -> pd.Data
             message="The behavior of DataFrame concatenation with empty or all-NA entries is deprecated.*",
         )
         return pd.concat([df_camp, df_pad], ignore_index=True)
+
+
+def _summarize_campaign_preflight(
+    df_all: pd.DataFrame,
+    df_esf: pd.DataFrame,
+    folder: str,
+    campaign: str,
+) -> dict:
+    out_dir = BASE_OUT / folder
+    df_c = df_all[df_all["nome_campanha"] == campaign].copy()
+    if df_c.empty:
+        return {
+            "key": folder,
+            "campaign": campaign,
+            "status": "missing_in_consolidated",
+            "output_dir": out_dir,
+            "available_campaigns": sorted(df_all["nome_campanha"].dropna().astype(str).unique().tolist()),
+        }
+
+    if not df_esf.empty:
+        df_esf_c = df_esf[df_esf["nome_campanha"] == campaign].copy()
+    else:
+        df_esf_c = df_esf
+    df_point_metrics = _pad_zero_catch(df_c, df_esf_c)
+
+    counts = pd.to_numeric(df_c.get("contagem", 0), errors="coerce").fillna(0)
+    biomass_col = "biomassa_total_analitica" if "biomassa_total_analitica" in df_c.columns else "biomassa"
+    biomass = pd.to_numeric(df_c.get(biomass_col, 0), errors="coerce").fillna(0)
+    observed_points = sorted(df_c["nome_ponto"].dropna().astype(str).unique().tolist())
+    effort_points = sorted(df_esf_c["nome_ponto"].dropna().astype(str).unique().tolist()) if not df_esf_c.empty else []
+    zero_capture_points = [point for point in POINT_ORDER if point in effort_points and point not in observed_points]
+    existing_files = [p for p in out_dir.iterdir() if p.name.lower() != "desktop.ini"] if out_dir.exists() else []
+
+    return {
+        "key": folder,
+        "campaign": campaign,
+        "status": "ready",
+        "output_dir": out_dir,
+        "output_dir_exists": out_dir.exists(),
+        "existing_files": len(existing_files),
+        "records_observed": int(len(df_c)),
+        "records_with_zero_points": int(len(df_point_metrics)),
+        "points_expected": POINT_ORDER,
+        "points_observed": observed_points,
+        "points_with_effort": effort_points,
+        "zero_capture_points_with_effort": zero_capture_points,
+        "taxa": int(df_c["nome_cientifico"].dropna().astype(str).str.strip().replace("", np.nan).nunique()),
+        "abundance_total": float(counts.sum()),
+        "biomass_total": float(biomass.sum()),
+    }
+
+
+def _run_preflight(selected_campaigns: dict[str, str], recipe_path: Path) -> dict:
+    df_all = _load_df_from_sql()
+    if df_all.empty:
+        raise RuntimeError("Sem dados carregados para Ictiofauna projeto 9.")
+    df_esf = _load_esforcos_quantitativos()
+    campaign_results = [
+        _summarize_campaign_preflight(df_all, df_esf, folder, campaign)
+        for folder, campaign in selected_campaigns.items()
+    ]
+    return {
+        "mode": "preflight",
+        "recipe": recipe_path,
+        "project_id": PROJECT_ID,
+        "client": CLIENT,
+        "group": GROUP,
+        "output_root": BASE_OUT,
+        "campaign_results": campaign_results,
+        "ready": all(result["status"] == "ready" for result in campaign_results),
+    }
 
 
 def _clean_output_dir(out_dir: Path) -> None:
@@ -650,15 +809,44 @@ def _write_final_point_outputs(
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Gera resultados parciais de Ictiofauna AVG por campanha.")
     parser.add_argument(
-        "--campaign",
-        choices=sorted(CAMPAIGNS),
-        help="Pasta/campanha a gerar. Sem este argumento, gera todas as campanhas cadastradas.",
+        "--recipe",
+        type=Path,
+        default=CONFIG_PATH,
+        help="Recipe com campanhas, saida e regras de geracao.",
     )
+    parser.add_argument(
+        "--campaign",
+        help="Pasta/campanha cadastrada no recipe. Sem este argumento, usa todas as campanhas cadastradas.",
+    )
+    parser.add_argument("--list-campaigns", action="store_true", help="Lista alvos cadastrados e nao gera arquivos.")
+    parser.add_argument("--preflight", action="store_true", help="Confere dados/saida sem limpar pasta nem gerar produtos.")
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
+    recipe = _load_recipe(args.recipe)
+    _apply_recipe(recipe)
+
+    if args.list_campaigns:
+        print(json.dumps(_list_campaigns_payload(args.recipe), ensure_ascii=False, indent=2, default=_json_default))
+        return 0
+
+    try:
+        selected_campaigns = _selected_campaigns(args.campaign)
+    except RuntimeError as exc:
+        print(f"[ERRO] {exc}")
+        return 1
+
+    if args.preflight:
+        try:
+            payload = _run_preflight(selected_campaigns, args.recipe)
+        except RuntimeError as exc:
+            print(f"[ERRO] {exc}")
+            return 1
+        print(json.dumps(payload, ensure_ascii=False, indent=2, default=_json_default))
+        return 0 if payload["ready"] else 1
+
     theme = load_theme(ROOT / "configs", CLIENT)
     BASE_OUT.mkdir(parents=True, exist_ok=True)
 
@@ -668,8 +856,6 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     df_esf = _load_esforcos_quantitativos()
-
-    selected_campaigns = {args.campaign: CAMPAIGNS[args.campaign]} if args.campaign else CAMPAIGNS
 
     for folder, campaign in selected_campaigns.items():
         out_dir = BASE_OUT / folder

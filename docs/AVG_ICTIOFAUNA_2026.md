@@ -9,7 +9,9 @@ Projeto AVG/Brandt:
 - `project_id`: 9
 - `codigo_interno_opyta`: `BRAAVG002`
 - grupo: `Ictiofauna`
-- runner definitivo: `scripts/projects/avg/run_ictio_avg_abril_maio.py`
+- recipe: `configs/projects/braavg002_ictiofauna_2026.json`
+- runner por campanha: `scripts/projects/avg/run_ictio_avg_2026_por_campanha.py`
+- runner historico: `scripts/projects/avg/run_ictio_avg_abril_maio.py`
 - tema: `configs/clients/braavg002.json`
 - raiz de saida:
   `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026`
@@ -46,6 +48,10 @@ depois:
 `PIC-01`, `PIC-02`, `PIC-03`, `PIC-04`, `PIC-05`, `PIC-06`, `PIC-07`,
 `PIC-08`, `PIC-09`, `PIC-11`, `PIC-10`, `PIC-12`, `PIC-13`.
 
+Para os minigraficos espaciais e sinteses funcionais, criar a coluna analitica
+`area_controle` com estes mesmos grupos. Essa delimitacao deve ser usada para
+separar/identificar AC01 e AC02 nos produtos derivados do modelo GEOARC001.
+
 ## Pontos com Captura Zero
 
 Pontos com esforco quantitativo e captura zero devem aparecer nos graficos por
@@ -80,7 +86,11 @@ montagem do Word.
 
 ## Validacoes Minimas Apos Rodar
 
-Depois de executar o runner em `scripts/projects/avg/run_ictio_avg_abril_maio.py`, conferir:
+Antes de gerar, rodar o preflight da campanha alvo:
+
+`python scripts/projects/avg/run_ictio_avg_2026_por_campanha.py --preflight --campaign junho`
+
+Depois de executar o runner em `scripts/projects/avg/run_ictio_avg_2026_por_campanha.py`, conferir:
 
 - as pastas `abril` e `maio` nao possuem `corrigidos_word`;
 - os arquivos `02_df_riqueza_por_ponto_ictiofauna.xlsx`,
@@ -102,7 +112,7 @@ Rodada parcial de Ictiofauna AVG encerrada em 2026-07-01.
 
 - campanha: `47ª-Jun-26`;
 - comando recomendado para campanha unica:
-  `python scripts/projects/avg/run_ictio_avg_abril_maio.py --campaign junho`;
+  `python scripts/projects/avg/run_ictio_avg_2026_por_campanha.py --campaign junho`;
 - saida:
   `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026/junho`;
 - produtos oficiais: 31 arquivos, sendo 15 PNG e 16 XLSX;
@@ -111,6 +121,49 @@ Rodada parcial de Ictiofauna AVG encerrada em 2026-07-01.
 
 Aprendizado operacional: para PNGs grandes em pasta do Google Drive, salvar
 primeiro em diretorio temporario local e depois copiar para a pasta final.
+
+## Estudo Longo E Analises GEOARC001
+
+Auditoria de prontidao criada em 2026-07-13:
+
+- script:
+  `scripts/projects/avg/audit_ictio_avg_long_study_readiness.py`;
+- saida:
+  `outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/readiness_ictio_long_study_20260713`;
+- escopo atual: 47 campanhas, 13 pontos, grade ponto-campanha completa e 13 especies;
+- beta/LCBD taxonomico: gerado em 2026-07-13 com ano temporal agosto-julho;
+- ecologia funcional: gerada em 2026-07-13 com 13 traits aprovados para uso analitico;
+- minigraficos funcionais e sintese espacial: gerados em 2026-07-13 usando provisoriamente o KML padrao da raiz `Geo`, pois ele coincide com o banco; `KML Atual` permanece como ajuste futuro.
+- requisito adicional para minigraficos/sinteses funcionais: preservar a delimitacao `area_controle` com `Area de controle 01` e `Area de controle 02`.
+
+Pacote gerado:
+
+- pasta:
+  `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026/estudo_longo_geoarc001_20260713`;
+- copia consolidada:
+  `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna`;
+- fonte analitica:
+  `outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/geoarc001_long_study_source_20260713`;
+- produtos: 13 PNG, 12 XLSX, 5 JSON e 2 README/MD;
+- validacao: PNGs abriram via PIL e XLSX abriram via openpyxl, sem erro;
+- pendencia: revisar `KML Atual`; se for adotado como oficial, reabrir Gate A e regenerar produtos espaciais.
+
+## Consolidado 2026
+
+Analises tradicionais geradas em 2026-07-14 na pasta consolidada:
+
+- pasta:
+  `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna`;
+- runner:
+  `scripts/projects/avg/run_ictio_avg_tradicional_consolidado_2026.py`;
+- escopo: base historica completa `C001-2022-08-SC` a `C047-2026-06-SC`;
+- base: 519 registros observados, 787 linhas com pontos de captura zero para metricas por ponto, 13 pontos e 13 especies;
+- figuras por ponto: modelo A4 paisagem aprovado para relatorio, com um ponto por linha, eixo C01-C47 somente no painel inferior, CH/SC em cores fortes e anos temporais demarcados;
+- ocorrencia por campanha (`04B`): mantida em heatmaps por ano temporal agosto-julho (`2023`: C001-C012; `2024`: C013-C024; `2025`: C025-C036; `2026`: C037-C047);
+- ajuste taxonomico de saida: `Poecilia mexicana` apresentada como `Poecilia cf. mexicana`;
+- validacao da pasta final apos tradicionais + GEOARC001: 58 PNG, 29 XLSX, 6 JSON e 3 MD; PNGs abriram via PIL e XLSX abriram via openpyxl, sem erro;
+- conferencia de conteudo: planilhas 02, 03 e 06 com 13 pontos e 47 campanhas; composicao sem taxon vazio; ordem/familia sem `Nao informado`;
+- banco: sem alteracao de nomenclatura, traits, coordenadas ou taxonomia mestre.
 
 ## Observacao Sobre Ordinais
 

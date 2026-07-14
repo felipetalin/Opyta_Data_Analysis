@@ -300,6 +300,31 @@ def build_community(tables: SourceTables) -> tuple[pd.DataFrame, pd.DataFrame, p
     for frame in [pc, effort, results]:
         for col in ["nome_campanha", "nome_ponto"]:
             frame[col] = frame[col].astype(str).str.strip()
+    campaign_meta_cols = [
+        col
+        for col in [
+            "Ano_Temporal",
+            "Ano_Calendario",
+            "Mes",
+            "Periodo_Hidrologico",
+            "Ciclo_Temporal",
+            "Rotulo_Relatorio",
+        ]
+        if col in pc.columns
+    ]
+    campaign_meta = (
+        pc[["nome_campanha", *campaign_meta_cols]]
+        .drop_duplicates("nome_campanha")
+        .copy()
+        if campaign_meta_cols
+        else pd.DataFrame(columns=["nome_campanha"])
+    )
+    point_meta_cols = [col for col in ["Area_Controle"] if col in pc.columns]
+    point_meta = (
+        pc[["nome_ponto", *point_meta_cols]].drop_duplicates("nome_ponto").copy()
+        if point_meta_cols
+        else pd.DataFrame(columns=["nome_ponto"])
+    )
     results["nome_cientifico"] = results["nome_cientifico"].astype(str).str.strip()
     results.loc[results["nome_cientifico"].str.lower().isin(["nan", "none", ""]), "nome_cientifico"] = np.nan
     results["contagem"] = pd.to_numeric(results["contagem"], errors="coerce").fillna(0)
@@ -332,11 +357,22 @@ def build_community(tables: SourceTables) -> tuple[pd.DataFrame, pd.DataFrame, p
     sample_grid = pd.DataFrame(
         [{"nome_campanha": campaign, "nome_ponto": point} for campaign in campaigns for point in points]
     )
+    if not campaign_meta.empty:
+        sample_grid = sample_grid.merge(campaign_meta, on="nome_campanha", how="left")
+    if not point_meta.empty:
+        sample_grid = sample_grid.merge(point_meta, on="nome_ponto", how="left")
     sample_grid["sample_id"] = sample_grid["nome_campanha"] + " | " + sample_grid["nome_ponto"]
     sample_grid["campanha_curta"] = sample_grid["nome_campanha"].map(_campaign_short)
     sample_grid["ordem_campanha"] = sample_grid["nome_campanha"].map(_campaign_number)
     sample_grid["ano"] = sample_grid["nome_campanha"].map(_campaign_year)
     sample_grid["estacao"] = sample_grid["nome_campanha"].map(_campaign_season)
+    if "Ano_Temporal" in sample_grid.columns:
+        sample_grid["ano"] = pd.to_numeric(sample_grid["Ano_Temporal"], errors="coerce").combine_first(
+            pd.to_numeric(sample_grid["ano"], errors="coerce")
+        )
+    if "Periodo_Hidrologico" in sample_grid.columns:
+        season_override = sample_grid["Periodo_Hidrologico"].astype(str).str.strip().str.upper()
+        sample_grid.loc[season_override.isin(["CH", "SC"]), "estacao"] = season_override[season_override.isin(["CH", "SC"])]
     sample_grid["estacao_rotulo"] = sample_grid["estacao"].map(SEASON_LABELS).fillna("N.D.")
     sample_grid = sample_grid.merge(effort_total, on=["nome_campanha", "nome_ponto"], how="left")
 

@@ -93,8 +93,17 @@ def _campaign_sort_key(campaign: object) -> tuple[int, str]:
 
 
 def _short_point(point: str) -> str:
-    number = _point_number(point)
-    return f"IC-{number:02d}" if number < 999999 else str(point)
+    text = str(point)
+    number = _point_number(text)
+    if number >= 999999:
+        return text
+    if re.search(r"\bPIC\b|^PIC[-_\s]*\d+", text, flags=re.IGNORECASE):
+        return f"PIC-{number:02d}"
+    if re.search(r"\bIC[\s_-]*ARC\b|^IC[-_\s]*\d+", text, flags=re.IGNORECASE):
+        return f"IC-{number:02d}"
+    prefix_match = re.match(r"^\s*([A-Za-z]{1,4})", text)
+    prefix = prefix_match.group(1).upper() if prefix_match else "P"
+    return f"{prefix}-{number:02d}"
 
 
 def _theme_colors(theme: dict) -> tuple[str, str, str]:
@@ -554,7 +563,7 @@ def plot_spatial_mini_maps(
     fig.text(
         0.02,
         0.018,
-        "Cor = participação média do grupo no CPUEn total do ponto/ano; bolhas maiores indicam maior CPUEn médio anual absoluto do grupo. Rótulos abreviados IC-XX; produto exploratório.",
+        "Cor = participação média do grupo no CPUEn total do ponto/ano; bolhas maiores indicam maior CPUEn médio anual absoluto do grupo. Rótulos abreviados por ponto; produto exploratório.",
         ha="left",
         fontsize=8.6,
         color="#404040",

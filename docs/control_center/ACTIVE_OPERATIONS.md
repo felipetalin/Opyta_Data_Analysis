@@ -8,7 +8,7 @@ continua em [PROJECTS.md](PROJECTS.md).
 | Operacao | Projeto | Grupo | Estado atual | Proxima acao | Registro |
 | --- | --- | --- | --- | --- | --- |
 | Migracao inicial - meio fisico | BRAAEG001 / A&G Mineracao | Meio fisico | `awaiting_analysis_approval` | Aguardar segunda campanha antes da geracao; antes de produtos, replicar nomes de cursos d'agua da nova base da biota | [BRAAEG001_MEIO_FISICO_MIGRACAO.md](operations/BRAAEG001_MEIO_FISICO_MIGRACAO.md) |
-| Migracao inicial - biota aquatica | BRAAEG001 / A&G Mineracao | Fito, Zoo, Bentos e Ictiofauna | `configuring_analysis` | Configurar recorte analitico, template, paleta, pasta de saida e produtos para Gate C; nao gerar produtos sem aprovacao | [BRAAEG001_BIOTA_AQUATICA_CAMPANHA_1.md](operations/BRAAEG001_BIOTA_AQUATICA_CAMPANHA_1.md) |
+| Migracao inicial - biota aquatica | BRAAEG001 / A&G Mineracao | Fito, Zoo, Bentos e Ictiofauna | `reviewing_outputs` | Revisar pacote diagnostico de ictiofauna gerado; validacao de entrega OK, falta aprovar ou apontar ajustes | [BRAAEG001_BIOTA_AQUATICA_CAMPANHA_1.md](operations/BRAAEG001_BIOTA_AQUATICA_CAMPANHA_1.md) |
 | Migracao inicial - meio fisico | FERSAM001 / Sam Metais Diagnostico | Meio fisico | `awaiting_data_approval` | Aprovar Gate A dos dados validados antes da migracao | [FERSAM001_MEIO_FISICO_MIGRACAO.md](operations/FERSAM001_MEIO_FISICO_MIGRACAO.md) |
 | Migracao inicial - 18 campanhas | GEOARC001 / Monitoramento Arcelor | Ictiofauna | `configuring_analysis` | Configurar template multicampanha, paleta, pasta final e produtos para Gate C | [GEOARC001_ICTIOFAUNA_18_CAMPANHAS.md](operations/GEOARC001_ICTIOFAUNA_18_CAMPANHAS.md) |
 | Revisao R03 - figura 10 | GEOARC001 / Monitoramento Arcelor | Ictiofauna | `awaiting_revision_approval` | Aprovar figura 10 revisada no Gate R | [GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R03.md](reviews/GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R03.md) |
@@ -17,6 +17,7 @@ continua em [PROJECTS.md](PROJECTS.md).
 | Revisao R01 - coordenadas | DUCGEO001 / Monitoramento Ducal | Ictiofauna e Zoobentos | `awaiting_revision_approval` | Aprovar comparacao antes/depois no Gate R; limpar cache/reexecutar o app Streamlit | [DUCGEO001_BIOTA_AQUATICA_COORDENADAS_REV_R01.md](reviews/DUCGEO001_BIOTA_AQUATICA_COORDENADAS_REV_R01.md) |
 | Campanha 1 | VIRITA001 / Itabrita | Ictiofauna | `awaiting_revision_approval` | Aprovar revisoes R01 e R02 no Gate R | [VIRITA001_ICTIOFAUNA_CAMPANHA_1.md](operations/VIRITA001_ICTIOFAUNA_CAMPANHA_1.md) |
 | Revisao R01 — 44ª-Mar-26 | BRAAVG002 / Brumado AVG | Zoobentos | `awaiting_revision_approval` | Aprovar Excel e figura EPT/CHOL revisados no Gate R | [BRAAVG002_ZOOBENTOS_MARCO_2026_REV_R01.md](reviews/BRAAVG002_ZOOBENTOS_MARCO_2026_REV_R01.md) |
+| Preparacao de geracao - resultados 2026 | BRAAVG002 / Brumado AVG | Ictiofauna | `generated_pending_review` | Revisar pacote consolidado `Consolidado_2026/icitiofauna` com tradicionais C001-C047 em pranchas A4 aprovadas + GEOARC001; KML padrao usado provisoriamente e KML Atual fica como ajuste futuro | [BRAAVG002_ICTIOFAUNA_GERACAO_RESULTADOS_2026.md](operations/BRAAVG002_ICTIOFAUNA_GERACAO_RESULTADOS_2026.md) |
 
 ## Como Atualizar
 
