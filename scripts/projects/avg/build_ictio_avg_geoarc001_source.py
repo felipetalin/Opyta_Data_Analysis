@@ -90,6 +90,27 @@ TRAIT_FIELDS = [
     "Porte_corporal",
     "Sensibilidade_funcional",
 ]
+DISCONTINUED_POINT_FROM_CAMPAIGN = {
+    "PIC-01": 40,
+    "PIC-03": 40,
+    "PIC-11": 40,
+}
+COORDINATE_OVERRIDES = {
+    "PIC-11": {
+        "latitude": -19.801526,
+        "longitude": -43.700959,
+        "first_campaign_seq": 1,
+        "source": "ajuste_usuario_2026-07-14",
+        "note": "Coordenada definida pelo usuario para PIC-11.",
+    },
+    "PIC-02": {
+        "latitude": -19.800376,
+        "longitude": -43.710610,
+        "first_campaign_seq": 43,
+        "source": "realocacao_fev_2026_usuario_2026-07-14",
+        "note": "PIC-02 realocado a partir de fevereiro/2026.",
+    },
+}
 
 
 def _json_default(value: Any) -> Any:
@@ -293,6 +314,33 @@ def build_crosswalk(points: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values("campanha_ordem").reset_index(drop=True)
 
 
+def apply_sampling_adjustments(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove ponto-campanha definido como nao amostrado da camada analitica."""
+    if df.empty or "nome_ponto" not in df.columns or "campanha_ordem" not in df.columns:
+        return df
+    out = df.copy()
+    remove = pd.Series(False, index=out.index)
+    for point_name, first_seq in DISCONTINUED_POINT_FROM_CAMPAIGN.items():
+        remove |= (out["nome_ponto"] == point_name) & (pd.to_numeric(out["campanha_ordem"], errors="coerce") >= first_seq)
+    return out.loc[~remove].copy()
+
+
+def apply_coordinate_overrides(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty or "nome_ponto" not in df.columns or "campanha_ordem" not in df.columns:
+        return df
+    out = df.copy()
+    out["Fonte_Coordenada_Ajuste"] = ""
+    out["Observacao_Coordenada"] = ""
+    seq = pd.to_numeric(out["campanha_ordem"], errors="coerce")
+    for point_name, payload in COORDINATE_OVERRIDES.items():
+        mask = (out["nome_ponto"] == point_name) & (seq >= int(payload["first_campaign_seq"]))
+        out.loc[mask, "Latitude"] = float(payload["latitude"])
+        out.loc[mask, "Longitude"] = float(payload["longitude"])
+        out.loc[mask, "Fonte_Coordenada_Ajuste"] = str(payload["source"])
+        out.loc[mask, "Observacao_Coordenada"] = str(payload["note"])
+    return out
+
+
 def load_standard_coordinates(kml_standard: Path, point_order: list[str]) -> pd.DataFrame:
     coords = read_kml_point_coordinates(kml_standard)
     if coords.empty:
@@ -333,7 +381,9 @@ def build_source_tables(
     pts = points.copy()
     pts["nome_ponto"] = pts["nome_ponto"].map(_normalize_point)
     pts = pts.merge(cw, left_on="nome_campanha", right_on="nome_campanha_atual", how="left")
+    pts = apply_sampling_adjustments(pts)
     pts = pts.merge(coords, left_on="nome_ponto", right_on="Ponto", how="left", suffixes=("", "_kml"))
+    pts = apply_coordinate_overrides(pts)
     pts["Area_Controle"] = pts["nome_ponto"].map(area_by_point)
     pts["Data"] = pd.to_datetime(
         dict(year=pts["ano_calendario"], month=pts["mes"], day=np.ones(len(pts), dtype=int)),
@@ -357,6 +407,8 @@ def build_source_tables(
             "Curso_d_Agua": pts["curso_d_agua"],
             "Bacia_Hidrografica": pts["bacia_hidrografica"],
             "Fonte_Coordenada": str(KML_STANDARD),
+            "Fonte_Coordenada_Ajuste": pts["Fonte_Coordenada_Ajuste"],
+            "Observacao_Coordenada": pts["Observacao_Coordenada"],
         }
     )
     pontos_source["ordem_campanha"] = pts["campanha_ordem"]
@@ -368,6 +420,7 @@ def build_source_tables(
     eff = efforts.copy()
     eff["nome_ponto"] = eff["nome_ponto"].map(_normalize_point)
     eff = eff.merge(cw, left_on="nome_campanha", right_on="nome_campanha_atual", how="left")
+    eff = apply_sampling_adjustments(eff)
     eff["Area_Controle"] = eff["nome_ponto"].map(area_by_point)
     esforcos_source = pd.DataFrame(
         {
@@ -393,6 +446,7 @@ def build_source_tables(
     res = results.copy()
     res["nome_ponto"] = res["nome_ponto"].map(_normalize_point)
     res = res.merge(cw, left_on="nome_campanha", right_on="nome_campanha_atual", how="left")
+    res = apply_sampling_adjustments(res)
     res["Area_Controle"] = res["nome_ponto"].map(area_by_point)
     res["nome_cientifico_relatorio"] = res["nome_cientifico"].map(lambda value: display_name(value, overrides))
     resultados_source = pd.DataFrame(
@@ -607,9 +661,14 @@ def build(output_dir: Path, recipe_path: Path, kml_standard: Path) -> dict[str, 
         "project_code": PROJECT_CODE,
         "group": GROUP,
         "output_dir": str(output_dir),
-        "coordinate_decision": "kml_padrao_provisorio",
+        "coordinate_decision": "kml_padrao_provisorio_com_ajustes_usuario",
         "coordinate_reference": str(kml_standard),
-        "coordinate_note": "Usuario aprovou assumir o KML padrao neste momento; KML Atual permanece como ajuste futuro.",
+        "coordinate_note": (
+            "Usuario aprovou assumir o KML padrao neste momento; foram aplicados ajustes analiticos para "
+            "PIC-11 e para a realocacao do PIC-02 a partir de fevereiro/2026. KML Atual permanece como ajuste futuro."
+        ),
+        "sampling_adjustments": DISCONTINUED_POINT_FROM_CAMPAIGN,
+        "coordinate_overrides": COORDINATE_OVERRIDES,
         "campaigns": int(crosswalk["nome_campanha_atual"].nunique()),
         "temporal_cycles": crosswalk.groupby("ciclo_temporal", as_index=False).agg(
             campanhas=("nome_campanha_atual", "nunique"),

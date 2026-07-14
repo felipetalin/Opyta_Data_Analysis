@@ -74,6 +74,11 @@ AREA_COLORS = {
     AREA_01: "#16803A",
     AREA_02: "#7FA33A",
 }
+DISCONTINUED_POINT_FROM_CAMPAIGN = {
+    "PIC-01": 40,
+    "PIC-03": 40,
+    "PIC-11": 40,
+}
 GRID_COLOR = "#DDEBD8"
 EDGE_COLOR = "#173B23"
 
@@ -223,6 +228,24 @@ def canonical_campaign(value: object) -> str:
     return f"{seq}\u00aa-{month}-{year2:02d}"
 
 
+def _campaign_seq(value: object) -> int | None:
+    match = re.match(r"^\s*(\d+)", canonical_campaign(value))
+    return int(match.group(1)) if match else None
+
+
+def apply_sampling_adjustments(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove ponto-campanha definido como nao amostrado da camada analitica."""
+    if df.empty or "nome_campanha" not in df.columns or "nome_ponto" not in df.columns:
+        return df
+    out = df.copy()
+    seq = out["nome_campanha"].map(_campaign_seq)
+    point = out["nome_ponto"].astype(str).str.strip()
+    remove = pd.Series(False, index=out.index)
+    for point_name, first_seq in DISCONTINUED_POINT_FROM_CAMPAIGN.items():
+        remove |= (point == point_name) & (seq >= first_seq)
+    return out.loc[~remove].copy()
+
+
 def _clean_text(value: object) -> str:
     if value is None or pd.isna(value):
         return ""
@@ -303,7 +326,7 @@ def _load_esforcos_quantitativos() -> pd.DataFrame:
     df = df[df["esforco"].notna() & (df["esforco"] > 0)].copy()
     df = df.groupby(["nome_campanha", "nome_ponto"], as_index=False)["esforco"].sum()
     df["tipo_amostragem"] = "Quantitativo"
-    return df
+    return apply_sampling_adjustments(df)
 
 
 def _pad_zero_catch(df_camp: pd.DataFrame, df_esf_camp: pd.DataFrame) -> pd.DataFrame:

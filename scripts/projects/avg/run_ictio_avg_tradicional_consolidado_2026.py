@@ -82,6 +82,11 @@ TEMPORAL_YEAR_BANDS = [
     (2026, 37, 47),
 ]
 REPORT_SEASON_COLORS = {"CH": "#006837", "SC": "#E66101", "ND": "#555555"}
+DISCONTINUED_POINT_FROM_CAMPAIGN = {
+    "PIC-01": 40,
+    "PIC-03": 40,
+    "PIC-11": 40,
+}
 
 
 def _json_default(value: Any) -> Any:
@@ -188,6 +193,19 @@ def add_area_control(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def apply_sampling_adjustments(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove ponto-campanha definido como nao amostrado da camada analitica."""
+    if df.empty or "nome_campanha" not in df.columns or "nome_ponto" not in df.columns:
+        return df
+    out = df.copy()
+    seq = out["nome_campanha"].map(standard_campaign_sequence)
+    point = out["nome_ponto"].astype(str).str.strip()
+    remove = pd.Series(False, index=out.index)
+    for point_name, first_seq in DISCONTINUED_POINT_FROM_CAMPAIGN.items():
+        remove |= (point == point_name) & (seq >= first_seq)
+    return out.loc[~remove].copy()
+
+
 def clean_traditional_outputs(output_dir: Path) -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
     removed = 0
@@ -226,6 +244,7 @@ def build_frames() -> tuple[pd.DataFrame, pd.DataFrame, dict[str, str]]:
         df_effort["nome_campanha_original"] = df_effort["nome_campanha"]
         df_effort["nome_campanha"] = df_effort["nome_campanha"].map(campaign_map)
         df_effort = add_area_control(df_effort)
+        df_effort = apply_sampling_adjustments(df_effort)
 
     padded = []
     for standard_campaign in sorted(campaign_map.values(), key=lambda item: int(re.search(r"C0*(\d+)", item).group(1))):
@@ -457,12 +476,12 @@ def _plot_report_point_group(
             .reindex(range(START_CAMPAIGN, END_CAMPAIGN + 1))
             .reset_index()
         )
-        y = pd.to_numeric(point_data[value_col], errors="coerce").fillna(0).to_numpy(dtype=float)
+        y = pd.to_numeric(point_data[value_col], errors="coerce").to_numpy(dtype=float)
         x = point_data["campanha_seq"].to_numpy(dtype=float)
         _decorate_report_temporal_axis(ax, ymax=ymax)
         ax.plot(x, y, color="#4D4D4D", linewidth=1.25, zorder=1)
         for period, color in REPORT_SEASON_COLORS.items():
-            mask = np.array([season_by_seq.get(int(seq), "ND") == period for seq in x])
+            mask = np.array([season_by_seq.get(int(seq), "ND") == period for seq in x]) & ~np.isnan(y)
             ax.scatter(
                 x[mask],
                 y[mask],
@@ -672,6 +691,46 @@ def generate_report_figures(
     }
 
 
+def rewrite_point_metric_tables(output_dir: Path, df_point_metrics: pd.DataFrame) -> dict[str, Any]:
+    group_slug = avg_runner.ictio_mod._safe_group_name(GROUP)
+    df = df_point_metrics.copy()
+    df["contagem"] = pd.to_numeric(df.get("contagem", 0), errors="coerce").fillna(0)
+    df["nome_cientifico"] = df["nome_cientifico"].fillna("").astype(str).str.strip()
+
+    valid_taxa = df[(df["contagem"] > 0) & (df["nome_cientifico"] != "")].copy()
+    richness = (
+        valid_taxa.groupby(["nome_campanha", "nome_ponto"], dropna=False)["nome_cientifico"]
+        .nunique()
+        .reset_index(name="riqueza")
+    )
+    sampled_pairs = df[["nome_campanha", "nome_ponto"]].drop_duplicates()
+    richness = sampled_pairs.merge(richness, on=["nome_campanha", "nome_ponto"], how="left")
+    richness["riqueza"] = pd.to_numeric(richness["riqueza"], errors="coerce").fillna(0).astype(int)
+
+    abundance = (
+        df.groupby(["nome_campanha", "nome_ponto"], dropna=False)["contagem"]
+        .sum()
+        .reset_index(name="abundancia_total")
+    )
+
+    sort_cols = ["campaign_seq", "point_order"]
+    point_order_map = {point: idx for idx, point in enumerate(sum(REPORT_POINT_GROUPS.values(), []))}
+    for table in (richness, abundance):
+        table["campaign_seq"] = table["nome_campanha"].map(standard_campaign_sequence)
+        table["point_order"] = table["nome_ponto"].map(point_order_map)
+        table.sort_values(sort_cols, inplace=True)
+        table.drop(columns=sort_cols, inplace=True)
+
+    richness.to_excel(output_dir / f"02_df_riqueza_por_ponto_{group_slug}.xlsx", index=False, engine="openpyxl")
+    abundance.to_excel(output_dir / f"03_df_abundancia_por_ponto_{group_slug}.xlsx", index=False, engine="openpyxl")
+
+    return {
+        "richness_rows": int(len(richness)),
+        "abundance_rows": int(len(abundance)),
+        "sampled_point_campaigns": int(len(sampled_pairs)),
+    }
+
+
 def run(output_dir: Path, clean: bool) -> dict[str, Any]:
     recipe = avg_runner._load_recipe(CONFIG_PATH)
     avg_runner._apply_recipe(recipe)
@@ -686,6 +745,7 @@ def run(output_dir: Path, clean: bool) -> dict[str, Any]:
         theme=theme,
         output_dir=output_dir,
     )
+    point_metric_tables = rewrite_point_metric_tables(output_dir, df_point_metrics)
     report_figures = generate_report_figures(
         output_dir=output_dir,
         theme=theme,
@@ -712,6 +772,7 @@ def run(output_dir: Path, clean: bool) -> dict[str, Any]:
         "taxonomy_display_overrides": TAXON_DISPLAY_OVERRIDES,
         "removed_previous_traditional_files": int(removed),
         "report_figures": report_figures,
+        "point_metric_tables": point_metric_tables,
         "details": details,
     }
     manifest = output_dir / "manifesto_braavg002_tradicional_ictiofauna_2026.json"

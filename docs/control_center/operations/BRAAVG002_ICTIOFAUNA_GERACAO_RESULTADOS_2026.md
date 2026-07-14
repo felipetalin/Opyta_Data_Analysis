@@ -7,8 +7,8 @@
 - operacao: organizacao da matriz de geracao antes de executar novos produtos
 - estado atual: `generated_pending_review`
 - aberta em: 2026-07-13
-- atualizada em: 2026-07-13
-- proxima acao: revisar os produtos consolidados tradicionais + GEOARC001 em `Consolidado_2026/icitiofauna`; KML padrao foi usado provisoriamente e o `KML Atual` fica como ajuste espacial futuro
+- atualizada em: 2026-07-14
+- proxima acao: revisar os produtos tradicionais consolidados em `Consolidado_2026/icitiofauna`; fonte GEOARC001 atualizada com novos pontos, mas produtos espaciais derivados devem ser regenerados antes do fechamento
 
 ## Caminhos
 
@@ -54,7 +54,7 @@
 | Consolidacao | herdada | Consolidacao da fatia BRAAVG002/Ictiofauna concluida com 519 linhas. |
 | Configuracao das analises | concluida | Recipe, fonte analitica AVG/GEOARC001, ano temporal ago-jul, traits aprovados e KML padrao provisorio registrados. |
 | Gate C - analises | aprovado provisoriamente | Usuario autorizou assumir KML padrao para gerar os resultados; crosswalk e traits usados como camada analitica sem alterar banco. |
-| Geracao dos produtos | concluida | Pacote `estudo_longo_geoarc001_20260713` gerado e copiado; analises tradicionais C001-C047 geradas em `Consolidado_2026/icitiofauna`, com pranchas A4 por ponto aprovadas para relatorio. |
+| Geracao dos produtos | concluida parcial | Analises tradicionais C001-C047 regeneradas em `Consolidado_2026/icitiofauna` com pranchas A4 por ponto aprovadas e lacunas de nao-amostragem; fonte GEOARC001 reconstruida, produtos espaciais derivados pendentes de regeneracao. |
 | Revisao tecnica | pendente | Validacao automatica OK; falta revisao tecnica/conteudo pelo usuario. |
 | Revisao de layout | parcial | Minigraficos e sintese visualmente conferidos; legenda do mapa de balanco ajustada para fora dos pontos. |
 | Fechamento | pendente | Encerrar apos aprovacao, geracao e revisao da rodada alvo. |
@@ -100,7 +100,7 @@
 - anos cobertos: 2022 a 2026.
 - campanhas por ano: 2022 = 5; 2023 = 12; 2024 = 12; 2025 = 12; 2026 = 6.
 - pontos: 13.
-- grade ponto-campanha: 611/611, completa.
+- grade ponto-campanha apos ajuste: 587 amostragens efetivas; 24 combinacoes removidas porque `PIC-01`, `PIC-03` e `PIC-11` nao foram amostrados de `C040-2025-11-CH` em diante.
 - consolidado: 519 linhas, 13 especies, 1.486 individuos.
 - avaliacao inicial:
   - serie longa: pronta;
@@ -130,6 +130,11 @@
 - decisao registrada em 2026-07-13:
   - usar o KML da raiz `Geo` como fonte operacional provisoria para gerar os resultados agora;
   - se o `KML Atual` for adotado posteriormente, Gate A deve ser reaberto para correcao dos 7 pontos divergentes antes de regenerar produtos espaciais finais.
+- ajuste recebido em 2026-07-14:
+  - `PIC-02` realocado a partir de fevereiro/2026 (`C043-2026-02-CH`) para `-19.800376/-43.710610`;
+  - `PIC-11` definido em `-19.801526/-43.700959`;
+  - `PIC-01`, `PIC-03` e `PIC-11` sem amostragem a partir de novembro/2025 (`C040-2025-11-CH`);
+  - ajustes aplicados na camada analitica, sem alterar banco mestre.
 - delimitacao para minigraficos:
   - usar `area_controle` como campo analitico derivado de `point_layout.control_groups`;
   - `Area de controle 01`: `PIC-01`, `PIC-02`, `PIC-03`, `PIC-04`, `PIC-05`, `PIC-06`, `PIC-07`, `PIC-08`, `PIC-09`, `PIC-11`;
@@ -298,7 +303,7 @@
 - base analitica:
   - 47 campanhas;
   - 13 pontos;
-  - 611 linhas ponto-campanha;
+  - 587 linhas ponto-campanha apos remover nao-amostragens;
   - 343 amostras com captura quantitativa;
   - 13 especies;
   - 13 especies com traits funcionais.
@@ -307,7 +312,7 @@
   - anos nos produtos representam o ano de inicio do ciclo (`2022`, `2023`, `2024`, `2025`).
 - regra espacial aplicada:
   - coordenadas: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Geo/Ponto amostral - AVG.kml`;
-  - status: KML padrao usado provisoriamente por aprovacao do usuario;
+  - status: KML padrao usado provisoriamente por aprovacao do usuario, com overrides analiticos para `PIC-02` e `PIC-11`;
   - hidrografia: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Geo/Hidrografia.kmz`;
   - delimitacao: KML combinado das areas de controle 01/02 criado no lastro da fonte.
 - validacao automatica:
@@ -354,7 +359,9 @@
   - DarwinCore IEF.
 - base:
   - 519 registros observados;
-  - 787 linhas com pontos de captura zero para metricas por ponto;
+  - 763 linhas analiticas com placeholders de captura zero para metricas por ponto;
+  - 587 ponto-campanhas amostrados nas tabelas 02, 03 e 06;
+  - 24 combinacoes removidas por nao-amostragem (`PIC-01`, `PIC-03`, `PIC-11` de `C040` a `C047`);
   - 13 pontos;
   - 13 especies.
 - ajustes aplicados:
@@ -369,7 +376,7 @@
   - 6 JSON e 3 README/MD presentes;
   - 30 pranchas A4 C001-C047 geradas para `02`, `03`, `06`, `07`, `10A` e `10B`;
   - 4 heatmaps `04B` por ano temporal gerados;
-  - `02`, `03` e `06` possuem 47 campanhas x 13 pontos = 611 linhas;
+  - `02`, `03` e `06` possuem 587 linhas e 0 registros indevidos para `PIC-01`/`PIC-03`/`PIC-11` de `C040` em diante;
   - `01_tabela_composicao_ictiofauna.xlsx` contem `Poecilia cf. mexicana` e nao contem `Poecilia mexicana` como nome de relatorio;
   - `04_df_riqueza_por_ordem_ictiofauna.xlsx` e `04_df_riqueza_por_familia_ictiofauna.xlsx` nao contem `Nao informado`;
   - erros: 0.
@@ -381,8 +388,9 @@
 - Revisar e aprovar o pacote consolidado em `Consolidado_2026/icitiofauna`.
 - Crosswalk analitico de campanhas `Cnnn-AAAA-MM-CH/SC` usado nos produtos; apply no banco continua nao aprovado.
 - Renomeacao no banco esta bloqueada ate aprovacao explicita de mudanca de dado mestre, com backup e plano de revalidacao.
-- KML padrao foi usado provisoriamente; revisar `KML Atual` antes de fechamento espacial definitivo.
-- Se `KML Atual` for oficial, reabrir Gate A e corrigir 7 pontos antes de regenerar os produtos espaciais finais.
+- Produtos espaciais GEOARC001 devem ser regenerados com a fonte atualizada antes do fechamento dos minigraficos/mapas.
+- KML padrao foi usado provisoriamente com overrides analiticos; revisar `KML Atual` antes de fechamento espacial definitivo.
+- Se `KML Atual` for oficial, reabrir Gate A e corrigir pontos antes de regenerar os produtos espaciais finais.
 - Se a proxima campanha ainda nao estiver migrada/consolidada, reabrir fluxo desde validacao e nao usar este registro como atalho.
 
 ## Revisoes
