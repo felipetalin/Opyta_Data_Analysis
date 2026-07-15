@@ -401,6 +401,19 @@
   - `EXP_BOX_resumo_riqueza_ictiofauna.xlsx`.
 - validacao: 3 PNG abriram via PIL, 2 XLSX abriram via openpyxl, 0 erros.
 
+### Sintese Geral De Especies Por CPUEn
+
+- decisao: usuario aprovou uma figura inovadora para leitura geral das especies em 2026-07-15.
+- script:
+  `scripts/projects/avg/build_ictio_avg_species_cpuen_synthesis.py`.
+- saida consolidada:
+  `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna`.
+- produto:
+  - `08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png`;
+  - `08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx`.
+- desenho: ranking de contribuicao relativa da CPUEn, barcode temporal `C001-C047` e bolhas espaciais por ponto/area de controle.
+- validacao: PNG abriu via PIL, XLSX abriu via openpyxl, 13 especies, percentuais de CPUEn somando 100%.
+
 ## Pendencias
 
 - Traits funcionais aprovados para uso analitico do projeto em 2026-07-13.

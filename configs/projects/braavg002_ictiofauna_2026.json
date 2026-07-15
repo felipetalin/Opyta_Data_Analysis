@@ -340,7 +340,11 @@
         "errors": 0,
         "last_generated_tables_02_03_06_rows": 587,
         "pending_regeneration_reason": "Nova regra de amostragem recebida em 2026-07-15; graficos nao foram regenerados por orientacao do usuario.",
-        "expected_tables_02_03_06_rows_after_update": 585
+        "expected_tables_02_03_06_rows_after_update": 585,
+        "folder_png_after_08c": 59,
+        "folder_xlsx_after_08c": 35,
+        "folder_json_after_08c": 6,
+        "folder_md_after_08c": 3
       }
     },
     "current_kml_divergent_points_m": {
@@ -399,6 +403,35 @@
       "validation": {
         "png_opened_with_pil": 3,
         "xlsx_opened_with_openpyxl": 2,
+        "errors": 0
+      }
+    },
+    "species_cpuen_synthesis_08C": {
+      "status": "generated_validated",
+      "generated_at": "2026-07-15T10:29:42",
+      "script": "scripts/projects/avg/build_ictio_avg_species_cpuen_synthesis.py",
+      "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna",
+      "support_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/species_cpuen_synthesis_20260715",
+      "figure": "08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png",
+      "table": "08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx",
+      "design": "painel integrado com ranking de contribuicao relativa da CPUEn, constancia temporal C001-C047 e bolhas espaciais por ponto/area de controle",
+      "species": 13,
+      "campaigns": 47,
+      "points": 13,
+      "top_species": [
+        {
+          "nome_cientifico": "Phalloceros uai",
+          "cpuen_percentual": 39.6
+        },
+        {
+          "nome_cientifico": "Psalidodon rivularis",
+          "cpuen_percentual": 37.7
+        }
+      ],
+      "validation": {
+        "png_opened_with_pil": 1,
+        "xlsx_opened_with_openpyxl": 1,
+        "percent_sum": 100.0,
         "errors": 0
       }
     }

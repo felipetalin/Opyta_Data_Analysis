@@ -205,6 +205,23 @@ sem substituir ainda os graficos tradicionais do pacote consolidado:
   - `EXP_BOX_03_riqueza_por_ponto_ictiofauna.png`;
 - validacao: 3 PNG abriram via PIL e 2 XLSX abriram via openpyxl, sem erro.
 
+## Sintese Geral De Especies Por CPUEn
+
+Figura integrada `08C` gerada em 2026-07-15 para substituir/complementar a
+leitura carregada dos heatmaps `08` e `08B`:
+
+- script:
+  `scripts/projects/avg/build_ictio_avg_species_cpuen_synthesis.py`;
+- figura:
+  `08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png`;
+- tabela:
+  `08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx`;
+- desenho: ranking de contribuicao relativa da CPUEn por especie, constancia
+  temporal `C001-C047` e distribuicao espacial por ponto/area de controle;
+- base: regra revisada de 2026-07-15, com nao-amostragem como ausencia;
+- validacao: PNG abriu via PIL, XLSX abriu via openpyxl e os percentuais de
+  CPUEn somam 100%.
+
 ## Observacao Sobre Ordinais
 
 Nas campanhas AVG, padronizar nomes com ordinal feminino `ª`, por exemplo
