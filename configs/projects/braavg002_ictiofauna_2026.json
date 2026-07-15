@@ -378,6 +378,29 @@
       "point_campaign_rows_after_adjustment": 585,
       "metric_rows_expected_after_adjustment": 761,
       "database_apply": "not_applied"
+    },
+    "richness_boxplots_exploratory": {
+      "status": "generated_validated_exploratory",
+      "generated_at": "2026-07-15T09:41:09",
+      "script": "scripts/projects/avg/build_ictio_avg_richness_boxplots_exploratory.py",
+      "output_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/richness_boxplots_exploratory_20260715",
+      "metric": "riqueza_taxonomica",
+      "sampling_rule": "Regra revisada em 2026-07-15; nao-amostragem como ausencia, nao zero.",
+      "sampled_point_campaigns": 585,
+      "figures": [
+        "EXP_BOX_01_riqueza_por_ano_temporal_ictiofauna.png",
+        "EXP_BOX_02_riqueza_area_controle_por_ano_temporal_ictiofauna.png",
+        "EXP_BOX_03_riqueza_por_ponto_ictiofauna.png"
+      ],
+      "tables": [
+        "EXP_BOX_df_riqueza_ponto_campanha_ictiofauna.xlsx",
+        "EXP_BOX_resumo_riqueza_ictiofauna.xlsx"
+      ],
+      "validation": {
+        "png_opened_with_pil": 3,
+        "xlsx_opened_with_openpyxl": 2,
+        "errors": 0
+      }
     }
   },
   "validation_checklist": [

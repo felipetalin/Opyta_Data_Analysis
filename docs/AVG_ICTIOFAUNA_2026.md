@@ -188,6 +188,23 @@ Analises tradicionais geradas em 2026-07-14 na pasta consolidada:
 - conferencia da regra em memoria: 585 ponto-campanhas amostrados; `PIC-03` presente somente em `C043` apos outubro/2025; graficos/planilhas finais ainda pendentes de regeneracao apos a revisao de 2026-07-15;
 - banco: sem alteracao de nomenclatura, traits, coordenadas ou taxonomia mestre.
 
+## Boxplots Exploratorios De Riqueza
+
+Boxplots de riqueza gerados em 2026-07-15 como produto exploratorio separado,
+sem substituir ainda os graficos tradicionais do pacote consolidado:
+
+- script:
+  `scripts/projects/avg/build_ictio_avg_richness_boxplots_exploratory.py`;
+- saida:
+  `outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/richness_boxplots_exploratory_20260715`;
+- base: 585 ponto-campanhas amostrados, com nao-amostragem tratada como
+  ausencia e nao como zero;
+- figuras:
+  - `EXP_BOX_01_riqueza_por_ano_temporal_ictiofauna.png`;
+  - `EXP_BOX_02_riqueza_area_controle_por_ano_temporal_ictiofauna.png`;
+  - `EXP_BOX_03_riqueza_por_ponto_ictiofauna.png`;
+- validacao: 3 PNG abriram via PIL e 2 XLSX abriram via openpyxl, sem erro.
+
 ## Observacao Sobre Ordinais
 
 Nas campanhas AVG, padronizar nomes com ordinal feminino `ª`, por exemplo

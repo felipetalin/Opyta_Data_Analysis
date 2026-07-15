@@ -385,6 +385,22 @@
   - `04_df_riqueza_por_ordem_ictiofauna.xlsx` e `04_df_riqueza_por_familia_ictiofauna.xlsx` nao contem `Nao informado`;
   - erros: 0.
 
+### Boxplots Exploratorios De Riqueza
+
+- decisao: usuario aprovou testar boxplots temporais e espaciais de riqueza em 2026-07-15.
+- script:
+  `scripts/projects/avg/build_ictio_avg_richness_boxplots_exploratory.py`.
+- saida:
+  `outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/richness_boxplots_exploratory_20260715`.
+- base: 585 ponto-campanhas amostrados; nao-amostragem como ausencia, nao zero.
+- produtos:
+  - `EXP_BOX_01_riqueza_por_ano_temporal_ictiofauna.png`;
+  - `EXP_BOX_02_riqueza_area_controle_por_ano_temporal_ictiofauna.png`;
+  - `EXP_BOX_03_riqueza_por_ponto_ictiofauna.png`;
+  - `EXP_BOX_df_riqueza_ponto_campanha_ictiofauna.xlsx`;
+  - `EXP_BOX_resumo_riqueza_ictiofauna.xlsx`.
+- validacao: 3 PNG abriram via PIL, 2 XLSX abriram via openpyxl, 0 erros.
+
 ## Pendencias
 
 - Traits funcionais aprovados para uso analitico do projeto em 2026-07-13.
