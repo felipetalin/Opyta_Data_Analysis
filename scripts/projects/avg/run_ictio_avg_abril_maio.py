@@ -74,10 +74,11 @@ AREA_COLORS = {
     AREA_01: "#16803A",
     AREA_02: "#7FA33A",
 }
-DISCONTINUED_POINT_FROM_CAMPAIGN = {
-    "PIC-01": 40,
-    "PIC-03": 40,
-    "PIC-11": 40,
+NOT_SAMPLED_CAMPAIGN_RANGES = {
+    "PIC-01": [(40, None)],
+    "PIC-02": [(40, 42)],
+    "PIC-03": [(40, 42), (44, None)],
+    "PIC-11": [(40, None)],
 }
 GRID_COLOR = "#DDEBD8"
 EDGE_COLOR = "#173B23"
@@ -241,8 +242,12 @@ def apply_sampling_adjustments(df: pd.DataFrame) -> pd.DataFrame:
     seq = out["nome_campanha"].map(_campaign_seq)
     point = out["nome_ponto"].astype(str).str.strip()
     remove = pd.Series(False, index=out.index)
-    for point_name, first_seq in DISCONTINUED_POINT_FROM_CAMPAIGN.items():
-        remove |= (point == point_name) & (seq >= first_seq)
+    for point_name, ranges in NOT_SAMPLED_CAMPAIGN_RANGES.items():
+        for first_seq, last_seq in ranges:
+            in_range = seq >= first_seq
+            if last_seq is not None:
+                in_range &= seq <= last_seq
+            remove |= (point == point_name) & in_range
     return out.loc[~remove].copy()
 
 

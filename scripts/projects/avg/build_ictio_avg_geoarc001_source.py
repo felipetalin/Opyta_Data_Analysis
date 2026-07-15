@@ -90,10 +90,11 @@ TRAIT_FIELDS = [
     "Porte_corporal",
     "Sensibilidade_funcional",
 ]
-DISCONTINUED_POINT_FROM_CAMPAIGN = {
-    "PIC-01": 40,
-    "PIC-03": 40,
-    "PIC-11": 40,
+NOT_SAMPLED_CAMPAIGN_RANGES = {
+    "PIC-01": [(40, None)],
+    "PIC-02": [(40, 42)],
+    "PIC-03": [(40, 42), (44, None)],
+    "PIC-11": [(40, None)],
 }
 COORDINATE_OVERRIDES = {
     "PIC-11": {
@@ -320,8 +321,13 @@ def apply_sampling_adjustments(df: pd.DataFrame) -> pd.DataFrame:
         return df
     out = df.copy()
     remove = pd.Series(False, index=out.index)
-    for point_name, first_seq in DISCONTINUED_POINT_FROM_CAMPAIGN.items():
-        remove |= (out["nome_ponto"] == point_name) & (pd.to_numeric(out["campanha_ordem"], errors="coerce") >= first_seq)
+    seq = pd.to_numeric(out["campanha_ordem"], errors="coerce")
+    for point_name, ranges in NOT_SAMPLED_CAMPAIGN_RANGES.items():
+        for first_seq, last_seq in ranges:
+            in_range = seq >= first_seq
+            if last_seq is not None:
+                in_range &= seq <= last_seq
+            remove |= (out["nome_ponto"] == point_name) & in_range
     return out.loc[~remove].copy()
 
 
@@ -667,7 +673,7 @@ def build(output_dir: Path, recipe_path: Path, kml_standard: Path) -> dict[str, 
             "Usuario aprovou assumir o KML padrao neste momento; foram aplicados ajustes analiticos para "
             "PIC-11 e para a realocacao do PIC-02 a partir de fevereiro/2026. KML Atual permanece como ajuste futuro."
         ),
-        "sampling_adjustments": DISCONTINUED_POINT_FROM_CAMPAIGN,
+        "sampling_adjustments": NOT_SAMPLED_CAMPAIGN_RANGES,
         "coordinate_overrides": COORDINATE_OVERRIDES,
         "campaigns": int(crosswalk["nome_campanha_atual"].nunique()),
         "temporal_cycles": crosswalk.groupby("ciclo_temporal", as_index=False).agg(

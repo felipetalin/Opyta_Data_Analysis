@@ -7,8 +7,8 @@
 - operacao: organizacao da matriz de geracao antes de executar novos produtos
 - estado atual: `generated_pending_review`
 - aberta em: 2026-07-13
-- atualizada em: 2026-07-14
-- proxima acao: revisar os produtos tradicionais consolidados em `Consolidado_2026/icitiofauna`; fonte GEOARC001 atualizada com novos pontos, mas produtos espaciais derivados devem ser regenerados antes do fechamento
+- atualizada em: 2026-07-15
+- proxima acao: aprovar a regra revisada de malha amostral antes de regenerar graficos; produtos tradicionais e espaciais ainda nao foram reemitidos com o ajuste de 2026-07-15
 
 ## Caminhos
 
@@ -54,7 +54,7 @@
 | Consolidacao | herdada | Consolidacao da fatia BRAAVG002/Ictiofauna concluida com 519 linhas. |
 | Configuracao das analises | concluida | Recipe, fonte analitica AVG/GEOARC001, ano temporal ago-jul, traits aprovados e KML padrao provisorio registrados. |
 | Gate C - analises | aprovado provisoriamente | Usuario autorizou assumir KML padrao para gerar os resultados; crosswalk e traits usados como camada analitica sem alterar banco. |
-| Geracao dos produtos | concluida parcial | Analises tradicionais C001-C047 regeneradas em `Consolidado_2026/icitiofauna` com pranchas A4 por ponto aprovadas e lacunas de nao-amostragem; fonte GEOARC001 reconstruida, produtos espaciais derivados pendentes de regeneracao. |
+| Geracao dos produtos | aguardando regeneracao pontual | Analises tradicionais C001-C047 ja tinham sido regeneradas em `Consolidado_2026/icitiofauna`; nova regra de malha amostral recebida em 2026-07-15 foi aplicada apenas no codigo/registro, sem gerar novos graficos por orientacao do usuario. |
 | Revisao tecnica | pendente | Validacao automatica OK; falta revisao tecnica/conteudo pelo usuario. |
 | Revisao de layout | parcial | Minigraficos e sintese visualmente conferidos; legenda do mapa de balanco ajustada para fora dos pontos. |
 | Fechamento | pendente | Encerrar apos aprovacao, geracao e revisao da rodada alvo. |
@@ -100,7 +100,7 @@
 - anos cobertos: 2022 a 2026.
 - campanhas por ano: 2022 = 5; 2023 = 12; 2024 = 12; 2025 = 12; 2026 = 6.
 - pontos: 13.
-- grade ponto-campanha apos ajuste: 587 amostragens efetivas; 24 combinacoes removidas porque `PIC-01`, `PIC-03` e `PIC-11` nao foram amostrados de `C040-2025-11-CH` em diante.
+- grade ponto-campanha apos regra revisada: 585 amostragens efetivas; 26 combinacoes removidas por nao-amostragem/realocacao.
 - consolidado: 519 linhas, 13 especies, 1.486 individuos.
 - avaliacao inicial:
   - serie longa: pronta;
@@ -130,10 +130,13 @@
 - decisao registrada em 2026-07-13:
   - usar o KML da raiz `Geo` como fonte operacional provisoria para gerar os resultados agora;
   - se o `KML Atual` for adotado posteriormente, Gate A deve ser reaberto para correcao dos 7 pontos divergentes antes de regenerar produtos espaciais finais.
-- ajuste recebido em 2026-07-14:
+- ajuste recebido em 2026-07-15:
+  - `PIC-01`: vigente de `C001` a `C039`; descontinuado de `C040` em diante por restricao de acesso;
+  - `PIC-02` original: vigente de `C001` a `C039`; sem amostragem em `C040-C042`;
   - `PIC-02` realocado a partir de fevereiro/2026 (`C043-2026-02-CH`) para `-19.800376/-43.710610`;
+  - `PIC-03`: vigente de `C001` a `C039`, sem `C040-C042`, amostrado excepcionalmente em `C043`, e descontinuado de `C044` em diante;
   - `PIC-11` definido em `-19.801526/-43.700959`;
-  - `PIC-01`, `PIC-03` e `PIC-11` sem amostragem a partir de novembro/2025 (`C040-2025-11-CH`);
+  - `PIC-11`: vigente de `C001` a `C039`; descontinuado de `C040` em diante por restricao de acesso;
   - ajustes aplicados na camada analitica, sem alterar banco mestre.
 - delimitacao para minigraficos:
   - usar `area_controle` como campo analitico derivado de `point_layout.control_groups`;
@@ -303,7 +306,7 @@
 - base analitica:
   - 47 campanhas;
   - 13 pontos;
-  - 587 linhas ponto-campanha apos remover nao-amostragens;
+  - 585 linhas ponto-campanha esperadas apos remover nao-amostragens;
   - 343 amostras com captura quantitativa;
   - 13 especies;
   - 13 especies com traits funcionais.
@@ -359,9 +362,10 @@
   - DarwinCore IEF.
 - base:
   - 519 registros observados;
-  - 763 linhas analiticas com placeholders de captura zero para metricas por ponto;
-  - 587 ponto-campanhas amostrados nas tabelas 02, 03 e 06;
-  - 24 combinacoes removidas por nao-amostragem (`PIC-01`, `PIC-03`, `PIC-11` de `C040` a `C047`);
+  - 761 linhas analiticas esperadas com placeholders de captura zero para metricas por ponto;
+  - 585 ponto-campanhas amostrados esperados nas tabelas 02, 03 e 06;
+  - 26 combinacoes removidas por nao-amostragem/realocacao;
+  - graficos nao regenerados ainda por orientacao do usuario em 2026-07-15;
   - 13 pontos;
   - 13 especies.
 - ajustes aplicados:
@@ -376,7 +380,7 @@
   - 6 JSON e 3 README/MD presentes;
   - 30 pranchas A4 C001-C047 geradas para `02`, `03`, `06`, `07`, `10A` e `10B`;
   - 4 heatmaps `04B` por ano temporal gerados;
-  - `02`, `03` e `06` possuem 587 linhas e 0 registros indevidos para `PIC-01`/`PIC-03`/`PIC-11` de `C040` em diante;
+  - validacao em memoria da regra revisada: `PIC-01` e `PIC-11` = 0 linhas apos `C039`; `PIC-02` = 0 linhas em `C040-C042` e 5 linhas em `C043-C047`; `PIC-03` = 0 linhas em `C040-C042`, 1 linha em `C043` e 0 linhas em `C044-C047`;
   - `01_tabela_composicao_ictiofauna.xlsx` contem `Poecilia cf. mexicana` e nao contem `Poecilia mexicana` como nome de relatorio;
   - `04_df_riqueza_por_ordem_ictiofauna.xlsx` e `04_df_riqueza_por_familia_ictiofauna.xlsx` nao contem `Nao informado`;
   - erros: 0.

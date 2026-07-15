@@ -54,16 +54,25 @@ separar/identificar AC01 e AC02 nos produtos derivados do modelo GEOARC001.
 
 ## Ajustes De Pontos E Amostragem
 
-Definicao recebida em 2026-07-14:
+Definicao revisada em 2026-07-15:
 
-- `PIC-02` foi realocado em fevereiro/2026; a partir de `C043-2026-02-CH`,
-  usar `-19.800376/-43.710610` na camada analitica espacial.
+- `PIC-01`: vigente de agosto/2022 a outubro/2025 (`C001` a `C039`);
+  descontinuado a partir de novembro/2025 por restricao de acesso.
+- `PIC-02` original: vigente de agosto/2022 a outubro/2025 (`C001` a
+  `C039`); substituido por novo ponto com caracteristicas ambientais
+  semelhantes.
+- `PIC-02` realocado: ativo de fevereiro/2026 a junho/2026 (`C043` a
+  `C047`); usar `-19.800376/-43.710610` na camada analitica espacial.
+- `PIC-03`: vigente de agosto/2022 a outubro/2025 (`C001` a `C039`), com
+  amostragem excepcional em fevereiro/2026 (`C043`); sem amostragem em
+  `C040-C042` e descontinuado definitivamente de `C044` em diante.
 - `PIC-11` deve usar `-19.801526/-43.700959`.
-- `PIC-01`, `PIC-03` e `PIC-11` nao foram mais amostrados a partir de
-  novembro/2025 (`C040-2025-11-CH`).
+- `PIC-11`: vigente de agosto/2022 a outubro/2025 (`C001` a `C039`);
+  descontinuado a partir de novembro/2025 por restricao de acesso.
 
-Esses ajustes foram aplicados na camada analitica e nos produtos tradicionais
-consolidados. O banco mestre nao foi alterado nesta rodada.
+Esses ajustes foram aplicados na regra da camada analitica. Por orientacao do
+usuario em 2026-07-15, os graficos ainda nao foram regenerados com esta revisao
+pontual. O banco mestre nao foi alterado nesta rodada.
 
 ## Pontos com Captura Zero
 
@@ -143,10 +152,10 @@ Auditoria de prontidao criada em 2026-07-13:
   `scripts/projects/avg/audit_ictio_avg_long_study_readiness.py`;
 - saida:
   `outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/readiness_ictio_long_study_20260713`;
-- escopo atual: 47 campanhas, 13 pontos, 587 ponto-campanhas amostrados e 13 especies;
+- escopo atual apos regra revisada: 47 campanhas, 13 pontos, 585 ponto-campanhas amostrados e 13 especies;
 - beta/LCBD taxonomico: gerado em 2026-07-13 com ano temporal agosto-julho;
 - ecologia funcional: gerada em 2026-07-13 com 13 traits aprovados para uso analitico;
-- minigraficos funcionais e sintese espacial: gerados em 2026-07-13 usando provisoriamente o KML padrao da raiz `Geo`; em 2026-07-14 a fonte GEOARC001 foi reconstruida com os ajustes de PIC-02, PIC-11 e interrupcao de amostragem de PIC-01/PIC-03/PIC-11. Os produtos espaciais derivados devem ser regenerados antes do fechamento desses mapas.
+- minigraficos funcionais e sintese espacial: gerados em 2026-07-13 usando provisoriamente o KML padrao da raiz `Geo`; em 2026-07-15 a regra analitica foi atualizada para PIC-01/PIC-02/PIC-03/PIC-11. Os produtos espaciais derivados devem ser regenerados antes do fechamento desses mapas.
 - requisito adicional para minigraficos/sinteses funcionais: preservar a delimitacao `area_controle` com `Area de controle 01` e `Area de controle 02`.
 
 Pacote gerado:
@@ -170,13 +179,13 @@ Analises tradicionais geradas em 2026-07-14 na pasta consolidada:
 - runner:
   `scripts/projects/avg/run_ictio_avg_tradicional_consolidado_2026.py`;
 - escopo: base historica completa `C001-2022-08-SC` a `C047-2026-06-SC`;
-- base: 519 registros observados, 763 linhas analiticas com placeholders de captura zero, 587 ponto-campanhas amostrados, 13 pontos e 13 especies;
+- base da regra revisada: 519 registros observados, 761 linhas analiticas esperadas com placeholders de captura zero, 585 ponto-campanhas amostrados, 13 pontos e 13 especies;
 - figuras por ponto: modelo A4 paisagem aprovado para relatorio, com um ponto por linha, eixo C01-C47 somente no painel inferior, CH/SC em cores fortes e anos temporais demarcados;
-- nao-amostragem: `PIC-01`, `PIC-03` e `PIC-11` aparecem como lacuna a partir de `C040`, sem zero artificial;
+- nao-amostragem revisada: `PIC-01` e `PIC-11` lacuna de `C040` em diante; `PIC-02` lacuna em `C040-C042` e ativo como realocado em `C043-C047`; `PIC-03` lacuna em `C040-C042`, ativo excepcionalmente em `C043`, e lacuna de `C044` em diante;
 - ocorrencia por campanha (`04B`): mantida em heatmaps por ano temporal agosto-julho (`2023`: C001-C012; `2024`: C013-C024; `2025`: C025-C036; `2026`: C037-C047);
 - ajuste taxonomico de saida: `Poecilia mexicana` apresentada como `Poecilia cf. mexicana`;
 - validacao da pasta final apos tradicionais + GEOARC001: 58 PNG, 29 XLSX, 6 JSON e 3 MD; PNGs abriram via PIL e XLSX abriram via openpyxl, sem erro;
-- conferencia de conteudo: planilhas 02, 03 e 06 com 587 linhas e zero registros para `PIC-01`/`PIC-03`/`PIC-11` de `C040` em diante; composicao sem taxon vazio; ordem/familia sem `Nao informado`;
+- conferencia da regra em memoria: 585 ponto-campanhas amostrados; `PIC-03` presente somente em `C043` apos outubro/2025; graficos/planilhas finais ainda pendentes de regeneracao apos a revisao de 2026-07-15;
 - banco: sem alteracao de nomenclatura, traits, coordenadas ou taxonomia mestre.
 
 ## Observacao Sobre Ordinais
