@@ -131,8 +131,13 @@ def build_cpuen_tables() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         key=traditional.standard_campaign_sequence,
     )
     presence = (
-        species_point_campaign.assign(presente=1)
-        .pivot_table(index="nome_cientifico", columns="nome_campanha", values="presente", aggfunc="max", fill_value=0)
+        species_point_campaign.pivot_table(
+            index="nome_cientifico",
+            columns="nome_campanha",
+            values="cpuen",
+            aggfunc="sum",
+            fill_value=0,
+        )
         .reindex(index=totals["nome_cientifico"], columns=campaigns, fill_value=0)
         .reset_index()
     )
@@ -188,8 +193,9 @@ def plot_synthesis(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.Dat
     for label in ax_bar.get_yticklabels():
         label.set_fontstyle("italic")
     ax_bar.invert_yaxis()
+    x_max = max(5.0, float(totals["cpuen_percentual"].max()) * 1.38)
     ax_bar.set_xlabel("Contribuição relativa da CPUEn (%)", fontsize=10.5)
-    ax_bar.set_xlim(0, max(5.0, float(totals["cpuen_percentual"].max()) * 1.18))
+    ax_bar.set_xlim(0, x_max)
     ax_bar.grid(axis="x", color="#D9D9D9", linewidth=0.75, alpha=0.85)
     ax_bar.grid(axis="y", visible=False)
     for spine in ["top", "right", "left"]:
@@ -206,15 +212,27 @@ def plot_synthesis(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.Dat
             fontsize=9.4,
             color="#222222",
         )
+    freq_x = x_max * 0.91
+    ax_bar.text(freq_x, -0.82, "Frequência", ha="center", va="bottom", fontsize=8.5, color="#006837")
+    ax_bar.text(freq_x, -0.48, "(campanhas)", ha="center", va="bottom", fontsize=8.0, color="#006837")
+    for ypos, freq in zip(y, totals["campanhas_ocorrencia"]):
+        ax_bar.text(freq_x, ypos, f"{int(freq)}/47", va="center", ha="center", fontsize=8.7, color="#222222")
 
     presence_values = presence[campaigns].to_numpy(dtype=float)
-    cmap = matplotlib.colors.ListedColormap([ABSENT_COLOR, PRESENT_COLOR])
-    ax_time.imshow(presence_values, aspect="auto", interpolation="nearest", cmap=cmap, vmin=0, vmax=1, zorder=1)
+    positive = presence_values[presence_values > 0]
+    q50 = float(np.nanquantile(positive, 0.50)) if positive.size else 0.0
+    q75 = float(np.nanquantile(positive, 0.75)) if positive.size else 0.0
+    intensity = np.zeros_like(presence_values, dtype=float)
+    intensity[(presence_values > 0) & (presence_values <= q50)] = 1
+    intensity[(presence_values > q50) & (presence_values <= q75)] = 2
+    intensity[presence_values > q75] = 3
+    cmap = matplotlib.colors.ListedColormap([ABSENT_COLOR, "#C9E7C1", "#68B74A", "#0C7438"])
+    ax_time.imshow(intensity, aspect="auto", interpolation="nearest", cmap=cmap, vmin=0, vmax=3, zorder=1)
     _decorate_year_bands(ax_time, campaigns, n_species)
     ax_time.set_xticks(np.arange(len(campaigns)))
     ax_time.set_xticklabels([_campaign_short(campaign) for campaign in campaigns], rotation=90, fontsize=6.2)
     ax_time.tick_params(axis="y", left=False, labelleft=False)
-    ax_time.set_xlabel("Constância temporal (C001-C047)", fontsize=10.5)
+    ax_time.set_xlabel("Ocorrência por campanha (CPUEn)", fontsize=10.5)
     for spine in ["top", "right", "left"]:
         ax_time.spines[spine].set_visible(False)
     ax_time.set_yticks(y)
@@ -222,6 +240,22 @@ def plot_synthesis(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.Dat
     ax_time.set_yticks(np.arange(-0.5, n_species, 1), minor=True)
     ax_time.grid(which="minor", color="white", linewidth=0.35)
     ax_time.tick_params(which="minor", bottom=False, left=False)
+    heat_handles = [
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor="#0C7438", markeredgecolor="#777777", markersize=7, label="Alta"),
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor="#68B74A", markeredgecolor="#777777", markersize=7, label="Média"),
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor="#C9E7C1", markeredgecolor="#777777", markersize=7, label="Baixa"),
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor=ABSENT_COLOR, markeredgecolor="#777777", markersize=7, label="Ausência"),
+    ]
+    ax_time.legend(
+        handles=heat_handles,
+        loc="lower center",
+        bbox_to_anchor=(0.5, -0.22),
+        ncol=4,
+        frameon=False,
+        fontsize=7.6,
+        handletextpad=0.35,
+        columnspacing=0.9,
+    )
 
     max_spatial = float(spatial[points].to_numpy(dtype=float).max()) if points else 0.0
     for x, point in enumerate(points):
@@ -248,6 +282,9 @@ def plot_synthesis(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.Dat
     ax_space.grid(axis="y", color="#EEEEEE", linewidth=0.55)
     for spine in ["top", "right", "left"]:
         ax_space.spines[spine].set_visible(False)
+
+    for ax in [ax_bar, ax_time, ax_space]:
+        ax.axhline(1.5, color="#16803A", linestyle="--", linewidth=0.9, alpha=0.85)
 
     area_handles = [
         plt.Line2D([0], [0], marker="o", color="none", markerfacecolor=AREA_COLORS[AREA_01], markeredgecolor="#1F1F1F", markersize=7.5, label="Área de controle 01"),
@@ -286,7 +323,7 @@ def write_tables(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.DataF
     out_xlsx = output_dir / "08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx"
     with pd.ExcelWriter(out_xlsx, engine="openpyxl") as writer:
         totals.to_excel(writer, sheet_name="ranking_cpuen", index=False)
-        presence.to_excel(writer, sheet_name="presenca_temporal", index=False)
+        presence.to_excel(writer, sheet_name="cpuen_temporal", index=False)
         spatial.to_excel(writer, sheet_name="cpuen_por_ponto", index=False)
     return str(out_xlsx)
 
