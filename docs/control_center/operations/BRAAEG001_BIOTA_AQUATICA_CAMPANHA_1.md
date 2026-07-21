@@ -5,30 +5,39 @@
 - projeto: BRAAEG001 / A&G Mineracao
 - grupo: Biota aquatica
 - operacao: validacao e migracao inicial de Fitoplancton, Zooplancton, Zoobentos e Ictiofauna
-- estado atual: `configuring_analysis`
+- estado atual: `reviewing_outputs`
 - aberta em: 2026-07-02
-- atualizada em: 2026-07-03
-- proxima acao: configurar recorte analitico, template, paleta, pasta de saida e produtos para abrir Gate C; nao gerar produtos antes da aprovacao
+- atualizada em: 2026-07-13
+- proxima acao: revisar outputs de ictiofauna gerados e decidir ajustes antes do fechamento
 
 ## Caminhos
 
-- dados de referencia: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota`
+- raiz operacional: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota`
+- lastros de migracao: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/lastros_migracao`
 - planilhas:
-  - Fitoplancton: `Resultados_Migracao _Fito.xlsx`
-  - Zooplancton: `Resultados_Migracao_zoo.xlsx`
-  - Zoobentos: `Resultados_Migracao_Zoobentos.xlsx`
-  - Ictiofauna: `Resultados_Migracao _Ictio.xlsx`
+  - Fitoplancton: `lastros_migracao/Resultados_Migração _Fito.xlsx`
+  - Zooplancton: `lastros_migracao/Resultados_Migração_zoo.xlsx`
+  - Zoobentos: `lastros_migracao/Resultados_Migração_Zoobentos.xlsx`
+  - Ictiofauna: `lastros_migracao/Resultados_Migração _Ictio.xlsx`
 - cadastro de especies: `public.especies`
-- saida operacional: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota`
+- saida operacional: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna`
 - dossie: pendente; projeto ainda nao registrado em `docs/projects/`
-- recipe: pendente; projeto ainda nao possui `configs/projects/` ou `configs/clients/braaeg001.json`
-- lastro de validacao atual: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota/20260703T113813_validacao_nova_base_biota_aquatica_braaeg001.xlsx`
+- recipe: `configs/projects/braaeg001_a_g_mineracao_biota_aquatica.json`
+- client config: `configs/clients/braaeg001.json`
+- project_scripts: `outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica`
+- escopo Gate C ictiofauna: `outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica/ictiofauna/analysis_scope_gate_c.md`
+- metadata de execucao ictiofauna: `outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica/ictiofauna/execution_metadata.json`
+- relatorio HTML ictiofauna: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna/relatorio_tecnico_ictiofauna_braaeg001.html`
+- manifesto de entrega ictiofauna: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna/manifesto_entrega_ictiofauna_braaeg001.json`
+- validacao de entrega ictiofauna: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna/validacao_entrega_ictiofauna_braaeg001.json`
+- lastro de validacao atual: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/lastros_migracao/20260703T113813_validacao_nova_base_biota_aquatica_braaeg001.xlsx`
 - log de validacao atual: `logs/validacao_biota_braaeg001/20260703T113813_validacao_nova_base_biota_aquatica_braaeg001.json`
-- decisao taxonomica Gate B: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota/20260703T113754_gate_b_taxonomia_biota_braaeg001.xlsx`
-- dry-run de migracao: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota/20260703T115152_dry_run_migracao_biota_aquatica_braaeg001.xlsx`
-- apply de migracao: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota/20260703T115212_apply_migracao_biota_aquatica_braaeg001.xlsx`
+- decisao taxonomica Gate B: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/lastros_migracao/20260703T113754_gate_b_taxonomia_biota_braaeg001.xlsx`
+- dry-run de migracao: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/lastros_migracao/20260703T115152_dry_run_migracao_biota_aquatica_braaeg001.xlsx`
+- apply de migracao: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/lastros_migracao/20260703T115212_apply_migracao_biota_aquatica_braaeg001.xlsx`
 - log de apply: `logs/migracao_biota_braaeg001/20260703T115212_apply_migracao_biota_aquatica_braaeg001.json`
-- lastro superseded: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota/20260702T201844Z_escopo_migracao_biota_aquatica_braaeg001.xlsx`
+- lastro superseded: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/lastros_migracao/20260702T201844Z_escopo_migracao_biota_aquatica_braaeg001.xlsx`
+- organizacao de pastas: em 2026-07-13, 26 arquivos soltos de migracao (`.xlsx` e `.json`) foram movidos para `lastros_migracao`; a pasta `ictiofauna` foi criada para os resultados do diagnostico.
 
 ## Progresso
 
@@ -42,10 +51,10 @@
 | Gate B - especies | aprovado | Taxonomia informada pelo usuario em 2026-07-03 e registrada em `20260703T113754_gate_b_taxonomia_biota_braaeg001.xlsx`. |
 | Migracao | concluida | Dry-run `20260703T115152` sem divergencias bloqueantes; apply `20260703T115212` executado com backup por tabela. |
 | Consolidacao | concluida | `biota_analise_consolidada` recebeu 404 linhas, equivalente aos resultados migraveis agregados. |
-| Configuracao das analises | em andamento | Proxima etapa e definir recorte, template, paleta, pasta de saida e produtos para Gate C. |
-| Gate C - analises | pendente | Deve ser aberto apenas com proposta explicita de template/paleta/saida/produtos. |
-| Geracao dos produtos | pendente | Nao executar nesta etapa sem Gate C. |
-| Revisao tecnica | pendente | Depende de produtos gerados. |
+| Configuracao das analises | concluida para ictiofauna | Project scripts criado; recorte, template, paleta e produtos diagnosticos pertinentes registrados em `analysis_scope_gate_c.md`. |
+| Gate C - analises | aprovado | Usuario aprovou em 2026-07-13 a proposta de diagnostico curto de ictiofauna registrada em `analysis_scope_gate_c.md`. |
+| Geracao dos produtos | concluida para ictiofauna | Pipeline `ictio/all` gerou 32 arquivos; complemento gerou sintese ecologica, HTML, manifesto e validacao, totalizando 39 arquivos na pasta de saida. |
+| Revisao tecnica | em andamento | Validacao de entrega `OK`; revisar numeros, texto e layout antes do fechamento. |
 | Revisao de layout | pendente | Depende de produtos gerados. |
 | Fechamento | pendente | Depende de Gate C, produtos/manifesto quando aplicavel e atualizacao de dossie/registry. |
 
@@ -55,7 +64,7 @@
 | --- | --- | --- |
 | A - dados | `approved_with_warnings` | Ictiofauna corrigida; cobertura desigual de campanhas aceita pelo usuario; permanecem avisos de esforco textual em Fito/Zoo e curso d'agua do meio fisico. |
 | B - especies | `approved` | 8 novos taxons cadastrados e `Sphaerium spp.` normalizado para `Sphaerium sp.` conforme taxonomia informada. |
-| C - analises | `pending` | Migracao/consolidacao concluidas; falta proposta de template, paleta, pasta de saida e produtos. |
+| C - analises | `approved` | Usuario aprovou em 2026-07-13 o diagnostico curto FERSAM001/VIRITA001 para ictiofauna. |
 
 ## Validacao Dos Dados
 
@@ -146,14 +155,74 @@
 ## Configuracao Das Analises
 
 - numero de campanhas na base atual: `C001-2026-02-CH` para todos os grupos e `C002-2026-06-SC` apenas para Ictiofauna.
-- template: pendente; depende do recorte de campanhas e da decisao do Gate C.
-- paleta: pendente.
-- pasta de saida: pendente.
-- produtos: nao gerar antes do Gate C.
+- recorte ictiofauna: `BRAAEG001`, campanhas `C001-2026-02-CH` e `C002-2026-06-SC`, pontos `PT_01` a `PT_12`.
+- template: diagnostico curto para ate duas campanhas, referencia FERSAM001/VIRITA001.
+- paleta: verde FERSAM001, registrada em `configs/clients/braaeg001.json`.
+- pasta de saida: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna`, criada em 2026-07-13.
+- project_scripts: `outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica/ictiofauna`.
+- produtos diagnosticos pertinentes:
+  - composicao e atributos das especies;
+  - distribuicao ponto x campanha;
+  - riqueza e abundancia por ponto/campanha;
+  - riqueza por ordem e familia;
+  - CPUEn e CPUEb por ponto e por especie;
+  - biometria e biomassa;
+  - diversidade alfa, com ressalva por baixa riqueza;
+  - similaridade Bray-Curtis descritiva;
+  - suficiencia amostral exploratoria;
+  - relatorio HTML tecnico simples e manifesto.
+- fora do escopo nesta rodada: NMDS, PERMANOVA, beta diversidade formal, LCBD, analise funcional complexa, tendencias temporais, mapas/analises espaciais avancadas e inferencia estatistica forte.
+- reprodutor preparado: `outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica/ictiofauna/_run_this_analysis.py`; validado por `python -m py_compile`.
+
+## Geracao Dos Produtos
+
+- execucao:
+  - comando: `python outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica/ictiofauna/_run_this_analysis.py`;
+  - metadata: `outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica/ictiofauna/execution_metadata.json`;
+  - `block`: `all`;
+  - blocos executados: `3`, `4`, `5`, `6`, `7`, `8`, `9`, `9b`, `10`, `11`, `12`, `13`;
+  - campanhas: `C001-2026-02-CH`, `C002-2026-06-SC`;
+  - pontos: 12;
+  - linhas carregadas: 56;
+  - arquivos do pipeline: 32;
+  - arquivos ausentes no metadata: 0;
+  - warnings do pipeline: 0.
+- complemento de entrega:
+  - script: `outputs/_project_scripts/BRAAEG001__a_g_mineracao_biota_aquatica/ictiofauna/generate_delivery_package.py`;
+  - sintese ecologica: `14_tabela_sintese_ecologica_ictiofauna.xlsx` e `14_grafico_sintese_ecologica_ictiofauna.png`;
+  - relatorio: `relatorio_tecnico_ictiofauna_braaeg001.html`;
+  - manifesto: `manifesto_entrega_ictiofauna_braaeg001.json`, `.xlsx` e `.md`;
+  - validacao: `validacao_entrega_ictiofauna_braaeg001.json`.
+- totais da pasta de saida:
+  - 39 arquivos, desconsiderando `desktop.ini`;
+  - 19 planilhas XLSX;
+  - 16 figuras PNG;
+  - 1 HTML;
+  - 2 JSON;
+  - 1 Markdown.
+- validacao de entrega:
+  - status: `OK`;
+  - arquivos checados no manifesto: 36;
+  - erros: 0;
+  - arquivos com tamanho zero: 0.
+- resumo numerico do manifesto:
+  - 5 taxons;
+  - 72 individuos;
+  - biomassa total: 203,9 g;
+  - 3 ordens;
+  - 4 familias.
+
+## Revisao Dos Outputs
+
+- revisao visual inicial em 2026-07-13:
+  - 15 figuras do pipeline ja estavam no padrao aprovado, com aproximadamente 600 dpi e largura compativel com layout horizontal de relatorio;
+  - `14_grafico_sintese_ecologica_ictiofauna.png` foi regenerada para 600 dpi e proporcao horizontal equivalente ao restante do pacote;
+  - fontes, legendas e rotulos das figuras checadas estao legiveis;
+  - validacao de entrega atualizada apos a regeneracao, com status `OK` e 0 erros.
 
 ## Pendencias
 
-- Configurar proposta de Gate C para analises e produtos, se/quando for a hora de gerar.
+- Revisar outputs de ictiofauna gerados e registrar aprovacao ou ajustes.
 - Replicar nomes de cursos d'agua no Meio Fisico antes de qualquer produto integrado.
 
 ## Revisoes
@@ -165,7 +234,7 @@
 ## Fechamento E Aprendizados
 
 - validadores: nova validacao formal gerada e registrada em 2026-07-03.
-- manifesto: pendente para produtos; migracao possui JSON/XLSX de dry-run e apply.
+- manifesto: manifesto de entrega de ictiofauna gerado em JSON/XLSX/MD; migracao possui JSON/XLSX de dry-run e apply; project_scripts possui metadata de execucao.
 - patterns: seguir fluxo de biota com Gates A/B antes da migracao.
 - portfolio: pendente.
 - backlog: migrador biota deve aceitar recortes por grupo/campanha e registrar explicitamente quando a cobertura de campanhas for desigual.

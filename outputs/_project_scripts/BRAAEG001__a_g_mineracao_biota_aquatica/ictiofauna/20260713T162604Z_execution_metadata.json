@@ -1,0 +1,355 @@
+{
+  "executed_at": "2026-07-13T16:26:05.473940Z",
+  "runner_version": "1.2",
+  "project_id": 195,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "braaeg001",
+  "block": "all",
+  "campaign_filter": [
+    "C001-2026-02-CH",
+    "C002-2026-06-SC"
+  ],
+  "git": {
+    "branch": "codex/fix-geoambiental-coordinates",
+    "commit": "8816400",
+    "dirty": true,
+    "status_short_count": 23,
+    "full_dirty": true,
+    "full_status_short_count": 26,
+    "ignored_generated_audit_count": 3
+  },
+  "rows_loaded": 56,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "9b",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "C001-2026-02-CH",
+    "C002-2026-06-SC"
+  ],
+  "campaigns_count": 2,
+  "points": [
+    "PT_01",
+    "PT_02",
+    "PT_03",
+    "PT_04",
+    "PT_05",
+    "PT_06",
+    "PT_07",
+    "PT_08",
+    "PT_09",
+    "PT_10",
+    "PT_11",
+    "PT_12"
+  ],
+  "points_count": 12,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna",
+  "generated_files_count": 32,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\01_tabela_composicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_tabela_distribuicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08B_df_cpuen_por_especie_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09B_df_cpueb_por_especie_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08_grafico_cpuen_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09_grafico_cpueb_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08B_grafico_cpuen_por_especie_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09B_grafico_cpueb_por_especie_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\13_tabela_biometria_biomassa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\12_df_curva_suficiencia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\12_curva_suficiencia_amostral_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\DarwinCore_IEF_Ictiofauna_A_G_Mineracao.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\01_tabela_composicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6346,
+      "modified_at": "2026-07-13T16:24:39.999000Z",
+      "sha256": "51b759875a9ccc4400e50774a08db8106703fcb1730e2b80ce2c84d575489f03"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_tabela_distribuicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5885,
+      "modified_at": "2026-07-13T16:24:40.163000Z",
+      "sha256": "aac812b23cdb20c881d7032cc98f3598acaf41e2864d94fb799bfbeb73b71199"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5370,
+      "modified_at": "2026-07-13T16:24:40.273000Z",
+      "sha256": "f92d55572f2ef6db33943a288be37210a57f784b374f8c2fe8f8d4c1a8725bea"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 475448,
+      "modified_at": "2026-07-13T16:24:46.422000Z",
+      "sha256": "e86f8048d23d237402d3983cb0a563180c8d2645a7fd60cf7e3f5372fc7114c8"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5391,
+      "modified_at": "2026-07-13T16:24:46.600000Z",
+      "sha256": "c1c8a9c28b648e2534b91174b95e8d5638ded3000e01e23bad65429c90e7ac78"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 467791,
+      "modified_at": "2026-07-13T16:24:51.718000Z",
+      "sha256": "dedb9c0cf11452df8f87c5f03eb6273e9725d4233d2ed28025a7da3af17912a4"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5032,
+      "modified_at": "2026-07-13T16:24:51.880000Z",
+      "sha256": "372bc94f819b236cd110c4a3ad8a372b6703c853eaa152e302de9f463d6700cb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 601283,
+      "modified_at": "2026-07-13T16:24:56.010000Z",
+      "sha256": "6efc4dd70dd67ce2643829e0303029ee5ae6d8db6e2eb2a9e5b14f9112dc5999"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 514746,
+      "modified_at": "2026-07-13T16:25:00.282000Z",
+      "sha256": "fc8e97c5826f48a044b71672f9025bb77cd13d457593cf55dd0de9fe618056b5"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5054,
+      "modified_at": "2026-07-13T16:25:00.444000Z",
+      "sha256": "eea35b0c12588607e8aea3bfa346ce44531078086f18faba9d163a2817d42760"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 668672,
+      "modified_at": "2026-07-13T16:25:04.664000Z",
+      "sha256": "839d7ac3c98a9cf14155d632707ae40e41c635c7cdf0ce86139f62defecbe656"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 571399,
+      "modified_at": "2026-07-13T16:25:09.601000Z",
+      "sha256": "ec591ed969a45f260ad7a1a1bf31c69b035c94e971de70fa4bc66447f4f518f0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6121,
+      "modified_at": "2026-07-13T16:25:09.785000Z",
+      "sha256": "9401c4720e2bb9186ab3a286702f5928637534b92fe813d623365dda8ed29d9c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 554675,
+      "modified_at": "2026-07-13T16:25:15.083000Z",
+      "sha256": "b17ee5afbcc69b83234aeb1d73c80005edbb711209260d7b6bbb61d74b90bd62"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 557809,
+      "modified_at": "2026-07-13T16:25:20.120000Z",
+      "sha256": "499392a67b68a21af2698e8582a11b5fb084b24c661b4ac570c4663bcf2f1f9d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5134,
+      "modified_at": "2026-07-13T16:25:20.412000Z",
+      "sha256": "6abe186feecf5bf27cbe71ce3d4d9f31ab2fe848be009efbab8ef08d21f3ceb0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5141,
+      "modified_at": "2026-07-13T16:25:20.491000Z",
+      "sha256": "00a67087e130ce8703ae7c820fdb113fd424873aab9f6c22fdaa74f6b9de7e5b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08B_df_cpuen_por_especie_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5264,
+      "modified_at": "2026-07-13T16:25:20.857000Z",
+      "sha256": "74f5461ffeb78ffd744cd74dba194e0daf9d7c23a40b360a205f7728f9d45817"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09B_df_cpueb_por_especie_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5273,
+      "modified_at": "2026-07-13T16:25:21.343000Z",
+      "sha256": "187369fca3b16be40c06b470956ee08d5488f67e5e508c44633ef1ebbd2c0360"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08_grafico_cpuen_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 592863,
+      "modified_at": "2026-07-13T16:25:24.886000Z",
+      "sha256": "ac6d0d71087238020e9adaeaece8e0b0687e67fd04ec366ad2524bdc62c11788"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09_grafico_cpueb_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 603822,
+      "modified_at": "2026-07-13T16:25:28.597000Z",
+      "sha256": "8a3a2388be0a0d0b4e1f7eb1cec3619a54f6edfda684e6b1f548b37044585c62"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\08B_grafico_cpuen_por_especie_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 706993,
+      "modified_at": "2026-07-13T16:25:39.304000Z",
+      "sha256": "1be936a7943d0aeb7557c5c93d907e6b6ecdfc61d1a2620c709b300e596a7e19"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\09B_grafico_cpueb_por_especie_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 723185,
+      "modified_at": "2026-07-13T16:25:49.407000Z",
+      "sha256": "2cdcf41894b51f5efa2cf0f9e0a4f98ed679516b0e7e0f3ba19d5525fcc5a094"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\13_tabela_biometria_biomassa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6629,
+      "modified_at": "2026-07-13T16:25:49.652000Z",
+      "sha256": "2d034af5be89bf9df52573caaa1e93508df35d80557b9c6aedf76b6c568ed9e9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5822,
+      "modified_at": "2026-07-13T16:25:49.841000Z",
+      "sha256": "4f367a2bc3c13e2540cd5fd415756ce693cef53903c77093d65ebb0177a51f03"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 649697,
+      "modified_at": "2026-07-13T16:25:54.624000Z",
+      "sha256": "2400d249980449f01c937c0d9938ee4a2f759b15b34424343f3bfe5f3c7b0a04"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5444,
+      "modified_at": "2026-07-13T16:25:54.826000Z",
+      "sha256": "eaf57f24664d0aa3d4dd7929ca76e25362357003ec104e691904d32c264d6efc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5576,
+      "modified_at": "2026-07-13T16:25:54.920000Z",
+      "sha256": "89902770d30a0a96e809e8f1648fc622aa41b8f3806de31d3b7a8abb773268da"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 378190,
+      "modified_at": "2026-07-13T16:25:58.630000Z",
+      "sha256": "ed0e118907e9918dee5acc52431a31eb4c239cc7437943c32cf686acbeb622cd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\12_df_curva_suficiencia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6521,
+      "modified_at": "2026-07-13T16:25:58.984000Z",
+      "sha256": "d96853b6756b39a3f81d49f331fa5bb18c781cdd873250e01d4deb906e186c0a"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\12_curva_suficiencia_amostral_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 851299,
+      "modified_at": "2026-07-13T16:26:03.803000Z",
+      "sha256": "45da10980ef36a1459e6fcdd4277768e45d46ad7092e50aad90a71aba499d4b2"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\DarwinCore_IEF_Ictiofauna_A_G_Mineracao.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 10566,
+      "modified_at": "2026-07-13T16:26:04.180000Z",
+      "sha256": "74095a52a8303b9588b7837a2d50c9d6df44c90df1d94675f0ed55db5f8dc2aa"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\ictiofauna",
+  "warnings": []
+}

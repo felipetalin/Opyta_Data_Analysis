@@ -1,0 +1,34 @@
+{
+  "project_code": "BRAAEG001",
+  "project_id": 195,
+  "project_name": "A&G Mineracao - Biota aquatica",
+  "canonical_key": "BRAAEG001__a_g_mineracao_biota_aquatica",
+  "supabase_source": {
+    "table": "projetos",
+    "id_field": "id_projeto",
+    "code_field": "codigo_interno_opyta",
+    "name_field": "nome_projeto"
+  },
+  "analysis_name": "Diagnostico de ictiofauna - campanhas C001 e C002 de 2026",
+  "client_config": "braaeg001",
+  "audit_project_slug": "BRAAEG001__a_g_mineracao_biota_aquatica",
+  "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna",
+  "groups": [
+    {
+      "group": "Ictiofauna",
+      "pipeline": "ictio",
+      "output_subdir": "."
+    }
+  ],
+  "campaigns": [
+    "C001-2026-02-CH",
+    "C002-2026-06-SC"
+  ],
+  "data_notes": [
+    "Diagnostico de base curta com duas campanhas apenas para Ictiofauna.",
+    "Gate A aprovado com avisos e Gate B aprovado em 2026-07-03.",
+    "Migracao consolidada no projeto id 195 com 18 registros migraveis de ictiofauna, preservando 72 individuos.",
+    "CPUEb deve usar a planilha linha-a-linha validada como fonte analitica de biomassa.",
+    "Padrao visual: referencia FERSAM001/VIRITA001 para estudos com uma ou duas campanhas."
+  ]
+}
