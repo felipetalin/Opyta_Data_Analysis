@@ -1,0 +1,161 @@
+{
+  "generated_at_utc": "2026-07-13T11:44:27.337674+00:00",
+  "project_code": "BRAANG01",
+  "matrix": "Efluente",
+  "revision": "R06_efluente_dbo_pontos_20260710",
+  "param": "Demanda Bioquímica de Oxigênio",
+  "groups": {
+    "MCB907E_MCB907S": [
+      "MCB907E",
+      "MCB907S"
+    ],
+    "MCB1005": [
+      "MCB1005"
+    ]
+  },
+  "mcb907_selected_campaigns": [
+    "jan-2021",
+    "mar-2021",
+    "jul-2021",
+    "set-2021",
+    "dez-2021",
+    "mar-2022",
+    "jun-2022",
+    "set-2022",
+    "dez-2022",
+    "mar-2023",
+    "jun-2023",
+    "set-2023",
+    "nov-2023",
+    "mar-2024",
+    "jun-2024",
+    "set-2024",
+    "nov-2024",
+    "mar-2025",
+    "jun-2025"
+  ],
+  "vmp_source_column": "vmp_430_padrao",
+  "expected_vmp_mg_l": 60.0,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Anglo\\dados\\Migração e resultados\\Resultados\\_revisoes\\R06_efluente_dbo_pontos_20260710\\revisado\\Efluente_DBO",
+  "png_count": 2,
+  "results": [
+    {
+      "group": "MCB907E_MCB907S",
+      "points": [
+        "MCB907E",
+        "MCB907S"
+      ],
+      "file": "ST_Demanda_Bioquímica_de_Oxigênio_MCB907E_MCB907S.png",
+      "periodicity": "campanhas_trimestrais_selecionadas",
+      "campaign_count": 19,
+      "campaigns": [
+        "jan-2021",
+        "mar-2021",
+        "jul-2021",
+        "set-2021",
+        "dez-2021",
+        "mar-2022",
+        "jun-2022",
+        "set-2022",
+        "dez-2022",
+        "mar-2023",
+        "jun-2023",
+        "set-2023",
+        "nov-2023",
+        "mar-2024",
+        "jun-2024",
+        "set-2024",
+        "nov-2024",
+        "mar-2025",
+        "jun-2025"
+      ],
+      "audit": [
+        {
+          "point": "MCB907E",
+          "rows": 19,
+          "max_value": 2540.0,
+          "vmp_visible": 60.0
+        },
+        {
+          "point": "MCB907S",
+          "rows": 19,
+          "max_value": 136.0,
+          "vmp_visible": 60.0
+        }
+      ]
+    },
+    {
+      "group": "MCB1005",
+      "points": [
+        "MCB1005"
+      ],
+      "file": "ST_Demanda_Bioquímica_de_Oxigênio_MCB1005.png",
+      "periodicity": "mensal",
+      "campaign_count": 54,
+      "campaigns": [
+        "jan-2021",
+        "fev-2021",
+        "mar-2021",
+        "abr-2021",
+        "mai-2021",
+        "jun-2021",
+        "jul-2021",
+        "ago-2021",
+        "set-2021",
+        "out-2021",
+        "nov-2021",
+        "dez-2021",
+        "jan-2022",
+        "fev-2022",
+        "mar-2022",
+        "abr-2022",
+        "mai-2022",
+        "jun-2022",
+        "jul-2022",
+        "ago-2022",
+        "set-2022",
+        "out-2022",
+        "nov-2022",
+        "dez-2022",
+        "jan-2023",
+        "fev-2023",
+        "mar-2023",
+        "abr-2023",
+        "mai-2023",
+        "jun-2023",
+        "jul-2023",
+        "ago-2023",
+        "set-2023",
+        "out-2023",
+        "nov-2023",
+        "dez-2023",
+        "jan-2024",
+        "fev-2024",
+        "mar-2024",
+        "abr-2024",
+        "mai-2024",
+        "jun-2024",
+        "jul-2024",
+        "ago-2024",
+        "set-2024",
+        "out-2024",
+        "nov-2024",
+        "dez-2024",
+        "jan-2025",
+        "fev-2025",
+        "mar-2025",
+        "abr-2025",
+        "mai-2025",
+        "jun-2025"
+      ],
+      "audit": [
+        {
+          "point": "MCB1005",
+          "rows": 54,
+          "max_value": 5.1,
+          "vmp_visible": 60.0
+        }
+      ]
+    }
+  ]
+}
