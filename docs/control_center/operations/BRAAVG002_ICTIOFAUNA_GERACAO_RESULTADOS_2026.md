@@ -411,7 +411,7 @@
 - produto:
   - `08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png`;
   - `08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx`.
-- desenho: ranking de contribuicao relativa da CPUEn, frequencia de ocorrencia, heatmap temporal categorizado por intensidade de CPUEn em `C001-C047` e bolhas espaciais por ponto/area de controle.
+- desenho: painel A3 paisagem com margem superior para titulo, ranking de contribuicao relativa da CPUEn em barra unica, heatmap temporal com todas as campanhas `C001-C047` e classes percentuais de intensidade relativa, ausencia em branco e bolhas espaciais por CPUEn relativa dentro de cada especie.
 - planilha: abas `ranking_cpuen`, `cpuen_temporal` e `cpuen_por_ponto`.
 - validacao: PNG abriu via PIL, XLSX abriu via openpyxl, 13 especies, percentuais de CPUEn somando 100%.
 

@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-07-13T14:49:46",
+  "project_code": "BRAAVG002",
+  "group": "Ictiofauna",
+  "species": 13,
+  "reused_geoarc_traits": 6,
+  "new_proposed_traits": 7,
+  "status": "approved_for_analysis",
+  "approved_at": "2026-07-13",
+  "approval_scope": "Uso como matriz analitica do projeto; banco public.especies nao alterado.",
+  "taxonomy_display_overrides": {
+    "Poecilia mexicana": "Poecilia cf. mexicana"
+  },
+  "outputs": {
+    "xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\species_traits_review_20260713\\braavg002_ictiofauna_traits_funcionais_revisao.xlsx",
+    "json": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\species_traits_review_20260713\\braavg002_ictiofauna_traits_funcionais_revisao.json",
+    "markdown": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\species_traits_review_20260713\\braavg002_ictiofauna_traits_funcionais_revisao.md"
+  },
+  "pending_species": [
+    "Characidium fasciatum",
+    "Geophagus brasiliensis",
+    "Neoplecostomus franciscoensis",
+    "Pareiorhaphis mutuca",
+    "Parotocinclus robustus",
+    "Poecilia mexicana",
+    "Trichomycterus novalimensis"
+  ]
+}

@@ -162,7 +162,11 @@ def _coordinate_variation_from_workbook(source: Path) -> pd.DataFrame:
     return coord_variation.sort_values("Ponto", key=lambda s: s.map(_point_sort_key)).reset_index(drop=True)
 
 
-def load_coordinates(source: Path, coordinate_reference: Path | None) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def load_coordinates(
+    source: Path,
+    coordinate_reference: Path | None,
+    workbook_coordinate_strategy: str = "first",
+) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     coord_variation = _coordinate_variation_from_workbook(source)
     if coordinate_reference is not None:
         ref = read_kml_point_coordinates(coordinate_reference)
@@ -182,9 +186,10 @@ def load_coordinates(source: Path, coordinate_reference: Path | None) -> tuple[p
             ["Ponto", "Campanha"],
             key=lambda s: s.map(_point_sort_key) if s.name == "Ponto" else s.map(_campaign_sort_key),
         )
-        coords = raw.drop_duplicates("Ponto", keep="first")[["Ponto", "Campanha", "Latitude", "Longitude"]].copy()
+        keep = "last" if workbook_coordinate_strategy == "last" else "first"
+        coords = raw.drop_duplicates("Ponto", keep=keep)[["Ponto", "Campanha", "Latitude", "Longitude"]].copy()
         coords = coords.rename(columns={"Campanha": "Campanha_Coordenada"})
-        coords["estrategia_coordenada"] = "primeira_coordenada_valida_planilha"
+        coords["estrategia_coordenada"] = f"{keep}_coordenada_valida_planilha"
     coords = coords.merge(coord_variation, on="Ponto", how="left")
     coords = coords.sort_values("Ponto", key=lambda s: s.map(_point_sort_key)).reset_index(drop=True)
 
@@ -604,6 +609,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--source", default=str(DEFAULT_SOURCE), help="Planilha de migração com coordenadas.")
     parser.add_argument("--group-table", default=str(DEFAULT_GROUP_TABLE), help="Planilha do produto 23.")
     parser.add_argument("--coordinate-reference", default=str(DEFAULT_COORD_REFERENCE), help="KMZ/KML com coordenadas oficiais dos pontos.")
+    parser.add_argument(
+        "--workbook-coordinate-strategy",
+        choices=["first", "last"],
+        default="first",
+        help="Quando --coordinate-reference estiver vazio, escolhe primeira ou ultima coordenada valida por ponto na planilha.",
+    )
     parser.add_argument("--hydrology-layer", action="append", default=None, help="Camada KML/KMZ de drenagem/talvegue. Pode ser usada mais de uma vez.")
     parser.add_argument("--no-hydrology", action="store_true", help="Nao desenha malha hidrica nos mini mapas.")
     parser.add_argument("--ada-layer", default=str(DEFAULT_ADA_LAYER), help="Camada KML/KMZ da ADA.")
@@ -625,7 +636,7 @@ def main() -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
     theme = load_theme(ROOT / "configs", args.client)
 
-    coords, close_pairs, coord_variation = load_coordinates(source, coordinate_reference)
+    coords, close_pairs, coord_variation = load_coordinates(source, coordinate_reference, args.workbook_coordinate_strategy)
     exclude_groups = {str(group).strip() for group in args.exclude_group if str(group).strip()}
     annual, definitions = load_group_panel(group_table, coords, exclude_groups)
     if args.no_hydrology:
@@ -656,7 +667,7 @@ def main() -> int:
         "max_CPUEn_grupo_medio": float(annual["CPUEn_grupo_medio"].max()),
         "max_perc_CPUEn_medio": float(annual["perc_CPUEn_medio"].max()),
         "coordinate_reference": str(coordinate_reference) if coordinate_reference else None,
-        "coordinate_strategy": "referencia_kmz" if coordinate_reference else "primeira_coordenada_valida_planilha",
+        "coordinate_strategy": "referencia_kmz" if coordinate_reference else f"{args.workbook_coordinate_strategy}_coordenada_valida_planilha",
         "hydrology_layers": [str(layer) for layer in hydrology_layers],
         "hydrology_features": int(hydrology[["fonte", "feature_id"]].drop_duplicates().shape[0]) if not hydrology.empty else 0,
         "hydrology_vertices": int(len(hydrology)),
@@ -664,7 +675,7 @@ def main() -> int:
         "ada_polygons": int(ada["polygon_id"].nunique()) if not ada.empty else 0,
         "ada_vertices": int(len(ada)),
         "close_pairs_under_1km": close_pairs[close_pairs["distancia_km"] < 1.0].to_dict("records"),
-        "coordinate_note": "Mapa gerado com coordenadas oficiais do KMZ; a variacao das coordenadas da planilha foi mantida em diagnostico_variacao_coords.",
+        "coordinate_note": "Mapa gerado com coordenadas do KMZ quando informado; sem KMZ, usa a estrategia first/last sobre as coordenadas validas da planilha.",
         "note": "Produto exploratório; não substitui os heatmaps temporais nem representa modelagem espacial.",
     }
     outputs = write_outputs(

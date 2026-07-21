@@ -215,9 +215,41 @@ def taxonomy_overrides(recipe: dict[str, Any]) -> dict[str, str]:
     return out
 
 
+def taxonomy_field_overrides(recipe: dict[str, Any]) -> dict[str, dict[str, str]]:
+    review = (recipe.get("long_study_readiness") or {}).get("species_traits_review") or {}
+    overrides = review.get("taxonomy_field_overrides") or {}
+    out: dict[str, dict[str, str]] = {}
+    for name, payload in overrides.items():
+        if isinstance(payload, dict):
+            fields = {
+                str(field): str(value)
+                for field, value in payload.items()
+                if field in {"Origem", "Ordem", "Familia", "Genero"} and value
+            }
+            if fields:
+                out[_clean_text(name)] = fields
+    return out
+
+
 def display_name(name: object, overrides: dict[str, str]) -> str:
     text_value = _clean_text(name)
     return overrides.get(text_value, text_value)
+
+
+def apply_taxonomy_field_overrides(df: pd.DataFrame, overrides: dict[str, dict[str, str]]) -> pd.DataFrame:
+    key_col = "Nome_Cientifico_Banco" if "Nome_Cientifico_Banco" in df.columns else "Nome Cientifico Banco"
+    if not overrides or key_col not in df.columns:
+        return df
+    out = df.copy()
+    keys = out[key_col].map(_clean_text)
+    for name, fields in overrides.items():
+        mask = keys == name
+        if not mask.any():
+            continue
+        for field, value in fields.items():
+            if field in out.columns:
+                out.loc[mask, field] = value
+    return out
 
 
 def load_database() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -363,11 +395,13 @@ def build_source_tables(
     points: pd.DataFrame,
     efforts: pd.DataFrame,
     results: pd.DataFrame,
+    registry: pd.DataFrame,
     crosswalk: pd.DataFrame,
     coords: pd.DataFrame,
     point_order: list[str],
     area_by_point: dict[str, str],
     overrides: dict[str, str],
+    field_overrides: dict[str, dict[str, str]],
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     point_order_map = {point: idx for idx, point in enumerate(point_order)}
     campaign_cols = [
@@ -404,7 +438,7 @@ def build_source_tables(
             "Latitude": pts["Latitude"],
             "Longitude": pts["Longitude"],
             "Area_Controle": pts["Area_Controle"],
-            "Ano_Temporal": pts["ano_temporal_inicio"],
+            "Ano_Temporal": pts["ano_temporal_fim"],
             "Ano_Calendario": pts["ano_calendario"],
             "Mes": pts["mes"],
             "Periodo_Hidrologico": pts["periodo_hidrologico"],
@@ -438,7 +472,7 @@ def build_source_tables(
             "Tipo_de_Amostragem": eff["tipo_amostragem"].fillna("Quantitativa"),
             "Esforco": pd.to_numeric(eff["esforco"], errors="coerce"),
             "Area_Controle": eff["Area_Controle"],
-            "Ano_Temporal": eff["ano_temporal_inicio"],
+            "Ano_Temporal": eff["ano_temporal_fim"],
             "Periodo_Hidrologico": eff["periodo_hidrologico"],
             "Ciclo_Temporal": eff["ciclo_temporal"],
         }
@@ -453,6 +487,13 @@ def build_source_tables(
     res["nome_ponto"] = res["nome_ponto"].map(_normalize_point)
     res = res.merge(cw, left_on="nome_campanha", right_on="nome_campanha_atual", how="left")
     res = apply_sampling_adjustments(res)
+    tax_cols = ["origem", "ordem", "familia", "genero"]
+    tax_registry = registry[["nome_cientifico", *tax_cols]].drop_duplicates("nome_cientifico").rename(
+        columns={col: f"{col}_cadastro" for col in tax_cols}
+    )
+    res = res.merge(tax_registry, on="nome_cientifico", how="left")
+    for col in tax_cols:
+        res[col] = res[f"{col}_cadastro"].combine_first(res[col])
     res["Area_Controle"] = res["nome_ponto"].map(area_by_point)
     res["nome_cientifico_relatorio"] = res["nome_cientifico"].map(lambda value: display_name(value, overrides))
     resultados_source = pd.DataFrame(
@@ -472,11 +513,12 @@ def build_source_tables(
             "Familia": res["familia"],
             "Genero": res["genero"],
             "Area_Controle": res["Area_Controle"],
-            "Ano_Temporal": res["ano_temporal_inicio"],
+            "Ano_Temporal": res["ano_temporal_fim"],
             "Periodo_Hidrologico": res["periodo_hidrologico"],
             "Ciclo_Temporal": res["ciclo_temporal"],
         }
     )
+    resultados_source = apply_taxonomy_field_overrides(resultados_source, field_overrides)
     resultados_source["ordem_campanha"] = res["campanha_ordem"]
     resultados_source["ordem_ponto"] = resultados_source["Ponto"].map(point_order_map)
     resultados_source = resultados_source.sort_values(["ordem_campanha", "ordem_ponto", "Nome_Cientifico"]).drop(
@@ -509,14 +551,19 @@ def build_traits(review_path: Path, overrides: dict[str, str]) -> pd.DataFrame:
     return out.drop_duplicates("Nome Cientifico").sort_values("Nome Cientifico").reset_index(drop=True)
 
 
-def build_composition(results_source: pd.DataFrame, registry: pd.DataFrame, overrides: dict[str, str]) -> pd.DataFrame:
+def build_composition(
+    results_source: pd.DataFrame,
+    registry: pd.DataFrame,
+    overrides: dict[str, str],
+    field_overrides: dict[str, dict[str, str]],
+) -> pd.DataFrame:
     reg = registry.copy()
     reg["Nome_Cientifico_Banco"] = reg["nome_cientifico"].map(_clean_text)
     reg["Nome Cientifico"] = reg["nome_cientifico"].map(lambda value: display_name(value, overrides))
     used = results_source[["Nome_Cientifico_Banco"]].drop_duplicates()
     comp = used.merge(reg, on="Nome_Cientifico_Banco", how="left")
     comp["Nome Cientifico"] = comp["Nome Cientifico"].fillna(comp["Nome_Cientifico_Banco"].map(lambda value: display_name(value, overrides)))
-    return (
+    out = (
         comp.rename(
             columns={
                 "Nome_Cientifico_Banco": "Nome Cientifico Banco",
@@ -547,6 +594,7 @@ def build_composition(results_source: pd.DataFrame, registry: pd.DataFrame, over
         .sort_values("Nome Cientifico")
         .reset_index(drop=True)
     )
+    return apply_taxonomy_field_overrides(out, field_overrides)
 
 
 def write_combined_area_kml(output_path: Path, layers: list[tuple[str, Path]]) -> Path:
@@ -634,6 +682,7 @@ def build(output_dir: Path, recipe_path: Path, kml_standard: Path) -> dict[str, 
     recipe = load_recipe(recipe_path)
     point_order, area_by_point = point_layout(recipe)
     overrides = taxonomy_overrides(recipe)
+    field_overrides = taxonomy_field_overrides(recipe)
     points, efforts, results, registry = load_database()
     crosswalk = build_crosswalk(points)
     coords = load_standard_coordinates(kml_standard, point_order)
@@ -641,14 +690,16 @@ def build(output_dir: Path, recipe_path: Path, kml_standard: Path) -> dict[str, 
         points,
         efforts,
         results,
+        registry,
         crosswalk,
         coords,
         point_order,
         area_by_point,
         overrides,
+        field_overrides,
     )
     traits = build_traits(TRAITS_REVIEW, overrides)
-    composition = build_composition(resultados_source, registry, overrides)
+    composition = build_composition(resultados_source, registry, overrides, field_overrides)
     area_kml = write_combined_area_kml(output_dir / "braavg002_areas_controle_01_02.kml", AREA_CONTROL_LAYERS)
     outputs = write_outputs(
         output_dir,
@@ -688,6 +739,7 @@ def build(output_dir: Path, recipe_path: Path, kml_standard: Path) -> dict[str, 
         "species": int(resultados_source["Nome_Cientifico"].nunique()),
         "area_control_groups": points_control.to_dict("records"),
         "taxonomy_display_overrides": overrides,
+        "taxonomy_field_overrides": field_overrides,
         "outputs": outputs,
     }
     manifest = output_dir / "manifesto_braavg002_geoarc001_source_ictiofauna.json"

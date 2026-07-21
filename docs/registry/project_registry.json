@@ -71,7 +71,9 @@
         "Ictiofauna",
         "Zoobentos"
       ],
-      "recipes": [],
+      "recipes": [
+        "configs/projects/braavg002_ictiofauna_2026.json"
+      ],
       "docs": [
         "docs/AVG_BENTOS_INVENTARIO_BANCO_20260608.md",
         "docs/AVG_ICTIOFAUNA_2026.md",

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-07-16T10:58:03",
+  "project_code": "BRAAVG002",
+  "species": [
+    "Poecilia cf. mexicana",
+    "Poecilia reticulata"
+  ],
+  "status": "generated",
+  "metric": "CPUEn",
+  "panel": {
+    "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10C_grafico_sintese_cpuen_especies_exoticas_ictiofauna.png",
+    "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10C_df_sintese_cpuen_especies_exoticas_ictiofauna.xlsx",
+    "support_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\threatened_species_synthesis_20260716\\10C_grafico_sintese_cpuen_especies_exoticas_ictiofauna.png",
+    "support_table": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\threatened_species_synthesis_20260716\\10C_df_sintese_cpuen_especies_exoticas_ictiofauna.xlsx"
+  },
+  "annual_maps": {
+    "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10D_grafico_mini_mapas_especies_exoticas_ano_ictiofauna.png",
+    "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10D_df_mini_mapas_especies_exoticas_ano_ictiofauna.xlsx",
+    "support_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\threatened_species_synthesis_20260716\\10D_grafico_mini_mapas_especies_exoticas_ano_ictiofauna.png",
+    "support_table": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\threatened_species_synthesis_20260716\\10D_df_mini_mapas_especies_exoticas_ano_ictiofauna.xlsx"
+  },
+  "years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "points": 13,
+  "coordinate_strategy": "last_coordenada_valida_planilha",
+  "coordinate_source": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\geoarc001_long_study_source_20260713\\braavg002_geoarc001_source_ictiofauna.xlsx",
+  "hydrology_layer": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Geo\\Hidrografia.kmz",
+  "ada_layer": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Geo\\1AVGM015_ADA_Sem_Adutora_region.kmz",
+  "control_area_layers": {
+    "Area de controle 01": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Geo\\771_area_controle_01_pl.kml",
+    "Area de controle 02": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Geo\\771_area_controle_02_pl.kml"
+  },
+  "map_rule": "CPUEn media anual por ponto e especie, incluindo zeros nas campanhas quantitativas amostradas sem registro."
+}

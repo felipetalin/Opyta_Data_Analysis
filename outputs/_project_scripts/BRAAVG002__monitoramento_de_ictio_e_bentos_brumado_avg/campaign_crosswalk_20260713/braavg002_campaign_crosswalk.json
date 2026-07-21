@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-07-13T14:45:59",
+  "project_code": "BRAAVG002",
+  "project_id": 9,
+  "campaigns": 47,
+  "first_campaign": "1ª-Ago-22",
+  "last_campaign": "47ª-Jun-26",
+  "season_rule": "CH = outubro a marco; SC = abril a setembro",
+  "temporal_year_rule": "ano temporal = agosto a julho; meses ago-dez pertencem ao ano de inicio, jan-jul ao ano anterior",
+  "temporal_cycles": [
+    {
+      "ciclo_temporal": "2022/2023",
+      "campanhas": 12,
+      "primeira": "1ª-Ago-22",
+      "ultima": "12ª-Jul-23",
+      "campanhas_padrao": "C001-2022-08-SC; C002-2022-09-SC; C003-2022-10-CH; C004-2022-11-CH; C005-2022-12-CH; C006-2023-01-CH; C007-2023-02-CH; C008-2023-03-CH; C009-2023-04-SC; C010-2023-05-SC; C011-2023-06-SC; C012-2023-07-SC"
+    },
+    {
+      "ciclo_temporal": "2023/2024",
+      "campanhas": 12,
+      "primeira": "13ª-Ago-23",
+      "ultima": "24ª-Jul-24",
+      "campanhas_padrao": "C013-2023-08-SC; C014-2023-09-SC; C015-2023-10-CH; C016-2023-11-CH; C017-2023-12-CH; C018-2024-01-CH; C019-2024-02-CH; C020-2024-03-CH; C021-2024-04-SC; C022-2024-05-SC; C023-2024-06-SC; C024-2024-07-SC"
+    },
+    {
+      "ciclo_temporal": "2024/2025",
+      "campanhas": 12,
+      "primeira": "25ª-Ago-24",
+      "ultima": "36ª-Jul-25",
+      "campanhas_padrao": "C025-2024-08-SC; C026-2024-09-SC; C027-2024-10-CH; C028-2024-11-CH; C029-2024-12-CH; C030-2025-01-CH; C031-2025-02-CH; C032-2025-03-CH; C033-2025-04-SC; C034-2025-05-SC; C035-2025-06-SC; C036-2025-07-SC"
+    },
+    {
+      "ciclo_temporal": "2025/2026",
+      "campanhas": 11,
+      "primeira": "37ª-Ago-25",
+      "ultima": "47ª-Jun-26",
+      "campanhas_padrao": "C037-2025-08-SC; C038-2025-09-SC; C039-2025-10-CH; C040-2025-11-CH; C041-2025-12-CH; C042-2026-01-CH; C043-2026-02-CH; C044-2026-03-CH; C045-2026-04-SC; C046-2026-05-SC; C047-2026-06-SC"
+    }
+  ],
+  "recommended_strategy": "crosswalk_analitico_primeiro",
+  "apply_to_database": "not_approved",
+  "impact": {
+    "campanhas_rows": 47,
+    "biota_ictiofauna_rows": 519,
+    "biota_zoobentos_rows": 3937,
+    "fisico_rows": 0
+  },
+  "outputs": {
+    "xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\campaign_crosswalk_20260713\\braavg002_campaign_crosswalk.xlsx",
+    "json": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\campaign_crosswalk_20260713\\braavg002_campaign_crosswalk.json",
+    "markdown": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\campaign_crosswalk_20260713\\braavg002_campaign_crosswalk.md",
+    "sql": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\campaign_crosswalk_20260713\\braavg002_campaign_rename_dry_run.sql"
+  }
+}

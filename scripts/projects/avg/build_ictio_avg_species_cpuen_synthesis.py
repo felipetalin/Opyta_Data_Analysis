@@ -40,10 +40,11 @@ POINT_ORDER = sum(traditional.REPORT_POINT_GROUPS.values(), [])
 AREA_01 = traditional.avg_runner.AREA_01
 AREA_02 = traditional.avg_runner.AREA_02
 AREA_COLORS = {AREA_01: "#16803A", AREA_02: "#6A8F2F"}
-BAR_COLOR = "#6DBA18"
+GREEN_LOW = "#C9E7C1"
+GREEN_MID = "#68B74A"
+GREEN_HIGH = "#0C7438"
 BAR_EDGE = "#38620E"
-ABSENT_COLOR = "#EDEDED"
-PRESENT_COLOR = "#208045"
+ABSENT_COLOR = "#FFFFFF"
 YEAR_BANDS = traditional.TEMPORAL_YEAR_BANDS
 
 
@@ -164,9 +165,7 @@ def _decorate_year_bands(ax: Any, campaigns: list[str], n_species: int) -> None:
             continue
         left = min(indices) - 0.5
         right = max(indices) + 0.5
-        if year in {2023, 2025}:
-            ax.axvspan(left, right, color="#F3F8EF", zorder=0)
-        ax.text((left + right) / 2, -0.95, f"Ano {year}", ha="center", va="bottom", fontsize=8.5, color="#50614A")
+        ax.text((left + right) / 2, -0.95, f"Ano {year}", ha="center", va="bottom", fontsize=10.8, color="#50614A")
         ax.axvline(right, color="#B8B8B8", linestyle=":", linewidth=0.8, zorder=3)
     ax.set_ylim(n_species - 0.5, -1.05)
 
@@ -178,8 +177,8 @@ def plot_synthesis(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.Dat
     campaigns = [col for col in presence.columns if col != "nome_cientifico"]
     points = [col for col in spatial.columns if col != "nome_cientifico"]
 
-    fig = plt.figure(figsize=(16.4, 8.5), dpi=450)
-    gs = fig.add_gridspec(1, 3, width_ratios=[1.35, 1.35, 1.05], wspace=0.055)
+    fig = plt.figure(figsize=(16.54, 11.69), dpi=450)
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.42, 1.30, 1.03], wspace=0.075)
     ax_bar = fig.add_subplot(gs[0, 0])
     ax_time = fig.add_subplot(gs[0, 1], sharey=ax_bar)
     ax_space = fig.add_subplot(gs[0, 2], sharey=ax_bar)
@@ -187,80 +186,88 @@ def plot_synthesis(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.Dat
     y = np.arange(n_species)
     labels = species
 
-    bars = ax_bar.barh(y, totals["cpuen_percentual"], color=BAR_COLOR, edgecolor=BAR_EDGE, height=0.62)
+    max_percent = float(totals["cpuen_percentual"].max()) if n_species else 0.0
+    bars = ax_bar.barh(y, totals["cpuen_percentual"], color=GREEN_HIGH, edgecolor=BAR_EDGE, height=0.64)
     ax_bar.set_yticks(y)
-    ax_bar.set_yticklabels(labels, fontsize=10.2)
+    ax_bar.set_yticklabels(labels, fontsize=13.2)
     for label in ax_bar.get_yticklabels():
         label.set_fontstyle("italic")
     ax_bar.invert_yaxis()
-    x_max = max(5.0, float(totals["cpuen_percentual"].max()) * 1.38)
-    ax_bar.set_xlabel("Contribuição relativa da CPUEn (%)", fontsize=10.5)
+    x_max = max(5.0, max_percent * 1.18)
+    ax_bar.set_xlabel("Contribuição relativa da CPUEn (%)", fontsize=13.2)
     ax_bar.set_xlim(0, x_max)
-    ax_bar.grid(axis="x", color="#D9D9D9", linewidth=0.75, alpha=0.85)
+    ax_bar.grid(axis="x", color="#D9D9D9", linewidth=0.65, alpha=0.7)
     ax_bar.grid(axis="y", visible=False)
     for spine in ["top", "right", "left"]:
         ax_bar.spines[spine].set_visible(False)
-    ax_bar.tick_params(axis="x", labelsize=9.5)
+    ax_bar.tick_params(axis="x", labelsize=11.8)
     ax_bar.tick_params(axis="y", length=0)
     for bar, value in zip(bars, totals["cpuen_percentual"]):
         ax_bar.text(
-            bar.get_width() + max(float(totals["cpuen_percentual"].max()) * 0.012, 0.12),
+            bar.get_width() + max(max_percent * 0.012, 0.12),
             bar.get_y() + bar.get_height() / 2,
             f"{value:.1f}",
             va="center",
             ha="left",
-            fontsize=9.4,
+            fontsize=11.2,
             color="#222222",
         )
-    freq_x = x_max * 0.91
-    ax_bar.text(freq_x, -0.82, "Frequência", ha="center", va="bottom", fontsize=8.5, color="#006837")
-    ax_bar.text(freq_x, -0.48, "(campanhas)", ha="center", va="bottom", fontsize=8.0, color="#006837")
-    for ypos, freq in zip(y, totals["campanhas_ocorrencia"]):
-        ax_bar.text(freq_x, ypos, f"{int(freq)}/47", va="center", ha="center", fontsize=8.7, color="#222222")
-
     presence_values = presence[campaigns].to_numpy(dtype=float)
-    positive = presence_values[presence_values > 0]
-    q50 = float(np.nanquantile(positive, 0.50)) if positive.size else 0.0
-    q75 = float(np.nanquantile(positive, 0.75)) if positive.size else 0.0
+    max_temporal = float(np.nanmax(presence_values)) if presence_values.size else 0.0
+    temporal_relative = np.divide(
+        presence_values,
+        max_temporal,
+        out=np.zeros_like(presence_values, dtype=float),
+        where=max_temporal > 0,
+    )
     intensity = np.zeros_like(presence_values, dtype=float)
-    intensity[(presence_values > 0) & (presence_values <= q50)] = 1
-    intensity[(presence_values > q50) & (presence_values <= q75)] = 2
-    intensity[presence_values > q75] = 3
-    cmap = matplotlib.colors.ListedColormap([ABSENT_COLOR, "#C9E7C1", "#68B74A", "#0C7438"])
+    intensity[(presence_values > 0) & (temporal_relative <= 1 / 3)] = 1
+    intensity[(temporal_relative > 1 / 3) & (temporal_relative <= 2 / 3)] = 2
+    intensity[temporal_relative > 2 / 3] = 3
+    cmap = matplotlib.colors.ListedColormap([ABSENT_COLOR, GREEN_LOW, GREEN_MID, GREEN_HIGH])
     ax_time.imshow(intensity, aspect="auto", interpolation="nearest", cmap=cmap, vmin=0, vmax=3, zorder=1)
     _decorate_year_bands(ax_time, campaigns, n_species)
-    ax_time.set_xticks(np.arange(len(campaigns)))
-    ax_time.set_xticklabels([_campaign_short(campaign) for campaign in campaigns], rotation=90, fontsize=6.2)
+    tick_idx = np.arange(len(campaigns))
+    ax_time.set_xticks(tick_idx)
+    ax_time.set_xticklabels([_campaign_short(campaigns[idx]) for idx in tick_idx], rotation=90, fontsize=7.2)
     ax_time.tick_params(axis="y", left=False, labelleft=False)
-    ax_time.set_xlabel("Ocorrência por campanha (CPUEn)", fontsize=10.5)
+    ax_time.set_xlabel("Ocorrência por campanha (CPUEn)", fontsize=13.2)
     for spine in ["top", "right", "left"]:
         ax_time.spines[spine].set_visible(False)
     ax_time.set_yticks(y)
     ax_time.set_xticks(np.arange(-0.5, len(campaigns), 1), minor=True)
     ax_time.set_yticks(np.arange(-0.5, n_species, 1), minor=True)
-    ax_time.grid(which="minor", color="white", linewidth=0.35)
+    ax_time.grid(which="minor", color="white", linewidth=0.2)
     ax_time.tick_params(which="minor", bottom=False, left=False)
     heat_handles = [
-        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor="#0C7438", markeredgecolor="#777777", markersize=7, label="Alta"),
-        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor="#68B74A", markeredgecolor="#777777", markersize=7, label="Média"),
-        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor="#C9E7C1", markeredgecolor="#777777", markersize=7, label="Baixa"),
-        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor=ABSENT_COLOR, markeredgecolor="#777777", markersize=7, label="Ausência"),
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor=GREEN_HIGH, markeredgecolor="#777777", markersize=8.5, label="Alta (>67%)"),
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor=GREEN_MID, markeredgecolor="#777777", markersize=8.5, label="Média (34-67%)"),
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor=GREEN_LOW, markeredgecolor="#777777", markersize=8.5, label="Baixa (≤33%)"),
+        plt.Line2D([0], [0], marker="s", color="none", markerfacecolor=ABSENT_COLOR, markeredgecolor="#777777", markersize=8.5, label="Ausência"),
     ]
     ax_time.legend(
         handles=heat_handles,
-        loc="lower center",
-        bbox_to_anchor=(0.5, -0.22),
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.09),
         ncol=4,
         frameon=False,
-        fontsize=7.6,
+        fontsize=9.5,
         handletextpad=0.35,
         columnspacing=0.9,
     )
 
-    max_spatial = float(spatial[points].to_numpy(dtype=float).max()) if points else 0.0
+    spatial_values = spatial[points].to_numpy(dtype=float) if points else np.empty((n_species, 0))
+    row_max = np.nanmax(spatial_values, axis=1) if points else np.zeros(n_species)
+    relative_spatial = np.divide(
+        spatial_values,
+        row_max[:, None],
+        out=np.zeros_like(spatial_values, dtype=float),
+        where=row_max[:, None] > 0,
+    )
     for x, point in enumerate(points):
         values = spatial[point].to_numpy(dtype=float)
-        sizes = np.where(values > 0, 28 + (values / max_spatial) * 230 if max_spatial > 0 else 28, 0)
+        relative_values = relative_spatial[:, x]
+        sizes = np.where(values > 0, 28 + relative_values * 230, 0)
         color = AREA_COLORS.get(traditional.avg_runner.AREA_BY_POINT.get(point), "#777777")
         ax_space.scatter(
             np.full(n_species, x),
@@ -268,52 +275,63 @@ def plot_synthesis(totals: pd.DataFrame, presence: pd.DataFrame, spatial: pd.Dat
             s=sizes,
             color=color,
             edgecolor="#1F1F1F",
-            linewidth=0.38,
-            alpha=0.82,
+            linewidth=0.42,
+            alpha=0.8,
         )
     boundary = points.index("PIC-10") - 0.5 if "PIC-10" in points else None
     if boundary is not None:
         ax_space.axvline(boundary, color="#4F4F4F", linestyle=":", linewidth=1.0)
     ax_space.set_xlim(-0.6, len(points) - 0.4)
     ax_space.set_xticks(np.arange(len(points)))
-    ax_space.set_xticklabels(points, rotation=90, fontsize=8.8)
+    ax_space.set_xticklabels(points, rotation=90, fontsize=10.6)
     ax_space.tick_params(axis="y", left=False, labelleft=False)
-    ax_space.set_xlabel("Distribuição espacial por ponto", fontsize=10.5)
-    ax_space.grid(axis="y", color="#EEEEEE", linewidth=0.55)
+    ax_space.set_xlabel("")
+    ax_space.set_title("Distribuição espacial relativa por ponto", fontsize=13.2, pad=14)
+    ax_space.grid(axis="y", color="#EEEEEE", linewidth=0.5)
     for spine in ["top", "right", "left"]:
         ax_space.spines[spine].set_visible(False)
 
-    for ax in [ax_bar, ax_time, ax_space]:
-        ax.axhline(1.5, color="#16803A", linestyle="--", linewidth=0.9, alpha=0.85)
-
     area_handles = [
-        plt.Line2D([0], [0], marker="o", color="none", markerfacecolor=AREA_COLORS[AREA_01], markeredgecolor="#1F1F1F", markersize=7.5, label="Área de controle 01"),
-        plt.Line2D([0], [0], marker="o", color="none", markerfacecolor=AREA_COLORS[AREA_02], markeredgecolor="#1F1F1F", markersize=7.5, label="Área de controle 02"),
+        plt.Line2D([0], [0], marker="o", color="none", markerfacecolor=AREA_COLORS[AREA_01], markeredgecolor="#1F1F1F", markersize=9.0, label="Área de controle 01"),
+        plt.Line2D([0], [0], marker="o", color="none", markerfacecolor=AREA_COLORS[AREA_02], markeredgecolor="#1F1F1F", markersize=9.0, label="Área de controle 02"),
     ]
-    size_values = [max_spatial * p for p in [0.25, 0.55, 0.90] if max_spatial > 0]
     size_handles = [
-        plt.scatter([], [], s=28 + (value / max_spatial) * 230, color="#9EB77E", edgecolor="#1F1F1F", linewidth=0.38, label=f"{value:.0f}")
-        for value in size_values
+        plt.scatter([], [], s=28 + relative * 230, color="#9EB77E", edgecolor="#1F1F1F", linewidth=0.42, label=label)
+        for relative, label in [(0.25, "Baixa (≤33%)"), (0.55, "Média (34-67%)"), (0.90, "Alta (>67%)")]
     ]
     ax_bar.set_yticks(y)
-    ax_bar.set_yticklabels(labels, fontsize=10.2)
+    ax_bar.set_yticklabels(labels, fontsize=13.2)
     for label in ax_bar.get_yticklabels():
         label.set_fontstyle("italic")
     ax_bar.tick_params(axis="y", length=0, labelleft=True)
 
-    legend1 = fig.legend(
+    fig.legend(
         handles=area_handles,
-        loc="upper right",
-        bbox_to_anchor=(0.985, 0.985),
+        loc="lower right",
+        bbox_to_anchor=(0.985, 0.105),
+        ncol=2,
         frameon=False,
-        fontsize=8.8,
+        fontsize=9.5,
+        handletextpad=0.35,
+        columnspacing=0.9,
     )
     if size_handles:
-        ax_space.legend(handles=size_handles, title="CPUEn no ponto", loc="lower right", frameon=False, fontsize=8.0, title_fontsize=8.5)
+        fig.legend(
+            handles=size_handles,
+            title="CPUEn relativa no ponto",
+            loc="lower right",
+            bbox_to_anchor=(0.985, 0.035),
+            ncol=3,
+            frameon=False,
+            fontsize=9.5,
+            title_fontsize=10.0,
+            handletextpad=0.35,
+            columnspacing=0.8,
+        )
 
-    fig.subplots_adjust(left=0.19, right=0.985, top=0.90, bottom=0.16)
+    fig.subplots_adjust(left=0.205, right=0.985, top=0.86, bottom=0.24)
     out_png = output_dir / "08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png"
-    fig.savefig(out_png, bbox_inches="tight", pad_inches=0.04)
+    fig.savefig(out_png, pad_inches=0.04)
     plt.close(fig)
     return str(out_png)
 
@@ -350,6 +368,17 @@ def build(output_dir: Path = FINAL_DIR, support_dir: Path = OUTPUT_DIR) -> dict[
         "species": int(len(totals)),
         "campaigns": int(len([col for col in presence.columns if col != "nome_cientifico"])),
         "points": int(len([col for col in spatial.columns if col != "nome_cientifico"])),
+        "design_updates": [
+            "barras de contribuicao relativa em verde unico",
+            "layout em A3 paisagem com margem superior para titulo da figura",
+            "ausencia de registro em branco no heatmap",
+            "escala temporal padronizada por classes percentuais de intensidade relativa da CPUEn global",
+            "todas as campanhas C001-C047 exibidas no eixo temporal",
+            "coluna de frequencia removida",
+            "sombreado abaixo dos anos removido",
+            "bolhas espaciais dimensionadas por CPUEn relativa dentro de cada especie",
+            "legendas espaciais horizontais com classes percentuais",
+        ],
         "sampling_rule": "Regra revisada em 2026-07-15; nao-amostragem como ausencia.",
     }
     manifest = support_dir / "manifesto_08C_sintese_cpuen_especies.json"

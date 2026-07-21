@@ -209,7 +209,7 @@
       "output_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/species_traits_review_20260713",
       "status": "approved_for_analysis",
       "approved_at": "2026-07-13",
-      "approval_scope": "Uso como matriz analitica do projeto; banco public.especies nao alterado.",
+      "approval_scope": "Uso como matriz analitica do projeto; traits funcionais nao alteraram public.especies; familia de Psalidodon rivularis corrigida no banco em 2026-07-20.",
       "taxonomy_display_overrides": {
         "Poecilia mexicana": {
           "display_name": "Poecilia cf. mexicana",
@@ -408,13 +408,13 @@
     },
     "species_cpuen_synthesis_08C": {
       "status": "generated_validated",
-      "generated_at": "2026-07-15T10:54:01",
+      "generated_at": "2026-07-15T11:49:07",
       "script": "scripts/projects/avg/build_ictio_avg_species_cpuen_synthesis.py",
       "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna",
       "support_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/species_cpuen_synthesis_20260715",
       "figure": "08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png",
       "table": "08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx",
-      "design": "painel integrado com ranking de contribuicao relativa da CPUEn, frequencia de ocorrencia, heatmap temporal categorizado por intensidade de CPUEn e bolhas espaciais por ponto/area de controle",
+      "design": "painel A3 paisagem com margem superior para titulo; ranking de contribuicao relativa da CPUEn em barra unica, heatmap temporal com todas as campanhas e classes percentuais de intensidade relativa, ausencia em branco e bolhas espaciais por CPUEn relativa dentro de cada especie",
       "species": 13,
       "campaigns": 47,
       "points": 13,

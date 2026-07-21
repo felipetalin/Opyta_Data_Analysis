@@ -216,9 +216,11 @@ leitura carregada dos heatmaps `08` e `08B`:
   `08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png`;
 - tabela:
   `08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx`;
-- desenho: ranking de contribuicao relativa da CPUEn por especie, frequencia
-  de ocorrencia, heatmap temporal categorizado por intensidade de CPUEn em
-  `C001-C047` e bolhas espaciais por ponto/area de controle;
+- desenho: painel A3 paisagem com margem superior para titulo, ranking de
+  contribuicao relativa da CPUEn por especie em barra unica, heatmap temporal
+  com todas as campanhas `C001-C047` e classes percentuais de intensidade
+  relativa, ausencia em branco e bolhas espaciais por CPUEn relativa dentro de
+  cada especie;
 - tabela: abas `ranking_cpuen`, `cpuen_temporal` e `cpuen_por_ponto`;
 - base: regra revisada de 2026-07-15, com nao-amostragem como ausencia;
 - validacao: PNG abriu via PIL, XLSX abriu via openpyxl e os percentuais de
