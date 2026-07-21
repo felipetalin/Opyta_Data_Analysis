@@ -1,0 +1,130 @@
+{
+  "project_code": "BRAAVG002",
+  "project_id": 9,
+  "project_name": "Monitoramento de ictio e bentos - Brumado - AVG",
+  "canonical_key": "BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg",
+  "analysis_name": "AVG Zoobentos 2026 - consolidado 47 campanhas",
+  "client_config": "braavg002",
+  "audit_project_slug": "BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg",
+  "group": "Zoobentos",
+  "pipeline": "zoobentos",
+  "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados bentos/Consolidado_2026",
+  "status": "analysis_scope_prepared_waiting_migration",
+  "prepared_at": "2026-07-20",
+  "planning_document": "docs/projects/BRAAVG002_ZOOBENTOS_CONSOLIDADO_2026.md",
+  "expected_scope": {
+    "campaigns": "01-47",
+    "campaign_count": 47,
+    "temporal_year_rule": "ano temporal = agosto a julho; meses ago-dez pertencem ao ano de inicio, jan-jul ao ano anterior",
+    "season_rule": "CH = outubro a marco; SC = abril a setembro",
+    "point_layout_source": "configs/projects/braavg002_ictiofauna_2026.json#point_layout",
+    "coordinate_policy": "usar a mesma regra analitica aprovada para AVG: KML padrao provisorio com ajustes de PIC-02 realocado e PIC-11"
+  },
+  "products": [
+    {
+      "code": "01",
+      "name": "composicao_taxonomica",
+      "status": "planned",
+      "outputs": [
+        "01_tabela_composicao_taxonomica_zoobentos.xlsx",
+        "01_grafico_composicao_taxonomica_zoobentos.png"
+      ]
+    },
+    {
+      "code": "02",
+      "name": "riqueza_ponto_campanha_ano_temporal",
+      "status": "planned",
+      "outputs": [
+        "02_df_riqueza_ponto_campanha_ano_temporal_zoobentos.xlsx",
+        "02_grafico_riqueza_ponto_campanha_ano_temporal_zoobentos.png"
+      ]
+    },
+    {
+      "code": "03",
+      "name": "abundancia_densidade",
+      "status": "planned",
+      "outputs": [
+        "03_df_abundancia_densidade_zoobentos.xlsx",
+        "03_grafico_abundancia_densidade_zoobentos.png"
+      ]
+    },
+    {
+      "code": "04",
+      "name": "diversidade_alfa",
+      "status": "planned",
+      "metrics": [
+        "Shannon",
+        "Pielou",
+        "Simpson"
+      ],
+      "outputs": [
+        "04_df_indices_diversidade_zoobentos.xlsx",
+        "04_grafico_indices_diversidade_zoobentos.png"
+      ]
+    },
+    {
+      "code": "05",
+      "name": "bioindicadores_bmwp_chol_ept",
+      "status": "planned",
+      "metrics": [
+        "BMWP",
+        "CHOL",
+        "EPT"
+      ],
+      "notes": [
+        "CHOL = Chironomidae + Oligochaeta/Oligoqueta.",
+        "EPT deve ser calculado por abundancia relativa e/ou contagem conforme disponibilidade taxonomica.",
+        "BMWP depende de familia e escore taxonomico cadastrado."
+      ],
+      "outputs": [
+        "05_df_bioindicadores_bmwp_chol_ept_zoobentos.xlsx",
+        "05_grafico_bioindicadores_bmwp_chol_ept_zoobentos.png"
+      ]
+    },
+    {
+      "code": "06",
+      "name": "mini_mapas_anuais_bmwp_chol_ept",
+      "status": "planned",
+      "layout": "painel anual/minimapas, preferencialmente A3 paisagem se a legibilidade exigir",
+      "metrics": [
+        "BMWP",
+        "CHOL",
+        "EPT"
+      ],
+      "outputs": [
+        "06_df_mini_mapas_anuais_bmwp_chol_ept_zoobentos.xlsx",
+        "06_grafico_mini_mapas_anuais_bmwp_chol_ept_zoobentos.png"
+      ]
+    },
+    {
+      "code": "07",
+      "name": "pcoa_bray_curtis",
+      "status": "planned_conditional",
+      "condition": "executar somente se a matriz ponto x taxon por ano temporal tiver densidade suficiente e interpretacao visual util",
+      "outputs": [
+        "07_df_pcoa_bray_curtis_zoobentos.xlsx",
+        "07_grafico_pcoa_bray_curtis_zoobentos.png"
+      ]
+    }
+  ],
+  "excluded_products": [
+    {
+      "name": "boxplots_temporais_espaciais",
+      "reason": "Usuario informou que nao precisa neste consolidado."
+    },
+    {
+      "name": "permanova_nmds",
+      "reason": "Escopo atual limita beta diversidade a PCoA, se fizer sentido."
+    }
+  ],
+  "migration_gate": {
+    "status": "pending",
+    "checklist": "docs/projects/BRAAVG002_ZOOBENTOS_CONSOLIDADO_2026.md#checklist-pos-migracao",
+    "required_before_generation": [
+      "migrar 47 campanhas de Zoobentos",
+      "consolidar public.biota_analise_consolidada para BRAAVG002/Zoobentos",
+      "validar campanhas, pontos, esforcos, taxons, familia, BMWP_Score e zeros analiticos",
+      "confirmar coordenadas e vigencia dos pontos conforme regra AVG"
+    ]
+  }
+}
