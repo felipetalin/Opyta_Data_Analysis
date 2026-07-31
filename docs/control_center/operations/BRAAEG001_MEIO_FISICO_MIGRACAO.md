@@ -5,10 +5,10 @@
 - projeto: BRAAEG001 / A&G Mineracao
 - grupo: Meio fisico
 - operacao: migracao inicial dos dados fisicoquimicos
-- estado atual: `awaiting_analysis_approval`
+- estado atual: `superficial_minimaps_generated_pending_review`
 - aberta em: 2026-07-02
-- atualizada em: 2026-07-03
-- proxima acao: aguardar segunda campanha antes da geracao; antes de produtos integrados, replicar os nomes de cursos d'agua da nova base da biota nos pontos compartilhados
+- atualizada em: 2026-07-29
+- proxima acao: revisar visualmente o pacote final de Agua Superficial; antes de produtos integrados, replicar os nomes de cursos d'agua da nova base da biota nos pontos compartilhados
 
 ## Caminhos
 
@@ -19,6 +19,18 @@
 - recipe: pendente; projeto ainda nao possui `configs/clients/braaeg001.json`
 - lastro: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/0_Resultados_SGS/Resultados_SGS_consolidado_1AEGM002_20260702.xlsx`
 - fluxo meio fisico: `docs/control_center/MEIO_FISICO_WORKFLOW.md`
+- dados C02 Agua Superficial: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/Campanha-02/Resultados-Agua_superficial`
+- staging C02 Agua Superficial: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_superficial/20260729T151930_staging_resultados_meio_fisico_c02_agua_superficial.xlsx`
+- auditoria C02 x C01: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_superficial/20260729T151930_auditoria_c02_vs_c01_agua_superficial.xlsx`
+- dry-run incremental C02: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_superficial/20260729T182456Z_dry_run_incremental_c02_agua_superficial_braaeg001.xlsx`
+- SQL apply incremental C02: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_superficial/20260729T182456Z_apply_incremental_c02_agua_superficial_braaeg001.sql`
+- SQL rollback incremental C02: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_superficial/20260729T182456Z_rollback_incremental_c02_agua_superficial_braaeg001.sql`
+- log apply incremental C02: `logs/validacao_meio_fisico/20260729T183205Z_aplicacao_incremental_c02_agua_superficial_braaeg001.json`
+- auditoria pos-incremental C02: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_superficial/20260729T183205Z_auditoria_pos_incremental_c02_agua_superficial_braaeg001.xlsx`
+- consolidado pos-C02: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/consolidacao_pos_c02/20260729T183622Z_consolidado_meio_fisico_braaeg001_pos_c02.xlsx`
+- auditoria de consolidacao pos-C02: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/consolidacao_pos_c02/20260729T183622Z_auditoria_consolidacao_meio_fisico_braaeg001_pos_c02.xlsx`
+- saida Agua Superficial: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/superficial`
+- teste de layout Agua Superficial: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/superficial/_teste_layout`
 
 ## Progresso
 
@@ -34,10 +46,18 @@
 | Consolidacao | concluida | Carga gravada em `fisico_analise_consolidada`; auditoria pos-migracao `PASS` sem divergencia por matriz/campanha/ponto. |
 | Configuracao das analises | concluida para Gate C | Proposta registrada em `20260702T200115Z_gate_c_proposta_analises_braaeg001.xlsx`. |
 | Gate C - analises | adiado pelo usuario | Usuario decidiu nao gerar agora e aguardar a segunda campanha; somente balanco intermediario foi solicitado. |
+| Validacao C02 - Agua Superficial | concluida | 12 XLS/PDF SGS extraidos para staging; 588 registros, 12 pontos, 49 parametros; sem parametro novo, sem unidade divergente e sem duplicidade. |
+| Gate A/C02 - dados | aprovado | Aprovado pelo usuario em 2026-07-29. Pendencias informativas aceitas para staging: laudos informam projeto `1AEGM002`; datas XLS x PDF divergem em 11 laudos, usando XLS como fonte primaria e PDF como complemento quando XLS vazio. |
+| Dry-run incremental C02 | concluido | 588 inserts planejados; 0 problemas de mapeamento; 0 duplicidades com o banco; banco antes 873 registros, esperado apos apply 1461. |
+| Gate apply C02 | aprovado | Aprovado pelo usuario em 2026-07-29. |
+| Migracao incremental C02 | concluida | Apply transacional executado; backup `backup_fisico_braaeg001_before_c02_20260729t183205z` com 873 linhas; 588 registros C02 inseridos. |
+| Consolidacao C02 | concluida | Auditoria pos-incremental confirmou 1461 registros totais: Agua Superficial C01=588, Agua Superficial C02=588, Sedimento C01=156, Agua Subterranea C01=129. |
+| Consolidacao analitica pos-C02 | concluida | Pasta de trabalho consolidada gerada a partir de `fisico_analise_consolidada`; 1461 registros, 2 campanhas, 3 matrizes, 15 pontos, 70 parametros, 0 duplicidades; cobertura Agua Superficial C01+C02 completa em 588 pares ponto-parametro. |
+| Configuracao preliminar Agua Superficial | aprovada | Usuario restringiu analises ao momento para Agua Superficial. Referencia oficial corrigida para FERSAM Superficial (`SAM Metais/Produtos/Resultados/Meio_fisico/Superficial`). Prototipos de pH, Oxigenio Dissolvido e Ferro Dissolvido regenerados no padrao FERSAM: grafico unico por parametro, pontos no eixo X, duas campanhas em tons de verde, VMP vermelho continuo e faixa vermelha de violacao. Legenda dos limites simplificada para `VMP - Classe 2` com os respectivos valores, sem citar legislacao. Template aprovado pelo usuario em 2026-07-29. |
 | Revisao de metadados de pontos | pendente | Validacao da nova base da biota em 2026-07-03 apontou divergencia de `Curso_d_Agua` em 12 pontos compartilhados. |
-| Geracao dos produtos | pendente | Depende do Gate C. |
-| Revisao tecnica | pendente | Depende dos produtos gerados. |
-| Revisao de layout | pendente | Depende dos produtos gerados. |
+| Geracao dos produtos | concluida | Produtos de Agua Superficial gerados em `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/superficial`: 1176 registros, 12 pontos, 2 campanhas, 49 parametros, 34 violacoes, 48 paineis por campanha, IQA e IET com 24 amostras cada. Auditoria `12_Auditoria_Execucao.json` com status `OK`. Em 2026-07-30, saida reorganizada em pasta unica, com paineis assumidos como layout final, sem PNGs individuais e sem planilhas `_dados.xlsx`. `01_Conformidade_Agua_Superficial.xlsx` reorganizada em abas por campanha (`Campanha-01-Chuva` e `Campanha-02-Seca`), com parametros em linhas, unidade, VMP CONAMA 357 Classe 2, VMP COPAM 8 Classe 2 e pontos amostrais em colunas. Criado `02_Dados_por_Parametro_Agua_Superficial.xlsx`, com 49 abas de parametros + aba `Indice`, reunindo os dados das duas campanhas em cada aba. Criado painel executivo unico de violacoes `04_painel_violacoes_chuva_seca.png` (subpaineis Chuva/Seca; 13 parametros, 34 violacoes), com um unico verde do layout e apoio em `04_Painel_Violacoes_por_Campanha.xlsx`; modelos separados por campanha removidos. Gerados minimapas A4 paisagem em painel Chuva/Seca para violacoes por ponto (`07_minimapa_violacoes_por_ponto_chuva_seca.png`), IQA (`08_minimapa_iqa_chuva_seca.png`) e IET (`09_minimapa_iet_chuva_seca.png`), com hidrografia do KMZ `Geo/1AEMG002/Hidrografia.kmz`, escala grafica, norte, legendas e planilha de apoio `07_Dados_Minimapas_Agua_Superficial.xlsx`. Versao detalhada preservada como `01_Conformidade_Agua_Superficial_detalhada.xlsx`. Observacao operacional: pasta antiga `03_parametros_vmp` aparece como item travado/inconsistente do Google Drive e bloqueou remocao por permissao, embora os arquivos finais estejam gravados na raiz da pasta `superficial`. |
+| Revisao tecnica | preliminar concluida | Auditoria tabular validou 34 violacoes apos correcoes legais: Manganes Dissolvido e Amonia sem VMP direto; Nitrogenio Amoniacal em `mg N/L`; Escherichia coli com observacao na coluna CONAMA e 1000 NMP/100 mL na COPAM; SST com VMP apenas na COPAM; OD como `≥5`; Cloro Residual Livre sem comparacao direta. IQA: 16 amostras Otima e 8 Boa; IET recalculado com conversao de Fosforo Total em `mg P/L` para `ug/L`, resultando em 22 Mesotrofico e 2 Eutrofico. |
+| Revisao de layout | pendente | Amostras visuais conferidas para pH, Ferro Dissolvido, percentual de violacao, IQA, IET e minimapas; aguardando revisao do usuario sobre o pacote final. |
 | Fechamento | pendente | Depende dos validadores, manifesto e atualizacao de registro/lastro. |
 
 ## Gates
@@ -47,6 +67,10 @@
 | A - dados | `approved` | Usuario aprovou em 2026-07-02 apos apresentacao da validacao `PASS_WITH_WARNINGS`. |
 | B - parametros | `approved_with_adjustments` | Usuario devolveu `20260702T190158Z_gate_b_problemas_parametros_braaeg001_rev.xlsx`; decisoes normalizadas em `20260702T192427Z_gate_b_decisoes_normalizadas_braaeg001.xlsx`. |
 | C - analises | `deferred` | Usuario decidiu aguardar a segunda campanha antes da geracao; proposta pronta permanece registrada em `20260702T200115Z_gate_c_proposta_analises_braaeg001.xlsx`. Antes de abrir Gate C novamente, revisar `Curso_d_Agua` dos pontos compartilhados com a biota. |
+| A/C02 - dados | `approved` | Usuario aprovou em 2026-07-29; staging e auditoria C02 Agua Superficial aceitas para dry-run incremental. |
+| Apply C02 | `approved_applied` | Usuario aprovou em 2026-07-29; carga incremental aplicada e auditada com 588 registros C02. |
+| Consolidacao pos-C02 | `completed` | Consolidado analitico pronto para configuracao das analises; pendencia de `Curso_d_Agua` permanece apenas para produtos integrados/espaciais. |
+| C/Superficial - layout e analises | `approved` | Tres graficos-teste gerados em `_teste_layout` e `_teste_layout_paineis_campanha` no padrao FERSAM Superficial. Em 2026-07-29, legenda dos VMPs revisada para `VMP - Classe 2`, pH validado sem quebra horizontal e sinais `<` removidos das figuras, mantendo a informacao nas planilhas de dados. Template aprovado pelo usuario em 2026-07-29. |
 
 ## Validacao Dos Dados
 
@@ -196,8 +220,8 @@
 
 ## Pendencias
 
-- Aguardar dados da segunda campanha de meio fisico para decidir geracao consolidada.
-- Manter Gate C suspenso ate entrada da segunda campanha ou nova decisao do usuario.
+- Reabrir configuracao das analises para base consolidada com Agua Superficial C01+C02.
+- Manter Gate C suspenso ate nova decisao do usuario sobre produtos.
 - Replicar nomes de cursos d'agua da nova base da biota no Meio Fisico antes de abrir Gate C novamente.
 - Migracao da biota deve aguardar Gate A limpo e Gate B taxonomico aprovado.
 
