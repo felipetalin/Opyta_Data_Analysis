@@ -22,7 +22,7 @@ PROJECT_ID = 195
 OUTPUT_LOG_DIR = Path("logs/migracao_biota_braaeg001")
 
 
-GROUPS = {
+ALL_GROUPS = {
     "Resultados_Fitoplancton": {
         "canonical": "Fitoplâncton",
         "short": "Fitoplancton",
@@ -45,12 +45,61 @@ GROUPS = {
     },
 }
 
-RESULT_TABLES = [
-    "resultados_fitoplancton",
-    "resultados_zooplancton",
-    "resultados_zoobentos",
-    "resultados_ictiofauna",
-]
+GROUPS = dict(ALL_GROUPS)
+RESULT_TABLES = [info["table"] for info in GROUPS.values()]
+
+
+GROUP_ALIASES = {
+    "fitoplancton": "Resultados_Fitoplancton",
+    "fito": "Resultados_Fitoplancton",
+    "zooplancton": "Resultados_Zooplancton",
+    "zoo": "Resultados_Zooplancton",
+    "zoobentos": "Resultados_Zoobentos",
+    "bentos": "Resultados_Zoobentos",
+    "ictiofauna": "Resultados_Ictiofauna",
+    "ictio": "Resultados_Ictiofauna",
+}
+
+
+def configure_groups(selected_groups: list[str] | None) -> list[str]:
+    global GROUPS, RESULT_TABLES
+    if not selected_groups:
+        GROUPS = dict(ALL_GROUPS)
+        RESULT_TABLES = [info["table"] for info in GROUPS.values()]
+        return [info["canonical"] for info in GROUPS.values()]
+
+    selected_sheets: list[str] = []
+    for raw_group in selected_groups:
+        for part in str(raw_group).split(","):
+            key = norm_key(part).replace(" ", "_")
+            sheet = GROUP_ALIASES.get(key)
+            if sheet is None:
+                sheet = next(
+                    (
+                        candidate
+                        for candidate, info in ALL_GROUPS.items()
+                        if key
+                        in {
+                            norm_key(candidate).replace(" ", "_"),
+                            norm_key(info["canonical"]).replace(" ", "_"),
+                            norm_key(info["short"]).replace(" ", "_"),
+                        }
+                    ),
+                    None,
+                )
+            if sheet is None:
+                valid = sorted(set(GROUP_ALIASES) | set(ALL_GROUPS))
+                raise RuntimeError(f"Grupo desconhecido '{part}'. Opcoes validas: {valid}")
+            if sheet not in selected_sheets:
+                selected_sheets.append(sheet)
+
+    GROUPS = {sheet: ALL_GROUPS[sheet] for sheet in selected_sheets}
+    RESULT_TABLES = [info["table"] for info in GROUPS.values()]
+    return [info["canonical"] for info in GROUPS.values()]
+
+
+def active_group_names() -> list[str]:
+    return [info["canonical"] for info in GROUPS.values()]
 
 
 @dataclass
@@ -128,9 +177,10 @@ def json_default(value: Any) -> Any:
     return str(value)
 
 
-def load_workbooks(input_dir: Path) -> list[WorkbookData]:
+def load_workbooks(input_dir: Path, input_files: list[Path] | None = None) -> list[WorkbookData]:
     workbooks: list[WorkbookData] = []
-    for path in sorted(input_dir.glob("*.xlsx")):
+    paths = input_files if input_files else sorted(input_dir.glob("*.xlsx"))
+    for path in paths:
         if path.name.startswith("~$") or path.name.startswith("2026") or "__backup_" in path.name:
             continue
         xls = pd.ExcelFile(path)
@@ -940,6 +990,7 @@ CONSOLIDATE_SQL = text(
     WHERE p.id_projeto = :id_projeto
       AND pr.codigo_interno_opyta = :project_code
       AND e.grupo_biologico = 'Fitoplâncton'
+      AND e.grupo_biologico = ANY(:groups)
     UNION ALL
     SELECT
         cli.nome_empresa, pr.nome_projeto, NULL::text, c.nome_campanha, p.nome_ponto,
@@ -962,6 +1013,7 @@ CONSOLIDATE_SQL = text(
     WHERE p.id_projeto = :id_projeto
       AND pr.codigo_interno_opyta = :project_code
       AND e.grupo_biologico = 'Zooplâncton'
+      AND e.grupo_biologico = ANY(:groups)
     UNION ALL
     SELECT
         cli.nome_empresa, pr.nome_projeto, NULL::text, c.nome_campanha, p.nome_ponto,
@@ -984,6 +1036,7 @@ CONSOLIDATE_SQL = text(
     WHERE p.id_projeto = :id_projeto
       AND pr.codigo_interno_opyta = :project_code
       AND e.grupo_biologico = 'Zoobentos'
+      AND e.grupo_biologico = ANY(:groups)
     UNION ALL
     SELECT
         cli.nome_empresa, pr.nome_projeto, NULL::text, c.nome_campanha, p.nome_ponto,
@@ -1011,6 +1064,7 @@ CONSOLIDATE_SQL = text(
     WHERE p.id_projeto = :id_projeto
       AND pr.codigo_interno_opyta = :project_code
       AND e.grupo_biologico = 'Ictiofauna'
+      AND e.grupo_biologico = ANY(:groups)
     """
 )
 
@@ -1027,7 +1081,7 @@ def consolidate(conn) -> int:
         ),
         {"code": PROJECT_CODE, "groups": groups},
     )
-    result = conn.execute(CONSOLIDATE_SQL, {"id_projeto": PROJECT_ID, "project_code": PROJECT_CODE})
+    result = conn.execute(CONSOLIDATE_SQL, {"id_projeto": PROJECT_ID, "project_code": PROJECT_CODE, "groups": groups})
     return result.rowcount or 0
 
 
@@ -1052,8 +1106,8 @@ def group_campaign_summary(conn) -> list[dict[str, Any]]:
     return [dict(row) for row in rows]
 
 
-def build_plan(input_dir: Path, conn, apply: bool) -> dict[str, Any]:
-    workbooks = load_workbooks(input_dir)
+def build_plan(input_dir: Path, conn, apply: bool, input_files: list[Path] | None = None) -> dict[str, Any]:
+    workbooks = load_workbooks(input_dir, input_files)
     check_project_codes(workbooks)
     project = ensure_project(conn)
     campaigns = collect_campaigns(workbooks)
@@ -1066,6 +1120,7 @@ def build_plan(input_dir: Path, conn, apply: bool) -> dict[str, Any]:
     results_by_table, result_summary, result_detail = prepare_results(workbooks, None, species)
     before = db_counts(conn)
     return {
+        "active_groups": active_group_names(),
         "project": project,
         "campaigns": [{"nome_campanha": name, "id_campanha": campaign_ids.get(name)} for name in campaigns],
         "points": points,
@@ -1080,8 +1135,8 @@ def build_plan(input_dir: Path, conn, apply: bool) -> dict[str, Any]:
     }
 
 
-def apply_migration(input_dir: Path, conn, stamp: str) -> dict[str, Any]:
-    workbooks = load_workbooks(input_dir)
+def apply_migration(input_dir: Path, conn, stamp: str, input_files: list[Path] | None = None) -> dict[str, Any]:
+    workbooks = load_workbooks(input_dir, input_files)
     check_project_codes(workbooks)
     project = ensure_project(conn)
     campaigns = collect_campaigns(workbooks)
@@ -1114,6 +1169,7 @@ def apply_migration(input_dir: Path, conn, stamp: str) -> dict[str, Any]:
             f"esperado={expected_result_rows}, consolidado={after['consolidado']}, inserted={inserted_consolidated}"
         )
     return {
+        "active_groups": active_group_names(),
         "project": project,
         "campaigns": [{"nome_campanha": name, "id_campanha": campaign_ids.get(name)} for name in campaigns],
         "backups": backups,
@@ -1141,6 +1197,7 @@ def serializable_payload(payload: dict[str, Any], applied: bool, stamp: str) -> 
     slim = {
         "stamp": stamp,
         "applied": applied,
+        "active_groups": payload.get("active_groups") or active_group_names(),
         "project": payload.get("project"),
         "campaigns": payload.get("campaigns"),
         "source_summary": payload.get("source_summary"),
@@ -1193,18 +1250,21 @@ def main() -> int:
     parser.add_argument("--client-output-dir", type=Path)
     parser.add_argument("--output-dir", type=Path, default=OUTPUT_LOG_DIR)
     parser.add_argument("--opyta-data-root", type=Path, default=Path.cwd().parent / "Opyta_Data")
+    parser.add_argument("--input-files", nargs="+", type=Path, help="Exact workbook(s) to read instead of scanning --input-dir.")
+    parser.add_argument("--groups", nargs="+", help="Groups to migrate, e.g. Zoobentos or Bentos. Defaults to all groups.")
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
 
+    configure_groups(args.groups)
     stamp = datetime.now().strftime("%Y%m%dT%H%M%S")
     engine = connect_engine(args.opyta_data_root)
     try:
         if args.apply:
             with engine.begin() as conn:
-                payload = apply_migration(args.input_dir, conn, stamp)
+                payload = apply_migration(args.input_dir, conn, stamp, args.input_files)
         else:
             with engine.connect() as conn:
-                payload = build_plan(args.input_dir, conn, apply=False)
+                payload = build_plan(args.input_dir, conn, apply=False, input_files=args.input_files)
         json_path, xlsx_path = write_outputs(payload, args.output_dir, args.client_output_dir, args.apply, stamp)
         result = serializable_payload(payload, applied=args.apply, stamp=stamp)
         result["json"] = str(json_path)

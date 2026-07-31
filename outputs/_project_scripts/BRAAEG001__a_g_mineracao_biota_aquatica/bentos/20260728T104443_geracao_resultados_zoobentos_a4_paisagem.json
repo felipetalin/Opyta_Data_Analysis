@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-28T13:47:19.074875Z",
+  "project_code": "BRAAEG001",
+  "project_id": 195,
+  "group": "Zoobentos",
+  "action": "generate_bentos_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos",
+  "figures_count": 15,
+  "figures_ok": 15,
+  "files_count": 39,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\bentos\\20260728T104443_contact_sheet_figuras_zoobentos_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 174,
+    "campaigns": [
+      "C001-2026-02-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 12,
+    "taxa_total": 35,
+    "families_total": 35,
+    "orders_total": 9,
+    "abundance_total": 449.0,
+    "unit": "org/amostra",
+    "max_richness": 12.0,
+    "max_richness_point": "PT_05",
+    "max_richness_campaign": "C02-Seca",
+    "max_abundance": 51.0,
+    "max_abundance_point": "PT_11",
+    "max_abundance_campaign": "C02-Seca",
+    "dominant_taxon": "Chironomidae",
+    "dominant_taxon_abundance": 105.0,
+    "dominant_order": "Diptera",
+    "dominant_order_abundance": 188.0,
+    "max_bmwp": 74.0,
+    "max_bmwp_point": "PT_05",
+    "max_bmwp_campaign": "C02-Seca",
+    "mean_ept_pct": 34.655417636434926,
+    "mean_chol_pct": 23.491198299438206,
+    "suff_obs": 35.0,
+    "suff_est": 42.66666666666675
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\00_base_consolidada_zoobentos.xlsx",
+      "tamanho_bytes": 22391,
+      "sha256": "4944669707a4f1c0fbc7eed0f0f0e0df31724bfcca7d89e80ab131999cbfb5ef"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\01_tabela_composicao_zoobentos.xlsx",
+      "tamanho_bytes": 7448,
+      "sha256": "d3cd244229b4ff9c08b433b338ca4d1598bc4e4acab9dd98e2240dcaedea7490"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\01_tabela_ocorrencia_zoobentos.xlsx",
+      "tamanho_bytes": 8702,
+      "sha256": "9efd0cc49cd424458944ab0965bea05e12aed1d31f97c5a38e08171187e1c7df"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5679,
+      "sha256": "8d3d5187205a7eb007f75ad681001c975a21e9cfd4e4d58385f0feb5b589b784"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+      "tamanho_bytes": 414378,
+      "sha256": "2fe5e898fb00b610bf31e9369cfb29454457095b5c142f3298fd67da3b33665f",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 89.01356252439903,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5712,
+      "sha256": "c610836c6698e3f6e4a074437a012e09d9e50d43e704be0a1ef1ea0e01ce3de6"
+    },
+    {
+      "arquivo": "03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "tamanho_bytes": 491370,
+      "sha256": "3ac78c1944a7008a166e882aafdf8a9d76b26869ce7ee2d5c8f80e17582c40a8",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 74.47393747070169,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "tamanho_bytes": 5288,
+      "sha256": "11dffcf264f9b6021c2820c6d58a72139f87d5d869d9881e5fb5cc922fb9dcf8"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "tamanho_bytes": 723717,
+      "sha256": "ee5930821a5dfaba93e3a0855fb4829b3ab2a6a3a9efdb1d8cd4ea1adcc89b46",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 98.44947187023845,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "tamanho_bytes": 656471,
+      "sha256": "4ac06acfac08dfd793f87a6e2ca025e25f345200ce0caa60425e85a164011222",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 74.61999039180628,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 6399,
+      "sha256": "287a81a04eca133ebef5be20127f8986debb930b9f5d80f13db900aab8684c7c"
+    },
+    {
+      "arquivo": "06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 537470,
+      "sha256": "b0bce1888efade0dd1a61beae9a6257dd86f041b233411707bd12d4093dde7d3",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 68.43174492291955,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 6783,
+      "sha256": "9a6aa5282decfe2e131449d838e951e9ba4ce7ab38b7ab45d41b9994d1047441"
+    },
+    {
+      "arquivo": "07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 537239,
+      "sha256": "c6917b2688e3fdbf759fc3b5148d70ede1cec2977ce4982aeaf0d0cae689ff6d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 92.52393991031735,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "tamanho_bytes": 6668,
+      "sha256": "179ef4956beb372662c5fe854ee80fb01a69a656b18f57b996ec36691511bbe6"
+    },
+    {
+      "arquivo": "08_grafico_abundancia_por_taxon_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\08_grafico_abundancia_por_taxon_zoobentos.png",
+      "tamanho_bytes": 636212,
+      "sha256": "af110b469f0dfe964eac4eb156d00a6d035dfa82dc2aeb5132e29830b4773fdf",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 51.6963540382386,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 7931,
+      "sha256": "76a486ff4d6e90c1eec2563773835f33949c0dadb62f125f1bc849b9b0228472"
+    },
+    {
+      "arquivo": "09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "tamanho_bytes": 674700,
+      "sha256": "84ec3c94da5f00acaeb8ccb0eb72ff3f847d87ee164af000340f38689ac43e72",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 42.39604105444066,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+      "tamanho_bytes": 6957,
+      "sha256": "2b24bdefcb40a46afe85ee9e1cbfb6a2cde9e9a52c738eae93f4a75a88fd9668"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\10_grafico_diversidade_alfa_zoobentos.png",
+      "tamanho_bytes": 604976,
+      "sha256": "d967378619de9254a76ad87d873d372c2cb74f6e6d6b1027604d6c16af3300ea",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 98.08132681375527,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+      "tamanho_bytes": 8144,
+      "sha256": "15549f638ca0ba40c1f20b1f3760e80383abc7048abdaa9c7b2c1c6de284d915"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+      "tamanho_bytes": 8871,
+      "sha256": "df317694403fb0b665fd385686e83d557d628f72c56ecfc68e40a10ffccdb3d5"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\11_dendrograma_similaridade_zoobentos.png",
+      "tamanho_bytes": 503402,
+      "sha256": "5d40aa73012a289996006f778cf3d860f47cc98ce75a8937cd5a62c7f57025c9",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 40.802208075977084,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 7026,
+      "sha256": "5982d79e8575113bc74033e4bce6fd8fb7684da5bcaf728494b41aa38e63bd45"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 6457,
+      "sha256": "602cb32aa880e6f65a9d40c73c51ae7f944f83f2233dd5c0bf519b303ea89471"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "tamanho_bytes": 299995,
+      "sha256": "649ecb508c28635860463ab1e43513291c47ed46ebae487da242f5f59bb936b7",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.31930360385611,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+      "tamanho_bytes": 6176,
+      "sha256": "559bcef5cc027e8698e86e9e89f6a3d4bac96266598daaff67e5fe0d4ec17cb4"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\12_curva_suficiencia_amostral_zoobentos.png",
+      "tamanho_bytes": 553931,
+      "sha256": "d8b9624284b3cf9619ba996469132c0d80e63dffcb95b6e12f6c172b50473580",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 30.985756769490944,
+      "nonblank": true
+    },
+    {
+      "arquivo": "13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "tamanho_bytes": 6785,
+      "sha256": "8c09922f9b2284fc4bd82977b43b22f5e06cbfa71afbbaa47d84d9a876c297f2"
+    },
+    {
+      "arquivo": "13_grafico_bmwp_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\13_grafico_bmwp_por_ponto_zoobentos.png",
+      "tamanho_bytes": 541482,
+      "sha256": "e79366ff10bbeebbb8dd2624f8f7c10582ce237621daba5de58ced8644485bea",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 69.12019202815186,
+      "nonblank": true
+    },
+    {
+      "arquivo": "14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "tamanho_bytes": 629725,
+      "sha256": "6c4f106b1d23ec814dbbbb432e327f07d7ae6dc806228fe38c3898c0756795ac",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 60.25482117243719,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zoobentos_BRAAEG001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\DarwinCore_IEF_Zoobentos_BRAAEG001.xlsx",
+      "tamanho_bytes": 24562,
+      "sha256": "cb97b65a230fd5b6fdd2f3742baab7b7267202994f6f31612814a9446240c755"
+    },
+    {
+      "arquivo": "15_tabela_sintese_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\15_tabela_sintese_zoobentos.xlsx",
+      "tamanho_bytes": 8588,
+      "sha256": "7377a1c6ca64ed5694e7bcab2b8159db423bccda76e5aa535595468392ddeac8"
+    },
+    {
+      "arquivo": "15_grafico_sintese_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\15_grafico_sintese_zoobentos.png",
+      "tamanho_bytes": 663528,
+      "sha256": "fc7bed31dd31604374b0cf0130c8b215f1852c4e243243a90a2912ffb33a08f1",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 90.86836562926,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zoobentos_braaeg001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\relatorio_tecnico_zoobentos_braaeg001.html",
+      "tamanho_bytes": 3725,
+      "sha256": "7607f04ddfb7e4d945de756f3f00f71a50dc6def1f3ea0229b8aa56c355fa185"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_braaeg001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\manifesto_entrega_zoobentos_braaeg001.json",
+      "tamanho_bytes": 18705,
+      "sha256": "55ca528ee95c51e9b3e3cc003e9256af50e1ddd4907ce31a6f52b4cb371d7860"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_braaeg001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\manifesto_entrega_zoobentos_braaeg001.xlsx",
+      "tamanho_bytes": 9240,
+      "sha256": "fcf9dd383abd61c91e7985f5164dd2bd0c735309c49678c6810c11a419f558cb"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_braaeg001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\manifesto_entrega_zoobentos_braaeg001.md",
+      "tamanho_bytes": 2548,
+      "sha256": "9f77afd147e80878a13f270b0095a1a4fa9da3f339f823078c19a340ba790a34"
+    },
+    {
+      "arquivo": "validacao_entrega_zoobentos_braaeg001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\validacao_entrega_zoobentos_braaeg001.json",
+      "tamanho_bytes": 766,
+      "sha256": "d0bb1fb02834b5d8f8766fde017db8cd03b074cb2538875d511ed09653f7f24d"
+    }
+  ],
+  "audit_json": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\bentos\\20260728T104443_geracao_resultados_zoobentos_a4_paisagem.json",
+  "audit_xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\bentos\\20260728T104443_geracao_resultados_zoobentos_a4_paisagem.xlsx"
+}

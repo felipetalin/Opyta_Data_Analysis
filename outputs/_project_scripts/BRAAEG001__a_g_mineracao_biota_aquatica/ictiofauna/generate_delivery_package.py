@@ -27,6 +27,41 @@ PACKAGE_NAMES = {
     "validacao_entrega_ictiofauna_braaeg001.json",
 }
 
+COLUMN_LABELS = {
+    "nome_campanha": "Campanha",
+    "nome_ponto": "Ponto",
+    "individuos": "Indivíduos",
+    "biomassa_g": "Biomassa (g)",
+    "cpuen_total": "CPUEn total",
+    "cpueb_total": "CPUEb total",
+    "Shannon_H": "Shannon H'",
+    "Pielou_J": "Pielou J'",
+}
+
+BAD_VISIBLE_REPORT_TERMS = [
+    "Pacote diagn" + "ostico",
+    "indiv" + "iduos",
+    "fam" + "ilias",
+    "S" + "intese por campanha",
+    "Destaques diagn" + "osticos",
+    "Maior abund" + "ancia",
+    "curva de sufici" + "encia",
+    "Os ind" + "ices",
+    "apoio diagn" + "ostico",
+    "Abund" + "ancia por ponto",
+    "S" + "intese ecol" + "ogica",
+    "Sufici" + "encia amostral",
+    "ind/100m2",
+    "g/100m2",
+]
+
+
+def validate_report_ptbr(html_text: str) -> None:
+    found = [term for term in BAD_VISIBLE_REPORT_TERMS if term in html_text]
+    if found:
+        joined = ", ".join(found)
+        raise ValueError(f"Texto visível sem acentuação pt-BR no relatório HTML: {joined}")
+
 
 def now_iso() -> str:
     return datetime.now(UTC).isoformat().replace("+00:00", "Z")
@@ -136,7 +171,7 @@ def write_ecological_outputs(comp: pd.DataFrame) -> list[Path]:
     plot_data = []
     for sheet, title in [
         ("sintese_origem", "Origem"),
-        ("sintese_migratorio", "Comportamento migratorio"),
+        ("sintese_migratorio", "Comportamento migratório"),
     ]:
         df = sheets.get(sheet, pd.DataFrame())
         if not df.empty:
@@ -154,12 +189,12 @@ def write_ecological_outputs(comp: pd.DataFrame) -> list[Path]:
             sub = data[data["painel"] == panel].sort_values("abundancia_total", ascending=True)
             ax.barh(sub["categoria"], sub["abundancia_total"], color="#11420C")
             ax.set_title(panel, fontweight="bold", fontsize=17, pad=12)
-            ax.set_xlabel("Abundancia total", fontsize=12, labelpad=10)
+            ax.set_xlabel("Abundância total", fontsize=12, labelpad=10)
             ax.tick_params(axis="both", labelsize=12)
             ax.grid(axis="x", alpha=0.2, linestyle="--")
             for spine in ["top", "right"]:
                 ax.spines[spine].set_visible(False)
-        fig.suptitle("Sintese ecologica da ictiofauna - BRAAEG001", fontweight="bold", fontsize=17)
+        fig.suptitle("Síntese ecológica da ictiofauna - BRAAEG001", fontweight="bold", fontsize=17)
         fig.tight_layout(rect=[0, 0.02, 1, 0.95])
         fig.savefig(fig_path, dpi=600, bbox_inches="tight")
         plt.close(fig)
@@ -224,7 +259,7 @@ def compute_metrics() -> dict:
 
 
 def table_html(rows: list[dict], columns: list[str]) -> str:
-    head = "".join(f"<th>{html.escape(col)}</th>" for col in columns)
+    head = "".join(f"<th>{html.escape(COLUMN_LABELS.get(col, col))}</th>" for col in columns)
     body = []
     for row in rows:
         cells = "".join(f"<td>{html.escape(format_value(row.get(col)))}</td>" for col in columns)
@@ -244,13 +279,13 @@ def write_report(metrics: dict) -> Path:
     out_html = OUTPUT_DIR / "relatorio_tecnico_ictiofauna_braaeg001.html"
     figures = [
         ("02_grafico_riqueza_por_ponto_ictiofauna.png", "Riqueza por ponto"),
-        ("03_grafico_abundancia_por_ponto_ictiofauna.png", "Abundancia por ponto"),
+        ("03_grafico_abundancia_por_ponto_ictiofauna.png", "Abundância por ponto"),
         ("06_grafico_cpuen_por_ponto_ictiofauna.png", "CPUEn por ponto"),
         ("07_grafico_cpueb_por_ponto_ictiofauna.png", "CPUEb por ponto"),
-        ("14_grafico_sintese_ecologica_ictiofauna.png", "Sintese ecologica"),
+        ("14_grafico_sintese_ecologica_ictiofauna.png", "Síntese ecológica"),
         ("10_grafico_diversidade_alfa_ictiofauna.png", "Diversidade alfa"),
         ("11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png", "Similaridade"),
-        ("12_curva_suficiencia_amostral_ictiofauna.png", "Suficiencia amostral"),
+        ("12_curva_suficiencia_amostral_ictiofauna.png", "Suficiência amostral"),
     ]
     figure_blocks = []
     for name, caption in figures:
@@ -271,7 +306,7 @@ def write_report(metrics: dict) -> Path:
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>BRAAEG001 - Relatorio tecnico de ictiofauna</title>
+  <title>BRAAEG001 - Relatório técnico de ictiofauna</title>
   <style>
     body {{ font-family: Arial, sans-serif; margin: 32px; color: #1f2933; }}
     h1, h2 {{ color: #11420C; }}
@@ -288,31 +323,31 @@ def write_report(metrics: dict) -> Path:
   </style>
 </head>
 <body>
-  <h1>BRAAEG001 - Diagnostico da ictiofauna</h1>
-  <p>Pacote diagnostico gerado para as campanhas {html.escape(', '.join(metrics['campanhas']))}, com {len(metrics['pontos'])} pontos amostrais.</p>
+  <h1>BRAAEG001 - Diagnóstico da ictiofauna</h1>
+  <p>Pacote diagnóstico gerado para as campanhas {html.escape(', '.join(metrics['campanhas']))}, com {len(metrics['pontos'])} pontos amostrais.</p>
   <div class="cards">
-    <div class="card"><div class="value">{metrics['taxa_total']}</div><div>taxons</div></div>
-    <div class="card"><div class="value">{metrics['individuos_total']}</div><div>individuos</div></div>
+    <div class="card"><div class="value">{metrics['taxa_total']}</div><div>táxons</div></div>
+    <div class="card"><div class="value">{metrics['individuos_total']}</div><div>indivíduos</div></div>
     <div class="card"><div class="value">{metrics['biomassa_total_g']:.1f} g</div><div>biomassa</div></div>
     <div class="card"><div class="value">{metrics['ordens']}</div><div>ordens</div></div>
-    <div class="card"><div class="value">{metrics['familias']}</div><div>familias</div></div>
+    <div class="card"><div class="value">{metrics['familias']}</div><div>famílias</div></div>
   </div>
 
-  <h2>Sintese por campanha</h2>
+  <h2>Síntese por campanha</h2>
   {table_html(metrics['por_campanha'], ['nome_campanha', 'individuos', 'biomassa_g', 'cpuen_total', 'cpueb_total'])}
 
-  <h2>Destaques diagnosticos</h2>
+  <h2>Destaques diagnósticos</h2>
   <ul>
-    <li>Maior riqueza: {html.escape(str(richness['nome_ponto']))} em {html.escape(str(richness['nome_campanha']))}, com {format_value(richness['riqueza'])} taxons.</li>
-    <li>Maior abundancia: {html.escape(str(abundance['nome_ponto']))} em {html.escape(str(abundance['nome_campanha']))}, com {format_value(abundance['abundancia_total'])} individuos.</li>
-    <li>Maior CPUEn: {html.escape(str(cpuen['nome_ponto']))} em {html.escape(str(cpuen['nome_campanha']))}, com {format_value(cpuen['cpuen'])} ind/100m2.</li>
-    <li>Maior CPUEb: {html.escape(str(cpueb['nome_ponto']))} em {html.escape(str(cpueb['nome_campanha']))}, com {format_value(cpueb['cpueb'])} g/100m2.</li>
-    <li>Riqueza observada final na curva de suficiencia: {format_value(suff['riqueza_obs_media'])}; Jackknife 1: {format_value(suff['riqueza_est_jackknife1_media'])}.</li>
+    <li>Maior riqueza: {html.escape(str(richness['nome_ponto']))} em {html.escape(str(richness['nome_campanha']))}, com {format_value(richness['riqueza'])} táxons.</li>
+    <li>Maior abundância: {html.escape(str(abundance['nome_ponto']))} em {html.escape(str(abundance['nome_campanha']))}, com {format_value(abundance['abundancia_total'])} indivíduos.</li>
+    <li>Maior CPUEn: {html.escape(str(cpuen['nome_ponto']))} em {html.escape(str(cpuen['nome_campanha']))}, com {format_value(cpuen['cpuen'])} ind/100 m².</li>
+    <li>Maior CPUEb: {html.escape(str(cpueb['nome_ponto']))} em {html.escape(str(cpueb['nome_campanha']))}, com {format_value(cpueb['cpueb'])} g/100 m².</li>
+    <li>Riqueza observada final na curva de suficiência: {format_value(suff['riqueza_obs_media'])}; Jackknife 1: {format_value(suff['riqueza_est_jackknife1_media'])}.</li>
   </ul>
 
   <h2>Diversidade alfa</h2>
   {table_html(metrics['diversidade_geral'], ['nome_campanha', 'nome_ponto', 'Shannon_H', 'Pielou_J'])}
-  <p class="note">Os indices de diversidade e a curva de suficiencia devem ser interpretados como apoio diagnostico, pois o conjunto atual tem baixa riqueza total e apenas duas campanhas.</p>
+  <p class="note">Os índices de diversidade e a curva de suficiência devem ser interpretados como apoio diagnóstico, pois o conjunto atual tem baixa riqueza total e apenas duas campanhas.</p>
 
   <h2>Figuras principais</h2>
   {''.join(figure_blocks)}
@@ -322,6 +357,7 @@ def write_report(metrics: dict) -> Path:
 </body>
 </html>
 """
+    validate_report_ptbr(body)
     out_html.write_text(body, encoding="utf-8")
     return out_html
 
@@ -379,7 +415,7 @@ def build_manifest(extra_files: list[Path], metrics: dict) -> tuple[Path, Path, 
         f"- gerado em: `{manifest['generated_at']}`",
         f"- arquivos listados: `{len(rows)}`",
         f"- taxons: `{metrics['taxa_total']}`",
-        f"- individuos: `{metrics['individuos_total']}`",
+        f"- indivíduos: `{metrics['individuos_total']}`",
         f"- biomassa total: `{metrics['biomassa_total_g']:.1f} g`",
         "",
         "## Arquivos",
@@ -404,7 +440,7 @@ def write_validation(manifest_json: Path) -> Path:
         "zero_size_files": zero_size,
         "errors_count": len(missing) + len(zero_size),
         "warnings": [
-            "Diversidade, similaridade e suficiencia sao apoio diagnostico para base curta."
+            "Diversidade, similaridade e suficiência são apoio diagnóstico para base curta."
         ],
     }
     out = OUTPUT_DIR / "validacao_entrega_ictiofauna_braaeg001.json"

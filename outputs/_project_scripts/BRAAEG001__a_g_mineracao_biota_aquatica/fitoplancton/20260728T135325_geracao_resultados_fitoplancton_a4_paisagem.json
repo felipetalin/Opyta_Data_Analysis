@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-28T16:56:36.876333Z",
+  "project_code": "BRAAEG001",
+  "project_id": 195,
+  "group": "Fitoplâncton",
+  "action": "generate_fitoplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton",
+  "figures_count": 12,
+  "figures_ok": 12,
+  "files_count": 33,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\fitoplancton\\20260728T135325_contact_sheet_figuras_fitoplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 144,
+    "rows_quantitative": 11,
+    "rows_qualitative": 133,
+    "campaigns": [
+      "C001-2026-02-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 12,
+    "taxa_total": 65,
+    "taxa_quant": 8,
+    "phyla_total": 5,
+    "density_total": 865.9393928484849,
+    "density_unit": "org/amostra",
+    "max_richness": 16.0,
+    "max_richness_point": "PT_09",
+    "max_richness_campaign": "C01-Chuva",
+    "max_density": 276.363636,
+    "max_density_point": "PT_07",
+    "max_density_campaign": "C02-Seca",
+    "dominant_phylum": "Bacillariophyta",
+    "dominant_phylum_density": 672.4848476363636,
+    "dominant_taxon": "Cocconeis placentula",
+    "dominant_taxon_density": 368.484848,
+    "suff_obs": 8.0,
+    "suff_est": 13.333333333333346
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\00_base_consolidada_fitoplancton.xlsx",
+      "tamanho_bytes": 25314,
+      "sha256": "20b314f9678861e29032856aad64cedfe7145f6460d71b581f2b57f8f34845ac"
+    },
+    {
+      "arquivo": "01_tabela_composicao_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\01_tabela_composicao_fitoplancton.xlsx",
+      "tamanho_bytes": 8845,
+      "sha256": "953d05230e2c8db311070d31e695278e2011ee2fa648fcf3c0f9b11d6d73a1b6"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\01_tabela_ocorrencia_fitoplancton.xlsx",
+      "tamanho_bytes": 11267,
+      "sha256": "95006243a489fd8c1fa21e986c00b3033e3d12434b99d2abf0c5bf9bb98d5005"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5519,
+      "sha256": "3264404678f4cb493cf5384eb914b37ff4a7ba470463ce4b785618b7fb641da4"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 424129,
+      "sha256": "49964b6d2cab1df45c5e32bb5f9e33a65604b6462555e00a6e09de48cd0e948a",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 75.7093601429733,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5516,
+      "sha256": "0429627309d7bc44d53811c6edf1ff0aca5c8d19e113cabe67ed0259b1bb106b"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 483152,
+      "sha256": "9e014ceea04ff8aadffa06c9f5468e0a4c312f281f8721eff68e8db6d369dd0e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 53.72752703882012,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "tamanho_bytes": 5051,
+      "sha256": "4a73eddd2fe6198d68a8b371fa40f1db1c74a5e4a5a5c1a0f9a2e9bd08971a7d"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "tamanho_bytes": 504350,
+      "sha256": "0187849127cab4cb2a3d6ada3ab95cc8f9a077e25748c34d7b69e819d04f8ddb",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 73.5899284213503,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "tamanho_bytes": 490936,
+      "sha256": "961abaab6d19236b739e1320242d7c8598613337d8c18b13fa37813916bf246a",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 90.03592584643988,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5572,
+      "sha256": "30a9cdffecf740246d1606bc46e4105a8d6851508841e0043bc4ff0c755813da"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 494150,
+      "sha256": "529b262f68e1625659764fbfd955c355fa324652e3d40a2c3fdbf4e57320457b",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 60.23869266493535,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5546,
+      "sha256": "46047d30fe8f22282400971d31d9556d88d04980dc9eb2070132efa345d6779f"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 481540,
+      "sha256": "c00c6c7b45329beb752089fd1ff2845fa9bf1e2d6030d789447ce954ed1bae50",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 82.815248097237,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "tamanho_bytes": 5435,
+      "sha256": "6c2d306bb61d995771d05a00f280c6ad475a515e9e5c6196a942fd5908e5e323"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\08_grafico_densidade_por_taxon_fitoplancton.png",
+      "tamanho_bytes": 647294,
+      "sha256": "d435f09320226444445c5ce0e4c487ad897d3ae585e2d9059b9b732279e9b438",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 52.2695158051755,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5736,
+      "sha256": "acd5ca0e8bc06e5398fe9b53e2e1e29e112ffe8d0db545d8755e553fa952315d"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "tamanho_bytes": 659820,
+      "sha256": "2f5ac4dfa9d2a2d128627954df2f3e18ea5659cde308a6d531687af822b6f605",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 44.33367295800479,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\10_df_diversidade_alfa_fitoplancton.xlsx",
+      "tamanho_bytes": 6095,
+      "sha256": "189c6a0c913bed3d950169508ffe17bc6ebc9374f37bc0d9dd4fd1fe5987cedf"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\10_grafico_diversidade_alfa_fitoplancton.png",
+      "tamanho_bytes": 505891,
+      "sha256": "6294d9dc41a3ce35832e6e02269e56fc0a3d5ea74b05b0c9f5b6964dec16c3f1",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 50.65960239100272,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\11_df_matriz_comunidade_fitoplancton.xlsx",
+      "tamanho_bytes": 5390,
+      "sha256": "e1fa4c0d48ee66a3c4a17553bb5a2b8f055cc9c1224422484411f890d72afd2d"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "tamanho_bytes": 5320,
+      "sha256": "91c05fce2a8b763806a0a0f48d2b278a75b1538f7187400d061657744111493b"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\11_dendrograma_similaridade_fitoplancton.png",
+      "tamanho_bytes": 357021,
+      "sha256": "3a30208a43649222d53c6694868c8caaac856cf62ef65a57f308f91962e24e7a",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 33.673372929305664,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\12_df_curva_suficiencia_fitoplancton.xlsx",
+      "tamanho_bytes": 5568,
+      "sha256": "b091fa573122d437cb46254b3e8434e4be2f200b210f518b96df47423fdd3970"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\12_curva_suficiencia_amostral_fitoplancton.png",
+      "tamanho_bytes": 715943,
+      "sha256": "3570cdfbd6cd5af8a7a7865135e6eece3cd966a627f3125d93317192314f3d9c",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.404911282468284,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Fitoplancton_BRAAEG001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\DarwinCore_IEF_Fitoplancton_BRAAEG001.xlsx",
+      "tamanho_bytes": 22703,
+      "sha256": "5defe45daf00867e6524607b2d8ea4fb70ba38f0b6a5bb776a088629fd5d6e93"
+    },
+    {
+      "arquivo": "14_tabela_sintese_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\14_tabela_sintese_fitoplancton.xlsx",
+      "tamanho_bytes": 6351,
+      "sha256": "3e1d9a551da2604cc8246a851b41ccd98f982cdbf00b4c7dda765f350b464420"
+    },
+    {
+      "arquivo": "14_grafico_sintese_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\14_grafico_sintese_fitoplancton.png",
+      "tamanho_bytes": 481115,
+      "sha256": "4539885adf23786ada11f6c3940204345232c04a2a5def973d82af34c8385f00",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 70.04721675062031,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_fitoplancton_braaeg001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\relatorio_tecnico_fitoplancton_braaeg001.html",
+      "tamanho_bytes": 3968,
+      "sha256": "04a359abd2cdb5369ee87279a06af4d43542e6198e12a5469a2c2a249faad31d"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braaeg001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\manifesto_entrega_fitoplancton_braaeg001.json",
+      "tamanho_bytes": 9828,
+      "sha256": "cfbe427747790a573a069018f60d64f9a206423b9cc7950d0ca7f8eba61b0e70"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braaeg001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\manifesto_entrega_fitoplancton_braaeg001.xlsx",
+      "tamanho_bytes": 7597,
+      "sha256": "08447a69067994335712f07d0b65cd1ec929628c8edb17780bd0b17dd76e68e7"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braaeg001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\manifesto_entrega_fitoplancton_braaeg001.md",
+      "tamanho_bytes": 2378,
+      "sha256": "1a6552c3758d3cbd2e3db17ab4374753ad0c19bc2fc1d5dd3a0e7a66f924ea69"
+    },
+    {
+      "arquivo": "validacao_entrega_fitoplancton_braaeg001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\validacao_entrega_fitoplancton_braaeg001.json",
+      "tamanho_bytes": 477,
+      "sha256": "ca694a531dd97bf09934ee24b63a40f996be9d9a7a816fb7c39e75965b5ee216"
+    }
+  ]
+}

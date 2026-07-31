@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>BRAAEG001 - Relatório técnico de fitoplâncton</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 32px; color: #1f2933; }
+    h1, h2 { color: #11420C; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+    .card { border: 1px solid #d6d6d6; border-radius: 6px; padding: 12px; }
+    .value { font-size: 24px; font-weight: 700; color: #11420C; }
+    table { border-collapse: collapse; width: 100%; margin: 12px 0 24px; }
+    th, td { border: 1px solid #d6d6d6; padding: 7px 9px; text-align: left; }
+    th { background: #eef4ec; }
+    figure { margin: 24px 0; page-break-inside: avoid; }
+    img { max-width: 100%; height: auto; border: 1px solid #e5e7eb; }
+    figcaption { font-size: 13px; color: #4b5563; margin-top: 6px; }
+    .note { background: #f7faf5; border-left: 4px solid #11420C; padding: 10px 12px; }
+  </style>
+</head>
+<body>
+  <h1>BRAAEG001 - Diagnóstico do fitoplâncton</h1>
+  <p>Pacote diagnóstico gerado para as campanhas C01-Chuva, C02-Seca, com 12 pontos amostrais.</p>
+  <div class="cards">
+    <div class="card"><div class="value">66</div><div>táxons totais</div></div>
+    <div class="card"><div class="value">8</div><div>táxons quantitativos</div></div>
+    <div class="card"><div class="value">865.9</div><div>densidade quantitativa total (org/amostra)</div></div>
+    <div class="card"><div class="value">5</div><div>filos</div></div>
+  </div>
+
+  <h2>Destaques diagnósticos</h2>
+  <ul>
+    <li>Maior riqueza: PT_09 em C01-Chuva, com 16 táxons.</li>
+    <li>Maior densidade quantitativa: PT_07 em C02-Seca, com 276.4 org/amostra.</li>
+    <li>Filo dominante na fração quantitativa: Bacillariophyta (672.5 org/amostra).</li>
+    <li>Táxon com maior densidade: <em>Cocconeis placentula</em> (368.5 org/amostra).</li>
+    <li>Curva de suficiência quantitativa: riqueza observada final 8; Jackknife 1 13.3.</li>
+  </ul>
+
+  <p class="note">Riqueza e ocorrência usam registros qualitativos e quantitativos. Densidade, diversidade, similaridade e suficiência usam somente registros quantitativos, pois a contagem consolidada de Fitoplâncton já representa a densidade migrada.</p>
+
+  <h2>Figuras principais</h2>
+  <figure><img src="02_grafico_riqueza_por_ponto_fitoplancton.png" alt="Riqueza por ponto"><figcaption>Riqueza por ponto</figcaption></figure><figure><img src="03_grafico_densidade_total_por_ponto_fitoplancton.png" alt="Densidade total por ponto"><figcaption>Densidade total por ponto</figcaption></figure><figure><img src="04_grafico_riqueza_filo_barras_fitoplancton.png" alt="Riqueza por filo"><figcaption>Riqueza por filo</figcaption></figure><figure><img src="06_grafico_densidade_filo_por_ponto_fitoplancton.png" alt="Densidade por filo"><figcaption>Densidade por filo</figcaption></figure><figure><img src="08_grafico_densidade_por_taxon_fitoplancton.png" alt="Densidade por táxon"><figcaption>Densidade por táxon</figcaption></figure><figure><img src="09_grafico_densidade_taxon_ponto_fitoplancton.png" alt="Densidade por táxon e amostra"><figcaption>Densidade por táxon e amostra</figcaption></figure><figure><img src="10_grafico_diversidade_alfa_fitoplancton.png" alt="Diversidade alfa"><figcaption>Diversidade alfa</figcaption></figure><figure><img src="11_dendrograma_similaridade_fitoplancton.png" alt="Similaridade"><figcaption>Similaridade</figcaption></figure><figure><img src="12_curva_suficiencia_amostral_fitoplancton.png" alt="Suficiência amostral"><figcaption>Suficiência amostral</figcaption></figure><figure><img src="14_grafico_sintese_fitoplancton.png" alt="Síntese"><figcaption>Síntese</figcaption></figure>
+
+  <h2>Rastreabilidade</h2>
+  <p>Manifesto: <code>manifesto_entrega_fitoplancton_braaeg001.json</code> e <code>manifesto_entrega_fitoplancton_braaeg001.xlsx</code>.</p>
+</body>
+</html>
