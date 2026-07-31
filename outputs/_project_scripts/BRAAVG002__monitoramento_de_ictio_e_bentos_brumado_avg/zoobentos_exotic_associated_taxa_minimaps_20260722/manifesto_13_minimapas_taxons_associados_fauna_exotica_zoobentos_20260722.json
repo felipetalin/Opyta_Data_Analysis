@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-07-22T10:46:55",
+  "project_code": "BRAAVG002",
+  "group": "Zoobentos",
+  "layout": "A3 paisagem; painel anual 2x2 no padrao dos minimapas BMWP",
+  "taxa": [
+    "Melanoides sp.",
+    "Corbicula sp.",
+    "Physa sp."
+  ],
+  "outputs": {
+    "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\13_mini_mapas_anuais_taxons_associados_fauna_exotica_zoobentos.png",
+    "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\13_df_mini_mapas_anuais_taxons_associados_fauna_exotica_zoobentos.xlsx"
+  }
+}

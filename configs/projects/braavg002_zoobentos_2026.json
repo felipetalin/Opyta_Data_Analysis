@@ -9,7 +9,7 @@
   "group": "Zoobentos",
   "pipeline": "zoobentos",
   "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados bentos/Consolidado_2026",
-  "status": "analysis_scope_prepared_waiting_migration",
+  "status": "selected_results_regenerated_after_approval",
   "prepared_at": "2026-07-20",
   "planning_document": "docs/projects/BRAAVG002_ZOOBENTOS_CONSOLIDADO_2026.md",
   "expected_scope": {
@@ -118,13 +118,70 @@
     }
   ],
   "migration_gate": {
-    "status": "pending",
+    "status": "applied",
     "checklist": "docs/projects/BRAAVG002_ZOOBENTOS_CONSOLIDADO_2026.md#checklist-pos-migracao",
+    "migration_audit": "outputs/_migration/avg_bentos_2026/migration_applied.json",
+    "consolidation_audit": "outputs/_migration/avg_bentos_2026/consolidation_applied.json",
+    "backup_table": "public.bkp_biota_avg_zoobentos_20260721_141031",
     "required_before_generation": [
-      "migrar 47 campanhas de Zoobentos",
-      "consolidar public.biota_analise_consolidada para BRAAVG002/Zoobentos",
       "validar campanhas, pontos, esforcos, taxons, familia, BMWP_Score e zeros analiticos",
       "confirmar coordenadas e vigencia dos pontos conforme regra AVG"
+    ]
+  },
+  "analytic_base": {
+    "status": "generated_validated",
+    "generated_at": "2026-07-22T10:18:51",
+    "script": "scripts/projects/avg/build_bentos_avg_consolidated_analytic_base.py",
+    "output_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/zoobentos_consolidated_analytic_base_20260721",
+    "workbook": "base_analitica_consolidada_zoobentos_20260721.xlsx",
+    "manifest": "manifesto_base_analitica_consolidada_zoobentos_20260721.json",
+    "summary": {
+      "linhas": 4106,
+      "ponto_campanhas_com_esforco": 611,
+      "ponto_campanhas_com_captura_zero": 49,
+      "ponto_campanhas_nao_monitorados_regra": 26,
+      "campanhas": 47,
+      "pontos": 13,
+      "taxons": 115,
+      "abundancia_total": 13680,
+      "bmwp_nulo": 0,
+      "bmwp_regra": "campanha x ponto calculado por soma de familias unicas; agregado anual principal = media das campanhas monitoradas",
+      "status": "ok"
+    }
+  },
+  "analysis_template_approval": {
+    "status": "approved_regenerated",
+    "generated_at": "2026-07-21",
+    "script": "scripts/projects/avg/build_bentos_avg_bioindicator_minimaps_ictio_layout.py",
+    "layout_reference": "Ictiofauna AVG 2026 - minimapas anuais aprovados",
+    "rules": [
+      "BMWP com cores de classe do indice.",
+      "BMWP por campanha/ponto calculado por familias unicas; mapas anuais usam media das campanhas monitoradas e Excel inclui comparativo com acumulado anual.",
+      "EPT com gradiente de verde.",
+      "CHOL com gradiente verde-vermelho, com valores mais altos em vermelho por representarem menor qualidade.",
+      "Painel anual 2x2, sem inventar novo layout.",
+      "Usar base cartografica, areas de controle, coordenadas e vigencias ja adotadas na Ictiofauna AVG."
+    ],
+    "outputs": [
+      "APROVACAO_06B_mini_mapas_anuais_bmwp_zoobentos.png",
+      "APROVACAO_06C_mini_mapas_anuais_ept_zoobentos.png",
+      "APROVACAO_06D_mini_mapas_anuais_chol_zoobentos.png",
+      "APROVACAO_06BCD_df_mini_mapas_anuais_bmwp_ept_chol_zoobentos.xlsx"
+    ]
+  },
+  "selected_results_generation": {
+    "status": "regenerated_after_user_approval",
+    "generated_at": "2026-07-22T10:20:58",
+    "script": "scripts/projects/avg/build_bentos_avg_selected_results_2026.py",
+    "manifest": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/zoobentos_selected_results_20260721/manifesto_resultados_selecionados_zoobentos_20260721.json",
+    "notes": [
+      "Gerados Excel e figuras para composicao taxonomica, riqueza, abundancia, densidade, Shannon, Pielou, PCoA Bray-Curtis e tabelas BMWP/EPT/CHOL.",
+      "Grafico de composicao taxonomica por ordem regenerado como rosca no modelo aprovado da Ictiofauna, com oito ordens principais e Outras ordens.",
+      "Paineis temporais regenerados com lacunas para ponto-campanhas classificados como Nao monitorado.",
+      "Darwin Core gerado em planilha propria.",
+      "BMWP revisado metodologicamente: soma por familias unicas em cada campanha/ponto; Excel 05 e Excel dos minimapas incluem comparativo anual com BMWP acumulado por familias.",
+      "Figura 08C gerada com top 30 taxons por abundancia; Excel contem todos os 115 taxons apos revisao taxonomica.",
+      "Revisao taxonomica aplicada em 2026-07-21: Artropoda -> Arthropoda; Scirtodae -> Scirtidae; Dolychopodidae mesclado em Dolichopodidae; Turbelaria -> Turbellaria; Melanoides sp. como Mollusca/Gastropoda/Mesogastropoda/Thiaridae; nome taxonomico Acarina -> Acari e ordem Acari; Sphaeriida -> Veneroida; Oligochaeta com ordem em branco."
     ]
   }
 }

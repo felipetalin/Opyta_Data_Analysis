@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-07-22T10:18:51",
+  "project_code": "BRAAVG002",
+  "project_id": 9,
+  "group": "Zoobentos",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\zoobentos_consolidated_analytic_base_20260721",
+  "source": "public.biota_analise_consolidada",
+  "coordinate_reference": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Geo\\Ponto amostral - AVG.kml",
+  "coordinate_overrides": {
+    "PIC-11": {
+      "latitude": -19.801526,
+      "longitude": -43.700959,
+      "first_campaign_seq": 1,
+      "source": "ajuste_usuario_2026-07-14",
+      "note": "Coordenada definida pelo usuario para PIC-11."
+    },
+    "PIC-02": {
+      "latitude": -19.800376,
+      "longitude": -43.71061,
+      "first_campaign_seq": 43,
+      "source": "realocacao_fev_2026_usuario_2026-07-14",
+      "note": "PIC-02 realocado a partir de fevereiro/2026."
+    }
+  },
+  "sampling_adjustments": {
+    "PIC-01": [
+      [
+        40,
+        null
+      ]
+    ],
+    "PIC-02": [
+      [
+        40,
+        42
+      ]
+    ],
+    "PIC-03": [
+      [
+        40,
+        42
+      ],
+      [
+        44,
+        null
+      ]
+    ],
+    "PIC-11": [
+      [
+        40,
+        null
+      ]
+    ]
+  },
+  "summary": {
+    "linhas": 4106,
+    "ponto_campanhas_com_esforco": 611,
+    "ponto_campanhas_com_captura_zero": 49,
+    "ponto_campanhas_nao_monitorados_regra": 26,
+    "campanhas": 47,
+    "pontos": 13,
+    "taxons": 115,
+    "abundancia_total": 13680.0,
+    "bmwp_nulo": 0,
+    "familia_vazia": 134,
+    "ordem_vazia": 121,
+    "campanhas_esperadas": 47,
+    "pontos_esperados": 13,
+    "status": "ok"
+  },
+  "outputs": {
+    "analytic_workbook": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\zoobentos_consolidated_analytic_base_20260721\\base_analitica_consolidada_zoobentos_20260721.xlsx"
+  }
+}
