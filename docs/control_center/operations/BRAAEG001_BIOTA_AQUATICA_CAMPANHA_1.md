@@ -113,7 +113,7 @@
 | Geração Zooplâncton | revisada aguardando revisão | Pacote A4 paisagem regenerado em `resultados/migracao_biota/zooplancton`: 36 arquivos, 13 figuras PNG, 19 planilhas XLSX, 1 HTML, Darwin Core, manifesto e validação `OK` com 0 erros. |
 | Revisao tecnica | em andamento | Validacao de entrega `OK`; revisar numeros, texto e layout antes do fechamento. |
 | Revisao de layout | regenerada aguardando revisao | R01: 16 figuras finais de ictiofauna regeneradas em A4 paisagem, 600 dpi; relatório HTML e rótulos pt-BR revisados; backup dos PNGs originais e auditorias finais registrados. |
-| Revisao R02 Ictiofauna | aguardando Gate R | Figuras `02`, `03`, `06`, `07`, `08`, `09` e `10` redesenhadas no padrao dos demais temas de biota: A4 paisagem, subpaineis `C01-Chuva`/`C02-Seca`, especies em italico e diversidade por ponto x campanha; sem alteracao de dados, banco, taxonomia ou metricas. |
+| Revisao R02 Ictiofauna | aguardando Gate R | Figuras `02`, `03`, `06`, `07`, `08`, `09`, `08B`, `09B` e `10` revisadas; `08/09/08B/09B` tiveram CPUE por especie recalculada com esforco total correto, sem alteracao de banco, taxonomia ou consolidacao. |
 | Fechamento | pendente | Depende de Gate C, produtos/manifesto quando aplicavel e atualizacao de dossie/registry. |
 
 ## Gates

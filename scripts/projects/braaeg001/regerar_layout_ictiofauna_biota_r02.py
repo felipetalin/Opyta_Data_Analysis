@@ -12,6 +12,7 @@ from matplotlib.lines import Line2D
 CLIENT_ROOT = Path(r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Brandt")
 PROJECT_DIR = next(path for path in CLIENT_ROOT.iterdir() if path.name.startswith("A&G"))
 OUTPUT_DIR = PROJECT_DIR / "resultados" / "migracao_biota" / "ictiofauna"
+LASTROS_DIR = PROJECT_DIR / "resultados" / "migracao_biota" / "lastros_migracao"
 
 FIGSIZE = (11.69, 8.27)
 DPI = 600
@@ -160,6 +161,126 @@ def plot_species_campaign(source: str, ylabel: str, out_name: str, decimals: int
     save(fig, OUTPUT_DIR / out_name)
 
 
+def plot_heatmap(source: str, label: str, out_name: str) -> None:
+    df = pd.read_excel(OUTPUT_DIR / source)
+    taxa = df["nome_cientifico"].astype(str).tolist()
+    points = [col for col in df.columns if col != "nome_cientifico"]
+    values = df[points].apply(pd.to_numeric, errors="coerce").fillna(0).to_numpy(dtype=float)
+
+    fig, ax = plt.subplots(figsize=FIGSIZE, dpi=DPI)
+    image = ax.imshow(values, cmap="Greens", aspect="auto", vmin=0, vmax=max(float(values.max()), 1.0))
+    ax.set_yticks(np.arange(len(taxa)))
+    ax.set_yticklabels(taxa, fontstyle="italic", fontsize=14)
+    ax.set_xticks(np.arange(len(points)))
+    ax.set_xticklabels(points, rotation=90, ha="center", fontsize=12)
+    ax.set_ylabel("Espécie")
+    ax.set_xlabel("Ponto amostral")
+    for i in range(values.shape[0]):
+        for j in range(values.shape[1]):
+            value = values[i, j]
+            if value <= 0:
+                continue
+            color = "white" if value > values.max() * 0.45 else "#111111"
+            ax.text(j, i, fmt_value(value, 2), ha="center", va="center", fontsize=10, color=color)
+    cbar = fig.colorbar(image, ax=ax, fraction=0.035, pad=0.02)
+    cbar.set_label(label, fontsize=15)
+    fig.subplots_adjust(left=0.27, right=0.94, top=0.93, bottom=0.20)
+    save(fig, OUTPUT_DIR / out_name)
+
+
+def recalc_cpue_species_tables() -> None:
+    source = next(LASTROS_DIR.glob("Resultados_Migra*_Ictio.xlsx"))
+    results = pd.read_excel(source, sheet_name="Resultados_Ictiofauna")
+    efforts = pd.read_excel(source, sheet_name="Metadados_Esforco")
+
+    results = results.rename(
+        columns={
+            "Ponto": "nome_ponto",
+            "Campanha": "nome_campanha",
+            "Metodo_de_Captura": "metodo_de_captura",
+            "Nome_Cientifico": "nome_cientifico",
+            "Numero_de_Individuos": "contagem",
+            "PC_g": "pc_g",
+        }
+    )
+    efforts = efforts.rename(
+        columns={
+            "Ponto": "nome_ponto",
+            "Campanha": "nome_campanha",
+            "Metodo_de_Captura": "metodo_de_captura",
+            "Esforco": "esforco",
+            "Unidade_Esforco": "unidade_esforco",
+        }
+    )
+    for frame in [results, efforts]:
+        for col in ["nome_ponto", "nome_campanha", "metodo_de_captura"]:
+            frame[col] = frame[col].astype(str).str.strip()
+
+    results["nome_cientifico"] = results["nome_cientifico"].astype(str).str.strip()
+    results["contagem"] = pd.to_numeric(results["contagem"], errors="coerce").fillna(0)
+    results["pc_g"] = pd.to_numeric(results["pc_g"], errors="coerce").fillna(0)
+    results["biomassa"] = results["contagem"] * results["pc_g"]
+    efforts["esforco"] = pd.to_numeric(efforts["esforco"], errors="coerce")
+
+    point_effort = (
+        efforts.dropna(subset=["esforco"])
+        .drop_duplicates(["nome_campanha", "nome_ponto", "metodo_de_captura", "unidade_esforco", "esforco"])
+        .groupby(["nome_campanha", "nome_ponto"], as_index=False)["esforco"]
+        .sum()
+        .rename(columns={"esforco": "esforco_total_ponto"})
+    )
+    species_point = (
+        results.groupby(["nome_campanha", "nome_ponto", "nome_cientifico"], as_index=False)
+        .agg(contagem=("contagem", "sum"), biomassa=("biomassa", "sum"))
+        .merge(point_effort, on=["nome_campanha", "nome_ponto"], how="left")
+    )
+    species_point = species_point[species_point["esforco_total_ponto"].notna() & (species_point["esforco_total_ponto"] > 0)].copy()
+    species_point["cpuen"] = species_point["contagem"] / species_point["esforco_total_ponto"] * 100
+    species_point["cpueb"] = species_point["biomassa"] / species_point["esforco_total_ponto"] * 100
+
+    campaign_effort = (
+        point_effort.groupby("nome_campanha", as_index=False)["esforco_total_ponto"]
+        .sum()
+        .rename(columns={"esforco_total_ponto": "esforco_total_campanha"})
+    )
+    species_campaign = (
+        results.groupby(["nome_campanha", "nome_cientifico"], as_index=False)
+        .agg(contagem=("contagem", "sum"), biomassa=("biomassa", "sum"))
+        .merge(campaign_effort, on="nome_campanha", how="left")
+    )
+    species_campaign["cpuen"] = species_campaign["contagem"] / species_campaign["esforco_total_campanha"] * 100
+    species_campaign["cpueb"] = species_campaign["biomassa"] / species_campaign["esforco_total_campanha"] * 100
+
+    species_order = sorted(results["nome_cientifico"].dropna().unique().tolist())
+    point_order = sorted(point_effort["nome_ponto"].dropna().unique().tolist(), key=point_sort_key)
+
+    cpuen_campaign = (
+        species_campaign.pivot_table(index="nome_cientifico", columns="nome_campanha", values="cpuen", aggfunc="sum", fill_value=0)
+        .reindex(index=species_order, columns=CAMPAIGNS, fill_value=0)
+        .reset_index()
+    )
+    cpueb_campaign = (
+        species_campaign.pivot_table(index="nome_cientifico", columns="nome_campanha", values="cpueb", aggfunc="sum", fill_value=0)
+        .reindex(index=species_order, columns=CAMPAIGNS, fill_value=0)
+        .reset_index()
+    )
+    cpuen_point = (
+        species_point.pivot_table(index="nome_cientifico", columns="nome_ponto", values="cpuen", aggfunc="sum", fill_value=0)
+        .reindex(index=species_order, columns=point_order, fill_value=0)
+        .reset_index()
+    )
+    cpueb_point = (
+        species_point.pivot_table(index="nome_cientifico", columns="nome_ponto", values="cpueb", aggfunc="sum", fill_value=0)
+        .reindex(index=species_order, columns=point_order, fill_value=0)
+        .reset_index()
+    )
+
+    cpuen_campaign.to_excel(OUTPUT_DIR / "08_df_cpuen_por_especie_ictiofauna.xlsx", index=False, engine="openpyxl")
+    cpueb_campaign.to_excel(OUTPUT_DIR / "09_df_cpueb_por_especie_ictiofauna.xlsx", index=False, engine="openpyxl")
+    cpuen_point.to_excel(OUTPUT_DIR / "08B_df_cpuen_por_especie_ponto_ictiofauna.xlsx", index=False, engine="openpyxl")
+    cpueb_point.to_excel(OUTPUT_DIR / "09B_df_cpueb_por_especie_ponto_ictiofauna.xlsx", index=False, engine="openpyxl")
+
+
 def plot_diversity() -> None:
     df = pd.read_excel(OUTPUT_DIR / "10_df_diversidade_alfa_ictiofauna.xlsx")
     df = df[~df["nome_ponto"].astype(str).str.contains("Geral", case=False, na=False)].copy()
@@ -221,6 +342,7 @@ def plot_diversity() -> None:
 
 
 def main() -> None:
+    recalc_cpue_species_tables()
     plot_point_panels(
         "02_df_riqueza_por_ponto_ictiofauna.xlsx",
         "riqueza",
@@ -260,6 +382,16 @@ def main() -> None:
         "CPUEb (g/100 m²)",
         "09_grafico_cpueb_por_especie_ictiofauna.png",
         2,
+    )
+    plot_heatmap(
+        "08B_df_cpuen_por_especie_ponto_ictiofauna.xlsx",
+        "CPUEn (ind/100 m²)",
+        "08B_grafico_cpuen_por_especie_ponto_ictiofauna.png",
+    )
+    plot_heatmap(
+        "09B_df_cpueb_por_especie_ponto_ictiofauna.xlsx",
+        "CPUEb (g/100 m²)",
+        "09B_grafico_cpueb_por_especie_ponto_ictiofauna.png",
     )
     plot_diversity()
 
