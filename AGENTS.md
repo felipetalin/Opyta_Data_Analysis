@@ -1,5 +1,28 @@
 # Instrucoes Operacionais Do Repositorio
 
+## Controle De Tokens Por Padrao
+
+O Codex deve tratar economia de tokens como restricao operacional permanente
+deste repositorio. Em toda tarefa, comecar pelo menor contexto suficiente para
+diagnosticar e agir com seguranca.
+
+Regras praticas:
+
+1. antes de abrir muitos arquivos, registros historicos, dossies, outputs ou
+   pastas amplas, fazer uma busca filtrada e explicar brevemente a necessidade;
+2. se uma tarefa pontual comecar a exigir revisao ampla, migracao,
+   consolidacao, auditoria taxonomica, coordenadas, banco de dados ou varios
+   produtos dependentes, pausar e pedir aprovacao do usuario antes de expandir;
+3. preferir respostas e updates curtos durante execucao, informando apenas
+   causa, acao, validacao e pendencia;
+4. nao usar web, plugins, conectores, leitura ampla de Drive ou contexto
+   externo sem necessidade tecnica ou pedido explicito;
+5. quando o usuario disser "modo economico", "baixo contexto", "micro" ou
+   equivalente, aplicar a menor rota possivel e confirmar antes de qualquer
+   expansao relevante;
+6. quando o usuario pedir "orcamento de tokens" ou "meta com limite", registrar
+   a meta da sessao antes de executar e acompanhar o consumo durante o trabalho.
+
 ## Regra De Economia De Contexto
 
 Custo de tokens e requisito operacional. Em pedidos pontuais de revisao ou
