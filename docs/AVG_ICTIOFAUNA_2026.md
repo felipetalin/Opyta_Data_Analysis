@@ -1,6 +1,6 @@
 # AVG Ictiofauna 2026
 
-Data do registro: 2026-06-01
+Data do registro: 2026-08-03
 
 ## Escopo
 
@@ -20,6 +20,8 @@ Campanhas executadas:
 
 - abril: `45ª-Abr-26`
 - maio: `46ª-Mai-26`
+- junho: `47ª-Jun-26`
+- julho: `48ª-Jul-26` — parcial validado, migrado, consolidado e gerado em 2026-08-03; produtos em `Resultados ictio/2026/julho`.
 
 ## Areas de Controle
 

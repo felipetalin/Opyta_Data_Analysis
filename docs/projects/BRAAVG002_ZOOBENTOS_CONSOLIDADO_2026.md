@@ -42,6 +42,16 @@ Antes de gerar produtos finais, validar:
 - CHOL e EPT conferidos por grupo taxonomico antes dos graficos.
 - Tabelas de apoio salvas junto com cada figura.
 
+## Regra De Vigencia Da Malha Amostral
+
+- A malha inicial contemplava 13 pontos amostrais nas Areas Controle 1 e 2 e foi mantida ate outubro/2025.
+- A partir de novembro/2025, restricoes de acesso e indisponibilidade de trechos inviabilizaram a continuidade de `PIC-01`, `PIC-03` e `PIC-11`; `PIC-02` ficou em processo de realocacao.
+- Entre novembro/2025 e fevereiro/2026 houve tentativas de realocacao, mas as alternativas sem autorizacao de acesso nao foram implantadas.
+- Em fevereiro/2026, `PIC-02` e `PIC-03` foram amostrados excepcionalmente.
+- A partir de marco/2026, `PIC-03` foi definitivamente descontinuado e apenas `PIC-02` permaneceu como ponto realocado consolidado.
+- Assim, de marco/2026 em diante as analises mensais devem considerar malha ativa de 10 pontos: `PIC-02`, `PIC-04`, `PIC-05`, `PIC-06`, `PIC-07`, `PIC-08`, `PIC-09`, `PIC-10`, `PIC-12` e `PIC-13`.
+- `PIC-01`, `PIC-03` e `PIC-11` devem ser classificados como ponto-campanha nao monitorado/lacuna, nao como captura zero.
+
 ## Regras Dos Bioindicadores
 
 ### CHOL

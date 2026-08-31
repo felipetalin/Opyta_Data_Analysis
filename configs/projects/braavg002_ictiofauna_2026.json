@@ -49,6 +49,13 @@
         "campaign": "47ª-Jun-26",
         "status": "generated_approved",
         "notes": "Operacao de junho/2026 encerrada em 2026-07-01."
+      },
+      {
+        "key": "julho",
+        "folder": "julho",
+        "campaign": "48ª-Jul-26",
+        "status": "generated_pending_review",
+        "notes": "Campanha parcial de julho/2026 validada, migrada, consolidada e gerada em 2026-08-03."
       }
     ],
     "commands": {

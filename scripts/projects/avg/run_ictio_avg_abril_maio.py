@@ -251,6 +251,21 @@ def apply_sampling_adjustments(df: pd.DataFrame) -> pd.DataFrame:
     return out.loc[~remove].copy()
 
 
+def _is_not_monitored(point: object, campaign_seq: int | None) -> bool:
+    if campaign_seq is None:
+        return False
+    point_name = _clean_text(point)
+    for first_seq, last_seq in NOT_SAMPLED_CAMPAIGN_RANGES.get(point_name, []):
+        if campaign_seq >= first_seq and (last_seq is None or campaign_seq <= last_seq):
+            return True
+    return False
+
+
+def _monitored_points(campaign: object) -> list[str]:
+    seq = _campaign_seq(campaign)
+    return [point for point in POINT_ORDER if not _is_not_monitored(point, seq)]
+
+
 def _clean_text(value: object) -> str:
     if value is None or pd.isna(value):
         return ""
@@ -396,7 +411,8 @@ def _summarize_campaign_preflight(
     biomass = pd.to_numeric(df_c.get(biomass_col, 0), errors="coerce").fillna(0)
     observed_points = sorted(df_c["nome_ponto"].dropna().astype(str).unique().tolist())
     effort_points = sorted(df_esf_c["nome_ponto"].dropna().astype(str).unique().tolist()) if not df_esf_c.empty else []
-    zero_capture_points = [point for point in POINT_ORDER if point in effort_points and point not in observed_points]
+    points_expected = _monitored_points(campaign)
+    zero_capture_points = [point for point in points_expected if point in effort_points and point not in observed_points]
     existing_files = [p for p in out_dir.iterdir() if p.name.lower() != "desktop.ini"] if out_dir.exists() else []
 
     return {
@@ -408,7 +424,8 @@ def _summarize_campaign_preflight(
         "existing_files": len(existing_files),
         "records_observed": int(len(df_c)),
         "records_with_zero_points": int(len(df_point_metrics)),
-        "points_expected": POINT_ORDER,
+        "points_expected": points_expected,
+        "not_monitored_points": [point for point in POINT_ORDER if point not in points_expected],
         "points_observed": observed_points,
         "points_with_effort": effort_points,
         "zero_capture_points_with_effort": zero_capture_points,
@@ -509,10 +526,11 @@ def _run_blocks_for_df(df_observed: pd.DataFrame, df_point_metrics: pd.DataFrame
 
 
 def _point_frame(campaign: str) -> pd.DataFrame:
-    out = pd.DataFrame({"nome_ponto": POINT_ORDER})
+    out = pd.DataFrame({"nome_ponto": _monitored_points(campaign)})
     out["nome_campanha"] = campaign
     out["area_controle"] = out["nome_ponto"].map(AREA_BY_POINT)
-    out["ordem_ponto"] = range(1, len(out) + 1)
+    point_rank = {point: idx + 1 for idx, point in enumerate(POINT_ORDER)}
+    out["ordem_ponto"] = out["nome_ponto"].map(point_rank)
     return out
 
 
