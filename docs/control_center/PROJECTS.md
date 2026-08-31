@@ -25,6 +25,8 @@ qual etapa uma campanha ou rodada de trabalho esta, consulte
 | `VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita` | 189 | VIRITA001 | Diagnóstico da ictiofauna do Projeto Itabrita | active | `outputs/_project_scripts/VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita` |
 | `GEOARC001__monitoramento_arcelor` | 190 | GEOARC001 | Monitoramento Arcelor | active | `outputs/_project_scripts/GEOARC001__monitoramento_arcelor` |
 
+| `BIOCOL001__monitoramento_e_resgate_da_ictiofauna_uhe_colider` | 206 | BIOCOL001 | Monitoramento e Resgate da Ictiofauna no rio Teles Pires, na Area de Influencia da Usina Hidreletrica Colider - MT | active | `outputs/_project_scripts/BIOCOL001__monitoramento_e_resgate_da_ictiofauna_uhe_colider` |
+
 ## Duplicidades/Pendencias Supabase
 
 | Registro | Situacao | Proxima acao |

@@ -448,6 +448,41 @@
         "Migracao consolidou 301 linhas de resultados em 150 registros agregados, preservando 707 individuos.",
         "Para CPUEb exata em ictiofauna, manter fonte linha-a-linha quando o script oficial de consolidacao preencher biomassa com PC_g."
       ]
+    },
+    {
+      "canonical_key": "BIOCOL001__monitoramento_e_resgate_da_ictiofauna_uhe_colider",
+      "supabase": {
+        "id_projeto": 206,
+        "codigo_interno_opyta": "BIOCOL001",
+        "nome_projeto": "Monitoramento e Resgate da Ictiofauna no rio Teles Pires, na Area de Influencia da Usina Hidreletrica Colider - MT"
+      },
+      "status": "active",
+      "aliases": [
+        "colider_ictiofauna",
+        "bios_colider",
+        "biocol001_colider"
+      ],
+      "domains": [
+        "Ictiofauna",
+        "Migracao",
+        "Serie longa"
+      ],
+      "recipes": [
+        "configs/projects/biocol001_colider_ictiofauna.json"
+      ],
+      "docs": [
+        "docs/projects/BIOCOL001_COLIDER_ICTIOFAUNA.md",
+        "docs/control_center/operations/BIOCOL001_ICTIOFAUNA_COLIDER_MIGRACAO.md"
+      ],
+      "scripts": [],
+      "audit": [
+        "outputs/_project_scripts/BIOCOL001__monitoramento_e_resgate_da_ictiofauna_uhe_colider"
+      ],
+      "learning": [
+        "Para campanhas historicas de ictiofauna, usar codigo operacional C### para contagem; rotulos com ano/mes podem colapsar para a mesma campanha operacional.",
+        "Gate B deve bloquear especies usadas nos resultados com buracos em classificacao e atributos obrigatorios do cadastro antes da migracao.",
+        "No consolidado atual, BIOCOL001 esta preenchido em codigo_interno_opyta; codigo_opyta esta nulo e deve ser padronizado antes de produtos que filtrem por essa coluna."
+      ]
     }
   ]
 }
