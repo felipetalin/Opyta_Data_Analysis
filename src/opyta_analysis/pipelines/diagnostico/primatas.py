@@ -235,10 +235,12 @@ def _save_fig17_abundancia(
 
     # Reordena empreendimentos para leitura do relatório (Fortuna II, SPT, DGN, Jacaré, Controle...)
     display_name_by_key = {
-        masto._norm(TARGET_PCH_NAME): "SPT",
         masto._norm(TARGET_CONTROL_NAME): "CONTROLE",
         masto._norm("Área Controle"): "CONTROLE",
         masto._norm("Dores de Guanhães"): "DGN",
+        masto._norm("Fortuna II"): "FORTUNA II",
+        masto._norm("Jacaré"): "JACARÉ",
+        masto._norm("Senhora do Porto"): "SPT",
     }
 
     def _display_area(area_name: str) -> str:
@@ -619,7 +621,7 @@ def _save_status_table_primatas(
         ("guilda_alimentar", "Guilda Trófica"),
         ("sensibilidade_ambiental", "Sensibilidade Ambiental"),
         ("migratorio", "Migratório"),
-        ("origem", "Origem"),
+        ("distribuicao", "Distribuição"),
     ]
 
     available_src = [s for s, _ in status_cols_src if s in df.columns]
@@ -668,9 +670,9 @@ def _save_descriptive_report_primatas(
         points,
         "",
         "Blocos executados:",
-        "  fig17  – Figura 17: Abundância por espécie/área",
-        "  6.2    – Diagrama de Venn (composição SPT vs Controle)",
-        "  6.3    – Tabela de status ecológico e conservação",
+        "  fig17  - Figura 17: Abundância por espécie/área",
+        "  6.2    - Diagrama de Venn (composição PCH vs Controle)",
+        "  6.3    - Tabela de status ecológico e conservação",
     ]
     out_txt = output_dir / f"relatorio_primatas_{slug}.txt"
     out_txt.write_text("\n".join(text_lines), encoding="utf-8")
@@ -688,6 +690,7 @@ def run_primatas_pipeline(
     output_dir: Path,
     env_file: Optional[str] = None,
     block: str = "all",
+    campaign_filter: Optional[list[str]] = None,
 ) -> Dict[str, Any]:
     global TARGET_PCH_NAME, TARGET_CONTROL_NAME
 
@@ -699,6 +702,7 @@ def run_primatas_pipeline(
     TARGET_CONTROL_NAME = "Área Controle"
 
     df_raw = masto._load_mastofauna_df(project_id=project_id, env_file=env_file)
+    df_raw = masto._apply_campaign_filter(df_raw, campaign_filter)
     if df_raw.empty:
         return {"rows_loaded": 0, "executed_blocks": [], "generated_files": [],
                 "warning": "Sem dados de mastofauna/primatas para o projeto."}
