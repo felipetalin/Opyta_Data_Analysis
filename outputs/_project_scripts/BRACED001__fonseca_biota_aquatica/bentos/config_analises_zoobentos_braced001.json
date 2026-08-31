@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Zoobentos",
+  "status": "awaiting_gate_c_approval",
+  "reference_profile": {
+    "project": "BRAAEG001",
+    "directory": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineracao/resultados/migracao_biota/bentos",
+    "revision": "R01_operational_current"
+  },
+  "output": {
+    "directory": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Resultados/Bentos",
+    "figure_format": "PNG",
+    "page_format": "A4_landscape",
+    "dpi": 600,
+    "campaign_panels": true,
+    "campaign_labels": {
+      "C001-2026-03-CH": "C01-Chuva",
+      "C002-2026-06-SC": "C02-Seca"
+    }
+  },
+  "palette": {
+    "primary": "#11420C",
+    "secondary": "#19FF00",
+    "secondary_dark": "#6A8F63",
+    "grid": "#D8E9D4",
+    "categories": [
+      "#11420C",
+      "#19FF00",
+      "#6A8F63",
+      "#2A6F97",
+      "#C77D32",
+      "#6D597A",
+      "#4D908E",
+      "#9C6644",
+      "#577590",
+      "#BC6C25"
+    ],
+    "ept": "#2A6F97",
+    "chol": "#C1121F",
+    "bmwp_classes": {
+      "Muito boa": "#00B0F0",
+      "Boa": "#92D050",
+      "Regular": "#FFFF00",
+      "Ruim": "#FFC000",
+      "Pessima": "#FF0000"
+    }
+  },
+  "figures": [
+    "02_riqueza_por_ponto",
+    "03_abundancia_total_por_ponto",
+    "04_riqueza_por_ordem_barras",
+    "05_riqueza_por_ordem_rosca",
+    "06_abundancia_ordem_por_ponto",
+    "07_abundancia_relativa_ordem_por_ponto",
+    "08_abundancia_por_taxon_top20",
+    "09_abundancia_taxon_ponto_top20",
+    "10_diversidade_alfa",
+    "11_similaridade_bray_curtis_por_campanha_ponto",
+    "11B_similaridade_bray_curtis_por_ponto",
+    "12_curva_suficiencia_jackknife1",
+    "13_bmwp_por_ponto_e_classe",
+    "14_ept_chol_paineis_separados",
+    "15_sintese",
+    "16_mini_mapa_bmwp_ept_chol"
+  ],
+  "tables_and_reports": {
+    "xlsx_files": 21,
+    "html_report": true,
+    "darwin_core": true,
+    "delivery_manifest": true,
+    "delivery_validation": true
+  },
+  "technical_rules": {
+    "bmwp": "sum_unique_families_per_point_campaign",
+    "ept": "relative_abundance_ephemeroptera_plecoptera_trichoptera",
+    "chol": "relative_abundance_chironomidae_plus_oligochaeta",
+    "taxa_08_09": "top_20_in_figures_all_taxa_in_tables",
+    "missing_order": "use_valid_available_taxonomic_level_with_rank",
+    "italic": "only_genus_sp",
+    "mini_map": "campaigns_in_rows_indicators_in_columns_adjusted_labels"
+  },
+  "validation": {
+    "require_all_files": true,
+    "require_nonblank_figures": true,
+    "require_a4_dimensions": true,
+    "require_zero_formula_errors": true,
+    "require_manifest_hashes": true
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "summary": {
+    "projeto": "BRACED001",
+    "modo": "apply",
+    "especies_fonte": 14,
+    "especies_novas": 1,
+    "especies_com_nulos_a_preencher": 11,
+    "campos_nulos_a_preencher": 91,
+    "diferencas_preservadas": 39,
+    "pendencias_obrigatorias_pos_acao": 0,
+    "registros_aplicados": 12
+  },
+  "actions": [
+    {
+      "nome_cientifico": "Astyanax lacustris",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3754.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Brycon opalinus",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 18,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Geophagus brasiliensis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Hasemania nana",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3755.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Hoplias intermedius",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 629.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Hoplias malabaricus",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 630.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 7.0
+    },
+    {
+      "nome_cientifico": "Knodus moenkhausii",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 2.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Oligosarcus argenteus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3759.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Pareiorhaphis scutula",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3758.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Parotocinclus sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3757.0,
+      "campos_a_preencher": 9,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Phalloceros uai",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 5.0,
+      "campos_a_preencher": 6,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Psalidodon rivularis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 1.0,
+      "campos_a_preencher": 8,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Rhamdia quelen",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 450.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 8.0
+    },
+    {
+      "nome_cientifico": "Trichomycterus brasiliensis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 9.0,
+      "campos_a_preencher": 8,
+      "diferencas_preservadas": 1.0
+    }
+  ],
+  "applied": [
+    {
+      "nome_cientifico": "Astyanax lacustris",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3754.0
+    },
+    {
+      "nome_cientifico": "Brycon opalinus",
+      "acao": "INSERT_NEW",
+      "id_especie": 6815
+    },
+    {
+      "nome_cientifico": "Geophagus brasiliensis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4.0
+    },
+    {
+      "nome_cientifico": "Hasemania nana",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3755.0
+    },
+    {
+      "nome_cientifico": "Hoplias intermedius",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 629.0
+    },
+    {
+      "nome_cientifico": "Knodus moenkhausii",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 2.0
+    },
+    {
+      "nome_cientifico": "Oligosarcus argenteus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3759.0
+    },
+    {
+      "nome_cientifico": "Pareiorhaphis scutula",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3758.0
+    },
+    {
+      "nome_cientifico": "Parotocinclus sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3757.0
+    },
+    {
+      "nome_cientifico": "Phalloceros uai",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 5.0
+    },
+    {
+      "nome_cientifico": "Psalidodon rivularis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 1.0
+    },
+    {
+      "nome_cientifico": "Trichomycterus brasiliensis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 9.0
+    }
+  ]
+}

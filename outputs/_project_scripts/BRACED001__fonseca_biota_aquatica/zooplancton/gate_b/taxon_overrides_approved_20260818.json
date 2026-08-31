@@ -1,0 +1,46 @@
+{
+  "project_code": "BRACED001",
+  "group": "Zooplancton",
+  "approved_at": "2026-08-18",
+  "result_aliases": {
+    "Ciliado NI": "Ciliado ni",
+    "CALANOIDA  (copepodito)": "CALANOIDA (copepodito)",
+    "CALANOIDA  (nauplius)": "CALANOIDA (nauplius)"
+  },
+  "taxon_overrides": [
+    {
+      "match": "Ciliado NI",
+      "values": {
+        "nome_cientifico": "Ciliado ni"
+      },
+      "reason": "Normalizacao de capitalizacao aprovada pelo usuario; reutilizar o registro canonico existente."
+    },
+    {
+      "match": "Filinia terminalis",
+      "values": {
+        "reino": "Animalia",
+        "filo": "Rotifera",
+        "classe": "Eurotatoria",
+        "ordem": "Flosculariaceae",
+        "familia": "Trochosphaeridae",
+        "genero": "Filinia",
+        "autor_e_ano": "(Plate, 1886)"
+      },
+      "reason": "Hierarquia taxonomica e autoria assumidas por orientacao explicita do usuario."
+    },
+    {
+      "match": "CALANOIDA  (copepodito)",
+      "values": {
+        "nome_cientifico": "CALANOIDA (copepodito)"
+      },
+      "reason": "Normalizacao semantica neutra de espaco duplo; reutilizar o registro canonico empregado na migracao."
+    },
+    {
+      "match": "CALANOIDA  (nauplius)",
+      "values": {
+        "nome_cientifico": "CALANOIDA (nauplius)"
+      },
+      "reason": "Normalizacao semantica neutra de espaco duplo; reutilizar o registro canonico empregado na migracao."
+    }
+  ]
+}

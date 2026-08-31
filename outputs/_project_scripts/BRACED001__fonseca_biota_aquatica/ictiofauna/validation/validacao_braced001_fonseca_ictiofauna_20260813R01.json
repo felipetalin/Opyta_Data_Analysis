@@ -1,0 +1,224 @@
+{
+  "summary": {
+    "arquivo_resultados": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Migracao\\Fonseca\\Opyta_ictiofauna_banco_dados_mar-jul_26.xlsx",
+    "arquivo_cadastro_especies": null,
+    "codigo_opyta": "BRACED001",
+    "nome_projeto": "Fonseca - Biota Aquática",
+    "cliente": "Brandt Meio Ambiente",
+    "campanhas_pontos": 1,
+    "pontos_unicos": 18,
+    "linhas_pontos": 18,
+    "linhas_esforco": 20,
+    "linhas_resultados": 55,
+    "linhas_cadastro_especies": 0,
+    "linhas_endemismo": 0,
+    "especies_resultados": 14,
+    "especies_cadastro": 0,
+    "arquivo_referencia_coordenadas": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\geo\\Geo_Fonseca\\Anteriores\\pontos_geo.kml",
+    "tolerancia_coordenadas_m": 50.0,
+    "linhas_coordenadas_divergentes": 0,
+    "pontos_sem_referencia_coordenadas": 0,
+    "pontos_referencia_ausentes_planilha": 0,
+    "validacao_coordenadas_referencia": "ok",
+    "bloqueios_relatorio_total": 9,
+    "avisos_relatorio_total": 5,
+    "infos_relatorio_total": 7,
+    "validacao_pode_prosseguir": false
+  },
+  "files": {
+    "importacao": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Migracao\\Fonseca\\Opyta_ictiofauna_banco_dados_mar-jul_26.xlsx",
+    "cadastro_especies": null
+  },
+  "findings": [
+    {
+      "tipo": "Premissas do projeto",
+      "severidade": "AVISO",
+      "codigo": "EXPECTED_CAMPAIGN_COUNT_MISMATCH",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Esperadas 2 campanhas, encontradas 1.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data importacao",
+      "severidade": "BLOQUEIO",
+      "codigo": "CAMPAIGN_CODE_MISMATCH",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Resultados: campanhas C### divergentes de Pontos_e_Campanhas. Extras: ['2o campanha (seca)']; ausentes: nenhuma.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data importacao",
+      "severidade": "BLOQUEIO",
+      "codigo": "CAMPAIGN_LABEL_NOT_IN_POINTS",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Resultados: rotulos de campanha existem nesta aba, mas nao existem em Pontos_e_Campanhas: 2o campanha (seca)",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data importacao",
+      "severidade": "BLOQUEIO",
+      "codigo": "INVALID_EFFORT_REFERENCE",
+      "aba": "",
+      "linhas": "29, 30, 31, 32, 33, 34, 35, 36, 37, 38",
+      "mensagem": "Grupo 'Ictiofauna': 28 registro(s) de resultados sem esforço válido nos metadados (campanha+ponto+método+tipo). Exemplos: linha 29 | especie='hasemania nana' | esforco='2o campanha (seca) | ma-02-06 | arrasto e peneira | quantitativa' ; linha 30 | especie='hasemania nana' | esforco='2o campanha (seca) | ma-02-06 | arrasto e peneira | quantitativa' ; linha 31 | especie='oligosarcus argenteus' | esforco='2o campanha (seca) | ma-01-02 | arrasto e peneira | quantitativa' ; linha 32 | especie='oligosarcus argenteus' | esforco='2o campanha (seca) | ma-01-02 | arrasto e peneira | quantitativa' ; linha 33 | especie='oligosarcus argenteus' | esforco='2o campanha (seca) | ma-01-01 | rede de emalhar | quantitativa'",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data importacao",
+      "severidade": "BLOQUEIO",
+      "codigo": "INVALID_POINT_REFERENCE",
+      "aba": "",
+      "linhas": "29, 30, 31, 32, 33, 34, 35, 36, 37, 38",
+      "mensagem": "28 registro(s) de resultados referenciam campanha+ponto ausente em Pontos_e_Campanhas. Exemplos: linha 29: 2º Campanha (Seca) / MA-02-06 ; linha 30: 2º Campanha (Seca) / MA-02-06 ; linha 31: 2º Campanha (Seca) / MA-01-02 ; linha 32: 2º Campanha (Seca) / MA-01-02 ; linha 33: 2º Campanha (Seca) / MA-01-01",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data importacao",
+      "severidade": "BLOQUEIO",
+      "codigo": "UNKNOWN_SPECIES",
+      "aba": "",
+      "linhas": "41",
+      "mensagem": "Total de 1 espécie(s) desconhecida(s) nos resultados. Bloqueio ativado: revise o cadastro mestre ou confirme que as espécies estão presentes na aba 'Especies' da mesma planilha.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data importacao",
+      "severidade": "BLOQUEIO",
+      "codigo": "INCOMPLETE_SPECIES_CATALOG",
+      "aba": "",
+      "linhas": "3, 16, 4, 5, 6, 7, 10, 11, 12, 13",
+      "mensagem": "11 especie(s) usadas nos resultados existem no cadastro mestre, mas estao incompletas. Exemplos: Psalidodon rivularis (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar, estrategia_reprodutiva, valor_economico) ; Hasemania nana (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar) ; Oligosarcus argenteus (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar) ; Astyanax lacustris (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar) ; Geophagus brasiliensis (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar) ; Trichomycterus brasiliensis (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar, estrategia_reprodutiva, valor_economico) ; Pareiorhaphis scutula (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar) ; Phalloceros uai (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar) ; Parotocinclus sp. (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar, estrategia_reprodutiva, valor_economico) ; Knodus moenkhausii (faltando: status_ameaca_nacional, status_ameaca_global, habito_alimentar)",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data",
+      "severidade": "INFO",
+      "codigo": "OFFICIAL_VALIDATORS_RUN",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Validadores oficiais de Opyta_Data executados como fonte primaria da pre-validacao.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validador Opyta_Data especies",
+      "severidade": "INFO",
+      "codigo": "SPECIES_FILE_NOT_PROVIDED",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Cadastro de especies nao informado; validacao integrada sera limitada.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "INFO",
+      "codigo": "REQUIRED_FIELDS_OK",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Nao foram encontrados campos obrigatorios ausentes nas colunas conferidas.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "INFO",
+      "codigo": "NUMERIC_VALUES_OK",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Coordenadas, esforcos, abundancia, comprimentos e peso avaliados como numericos validos.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "BLOQUEIO",
+      "codigo": "CAMPAIGN_DATE_MISMATCH",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "18 ponto(s) com inconsistencia entre data e campanha.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "BLOQUEIO",
+      "codigo": "CAMPAIGN_SET_MISMATCH",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "As campanhas nao coincidem exatamente entre as abas principais.",
+      "sugestao": "Padronizar a grafia da campanha em todas as abas antes de migrar."
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "BLOQUEIO",
+      "codigo": "MISSING_EFFORT_METADATA_NORMALIZED",
+      "aba": "Resultados_Ictiofauna/Metadados_Esforco",
+      "linhas": "29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56",
+      "mensagem": "28 resultado(s) nao possuem linha correspondente em Metadados_Esforco por campanha+ponto+metodo+tipo.",
+      "sugestao": "Adicionar esforco correspondente ou corrigir campanha/ponto/metodo/tipo."
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "AVISO",
+      "codigo": "RESULT_EFFORT_VALUE_DIFFERS_FROM_METADATA",
+      "aba": "Resultados_Ictiofauna/Metadados_Esforco",
+      "linhas": "23, 24",
+      "mensagem": "2 resultado(s) possuem Esforco_Amostral diferente do Esforco em Metadados_Esforco.",
+      "sugestao": "Definir valor correto e padronizar nas duas abas."
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "AVISO",
+      "codigo": "EXACT_RESULT_DUPLICATES",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "2 resultados sao duplicatas exatas; revisar se representam individuos/lotes distintos antes de deduplicar.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "AVISO",
+      "codigo": "RESULT_GROUPS_WILL_BE_AGGREGATED",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "12 grupos campanha+ponto+metodo+tipo+especie possuem multiplas linhas. O script de migracao pode agregar Numero_de_Individuos por soma e biometria por media.",
+      "sugestao": "Confirmar se as multiplas linhas representam individuos/lotes distintos."
+    },
+    {
+      "tipo": "Banco de dados",
+      "severidade": "AVISO",
+      "codigo": "CLIENT_DB_STATUS",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Cliente 'Brandt Meio Ambiente' nao foi encontrado no banco.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Banco de dados",
+      "severidade": "INFO",
+      "codigo": "PROJECT_DB_STATUS",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Projeto Codigo_Opyta 'BRACED001' ja existe no banco.",
+      "sugestao": ""
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "INFO",
+      "codigo": "METHOD_NAMING_STANDARDIZATION",
+      "aba": "",
+      "linhas": "",
+      "mensagem": "Metodos em Metadados_Esforco: ['Arrasto e peneira', 'Rede de Emalhar']; em Resultados_Ictiofauna: ['Arrasto e peneira', 'Rede de Emalhar'].",
+      "sugestao": "Se houver nomes equivalentes, padronizar de forma identica nas duas abas antes de migrar."
+    },
+    {
+      "tipo": "Validacao complementar",
+      "severidade": "INFO",
+      "codigo": "COORDINATE_REFERENCE_OK",
+      "aba": "Pontos_e_Campanhas",
+      "linhas": "",
+      "mensagem": "Todas as coordenadas conferem com a referencia oficial dentro de 50 m.",
+      "sugestao": ""
+    }
+  ],
+  "species_validation": null
+}

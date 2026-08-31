@@ -1,0 +1,19 @@
+{
+  "executed_at": "2026-08-19T23:57:25.688290Z",
+  "project_id": 133,
+  "group": "Zooplancton",
+  "mode": "apply",
+  "status": "PASS",
+  "backup_table": "bk_esp_braced001_zoo_r01_20260819t205722",
+  "consolidated_backup_table": "bk_cons_braced001_zoo_r01_20260819t205722",
+  "species_before": 58,
+  "species_after": 58,
+  "issues_before": 0,
+  "issues_after": 0,
+  "consolidated_issues_before": 7,
+  "consolidated_issues_after": 0,
+  "changed_species": 0,
+  "results_rows": 624,
+  "consolidated_rows": 624,
+  "xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\gate_b\\20260819T205722_taxonomia_r01_zooplancton_braced001.xlsx"
+}

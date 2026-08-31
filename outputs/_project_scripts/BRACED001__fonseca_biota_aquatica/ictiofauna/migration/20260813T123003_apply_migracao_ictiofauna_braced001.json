@@ -1,0 +1,84 @@
+{
+  "stamp": "20260813T123003",
+  "applied": true,
+  "active_groups": [
+    "Ictiofauna"
+  ],
+  "project": {
+    "id_projeto": 133,
+    "codigo_interno_opyta": "BRACED001",
+    "nome_projeto": "Fonseca-Biota Aquática",
+    "id_cliente": 1,
+    "nome_empresa": "Brandt Meio Ambiente Ltda."
+  },
+  "campaigns": [
+    {
+      "nome_campanha": "C001-2026-03-CH",
+      "id_campanha": 969
+    },
+    {
+      "nome_campanha": "C002-2026-06-SC",
+      "id_campanha": 679
+    }
+  ],
+  "source_summary": {
+    "pontos": 36,
+    "campanhas": 2,
+    "esforcos": 41,
+    "resultados_migraveis": 42,
+    "linhas_fonte": 55,
+    "taxons_soma_por_grupo": 14
+  },
+  "db_before": {
+    "pontos": 18,
+    "esforcos": 20,
+    "resultados_ictiofauna": 19,
+    "consolidado": 19
+  },
+  "db_after": {
+    "pontos": 54,
+    "esforcos": 41,
+    "resultados_ictiofauna": 42,
+    "consolidado": 42
+  },
+  "backups": {
+    "pontos": "public.backup_biota_braced001_20260813t123003_pontos",
+    "esforcos": "public.backup_biota_braced001_20260813t123003_esforcos",
+    "ictiofauna": "public.backup_biota_braced001_20260813t123003_ictiofauna",
+    "consolidado": "public.backup_biota_braced001_20260813t123003_consolidado"
+  },
+  "deleted": {
+    "resultados_ictiofauna": 19,
+    "esforcos": 20,
+    "consolidado": 19
+  },
+  "result_counts_by_table": {
+    "resultados_ictiofauna": 42
+  },
+  "inserted_results": {
+    "resultados_ictiofauna": 42
+  },
+  "inserted_consolidated": 42,
+  "consolidated_by_campaign": [
+    {
+      "grupo_biologico": "Ictiofauna",
+      "nome_campanha": "C001-2026-03-CH",
+      "linhas": 19,
+      "pontos": 11,
+      "taxons": 11,
+      "contagem_total": 96.0,
+      "biomassa_total": 914.8
+    },
+    {
+      "grupo_biologico": "Ictiofauna",
+      "nome_campanha": "C002-2026-06-SC",
+      "linhas": 23,
+      "pontos": 11,
+      "taxons": 11,
+      "contagem_total": 96.0,
+      "biomassa_total": 1605.2
+    }
+  ],
+  "project_code": "BRACED001",
+  "project_id": 133
+}

@@ -1,0 +1,42 @@
+{
+  "executed_at": "2026-08-18T18:17:00",
+  "project_id": 133,
+  "group": "Zooplâncton",
+  "product": "mini_mapa_taxons_bioindicadores",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\geo\\Geo_Fonseca\\Anteriores\\Hidrografia - Fonseca.kmz",
+  "hydro_lines": 263,
+  "records": 344,
+  "unique_taxa": 25,
+  "unique_points": 18,
+  "associations": [
+    "Ampla tolerância ecológica",
+    "Gradientes tróficos",
+    "Matéria orgânica"
+  ],
+  "outputs": {
+    "figure": {
+      "arquivo": "13_mini_mapa_taxons_bioindicadores_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\13_mini_mapa_taxons_bioindicadores_zooplancton.png",
+      "tamanho_bytes": 2957132,
+      "sha256": "36153bb499dfdf73793f5757527f0898c46c53655217a32109872938bc3c180c",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "nonblank": true,
+      "pixel_std": 33.28405286761533
+    },
+    "table": {
+      "arquivo": "13_df_mini_mapa_taxons_bioindicadores_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\13_df_mini_mapa_taxons_bioindicadores_zooplancton.xlsx",
+      "sha256": "f0b7d750f37dd8ca5a5824fccea8ebf2e0abfec3780a7080e7400ad723a75b01",
+      "tamanho_bytes": 33749
+    }
+  },
+  "notes": [
+    "Produto gerado para ilustrar ocorrência e riqueza de táxons associados à bioindicação/ecologia de ecossistemas aquáticos continentais.",
+    "Mapa sem título geral, em A4 paisagem, seguindo as premissas do minimapa de Fitoplâncton.",
+    "Círculos em tamanho fixo; a cor representa classe de riqueza, não densidade nem qualidade ambiental.",
+    "A interpretação deve ser integrada à comunidade zooplanctônica, demais grupos da biota e variáveis físico-químicas."
+  ]
+}

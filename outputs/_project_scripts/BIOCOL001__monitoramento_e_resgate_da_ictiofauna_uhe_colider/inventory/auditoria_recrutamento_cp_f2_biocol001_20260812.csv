@@ -1,0 +1,327 @@
+﻿id_especie,nome_cientifico,ordem,familia,cp_referencia_f2plus_min_cm,linhas_referencia_f2plus,individuos_referencia_f2plus,linhas_com_cp,individuos_com_cp,linhas_jovens_preliminar,individuos_jovens_preliminar,status_criterio_recrutamento
+5762,Acestrocephalus acutus,Characiformes,Characidae,10.0,1,1.0,2,2.0,0,0.0,Aplicavel com cautela: referencia F2+ pequena
+5764,Acestrorhynchus falcatus,Characiformes,Acestrorhynchidae,15.5,2,2.0,175,176.0,133,133.0,Aplicavel com cautela: referencia F2+ pequena
+5790,Astyanax aff. bimaculatus,Characiformes,Characidae,7.0,2,2.0,255,344.0,236,322.0,Aplicavel com cautela: referencia F2+ pequena
+5810,Brycon falcatus,Characiformes,Bryconidae,16.5,2,2.0,315,338.0,181,204.0,Aplicavel com cautela: referencia F2+ pequena
+5813,Brycon sp. “adiposa preta”,Characiformes,Bryconidae,16.0,1,1.0,5,5.0,4,4.0,Aplicavel com cautela: referencia F2+ pequena
+5840,Cichla cf. mirianae,Cichliformes,Cichlidae,35.0,2,2.0,134,140.0,89,94.0,Aplicavel com cautela: referencia F2+ pequena
+5895,Eigenmannia gr. trilineata,Gymnotiformes,Sternopygidae,19.0,1,1.0,60,62.0,40,41.0,Aplicavel com cautela: referencia F2+ pequena
+5903,Geophagus cf. altifrons,Cichliformes,Cichlidae,19.0,1,1.0,23,24.0,21,22.0,Aplicavel com cautela: referencia F2+ pequena
+5982,Jupiaba acanthogaster,Characiformes,Characidae,8.0,1,1.0,388,968.0,375,941.0,Aplicavel com cautela: referencia F2+ pequena
+5984,Jupiaba apenima,Characiformes,Characidae,10.0,1,1.0,842,848.0,841,847.0,Aplicavel com cautela: referencia F2+ pequena
+5989,Jupiaba meunieri,Characiformes,Characidae,8.5,1,1.0,15,29.0,13,22.0,Aplicavel com cautela: referencia F2+ pequena
+5992,Jupiaba polylepis,Characiformes,Characidae,5.0,2,2.0,1219,1539.0,1024,1175.0,Aplicavel com cautela: referencia F2+ pequena
+6012,Leporinus maculatus,Characiformes,Anostomidae,13.0,1,1.0,10,20.0,3,13.0,Aplicavel com cautela: referencia F2+ pequena
+6014,Leporinus tigrinus,Characiformes,Anostomidae,15.0,1,1.0,27,41.0,23,31.0,Aplicavel com cautela: referencia F2+ pequena
+6049,Moenkhausia lepidura,Characiformes,Characidae,15.0,1,1.0,1704,2320.0,1703,2319.0,Aplicavel com cautela: referencia F2+ pequena
+6056,Myleus pachyodus,Characiformes,Serrasalmidae,20.0,1,1.0,61,61.0,12,12.0,Aplicavel com cautela: referencia F2+ pequena
+6059,Myleus setiger,Characiformes,Serrasalmidae,22.0,1,1.0,459,459.0,399,399.0,Aplicavel com cautela: referencia F2+ pequena
+6064,Myloplus arnoldi,Characiformes,Serrasalmidae,21.0,2,2.0,20,22.0,10,11.0,Aplicavel com cautela: referencia F2+ pequena
+6076,Panaque armbrusteri,Siluriformes,Loricariidae,25.0,1,1.0,28,28.0,9,9.0,Aplicavel com cautela: referencia F2+ pequena
+6082,Petilipinnis grunniens,Acanthuriformes,Sciaenidae,26.5,1,1.0,12,12.0,4,4.0,Aplicavel com cautela: referencia F2+ pequena
+6112,Roeboides affinis,Characiformes,Characidae,8.5,2,2.0,6,6.0,0,0.0,Aplicavel com cautela: referencia F2+ pequena
+6135,Sternopygus macrurus,Gymnotiformes,Sternopygidae,21.0,1,1.0,70,70.0,60,60.0,Aplicavel com cautela: referencia F2+ pequena
+6146,Tenellus trimaculatus,Siluriformes,Doradidae,16.0,1,1.0,12,24.0,11,23.0,Aplicavel com cautela: referencia F2+ pequena
+6153,"Tometes sp. ""teles pires""",Characiformes,Serrasalmidae,40.0,1,1.0,9,9.0,5,5.0,Aplicavel com cautela: referencia F2+ pequena
+6415,Trachelyopterus galeatus,Siluriformes,Auchenipteridae,11.0,1,1.0,33,33.0,32,32.0,Aplicavel com cautela: referencia F2+ pequena
+5765,Acestrorhynchus microlepis,Characiformes,Acestrorhynchidae,11.0,166,166.0,545,857.0,71,112.0,Aplicavel preliminarmente
+5787,Archolaemus luciae,Gymnotiformes,Sternopygidae,21.0,3,3.0,22,24.0,4,4.0,Aplicavel preliminarmente
+5788,Argonectes robertsi,Characiformes,Hemiodontidae,15.0,28,28.0,448,512.0,33,36.0,Aplicavel preliminarmente
+5804,Boulengerella cuvieri,Characiformes,Ctenoluciidae,18.0,8,8.0,470,489.0,40,40.0,Aplicavel preliminarmente
+5816,Bryconexodon trombetasi,Characiformes,Characidae,8.0,4,6.0,720,797.0,506,554.0,Aplicavel preliminarmente
+5824,Caenotropus labyrinthicus,Characiformes,Chilodontidae,10.0,9,9.0,77,208.0,10,25.0,Aplicavel preliminarmente
+5825,Caenotropus schizodon,Characiformes,Chilodontidae,8.0,93,94.0,1336,2560.0,166,182.0,Aplicavel preliminarmente
+5842,Cichla cf. pinima,Cichliformes,Cichlidae,35.0,4,4.0,25,25.0,11,11.0,Aplicavel preliminarmente
+5867,Crenicichla inpa,Cichliformes,Cichlidae,12.0,3,3.0,50,52.0,34,36.0,Aplicavel preliminarmente
+5875,Curimata inornata,Characiformes,Curimatidae,9.0,113,114.0,2055,2996.0,266,279.0,Aplicavel preliminarmente
+5877,Curimatella dorsalis,Characiformes,Curimatidae,7.0,3,3.0,64,191.0,4,4.0,Aplicavel preliminarmente
+5882,Cynopotamus juruenae,Characiformes,Characidae,19.0,3,3.0,21,38.0,11,19.0,Aplicavel preliminarmente
+5885,Cyphocharax cf. spilurus,Characiformes,Curimatidae,8.0,16,16.0,514,671.0,359,407.0,Aplicavel preliminarmente
+5888,Cyphocharax notatus,Characiformes,Curimatidae,8.0,3,3.0,443,622.0,349,361.0,Aplicavel preliminarmente
+5889,Cyphocharax plumbeus,Characiformes,Curimatidae,8.0,31,31.0,253,469.0,179,283.0,Aplicavel preliminarmente
+5932,Hemiodus cf. microlepis,Characiformes,Hemiodontidae,6.5,650,815.0,3888,8674.0,189,414.0,Aplicavel preliminarmente
+5935,Hemiodus quadrimaculatus,Characiformes,Hemiodontidae,9.0,16,16.0,70,110.0,7,18.0,Aplicavel preliminarmente
+5936,Hemiodus semitaeniatus,Characiformes,Hemiodontidae,11.0,24,24.0,163,329.0,29,75.0,Aplicavel preliminarmente
+5930,Hemiodus unimaculatus,Characiformes,Hemiodontidae,10.0,429,548.0,3004,7297.0,214,437.0,Aplicavel preliminarmente
+5941,Hemisorubim platyrhynchos,Siluriformes,Pimelodidae,28.0,21,21.0,429,445.0,36,40.0,Aplicavel preliminarmente
+5948,Hoplias aimara,Characiformes,Erythrinidae,20.0,3,3.0,62,65.0,26,29.0,Aplicavel preliminarmente
+630,Hoplias malabaricus,Characiformes,Erythrinidae,20.0,7,7.0,349,351.0,306,308.0,Aplicavel preliminarmente
+5950,Hydrolycus armatus,Characiformes,Cynodontidae,27.0,15,15.0,506,511.0,22,22.0,Aplicavel preliminarmente
+5952,Hydrolycus tatauaia,Characiformes,Cynodontidae,22.0,130,132.0,1422,1456.0,63,63.0,Aplicavel preliminarmente
+6006,Leporinus brunneus,Characiformes,Anostomidae,12.0,21,21.0,314,386.0,10,13.0,Aplicavel preliminarmente
+6007,Leporinus cf. fasciatus,Characiformes,Anostomidae,3.0,29,31.0,916,1209.0,17,22.0,Aplicavel preliminarmente
+6010,Leporinus friderici,Characiformes,Anostomidae,8.5,14,19.0,852,918.0,400,400.0,Aplicavel preliminarmente
+6015,Leporinus vanzoi,Characiformes,Anostomidae,8.0,53,55.0,500,912.0,46,66.0,Aplicavel preliminarmente
+6029,Metynnis hypsauchen,Characiformes,Serrasalmidae,17.0,4,4.0,34,63.0,8,26.0,Aplicavel preliminarmente
+6047,Moenkhausia grandisquamis,Characiformes,Characidae,6.0,5,5.0,98,165.0,8,8.0,Aplicavel preliminarmente
+6066,Myloplus rubripinnis,Characiformes,Serrasalmidae,18.5,19,20.0,290,299.0,15,18.0,Aplicavel preliminarmente
+6067,Myloplus schomburgkii,Characiformes,Serrasalmidae,13.0,15,15.0,159,180.0,17,24.0,Aplicavel preliminarmente
+6083,Petulanos intermedius,Characiformes,Anostomidae,11.0,8,9.0,30,43.0,4,4.0,Aplicavel preliminarmente
+6095,Pimelodus cf. tetramerus,Siluriformes,Pimelodidae,12.0,19,19.0,1697,2664.0,155,282.0,Aplicavel preliminarmente
+6096,Pimelodus ornatus,Siluriformes,Pimelodidae,16.0,9,9.0,87,119.0,16,20.0,Aplicavel preliminarmente
+5423,Plagioscion squamosissimus,Acanthuriformes,Sciaenidae,0.45,34,34.0,524,610.0,0,0.0,Aplicavel preliminarmente
+6100,Prochilodus nigricans,Characiformes,Prochilodontidae,18.0,102,105.0,1497,1566.0,135,135.0,Aplicavel preliminarmente
+6105,Pterodoras granulosus,Siluriformes,Doradidae,15.0,29,29.0,507,623.0,6,13.0,Aplicavel preliminarmente
+6115,Satanoperca jurupari,Cichliformes,Cichlidae,13.0,5,5.0,302,443.0,220,337.0,Aplicavel preliminarmente
+6117,Schizodon vittatus,Characiformes,Anostomidae,13.0,18,18.0,192,254.0,14,71.0,Aplicavel preliminarmente
+6128,Serrasalmus rhombeus,Characiformes,Serrasalmidae,7.0,398,409.0,6840,15017.0,200,511.0,Aplicavel preliminarmente
+6129,Sorubim trigonocephalus,Siluriformes,Pimelodidae,22.0,18,19.0,1587,1878.0,41,45.0,Aplicavel preliminarmente
+6147,Tetragonopterus chalceus,Characiformes,Characidae,7.0,26,26.0,496,572.0,324,331.0,Aplicavel preliminarmente
+5760,"""deuterodon"" sp.",Characiformes,Characidae,,0,0.0,98,1770.0,0,0.0,Sem referencia F2+
+6192,"""hemigrammus"" cf. geisleri",Characiformes,Characidae,,0,0.0,280,280.0,0,0.0,Sem referencia F2+
+5761,Acanthopoma annectens,Siluriformes,Trichomycteridae,,0,0.0,9,9.0,0,0.0,Sem referencia F2+
+5763,Acestrocephalus sp.,Characiformes,Characidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+5766,Aequidens cf. epae,Cichliformes,Cichlidae,,0,0.0,36,54.0,0,0.0,Sem referencia F2+
+5767,Aequidens cf. michaeli,Cichliformes,Cichlidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5768,Aequidens epae,Cichliformes,Cichlidae,,0,0.0,260,260.0,0,0.0,Sem referencia F2+
+5769,"Aequidens sp. ""juvenil""",Cichliformes,Cichlidae,,0,0.0,2,3.0,0,0.0,Sem referencia F2+
+5770,Aequidens tetramerus,Cichliformes,Cichlidae,,0,0.0,50,50.0,0,0.0,Sem referencia F2+
+5771,Ammocryptocharax sp.,Characiformes,Crenuchidae,,0,0.0,4,4.0,0,0.0,Sem referencia F2+
+6393,Anchoviella jamesi,Clupeiformes,Engraulidae,,0,0.0,1,25.0,0,0.0,Sem referencia F2+
+5774,"Ancistrus sp. ""focinho curto""",Siluriformes,Loricariidae,,0,0.0,12,13.0,0,0.0,Sem referencia F2+
+6446,"Ancistrus sp. ""lineolatus""",Siluriformes,Loricariidae,,0,0.0,106,106.0,0,0.0,Sem referencia F2+
+5778,Anostomoides laticeps,Characiformes,Anostomidae,,0,0.0,10,27.0,0,0.0,Sem referencia F2+
+5780,Apareiodon sp.,Characiformes,Parodontidae,,0,0.0,3,6.0,0,0.0,Sem referencia F2+
+5781,"Apareiodon sp. ""2 faixa""",Characiformes,Parodontidae,,0,0.0,8,8.0,0,0.0,Sem referencia F2+
+5782,Aphanotorulus emarginatus,Siluriformes,Loricariidae,,0,0.0,19,21.0,0,0.0,Sem referencia F2+
+5783,Apistogramma gr. eunotus,Cichliformes,Cichlidae,,0,0.0,551,551.0,0,0.0,Sem referencia F2+
+5784,Apistogramma gr. steindachneri,Cichliformes,Cichlidae,,0,0.0,193,193.0,0,0.0,Sem referencia F2+
+5785,Apistogramma sp.,Cichliformes,Cichlidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+5786,Arapaima gigas,Osteoglossiformes,Arapaimidae,,0,0.0,11,15.0,0,0.0,Sem referencia F2+
+5415,Astronotus ocellatus,Cichliformes,Cichlidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5789,Astyanax aff. ajuricaba,Characiformes,Characidae,,0,0.0,80,80.0,0,0.0,Sem referencia F2+
+5791,Astyanax argyrimarginatus,Characiformes,Characidae,,0,0.0,5,5.0,0,0.0,Sem referencia F2+
+5793,Astyanax cf. anterior,Characiformes,Characidae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+6201,Astyanax cf. elachylepis,Characiformes,Characidae,,0,0.0,58,58.0,0,0.0,Sem referencia F2+
+5796,Astyanax gracilior,Characiformes,Characidae,,0,0.0,1449,1449.0,0,0.0,Sem referencia F2+
+5798,Astyanax multidens,Characiformes,Characidae,,0,0.0,617,721.0,0,0.0,Sem referencia F2+
+5802,"Baryancistrus sp. ""mancha grande""",Siluriformes,Loricariidae,,0,0.0,38,38.0,0,0.0,Sem referencia F2+
+5803,"Baryancistrus sp. ""mancha pequena""",Siluriformes,Loricariidae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+6204,Brachychalcinus cf. copei,Characiformes,Characidae,,0,0.0,196,196.0,0,0.0,Sem referencia F2+
+5807,Brachyhypopomus brevirostris,Gymnotiformes,Hypopomidae,,0,0.0,61,61.0,0,0.0,Sem referencia F2+
+5808,Brachyhypopomus sp. 2,Gymnotiformes,Hypopomidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5809,Brachyplatystoma filamentosum,Siluriformes,Pimelodidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6187,Brycon aff. pesu,Characiformes,Bryconidae,,0,0.0,182,182.0,0,0.0,Sem referencia F2+
+5814,Brycon sp. “subdistal”,Characiformes,Bryconidae,,0,0.0,247,677.0,0,0.0,Sem referencia F2+
+5817,Bryconops caudomaculatus,Characiformes,Iguanodectidae,,0,0.0,51,61.0,0,0.0,Sem referencia F2+
+5818,Bryconops cf. giacopinii,Characiformes,Iguanodectidae,,0,0.0,2,3.0,0,0.0,Sem referencia F2+
+5819,Bryconops cf. melanurus,Characiformes,Iguanodectidae,,0,0.0,553,553.0,0,0.0,Sem referencia F2+
+6332,"Bryconops sp. ""faixa acima anal""",Characiformes,Iguanodectidae,,0,0.0,5,5.0,0,0.0,Sem referencia F2+
+5822,Bryconops sp. “falso creatochanes”,Characiformes,Iguanodectidae,,0,0.0,2,26.0,0,0.0,Sem referencia F2+
+6334,Caiapobrycon aff. tucurui,Characiformes,Iguanodectidae,,0,0.0,391,391.0,0,0.0,Sem referencia F2+
+4752,Callichthys callichthys,Siluriformes,Callichthyidae,,0,0.0,10,10.0,0,0.0,Sem referencia F2+
+5828,Centromochlus schultzi,Siluriformes,Auchenipteridae,,0,0.0,36,58.0,0,0.0,Sem referencia F2+
+5830,Cetopsis coecutiens,Siluriformes,Cetopsidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5831,Cetopsorhamdia sp.,Siluriformes,Heptapteridae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5832,Characidium aff. zebra,Characiformes,Crenuchidae,,0,0.0,329,332.0,0,0.0,Sem referencia F2+
+5834,Characidium cf. steindachneri,Characiformes,Crenuchidae,,0,0.0,16,79.0,0,0.0,Sem referencia F2+
+5836,"Characidium sp. ""faixa grossa""",Characiformes,Crenuchidae,,0,0.0,7,7.0,0,0.0,Sem referencia F2+
+5845,Cichla sp.,Cichliformes,Cichlidae,,0,0.0,18,21.0,0,0.0,Sem referencia F2+
+5846,"Cichla sp. ""juvenil""",Cichliformes,Cichlidae,,0,0.0,141,401.0,0,0.0,Sem referencia F2+
+6371,Cichlasoma aff. dimerus,Cichliformes,Cichlidae,,0,0.0,94,94.0,0,0.0,Sem referencia F2+
+5848,Colossoma macropomum,Characiformes,Serrasalmidae,,0,0.0,11,11.0,0,0.0,Sem referencia F2+
+5849,Corydoras aff. guianensis,Siluriformes,Callichthyidae,,0,0.0,10,15.0,0,0.0,Sem referencia F2+
+5850,Corydoras apiaka,Siluriformes,Callichthyidae,,0,0.0,18,36.0,0,0.0,Sem referencia F2+
+5851,Corydoras cf. brevirostris,Siluriformes,Callichthyidae,,0,0.0,121,150.0,0,0.0,Sem referencia F2+
+5853,Corydoras cf. polystictus,Siluriformes,Callichthyidae,,0,0.0,8,8.0,0,0.0,Sem referencia F2+
+5855,"Corydoras sp. ""loretoensis""",Siluriformes,Callichthyidae,,0,0.0,1134,1140.0,0,0.0,Sem referencia F2+
+5856,Corydoras xinguensis,Siluriformes,Callichthyidae,,0,0.0,157,157.0,0,0.0,Sem referencia F2+
+6206,Creagrutus aff. anary,Characiformes,Stevardiidae,,0,0.0,195,195.0,0,0.0,Sem referencia F2+
+6207,Creagrutus aff. beni,Characiformes,Stevardiidae,,0,0.0,15,15.0,0,0.0,Sem referencia F2+
+5859,Creagrutus cf. cracentis,Characiformes,Stevardiidae,,0,0.0,21,21.0,0,0.0,Sem referencia F2+
+5860,Creagrutus ignotus,Characiformes,Stevardiidae,,0,0.0,5,5.0,0,0.0,Sem referencia F2+
+6210,"Creagrutus sp. ""alto""",Characiformes,Stevardiidae,,0,0.0,11,11.0,0,0.0,Sem referencia F2+
+5862,Crenicichla acutirostris,Cichliformes,Cichlidae,,0,0.0,7,7.0,0,0.0,Sem referencia F2+
+6373,Crenicichla cf. lepidota,Cichliformes,Cichlidae,,0,0.0,305,305.0,0,0.0,Sem referencia F2+
+5866,Crenicichla cf. lucius,Cichliformes,Cichlidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5868,Crenicichla labrina,Cichliformes,Cichlidae,,0,0.0,9,9.0,0,0.0,Sem referencia F2+
+5869,Crenicichla lugubris,Cichliformes,Cichlidae,,0,0.0,138,138.0,0,0.0,Sem referencia F2+
+5870,Crenicichla regani,Cichliformes,Cichlidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+5871,Crenicichla semicincta,Cichliformes,Cichlidae,,0,0.0,5,5.0,0,0.0,Sem referencia F2+
+6380,"Crenicichla sp. ""acutirostris""",Cichliformes,Cichlidae,,0,0.0,34,34.0,0,0.0,Sem referencia F2+
+5873,"Crenicichla sp. ""juvenil""",Cichliformes,Cichlidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5874,Crenicichla strigata,Cichliformes,Cichlidae,,0,0.0,4,4.0,0,0.0,Sem referencia F2+
+6450,Curculionichthys luteofrenatus,Siluriformes,Loricariidae,,0,0.0,266,266.0,0,0.0,Sem referencia F2+
+5876,Curimata knerii,Characiformes,Curimatidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+5879,"Curimatopsis sp. ""colíder""",Characiformes,Curimatidae,,0,0.0,1,5.0,0,0.0,Sem referencia F2+
+5880,Cynodon septenarius,Characiformes,Cynodontidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6211,Cynopotamus aff. xinguano,Characiformes,Characidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+5881,Cynopotamus gouldingi,Characiformes,Characidae,,0,0.0,30,30.0,0,0.0,Sem referencia F2+
+5886,Cyphocharax gangamon,Characiformes,Curimatidae,,0,0.0,115,115.0,0,0.0,Sem referencia F2+
+5887,Cyphocharax leucostictus,Characiformes,Curimatidae,,0,0.0,7,7.0,0,0.0,Sem referencia F2+
+5890,Cyphocharax sp.,Characiformes,Curimatidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+5898,Eigenmannia sp.,Gymnotiformes,Sternopygidae,,0,0.0,18,18.0,0,0.0,Sem referencia F2+
+5899,"Eigenmannia sp. ""nova""",Gymnotiformes,Sternopygidae,,0,0.0,5,5.0,0,0.0,Sem referencia F2+
+6451,Farlowella cf. smithi,Siluriformes,Loricariidae,,0,0.0,21,21.0,0,0.0,Sem referencia F2+
+5902,Geophagus aff. brasiliensis,Cichliformes,Cichlidae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+6384,Geophagus aff. proximus,Cichliformes,Cichlidae,,0,0.0,30,30.0,0,0.0,Sem referencia F2+
+6386,Geophagus pyrineusi,Cichliformes,Cichlidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5906,"Geophagus sp. ""juvenil""",Cichliformes,Cichlidae,,0,0.0,6,12.0,0,0.0,Sem referencia F2+
+5907,Gymnorhamphichthys sp.,Gymnotiformes,Rhamphychthyidae,,0,0.0,320,320.0,0,0.0,Sem referencia F2+
+6398,Gymnotus cf. carapo,Gymnotiformes,Gymnotidae,,0,0.0,54,54.0,0,0.0,Sem referencia F2+
+5909,Gymnotus diamantinensis,Gymnotiformes,Gymnotidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+5910,Haemomaster venezuelae,Siluriformes,Trichomycteridae,,0,0.0,4,6.0,0,0.0,Sem referencia F2+
+5911,Harttia dissidens,Siluriformes,Loricariidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5912,Hassar shewellkeimi,Siluriformes,Doradidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5913,Hassar sp.,Siluriformes,Doradidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5914,Hemigrammus analis,Characiformes,Characidae,,0,0.0,1,2.0,0,0.0,Sem referencia F2+
+5915,Hemigrammus cf. bellottii,Characiformes,Characidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5919,Hemigrammus coeruleus,Characiformes,Characidae,,0,0.0,192,192.0,0,0.0,Sem referencia F2+
+5921,Hemigrammus gracilis,Characiformes,Characidae,,0,0.0,125,125.0,0,0.0,Sem referencia F2+
+5922,Hemigrammus levis,Characiformes,Characidae,,0,0.0,587,658.0,0,0.0,Sem referencia F2+
+5923,Hemigrammus lunatus,Characiformes,Characidae,,0,0.0,8,8.0,0,0.0,Sem referencia F2+
+6220,Hemigrammus melanochrous,Characiformes,Characidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+5924,Hemigrammus micropterus,Characiformes,Characidae,,0,0.0,19,19.0,0,0.0,Sem referencia F2+
+6222,Hemigrammus microstomus,Characiformes,Characidae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+5925,Hemigrammus ocellifer,Characiformes,Characidae,,0,0.0,71,71.0,0,0.0,Sem referencia F2+
+6224,"Hemigrammus sp. ""plain""",Characiformes,Characidae,,0,0.0,8,220.0,0,0.0,Sem referencia F2+
+5926,"Hemigrammus sp. ""prata""",Characiformes,Characidae,,0,0.0,4,24.0,0,0.0,Sem referencia F2+
+5927,"Hemigrammus sp. 1 ""sem mácula""",Characiformes,Characidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+5928,"Hemigrammus sp.''manchinha""",Characiformes,Characidae,,0,0.0,17,17.0,0,0.0,Sem referencia F2+
+5929,Hemigrammus vorderwinkleri,Characiformes,Characidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5933,Hemiodus gracilis,Characiformes,Hemiodontidae,,0,0.0,129,129.0,0,0.0,Sem referencia F2+
+5938,"Hemiodus sp. ""juvenil""",Characiformes,Hemiodontidae,,0,0.0,165,1051.0,0,0.0,Sem referencia F2+
+5939,Hemiodus sterni,Characiformes,Hemiodontidae,,0,0.0,73,73.0,0,0.0,Sem referencia F2+
+5943,Hisonotus chromodontus,Siluriformes,Loricariidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+5946,"Hisonotus sp. ""manchado""",Siluriformes,Loricariidae,,0,0.0,299,299.0,0,0.0,Sem referencia F2+
+5947,Hoplerythrinus unitaeniatus,Characiformes,Erythrinidae,,0,0.0,52,52.0,0,0.0,Sem referencia F2+
+5949,"Hoplias sp. ""juvenil""",Characiformes,Erythrinidae,,0,0.0,1,2.0,0,0.0,Sem referencia F2+
+4764,Hoplosternum littorale,Siluriformes,Callichthyidae,,0,0.0,9,9.0,0,0.0,Sem referencia F2+
+5951,Hydrolycus sp.,Characiformes,Cynodontidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5953,Hyphessobrycon aff. heliacus,Characiformes,Characidae,,0,0.0,468,468.0,0,0.0,Sem referencia F2+
+5954,Hyphessobrycon agulha,Characiformes,Characidae,,0,0.0,5,5.0,0,0.0,Sem referencia F2+
+5955,Hyphessobrycon bentosi,Characiformes,Characidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5956,Hyphessobrycon cf. gracilior,Characiformes,Characidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+5957,Hyphessobrycon cf. tukunai,Characiformes,Characidae,,0,0.0,2351,2351.0,0,0.0,Sem referencia F2+
+5958,Hyphessobrycon diancistrus,Characiformes,Characidae,,0,0.0,16,16.0,0,0.0,Sem referencia F2+
+5959,Hyphessobrycon gr. heterorhabdus,Characiformes,Characidae,,0,0.0,9,9.0,0,0.0,Sem referencia F2+
+6236,Hyphessobrycon pinnistriatus,Characiformes,Characidae,,0,0.0,806,844.0,0,0.0,Sem referencia F2+
+5961,Hyphessobrycon scutulatus,Characiformes,Characidae,,0,0.0,41,41.0,0,0.0,Sem referencia F2+
+5964,Hyphessobrycon vilmae,Characiformes,Characidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+5965,Hypomasticus julii,Characiformes,Anostomidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5966,Hypopygus lepturus,Gymnotiformes,Rhamphychthyidae,,0,0.0,4,4.0,0,0.0,Sem referencia F2+
+6455,Hypostomus aff. plecostomus,Siluriformes,Loricariidae,,0,0.0,76,76.0,0,0.0,Sem referencia F2+
+5967,Hypostomus aff. soniae,Siluriformes,Loricariidae,,0,0.0,345,350.0,0,0.0,Sem referencia F2+
+5974,Iguanodectes spilurus,Characiformes,Iguanodectidae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+6436,Imparfinis aff. hasemani,Siluriformes,Heptapteridae,,0,0.0,53,53.0,0,0.0,Sem referencia F2+
+5978,Imparfinis stictonotus,Siluriformes,Heptapteridae,,0,0.0,941,943.0,0,0.0,Sem referencia F2+
+5979,Ituglanis amazonicus,Siluriformes,Trichomycteridae,,0,0.0,201,201.0,0,0.0,Sem referencia F2+
+5980,Ituglanis sp.,Siluriformes,Trichomycteridae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5981,Jupiaba abramoides,Characiformes,Characidae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+5983,Jupiaba anteroides,Characiformes,Characidae,,0,0.0,25,25.0,0,0.0,Sem referencia F2+
+5985,Jupiaba cf. abramoides,Characiformes,Characidae,,0,0.0,4,4.0,0,0.0,Sem referencia F2+
+5986,Jupiaba cf. anteroides,Characiformes,Characidae,,0,0.0,30,30.0,0,0.0,Sem referencia F2+
+5987,Jupiaba cf. atypindi,Characiformes,Characidae,,0,0.0,21,21.0,0,0.0,Sem referencia F2+
+5988,Jupiaba cf. pinnata,Characiformes,Characidae,,0,0.0,8,8.0,0,0.0,Sem referencia F2+
+5990,Jupiaba paranatinga,Characiformes,Characidae,,0,0.0,23,29.0,0,0.0,Sem referencia F2+
+5991,Jupiaba pirana,Characiformes,Characidae,,0,0.0,25,200.0,0,0.0,Sem referencia F2+
+5993,Jupiaba poranga,Characiformes,Characidae,,0,0.0,49,49.0,0,0.0,Sem referencia F2+
+5994,Knodus cf. heteresthes,Characiformes,Stevardiidae,,0,0.0,238,265.0,0,0.0,Sem referencia F2+
+5995,Knodus dorsomaculatus,Characiformes,Stevardiidae,,0,0.0,33,33.0,0,0.0,Sem referencia F2+
+5997,"Knodus sp. ""faixa grossa""",Characiformes,Stevardiidae,,0,0.0,28,146.0,0,0.0,Sem referencia F2+
+5998,"Knodus sp. 1 ""corpo alto""",Characiformes,Stevardiidae,,0,0.0,72,72.0,0,0.0,Sem referencia F2+
+5999,Knodus sp. “comum”,Characiformes,Stevardiidae,,0,0.0,8,21.0,0,0.0,Sem referencia F2+
+6000,Laemolyta proxima,Characiformes,Anostomidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6001,Laemolyta taeniata,Characiformes,Anostomidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+6002,Laetacara araguaiae,Cichliformes,Cichlidae,,0,0.0,14,22.0,0,0.0,Sem referencia F2+
+6003,Leporellus vittatus,Characiformes,Anostomidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6005,Leporinus britskii,Characiformes,Anostomidae,,0,0.0,90,90.0,0,0.0,Sem referencia F2+
+6008,Leporinus desmotes,Characiformes,Anostomidae,,0,0.0,44,52.0,0,0.0,Sem referencia F2+
+6013,"Leporinus sp. ""juvenil""",Characiformes,Anostomidae,,0,0.0,58,82.0,0,0.0,Sem referencia F2+
+6016,Lepthoplosternum sp.,Siluriformes,Callichthyidae,,0,0.0,9,9.0,0,0.0,Sem referencia F2+
+6429,Leptodoras cf. praelongus,Siluriformes,Doradidae,,0,0.0,7,7.0,0,0.0,Sem referencia F2+
+6017,Leptodoras oyakawai,Siluriformes,Doradidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6425,Megalechis thoracata,Siluriformes,Callichthyidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5243,Megaleporinus macrocephalus,Characiformes,Anostomidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+6297,Melanocharacidium cf. auroradiatum,Characiformes,Crenuchidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6023,Melanocharacidium dispilomma,Characiformes,Crenuchidae,,0,0.0,18,18.0,0,0.0,Sem referencia F2+
+6395,Melanorivulus kayabi,Cyprinodontiformes,Rivulidae,,0,0.0,14,14.0,0,0.0,Sem referencia F2+
+6024,Melanorivulus modestus,Cyprinodontiformes,Rivulidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6025,Melanorivulus sp.,Cyprinodontiformes,Rivulidae,,0,0.0,13,13.0,0,0.0,Sem referencia F2+
+6026,Metynnis cf. argenteus,Characiformes,Serrasalmidae,,0,0.0,28,28.0,0,0.0,Sem referencia F2+
+6028,Metynnis cf. lippincottianus,Characiformes,Serrasalmidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5265,Metynnis maculatus,Characiformes,Serrasalmidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6030,"Metynnis sp. ""juvenil""",Characiformes,Serrasalmidae,,0,0.0,14,21.0,0,0.0,Sem referencia F2+
+6031,Microschemobrycon elongatus,Characiformes,Characidae,,0,0.0,176,188.0,0,0.0,Sem referencia F2+
+6032,Moenkhausia aff. megalops,Characiformes,Characidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+6033,Moenkhausia celibela,Characiformes,Characidae,,0,0.0,162,466.0,0,0.0,Sem referencia F2+
+6034,Moenkhausia ceros,Characiformes,Characidae,,0,0.0,297,297.0,0,0.0,Sem referencia F2+
+6035,Moenkhausia cf. aurantia,Characiformes,Characidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6036,"Moenkhausia cf. ceros "" alta""",Characiformes,Characidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6263,Moenkhausia cf. cotinho,Characiformes,Characidae,,0,0.0,2931,2932.0,0,0.0,Sem referencia F2+
+6037,Moenkhausia cf. hasemani,Characiformes,Characidae,,0,0.0,204,205.0,0,0.0,Sem referencia F2+
+6039,Moenkhausia cf. pankilopteryx,Characiformes,Characidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6041,Moenkhausia collettii,Characiformes,Characidae,,0,0.0,1959,2187.0,0,0.0,Sem referencia F2+
+6043,Moenkhausia dichroura,Characiformes,Characidae,,0,0.0,236,236.0,0,0.0,Sem referencia F2+
+6044,Moenkhausia gr. chrysargyrea,Characiformes,Characidae,,0,0.0,4,4.0,0,0.0,Sem referencia F2+
+6045,Moenkhausia gr. grandisquamis,Characiformes,Characidae,,0,0.0,893,893.0,0,0.0,Sem referencia F2+
+6048,Moenkhausia hasemani,Characiformes,Characidae,,0,0.0,47,47.0,0,0.0,Sem referencia F2+
+6273,Moenkhausia mikia,Characiformes,Characidae,,0,0.0,12,12.0,0,0.0,Sem referencia F2+
+6050,Moenkhausia oligolepis,Characiformes,Characidae,,0,0.0,461,462.0,0,0.0,Sem referencia F2+
+6051,Moenkhausia phaeonota,Characiformes,Characidae,,0,0.0,455,455.0,0,0.0,Sem referencia F2+
+6052,"Moenkhausia sp. ""lepidura longa""",Characiformes,Characidae,,0,0.0,3110,3110.0,0,0.0,Sem referencia F2+
+6054,Moenkhausia sp. “mancha no pedúnculo”,Characiformes,Characidae,,0,0.0,16,294.0,0,0.0,Sem referencia F2+
+6062,"Myleus sp. ""juvenil""",Characiformes,Serrasalmidae,,0,0.0,83,83.0,0,0.0,Sem referencia F2+
+6069,"Myloplus sp. ""juvenil""",Characiformes,Serrasalmidae,,0,0.0,6,18.0,0,0.0,Sem referencia F2+
+6457,Otocinclus cf. caxarari,Siluriformes,Loricariidae,,0,0.0,39,39.0,0,0.0,Sem referencia F2+
+6071,Otocinclus hasemani,Siluriformes,Loricariidae,,0,0.0,255,255.0,0,0.0,Sem referencia F2+
+6072,Oxyropsis wrightiana,Siluriformes,Loricariidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6073,Pachyurus junki,Acanthuriformes,Sciaenidae,,0,0.0,46,46.0,0,0.0,Sem referencia F2+
+6074,Pamphorichthys cf. scalpridens,Cyprinodontiformes,Poeciliidae,,0,0.0,450,543.0,0,0.0,Sem referencia F2+
+6078,Parastegophilus sp.,Siluriformes,Trichomycteridae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6080,Paravandellia sp.,Siluriformes,Trichomycteridae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6081,Peckoltia feldergae,Siluriformes,Loricariidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6084,Phenacogaster cf. beni,Characiformes,Characidae,,0,0.0,16,16.0,0,0.0,Sem referencia F2+
+6086,Phenacogaster cf. retorpinnus,Characiformes,Characidae,,0,0.0,180,180.0,0,0.0,Sem referencia F2+
+6088,Phenacorhamdia cf. somnians,Siluriformes,Heptapteridae,,0,0.0,45,45.0,0,0.0,Sem referencia F2+
+6090,Phenacorhamdia somnians,Siluriformes,Heptapteridae,,0,0.0,11,11.0,0,0.0,Sem referencia F2+
+6441,"Phenacorhamdia sp. ""howesi""",Siluriformes,Heptapteridae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6438,"Phenacorhamdia sp. ""pertinatus""",Siluriformes,Heptapteridae,,0,0.0,15,15.0,0,0.0,Sem referencia F2+
+6091,Pimelodella aff. howesi,Siluriformes,Heptapteridae,,0,0.0,207,219.0,0,0.0,Sem referencia F2+
+6093,Pimelodella gracilis,Siluriformes,Heptapteridae,,0,0.0,173,173.0,0,0.0,Sem referencia F2+
+6094,Pimelodus blochii,Siluriformes,Pimelodidae,,0,0.0,172,172.0,0,0.0,Sem referencia F2+
+6098,Pinirampus pirinampu,Siluriformes,Pimelodidae,,0,0.0,51,56.0,0,0.0,Sem referencia F2+
+6099,Potamorhina latior,Characiformes,Curimatidae,,0,0.0,9,9.0,0,0.0,Sem referencia F2+
+6101,Pseudanos cf. trimaculatus,Characiformes,Anostomidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+6102,Pseudopimelodus pulcher,Siluriformes,Pseudopimelodidae,,0,0.0,7,7.0,0,0.0,Sem referencia F2+
+6103,Pseudoplatystoma punctifer,Siluriformes,Pimelodidae,,0,0.0,71,71.0,0,0.0,Sem referencia F2+
+6104,Pseudoplatystoma tigrinum,Siluriformes,Pimelodidae,,0,0.0,3,4.0,0,0.0,Sem referencia F2+
+6106,Pyrrhulina cf. australis,Characiformes,Lesbiasinidae,,0,0.0,32,32.0,0,0.0,Sem referencia F2+
+6107,Pyrrhulina sp.,Characiformes,Lesbiasinidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+450,Rhamdia quelen,Siluriformes,Heptapteridae,,0,0.0,64,64.0,0,0.0,Sem referencia F2+
+6108,Rhinodoras cf. boehlkei,Siluriformes,Doradidae,,0,0.0,7,7.0,0,0.0,Sem referencia F2+
+6109,Rhinopetitia potamorhachia,Characiformes,Stevardiidae,,0,0.0,6,13.0,0,0.0,Sem referencia F2+
+5427,Rineloricaria sp.,Siluriformes,Loricariidae,,0,0.0,42,44.0,0,0.0,Sem referencia F2+
+6113,Sartor cf. elongatus,Characiformes,Anostomidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6116,Schizodon sp.,Characiformes,Anostomidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6118,Schultzichthys bondi,Siluriformes,Trichomycteridae,,0,0.0,8,8.0,0,0.0,Sem referencia F2+
+6119,Schultzichthys sp.,Siluriformes,Trichomycteridae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6120,Scobinancistrus pariolispos,Siluriformes,Loricariidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6121,Serrapinnus cf. microdon,Characiformes,Characidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+6123,Serrapinnus micropterus,Characiformes,Characidae,,0,0.0,3,38.0,0,0.0,Sem referencia F2+
+6284,Serrapinnus notomelas,Characiformes,Characidae,,0,0.0,133,133.0,0,0.0,Sem referencia F2+
+6126,Serrapinnus sp. 1,Characiformes,Characidae,,0,0.0,46,46.0,0,0.0,Sem referencia F2+
+6127,Serrasalmus manueli,Characiformes,Serrasalmidae,,0,0.0,34,39.0,0,0.0,Sem referencia F2+
+6130,Spatuloricaria sp.,Siluriformes,Loricariidae,,0,0.0,9,9.0,0,0.0,Sem referencia F2+
+6131,Squaliforma emarginata,Siluriformes,Loricariidae,,0,0.0,48,64.0,0,0.0,Sem referencia F2+
+6132,Stegophilus panzeri,Siluriformes,Trichomycteridae,,0,0.0,4,4.0,0,0.0,Sem referencia F2+
+6133,Steindachnerina argentea,Characiformes,Curimatidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6134,Steindachnerina fasciata,Characiformes,Curimatidae,,0,0.0,75,77.0,0,0.0,Sem referencia F2+
+6136,Sternopygus sp.,Gymnotiformes,Sternopygidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6138,Synaptolaemus latofasciatus,Characiformes,Anostomidae,,0,0.0,44,44.0,0,0.0,Sem referencia F2+
+6486,Synbranchus aff. marmoratus,Synbranchiformes,Synbranchidae,,0,0.0,17,17.0,0,0.0,Sem referencia F2+
+6139,Synbranchus cf. madeirae,Synbranchiformes,Synbranchidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+6140,Tatia intermedia,Siluriformes,Auchenipteridae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+6141,Tatia sp.,Siluriformes,Auchenipteridae,,0,0.0,14,14.0,0,0.0,Sem referencia F2+
+6142,Teleocichla prionogenys,Cichliformes,Cichlidae,,0,0.0,6,6.0,0,0.0,Sem referencia F2+
+6143,Teleocichla proselytus,Cichliformes,Cichlidae,,0,0.0,10,10.0,0,0.0,Sem referencia F2+
+6145,Teleocichla sp. n,Cichliformes,Cichlidae,,0,0.0,17,32.0,0,0.0,Sem referencia F2+
+6148,Tetragonopterus sp.,Characiformes,Characidae,,0,0.0,13,17.0,0,0.0,Sem referencia F2+
+6149,Thayeria boehlkei,Characiformes,Characidae,,0,0.0,470,610.0,0,0.0,Sem referencia F2+
+6151,Thayeria sp. “falsa ifati”,Characiformes,Characidae,,0,0.0,5,51.0,0,0.0,Sem referencia F2+
+6150,Thayeria sp. “tapajós”,Characiformes,Characidae,,0,0.0,65,309.0,0,0.0,Sem referencia F2+
+6152,Tocantinsia piresi,Siluriformes,Auchenipteridae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6154,Utiaritichthys sennaebragai,Characiformes,Serrasalmidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+6155,Zungaro zungaro,Siluriformes,Pimelodidae,,0,0.0,37,37.0,0,0.0,Sem referencia F2+
+6159,“bryconamericus” orinocoense,Characiformes,Characidae,,0,0.0,3,18.0,0,0.0,Sem referencia F2+
+6160,“macropsobrycon” xinguensis,Characiformes,Characidae,,0,0.0,28,37.0,0,0.0,Sem referencia F2+
