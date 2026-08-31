@@ -1,0 +1,17 @@
+{
+  "id": "ictiofauna",
+  "label": "Ictiofauna",
+  "result_sheet": "Resultados_Ictiofauna",
+  "species_sheet": "Cadastro_Especies",
+  "species_group_aliases": ["Ictiofauna"],
+  "taxonomy_profile": "official_only",
+  "taxonomy_sources": ["Validador oficial Opyta_Data"],
+  "rules": {
+    "keep_sp": true,
+    "classify_sp_by_genus": false,
+    "accept_confirmed_spelling_corrections": false,
+    "keep_professional_on_partial": true,
+    "keep_professional_on_conflict": true,
+    "missing_value": "N.A."
+  }
+}

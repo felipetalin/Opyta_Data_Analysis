@@ -77,6 +77,7 @@ SPECIES_SHEETS = [
     "Bacias_Hidrograficas",
     "Biomas",
 ]
+SPECIES_SHEET_ALIASES = ("Especies", "Cadastro_Especies", "Cadastro_Ictiofauna")
 
 
 def norm(value: object) -> str:
@@ -1422,7 +1423,23 @@ def main() -> int:
     species_sheets: dict[str, pd.DataFrame] = {}
     if args.species_file:
         species_xls = pd.ExcelFile(args.species_file)
-        species_sheets = {sheet: read_sheet(species_xls, sheet, findings, required=(sheet == "Especies")) for sheet in SPECIES_SHEETS}
+        species_sheet = next((name for name in SPECIES_SHEET_ALIASES if name in species_xls.sheet_names), None)
+        if species_sheet:
+            species_sheets["Especies"] = read_sheet(species_xls, species_sheet, findings, required=True)
+            if species_sheet != "Especies":
+                findings.append(
+                    issue(
+                        "Leitura da planilha",
+                        "INFO",
+                        "SPECIES_SHEET_ALIAS_RECOGNIZED",
+                        f"Aba '{species_sheet}' reconhecida como 'Especies'.",
+                        sheet=species_sheet,
+                    )
+                )
+        else:
+            species_sheets["Especies"] = read_sheet(species_xls, "Especies", findings, required=True)
+        for sheet in SPECIES_SHEETS[1:]:
+            species_sheets[sheet] = read_sheet(species_xls, sheet, findings, required=False)
     else:
         species_sheets = {
             sheet: read_sheet(import_xls, sheet, findings, required=False)
