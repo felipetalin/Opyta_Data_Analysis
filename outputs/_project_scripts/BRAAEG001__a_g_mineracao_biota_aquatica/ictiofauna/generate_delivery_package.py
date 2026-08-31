@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import html
 import json
+import os
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -11,20 +12,31 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[4]
-AUDIT_DIR = ROOT / "outputs" / "_project_scripts" / "BRAAEG001__a_g_mineracao_biota_aquatica" / "ictiofauna"
+PROJECT_CODE = os.getenv("OPYTA_DELIVERY_PROJECT_CODE", "BRAAEG001")
+PROJECT_ID = int(os.getenv("OPYTA_DELIVERY_PROJECT_ID", "195"))
+PACKAGE_SLUG = os.getenv("OPYTA_DELIVERY_PACKAGE_SLUG", "braaeg001")
+REPORT_TITLE = os.getenv("OPYTA_DELIVERY_REPORT_TITLE", f"{PROJECT_CODE} - Diagnóstico da ictiofauna")
+AUDIT_DIR = Path(
+    os.getenv(
+        "OPYTA_DELIVERY_AUDIT_DIR",
+        str(ROOT / "outputs" / "_project_scripts" / "BRAAEG001__a_g_mineracao_biota_aquatica" / "ictiofauna"),
+    )
+)
 OUTPUT_DIR = Path(
-    "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/"
-    "A&G Minera\u00e7\u00e3o/resultados/migracao_biota/ictiofauna"
+    os.getenv(
+        "OPYTA_DELIVERY_OUTPUT_DIR",
+        "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna",
+    )
 )
 
 PACKAGE_NAMES = {
     "14_tabela_sintese_ecologica_ictiofauna.xlsx",
     "14_grafico_sintese_ecologica_ictiofauna.png",
-    "relatorio_tecnico_ictiofauna_braaeg001.html",
-    "manifesto_entrega_ictiofauna_braaeg001.json",
-    "manifesto_entrega_ictiofauna_braaeg001.xlsx",
-    "manifesto_entrega_ictiofauna_braaeg001.md",
-    "validacao_entrega_ictiofauna_braaeg001.json",
+    f"relatorio_tecnico_ictiofauna_{PACKAGE_SLUG}.html",
+    f"manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.json",
+    f"manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.xlsx",
+    f"manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.md",
+    f"validacao_entrega_ictiofauna_{PACKAGE_SLUG}.json",
 }
 
 COLUMN_LABELS = {
@@ -194,7 +206,7 @@ def write_ecological_outputs(comp: pd.DataFrame) -> list[Path]:
             ax.grid(axis="x", alpha=0.2, linestyle="--")
             for spine in ["top", "right"]:
                 ax.spines[spine].set_visible(False)
-        fig.suptitle("Síntese ecológica da ictiofauna - BRAAEG001", fontweight="bold", fontsize=17)
+        fig.suptitle(f"Síntese ecológica da ictiofauna - {PROJECT_CODE}", fontweight="bold", fontsize=17)
         fig.tight_layout(rect=[0, 0.02, 1, 0.95])
         fig.savefig(fig_path, dpi=600, bbox_inches="tight")
         plt.close(fig)
@@ -276,7 +288,7 @@ def format_value(value: object) -> str:
 
 
 def write_report(metrics: dict) -> Path:
-    out_html = OUTPUT_DIR / "relatorio_tecnico_ictiofauna_braaeg001.html"
+    out_html = OUTPUT_DIR / f"relatorio_tecnico_ictiofauna_{PACKAGE_SLUG}.html"
     figures = [
         ("02_grafico_riqueza_por_ponto_ictiofauna.png", "Riqueza por ponto"),
         ("03_grafico_abundancia_por_ponto_ictiofauna.png", "Abundância por ponto"),
@@ -306,7 +318,7 @@ def write_report(metrics: dict) -> Path:
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>BRAAEG001 - Relatório técnico de ictiofauna</title>
+  <title>{html.escape(REPORT_TITLE)}</title>
   <style>
     body {{ font-family: Arial, sans-serif; margin: 32px; color: #1f2933; }}
     h1, h2 {{ color: #11420C; }}
@@ -323,7 +335,7 @@ def write_report(metrics: dict) -> Path:
   </style>
 </head>
 <body>
-  <h1>BRAAEG001 - Diagnóstico da ictiofauna</h1>
+  <h1>{html.escape(REPORT_TITLE)}</h1>
   <p>Pacote diagnóstico gerado para as campanhas {html.escape(', '.join(metrics['campanhas']))}, com {len(metrics['pontos'])} pontos amostrais.</p>
   <div class="cards">
     <div class="card"><div class="value">{metrics['taxa_total']}</div><div>táxons</div></div>
@@ -353,7 +365,7 @@ def write_report(metrics: dict) -> Path:
   {''.join(figure_blocks)}
 
   <h2>Rastreabilidade</h2>
-  <p>Manifesto: <code>manifesto_entrega_ictiofauna_braaeg001.json</code> e <code>manifesto_entrega_ictiofauna_braaeg001.xlsx</code>.</p>
+  <p>Manifesto: <code>manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.json</code> e <code>manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.xlsx</code>.</p>
 </body>
 </html>
 """
@@ -365,9 +377,9 @@ def write_report(metrics: dict) -> Path:
 def build_manifest(extra_files: list[Path], metrics: dict) -> tuple[Path, Path, Path]:
     files = []
     for path in sorted(OUTPUT_DIR.iterdir(), key=lambda p: p.name.lower()):
-        if not path.is_file() or path.name == "desktop.ini":
+        if not path.is_file() or path.name == "desktop.ini" or path.name.startswith("~$"):
             continue
-        if path.name.startswith("manifesto_entrega_ictiofauna_braaeg001"):
+        if path.name.startswith(f"manifesto_entrega_ictiofauna_{PACKAGE_SLUG}"):
             continue
         files.append(path)
 
@@ -386,8 +398,8 @@ def build_manifest(extra_files: list[Path], metrics: dict) -> tuple[Path, Path, 
     manifest = {
         "schema_version": "1.0",
         "generated_at": now_iso(),
-        "project_code": "BRAAEG001",
-        "project_id": 195,
+        "project_code": PROJECT_CODE,
+        "project_id": PROJECT_ID,
         "group": "Ictiofauna",
         "campaigns": metrics["campanhas"],
         "output_dir": str(OUTPUT_DIR),
@@ -402,15 +414,15 @@ def build_manifest(extra_files: list[Path], metrics: dict) -> tuple[Path, Path, 
         "files": rows,
     }
 
-    out_json = OUTPUT_DIR / "manifesto_entrega_ictiofauna_braaeg001.json"
-    out_xlsx = OUTPUT_DIR / "manifesto_entrega_ictiofauna_braaeg001.xlsx"
-    out_md = OUTPUT_DIR / "manifesto_entrega_ictiofauna_braaeg001.md"
+    out_json = OUTPUT_DIR / f"manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.json"
+    out_xlsx = OUTPUT_DIR / f"manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.xlsx"
+    out_md = OUTPUT_DIR / f"manifesto_entrega_ictiofauna_{PACKAGE_SLUG}.md"
 
     out_json.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding="utf-8")
     pd.DataFrame(rows).to_excel(out_xlsx, index=False, engine="openpyxl")
 
     lines = [
-        "# BRAAEG001 - Manifesto de entrega - Ictiofauna",
+        f"# {PROJECT_CODE} - Manifesto de entrega - Ictiofauna",
         "",
         f"- gerado em: `{manifest['generated_at']}`",
         f"- arquivos listados: `{len(rows)}`",
@@ -443,7 +455,7 @@ def write_validation(manifest_json: Path) -> Path:
             "Diversidade, similaridade e suficiência são apoio diagnóstico para base curta."
         ],
     }
-    out = OUTPUT_DIR / "validacao_entrega_ictiofauna_braaeg001.json"
+    out = OUTPUT_DIR / f"validacao_entrega_ictiofauna_{PACKAGE_SLUG}.json"
     out.write_text(json.dumps(validation, indent=2, ensure_ascii=False), encoding="utf-8")
     return out
 

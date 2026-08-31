@@ -19,6 +19,7 @@ from sqlalchemy import text
 
 PROJECT_CODE = "BRAAEG001"
 PROJECT_ID = 195
+PROJECT_SLUG = "braaeg001"
 OUTPUT_LOG_DIR = Path("logs/migracao_biota_braaeg001")
 
 
@@ -667,13 +668,13 @@ def create_backups(conn, stamp: str) -> dict[str, str]:
     groups = [info["canonical"] for info in GROUPS.values()]
     statements = {
         "pontos": f"""
-            CREATE TABLE public.backup_biota_braaeg001_{stamp}_pontos AS
+            CREATE TABLE public.backup_biota_{PROJECT_SLUG}_{stamp}_pontos AS
             SELECT *
             FROM public.pontos_coleta
             WHERE id_projeto = :id
         """,
         "esforcos": f"""
-            CREATE TABLE public.backup_biota_braaeg001_{stamp}_esforcos AS
+            CREATE TABLE public.backup_biota_{PROJECT_SLUG}_{stamp}_esforcos AS
             SELECT e.*
             FROM public.esforcos_amostragem e
             JOIN public.pontos_coleta p ON p.id_ponto_coleta = e.id_ponto_coleta
@@ -681,7 +682,7 @@ def create_backups(conn, stamp: str) -> dict[str, str]:
               AND e.grupo_biologico = ANY(:groups)
         """,
         "fitoplancton": f"""
-            CREATE TABLE public.backup_biota_braaeg001_{stamp}_fitoplancton AS
+            CREATE TABLE public.backup_biota_{PROJECT_SLUG}_{stamp}_fitoplancton AS
             SELECT r.*
             FROM public.resultados_fitoplancton r
             JOIN public.esforcos_amostragem e ON e.id_esforco = r.id_esforco
@@ -689,7 +690,7 @@ def create_backups(conn, stamp: str) -> dict[str, str]:
             WHERE p.id_projeto = :id
         """,
         "zooplancton": f"""
-            CREATE TABLE public.backup_biota_braaeg001_{stamp}_zooplancton AS
+            CREATE TABLE public.backup_biota_{PROJECT_SLUG}_{stamp}_zooplancton AS
             SELECT r.*
             FROM public.resultados_zooplancton r
             JOIN public.esforcos_amostragem e ON e.id_esforco = r.id_esforco
@@ -697,7 +698,7 @@ def create_backups(conn, stamp: str) -> dict[str, str]:
             WHERE p.id_projeto = :id
         """,
         "zoobentos": f"""
-            CREATE TABLE public.backup_biota_braaeg001_{stamp}_zoobentos AS
+            CREATE TABLE public.backup_biota_{PROJECT_SLUG}_{stamp}_zoobentos AS
             SELECT r.*
             FROM public.resultados_zoobentos r
             JOIN public.esforcos_amostragem e ON e.id_esforco = r.id_esforco
@@ -705,7 +706,7 @@ def create_backups(conn, stamp: str) -> dict[str, str]:
             WHERE p.id_projeto = :id
         """,
         "ictiofauna": f"""
-            CREATE TABLE public.backup_biota_braaeg001_{stamp}_ictiofauna AS
+            CREATE TABLE public.backup_biota_{PROJECT_SLUG}_{stamp}_ictiofauna AS
             SELECT r.*
             FROM public.resultados_ictiofauna r
             JOIN public.esforcos_amostragem e ON e.id_esforco = r.id_esforco
@@ -713,7 +714,7 @@ def create_backups(conn, stamp: str) -> dict[str, str]:
             WHERE p.id_projeto = :id
         """,
         "consolidado": f"""
-            CREATE TABLE public.backup_biota_braaeg001_{stamp}_consolidado AS
+            CREATE TABLE public.backup_biota_{PROJECT_SLUG}_{stamp}_consolidado AS
             SELECT *
             FROM public.biota_analise_consolidada
             WHERE codigo_interno_opyta = :code
@@ -722,7 +723,7 @@ def create_backups(conn, stamp: str) -> dict[str, str]:
     }
     for name, sql in statements.items():
         conn.execute(text(sql), {"id": PROJECT_ID, "code": PROJECT_CODE, "groups": groups})
-        backups[name] = f"public.backup_biota_braaeg001_{stamp}_{name}"
+        backups[name] = f"public.backup_biota_{PROJECT_SLUG}_{stamp}_{name}"
     return backups
 
 
@@ -1219,7 +1220,7 @@ def write_outputs(payload: dict[str, Any], output_dir: Path, client_output_dir: 
     output_dir.mkdir(parents=True, exist_ok=True)
     if client_output_dir:
         client_output_dir.mkdir(parents=True, exist_ok=True)
-    suffix = "apply_migracao_biota_aquatica_braaeg001" if applied else "dry_run_migracao_biota_aquatica_braaeg001"
+    suffix = f"apply_migracao_biota_aquatica_{PROJECT_SLUG}" if applied else f"dry_run_migracao_biota_aquatica_{PROJECT_SLUG}"
     json_path = output_dir / f"{stamp}_{suffix}.json"
     xlsx_path = output_dir / f"{stamp}_{suffix}.xlsx"
     json_payload = serializable_payload(payload, applied=applied, stamp=stamp)

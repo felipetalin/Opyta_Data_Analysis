@@ -114,6 +114,7 @@
 | Revisao tecnica | em andamento | Validacao de entrega `OK`; revisar numeros, texto e layout antes do fechamento. |
 | Revisao de layout | regenerada aguardando revisao | R01: 16 figuras finais de ictiofauna regeneradas em A4 paisagem, 600 dpi; relatório HTML e rótulos pt-BR revisados; backup dos PNGs originais e auditorias finais registrados. |
 | Revisao R02 Ictiofauna | aguardando Gate R | Figuras `02`, `03`, `06`, `07`, `08`, `09`, `08B`, `09B` e `10` revisadas; `08/09/08B/09B` tiveram CPUE por especie recalculada com esforco total correto, sem alteracao de banco, taxonomia ou consolidacao. |
+| Mini mapa cambevas | gerado para revisao | Produto `15_mini_mapa_cambevas_cpuen_ictiofauna.png` e planilha `15_df_mini_mapa_cambevas_cpuen_ictiofauna.xlsx` gerados para `Trichomycterus brasiliensis` e `Trichomycterus immaculatus`, usando CPUEn por ponto e campanha. |
 | Fechamento | pendente | Depende de Gate C, produtos/manifesto quando aplicavel e atualizacao de dossie/registry. |
 
 ## Gates

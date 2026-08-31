@@ -13,6 +13,7 @@ CLIENT_ROOT = Path(r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Brandt")
 PROJECT_DIR = next(path for path in CLIENT_ROOT.iterdir() if path.name.startswith("A&G"))
 OUTPUT_DIR = PROJECT_DIR / "resultados" / "migracao_biota" / "ictiofauna"
 LASTROS_DIR = PROJECT_DIR / "resultados" / "migracao_biota" / "lastros_migracao"
+SOURCE_WORKBOOK: Path | None = None
 
 FIGSIZE = (11.69, 8.27)
 DPI = 600
@@ -189,7 +190,7 @@ def plot_heatmap(source: str, label: str, out_name: str) -> None:
 
 
 def recalc_cpue_species_tables() -> None:
-    source = next(LASTROS_DIR.glob("Resultados_Migra*_Ictio.xlsx"))
+    source = SOURCE_WORKBOOK or next(LASTROS_DIR.glob("Resultados_Migra*_Ictio.xlsx"))
     results = pd.read_excel(source, sheet_name="Resultados_Ictiofauna")
     efforts = pd.read_excel(source, sheet_name="Metadados_Esforco")
 
@@ -333,7 +334,7 @@ def plot_diversity() -> None:
         ax2.set_ylabel("")
 
     legend_items = [
-        Patch(facecolor=CAMPAIGN_COLORS["C001-2026-02-CH"], edgecolor=EDGE, label="Diversidade (H')"),
+        Patch(facecolor=CAMPAIGN_COLORS[CAMPAIGNS[0]], edgecolor=EDGE, label="Diversidade (H')"),
         Line2D([0], [0], marker="o", color="none", markerfacecolor=PIELOU_COLOR, markeredgecolor=PIELOU_COLOR, markersize=7, label="Equitabilidade (J')"),
     ]
     fig.legend(legend_items, [h.get_label() for h in legend_items], loc="upper center", ncol=2, frameon=False, fontsize=18)

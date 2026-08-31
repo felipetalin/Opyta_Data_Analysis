@@ -509,9 +509,18 @@ def generate_iet(surface: pd.DataFrame) -> dict[str, Any]:
     pt = surface[surface["parametro_norm"].eq("fosforo total")].copy()
     cl = surface[surface["parametro_norm"].isin(["clorofila a", "clorofila"])]
     rows = []
-    if pt.empty and cl.empty:
+    if pt.empty or cl.empty:
         out_xlsx = OUTPUT_DIR / "06_IET_Tabela.xlsx"
-        pd.DataFrame(columns=["Ponto", "Campanha", "IET", "Classe", "Observacao"]).to_excel(out_xlsx, index=False)
+        out_png = OUTPUT_DIR / "06_IET_Heatmap.png"
+        if out_png.exists():
+            out_png.unlink()
+        pd.DataFrame([{
+            "Ponto": "NAO_CALCULADO",
+            "Campanha": "NAO_CALCULADO",
+            "IET": np.nan,
+            "Classe": "NAO_CALCULADO",
+            "Observacao": "IET nao calculado: o indice exige Fosforo Total e Clorofila a. Nao calcular com Fosforo Total isolado.",
+        }]).to_excel(out_xlsx, index=False)
         style_workbook(out_xlsx)
         return {"xlsx": str(out_xlsx), "png": None, "amostras": 0, "observacao": "Sem Fósforo Total ou Clorofila A."}
     for df_part in [pt, cl]:

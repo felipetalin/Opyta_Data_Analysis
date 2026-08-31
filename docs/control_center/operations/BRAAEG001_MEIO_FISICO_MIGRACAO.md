@@ -5,10 +5,10 @@
 - projeto: BRAAEG001 / A&G Mineracao
 - grupo: Meio fisico
 - operacao: migracao inicial dos dados fisicoquimicos
-- estado atual: `superficial_minimaps_generated_pending_review`
+- estado atual: `sub_sed_layout_r01_regenerated_pending_review`
 - aberta em: 2026-07-02
-- atualizada em: 2026-07-29
-- proxima acao: revisar visualmente o pacote final de Agua Superficial; antes de produtos integrados, replicar os nomes de cursos d'agua da nova base da biota nos pontos compartilhados
+- atualizada em: 2026-08-05
+- proxima acao: aprovar revisao R01 de layout dos paineis de Agua Subterranea e Sedimentos
 
 ## Caminhos
 
@@ -31,6 +31,18 @@
 - auditoria de consolidacao pos-C02: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/consolidacao_pos_c02/20260729T183622Z_auditoria_consolidacao_meio_fisico_braaeg001_pos_c02.xlsx`
 - saida Agua Superficial: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/superficial`
 - teste de layout Agua Superficial: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/superficial/_teste_layout`
+
+- staging C02 Agua Subterranea/Sedimento: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_subterranea_sedimentos/20260805T155459_staging_resultados_meio_fisico_c02_subterranea_sedimentos.xlsx`
+- dry-run incremental C02 Agua Subterranea/Sedimento: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_subterranea_sedimentos/20260805T185621Z_dry_run_incremental_c02_subterranea_sedimentos_braaeg001.xlsx`
+- SQL apply incremental C02 Agua Subterranea/Sedimento: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_subterranea_sedimentos/20260805T185621Z_apply_incremental_c02_subterranea_sedimentos_braaeg001.sql`
+- SQL rollback incremental C02 Agua Subterranea/Sedimento: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_subterranea_sedimentos/20260805T185621Z_rollback_incremental_c02_subterranea_sedimentos_braaeg001.sql`
+- log apply incremental C02 Agua Subterranea/Sedimento: `logs/validacao_meio_fisico/20260805T185948Z_aplicacao_incremental_c02_subterranea_sedimentos_braaeg001.json`
+- auditoria pos-incremental C02 Agua Subterranea/Sedimento: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/campanha_02_subterranea_sedimentos/20260805T185948Z_auditoria_pos_incremental_c02_subterranea_sedimentos_braaeg001.xlsx`
+- consolidado pos-C02 completo: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/consolidacao_pos_c02/20260805T185959Z_consolidado_meio_fisico_braaeg001_pos_c02.xlsx`
+- auditoria de consolidacao pos-C02 completa: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/migracao/consolidacao_pos_c02/20260805T185959Z_auditoria_consolidacao_meio_fisico_braaeg001_pos_c02.xlsx`
+- saida Agua Subterranea: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/subterranea`
+- saida Sedimentos: `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/sedimentos`
+- script resultados Agua Subterranea/Sedimentos: `scripts/projects/braaeg001/gerar_resultados_subterranea_sedimentos_meio_fisico.py`
 
 ## Progresso
 
@@ -56,7 +68,16 @@
 | Configuracao preliminar Agua Superficial | aprovada | Usuario restringiu analises ao momento para Agua Superficial. Referencia oficial corrigida para FERSAM Superficial (`SAM Metais/Produtos/Resultados/Meio_fisico/Superficial`). Prototipos de pH, Oxigenio Dissolvido e Ferro Dissolvido regenerados no padrao FERSAM: grafico unico por parametro, pontos no eixo X, duas campanhas em tons de verde, VMP vermelho continuo e faixa vermelha de violacao. Legenda dos limites simplificada para `VMP - Classe 2` com os respectivos valores, sem citar legislacao. Template aprovado pelo usuario em 2026-07-29. |
 | Revisao de metadados de pontos | pendente | Validacao da nova base da biota em 2026-07-03 apontou divergencia de `Curso_d_Agua` em 12 pontos compartilhados. |
 | Geracao dos produtos | concluida | Produtos de Agua Superficial gerados em `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/Meio_fisico/resultados/superficial`: 1176 registros, 12 pontos, 2 campanhas, 49 parametros, 34 violacoes, 48 paineis por campanha, IQA e IET com 24 amostras cada. Auditoria `12_Auditoria_Execucao.json` com status `OK`. Em 2026-07-30, saida reorganizada em pasta unica, com paineis assumidos como layout final, sem PNGs individuais e sem planilhas `_dados.xlsx`. `01_Conformidade_Agua_Superficial.xlsx` reorganizada em abas por campanha (`Campanha-01-Chuva` e `Campanha-02-Seca`), com parametros em linhas, unidade, VMP CONAMA 357 Classe 2, VMP COPAM 8 Classe 2 e pontos amostrais em colunas. Criado `02_Dados_por_Parametro_Agua_Superficial.xlsx`, com 49 abas de parametros + aba `Indice`, reunindo os dados das duas campanhas em cada aba. Criado painel executivo unico de violacoes `04_painel_violacoes_chuva_seca.png` (subpaineis Chuva/Seca; 13 parametros, 34 violacoes), com um unico verde do layout e apoio em `04_Painel_Violacoes_por_Campanha.xlsx`; modelos separados por campanha removidos. Gerados minimapas A4 paisagem em painel Chuva/Seca para violacoes por ponto (`07_minimapa_violacoes_por_ponto_chuva_seca.png`), IQA (`08_minimapa_iqa_chuva_seca.png`) e IET (`09_minimapa_iet_chuva_seca.png`), com hidrografia do KMZ `Geo/1AEMG002/Hidrografia.kmz`, escala grafica, norte, legendas e planilha de apoio `07_Dados_Minimapas_Agua_Superficial.xlsx`. Versao detalhada preservada como `01_Conformidade_Agua_Superficial_detalhada.xlsx`. Observacao operacional: pasta antiga `03_parametros_vmp` aparece como item travado/inconsistente do Google Drive e bloqueou remocao por permissao, embora os arquivos finais estejam gravados na raiz da pasta `superficial`. |
-| Revisao tecnica | preliminar concluida | Auditoria tabular validou 34 violacoes apos correcoes legais: Manganes Dissolvido e Amonia sem VMP direto; Nitrogenio Amoniacal em `mg N/L`; Escherichia coli com observacao na coluna CONAMA e 1000 NMP/100 mL na COPAM; SST com VMP apenas na COPAM; OD como `≥5`; Cloro Residual Livre sem comparacao direta. IQA: 16 amostras Otima e 8 Boa; IET recalculado com conversao de Fosforo Total em `mg P/L` para `ug/L`, resultando em 22 Mesotrofico e 2 Eutrofico. |
+| Revisao tecnica | preliminar concluida | Auditoria tabular validou 34 violacoes apos correcoes legais: Manganes Dissolvido e Amonia sem VMP direto; Nitrogenio Amoniacal em `mg N/L`; Escherichia coli com observacao na coluna CONAMA e 1000 NMP/100 mL na COPAM; SST com VMP apenas na COPAM; OD como `>=5`; Cloro Residual Livre sem comparacao direta. IQA: 16 amostras Otima e 8 Boa. IET foi posteriormente neutralizado em 2026-08-05 porque nao ha Clorofila a; nao calcular com Fosforo Total isolado. |
+| Validacao C02 - Agua Subterranea/Sedimento | concluida | 15 XLS/PDF SGS extraidos para staging consolidado; Agua Subterranea 129 registros/3 pontos/43 parametros e Sedimento 156 registros/12 pontos/13 parametros; 0 resultados vazios e 0 duplicidades internas. |
+| Gate A/C02 - Subterranea/Sedimento | aprovado | Usuario aprovou em 2026-08-05 apos auditoria do staging e dry-run incremental; cadastro de especies nao aplicavel. |
+| Dry-run incremental C02 Subterranea/Sedimento | concluido | 285 inserts planejados; 0 problemas de mapeamento; 0 duplicidades com banco; banco antes 1461 registros, esperado apos apply 1746; status `READY_FOR_APPLY_APPROVAL`. |
+| Gate apply C02 Subterranea/Sedimento | aprovado | Aprovado pelo usuario em 2026-08-05 com lembrete para seguir Control Center e gates. |
+| Migracao incremental C02 Subterranea/Sedimento | concluida | Apply transacional executado; backup `backup_fisico_braaeg001_before_c02_sub_sed_20260805t185948z` com 1461 linhas; 285 registros C02 inseridos; banco apos apply 1746 registros. |
+| Consolidacao C02 completa | concluida | Consolidado pos-C02 completo gerado a partir do banco; 1746 registros, 2 campanhas, 3 matrizes, 15 pontos, 70 parametros e 0 duplicidades. Totais por matriz/campanha: Agua Superficial C01=588 e C02=588; Agua Subterranea C01=129 e C02=129; Sedimento C01=156 e C02=156. |
+| Revisao IET Agua Superficial | concluida | IET neutralizado em 2026-08-05: sem Clorofila a nao ha calculo; removidos `06_IET_Heatmap.png` e `09_minimapa_iet_chuva_seca.png`; `06_IET_Tabela.xlsx` registra `NAO CALCULADO`. |
+| Geracao Agua Subterranea/Sedimentos | concluida para revisao | Produtos gerados no layout aprovado de Agua Superficial, com VMPs especificos por matriz. Agua Subterranea: 258 registros, 3 pontos, 2 campanhas, 43 parametros, 19 violacoes, 42 paineis de parametros; Temperatura do Ar permanece apenas em Excel por ausencia de valor numerico. Sedimentos: 312 registros, 12 pontos, 2 campanhas, 13 parametros, 33 violacoes acima de Nivel 2 e 25 registros entre Nivel 1 e Nivel 2. |
+| Revisao R01 layout Subterranea/Sedimentos | regenerada para aprovacao | Paineis por parametro ajustados para seguir Superficial: somente spots, sem linhas entre pontos; VMPs com cores diferentes; preenchimento vermelho iniciado no menor VMP aplicavel. Registro: `docs/control_center/reviews/BRAAEG001_MEIO_FISICO_SUB_SED_LAYOUT_REV_R01.md`. |
 | Revisao de layout | pendente | Amostras visuais conferidas para pH, Ferro Dissolvido, percentual de violacao, IQA, IET e minimapas; aguardando revisao do usuario sobre o pacote final. |
 | Fechamento | pendente | Depende dos validadores, manifesto e atualizacao de registro/lastro. |
 
@@ -71,6 +92,11 @@
 | Apply C02 | `approved_applied` | Usuario aprovou em 2026-07-29; carga incremental aplicada e auditada com 588 registros C02. |
 | Consolidacao pos-C02 | `completed` | Consolidado analitico pronto para configuracao das analises; pendencia de `Curso_d_Agua` permanece apenas para produtos integrados/espaciais. |
 | C/Superficial - layout e analises | `approved` | Tres graficos-teste gerados em `_teste_layout` e `_teste_layout_paineis_campanha` no padrao FERSAM Superficial. Em 2026-07-29, legenda dos VMPs revisada para `VMP - Classe 2`, pH validado sem quebra horizontal e sinais `<` removidos das figuras, mantendo a informacao nas planilhas de dados. Template aprovado pelo usuario em 2026-07-29. |
+| A/C02 Subterranea-Sedimento - dados | `approved` | Usuario aprovou em 2026-08-05; staging e dry-run C02 Subterranea/Sedimento aceitos para apply incremental. |
+| Apply C02 Subterranea-Sedimento | `approved_applied` | Usuario aprovou em 2026-08-05; carga incremental aplicada e auditada com 285 registros C02. |
+| Consolidacao pos-C02 completa | `completed` | Consolidado analitico completo atualizado para as tres matrizes em duas campanhas; 1746 registros e 0 duplicidades. |
+| C/Subterranea-Sedimentos - layout e analises | `generated_pending_review` | Usuario autorizou seguir em 2026-08-05 usando premissas/layout de Superficial e VMPs especificos; produtos gerados em `resultados/subterranea` e `resultados/sedimentos`. |
+| R01/Subterranea-Sedimentos - layout | `awaiting_user_approval` | Ajustes solicitados em 2026-08-05 regenerados: spots sem linhas, VMPs com cores distintas e faixa vermelha a partir do menor VMP. |
 
 ## Validacao Dos Dados
 
