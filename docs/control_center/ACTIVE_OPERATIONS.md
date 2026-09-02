@@ -7,6 +7,8 @@ continua em [PROJECTS.md](PROJECTS.md).
 
 | Operacao | Projeto | Grupo | Estado atual | Proxima acao | Registro |
 | --- | --- | --- | --- | --- | --- |
+| Migração inicial | WSPKIN001 / WSP Kinross Bandeirinhas | Fitoplâncton | `awaiting_data_approval` | Decidir pendências da validação e aprovar Gate A antes do cadastro taxonômico e migração | [WSPKIN001_FITOPLANCTON_MIGRACAO.md](operations/WSPKIN001_FITOPLANCTON_MIGRACAO.md) |
+| Migracao inicial | BRACAR001 | Ictiofauna | `configuring_analysis` | Definir template, paleta, pasta de saida e produtos para o Gate C; migracao e consolidacao conferidas | [BRACAR001_ICTIOFAUNA_MIGRACAO.md](operations/BRACAR001_ICTIOFAUNA_MIGRACAO.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Zoobentos | `awaiting_revision_approval` | Revisar pacote gerado e aprovar Gate R; validacao 16/16 OK | [BRACED001_ZOOBENTOS_FONSECA_MIGRACAO.md](operations/BRACED001_ZOOBENTOS_FONSECA_MIGRACAO.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Ictiofauna | `awaiting_revision_approval` | Aprovar Gate R das figuras em paineis separados por campanha | [BRACED001_ICTIOFAUNA_FONSECA_MIGRACAO.md](operations/BRACED001_ICTIOFAUNA_FONSECA_MIGRACAO.md) |
 | Migracao inicial - Colider | BIOCOL001 / Bios Colider | Ictiofauna | `generated_pending_review` | Revisar pacote R02 no template BIOPOR001 em `BIOCOL001_ictiofauna_produtos_maduros_R02_BIOPOR001_template`; 5.1, ictioplancton e T-TAG seguem em Aguardar | [BIOCOL001_ICTIOFAUNA_COLIDER_MIGRACAO.md](operations/BIOCOL001_ICTIOFAUNA_COLIDER_MIGRACAO.md) |
@@ -46,6 +48,7 @@ registro em [reviews](reviews/README.md) quando houver escopo executavel.
 
 | Operacao | Projeto | Grupo | Estado final | Concluida em | Registro |
 | --- | --- | --- | --- | --- | --- |
+| Agosto/2026 - migracao e Darwin Core | BRAAVG002 / Brumado AVG | Ictiofauna | `completed` | 2026-09-01 | [BRAAVG002_ICTIOFAUNA_AGOSTO_2026.md](operations/BRAAVG002_ICTIOFAUNA_AGOSTO_2026.md) |
 | Revisao R01 - taxonomia | BRACED001 / Fonseca-Biota Aquatica | Zooplancton | `review_completed` | 2026-08-19 | [BRACED001_ZOOPLANCTON_TAXONOMIA_REV_R01.md](reviews/BRACED001_ZOOPLANCTON_TAXONOMIA_REV_R01.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Zooplancton | `completed` | 2026-08-19 | [BRACED001_ZOOPLANCTON_FONSECA_MIGRACAO.md](operations/BRACED001_ZOOPLANCTON_FONSECA_MIGRACAO.md) |
 | Revisao R03 - rotulos do minimapa | BRACED001 / Fonseca-Biota Aquatica | Fitoplancton | `review_completed` | 2026-08-19 | [BRACED001_FITOPLANCTON_MINIMAPA_ROTULOS_REV_R03.md](reviews/BRACED001_FITOPLANCTON_MINIMAPA_ROTULOS_REV_R03.md) |
