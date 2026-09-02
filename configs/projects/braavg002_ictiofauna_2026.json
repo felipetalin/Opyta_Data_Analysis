@@ -56,6 +56,13 @@
         "campaign": "48ª-Jul-26",
         "status": "generated_pending_review",
         "notes": "Campanha parcial de julho/2026 validada, migrada, consolidada e gerada em 2026-08-03."
+      },
+      {
+        "key": "agosto",
+        "folder": "agosto",
+        "campaign": "49ª-Ago-26",
+        "status": "darwin_core_only_generated_validated",
+        "notes": "Migrada e consolidada em 2026-09-01; Gate C limitado ao Darwin Core IEF, unico produto solicitado e validado."
       }
     ],
     "commands": {

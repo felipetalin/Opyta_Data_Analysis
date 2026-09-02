@@ -228,6 +228,19 @@ leitura carregada dos heatmaps `08` e `08B`:
 - validacao: PNG abriu via PIL, XLSX abriu via openpyxl e os percentuais de
   CPUEn somam 100%.
 
+## Agosto/2026 - Campanha 49
+
+- operacao encerrada em 2026-09-01 e registrada em
+  `docs/control_center/operations/BRAAVG002_ICTIOFAUNA_AGOSTO_2026.md`;
+- campanha validada, migrada e consolidada: 49 campanhas, 535 linhas
+  consolidadas e 1.544 individuos;
+- `Xiphophorus hellerii` incluida e sete registros antigos regularizados no
+  cadastro mestre mediante Gate B;
+- Gate C limitado pelo usuario a um unico produto: Darwin Core IEF;
+- saida: `Resultados ictio/2026/agosto`;
+- validacao: 7 eventos, 7 ocorrencias, 7 registros biometricos, quatro abas
+  iguais ao modelo de julho e nenhum erro de formula.
+
 ## Observacao Sobre Ordinais
 
 Nas campanhas AVG, padronizar nomes com ordinal feminino `ª`, por exemplo
