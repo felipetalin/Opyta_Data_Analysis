@@ -601,6 +601,43 @@
 - gerador atualizado:
   `ictiofauna/gerar_5_12_reproducao_5_15_recrutamento_biocol001.py`.
 
+## Pacotes Recorrentes Por Campanha
+
+- estrutura criada em 2026-08-31:
+  `Resultados/2026/Junho-2026/BIOCOL001_RESULTADOS_POR_CAMPANHA`;
+- cada campanha ocupa uma subpasta com o codigo canonico, sem subpastas
+  internas e sem alterar o pacote acumulado R02;
+- gerador reutilizavel:
+  `ictiofauna/gerar_pacote_campanha_biocol001.py`;
+- sem argumento, o gerador identifica a campanha canonica mais recente no
+  banco; `--campanha` permite regenerar uma campanha especifica;
+- primeira entrega: `C069-2026-06`, amostrada entre 2026-06-17 e 2026-06-27;
+- reconciliacao C069:
+  - malha geral: 16 pontos, 31 especies, 481 individuos e 159.509 g;
+  - STP: `ICTIO13C/D`, 18 especies e 145 individuos;
+  - total do banco: 315 linhas e 626 individuos;
+  - CPUE: 16 unidades de rede, 30 especies, 407 individuos e 158,857 kg;
+  - nenhuma especie ameacada registrada na campanha;
+  - reprodutivos MLD: uma femea F3-F4 e um macho M3-M4;
+  - recrutamento MLD: nenhum juvenil classificado pela regra aprovada;
+- revisao espacial de 2026-08-31:
+  - CPUEn e CPUEb apresentados em barras por ponto, com o valor calculado
+    identificado e cores por compartimento espacial;
+  - boxplots descartados por haver apenas uma unidade de esforco por ponto na
+    campanha, o que nao sustenta uma distribuicao interna por ponto;
+  - matriz e dendrograma de Bray-Curtis entre os 16 pontos;
+  - curva do coletor espacial por ponto: 31 especies observadas e 41,3
+    estimadas por Jackknife 1 apos 999 aleatorizacoes;
+  - mapas de riqueza e abundancia de ameacadas mantidos mesmo com resultado
+    zero, documentando a ausencia na campanha;
+  - nomes cientificos em italico nas figuras por especie;
+  - legendas inferiores dos mapas afastadas da area cartografica;
+- entrega composta por 11 planilhas tematicas, 26 figuras A4 paisagem a 300
+  dpi, manifesto e validacao automatica;
+- nao aplicaveis ao recorte isolado: distribuicao temporal, curva acumulativa
+  temporal entre campanhas e indices temporais de diversidade/similaridade;
+  a curva produzida para a campanha utiliza os pontos como unidades espaciais.
+
 ## Pendencias
 
 - registrar/confirmar referencia espacial externa se houver mapas, Darwin Core com coordenadas ou produto geoespacial;
