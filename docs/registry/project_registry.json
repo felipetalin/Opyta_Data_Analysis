@@ -484,6 +484,22 @@
         "Gate B deve bloquear especies usadas nos resultados com buracos em classificacao e atributos obrigatorios do cadastro antes da migracao.",
         "No consolidado atual, BIOCOL001 esta preenchido em codigo_interno_opyta; codigo_opyta esta nulo e deve ser padronizado antes de produtos que filtrem por essa coluna."
       ]
+    },
+    {
+      "canonical_key": "WSPKIN001__kinross_bandeirinhas",
+      "supabase": {
+        "id_projeto": 211,
+        "codigo_interno_opyta": "WSPKIN001",
+        "nome_projeto": "Kinross"
+      },
+      "status": "active",
+      "aliases": ["wsp_kinross_bandeirinhas", "kinross", "bandeirinhas"],
+      "domains": ["Fitoplâncton", "Migração"],
+      "recipes": [],
+      "docs": ["docs/control_center/operations/WSPKIN001_FITOPLANCTON_MIGRACAO.md"],
+      "scripts": [],
+      "audit": ["outputs/validacoes/wspkin001_fitoplancton_20260902"],
+      "learning": ["Cliente WSP (id_cliente=216) e projeto WSPKIN001 (id_projeto=211) criados e confirmados no Supabase em 2026-09-02."]
     }
   ]
 }

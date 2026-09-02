@@ -30,7 +30,7 @@
 | Cadastro de especies | validado estruturalmente | Cadastro atualizado recebido em 2026-09-01: 15 linhas correspondem exatamente aos 15 taxons antes ausentes; os demais 19 ja existem no cadastro. Cobertura dos 34 taxons completa, sujeita a aprovacao taxonomica. |
 | Auditoria de atributos | auditada com pendencias | Os 15 novos registros possuem os 23 campos da planilha preenchidos; em 18 dos 19 taxons existentes ha ao menos um atributo de ameaca nacional/global, origem ou endemismo ausente. Nao houve preenchimento inferido. |
 | Gate B - especies | concluido | Aprovado pelo usuario em 2026-09-01, com os qualificadores taxonomicos preservados conforme cadastro atualizado. |
-| Migracao | concluida | Cliente `Brasil PCH S.A.` e projeto `BRACAR001` (id `208`) cadastrados; 15 especies cadastradas. Fonte x banco: 34 campanhas, 238 pontos, 282 esforcos, 1.052 registros agregados, 34 especies e 5.043 individuos, sem divergencias. |
+| Migracao | concluida com revisao R01 | Cliente `Brasil PCH S.A.` e projeto `BRACAR001` (id `208`) cadastrados; 15 especies cadastradas. Fonte x banco: 34 campanhas, 238 pontos, 282 esforcos, 1.052 registros agregados, 34 especies e 5.043 individuos, sem divergencias. Revisão R01 preservou 4.458 detalhes individuais, incluindo EMG, PG e IGS. |
 | Consolidacao | concluida | Backup `public.bkp_biota_analise_consolidada_pre_bracar001_20260901` criado com 39.529 linhas; consolidado global reconstruido com sucesso (40.581 linhas) e fatia BRACAR001 conferida. |
 | Configuracao das analises | em andamento | Definir template, paleta, pasta de saida e produtos para o Gate C. |
 | Gate C - analises | pendente | Aguardara aprovacao de template, paleta, saida e produtos. |
@@ -82,6 +82,7 @@
 - totais no banco: 34 campanhas; 238 pontos; 282 esforcos; 1.052 registros; 34 especies; 5.043 individuos.
 - coordenadas no banco/consolidado: pendente
 - divergencias: nenhuma na comparacao fonte x banco em 2026-09-01.
+- lastro de erro e solucao (R01, 2026-09-02): a migracao agregava os 4.458 registros em 1.052 linhas e descartava campos individuais (`Sexo`, `EMG`, `PG_g`, `IGS`). Solucao aplicada: `G:\Meu Drive\Opyta\Opyta_Data\scripts\migrar_detalhes_reprodutivos_ictio.py`, chamado pelo migrador oficial, grava a fonte individual em `public.resultados_ictiofauna_detalhe`. Resultado: 4.458 detalhes, 2.499 EMG preenchidos, 2.417 EMG numericos, 714 PG e 4.324 IGS; ver revisao `BRACAR001_ICTIOFAUNA_MIGRACAO_REPRODUCAO_REV_R01.md`.
 - backup: `public.bkp_biota_analise_consolidada_pre_bracar001_20260901` (39.529 linhas antes da reconstrucao)
 - totais consolidados: BRACAR001 com 1.052 registros, 34 campanhas, 7 pontos, 34 especies e 5.043 individuos; consolidado global com 40.581 linhas apos a reconstrucao.
 
@@ -113,7 +114,7 @@
 
 | Revisao | Tipo | Impacto | Estado | Registro |
 | --- | --- | --- | --- | --- |
-| | | | | |
+| R01 — preservacao reprodutiva | dados/migracao | R3 | `awaiting_revision_approval` | [BRACAR001_ICTIOFAUNA_MIGRACAO_REPRODUCAO_REV_R01.md](../reviews/BRACAR001_ICTIOFAUNA_MIGRACAO_REPRODUCAO_REV_R01.md) |
 
 ## Fechamento E Aprendizados
 

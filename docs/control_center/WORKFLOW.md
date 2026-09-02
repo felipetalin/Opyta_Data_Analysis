@@ -84,12 +84,12 @@ FECHAMENTO E APRENDIZADO
 
 | Etapa | Acao obrigatoria | Evidencia minima | Proximo estado |
 | --- | --- | --- | --- |
-| 0. Abertura | Confirmar projeto, grupo, campanhas, entradas, saida e operacao | Registro da operacao criado | `validating` |
+| 0. Abertura | Confirmar projeto, grupo, campanhas, entradas, saida e operacao; consultar Supabase e registrar `codigo_interno_opyta`, `canonical_key` e `id_projeto` | Registro da operacao criado e identidade Supabase consultada | `validating` |
 | 1. Validacao | Validar estrutura, chaves, pontos, coordenadas, esforco, resultados, taxonomia e totais | Relatorio de validacao, auditoria de coordenadas e lista de ajustes | `awaiting_data_approval` |
 | Gate A | Aplicar ajustes permitidos e apresentar o pacote corrigido, incluindo decisao sobre coordenadas | Aprovacao explicita do usuario | `registering_species` |
 | 2. Especies | Identificar especies novas, cadastrar e auditar todos os atributos exigidos | Relatorio de completude taxonomica | `awaiting_species_approval` |
 | Gate B | Resolver campos incertos, endemismo, origem, ameaca e demais atributos | Aprovacao explicita do usuario ou registro `nao aplicavel` | `ready_to_migrate` |
-| 3. Migracao | Executar carga controlada e comparar fonte com banco | Totais Excel x banco, IDs e divergencias | `consolidating` |
+| 3. Migracao | Reconfirmar identidade Supabase no preflight, executar carga controlada e comparar fonte com banco | Totais Excel x banco, `id_projeto` reconfirmado e divergencias | `consolidating` |
 | 4. Consolidacao | Criar backup, consolidar e auditar a fatia do projeto | Nome do backup e comparacao base x consolidado | `configuring_analysis` |
 | 5. Configuracao | Propor template pelo numero de campanhas, paleta, pasta de saida e produtos | Mapa de decisao analitica | `awaiting_analysis_approval` |
 | Gate C | Confirmar template, paleta e pasta de saida | Aprovacao explicita do usuario | `generating_products` |
@@ -134,8 +134,16 @@ Antes de migrar:
 - permitir ajustes manuais do usuario;
 - registrar a aprovacao taxonomica.
 
+Quando a auditoria identificar táxons não cadastrados, gerar automaticamente a
+planilha de pendências na raiz de migração, conforme
+[TAXON_REGISTRATION_INTAKE_POLICY.md](TAXON_REGISTRATION_INTAKE_POLICY.md).
+
 Se nao houver especies novas, o gate continua existindo e deve ser registrado
 como `nao aplicavel — cadastro ja completo`, com a auditoria correspondente.
+
+### Identidade Supabase
+
+`id_projeto` não é pendência de Gate A nem de Gate B, pois a identidade Supabase deve ser consultada na abertura. Antes da carga, o preflight apenas reconfirma essa identidade, segundo [SUPABASE_IDENTITY_POLICY.md](SUPABASE_IDENTITY_POLICY.md).
 
 ### Gate C — Analises
 

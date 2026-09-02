@@ -5,10 +5,10 @@
 - projeto: WSPKIN001 / WSP Kinross Bandeirinhas
 - grupo: Fitoplâncton
 - operacao: Migração inicial
-- estado atual: `awaiting_data_approval`
+- estado atual: `registering_species`
 - aberta em: 2026-09-02
 - atualizada em: 2026-09-02
-- proxima acao: Decidir as pendências da validação e aprovar o Gate A.
+- proxima acao: Aguardar o preenchimento da planilha de pendências taxonômicas pelo usuário e revalidar antes do Gate B.
 
 ## Caminhos
 
@@ -25,9 +25,9 @@
 | --- | --- | --- |
 | Abertura | concluida | Operação criada; fonte identificada; registry ainda sem entrada WSPKIN001. |
 | Validacao | concluida | Relatório em `outputs/validacoes/wspkin001_fitoplancton_20260902/`; estrutura e coordenadas internas OK, com cinco pendências. |
-| Gate A — dados | aguardando aprovacao | Decisão do usuário sobre cobertura, mapeamento, abundância, referência espacial e cadastro do projeto. |
-| Cadastro de especies | pendente | |
-| Auditoria de atributos | pendente | |
+| Gate A — dados | concluido | Decisões do usuário registradas em 2026-09-02. |
+| Cadastro de especies | em andamento | Consulta Supabase: 67/77 táxons já cadastrados; 10 novos pendentes. |
+| Auditoria de atributos | em andamento | Dois registros existentes com classificação incompleta; relatório de auditoria Supabase criado. |
 | Gate B — especies | pendente | |
 | Migracao | pendente | |
 | Consolidacao | pendente | |
@@ -42,23 +42,26 @@
 
 | Gate | Status | Registro |
 | --- | --- | --- |
-| A — dados | `awaiting_approval` | Validação concluída; há cinco pendências registradas. |
+| A — dados | `approved_with_notes` | Ausências confirmadas; regra qualitativa/quantitativa e descarte de campos aprovados; ressalva espacial aceita. |
 | B — especies | `pending` | Cadastro/auditoria taxonômica ainda não executados. |
 | C — analises | `pending` | |
 
 ## Validacao Dos Dados
 
-- bloqueios: cobertura incompleta de resultados, regra de abundância ambígua e mapeamento de campos de ictiofauna para fitoplâncton pendentes.
-- avisos: projeto sem entrada localizada no registry filtrado; não foi fornecida referência espacial externa.
-- coordenadas: 20/20 válidas, uma coordenada por ponto; comparação externa pendente.
+- bloqueios: nenhum no Gate A.
+- avisos: nenhuma referência espacial externa disponível; ressalva aprovada pelo usuário.
+- coordenadas: 20/20 válidas, uma coordenada por ponto; seguir sem comparação externa, aprovado em 2026-09-02.
+- regra de transformação aprovada: `X` representa ocorrência de amostragem qualitativa; valor numérico representa abundância de amostragem quantitativa em `org/amostra`.
+- campos descartados no mapeamento: `Malha_ou_Anzol`, `CT_cm`, `CP_cm`, `PC_g`, `Sexo`, `EMG` e `Observacao_Individuo_Lote` quando contiverem `N.A.`.
+- ausências confirmadas: PT_03, PT_04, PT_06 e PT_09 em C001-2026-03-CH; PT_07, PT_09 e PT_10 em C002-2026-07-SC.
 - ajustes aplicados: nenhum.
 - arquivos corrigidos: nenhum.
 
 ## Cadastro E Auditoria De Especies
 
-- especies novas: pendente.
-- atributos obrigatorios: pendente.
-- campos incertos: pendente.
+- especies novas: 10, listadas em `outputs/validacoes/wspkin001_fitoplancton_20260902/auditoria_cadastro_supabase_wspkin001_fitoplancton_20260902.md`; planilha criada em `G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\WSP\BAndeirinhas_Kinross\Migração de dados\Cadastro_Especies_WSPKIN001_Fitoplancton.xlsx`.
+- atributos obrigatorios: 67/77 táxons encontrados; `Euastrum sp.` e `Phacus orbicularis` sem classe, ordem e família.
+- campos incertos: classificação e autoria dos 10 táxons novos aguardam auditoria.
 - ajustes manuais: nenhum.
 
 ## Migracao E Consolidacao
@@ -81,7 +84,7 @@
 
 ## Pendencias
 
-- Registrar WSPKIN001 no project registry após confirmar a identidade e o escopo do projeto na validação inicial.
+- Identidade Supabase confirmada na abertura: cliente WSP `id_cliente=216`; WSPKIN001 `id_projeto=211`. O preflight da migração somente reconfirmará esses IDs.
 
 ## Fechamento E Aprendizados
 

@@ -26,6 +26,8 @@ aprovacao do usuario.
 | --- | --- | --- |
 | Fluxo operacional | Oficial | [WORKFLOW.md](WORKFLOW.md) |
 | Politica de contexto LLM | Oficial | [LLM_CONTEXT_POLICY.md](LLM_CONTEXT_POLICY.md) |
+| Identidade Supabase | Oficial | [SUPABASE_IDENTITY_POLICY.md](SUPABASE_IDENTITY_POLICY.md) |
+| Pendências taxonômicas | Oficial | [TAXON_REGISTRATION_INTAKE_POLICY.md](TAXON_REGISTRATION_INTAKE_POLICY.md) |
 | Riscos de custo de tokens | Ativo | [TOKEN_COST_RISK_REGISTER.md](TOKEN_COST_RISK_REGISTER.md) |
 | Fluxo de meio fisico | Ativo | [MEIO_FISICO_WORKFLOW.md](MEIO_FISICO_WORKFLOW.md) |
 | Fluxo de revisao | Oficial | [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md) |

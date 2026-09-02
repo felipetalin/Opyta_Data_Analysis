@@ -7,7 +7,8 @@ continua em [PROJECTS.md](PROJECTS.md).
 
 | Operacao | Projeto | Grupo | Estado atual | Proxima acao | Registro |
 | --- | --- | --- | --- | --- | --- |
-| Migração inicial | WSPKIN001 / WSP Kinross Bandeirinhas | Fitoplâncton | `awaiting_data_approval` | Decidir pendências da validação e aprovar Gate A antes do cadastro taxonômico e migração | [WSPKIN001_FITOPLANCTON_MIGRACAO.md](operations/WSPKIN001_FITOPLANCTON_MIGRACAO.md) |
+| Migração inicial | WSPKIN001 / Kinross | Zooplâncton | `registering_species` | Aguardar preenchimento da planilha de cinco táxons novos, revalidar e aplicar cadastro antes do Gate B | [WSPKIN001_ZOOPLANCTON_MIGRACAO.md](operations/WSPKIN001_ZOOPLANCTON_MIGRACAO.md) |
+| Migração inicial | WSPKIN001 / WSP Kinross Bandeirinhas | Fitoplâncton | `registering_species` | Aguardar preenchimento da planilha de 10 táxons novos e 2 cadastros a completar; revalidar e apresentar Gate B | [WSPKIN001_FITOPLANCTON_MIGRACAO.md](operations/WSPKIN001_FITOPLANCTON_MIGRACAO.md) |
 | Migracao inicial | BRACAR001 | Ictiofauna | `configuring_analysis` | Definir template, paleta, pasta de saida e produtos para o Gate C; migracao e consolidacao conferidas | [BRACAR001_ICTIOFAUNA_MIGRACAO.md](operations/BRACAR001_ICTIOFAUNA_MIGRACAO.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Zoobentos | `awaiting_revision_approval` | Revisar pacote gerado e aprovar Gate R; validacao 16/16 OK | [BRACED001_ZOOBENTOS_FONSECA_MIGRACAO.md](operations/BRACED001_ZOOBENTOS_FONSECA_MIGRACAO.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Ictiofauna | `awaiting_revision_approval` | Aprovar Gate R das figuras em paineis separados por campanha | [BRACED001_ICTIOFAUNA_FONSECA_MIGRACAO.md](operations/BRACED001_ICTIOFAUNA_FONSECA_MIGRACAO.md) |
