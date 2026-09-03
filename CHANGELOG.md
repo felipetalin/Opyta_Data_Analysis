@@ -28,6 +28,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   minimum validation checks.
 - Ducal Ictiofauna scope fallback (`project_id=183` -> `DUCGEO001`) and
   project-scope safety note in `docs/PROJECT_SCOPE_SAFETY.md`.
+- BRACAR001 client config (`configs/clients/bracar001.json`) with audit slug
+  `BRACAR001__projeto_carangola` and the new biomass reconstruction flag.
+
+- Ictiofauna report-layout figures for BRACAR001 (`ictio_report_layout`):
+  CPUEn/CPUEb per point and per campaign, relative richness per river section,
+  species-by-point occurrence table, and Shannon/Pielou per year. Sections and
+  phases are declared in the client config and drawn as labelled boxes under the
+  x axis. Approved Gold exception documented in `docs/PADRAO_GOLD_APROVADO.md`.
+- Ictiofauna occurrence-by-campaign table for report layouts
+  (`05_tabela_ocorrencia_por_campanha_*.xlsx`, Quadro 8 of the consolidated
+  report): species-by-campaign presence matrix with OC, CO (%) and per-species
+  N, plus abundance and richness footer rows, and a `Resumo_campanha` sheet
+  mapping each ordinal to its campaign code, year and season. Built over every
+  capture method, which is the basis the report uses. Validated against the
+  client model for BRACAR001: 34 species, 1122 presence cells and the abundance
+  and richness rows of all 33 reported campaigns match with zero differences
+  (total 4976). The generated table additionally carries campaign 34
+  (Jul/2026, 67 specimens), which postdates the report.
+- `spine_sides` theme key so a product can open the axes frame (report layouts),
+  enforced symmetrically by `validate_axes_style`. Omitting it keeps the closed
+  four-sided frame the Gold standard requires.
+
+### Fixed
+- `apply_theme` no longer re-enables the y grid when `grid_y` is false. Passing
+  line properties alongside `visible=False` makes matplotlib turn the grid back
+  on, so `grid_y: false` had never worked.
+- Ictiofauna yearly CPUE panels no longer drop campaigns: the grid was fixed at
+  2x2 while `zip` stopped at the shorter sequence, silently discarding the fifth
+  campaign of any year (BRACAR001 lost `C014-2009-12`). The grid now grows.
+- Ictiofauna CPUEb can now reconstruct total line biomass as
+  `contagem * biomassa` when a project sets `ictio_biomass_from_mean_weight`.
+  The consolidated `biomassa` column stores `pc_g` (mean weight per individual
+  of the lot), so summing it directly underestimates CPUEb whenever
+  `contagem > 1`. Confirmed on BRACAR001: species-level comparison of `pc_g`
+  for single-specimen rows versus lots gives a ratio around 1.0 (0.73-1.43)
+  instead of scaling with lot size, and the project total moves from
+  131,287 g to 518,017 g (about 3.95x). Enabled only for BRACAR001 for now;
+  every other project keeps the previous behaviour by default.
 
 ## [0.1.0] - 2026-05-07
 

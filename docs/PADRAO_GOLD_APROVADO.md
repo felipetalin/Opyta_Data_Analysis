@@ -49,6 +49,17 @@ Padronizar visualmente todos os graficos dos pipelines Opyta para garantir:
 - Bloco 6, Graficos 06B e 06C (abundancia por classe):
 	- Quebra controlada da paleta verde para paleta categorial de alto contraste (tab10).
 	- Motivo: melhorar detectabilidade visual entre classes.
+- BRACAR001 (PCH Carangola), figuras em layout de relatorio (`ictio_report_layout`):
+	- Moldura aberta: apenas as bordas esquerda e inferior, via `spine_sides`.
+	- Sem grade nas figuras de barra; grade mantida na figura de diversidade por ano.
+	- Barras em verde solido `#8DC63F`, sem contorno e sem rotulo de valor.
+	- Agrupamento de categorias em caixas sob o eixo X (trecho e fase).
+	- Motivo: reproduzir fielmente o relatorio consolidado ja entregue ao cliente
+	  (`Opyta-Brasil-PCH-Carangola-Monitoramento-ictiofauna_consolidado-260901.docx`,
+	  Figuras 11, 12, 14, 15 e 16).
+	- Aprovado pelo usuario em 2026-09-02.
+	- Escopo: aplicado por figura via `_theme_with`, nunca no tema global. O padrao
+	  do repositorio segue exigindo a moldura fechada quando `spine_sides` e omitido.
 
 ## Criterio analitico atualizado
 - Bloco 10 (curva de suficiencia amostral):

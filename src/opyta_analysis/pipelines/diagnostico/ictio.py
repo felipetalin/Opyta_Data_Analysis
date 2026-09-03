@@ -6,6 +6,7 @@ from pathlib import Path
 
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 from matplotlib.lines import Line2D
 import numpy as np
 from openpyxl import Workbook
@@ -459,6 +460,39 @@ def _load_ictio_df(project_id: int, group: str, env_file: str | None) -> pd.Data
     return df.reset_index(drop=True)
 
 
+def _load_ictio_detail_df(project_code: str, env_file: str | None) -> pd.DataFrame:
+    """Carrega `resultados_ictiofauna_detalhe` (uma linha por individuo/lote medido).
+
+    E a base da secao reprodutiva: a view consolidada agrega e nao expoe sexo,
+    estadio de maturacao gonadal, comprimento padrao nem peso de gonada.
+    """
+    if not project_code:
+        return pd.DataFrame()
+
+    sb = get_client(env_file)
+    rows = paginate(sb, "resultados_ictiofauna_detalhe", filters={"codigo_opyta": project_code}, select="*")
+    if not rows:
+        return pd.DataFrame()
+
+    df = pd.DataFrame(rows)
+    especies = paginate(sb, "especies", select="id_especie,nome_cientifico,nome_popular,ordem,familia")
+    if especies:
+        registry = pd.DataFrame(especies).drop_duplicates("id_especie")
+        df = df.merge(registry, on="id_especie", how="left")
+
+    for column in ["numero_de_individuos", "cp_cm", "ct_cm", "pc_g", "pg_g"]:
+        if column in df.columns:
+            df[column] = pd.to_numeric(df[column], errors="coerce")
+    if "numero_de_individuos" in df.columns:
+        df["numero_de_individuos"] = df["numero_de_individuos"].fillna(0)
+    return df
+
+
+def _emg_stage(code: object) -> int | None:
+    match = re.match(r"^[FM](\d)$", str(code or "").strip(), flags=re.IGNORECASE)
+    return int(match.group(1)) if match else None
+
+
 def _enrich_ictio_species_attributes(df: pd.DataFrame, sb) -> pd.DataFrame:
     if df.empty or "nome_cientifico" not in df.columns:
         return df
@@ -587,6 +621,27 @@ def _attach_line_level_biomass(df: pd.DataFrame, theme: dict) -> pd.DataFrame:
     result.attrs["biomass_source"] = str(source)
     result.attrs["biomass_formula"] = "Numero_de_Individuos * PC_g por linha, agregado por soma"
     return result
+
+
+def _resolve_line_biomass(df_quant: pd.DataFrame, theme: dict) -> tuple[str, str]:
+    """Cria `_biomassa_linha` em `df_quant` e devolve (coluna, formula aplicada).
+
+    A coluna `biomassa` de `biota_analise_consolidada` recebe o `pc_g` da origem,
+    que e o peso medio por individuo do lote e nao a biomassa total da linha.
+    Somar essa coluna direto subestima CPUEb sempre que `contagem > 1`. Quando o
+    projeto declara `ictio_biomass_from_mean_weight`, a biomassa total da linha e
+    reconstruida como `contagem * biomassa` antes de qualquer agregacao.
+    """
+    if "biomassa_total_analitica" in df_quant.columns:
+        df_quant["_biomassa_linha"] = df_quant["biomassa_total_analitica"]
+        return "_biomassa_linha", "biomassa_total_analitica (planilha linha a linha)"
+
+    if bool(theme.get("ictio_biomass_from_mean_weight", False)):
+        df_quant["_biomassa_linha"] = df_quant["contagem"] * df_quant["biomassa"]
+        return "_biomassa_linha", "contagem * biomassa (peso medio por individuo)"
+
+    df_quant["_biomassa_linha"] = df_quant["biomassa"]
+    return "_biomassa_linha", "biomassa (coluna consolidada, sem reconstrucao)"
 
 
 def _weighted_mean(values: pd.Series, weights: pd.Series) -> float:
@@ -1268,7 +1323,18 @@ def _plot_yearly_metric_panels(
             if metric_col in pivot.columns:
                 max_value = max(max_value, float(pivot[metric_col].max()))
 
-        fig, axes = plt.subplots(2, 2, figsize=(float(base_size[0]), float(base_size[1])), dpi=int(theme.get("dpi", 600)), sharey=True)
+        # O grid precisa comportar todas as campanhas do ano; fixar 2x2 descartava
+        # silenciosamente a partir da quinta (zip para na sequencia mais curta).
+        ncols = 2
+        nrows = max(2, int(np.ceil(len(year_campaigns) / ncols)))
+        fig, axes = plt.subplots(
+            nrows,
+            ncols,
+            figsize=(float(base_size[0]), float(base_size[1]) * nrows / 2),
+            dpi=int(theme.get("dpi", 600)),
+            sharey=True,
+            squeeze=False,
+        )
         for ax, campaign in zip(axes.ravel(), year_campaigns):
             values = pivots[campaign][metric_col].to_numpy(dtype=float) if metric_col in pivots[campaign].columns else np.zeros(len(points))
             x = np.arange(len(points))
@@ -1342,6 +1408,606 @@ def _plot_yearly_metric_panels(
         fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
         plt.close(fig)
         generated_files.append(str(out_png))
+
+
+def _campaign_index(campaign: str) -> int | None:
+    match = re.match(r"^C0*(\d+)", str(campaign).strip(), flags=re.IGNORECASE)
+    return int(match.group(1)) if match else None
+
+
+def _resolve_point_sections(theme: dict, points: list[str]) -> list[dict]:
+    """Agrupa pontos em trechos declarados em `ictio_point_sections`."""
+    raw = theme.get("ictio_point_sections")
+    if not isinstance(raw, list):
+        return []
+
+    normalized = [_normalize_point_id(point) for point in points]
+    groups: list[dict] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        label = str(item.get("label", "")).strip()
+        members = {_normalize_point_id(p) for p in (item.get("points") or [])}
+        indices = [i for i, point in enumerate(normalized) if point in members]
+        if label and indices:
+            groups.append({"label": label, "indices": indices})
+    return groups
+
+
+def _resolve_campaign_phases(theme: dict, campaigns: list[str]) -> list[dict]:
+    """Agrupa campanhas em fases declaradas em `ictio_campaign_phases` (faixas from/to)."""
+    raw = theme.get("ictio_campaign_phases")
+    if not isinstance(raw, list):
+        return []
+
+    numbers = [_campaign_index(campaign) for campaign in campaigns]
+    groups: list[dict] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        label = str(item.get("label", "")).strip()
+        start = _campaign_index(item["from"]) if item.get("from") else None
+        end = _campaign_index(item["to"]) if item.get("to") else None
+        indices = [
+            i
+            for i, number in enumerate(numbers)
+            if number is not None
+            and (start is None or number >= start)
+            and (end is None or number <= end)
+        ]
+        if label and indices:
+            groups.append({"label": label, "indices": indices})
+    return groups
+
+
+def _draw_group_boxes(
+    ax,
+    groups: list[dict],
+    theme: dict,
+    *,
+    y_top: float,
+    height: float,
+) -> None:
+    """Desenha caixas rotuladas sob o eixo X, no estilo de tabela usado no relatorio.
+
+    Cada grupo vira um retangulo com o rotulo centralizado; grupos vizinhos
+    compartilham a aresta, produzindo as divisorias verticais do relatorio.
+    """
+    if not groups:
+        return
+
+    from matplotlib.patches import Rectangle
+    from matplotlib.transforms import blended_transform_factory
+
+    trans = blended_transform_factory(ax.transData, ax.transAxes)
+    color = str(theme.get("axis_group_edge_hex", "#808080"))
+    text_color = str(theme.get("axis_group_text_hex", "#3F3F3F"))
+    fontsize = max(7, int(theme.get("label_size", theme.get("font_size_base", 12))) - 2)
+    for group in groups:
+        indices = group["indices"]
+        x0, x1 = min(indices) - 0.5, max(indices) + 0.5
+        ax.add_patch(
+            Rectangle(
+                (x0, y_top - height), x1 - x0, height,
+                transform=trans, facecolor="none", edgecolor=color,
+                linewidth=0.8, clip_on=False, zorder=3,
+            )
+        )
+        ax.text((x0 + x1) / 2, y_top - height / 2, group["label"],
+                ha="center", va="center", transform=trans,
+                fontsize=fontsize, color=text_color, clip_on=False, zorder=4)
+
+
+def _report_bar_color(theme: dict) -> str:
+    return str(theme.get("ictio_report_bar_hex", theme.get("primary_hex", "#8DC63F")))
+
+
+def _theme_with(theme: dict, **overrides) -> dict:
+    """Copia o tema com ajustes locais de uma figura.
+
+    O conjunto do relatorio mistura estilos: as barras nao tem grade nem
+    legenda, enquanto a figura de diversidade tem grade e legenda no topo.
+    Sobrepor por figura evita fixar essas chaves no config do cliente, onde
+    afetariam todos os demais blocos.
+    """
+    merged = dict(theme)
+    merged.update(overrides)
+    return merged
+
+
+def _plot_report_cpue_by_point(
+    df_cpue: pd.DataFrame,
+    metric_col: str,
+    ylabel: str,
+    theme: dict,
+    points: list[str],
+    out_png: Path,
+    generated_files: list[str],
+) -> None:
+    """Figura 12 do relatorio: CPUEn ou CPUEb por ponto, agregando todas as campanhas."""
+    totals = (
+        df_cpue.groupby("nome_ponto", dropna=False)[metric_col]
+        .sum()
+        .reindex(points)
+        .fillna(0.0)
+    )
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    fig, ax = plt.subplots(figsize=(float(size[0]), float(size[1])), dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(points))
+    ax.bar(x, totals.to_numpy(dtype=float), color=_report_bar_color(theme), width=0.45)
+    ax.set_xticks(x)
+    ax.set_xticklabels(points, ha="center")
+    fig_theme = _theme_with(theme, grid_y=False, spine_sides=["left", "bottom"])
+    apply_theme(ax, fig_theme, xlabel="", ylabel=ylabel, x_tick_rotation=90)
+    validate_axes_style(ax, fig_theme)
+
+    _draw_group_boxes(
+        ax,
+        _resolve_point_sections(theme, points),
+        theme,
+        y_top=float(theme.get("ictio_report_section_box_top", -0.30)),
+        height=float(theme.get("ictio_report_section_box_height", 0.09)),
+    )
+    fig.tight_layout(rect=[0.0, 0.12, 1.0, 1.0])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+
+def _plot_report_cpue_by_campaign(
+    df_cpue: pd.DataFrame,
+    metric_col: str,
+    ylabel: str,
+    theme: dict,
+    campaigns: list[str],
+    out_png: Path,
+    generated_files: list[str],
+) -> None:
+    """Figuras 14 e 15 do relatorio: CPUEn/CPUEb por campanha, agregando todos os pontos."""
+    totals = (
+        df_cpue.groupby("nome_campanha", dropna=False)[metric_col]
+        .sum()
+        .reindex(campaigns)
+        .fillna(0.0)
+    )
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    fig, ax = plt.subplots(figsize=(float(size[0]), float(size[1])), dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(campaigns))
+    ax.bar(x, totals.to_numpy(dtype=float), color=_report_bar_color(theme), width=0.62)
+    ax.set_xticks(x)
+    ax.set_xticklabels(
+        [str(_campaign_index(campaign) or campaign) for campaign in campaigns],
+        ha="center",
+    )
+    fig_theme = _theme_with(theme, grid_y=False, spine_sides=["left", "bottom"])
+    apply_theme(ax, fig_theme, xlabel="", ylabel=ylabel)
+    validate_axes_style(ax, fig_theme)
+
+    _draw_group_boxes(
+        ax,
+        _resolve_campaign_phases(theme, campaigns),
+        theme,
+        y_top=float(theme.get("ictio_report_phase_box_top", -0.06)),
+        height=float(theme.get("ictio_report_phase_box_height", 0.07)),
+    )
+    fig.tight_layout(rect=[0.0, 0.08, 1.0, 1.0])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+
+def _point_section_map(theme: dict, points: list[str]) -> dict[str, str]:
+    return {
+        points[index]: group["label"]
+        for group in _resolve_point_sections(theme, points)
+        for index in group["indices"]
+    }
+
+
+def _plot_report_richness_by_section(
+    df_projeto: pd.DataFrame,
+    theme: dict,
+    points: list[str],
+    output_dir: Path,
+    group_slug: str,
+    generated_files: list[str],
+) -> dict:
+    """Figura 11 e Quadro 7 do relatorio: riqueza por trecho e matriz especie x ponto."""
+    sections = _resolve_point_sections(theme, points)
+    if not sections:
+        return {}
+
+    labels = [group["label"] for group in sections]
+    section_of = _point_section_map(theme, points)
+
+    df = _drop_effort_only_records(df_projeto).copy()
+    for column in ["nome_ponto", "nome_cientifico"]:
+        df[column] = df[column].astype(str).str.strip()
+    df = df[~df["nome_cientifico"].isin(["", "nan", "None"])].copy()
+    df["contagem"] = pd.to_numeric(df["contagem"], errors="coerce").fillna(0)
+    df["trecho"] = df["nome_ponto"].map(section_of)
+
+    resumo = (
+        df.dropna(subset=["trecho"])
+        .groupby("trecho")
+        .agg(
+            riqueza=("nome_cientifico", "nunique"),
+            abundancia=("contagem", "sum"),
+            pontos=("nome_ponto", "nunique"),
+        )
+        .reindex(labels)
+        .fillna(0)
+        .reset_index()
+    )
+    total = float(resumo["riqueza"].sum()) or 1.0
+    resumo["riqueza_relativa_pct"] = resumo["riqueza"] / total * 100
+
+    abundancia = (
+        df.pivot_table(index="nome_cientifico", columns="nome_ponto", values="contagem",
+                       aggfunc="sum", fill_value=0)
+        .reindex(columns=points, fill_value=0)
+    )
+    quadro = abundancia.apply(lambda col: col.map(lambda v: "X" if float(v) > 0 else ""))
+    quadro.columns = [f"{section_of.get(point, '-')} | {point}" for point in points]
+    quadro["OC"] = (abundancia > 0).sum(axis=1)
+    quadro["CO (%)"] = (quadro["OC"] / max(len(points), 1) * 100).round(0)
+    quadro["N"] = abundancia.sum(axis=1)
+    quadro = quadro.sort_index().reset_index().rename(columns={"nome_cientifico": "Espécie"})
+
+    out_xlsx = output_dir / f"05_tabela_ocorrencia_por_trecho_{group_slug}.xlsx"
+    with pd.ExcelWriter(out_xlsx, engine="openpyxl") as writer:
+        quadro.to_excel(writer, sheet_name="Especie_x_Ponto", index=False)
+        resumo.to_excel(writer, sheet_name="Resumo_trecho", index=False)
+    generated_files.append(str(out_xlsx))
+
+    out_png = output_dir / f"05_grafico_riqueza_por_trecho_{group_slug}.png"
+    fig, ax = plt.subplots(
+        figsize=get_figsize_by_complexity(theme, n_categories=len(labels), prefer_landscape=True),
+        dpi=int(theme.get("dpi", 600)),
+    )
+    x = np.arange(len(labels))
+    values = resumo["riqueza_relativa_pct"].to_numpy(dtype=float)
+    bars = ax.bar(x, values, color=_report_bar_color(theme), width=0.55)
+    for bar, value in zip(bars, values):
+        ax.text(bar.get_x() + bar.get_width() / 2, float(value), f"{value:.1f}%".replace(".", ","),
+                ha="center", va="bottom",
+                fontsize=int(theme.get("annotation_size", theme.get("font_size_base", 12))))
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, ha="center")
+    fig_theme = _theme_with(theme, grid_y=False, spine_sides=["left", "bottom"])
+    apply_theme(ax, fig_theme, xlabel="Trecho", ylabel="Frequência relativa da riqueza (%)")
+    validate_axes_style(ax, fig_theme)
+    fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.0))
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+    return {
+        "trechos": {
+            str(row["trecho"]): {
+                "riqueza": int(row["riqueza"]),
+                "abundancia": float(row["abundancia"]),
+                "riqueza_relativa_pct": round(float(row["riqueza_relativa_pct"]), 1),
+            }
+            for _, row in resumo.iterrows()
+        },
+        "taxa_no_quadro": int(len(quadro)),
+    }
+
+
+def _report_occurrence_by_campaign(
+    df_projeto: pd.DataFrame,
+    theme: dict,
+    output_dir: Path,
+    group_slug: str,
+    generated_files: list[str],
+) -> dict:
+    """Quadro 8 do relatorio: matriz especie x campanha com ocorrencia (X).
+
+    Espelha o modelo entregue: colunas ordinais por campanha, OC (numero de
+    campanhas em que a especie ocorreu), CO (%) e N (abundancia da especie),
+    com as linhas de Abundancia e Riqueza no rodape. Considera todos os metodos
+    de captura, que e a base usada no relatorio.
+    """
+    df = _drop_effort_only_records(df_projeto).copy()
+    for column in ["nome_campanha", "nome_cientifico"]:
+        df[column] = df[column].astype(str).str.strip()
+    df = df[~df["nome_cientifico"].isin(["", "nan", "None"])].copy()
+    df["contagem"] = pd.to_numeric(df["contagem"], errors="coerce").fillna(0)
+    if df.empty:
+        return {}
+
+    campaigns = sorted(df["nome_campanha"].unique())
+    ordinals = [
+        f"{_campaign_index(campaign) or index + 1}º"
+        for index, campaign in enumerate(campaigns)
+    ]
+
+    abundancia = (
+        df.pivot_table(index="nome_cientifico", columns="nome_campanha", values="contagem",
+                       aggfunc="sum", fill_value=0)
+        .reindex(columns=campaigns, fill_value=0)
+        .sort_index()
+    )
+    quadro = abundancia.apply(lambda col: col.map(lambda v: "X" if float(v) > 0 else ""))
+    quadro.columns = ordinals
+    quadro.insert(0, "Espécie", quadro.index)
+    quadro["OC"] = (abundancia > 0).sum(axis=1).to_numpy()
+    quadro["CO (%)"] = (quadro["OC"] / max(len(campaigns), 1) * 100).round(0)
+    quadro["N"] = abundancia.sum(axis=1).to_numpy()
+    quadro = quadro.reset_index(drop=True)
+
+    abundancia_campanha = abundancia.sum(axis=0)
+    riqueza_campanha = (abundancia > 0).sum(axis=0)
+    rodape = pd.DataFrame(
+        [
+            ["Abundância", *abundancia_campanha.to_list(), "", "", int(abundancia.to_numpy().sum())],
+            ["Riqueza", *riqueza_campanha.to_list(), "", "", int(abundancia.shape[0])],
+        ],
+        columns=quadro.columns,
+    )
+    quadro = pd.concat([quadro, rodape], ignore_index=True)
+
+    resumo = pd.DataFrame(
+        {
+            "ordem": ordinals,
+            "campanha": campaigns,
+            "abundancia": abundancia_campanha.to_numpy(),
+            "riqueza": riqueza_campanha.to_numpy(),
+        }
+    )
+    partes = resumo["campanha"].str.split("-")
+    resumo["ano"] = partes.str[1]
+    resumo["estacao"] = partes.str[3].map(SEASON_LABELS).fillna("")
+
+    out_xlsx = output_dir / f"05_tabela_ocorrencia_por_campanha_{group_slug}.xlsx"
+    with pd.ExcelWriter(out_xlsx, engine="openpyxl") as writer:
+        quadro.to_excel(writer, sheet_name="Especie_x_Campanha", index=False)
+        resumo.to_excel(writer, sheet_name="Resumo_campanha", index=False)
+    generated_files.append(str(out_xlsx))
+
+    return {
+        "campanhas": int(len(campaigns)),
+        "taxa_no_quadro": int(abundancia.shape[0]),
+        "abundancia_total": int(abundancia.to_numpy().sum()),
+        "base": "todos os metodos de captura",
+    }
+
+
+def _plot_report_diversity_by_year(
+    df_projeto: pd.DataFrame,
+    theme: dict,
+    output_dir: Path,
+    group_slug: str,
+    generated_files: list[str],
+) -> dict:
+    """Figura 16 do relatorio: Shannon (H') e Pielou (J) agregados por ano."""
+    df_div = _cpuen_por_especie_ponto(df_projeto)
+    if df_div.empty:
+        return {}
+
+    df_div = df_div.copy()
+    df_div["ano"] = df_div["nome_campanha"].map(_campaign_year)
+    df_div = df_div[df_div["ano"].notna()].copy()
+    if df_div.empty:
+        return {}
+
+    rows = []
+    for ano, frame in df_div.groupby("ano"):
+        vector = frame.groupby("nome_cientifico")["cpuen"].sum().to_numpy(dtype=float)
+        rows.append(
+            {
+                "ano": int(ano),
+                "riqueza": int((vector > 0).sum()),
+                "Shannon_H": _shannon(vector),
+                "Pielou_J": _pielou(vector),
+            }
+        )
+    table = pd.DataFrame(rows).sort_values("ano").reset_index(drop=True)
+
+    out_xlsx = output_dir / f"10_df_diversidade_por_ano_{group_slug}.xlsx"
+    table.to_excel(out_xlsx, index=False, engine="openpyxl")
+    generated_files.append(str(out_xlsx))
+
+    # A Figura 16 e a unica do conjunto com grade e legenda no topo; as demais
+    # sao barras sem grade. Sobrepoe o tema so nesta figura em vez de fixar as
+    # chaves no config do cliente.
+    fig_theme = _theme_with(
+        theme,
+        grid_y=True,
+        spine_sides=["left", "bottom"],
+        legend_below_x_axis=False,
+        legend_loc="upper center",
+        legend_figure_loc="upper center",
+    )
+
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    fig, ax = plt.subplots(figsize=(float(size[0]), float(size[1])), dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(table))
+    series = [
+        ("Shannon_H", str(theme.get("ictio_report_line_hex", "#00A651")), "Shannon_H"),
+        ("Pielou_J", _report_bar_color(theme), "Equitability_J"),
+    ]
+    for column, color, label in series:
+        ax.plot(x, table[column].to_numpy(dtype=float), color=color,
+                linewidth=float(theme.get("ictio_report_linewidth", 2.4)), label=label)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels([str(int(ano)) for ano in table["ano"]], ha="center")
+    ax.yaxis.set_major_formatter(mticker.FormatStrFormatter("%.2f"))
+    apply_theme(ax, fig_theme, xlabel="Ano", ylabel="Diversidade (Shannon H')", x_tick_rotation=90)
+    ax.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.5, 1.10),
+        ncol=2,
+        frameon=False,
+        fontsize=int(theme.get("legend_size", theme.get("font_size_base", 12))),
+    )
+    validate_axes_style(ax, fig_theme)
+
+    out_png = output_dir / f"10_grafico_diversidade_por_ano_{group_slug}.png"
+    fig.tight_layout(rect=[0.0, 0.0, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+    return {"anos": int(len(table)), "base_quantitativa": "CPUEn (ind/100m2)"}
+
+
+def _plot_report_cpue_species(
+    table: pd.DataFrame,
+    campaigns: list[str],
+    xlabel: str,
+    theme: dict,
+    out_png: Path,
+    generated_files: list[str],
+) -> None:
+    """Figuras 9 e 10 do relatorio: CPUE por especie em barras horizontais.
+
+    Agrega todas as campanhas numa barra por especie e ordena do maior para o
+    menor, com o maior no topo.
+    """
+    values = (
+        table.set_index("nome_cientifico")[[c for c in campaigns if c in table.columns]]
+        .sum(axis=1)
+        .sort_values(ascending=False)
+    )
+    limit = int(theme.get("ictio_report_species_limit", 20))
+    if limit > 0:
+        values = values.head(limit)
+    values = values.sort_values(ascending=True)  # barh desenha de baixo para cima
+
+    fig_theme = _theme_with(theme, grid_y=False, spine_sides=["left", "bottom"])
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    height = max(float(size[1]), 0.42 * max(len(values), 8))
+    fig, ax = plt.subplots(figsize=(float(size[0]), height), dpi=int(theme.get("dpi", 600)))
+    y = np.arange(len(values))
+    ax.barh(y, values.to_numpy(dtype=float), height=0.62, color=_report_bar_color(theme))
+    ax.set_yticks(y)
+    ax.set_yticklabels(values.index.tolist(), fontstyle="italic")
+    ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda v, _: f"{v:,.0f}"))
+    apply_theme(ax, fig_theme, xlabel=xlabel, ylabel="")
+    ax.grid(axis="x", visible=False)
+    validate_axes_style(ax, fig_theme)
+    fig.tight_layout()
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+
+REPORT_CATEGORICAL_PALETTE = [
+    "#ED7D31", "#A5A5A5", "#FFC000", "#5B9BD5", "#4472C4",
+    "#70AD47", "#264478", "#9E480E", "#636363", "#997300",
+    "#255E91", "#43682B", "#698ED0", "#F1975A", "#B7B7B7",
+    "#FFCD33", "#7CAFDD", "#8ED973", "#C55A11", "#7B4EA3",
+]
+
+
+def _resolve_year_phases(theme: dict, years: list[int], campaigns: list[str]) -> list[dict]:
+    """Traduz as fases declaradas por campanha para o eixo de anos."""
+    phases = _resolve_campaign_phases(theme, campaigns)
+    if not phases:
+        return []
+
+    year_of = {index: _campaign_year(campaign) for index, campaign in enumerate(campaigns)}
+    groups: list[dict] = []
+    for phase in phases:
+        phase_years = {year_of[i] for i in phase["indices"] if year_of.get(i) is not None}
+        indices = [i for i, year in enumerate(years) if year in phase_years]
+        if indices:
+            groups.append({"label": phase["label"], "indices": indices})
+    return groups
+
+
+def _plot_report_richness_stacked_by_year(
+    df_projeto: pd.DataFrame,
+    theme: dict,
+    taxon_col: str,
+    out_png: Path,
+    generated_files: list[str],
+    ylabel: str = "Número de espécies",
+) -> dict:
+    """Composicao da riqueza por ano, empilhada a 100%, agrupada por fase.
+
+    Cada barra e um ano e cada fatia a participacao de um taxon na riqueza
+    daquele ano (numero de especies distintas).
+    """
+    df = _drop_effort_only_records(df_projeto).copy()
+    df["nome_cientifico"] = df["nome_cientifico"].astype(str).str.strip()
+    df = df[~df["nome_cientifico"].isin(["", "nan", "None"])].copy()
+    df[taxon_col] = df[taxon_col].astype(str).str.strip()
+    df = df[~df[taxon_col].isin(["", "nan", "None"])].copy()
+    df["ano"] = df["nome_campanha"].map(_campaign_year)
+    df = df[df["ano"].notna()].copy()
+    if df.empty:
+        return {}
+
+    counts = (
+        df.groupby(["ano", taxon_col])["nome_cientifico"].nunique()
+        .unstack(taxon_col).fillna(0.0).sort_index()
+    )
+    counts = counts.reindex(columns=sorted(counts.columns))
+    percent = counts.div(counts.sum(axis=1).replace(0, np.nan), axis=0).fillna(0.0) * 100
+    years = [int(year) for year in percent.index]
+    taxa = list(percent.columns)
+
+    palette = list(theme.get("ictio_report_categorical_palette", REPORT_CATEGORICAL_PALETTE))
+    on_top = len(taxa) > 6
+    # Nos dois casos a legenda e ancorada pelo topo e cresce para baixo, para
+    # nao invadir o rotulo do eixo nem as caixas de fase.
+    fig_theme = _theme_with(
+        theme, grid_y=True, spine_sides=["left", "bottom"],
+        legend_below_x_axis=not on_top,
+        legend_loc="upper center",
+        legend_figure_loc="upper center",
+    )
+
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    fig, ax = plt.subplots(figsize=(float(size[0]), float(size[1])), dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(years))
+    bottom = np.zeros(len(years), dtype=float)
+    for index, taxon in enumerate(taxa):
+        values = percent[taxon].to_numpy(dtype=float)
+        ax.bar(x, values, bottom=bottom, width=0.62,
+               color=palette[index % len(palette)], label=str(taxon))
+        bottom += values
+
+    ax.set_ylim(0, 100)
+    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=100, decimals=0))
+    ax.set_xticks(x)
+    ax.set_xticklabels([str(year) for year in years], ha="center")
+    apply_theme(ax, fig_theme, xlabel="Fase/Ano", ylabel=ylabel, x_tick_rotation=90)
+
+    box_top = float(theme.get("ictio_report_year_box_top", -0.20))
+    box_height = float(theme.get("ictio_report_year_box_height", 0.07))
+    _draw_group_boxes(
+        ax, _resolve_year_phases(theme, years, sorted(
+            df["nome_campanha"].dropna().astype(str).unique().tolist(), key=_campanha_sort_key)),
+        theme, y_top=box_top, height=box_height,
+    )
+    label_y = box_top - box_height - 0.05
+    ax.xaxis.set_label_coords(0.5, label_y)
+
+    ncol = min(len(taxa), int(theme.get("ictio_report_legend_ncol", 5)))
+    legend_fontsize = int(theme.get("legend_size", theme.get("font_size_base", 11)))
+    if on_top:
+        # Muitas categorias: a legenda vai para uma faixa reservada acima do
+        # eixo, senao invade a area de plotagem.
+        nrows = int(np.ceil(len(taxa) / ncol))
+        fig.legend(*ax.get_legend_handles_labels(), loc="upper center",
+                   bbox_to_anchor=(0.5, 0.995), ncol=ncol, frameon=False, fontsize=legend_fontsize)
+        top = max(0.62, 1.0 - 0.05 * nrows)
+    else:
+        ax.legend(loc="upper center", bbox_to_anchor=(0.5, label_y - 0.06),
+                  ncol=ncol, frameon=False, fontsize=legend_fontsize)
+        top = 1.0
+    validate_axes_style(ax, fig_theme)
+    fig.tight_layout(rect=[0.0, 0.10, 1.0, top])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+    return {"anos": len(years), "categorias": len(taxa)}
 
 
 def _campanha_sort_key(campaign: str) -> tuple[int, str]:
@@ -1859,7 +2525,36 @@ def _run_block_5(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         )
     generated_files.append(str(out_png))
 
-    return {"campaigns": campaigns, "points": points}
+    details: dict = {"campaigns": campaigns, "points": points}
+    if bool(theme.get("ictio_report_layout", False)):
+        details["por_trecho"] = _plot_report_richness_by_section(
+            df_projeto=df_projeto,
+            theme=theme,
+            points=points,
+            output_dir=output_dir,
+            group_slug=group_slug,
+            generated_files=generated_files,
+        )
+        details["por_campanha"] = _report_occurrence_by_campaign(
+            df_projeto=df_projeto,
+            theme=theme,
+            output_dir=output_dir,
+            group_slug=group_slug,
+            generated_files=generated_files,
+        )
+        df_trecho = df_projeto.copy()
+        df_trecho["trecho"] = (
+            df_trecho["nome_ponto"].astype(str).str.strip().map(_point_section_map(theme, points))
+        )
+        details["composicao_trecho_por_ano"] = _plot_report_richness_stacked_by_year(
+            df_projeto=df_trecho,
+            theme=theme,
+            taxon_col="trecho",
+            out_png=output_dir / f"05_grafico_composicao_trecho_por_ano_{group_slug}.png",
+            generated_files=generated_files,
+            ylabel="Percentual de espécies",
+        )
+    return details
 
 
 def _run_block_6(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
@@ -2083,7 +2778,17 @@ def _run_block_7(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         output_dir=output_dir,
         generated_files=generated_files,
     )
-    return {"ordens": ordem["categorias"], "familias": familia["categorias"]}
+    details = {"ordens": ordem["categorias"], "familias": familia["categorias"]}
+    if bool(theme.get("ictio_report_layout", False)):
+        for tax_col, slug in [("ordem", "ordem"), ("familia", "familia")]:
+            details[f"composicao_por_ano_{slug}"] = _plot_report_richness_stacked_by_year(
+                df_projeto=df_projeto,
+                theme=theme,
+                taxon_col=tax_col,
+                out_png=output_dir / f"04_grafico_composicao_{slug}_por_ano_{group_slug}.png",
+                generated_files=generated_files,
+            )
+    return details
 
 
 def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
@@ -2167,11 +2872,7 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         generated_files.append(str(out_df))
         return {"campaigns": [], "points": [], "warning": "esforco invalido para CPUE"}
 
-    biomass_col = (
-        "biomassa_total_analitica"
-        if "biomassa_total_analitica" in df_quant.columns
-        else "biomassa"
-    )
+    biomass_col, biomass_formula = _resolve_line_biomass(df_quant, theme)
     df_totals = (
         df_quant.groupby(["nome_campanha", "nome_ponto"], dropna=False)
         .agg(
@@ -2198,7 +2899,44 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if df_cpue.empty or not campaigns or not points:
         return {"campaigns": campaigns, "points": points}
 
-    if len(campaigns) <= 2:
+    if bool(theme.get("ictio_report_layout", False)):
+        _plot_report_cpue_by_point(
+            df_cpue=df_cpue,
+            metric_col="cpuen",
+            ylabel="CPUE n (ind./100 m²)",
+            theme=theme,
+            points=points,
+            out_png=output_dir / f"06_grafico_cpuen_por_ponto_{group_slug}.png",
+            generated_files=generated_files,
+        )
+        _plot_report_cpue_by_point(
+            df_cpue=df_cpue,
+            metric_col="cpueb",
+            ylabel="CPUE b (g./100 m²)",
+            theme=theme,
+            points=points,
+            out_png=output_dir / f"07_grafico_cpueb_por_ponto_{group_slug}.png",
+            generated_files=generated_files,
+        )
+        _plot_report_cpue_by_campaign(
+            df_cpue=df_cpue,
+            metric_col="cpuen",
+            ylabel="CPUE n (ind./100 m²)",
+            theme=theme,
+            campaigns=campaigns,
+            out_png=output_dir / f"06_grafico_cpuen_por_campanha_{group_slug}.png",
+            generated_files=generated_files,
+        )
+        _plot_report_cpue_by_campaign(
+            df_cpue=df_cpue,
+            metric_col="cpueb",
+            ylabel="CPUE b (g./100 m²)",
+            theme=theme,
+            campaigns=campaigns,
+            out_png=output_dir / f"07_grafico_cpueb_por_campanha_{group_slug}.png",
+            generated_files=generated_files,
+        )
+    elif len(campaigns) <= 2:
         _plot_grouped_campaign_bars(
             table=df_cpue,
             value_col="cpuen",
@@ -2252,6 +2990,7 @@ def _run_block_8(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         "campaigns": campaigns,
         "points": points,
         "cpue_formula": "(sum_abundance_or_biomass / sum_distinct_effort_by_campaign_point) * 100",
+        "biomass_formula": biomass_formula,
     }
 
 
@@ -2302,11 +3041,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         generated_files.extend([str(out_df_cpuen), str(out_df_cpueb), str(out_df_cpuen_point), str(out_df_cpueb_point)])
         return {"campaigns": [], "species": 0, "warning": "sem dados quantitativos validos para CPUE por especie"}
 
-    biomass_col = (
-        "biomassa_total_analitica"
-        if "biomassa_total_analitica" in df_quant.columns
-        else "biomassa"
-    )
+    biomass_col, biomass_formula = _resolve_line_biomass(df_quant, theme)
     df_species_point = (
         df_quant.groupby(["nome_campanha", "nome_ponto", "nome_cientifico"], dropna=False)
         .agg(
@@ -2517,7 +3252,16 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         plt.close(fig)
         generated_files.append(str(out_png))
 
-    if len(campaigns) > 3:
+    if bool(theme.get("ictio_report_layout", False)):
+        _plot_report_cpue_species(
+            table=cpuen_sp, campaigns=campaigns, xlabel="CPUE n", theme=theme,
+            out_png=out_png_cpuen, generated_files=generated_files,
+        )
+        _plot_report_cpue_species(
+            table=cpueb_sp, campaigns=campaigns, xlabel="CPUE b", theme=theme,
+            out_png=out_png_cpueb, generated_files=generated_files,
+        )
+    elif len(campaigns) > 3:
         _plot_heatmap(
             cpuen_sp,
             "CPUEn (ind/100m2)",
@@ -2563,6 +3307,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         "points": points,
         "species": int(len(order_species)),
         "cpue_formula": "(species_abundance_or_biomass_at_point / sum_distinct_effort_by_campaign_point) * 100",
+        "biomass_formula": biomass_formula,
     }
 
 
@@ -2669,7 +3414,16 @@ def _run_block_10(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
         )
     generated_files.append(str(out_png))
 
-    return {"campaigns": campaigns, "base_quantitativa": "CPUEn (ind/100m2)"}
+    details: dict = {"campaigns": campaigns, "base_quantitativa": "CPUEn (ind/100m2)"}
+    if bool(theme.get("ictio_report_layout", False)):
+        details["por_ano"] = _plot_report_diversity_by_year(
+            df_projeto=df_projeto,
+            theme=theme,
+            output_dir=output_dir,
+            group_slug=group_slug,
+            generated_files=generated_files,
+        )
+    return details
 
 
 def _run_block_11(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: Path, generated_files: list[str]) -> dict:
@@ -2737,12 +3491,24 @@ def _run_block_12(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
     if any(c not in df_projeto.columns for c in required):
         raise RuntimeError("[ERRO] Colunas obrigatorias ausentes no Bloco 12 ICTIO")
 
-    df_suf = df_projeto[df_projeto["tipo_amostragem"].astype(str).str.contains("quantit", case=False, na=False)].copy()
+    # A curva do coletor mede deteccao de especies, nao esforco padronizado.
+    # `ictio_suficiencia_inclui_qualitativa` permite contar tambem os registros
+    # qualitativos, que detectam especie da mesma forma; o padrao segue restrito
+    # ao quantitativo para nao alterar entregas anteriores.
+    inclui_quali = bool(theme.get("ictio_suficiencia_inclui_qualitativa", False))
+    escopo = "quantitativa + qualitativa" if inclui_quali else "somente quantitativa"
+    df_suf = _drop_effort_only_records(df_projeto)
+    if not inclui_quali:
+        df_suf = df_suf[df_suf["tipo_amostragem"].astype(str).str.contains("quantit", case=False, na=False)]
+    df_suf = df_suf.copy()
     if df_suf.empty:
-        return {"samples": 0, "warning": "sem dados quantitativos"}
+        return {"samples": 0, "warning": f"sem dados ({escopo})"}
 
     for c in ["nome_campanha", "nome_ponto", "nome_cientifico"]:
         df_suf[c] = df_suf[c].astype(str).str.strip()
+    df_suf = df_suf[~df_suf["nome_cientifico"].isin(["", "nan", "None"])].copy()
+    if df_suf.empty:
+        return {"samples": 0, "warning": f"sem taxons identificados ({escopo})"}
     df_suf["contagem"] = pd.Series(pd.to_numeric(df_suf["contagem"], errors="coerce"), index=df_suf.index).fillna(0)
     df_suf["amostra_id"] = df_suf["nome_campanha"] + " | " + df_suf["nome_ponto"]
 
@@ -2834,7 +3600,12 @@ def _run_block_12(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
     plt.close(fig)
     generated_files.append(str(out_png))
 
-    return {"samples": n_samples, "observed_final": float(mean_sobs[-1]), "jackknife_final": float(mean_sest[-1])}
+    return {
+        "samples": n_samples,
+        "observed_final": float(mean_sobs[-1]),
+        "jackknife_final": float(mean_sest[-1]),
+        "escopo_amostral": escopo,
+    }
 
 
 def _run_block_13(df_projeto: pd.DataFrame, group: str, output_dir: Path, generated_files: list[str]) -> dict:
@@ -2845,6 +3616,189 @@ def _run_block_13(df_projeto: pd.DataFrame, group: str, output_dir: Path, genera
         generated_files=generated_files,
         include_fish_biometrics=True,
     )
+
+
+EMG_STAGE_LABELS = {
+    "F": ["Repouso", "Maturação", "Maduro", "Desovado"],
+    "M": ["Repouso", "Maturação", "Maduro", "Espermeado"],
+}
+EMG_STAGE_COLORS = {
+    "F": ["#4472C4", "#C0504D", "#9BBB59", "#8064A2"],
+    "M": ["#4472C4", "#C0504D", "#9BBB59", "#4BACC6"],
+}
+SEASON_LABELS = {"CH": "Chuva", "SC": "Seca", "ND": ""}
+
+
+def _plot_report_emg_stacked(
+    sexed: pd.DataFrame,
+    sexo: str,
+    theme: dict,
+    campaigns: list[str],
+    out_png: Path,
+    generated_files: list[str],
+) -> None:
+    """Figura 18 do relatorio: EMG empilhado a 100% por campanha, para um sexo.
+
+    O quarto estadio muda de nome conforme o sexo (`Desovado` para femeas,
+    `Espermeado` para machos), como no relatorio.
+    """
+    stages = [1, 2, 3, 4]
+    counts = (
+        sexed[sexed["sexo"] == sexo]
+        .pivot_table(index="campanha", columns="estadio", values="numero_de_individuos",
+                     aggfunc="sum", fill_value=0)
+        .reindex(index=campaigns, columns=stages, fill_value=0)
+        .fillna(0.0)
+    )
+    percent = counts.div(counts.sum(axis=1).replace(0, np.nan), axis=0) * 100
+
+    fig_theme = _theme_with(
+        theme, grid_y=False, spine_sides=["left", "bottom"],
+        legend_below_x_axis=False, legend_loc="upper center", legend_figure_loc="upper center",
+    )
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    fig, ax = plt.subplots(figsize=(float(size[0]), float(size[1])), dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(campaigns))
+    bottom = np.zeros(len(campaigns), dtype=float)
+    for stage, label, color in zip(stages, EMG_STAGE_LABELS[sexo], EMG_STAGE_COLORS[sexo]):
+        values = percent[stage].fillna(0.0).to_numpy(dtype=float)
+        ax.bar(x, values, bottom=bottom, width=0.7, color=color, label=label)
+        bottom += values
+
+    ax.set_ylim(0, 100)
+    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=100, decimals=0))
+    ax.set_xticks(x)
+    ax.set_xticklabels([SEASON_LABELS.get(_campaign_season(c), "") for c in campaigns], ha="center")
+    apply_theme(
+        ax, fig_theme,
+        xlabel="Campanha/Período",
+        ylabel=f"{'Fêmeas' if sexo == 'F' else 'Machos'} - Percentual de EMG",
+        x_tick_rotation=90,
+    )
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.09), ncol=4, frameon=False,
+              fontsize=int(theme.get("legend_size", theme.get("font_size_base", 12))))
+    validate_axes_style(ax, fig_theme)
+
+    box_top = float(theme.get("ictio_report_campaign_box_top", -0.16))
+    box_height = float(theme.get("ictio_report_campaign_box_height", 0.06))
+    _draw_group_boxes(
+        ax,
+        [{"label": str(_campaign_index(c) or c), "indices": [i]} for i, c in enumerate(campaigns)],
+        theme,
+        y_top=box_top,
+        height=box_height,
+    )
+    # O rotulo do eixo tem de ficar abaixo das caixas, nao sobre os rotulos de estacao.
+    ax.xaxis.set_label_coords(0.5, box_top - box_height - 0.04)
+    fig.tight_layout(rect=[0.0, 0.06, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+
+def _run_block_reproducao(
+    df_detalhe: pd.DataFrame,
+    group: str,
+    theme: dict,
+    output_dir: Path,
+    generated_files: list[str],
+) -> dict:
+    """Figura 18 e Quadros 9 e 10: EMG por sexo, EMG por especie e IGS medio."""
+    group_slug = _safe_group_name(group)
+    if df_detalhe.empty:
+        return {"warning": "sem dados em resultados_ictiofauna_detalhe"}
+
+    df = df_detalhe.copy()
+    df["sexo"] = df.get("sexo_padronizado", pd.Series(dtype=object)).astype(str).str.strip().str.upper()
+    df["estadio"] = df.get("emg_codigo", pd.Series(dtype=object)).map(_emg_stage)
+    df["nome_cientifico"] = df.get("nome_cientifico", pd.Series(dtype=object)).astype(str).str.strip()
+
+    sexed = df[df["sexo"].isin(["F", "M"]) & df["estadio"].notna()].copy()
+    if sexed.empty:
+        return {"warning": "sem registros com sexo e estadio de maturacao gonadal"}
+    sexed["estadio"] = sexed["estadio"].astype(int)
+
+    stages = [1, 2, 3, 4]
+    sex_label = {"F": "Fêmeas", "M": "Machos"}
+
+    # ---------- Figura 18: EMG empilhado 100% por campanha, uma figura por sexo ----------
+    # O eixo usa todas as campanhas do projeto, nao so as que tem individuos
+    # sexados: campanhas sem material reprodutivo aparecem como coluna vazia,
+    # como no relatorio, em vez de sumirem e desalinhar a numeracao.
+    campaigns = sorted(
+        df["campanha"].dropna().astype(str).str.strip().unique().tolist(),
+        key=_campanha_sort_key,
+    )
+    geral = (
+        sexed.pivot_table(index="sexo", columns="estadio", values="numero_de_individuos",
+                          aggfunc="sum", fill_value=0)
+        .reindex(index=["F", "M"], columns=stages, fill_value=0)
+    )
+    geral_pct = geral.div(geral.sum(axis=1).replace(0, np.nan), axis=0).fillna(0.0) * 100
+
+    for sexo in ["F", "M"]:
+        _plot_report_emg_stacked(
+            sexed=sexed,
+            sexo=sexo,
+            theme=theme,
+            campaigns=campaigns,
+            out_png=output_dir / f"14_grafico_emg_{'femeas' if sexo == 'F' else 'machos'}_{group_slug}.png",
+            generated_files=generated_files,
+        )
+
+    # ---------- Quadro 9: EMG relativo por especie e sexo + juvenis ----------
+    juvenis = (
+        df[df["sexo"] == "IMAT"].groupby("nome_cientifico")["numero_de_individuos"].sum()
+    )
+    index = sorted(set(sexed["nome_cientifico"]) | set(juvenis.index))
+    quadro9 = pd.DataFrame(index=pd.Index(index, name="Espécie"))
+    for sexo in ["F", "M"]:
+        counts = (
+            sexed[sexed["sexo"] == sexo]
+            .pivot_table(index="nome_cientifico", columns="estadio", values="numero_de_individuos",
+                         aggfunc="sum", fill_value=0)
+            .reindex(index=index, columns=stages, fill_value=0)
+        )
+        percent = counts.div(counts.sum(axis=1).replace(0, np.nan), axis=0) * 100
+        for stage in stages:
+            quadro9[f"{sex_label[sexo]} {stage}"] = percent[stage].round(0)
+    quadro9["Juvenis (abund.)"] = juvenis.reindex(index).fillna(0).astype(int)
+
+    # ---------- Quadro 10: IGS medio (%) por especie, sexo e estadio ----------
+    # A coluna `igs` do banco guarda a fracao e recebe 0 onde falta peso de gonada;
+    # recalcular a partir de pg_g/pc_g evita as duas armadilhas.
+    igs_base = sexed[sexed["pg_g"].notna() & sexed["pc_g"].notna() & sexed["pc_g"].gt(0)].copy()
+    igs_base["igs_pct"] = igs_base["pg_g"] / igs_base["pc_g"] * 100
+    quadro10 = pd.DataFrame(index=pd.Index(index, name="Espécie"))
+    for sexo in ["F", "M"]:
+        medias = (
+            igs_base[igs_base["sexo"] == sexo]
+            .pivot_table(index="nome_cientifico", columns="estadio", values="igs_pct", aggfunc="mean")
+            .reindex(index=index, columns=stages)
+        )
+        for stage in stages:
+            quadro10[f"{sex_label[sexo]} {stage}"] = medias[stage].round(1)
+
+    out_q9 = output_dir / f"14_tabela_emg_por_especie_{group_slug}.xlsx"
+    with pd.ExcelWriter(out_q9, engine="openpyxl") as writer:
+        quadro9.reset_index().to_excel(writer, sheet_name="EMG_por_especie", index=False)
+        (geral_pct.round(1).rename(index=sex_label)
+         .rename_axis("Sexo").reset_index()).to_excel(writer, sheet_name="EMG_geral", index=False)
+    generated_files.append(str(out_q9))
+
+    out_q10 = output_dir / f"15_tabela_igs_por_especie_{group_slug}.xlsx"
+    quadro10.reset_index().to_excel(out_q10, index=False, engine="openpyxl")
+    generated_files.append(str(out_q10))
+
+    return {
+        "individuos_sexados": int(sexed["numero_de_individuos"].sum()),
+        "femeas": int(sexed.loc[sexed["sexo"] == "F", "numero_de_individuos"].sum()),
+        "machos": int(sexed.loc[sexed["sexo"] == "M", "numero_de_individuos"].sum()),
+        "juvenis_imat": int(juvenis.sum()) if not juvenis.empty else 0,
+        "especies_no_quadro": int(len(index)),
+        "linhas_com_peso_de_gonada": int(len(igs_base)),
+        "igs_formula": "pg_g / pc_g * 100 (recalculado; coluna igs do banco e fracao e traz zeros espurios)",
+    }
 
 
 def run_ictio_pipeline(
@@ -3000,8 +3954,25 @@ def run_ictio_pipeline(
         )
         executed_blocks.append("13")
 
+    if block_sel in {"14", "reproducao", "all"}:
+        project_code = ""
+        if "codigo_interno_opyta" in df.columns:
+            codes = df["codigo_interno_opyta"].dropna().astype(str).unique().tolist()
+            project_code = codes[0] if len(codes) == 1 else ""
+        details["block_14"] = _run_block_reproducao(
+            df_detalhe=_load_ictio_detail_df(project_code, env_file),
+            group=group,
+            theme=theme,
+            output_dir=output_dir,
+            generated_files=generated_files,
+        )
+        executed_blocks.append("14")
+
     if not executed_blocks:
-        raise ValueError("Unsupported block for ictio pipeline. Use '3', '4', '5', '6', '7', '8', '9', '9b', 'biometria', '10', '11', '12', '13' or 'all'.")
+        raise ValueError(
+            "Unsupported block for ictio pipeline. Use '3', '4', '5', '6', '7', '8', '9', '9b', "
+            "'biometria', '10', '11', '12', '13', '14', 'reproducao' or 'all'."
+        )
 
     details["executed_blocks"] = executed_blocks
     details["generated_files"] = generated_files

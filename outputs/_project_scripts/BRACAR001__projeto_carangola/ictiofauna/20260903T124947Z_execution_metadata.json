@@ -1,0 +1,134 @@
+{
+  "executed_at": "2026-09-03T12:49:47.413621Z",
+  "runner_version": "1.2",
+  "project_id": 208,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "bracar001",
+  "block": "5",
+  "campaign_filter": null,
+  "git": {
+    "branch": "bracar001-ictiofauna-carangola",
+    "commit": "161cd3d",
+    "dirty": true,
+    "status_short_count": 7,
+    "full_dirty": true,
+    "full_status_short_count": 8,
+    "ignored_generated_audit_count": 1
+  },
+  "rows_loaded": 1063,
+  "executed_blocks": [
+    "5"
+  ],
+  "campaigns": [
+    "C001-2000-11-CH",
+    "C002-2003-02-CH",
+    "C003-2004-01-CH",
+    "C004-2006-11-CH",
+    "C005-2007-02-CH",
+    "C006-2007-05-SC",
+    "C007-2007-08-SC",
+    "C008-2008-07-SC",
+    "C009-2008-09-SC",
+    "C010-2009-01-CH",
+    "C011-2009-03-CH",
+    "C012-2009-06-SC",
+    "C013-2009-09-SC",
+    "C014-2009-12-CH",
+    "C015-2010-03-CH",
+    "C016-2012-11-CH",
+    "C017-2013-05-SC",
+    "C018-2014-01-CH",
+    "C019-2014-04-SC",
+    "C020-2014-07-SC",
+    "C021-2014-11-CH",
+    "C022-2018-08-SC",
+    "C023-2019-01-CH",
+    "C024-2019-05-SC",
+    "C025-2020-07-SC",
+    "C026-2020-11-CH",
+    "C027-2021-03-CH",
+    "C028-2022-07-SC",
+    "C029-2022-11-CH",
+    "C030-2023-03-CH",
+    "C031-2024-07-SC",
+    "C032-2024-11-CH",
+    "C033-2025-03-CH",
+    "C034-2026-07-SC"
+  ],
+  "campaigns_count": 34,
+  "points": [
+    "CAR-01",
+    "CAR-02",
+    "CAR-03",
+    "CAR-04",
+    "CAR-04A",
+    "CAR-05",
+    "CAR-06"
+  ],
+  "points_count": 7,
+  "output_dir": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026",
+  "generated_files_count": 6,
+  "generated_files": [
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_tabela_ocorrencia_por_trecho_ictiofauna.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_grafico_riqueza_por_trecho_ictiofauna.png",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_tabela_ocorrencia_por_campanha_ictiofauna.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_grafico_composicao_trecho_por_ano_ictiofauna.png"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 8691,
+      "modified_at": "2026-09-03T12:49:39.070000Z",
+      "sha256": "029a565029ac26abceb51e8ce1b9a8f76cd308b1c71552fec41a1efcabdc882c"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1428602,
+      "modified_at": "2026-09-03T12:49:43.837000Z",
+      "sha256": "24383ea91ea1bdc6f4c304d18d7d251805be3bb69810a63c6a5591edb7645255"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_tabela_ocorrencia_por_trecho_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7475,
+      "modified_at": "2026-09-03T12:49:43.964000Z",
+      "sha256": "adb889a9a56d1637b50e755792e962c93f9c0d135e3fbae25bf6be1a29f7d431"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_grafico_riqueza_por_trecho_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 380290,
+      "modified_at": "2026-09-03T12:49:45.533000Z",
+      "sha256": "63a4986b20c40d5dc57e120533371b43dddca8979827905a039024d821a63bb0"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_tabela_ocorrencia_por_campanha_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 11553,
+      "modified_at": "2026-09-03T12:49:45.662000Z",
+      "sha256": "14198f19cac4581133e8aaf09031cb25773967d4f8521270a61a0f937a1297ee"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Brasil PCH\\Projeto Carangola\\Resultados\\Consolidado_2026\\05_grafico_composicao_trecho_por_ano_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 508810,
+      "modified_at": "2026-09-03T12:49:47.294000Z",
+      "sha256": "982b72c85619ccaede2a77886b037ce65a5eead88341b751e62b867fbb2af9ec"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "C:\\o\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "C:\\o\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACAR001__projeto_carangola\\ictiofauna",
+  "warnings": []
+}

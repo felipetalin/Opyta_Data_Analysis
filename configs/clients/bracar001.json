@@ -1,0 +1,29 @@
+{
+  "client_code": "BRACAR001",
+  "audit_project_slug": "BRACAR001__projeto_carangola",
+  "theme_override": {
+    "ictio_biomass_from_mean_weight": true,
+    "ictio_suficiencia_inclui_qualitativa": true,
+    "ictio_report_layout": true,
+    "ictio_report_bar_hex": "#8DC63F",
+    "ictio_report_line_hex": "#00A651",
+    "axis_group_edge_hex": "#808080",
+    "axis_group_text_hex": "#3F3F3F",
+    "primary_hex": "#00A651",
+    "secondary_hex": "#8DC63F",
+    "highlight_hex": "#4E8B31",
+    "palette_start_hex": "#14532D",
+    "palette_end_hex": "#A7D96A",
+    "ictio_point_sections": [
+      { "label": "Montante", "points": ["CAR-01", "CAR-02"] },
+      { "label": "Reservatório", "points": ["CAR-03"] },
+      { "label": "TVR", "points": ["CAR-04", "CAR-04A"] },
+      { "label": "Jusante", "points": ["CAR-05", "CAR-06"] }
+    ],
+    "ictio_campaign_phases": [
+      { "label": "Pré", "from": "C001", "to": "C003" },
+      { "label": "Implantação", "from": "C004", "to": "C007" },
+      { "label": "Operação", "from": "C008", "to": "C034" }
+    ]
+  }
+}

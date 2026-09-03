@@ -19,20 +19,24 @@ def validate_axes_style(ax, expected: dict) -> None:
     if not _is_white(ax.figure.get_facecolor()):
         errors.append("figure facecolor must be white")
 
-    for side in ["top", "right", "left", "bottom"]:
-        if not ax.spines[side].get_visible():
+    # Por padrao o Gold exige a moldura fechada; `spine_sides` declara um
+    # subconjunto quando o produto reproduz um layout aprovado pelo cliente.
+    all_sides = ["top", "right", "left", "bottom"]
+    expected_sides = {str(side).lower() for side in expected.get("spine_sides", all_sides)}
+    for side in all_sides:
+        is_visible = ax.spines[side].get_visible()
+        if is_visible and side not in expected_sides:
+            errors.append(f"{side} spine must be hidden by active style")
+        if not is_visible and side in expected_sides:
             errors.append(f"{side} spine must be visible")
 
-    left_w = float(ax.spines["left"].get_linewidth())
-    bottom_w = float(ax.spines["bottom"].get_linewidth())
-    top_w = float(ax.spines["top"].get_linewidth())
-    right_w = float(ax.spines["right"].get_linewidth())
+    visible_sides = [side for side in all_sides if side in expected_sides]
     expected_w = float(expected.get("spine_linewidth", 1.2))
-    if any(abs(v - expected_w) > 1e-6 for v in [left_w, bottom_w, top_w, right_w]):
+    if any(abs(float(ax.spines[side].get_linewidth()) - expected_w) > 1e-6 for side in visible_sides):
         errors.append("all spine linewidth values must match expected")
 
     expected_spine = str(expected.get("spine_color", "#000000")).lower()
-    for side in ["top", "right", "left", "bottom"]:
+    for side in visible_sides:
         side_color = mcolors.to_hex(ax.spines[side].get_edgecolor()).lower()
         if side_color != expected_spine:
             errors.append(f"{side} spine color mismatch")

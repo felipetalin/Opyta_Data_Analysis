@@ -4,6 +4,8 @@ from typing import Dict, List
 import colorsys
 import matplotlib.pyplot as plt
 
+SPINE_SIDES = ["top", "right", "left", "bottom"]
+
 
 def _cm_to_inches(cm: float) -> float:
     return float(cm) / 2.54
@@ -131,21 +133,31 @@ def apply_theme(
     fig.patch.set_facecolor(bg)
     ax.set_facecolor(bg)
 
-    ax.grid(
-        axis="y",
-        visible=bool(theme.get("grid_y", True)),
-        linestyle=str(theme.get("grid_linestyle", "--")),
-        linewidth=float(theme.get("grid_linewidth", 0.7)),
-        alpha=float(theme.get("grid_alpha", 0.35)),
-        color=str(theme.get("grid_color", "#E0E0E0")),
-    )
+    # Passar propriedades de linha junto com visible=False faz o matplotlib
+    # religar a grade; so enviar o estilo quando a grade estiver ativa.
+    if bool(theme.get("grid_y", True)):
+        ax.grid(
+            axis="y",
+            visible=True,
+            linestyle=str(theme.get("grid_linestyle", "--")),
+            linewidth=float(theme.get("grid_linewidth", 0.7)),
+            alpha=float(theme.get("grid_alpha", 0.35)),
+            color=str(theme.get("grid_color", "#E0E0E0")),
+        )
+    else:
+        ax.grid(axis="y", visible=False)
     ax.grid(axis="x", visible=bool(theme.get("grid_x", False)))
     ax.set_axisbelow(True)
 
-    for spine in ["top", "right", "left", "bottom"]:
-        ax.spines[spine].set_visible(True)
-        ax.spines[spine].set_color(str(theme.get("spine_color", "#000000")))
-        ax.spines[spine].set_linewidth(float(theme.get("spine_linewidth", 1.2)))
+    # O padrao Gold fecha a moldura nos quatro lados; `spine_sides` permite abrir
+    # o eixo quando o produto reproduz um layout aprovado pelo cliente.
+    visible_sides = {str(side).lower() for side in theme.get("spine_sides", SPINE_SIDES)}
+    for spine in SPINE_SIDES:
+        is_visible = spine in visible_sides
+        ax.spines[spine].set_visible(is_visible)
+        if is_visible:
+            ax.spines[spine].set_color(str(theme.get("spine_color", "#000000")))
+            ax.spines[spine].set_linewidth(float(theme.get("spine_linewidth", 1.2)))
 
     ax.tick_params(
         axis="both",
