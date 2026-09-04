@@ -1777,6 +1777,7 @@ def _report_occurrence_by_campaign(
 def _plot_report_diversity_by_year(
     df_projeto: pd.DataFrame,
     theme: dict,
+    campaigns: list[str],
     output_dir: Path,
     group_slug: str,
     generated_files: list[str],
@@ -1845,13 +1846,110 @@ def _plot_report_diversity_by_year(
     )
     validate_axes_style(ax, fig_theme)
 
+    # Marcos Pre/Implantacao/Operacao sob o eixo, como nas figuras por campanha.
+    box_top = float(theme.get("ictio_report_year_phase_box_top", -0.16))
+    box_height = float(theme.get("ictio_report_phase_box_height", 0.07))
+    year_phases = _resolve_year_phases(
+        theme, [int(ano) for ano in table["ano"]], campaigns
+    )
+    if year_phases:
+        _draw_group_boxes(ax, year_phases, theme, y_top=box_top, height=box_height)
+        ax.xaxis.set_label_coords(0.5, box_top - box_height - 0.04)
+
     out_png = output_dir / f"10_grafico_diversidade_por_ano_{group_slug}.png"
-    fig.tight_layout(rect=[0.0, 0.0, 1.0, 0.94])
+    fig.tight_layout(rect=[0.0, 0.08, 1.0, 0.94])
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
     generated_files.append(str(out_png))
 
     return {"anos": int(len(table)), "base_quantitativa": "CPUEn (ind/100m2)"}
+
+
+def _plot_report_diversity_by_point(
+    df_projeto: pd.DataFrame,
+    theme: dict,
+    output_dir: Path,
+    group_slug: str,
+    generated_files: list[str],
+) -> dict:
+    """Versao espacial da Figura 16: Shannon (H') e Pielou (J) agregados por ponto.
+
+    Mesmo layout da figura por ano, trocando o eixo temporal pelo espacial e a
+    faixa de fases pela de trechos (`ictio_point_sections`).
+    """
+    df_div = _cpuen_por_especie_ponto(df_projeto)
+    if df_div.empty:
+        return {}
+
+    points = sorted(df_div["nome_ponto"].dropna().astype(str).str.strip().unique().tolist())
+    if not points:
+        return {}
+
+    rows = []
+    for ponto in points:
+        frame = df_div[df_div["nome_ponto"] == ponto]
+        vector = frame.groupby("nome_cientifico")["cpuen"].sum().to_numpy(dtype=float)
+        rows.append(
+            {
+                "ponto": ponto,
+                "riqueza": int((vector > 0).sum()),
+                "Shannon_H": _shannon(vector),
+                "Pielou_J": _pielou(vector),
+            }
+        )
+    table = pd.DataFrame(rows)
+
+    out_xlsx = output_dir / f"10_df_diversidade_por_ponto_{group_slug}.xlsx"
+    table.to_excel(out_xlsx, index=False, engine="openpyxl")
+    generated_files.append(str(out_xlsx))
+
+    fig_theme = _theme_with(
+        theme,
+        grid_y=True,
+        spine_sides=["left", "bottom"],
+        legend_below_x_axis=False,
+        legend_loc="upper center",
+        legend_figure_loc="upper center",
+    )
+
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    fig, ax = plt.subplots(figsize=(float(size[0]), float(size[1])), dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(table))
+    series = [
+        ("Shannon_H", str(theme.get("ictio_report_line_hex", "#00A651")), "Shannon_H"),
+        ("Pielou_J", _report_bar_color(theme), "Equitability_J"),
+    ]
+    for column, color, label in series:
+        ax.plot(x, table[column].to_numpy(dtype=float), color=color,
+                linewidth=float(theme.get("ictio_report_linewidth", 2.4)), label=label)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(list(table["ponto"]), ha="center")
+    ax.yaxis.set_major_formatter(mticker.FormatStrFormatter("%.2f"))
+    apply_theme(ax, fig_theme, xlabel="Ponto", ylabel="Diversidade (Shannon H')", x_tick_rotation=0)
+    ax.legend(
+        loc="upper center",
+        bbox_to_anchor=(0.5, 1.10),
+        ncol=2,
+        frameon=False,
+        fontsize=int(theme.get("legend_size", theme.get("font_size_base", 12))),
+    )
+    validate_axes_style(ax, fig_theme)
+
+    box_top = float(theme.get("ictio_report_point_section_box_top", -0.12))
+    box_height = float(theme.get("ictio_report_section_box_height", 0.09))
+    sections = _resolve_point_sections(theme, points)
+    if sections:
+        _draw_group_boxes(ax, sections, theme, y_top=box_top, height=box_height)
+        ax.xaxis.set_label_coords(0.5, box_top - box_height - 0.04)
+
+    out_png = output_dir / f"10_grafico_diversidade_por_ponto_{group_slug}.png"
+    fig.tight_layout(rect=[0.0, 0.12, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+    return {"pontos": int(len(table)), "base_quantitativa": "CPUEn (ind/100m2)"}
 
 
 def _plot_report_cpue_species(
@@ -3419,6 +3517,14 @@ def _run_block_10(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir:
         details["por_ano"] = _plot_report_diversity_by_year(
             df_projeto=df_projeto,
             theme=theme,
+            campaigns=campaigns,
+            output_dir=output_dir,
+            group_slug=group_slug,
+            generated_files=generated_files,
+        )
+        details["por_ponto"] = _plot_report_diversity_by_point(
+            df_projeto=df_projeto,
+            theme=theme,
             output_dir=output_dir,
             group_slug=group_slug,
             generated_files=generated_files,
@@ -3679,6 +3785,15 @@ def _plot_report_emg_stacked(
               fontsize=int(theme.get("legend_size", theme.get("font_size_base", 12))))
     validate_axes_style(ax, fig_theme)
 
+    # Reduz so os rotulos Chuva/Seca: no eixo de 34 campanhas eles encostam na
+    # caixa de numeros. Aplicado apos a validacao por ser ajuste local de figura.
+    season_size = max(
+        6,
+        int(theme.get("tick_size", theme.get("font_size_base", 12)))
+        - int(theme.get("ictio_report_emg_season_size_delta", 2)),
+    )
+    ax.tick_params(axis="x", labelsize=season_size)
+
     box_top = float(theme.get("ictio_report_campaign_box_top", -0.16))
     box_height = float(theme.get("ictio_report_campaign_box_height", 0.06))
     _draw_group_boxes(
@@ -3688,9 +3803,81 @@ def _plot_report_emg_stacked(
         y_top=box_top,
         height=box_height,
     )
+    # Segunda faixa, compartilhando a aresta com a de campanhas: marcos do empreendimento.
+    phase_top = box_top - box_height
+    phase_height = float(theme.get("ictio_report_phase_box_height", 0.07))
+    phases = _resolve_campaign_phases(theme, campaigns)
+    if phases:
+        _draw_group_boxes(ax, phases, theme, y_top=phase_top, height=phase_height)
+        label_y = phase_top - phase_height - 0.04
+    else:
+        label_y = box_top - box_height - 0.04
     # O rotulo do eixo tem de ficar abaixo das caixas, nao sobre os rotulos de estacao.
-    ax.xaxis.set_label_coords(0.5, box_top - box_height - 0.04)
+    ax.xaxis.set_label_coords(0.5, label_y)
     fig.tight_layout(rect=[0.0, 0.06, 1.0, 0.94])
+    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    plt.close(fig)
+    generated_files.append(str(out_png))
+
+
+def _plot_report_emg_stacked_by_point(
+    sexed: pd.DataFrame,
+    sexo: str,
+    theme: dict,
+    points: list[str],
+    out_png: Path,
+    generated_files: list[str],
+) -> None:
+    """Versao espacial da Figura 18: EMG empilhado a 100% por ponto, para um sexo.
+
+    Agrega todas as campanhas; a faixa sob o eixo passa a ser a de trechos
+    (`ictio_point_sections`) no lugar dos marcos do empreendimento.
+    """
+    stages = [1, 2, 3, 4]
+    counts = (
+        sexed[sexed["sexo"] == sexo]
+        .pivot_table(index="ponto", columns="estadio", values="numero_de_individuos",
+                     aggfunc="sum", fill_value=0)
+        .reindex(index=points, columns=stages, fill_value=0)
+        .fillna(0.0)
+    )
+    percent = counts.div(counts.sum(axis=1).replace(0, np.nan), axis=0) * 100
+
+    fig_theme = _theme_with(
+        theme, grid_y=False, spine_sides=["left", "bottom"],
+        legend_below_x_axis=False, legend_loc="upper center", legend_figure_loc="upper center",
+    )
+    size = theme.get("figsize_standard", [11.69, 8.27])
+    fig, ax = plt.subplots(figsize=(float(size[0]), float(size[1])), dpi=int(theme.get("dpi", 600)))
+    x = np.arange(len(points))
+    bottom = np.zeros(len(points), dtype=float)
+    for stage, label, color in zip(stages, EMG_STAGE_LABELS[sexo], EMG_STAGE_COLORS[sexo]):
+        values = percent[stage].fillna(0.0).to_numpy(dtype=float)
+        ax.bar(x, values, bottom=bottom, width=0.45, color=color, label=label)
+        bottom += values
+
+    ax.set_ylim(0, 100)
+    ax.yaxis.set_major_formatter(mticker.PercentFormatter(xmax=100, decimals=0))
+    ax.set_xticks(x)
+    ax.set_xticklabels(points, ha="center")
+    apply_theme(
+        ax, fig_theme,
+        xlabel="Ponto",
+        ylabel=f"{'Fêmeas' if sexo == 'F' else 'Machos'} - Percentual de EMG",
+        x_tick_rotation=0,
+    )
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.09), ncol=4, frameon=False,
+              fontsize=int(theme.get("legend_size", theme.get("font_size_base", 12))))
+    validate_axes_style(ax, fig_theme)
+
+    box_top = float(theme.get("ictio_report_point_section_box_top", -0.12))
+    box_height = float(theme.get("ictio_report_section_box_height", 0.09))
+    sections = _resolve_point_sections(theme, points)
+    if sections:
+        _draw_group_boxes(ax, sections, theme, y_top=box_top, height=box_height)
+        ax.xaxis.set_label_coords(0.5, box_top - box_height - 0.04)
+
+    fig.tight_layout(rect=[0.0, 0.12, 1.0, 0.94])
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
     generated_files.append(str(out_png))
@@ -3736,13 +3923,27 @@ def _run_block_reproducao(
     )
     geral_pct = geral.div(geral.sum(axis=1).replace(0, np.nan), axis=0).fillna(0.0) * 100
 
+    # O eixo espacial usa todos os pontos do projeto, nao so os que tem material
+    # sexado: ponto sem registro vira coluna vazia, preservando a sequencia.
+    points = sorted(df["ponto"].dropna().astype(str).str.strip().unique().tolist())
+    sexed["ponto"] = sexed["ponto"].astype(str).str.strip()
+
     for sexo in ["F", "M"]:
+        sex_slug = "femeas" if sexo == "F" else "machos"
         _plot_report_emg_stacked(
             sexed=sexed,
             sexo=sexo,
             theme=theme,
             campaigns=campaigns,
-            out_png=output_dir / f"14_grafico_emg_{'femeas' if sexo == 'F' else 'machos'}_{group_slug}.png",
+            out_png=output_dir / f"14_grafico_emg_{sex_slug}_{group_slug}.png",
+            generated_files=generated_files,
+        )
+        _plot_report_emg_stacked_by_point(
+            sexed=sexed,
+            sexo=sexo,
+            theme=theme,
+            points=points,
+            out_png=output_dir / f"14_grafico_emg_{sex_slug}_por_ponto_{group_slug}.png",
             generated_files=generated_files,
         )
 
