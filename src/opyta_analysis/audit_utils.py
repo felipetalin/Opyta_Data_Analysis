@@ -68,6 +68,13 @@ def git_context(repo_root: Path) -> dict[str, object]:
     }
 
 
+def git_user_name(repo_root: Path) -> str | None:
+    """Nome configurado em `git config user.name`, usado como responsavel
+    padrao no manifesto de rastreabilidade quando `RunParams.operator` nao e
+    informado explicitamente."""
+    return run_git(["config", "user.name"], repo_root)
+
+
 def sha256_file(path: Path) -> str | None:
     if not path.exists() or not path.is_file():
         return None

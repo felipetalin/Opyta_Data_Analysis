@@ -95,14 +95,14 @@ def _normalize_origem(value: object) -> str:
     """
     txt = _norm(value)
     if not txt:
-        return "Nao informado"
+        return "Não informado"
     is_nao_nativa = bool(_ORIGEM_NAO_NATIVA_RE.search(txt))
     is_nativa = bool(_ORIGEM_NATIVA_RE.search(txt))
     if is_nao_nativa:
-        return "Nao nativa"
+        return "Não nativa"
     if is_nativa:
         return "Nativa"
-    return "Nao informado"
+    return "Não informado"
 
 
 def _yes_no_flag(value: object) -> bool:
@@ -332,11 +332,28 @@ def _split_quanti_quali(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 # --------------------------------------------------------------------------- #
 # 6.1 Tabela de especies + figura abundancia
 # --------------------------------------------------------------------------- #
+def _title_case_popular_name(value: object) -> object:
+    """Padroniza a capitalizacao do nome popular apenas para exibicao nos
+    produtos (nao altera o cadastro no Supabase)."""
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return value
+    text = str(value).strip()
+    if not text:
+        return value
+    lowercase_particles = {"de", "da", "do", "das", "dos", "e"}
+    words = text.split(" ")
+    titled = [
+        w if w.lower() in lowercase_particles and i > 0 else w[:1].upper() + w[1:].lower()
+        for i, w in enumerate(words)
+    ]
+    return " ".join(titled)
+
+
 def _build_species_list_ictio(df: pd.DataFrame) -> pd.DataFrame:
     """Lista de especies adaptada a peixes (sem 'Dependencia florestal')."""
     if df.empty:
         return pd.DataFrame(
-            columns=["Ordem", "Familia", "Especie", "Nome popular", "IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Origem", "Migratorio"]
+            columns=["Ordem", "Família", "Espécie", "Nome popular", "IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Origem", "Migratório"]
         )
     table = (
         df.groupby("nome_cientifico", as_index=False)
@@ -355,21 +372,22 @@ def _build_species_list_ictio(df: pd.DataFrame) -> pd.DataFrame:
         .rename(
             columns={
                 "ordem": "Ordem",
-                "familia": "Familia",
-                "nome_cientifico": "Especie",
+                "familia": "Família",
+                "nome_cientifico": "Espécie",
                 "nome_popular": "Nome popular",
                 "iucn": "IUCN (2025)",
                 "mma": "MMA (2022)",
                 "copam": "COPAM (2010)",
                 "origem": "Origem",
-                "migratorio": "Migratorio",
+                "migratorio": "Migratório",
             }
         )
     )
     table["Origem"] = table["Origem"].map(_normalize_origem)
-    for col in ["IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Migratorio"]:
+    table["Nome popular"] = table["Nome popular"].map(_title_case_popular_name)
+    for col in ["IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Migratório"]:
         table[col] = table[col].replace({None: "-", "": "-"}).fillna("-")
-    return table[["Ordem", "Familia", "Especie", "Nome popular", "IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Origem", "Migratorio"]]
+    return table[["Ordem", "Família", "Espécie", "Nome popular", "IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Origem", "Migratório"]]
 
 
 def _abundance_metric(df: pd.DataFrame, mode: str) -> tuple[pd.DataFrame, str, str]:
@@ -379,7 +397,7 @@ def _abundance_metric(df: pd.DataFrame, mode: str) -> tuple[pd.DataFrame, str, s
           'pres' (Quali)  -> ocorrencias (em quantos pontos ocorreu)
     """
     if df.empty:
-        return pd.DataFrame(columns=["nome_cientifico", "valor", "abund_relativa_pct"]), "valor", "Abundancia"
+        return pd.DataFrame(columns=["nome_cientifico", "valor", "abund_relativa_pct"]), "valor", "Abundância"
     if mode == "cpue":
         grp = (
             df.groupby("nome_cientifico", as_index=False)["cpue_n"].sum()
@@ -391,7 +409,7 @@ def _abundance_metric(df: pd.DataFrame, mode: str) -> tuple[pd.DataFrame, str, s
             df.groupby(["nome_cientifico", "nome_ponto"]).size().reset_index().rename(columns={0: "n"})
         )
         grp = ocor.groupby("nome_cientifico", as_index=False)["n"].count().rename(columns={"n": "valor"})
-        total_label = "Pontos com ocorrencia (N)"
+        total_label = "Pontos com ocorrência (N)"
 
     total = float(grp["valor"].sum())
     grp["abund_relativa_pct"] = (grp["valor"] / total * 100.0) if total > 0 else 0.0
@@ -442,7 +460,7 @@ def _save_abundance_figure(
     ax.set_xlim(0, max(100.0, max_rel * 1.15, 1.0))
     ax_total.set_xlim(0, max(max_tot * 1.20, 1.0))
 
-    apply_theme(ax, theme, xlabel="Abundancia relativa (%)", ylabel="Especie")
+    apply_theme(ax, theme, xlabel="Abundância relativa (%)", ylabel="Espécie")
     ax_total.set_xlabel(total_label)
     ax_total.tick_params(axis="x", direction=str(theme.get("tick_direction", "out")))
     ax_total.grid(False)
@@ -467,7 +485,7 @@ def _save_abundance_figure(
         )
 
     handles = [
-        Patch(facecolor=rel_color, edgecolor="black", label="Abundancia relativa (%)"),
+        Patch(facecolor=rel_color, edgecolor="black", label="Abundância relativa (%)"),
         Patch(facecolor=total_color, edgecolor="black", label=total_label),
     ]
     place_legend_below_x_axis(fig, ax, theme, handles=handles, labels=[h.get_label() for h in handles], ncol=2)
@@ -531,7 +549,7 @@ def _save_block_6_2(
 ) -> dict:
     pch_slug = _area_slug(pch_alvo)
     if df_emp.empty:
-        est = pd.DataFrame([{"Area": pch_slug, "Riqueza observada": 0, "Abundancia": 0,
+        est = pd.DataFrame([{"Área": pch_slug, "Riqueza observada": 0, "Abundância": 0,
                              "Jackknife 1 estimada": 0.0, "Completude Jackknife 1 (%)": 0.0,
                              "Bootstrap estimada": 0.0, "Completude Bootstrap (%)": 0.0}])
         out = output_dir / f"6_2_tabela_estimadores_{pch_slug}.xlsx"
@@ -557,9 +575,9 @@ def _save_block_6_2(
     boot = float(masto._bootstrap_richness(pa.values))
 
     est = pd.DataFrame([{
-        "Area": pch_slug,
+        "Área": pch_slug,
         "Riqueza observada": int(sobs),
-        "Abundancia": int(abundance),
+        "Abundância": int(abundance),
         "Jackknife 1 estimada": round(jack1, 2),
         "Completude Jackknife 1 (%)": round((sobs / jack1) * 100, 2) if jack1 > 0 else 0.0,
         "Bootstrap estimada": round(boot, 2),
@@ -610,7 +628,7 @@ def _save_block_6_2(
     ax.plot(x, mean_sobs, linewidth=2.2, label="Riqueza observada", color=obs_color)
     ax.plot(x, mean_jack, linewidth=2.2, label="Riqueza estimada (Jackknife 1)", color=est_color)
     ax.fill_between(x, mean_jack - std_jack, mean_jack + std_jack, alpha=0.18, color=est_color)
-    apply_theme(ax, theme, xlabel="Numero de unidades amostrais", ylabel="Riqueza")
+    apply_theme(ax, theme, xlabel="Número de unidades amostrais", ylabel="Riqueza")
     ax.text(x[-1] + 0.15, mean_sobs[-1], f"{mean_sobs[-1]:.0f}", color="black", va="center",
             fontsize=int(theme.get("annotation_size", 14)))
     ax.text(x[-1] + 0.15, mean_jack[-1], f"{mean_jack[-1]:.1f}", color="black", va="center",
@@ -798,66 +816,83 @@ def _save_block_6_5(
     both = len(inter)
     jacc = (len(inter) / len(union)) if union else 0.0
     obs = (
-        "Sem registros TR nesta campanha; Jaccard RP x TR registra ausencia de dados TR, nao dissimilaridade ecologica testada."
+        "Sem registros TR nesta campanha; Jaccard RP x TR registra ausência de dados TR, não dissimilaridade ecológica testada."
         if not set_tr
-        else "Comparacao descritiva entre especies registradas em RP e TR nesta campanha."
+        else "Comparação descritiva entre espécies registradas em RP e TR nesta campanha."
     )
 
     table = pd.DataFrame([{
         "Ambiente A": "Rio Principal (RP)",
-        "Ambiente B": "Tributario (TR)",
+        "Ambiente B": "Tributário (TR)",
         "Spp_A": len(set_rp),
         "Spp_B": len(set_tr),
         "Spp_intersecao": both,
         "Spp_total (uniao)": len(union),
         "Jaccard": round(jacc, 4),
-        "Observacao": obs,
+        "Observação": obs,
     }])
     out_xlsx = output_dir / "6_5_tabela_jaccard_rp_vs_tr.xlsx"
     table.to_excel(out_xlsx, index=False, engine="openpyxl")
     generated_files.append(str(out_xlsx))
 
-    fig, ax = plt.subplots(figsize=(11, 7.4), dpi=int(theme.get("dpi", 600)))
+    # Caixa de rodape com uma ou duas linhas conforme haja ou nao registros TR;
+    # a nota "Sem registros TR" fica DENTRO da caixa (nao mais flutuando perto
+    # da borda inferior dos eixos) para nao cruzar o limite do grafico.
+    has_note = not set_tr
+    box_h = 0.086 if has_note else 0.052
+    box_y0 = 0.322 if has_note else 0.348
+    box_top = box_y0 + box_h
+    y_lim_bottom = box_y0 - 0.028
+
+    fig, ax = plt.subplots(figsize=(11, 6.9), dpi=int(theme.get("dpi", 600)))
     rp_color = str(theme.get("primary_hex", "#11420C"))
     tr_color = str(theme.get("secondary_hex", "#5B8E53"))
     dark_text = "#0D2A1D"
 
-    c1 = Circle((0.39, 0.67), 0.22, color=rp_color, alpha=0.24, ec="#0E3A22", lw=1.4)
-    c2 = Circle((0.61, 0.67), 0.22, color=tr_color, alpha=0.22, ec="#4C8642", lw=1.4)
+    c1 = Circle((0.39, 0.66), 0.22, color=rp_color, alpha=0.24, ec="#0E3A22", lw=1.4)
+    c2 = Circle((0.61, 0.66), 0.22, color=tr_color, alpha=0.22, ec="#4C8642", lw=1.4)
     ax.add_patch(c1); ax.add_patch(c2)
 
-    y_num, y_desc = 0.69, 0.63
+    y_num, y_desc = 0.68, 0.62
     ax.text(0.33, y_num, str(only_rp), ha="center", va="center", fontsize=32, fontweight="bold", color=dark_text)
-    ax.text(0.33, y_desc, "Especies\nexclusivas RP", ha="center", va="center", fontsize=13.2, color=dark_text)
+    ax.text(0.33, y_desc, "Espécies\nexclusivas RP", ha="center", va="center", fontsize=13.2, color=dark_text)
     ax.text(0.50, y_num, str(both), ha="center", va="center", fontsize=34, fontweight="bold", color=dark_text)
-    ax.text(0.50, y_desc, "Especie\ncompartilhada" if both == 1 else "Especies\ncompartilhadas",
+    ax.text(0.50, y_desc, "Espécie\ncompartilhada" if both == 1 else "Espécies\ncompartilhadas",
             ha="center", va="center", fontsize=13.2, color=dark_text)
     ax.text(0.67, y_num, str(only_tr), ha="center", va="center", fontsize=32, fontweight="bold", color="#2F6A34")
-    ax.text(0.67, y_desc, "Especies\nexclusivas TR", ha="center", va="center", fontsize=13.2, color="#2F6A34")
+    ax.text(0.67, y_desc, "Espécies\nexclusivas TR", ha="center", va="center", fontsize=13.2, color="#2F6A34")
 
-    ax.plot([0.27, 0.35], [0.50, 0.50], color="#0E3A22", linewidth=1.8)
-    ax.text(0.31, 0.47, "Rio Principal (RP)", ha="center", va="center", fontsize=14.2, fontweight="semibold", color="#0E3A22")
-    ax.text(0.31, 0.44, f"{len(set_rp)} especies", ha="center", va="center", fontsize=11.2, color="#1A3D25")
-    ax.plot([0.65, 0.73], [0.50, 0.50], color="#4C8642", linewidth=1.8)
-    ax.text(0.69, 0.47, "Tributario (TR)", ha="center", va="center", fontsize=14.2, fontweight="semibold", color="#3E7E3A")
-    ax.text(0.69, 0.44, f"{len(set_tr)} especies", ha="center", va="center", fontsize=11.2, color="#2C6031")
+    ax.plot([0.27, 0.35], [0.49, 0.49], color="#0E3A22", linewidth=1.8)
+    ax.text(0.31, 0.46, "Rio Principal (RP)", ha="center", va="center", fontsize=14.2, fontweight="semibold", color="#0E3A22")
+    ax.text(0.31, 0.43, f"{len(set_rp)} espécies", ha="center", va="center", fontsize=11.2, color="#1A3D25")
+    ax.plot([0.65, 0.73], [0.49, 0.49], color="#4C8642", linewidth=1.8)
+    ax.text(0.69, 0.46, "Tributário (TR)", ha="center", va="center", fontsize=14.2, fontweight="semibold", color="#3E7E3A")
+    ax.text(0.69, 0.43, f"{len(set_tr)} espécies", ha="center", va="center", fontsize=11.2, color="#2C6031")
 
-    box = FancyBboxPatch((0.18, 0.34), 0.64, 0.042,
+    box = FancyBboxPatch((0.18, box_y0), 0.64, box_h,
                          boxstyle="round,pad=0.012,rounding_size=0.01",
                          linewidth=0.9, edgecolor="#1E4D2E",
                          facecolor="#F7F7F7", alpha=0.90)
     ax.add_patch(box)
-    ax.text(0.50, 0.360, f"RIQUEZA TOTAL: {len(union)} ESPECIES", ha="center", va="center",
-            fontsize=14.5, fontweight="bold", color=dark_text)
-    if not set_tr:
+    if has_note:
+        ax.text(0.50, box_top - 0.026, f"RIQUEZA TOTAL: {len(union)} ESPÉCIES", ha="center", va="center",
+                fontsize=14.5, fontweight="bold", color=dark_text)
         ax.text(
-            0.50, 0.325,
+            0.50, box_y0 + 0.024,
             "Sem registros TR nesta campanha",
             ha="center", va="center", fontsize=11.5, color="#5A5A5A",
         )
-    ax.set_xlim(0.08, 0.92); ax.set_ylim(0.32, 0.90)
+    else:
+        ax.text(0.50, box_y0 + box_h / 2, f"RIQUEZA TOTAL: {len(union)} ESPÉCIES", ha="center", va="center",
+                fontsize=14.5, fontweight="bold", color=dark_text)
+    # As chamadas de ticks precisam vir ANTES de set_xlim/set_ylim: o
+    # matplotlib expande automaticamente os limites do eixo para incluir
+    # qualquer tick definido (aqui, 0.0 e 1.0), entao chama-las depois
+    # sobrescrevia silenciosamente os limites pretendidos e deixava um
+    # espaco vazio enorme abaixo do conteudo real do diagrama.
     ax.set_xticks([0.0, 0.5, 1.0]); ax.set_yticks([0.0, 0.5, 1.0])
     ax.set_xticklabels(["", "", ""]); ax.set_yticklabels(["", "", ""])
+    ax.set_xlim(0.10, 0.90); ax.set_ylim(y_lim_bottom, 0.89)
     apply_theme(ax, theme, xlabel="", ylabel="")
     validate_axes_style(ax, theme)
     fig.tight_layout()
@@ -870,6 +905,30 @@ def _save_block_6_5(
 # --------------------------------------------------------------------------- #
 # 6.6-6.8 Tabela geral (reaproveita masto)
 # --------------------------------------------------------------------------- #
+_STATUS_HEADER_ACCENT_FIXES = {
+    "Ameacada": "Ameaçada",
+    "Endemica": "Endêmica",
+    "Exotica": "Exótica",
+    "Cinegetica": "Cinegética",
+}
+
+
+def _fix_status_table_header_accents(xlsx_path: Path) -> None:
+    """Acentua os cabecalhos da tabela de status gerada por
+    `masto._save_general_status_tables`. Feito aqui (pos-processamento local
+    a este produto), e nao em `mastofauna.py`, para nao alterar o
+    comportamento das outras 4 fauna (avifauna, herpetofauna, mastofauna,
+    primatas) que reaproveitam a mesma funcao compartilhada."""
+    from openpyxl import load_workbook
+
+    wb = load_workbook(xlsx_path)
+    ws = wb.active
+    for cell in ws[1]:
+        if cell.value in _STATUS_HEADER_ACCENT_FIXES:
+            cell.value = _STATUS_HEADER_ACCENT_FIXES[cell.value]
+    wb.save(xlsx_path)
+
+
 def _save_block_6_6_8(df_emp: pd.DataFrame, output_dir: Path, generated_files: list[str]) -> None:
     if df_emp.empty:
         return
@@ -883,6 +942,9 @@ def _save_block_6_6_8(df_emp: pd.DataFrame, output_dir: Path, generated_files: l
     if "origem" in df_status.columns:
         df_status["origem"] = df_status["origem"].map(_normalize_origem)
     masto._save_general_status_tables(df_status, output_dir, generated_files)
+    out_68 = output_dir / "6_6_6_8_tabela_geral_status.xlsx"
+    if out_68.exists():
+        _fix_status_table_header_accents(out_68)
 
 
 # --------------------------------------------------------------------------- #
@@ -896,57 +958,57 @@ def _save_descriptive_report(
     generated_files: list[str],
 ) -> None:
     lines = [
-        "Relatorio descritivo - Ictiofauna (parcial)",
+        "Relatório descritivo - Ictiofauna (parcial)",
         "",
         f"Campanha analisada: {campanha_alvo}",
         f"Empreendimento: {pch_alvo}",
         f"Registros utilizados: {details.get('rows_loaded', 0)}",
-        f"Pontos amostrados (esforco valido, cadastrados na campanha): {details.get('n_pontos_amostrados', 0)}",
+        f"Pontos amostrados (esforço válido, cadastrados na campanha): {details.get('n_pontos_amostrados', 0)}",
         f"  - com captura: {details.get('n_pontos_com_captura', 0)}",
-        f"  - com esforco valido e captura zero: {details.get('n_pontos_zero_captura', 0)}",
-        f"Especies (total no empreendimento): {details.get('species_total', 0)}",
+        f"  - com esforço válido e captura zero: {details.get('n_pontos_zero_captura', 0)}",
+        f"Espécies (total no empreendimento): {details.get('species_total', 0)}",
         f"  - Quantitativa: {details.get('species_quanti', 0)}",
         f"  - Qualitativa: {details.get('species_quali', 0)}",
         f"Pontos (Quantitativos): {details.get('n_pontos_quanti', 0)}",
         f"Pontos (Qualitativos):  {details.get('n_pontos_quali', 0)}",
         "",
-        "6.1 Riqueza, composicao e abundancia:",
-        "- Tabela de especies (abas Geral / Quantitativa / Qualitativa).",
-        "- Figura de abundancia CPUE-N (Quantitativos) e ocorrencia (Qualitativos).",
+        "6.1 Riqueza, composição e abundância:",
+        "- Tabela de espécies (abas Geral / Quantitativa / Qualitativa).",
+        "- Figura de abundância CPUE-N (Quantitativos) e ocorrência (Qualitativos).",
         "",
-        "6.2 Suficiencia amostral:",
-        "- Riqueza observada + Jackknife 1 + Bootstrap; curva do coletor com 200 permutacoes.",
-        "- Unidade amostral: ponto x tipo_amostragem (consolida Quanti+Quali).",
+        "6.2 Suficiência amostral:",
+        "- Riqueza observada + Jackknife 1 + Bootstrap; curva do coletor com 200 permutações.",
+        "- Unidade amostral: ponto x tipo de amostragem (consolida Quanti+Quali).",
         "",
-        "6.3 Indices de diversidade:",
+        "6.3 Índices de diversidade:",
         "- Shannon, Pielou e Simpson calculados sobre CPUE-N (Quantitativos).",
         "- Qualitativos reportam apenas riqueza (S).",
         "",
         "6.4 Similaridade Jaccard entre pontos:",
         "- Calculada apenas com dados Quantitativos (RP).",
         "- Matriz por pontos + dendrograma dos pontos quantitativos.",
-        "- Cores dos ramos indicam agrupamentos hierarquicos, nao ambientes.",
-        "- Resultado descritivo de uma campanha; nao substitui analise temporal de estabilidade.",
+        "- Cores dos ramos indicam agrupamentos hierárquicos, não ambientes.",
+        "- Resultado descritivo de uma campanha; não substitui análise temporal de estabilidade.",
         "",
         "6.5 Diagrama de Venn RP x TR:",
-        "- Sobreposicao de especies entre Rio Principal e Tributarios.",
-        "- Quando nao houver registros TR, Jaccard = 0 indica ausencia de dados TR,",
-        "  nao dissimilaridade ecologica testada.",
+        "- Sobreposição de espécies entre Rio Principal e Tributários.",
+        "- Quando não houver registros TR, Jaccard = 0 indica ausência de dados TR,",
+        "  não dissimilaridade ecológica testada.",
         "",
         "6.6-6.8 Tabela geral:",
-        "- Consolidacao de ameacadas/endemicas/raras/exoticas (status DB).",
-        "- Em ictiofauna, a coluna Cinegetica usa `valor_economico` do cadastro de especies.",
-        "- Origem normalizada apenas neste produto (Nativa / Nao nativa / Nao informado);",
-        "  o cadastro de especies no Supabase nao foi alterado.",
+        "- Consolidação de ameaçadas/endêmicas/raras/exóticas (status DB).",
+        "- Em ictiofauna, a coluna Cinegética usa `valor_economico` do cadastro de espécies.",
+        "- Origem normalizada apenas neste produto (Nativa / Não nativa / Não informado);",
+        "  o cadastro de espécies no Supabase não foi alterado.",
         "",
-        "Pontos com esforco valido e captura zero:",
+        "Pontos com esforço válido e captura zero:",
         "- Pontos cadastrados na campanha sem nenhuma linha em resultados_ictiofauna",
-        "  foram mantidos como unidades amostrais com riqueza/abundancia zero, e nao",
-        "  descartados como se nao tivessem sido amostrados. Isso afeta riqueza por",
-        "  ponto, suficiencia amostral (6.2) e a base de pontos usada em 6.4/6.5.",
+        "  foram mantidos como unidades amostrais com riqueza/abundância zero, e não",
+        "  descartados como se não tivessem sido amostrados. Isso afeta riqueza por",
+        "  ponto, suficiência amostral (6.2) e a base de pontos usada em 6.4/6.5.",
         "",
-        "Observacao: o projeto 165 (ictiofauna) NAO possui pontos controle. As analises",
-        "deste relatorio parcial sao internas ao empreendimento.",
+        "Observação: o projeto 165 (ictiofauna) NÃO possui pontos controle. As análises",
+        "deste relatório parcial são internas ao empreendimento.",
     ]
     out = output_dir / "6_relatorio_descritivo_ictio_parcial.txt"
     out.write_text("\n".join(lines), encoding="utf-8")

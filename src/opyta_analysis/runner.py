@@ -5,7 +5,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Dict, Any
 
-from opyta_analysis.audit_utils import build_file_manifest, git_context
+from opyta_analysis.audit_utils import build_file_manifest, git_context, git_user_name
 from opyta_analysis.config import RunParams, load_theme
 from opyta_analysis.pipelines import (
     # Diagnóstico
@@ -24,6 +24,9 @@ from opyta_analysis.pipelines import (
     # Monitoramento
     run_mastofauna_monitoring_pipeline,
 )
+
+
+RUNNER_VERSION = "1.3"
 
 
 def _utc_now() -> datetime:
@@ -119,7 +122,7 @@ def _generate_execution_metadata(
 
     metadata = {
         "executed_at": _utc_now().isoformat().replace("+00:00", "Z"),
-        "runner_version": "1.2",
+        "runner_version": RUNNER_VERSION,
         "project_id": params.project_id,
         "group": params.group,
         "pipeline": params.pipeline,
@@ -165,6 +168,7 @@ def _generate_reproducer_script(params: RunParams, config_root: Path, group_dir:
     audit_project_slug_literal = repr(params.audit_project_slug)
     campaigns_literal = repr(params.campaigns)
     pch_target_literal = repr(params.pch_target)
+    operator_literal = repr(params.operator)
 
     script_content = f'''#!/usr/bin/env python
 """
@@ -206,6 +210,7 @@ def main():
         audit_project_slug={audit_project_slug_literal},
         campaigns=campaigns,
         pch_target={pch_target_literal},
+        operator={operator_literal},
     )
 
     config_root = Path(r"{config_root_resolved}")
@@ -230,6 +235,71 @@ if __name__ == "__main__":
             f.write(script_content)
         target.chmod(0o755)  # Make executable on Unix
     return str(reproducer_file)
+
+
+def _write_deliverable_manifest(
+    params: RunParams,
+    result: Dict[str, Any],
+    config_root: Path,
+    run_dir: Path,
+    run_id: str,
+) -> str | None:
+    """Grava um manifesto de rastreabilidade DENTRO do proprio pacote de
+    entrega (`params.output_dir`), ao lado dos produtos gerados — nao apenas
+    na trilha de auditoria interna em `run_dir`. Quem abre a pasta do cliente
+    ve, sem precisar de acesso ao repositorio, qual projeto/campanha/
+    empreendimento/grupo gerou aqueles arquivos, quem rodou, de que commit,
+    com quais parametros, e o SHA-256 de cada produto para conferencia de
+    integridade."""
+    if not params.output_dir.exists():
+        return None
+
+    details = result.get("details", {})
+    generated_files = details.get("generated_files", [])
+    products = build_file_manifest(generated_files)
+    git = git_context(config_root.parent)
+    operator = params.operator or git_user_name(config_root.parent) or "nao informado"
+    campaigns = params.campaigns or details.get("campaigns") or []
+
+    manifest = {
+        "manifest_version": "1.0",
+        "generated_at": _utc_now().isoformat().replace("+00:00", "Z"),
+        "runner_version": RUNNER_VERSION,
+        "run_id": run_id,
+        "projeto": {
+            "project_id": params.project_id,
+            "audit_project_slug": params.audit_project_slug,
+        },
+        "grupo": params.group,
+        "campanha": campaigns,
+        "empreendimento": params.pch_target,
+        "responsavel": operator,
+        "fonte": {
+            "backend": "Supabase",
+            "env_file": params.env_file or "(.env padrao do processo)",
+            "pipeline": params.pipeline,
+        },
+        "git": git,
+        "parametros_utilizados": {
+            "project_id": params.project_id,
+            "group": params.group,
+            "pipeline": params.pipeline,
+            "client": params.client,
+            "block": params.block,
+            "campaigns": params.campaigns,
+            "pch_target": params.pch_target,
+            "audit_project_slug": params.audit_project_slug,
+        },
+        "output_dir": str(params.output_dir),
+        "trilha_de_auditoria_interna": str(run_dir),
+        "produtos": products,
+        "produtos_count": len(products),
+    }
+
+    out_path = params.output_dir / "MANIFESTO_RASTREABILIDADE.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, indent=2, ensure_ascii=False)
+    return str(out_path)
 
 
 def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
@@ -395,5 +465,12 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
         }
     except Exception as e:
         print(f"[WARNING] Failed to generate audit trail: {e}")
+
+    try:
+        manifest_path = _write_deliverable_manifest(params, result, config_root, run_dir, run_id)
+        if "audit_trail" in result:
+            result["audit_trail"]["deliverable_manifest"] = manifest_path
+    except Exception as e:
+        print(f"[WARNING] Failed to generate deliverable manifest: {e}")
 
     return result

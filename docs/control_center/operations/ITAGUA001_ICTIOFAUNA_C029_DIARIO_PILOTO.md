@@ -479,3 +479,122 @@ confirmacao do Felipe antes de gerar os outros 3 empreendimentos.
 **Nao feito:** os 3 empreendimentos restantes nao foram gerados; nada foi
 commitado ainda nesta sessao (arquivos gerados sao binarios/dados de cliente,
 fora do Git); a pasta `Análise consolidada` nao foi tocada.
+
+## 2026-09-08 - Sessao 5 (amostra aprovada; 3 ajustes pos-aprovacao)
+
+A usuaria aprovou a amostra de Senhora do Porto quanto a campanha, aos
+resultados e a metodologia, e pediu 3 ajustes antes de liberar os outros
+empreendimentos: manifesto de rastreabilidade, reposicionamento do texto no
+diagrama de Venn (sem cruzar a borda da caixa, reduzindo o espaco vazio) e
+padronizacao textual (acentuacao, "Não nativa", capitalizacao de nomes
+populares, UTF-8). Lista explicita do que NAO poderia mudar: rotulo/pasta da
+campanha, o Jaccard dos 5 pontos com captura, os calculos/resultados
+numericos, a ausencia de Shannon/Pielou/Simpson nos dados qualitativos, e
+banco/consolidado/cadastro/runs anteriores.
+
+### 1. Manifesto de rastreabilidade
+
+Implementado em `src/opyta_analysis/runner.py`
+(`_write_deliverable_manifest`), chamado ao final de `run()` para QUALQUER
+pipeline (nao so ictio_partial) — escreve
+`MANIFESTO_RASTREABILIDADE.json` dentro do proprio `output_dir` (a pasta do
+cliente, ao lado dos produtos), nao so na trilha de auditoria interna.
+Campos: projeto (`project_id`/`audit_project_slug`), grupo, campanha(s),
+empreendimento, responsavel (`RunParams.operator` — novo campo opcional —
+ou `git config user.name` como default via nova `audit_utils.git_user_name`),
+`git` (branch/commit/dirty, reaproveitando `git_context` ja existente),
+`run_id`, fonte (`Supabase` + `env_file` + `pipeline`), parametros
+utilizados e a lista de produtos com SHA-256 (reaproveitando
+`audit_utils.build_file_manifest`, que ja calculava sha256 para a trilha
+interna — nao precisei escrever hashing novo). `RUNNER_VERSION` (constante
+nova, antes hardcoded como `"1.2"` dentro da funcao de metadata) subiu para
+`"1.3"`.
+
+Testado com 3 casos novos em `tests/test_runner_audit_isolation.py`:
+manifesto tem todos os campos pedidos e SHA-256 de 64 caracteres por
+produto; `RunParams.operator` explicito e respeitado (nao usa git quando
+informado); o manifesto de uma execucao nao e tocado por outra (mesmo
+teste de nao-destrutividade aplicado ao manifesto).
+
+### 2. Diagrama de Venn — bug real encontrado (pre-existente, nao introduzido por mim)
+
+Ao tentar apenas mover o texto "Sem registros TR nesta campanha" para
+dentro da caixa, notei que a imagem tinha uma area em branco enorme (quase
+metade da altura) sem nenhuma explicacao aparente pela geometria que eu
+tinha calculado. Investiguei com um script de reproducao isolado
+(matplotlib puro, fora do pipeline) e descobri: `ax.set_xticks([0.0, 0.5,
+1.0])`/`set_yticks(...)` eram chamados DEPOIS de `ax.set_xlim`/`set_ylim`
+no codigo original. O matplotlib expande automaticamente os limites do
+eixo para incluir qualquer tick definido — como os ticks ficavam em 0.0 e
+1.0 (fora do intervalo de dados real, ali so para depois receber rotulos
+vazios), o `ylim` pretendido (`~0.29` a `~0.89`) era silenciosamente
+sobrescrito para `(0.0, 1.0)` assim que os ticks eram aplicados,
+inflando a figura com espaco vazio. Confirmado empiricamente: reproduzi o
+mesmo bloco de codigo em um script minimo, imprimi `ax.get_ylim()` antes e
+depois, e vi o valor mudar de `(0.294, 0.89)` para `(0.0, 1.0)` exatamente
+na chamada dos ticks. Esse bug ja existia no codigo ANTES da minha primeira
+edicao desta sessao (mesma ordem de chamadas) — nao foi algo que eu
+introduzi ao mexer no texto, so nunca tinha sido notado porque o efeito
+(espaco vazio) parecia "so" uma escolha de layout, nao um bug de logica.
+
+Corrigido invertendo a ordem: ticks + labels de tick primeiro, `set_xlim`/
+`set_ylim` por ultimo (unica mudanca necessaria). Resultado visualmente
+conferido (ver imagens antes/depois): espaco vazio eliminado, composicao
+mais equilibrada, nota "Sem registros TR nesta campanha" agora inteiramente
+dentro da caixa, sem cruzar nenhuma borda.
+
+A caixa em si tambem foi redesenhada para ter uma unica logica de margem
+(`0.028` do limite do eixo) tanto no caso com nota (2 linhas) quanto sem
+nota (1 linha), fazendo o topo da caixa ficar na mesma posicao relativa nos
+dois cenarios — antes a nota "extra" so existia como um `ax.text()` solto
+fora da caixa.
+
+### 3. Padronizacao textual
+
+Apliquei acentuacao correta em TODO texto de exibicao gerado por
+`ictio_partial.py` (cabecalhos de tabela, rotulos/legendas de grafico,
+texto do relatorio `.txt`), com cuidado explicito para NAO tocar:
+nomes de tabela/coluna do Supabase (`especies`, `tipo_amostragem`,
+`esforcos_amostragem` etc. permanecem exatamente como o schema do banco),
+nomes de arquivo (mantidos sem acento, como sempre foram — renomear
+arquivos nao foi pedido e quebraria comparabilidade entre campanhas) e
+identificadores internos usados por outras partes do codigo.
+
+Um caso exigiu cuidado extra: a tabela de status do bloco 6.6-6.8 e gerada
+por `masto._save_general_status_tables()`, uma funcao COMPARTILHADA que
+Avifauna, Herpetofauna, Mastofauna e Primatas tambem usam (e cujos produtos
+da C029 ja estao publicados na pasta contratual). Editar os cabecalhos
+dentro de `mastofauna.py` alteraria o comportamento futuro desses outros 4
+grupos — fora do escopo autorizado neste piloto (que e sobre Ictiofauna).
+Em vez disso, criei `_fix_status_table_header_accents()` em
+`ictio_partial.py`, que reabre o `.xlsx` logo apos `masto._save_general_status_tables()`
+escreve-lo e acentua so os 4 cabecalhos problematicos ("Ameaçada",
+"Endêmica", "Exótica", "Cinegética") diretamente na planilha — um
+pos-processamento local, sem tocar o modulo compartilhado.
+
+Tambem criei `_title_case_popular_name()` para padronizar a capitalizacao
+do "Nome popular" (ex.: "Piau-vermelho" em vez de qualquer grafia
+inconsistente do cadastro), aplicada so na tabela de exibicao, sem alterar
+o cadastro no Supabase — mesmo padrao ja usado para `_normalize_origem()`.
+
+### Verificacao antes de republicar
+
+- Comparei valores numericos linha a linha entre a amostra ja aprovada e a
+  republicada (matriz de Jaccard 5x5, tabela RP x TR, indices de
+  diversidade, contagem de especies): identicos.
+- Reconferido o checksum MD5 dos 20 arquivos do lastro da C028 apos as
+  duas republicacoes desta sessao (uma para manifesto+acentuacao, outra
+  para o ajuste final do Venn): identico nas duas vezes.
+- Cada republicacao criou um novo diretorio imutavel em `runs/`
+  (`20260908T192337Z`, depois `20260908T192825Z`), sem sobrescrever a
+  publicacao original (`20260908T182849Z`) nem nenhuma execucao da C028.
+- Rodei a suite de testes completa (5 testes anteriores + 3 novos do
+  manifesto) apos as mudancas: 8/8 passando.
+- Confirmei visualmente as duas imagens do Venn (antes/depois) lado a
+  lado antes de aceitar a correcao como resolvida.
+
+### Proxima acao
+
+Aguardar revisao dos 3 ajustes pela usuaria/Felipe antes de gerar os 3
+empreendimentos restantes. Preparar commit local (sem push automatico,
+aguardando nova autorizacao explicita).

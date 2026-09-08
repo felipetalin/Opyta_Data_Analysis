@@ -5,7 +5,7 @@
 - projeto: `ITAGUA001__monitoramento_da_fauna`
 - grupo: Ictiofauna
 - operacao: Configuracao das analises da Campanha 29 (piloto colaborativo)
-- estado atual: `generating_products` (amostra de 1 empreendimento gerada e mantida em staging; correcao bloqueante do runner aplicada e testada; pacote completo dos 4 empreendimentos ainda nao gerado)
+- estado atual: `generating_products` (amostra de Senhora do Porto **revisada e aprovada** quanto a campanha, resultados e metodologia; 3 ajustes pos-aprovacao aplicados e republicados na pasta contratual; pacote dos 3 empreendimentos restantes ainda nao gerado)
 - aberta em: 2026-09-08
 - atualizada em: 2026-09-08
 - operador: Ismayllen
@@ -30,10 +30,14 @@
   Estrutura por subpasta de empreendimento escolhida por espelhar o padrao
   ja existente nos outros 4 grupos da mesma pasta contratual (ver "Duvida
   De Estrutura Nao Resolvida" abaixo).
-- proxima acao: Felipe revisar o diff (commit `500a297`) e o produto
-  publicado de Senhora do Porto; confirmar se a subpasta `Análise
-  consolidada` (vazia, ja existente em `Ictiofauna/`) tinha outro proposito;
-  autorizar ou nao os 3 empreendimentos restantes.
+- amostra de Senhora do Porto **revisada e aprovada** pela usuaria em
+  2026-09-08 quanto a campanha, aos resultados e a metodologia; 3 ajustes
+  pos-aprovacao pedidos (manifesto de rastreabilidade, diagrama de Venn,
+  padronizacao textual) — todos aplicados e republicados na pasta
+  contratual (ver "Ajustes Pos-Aprovacao Da Amostra" abaixo)
+- proxima acao: usuaria/Felipe revisarem os 3 ajustes aplicados; confirmar
+  se a subpasta `Análise consolidada` (vazia, ja existente em `Ictiofauna/`)
+  tinha outro proposito; autorizar ou nao os 3 empreendimentos restantes.
 
 ## Duvida De Estrutura Nao Resolvida
 
@@ -290,6 +294,91 @@ confere com a consulta inicial ao Supabase).
 - 13 produtos gerados, todos existentes em disco;
   `execution_metadata.json` sem avisos (`warnings: []`, `generated_files_missing_count: 0`)
 - lastro: `outputs/_project_scripts/ITAGUA001__monitoramento_da_fauna/ictiofauna/`
+
+## Ajustes Pos-Aprovacao Da Amostra (2026-09-08)
+
+A usuaria aprovou a amostra de Senhora do Porto quanto a campanha, aos
+resultados e a metodologia, e pediu 3 ajustes antes de liberar os outros
+empreendimentos, com uma lista explicita do que NAO poderia mudar
+(`C029-2026-08-SC`/pasta `29_campanha_Jul_26`, o Jaccard dos 5 pontos com
+captura, os calculos/resultados numericos, a ausencia de Shannon/Pielou/
+Simpson nos dados qualitativos, banco/consolidado/cadastro taxonomico/runs
+anteriores).
+
+1. **Manifesto de rastreabilidade** — `runner.py` ganhou
+   `_write_deliverable_manifest()`, chamada ao final de `run()` para
+   qualquer pipeline (nao so ictio_partial). Grava
+   `MANIFESTO_RASTREABILIDADE.json` DENTRO do proprio pacote de entrega
+   (`output_dir`, ao lado dos produtos — nao so na trilha de auditoria
+   interna), com projeto, campanha, empreendimento, grupo, responsavel
+   (`RunParams.operator` ou `git config user.name` como default), branch,
+   commit, `run_id`, fonte/base (Supabase + pipeline), parametros
+   utilizados e SHA-256 de cada produto. `RunParams` ganhou o campo
+   `operator`. Versao do runner subiu para `1.3`.
+2. **Diagrama de Venn (`_save_block_6_5`)**:
+   - Causa raiz do espaco vazio excessivo: `ax.set_xticks([0.0, 0.5, 1.0])`/
+     `set_yticks(...)` eram chamados DEPOIS de `ax.set_xlim`/`set_ylim`. O
+     matplotlib expande automaticamente os limites do eixo para incluir
+     qualquer tick definido, entao a chamada de ticks sobrescrevia
+     silenciosamente os limites pretendidos (ylim virava `(0.0, 1.0)` em vez
+     de `(0.294, 0.89)`), deixando quase metade da imagem em branco. Esse
+     bug ja existia ANTES desta correcao (mesma ordem de chamadas no codigo
+     original) — nao foi introduzido pela mudanca, so descoberto ao
+     investigar o pedido de "reduzir espaco vazio". Corrigido invertendo a
+     ordem: ticks antes de `set_xlim`/`set_ylim`.
+   - A nota "Sem registros TR nesta campanha" cruzava a borda inferior da
+     caixa (texto flutuando fora, quase colado no limite do eixo). Movida
+     para DENTRO da caixa, como segunda linha, com margem simetrica de
+     `0.028` em relacao ao limite do eixo nos dois cenarios (com/sem nota),
+     e a altura/posicao da caixa passou a ser calculada para manter o topo
+     da caixa na mesma posicao relativa em ambos os casos.
+   - Nenhum valor foi alterado: `only_rp`, `only_tr`, `both`, `jacc` e a
+     logica de calculo permanecem identicos (conferido — ver verificacao
+     abaixo).
+3. **Padronizacao textual** — aplicada SOMENTE em texto de exibicao
+   (cabecalhos de tabela, rotulos de grafico, texto do relatorio `.txt`),
+   nunca em nomes de tabela/coluna do Supabase, nomes de arquivo ou
+   identificadores internos:
+   - `_normalize_origem()` passou a retornar "Não nativa"/"Não informado"
+     (com acento) em vez de "Nao nativa"/"Nao informado".
+   - Cabecalhos da tabela de especies (`_build_species_list_ictio`):
+     "Espécie", "Família", "Migratório".
+   - Nova funcao `_title_case_popular_name()` padroniza a capitalizacao do
+     "Nome popular" apenas para exibicao (ex.: "Piau-vermelho",
+     "Lambari-do-rabo-amarelo"), sem alterar o cadastro no Supabase.
+   - Relatorio descritivo (`.txt`) reescrito com acentuacao correta
+     ("Relatório", "espécies", "suficiência", "Índices", "abundância" etc.).
+   - Tabela de status (bloco 6.6-6.8): como essa tabela e gerada por
+     `masto._save_general_status_tables` (funcao COMPARTILHADA com
+     Avifauna/Herpetofauna/Mastofauna/Primatas), os cabecalhos nao foram
+     corrigidos ali para nao alterar o comportamento dessas outras 4 fauna.
+     Em vez disso, `_fix_status_table_header_accents()` (nova, local a
+     `ictio_partial.py`) reabre o `.xlsx` recem-gerado e acentua apenas os
+     cabecalhos ("Ameaçada", "Endêmica", "Exótica", "Cinegética") como
+     pos-processamento restrito a este produto.
+   - Garantido UTF-8 explicito em toda escrita de texto (ja era o padrao do
+     arquivo antes desta mudanca).
+
+### Verificacao Antes De Republicar
+
+- Valores numericos comparados linha a linha entre a amostra anterior e a
+  republicada: matriz de Jaccard (5x5), tabela RP x TR (Spp_A=9, Spp_B=0,
+  Jaccard=0), indices de diversidade (Shannon 1.8784, Pielou 0.8549, Simpson
+  0.8093 para Quantitativa; Shannon/Pielou/Simpson ausentes — `NaN` — para
+  Qualitativa e Geral, como antes) e contagem de especies (9) — **identicos**
+  antes e depois dos 3 ajustes.
+- Checksum MD5 dos 20 arquivos do lastro da C028 reconferido apos as duas
+  republicacoes desta sessao: identico.
+- Cada republicacao gerou um novo diretorio imutavel em `runs/` (nunca
+  sobrescreveu execucoes anteriores da propria C029): `20260908T182849Z`
+  (primeira publicacao), `20260908T192337Z` (manifesto + acentuacao),
+  `20260908T192825Z` (ajuste final do Venn).
+- `execution_metadata.json` da execucao final: `warnings: []`,
+  `generated_files_missing_count: 0`.
+- 5 testes de regressao existentes + 3 novos testes para o manifesto
+  (`tests/test_runner_audit_isolation.py`) — todos passando (8/8).
+- Campanha `C029-2026-08-SC` e pasta `29_campanha_Jul_26` **nao foram
+  alteradas**.
 
 ## Limitacao De Ambiente (Resolvida)
 

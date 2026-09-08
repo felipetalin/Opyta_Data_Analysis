@@ -60,13 +60,21 @@ def _make_result(rows_loaded: int, generated_files: list[str]) -> dict:
 
 def _write_audit_trail(config_root: Path, params: RunParams, result: dict, run_id: str) -> dict:
     """Espelha exatamente o trecho de `runner.run()` que grava a trilha de
-    auditoria, sem executar nenhum pipeline real nem tocar o Supabase."""
+    auditoria e o manifesto de rastreabilidade, sem executar nenhum pipeline
+    real nem tocar o Supabase."""
     details = result["details"]
     group_dir = runner_mod._get_project_group_dir(params, config_root, details)
     run_dir = runner_mod._get_execution_run_dir(group_dir, params, details, run_id)
     metadata_path = runner_mod._generate_execution_metadata(params, result, config_root, group_dir, run_dir, run_id)
     reproducer_path = runner_mod._generate_reproducer_script(params, config_root, group_dir, run_dir, run_id)
-    return {"group_dir": group_dir, "run_dir": run_dir, "metadata_path": Path(metadata_path), "reproducer_path": Path(reproducer_path)}
+    manifest_path = runner_mod._write_deliverable_manifest(params, result, config_root, run_dir, run_id)
+    return {
+        "group_dir": group_dir,
+        "run_dir": run_dir,
+        "metadata_path": Path(metadata_path),
+        "reproducer_path": Path(reproducer_path),
+        "manifest_path": Path(manifest_path) if manifest_path else None,
+    }
 
 
 @pytest.fixture
@@ -185,3 +193,86 @@ def test_no_recursive_delete_helpers_in_runner_module():
     assert "shutil.rmtree" not in source
     assert ".unlink(" not in source
     assert "_prune_timestamped_audit_artifacts" not in source
+
+
+def test_deliverable_manifest_has_traceability_fields_and_sha256(config_root: Path, tmp_path: Path):
+    """Manifesto de rastreabilidade pedido apos a revisao da amostra de
+    Senhora do Porto: deve existir DENTRO do pacote de entrega (output_dir,
+    nao so na trilha de auditoria interna) com projeto, campanha,
+    empreendimento, grupo, responsavel, git (branch/commit), run_id, fonte,
+    parametros e SHA-256 de cada produto."""
+    output_dir = tmp_path / "out_manifest"
+    output_dir.mkdir()
+    f1 = output_dir / "6_1_tabela_especies_senhora_do_porto.xlsx"
+    f2 = output_dir / "6_1_figura_abundancia_cpue_n_senhora_do_porto.png"
+    f1.write_bytes(b"conteudo xlsx de teste")
+    f2.write_bytes(b"conteudo png de teste")
+
+    params = _make_params(output_dir, campaigns=["C029-2026-08-SC"], pch_target="Senhora do Porto")
+    result = _make_result(rows_loaded=24, generated_files=[str(f1), str(f2)])
+    trail = _write_audit_trail(config_root, params, result, run_id="20260908T182849Z")
+
+    assert trail["manifest_path"] is not None
+    assert trail["manifest_path"].exists()
+    assert trail["manifest_path"].parent == output_dir, "manifesto deve ficar dentro do pacote de entrega"
+
+    manifest = json.loads(trail["manifest_path"].read_text(encoding="utf-8"))
+
+    assert manifest["projeto"]["project_id"] == 165
+    assert manifest["grupo"] == "Ictiofauna"
+    assert manifest["campanha"] == ["C029-2026-08-SC"]
+    assert manifest["empreendimento"] == "Senhora do Porto"
+    assert manifest["run_id"] == "20260908T182849Z"
+    assert manifest["responsavel"]
+    assert "branch" in manifest["git"]
+    assert "commit" in manifest["git"]
+    assert manifest["runner_version"] == runner_mod.RUNNER_VERSION
+    assert manifest["parametros_utilizados"]["pipeline"] == "ictio_partial"
+    assert manifest["parametros_utilizados"]["block"] == "all"
+
+    products_by_path = {Path(p["path"]).name: p for p in manifest["produtos"]}
+    assert set(products_by_path) == {f1.name, f2.name}
+    for name, record in products_by_path.items():
+        assert record["exists"] is True
+        assert record["sha256"] and len(record["sha256"]) == 64
+
+
+def test_deliverable_manifest_respects_explicit_operator(config_root: Path, tmp_path: Path):
+    output_dir = tmp_path / "out_operator"
+    output_dir.mkdir()
+    params = RunParams(
+        project_id=165,
+        group="Ictiofauna",
+        pipeline="ictio_partial",
+        client="itagua001_guanhaes",
+        output_dir=output_dir,
+        env_file=None,
+        block="all",
+        audit_project_slug="ITAGUA001__monitoramento_da_fauna",
+        campaigns=["C029-2026-08-SC"],
+        pch_target="Senhora do Porto",
+        operator="Felipe Talin Normando",
+    )
+    result = _make_result(rows_loaded=1, generated_files=[])
+    trail = _write_audit_trail(config_root, params, result, run_id="20260908T190000Z")
+    manifest = json.loads(trail["manifest_path"].read_text(encoding="utf-8"))
+    assert manifest["responsavel"] == "Felipe Talin Normando"
+
+
+def test_manifest_of_one_run_does_not_touch_manifest_of_another(config_root: Path, tmp_path: Path):
+    """Gerar o manifesto de uma execucao (ex.: nova rodada da C029) nao pode
+    tocar o manifesto ja escrito no pacote de outra execucao/empreendimento."""
+    out_a = tmp_path / "out_a"
+    out_b = tmp_path / "out_b"
+    out_a.mkdir()
+    out_b.mkdir()
+
+    params_a = _make_params(out_a, campaigns=["C029-2026-08-SC"], pch_target="Senhora do Porto")
+    trail_a = _write_audit_trail(config_root, params_a, _make_result(24, []), run_id="20260908T182849Z")
+    manifest_a_before = trail_a["manifest_path"].read_text(encoding="utf-8")
+
+    params_b = _make_params(out_b, campaigns=["C029-2026-08-SC"], pch_target="Jacaré")
+    _write_audit_trail(config_root, params_b, _make_result(93, []), run_id="20260908T183000Z")
+
+    assert trail_a["manifest_path"].exists()
+    assert trail_a["manifest_path"].read_text(encoding="utf-8") == manifest_a_before
