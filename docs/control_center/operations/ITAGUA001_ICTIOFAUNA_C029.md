@@ -45,18 +45,23 @@
   existente em `Ictiofauna/`) tinha outro proposito; decidir sobre
   fechamento da operacao.
 
-## Duvida De Estrutura Nao Resolvida
+## Duvida De Estrutura — Resolvida (subpasta excluida)
 
 Ao inspecionar a pasta real, `Ictiofauna/` continha apenas uma subpasta
 vazia `Análise consolidada`, enquanto os outros 4 grupos da C029 (Avifauna,
 Mastofauna, Herpetofauna, Primatas) ja tinham subpastas por empreendimento
 (`Jacaré/`, `Senhora do Porto/`, `Dores de Guanhães/`, `Fortuna II/`) com
 produtos gerados. Publiquei Senhora do Porto espelhando o padrao dos outros
-4 grupos (decisao mais consistente com o que ja existia), mas **nao
-confirmei com o Felipe** se `Análise consolidada` era o destino pretendido
-para Ictiofauna (por exemplo, um pacote unico cruzando os 4 empreendimentos,
-em vez de 4 pastas separadas). A pasta `Análise consolidada` continua vazia;
-nada foi movido para ou apagado dela.
+4 grupos.
+
+**2026-09-08:** a usuaria autorizou explicitamente excluir a subpasta
+("Pode excluir a pasta consolidada"). Antes de excluir, confirmei que
+continuava vazia (`Get-ChildItem -Force -Recurse` mostrou apenas um
+`desktop.ini` oculto, arquivo de sistema do Google Drive, sem conteudo de
+usuario). Excluida com `Remove-Item -Recurse -Force`. Estrutura final de
+`Ictiofauna/` na pasta contratual: uma subpasta por empreendimento
+(`Jacaré/`, `Senhora do Porto/`, `Dores de Guanhães/`, `Fortuna II/`),
+identica ao padrao dos outros 4 grupos.
 
 ## Escopo Autorizado
 
@@ -487,8 +492,9 @@ descobrir os 5 grupos do projeto pelo caminho de sempre.
    passaram por revisao numerica individual** (diferente de Senhora do
    Porto, que foi conferido linha a linha). Recomendado que o Felipe
    confira os 3 antes do fechamento da operacao.
-3. Confirmar com o Felipe o proposito da subpasta vazia `Análise
-   consolidada` em `Ictiofauna/` (ver "Duvida De Estrutura Nao Resolvida").
+3. ~~Confirmar com o Felipe o proposito da subpasta vazia `Análise
+   consolidada`~~ — resolvida em 2026-09-08: usuaria autorizou a exclusao,
+   confirmada vazia antes de excluir (ver "Duvida De Estrutura — Resolvida").
 4. Correcao do runner aplicada, testada, commitada (`500a297`) e enviada
    (push) para `origin/itagua001-ictiofauna-c029` em 2026-09-08. Merge na
    main **nao autorizado**. Commits subsequentes (`845385e`, `27dc3fe`)

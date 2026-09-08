@@ -655,3 +655,31 @@ Aguardar o Felipe revisar os 4 empreendimentos publicados (numeros de
 Jacaré/Dores de Guanhães/Fortuna II ainda nao conferidos individualmente) e
 decidir sobre fechamento da operacao e a duvida da subpasta `Análise
 consolidada`.
+
+## 2026-09-08 - Sessao 7 (exclusao da subpasta "Análise consolidada")
+
+Commit e push da sessao anterior confirmados sincronizados (`800e057`,
+`0 ahead/0 behind` em relacao a `origin/itagua001-ictiofauna-c029`). A
+usuaria entao autorizou: "Pode excluir a pasta consolidada".
+
+Antes de excluir, confirmei que a subpasta continuava vazia
+(`Get-ChildItem -Force -Recurse` na pasta real) — so um `desktop.ini`
+oculto (arquivo de sistema do Google Drive, nao e conteudo de usuario).
+Executei `Remove-Item -Recurse -Force` sobre essa pasta especifica (nao uma
+exclusao ampla sobre `Ictiofauna/` nem sobre a pasta contratual como um
+todo). Verifiquei com `Test-Path` que a pasta deixou de existir.
+
+Estrutura final de `Ictiofauna/` dentro de `29_campanha_Jul_26/`: 4
+subpastas, uma por empreendimento (`Jacaré/`, `Senhora do Porto/`,
+`Dores de Guanhães/`, `Fortuna II/`), igual ao padrao dos outros 4 grupos
+da mesma campanha. A duvida de estrutura registrada nas sessoes 4-6 fica
+resolvida.
+
+Atualizei o registro da operacao ("Duvida De Estrutura — Resolvida") e a
+lista de pendencias riscando o item correspondente.
+
+### Proxima acao
+
+Commitar e enviar (push) este registro de documentacao. Seguem pendentes:
+revisao numerica individual de Jacaré/Dores de Guanhães/Fortuna II pelo
+Felipe, e decisao sobre fechamento da operacao.
