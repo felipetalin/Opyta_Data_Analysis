@@ -39,11 +39,11 @@
   foram gerados e publicados na pasta contratual em 2026-09-08, mediante
   autorizacao explicita da usuaria ("Pode gerar os três que ainda faltam")
   (ver "Geracao Dos 3 Empreendimentos Restantes" abaixo)
-- proxima acao: Felipe revisar os 4 empreendimentos publicados (Senhora do
-  Porto ja aprovado; Jacaré/Dores de Guanhães/Fortuna II ainda sem revisao
-  formal); confirmar se a subpasta `Análise consolidada` (vazia, ja
-  existente em `Ictiofauna/`) tinha outro proposito; decidir sobre
-  fechamento da operacao.
+- proxima acao: usuaria fara a revisao numerica de Jacaré, Dores de
+  Guanhães e Fortuna II (Senhora do Porto ja revisado e aprovado) —
+  combinada para 2026-09-09; depois disso, decidir sobre fechamento da
+  operacao. Duvida da subpasta `Análise consolidada` ja resolvida (excluida
+  em 2026-09-08).
 
 ## Duvida De Estrutura — Resolvida (subpasta excluida)
 
