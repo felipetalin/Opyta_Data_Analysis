@@ -1,0 +1,14 @@
+{
+  "client_code": "ITAGUA001",
+  "audit_project_slug": "ITAGUA001__monitoramento_da_fauna",
+  "theme_override": {
+    "primary_hex": "#11420C",
+    "secondary_hex": "#6A8F63",
+    "highlight_hex": "#3F5F3B"
+  },
+  "_notes": [
+    "Status: prototype. Nao promover para 'reference'/'active' antes do Gate R.",
+    "Paleta identica a usada na Campanha 28 do projeto 165 (antes referenciada via configs/clients/fersam001.json, que pertence a outro projeto).",
+    "Criado no piloto ITAGUA001/Ictiofauna/C029 para que o projeto tenha client_config proprio, evitando executar com audit_project_slug de outro projeto."
+  ]
+}

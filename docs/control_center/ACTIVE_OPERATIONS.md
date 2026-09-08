@@ -11,6 +11,7 @@ continua em [PROJECTS.md](PROJECTS.md).
 | Revisao R03 - figura 10 | GEOARC001 / Monitoramento Arcelor | Ictiofauna | `awaiting_revision_approval` | Aprovar figura 10 revisada no Gate R | [GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R03.md](reviews/GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R03.md) |
 | Revisao R04 - Harttia ameacadas | GEOARC001 / Monitoramento Arcelor | Ictiofauna | `awaiting_revision_approval` | Aprovar figura 14 e planilha de apoio no Gate R | [GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R04.md](reviews/GEOARC001_ICTIOFAUNA_18_CAMPANHAS_REV_R04.md) |
 | Campanha 1 | VIRITA001 / Itabrita | Ictiofauna | `awaiting_revision_approval` | Aprovar revisoes R01 e R02 no Gate R | [VIRITA001_ICTIOFAUNA_CAMPANHA_1.md](operations/VIRITA001_ICTIOFAUNA_CAMPANHA_1.md) |
+| Campanha 29 (piloto) | ITAGUA001 / Monitoramento da Fauna | Ictiofauna | `generating_products` | Felipe revisar diff/testes da correcao do runner e autorizar os 3 empreendimentos restantes | [ITAGUA001_ICTIOFAUNA_C029.md](operations/ITAGUA001_ICTIOFAUNA_C029.md) |
 | Revisao R01 — 44ª-Mar-26 | BRAAVG002 / Brumado AVG | Zoobentos | `awaiting_revision_approval` | Aprovar Excel e figura EPT/CHOL revisados no Gate R | [BRAAVG002_ZOOBENTOS_MARCO_2026_REV_R01.md](reviews/BRAAVG002_ZOOBENTOS_MARCO_2026_REV_R01.md) |
 
 ## Como Atualizar

@@ -65,7 +65,8 @@ def main() -> int:
                 "client": recipe["client_config"],
                 "output_dir": str(output_root / group_cfg["output_subdir"]),
                 "block": args.block,
-                "campaigns": recipe.get("campaigns", []),
+                "campaigns": group_cfg.get("campaigns", recipe.get("campaigns", [])),
+                "pch_target": group_cfg.get("pch_target"),
             }
         )
 
@@ -85,6 +86,7 @@ def main() -> int:
             block=item["block"],
             audit_project_slug=recipe.get("audit_project_slug"),
             campaigns=item["campaigns"],
+            pch_target=item["pch_target"],
         )
         result = run(params=params, config_root=ROOT / "configs")
         results.append(result)

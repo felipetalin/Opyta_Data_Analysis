@@ -19,7 +19,6 @@ if str(SRC) not in sys.path:
 
 from opyta_analysis.config import RunParams
 from opyta_analysis.runner import run
-import opyta_analysis.pipelines.diagnostico.ictio_partial as ictio_part_mod
 
 
 CAMPANHA_ALVO = "C028-2026-05-SC"
@@ -43,10 +42,6 @@ def main() -> int:
         out_dir = base_out / folder_name
         out_dir.mkdir(parents=True, exist_ok=True)
 
-        # Setar TARGET (PCH alvo + campanha) no modulo antes de cada execucao
-        ictio_part_mod.TARGET_PCH_NAME = pch_name
-        ictio_part_mod.TARGET_CAMPANHA = CAMPANHA_ALVO
-
         params = RunParams(
             project_id=165,
             group="Ictiofauna",
@@ -56,6 +51,8 @@ def main() -> int:
             env_file=r"G:\Meu Drive\Opyta\Opyta_Data\.env",
             block="all",
             audit_project_slug="ITAGUA001__monitoramento_da_fauna",
+            campaigns=[CAMPANHA_ALVO],
+            pch_target=pch_name,
         )
 
         result = run(params=params, config_root=ROOT / "configs")

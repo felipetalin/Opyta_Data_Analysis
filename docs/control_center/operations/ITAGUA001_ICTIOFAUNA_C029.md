@@ -1,0 +1,334 @@
+# ITAGUA001 - Ictiofauna - Campanha 29
+
+## Controle
+
+- projeto: `ITAGUA001__monitoramento_da_fauna`
+- grupo: Ictiofauna
+- operacao: Configuracao das analises da Campanha 29 (piloto colaborativo)
+- estado atual: `generating_products` (amostra de 1 empreendimento gerada e mantida em staging; correcao bloqueante do runner aplicada e testada; pacote completo dos 4 empreendimentos ainda nao gerado)
+- aberta em: 2026-09-08
+- atualizada em: 2026-09-08
+- operador: Ismayllen
+- responsavel pelos dados: Felipe (migracao e consolidacao ja executadas)
+- Gate C: aprovado por Felipe em 2026-09-08; configuracao da C029 aprovada
+- proxima acao: Felipe revisar o diff da correcao do runner e os resultados dos
+  testes (secao "Risco Sistemico Encontrado E Corrigido"); autorizar geracao
+  dos 3 empreendimentos restantes e definir onde publicar na pasta contratual
+
+## Escopo Autorizado
+
+- Trabalhar somente na etapa 5 (configuracao das analises) e apresentar o Gate C.
+- Nao validar planilhas, nao cadastrar especies, nao migrar, nao consolidar.
+- Nao alterar o Supabase; apenas consultas somente leitura.
+- Nao executar nem reutilizar automaticamente o pipeline historico de
+  estabilidade da ictiofauna (`scripts/run_ictio_pipeline_165.py`).
+- Nao gerar produtos antes da aprovacao explicita do Felipe.
+
+## Caminhos
+
+- dados: Supabase `public.biota_analise_consolidada` (projeto 165, grupo Ictiofauna)
+- cadastro de especies: `public.especies` (nao alterado nesta operacao)
+- saida proposta:
+  `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/Resultados e análises/29_campanha-Julho_26/Ictiofauna/<Empreendimento>`
+- dossie: nao existe (`docs/projects/` nao tem ITAGUA001) — proposto criar
+- recipe: nao existe (`configs/projects/` nao tem ITAGUA001) — proposto criar
+- lastro: `outputs/_project_scripts/ITAGUA001__monitoramento_da_fauna/ictiofauna`
+- diario do piloto: `ITAGUA001_ICTIOFAUNA_C029_DIARIO_PILOTO.md`
+
+## Identidade
+
+- codigo interno: `ITAGUA001`
+- nome no Supabase: `Monitoramento da Fauna`
+- `id_projeto`: 165
+- canonical key no registry: `ITAGUA001__monitoramento_da_fauna`
+- status no registry: `reference` (nao `active`)
+- cliente/empreendedor: Guanhães Energia (pasta Itatiaia)
+- empreendimentos: Jacaré, Senhora do Porto, Dores de Guanhães, Fortuna II
+
+## Contexto Consultado
+
+- `AGENTS.md`
+- `docs/control_center/README.md`
+- `docs/control_center/WORKFLOW.md`
+- `docs/control_center/ACTIVE_OPERATIONS.md`
+- `docs/control_center/NAMING_STANDARD.md`
+- `docs/registry/project_registry.json`
+- `docs/templates/operation_record_template.md`
+- `docs/control_center/operations/GEOARC001_ICTIOFAUNA_18_CAMPANHAS.md` (referencia de forma)
+- `configs/projects/geoarc001_arcelor_ictiofauna.json`, `configs/projects/virita001_itabrita_ictiofauna.json`
+- `configs/clients/fersam001.json`, `configs/theme_default.json`
+- `src/opyta_analysis/runner.py`, `src/opyta_analysis/pipelines/diagnostico/ictio.py`,
+  `src/opyta_analysis/pipelines/diagnostico/ictio_partial.py`
+- `docs/PIPELINE_ICTIO_165.md` (lido apenas para delimitar o que NAO sera reutilizado)
+- `outputs/_project_scripts/ITAGUA001__monitoramento_da_fauna/*/execution_metadata.json`
+
+## Conferencia Do Recorte No Supabase (somente leitura)
+
+Consultas em `public.biota_analise_consolidada`, `pontos_coleta`, `empreendimentos`,
+`esforcos_amostragem` e `resultados_ictiofauna`. Nenhuma escrita executada.
+
+### Nome da campanha de ictiofauna
+
+| Grupo | Nome da campanha 29 no banco |
+| --- | --- |
+| Ictiofauna | `C029-2026-08-SC` |
+| Avifauna | `C029-2026-07-SC` |
+| Mastofauna | `C029-2026-07-SC` |
+| Herpetofauna | `29ª-jul-26-SC` |
+
+O briefing do piloto informa `C029-2026-07-SC`. Para Ictiofauna esse rotulo nao
+existe no banco; o recorte real e `C029-2026-08-SC`. **Pendencia de confirmacao.**
+
+### Totais do recorte `ITAGUA001` / Ictiofauna / `C029-2026-08-SC`
+
+| Item | Valor |
+| --- | ---: |
+| Linhas consolidadas | 66 |
+| Especies | 14 |
+| Pontos com resultado | 20 |
+| Pontos cadastrados na campanha | 32 |
+| Individuos | 235 |
+| Biomassa total (g) | 36.647,35 |
+| Metodos de captura | 2 |
+| Bacias | 1 |
+| Data de coleta registrada | 2026-08-01 (unica) |
+| Linhas sem contagem / biomassa / coordenada / esforco | 0 / 0 / 0 / 0 |
+
+### Por metodo
+
+| Metodo | Unidade de esforco | Pontos | Linhas | Individuos | Especies |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Rede de emalhar | m²/100 | 17 | 61 | 212 | 12 |
+| Peneira e arrasto | m²/100 | 5 | 5 | 23 | 2 |
+
+### Por empreendimento (linhas de resultado)
+
+| Empreendimento | Pontos cadastrados | Pontos com resultado | Linhas |
+| --- | ---: | ---: | ---: |
+| Jacaré | 9 | 5 | 20 |
+| Senhora do Porto | 8 | 5 | 16 |
+| Dores de Guanhães | 7 | 5 | 16 |
+| Fortuna II | 8 | 5 | 14 |
+
+Todos os pontos `TR*` (tributarios) estao sem captura, exceto `TRDGN2`,
+`TRFOR2` e `TRFOR3`, com 1 linha cada.
+
+### Composicao (14 taxons)
+
+Astyanax lacustris (64), Hypostomus affinis (50), Geophagus brasiliensis (37),
+Hypomasticus copelandii (20), Knodus moenkhausii (15), Hoplias intermedius (14),
+Deuterodon taeniatus (10), Phalloceros uai (8), Hoplias malabaricus (6),
+Rhamdia quelen (4), Cichla kelberi (3), Oreochromis niloticus (2),
+Hypomasticus thayeri (1), Delturus carinotus (1).
+
+Nao nativas presentes: `Cichla kelberi` e `Oreochromis niloticus`.
+
+## Progresso
+
+| Etapa | Estado | Evidencia resumida |
+| --- | --- | --- |
+| Abertura | concluida | Briefing do piloto; identidade confirmada no registry e no Supabase (`id_projeto=165`). |
+| Validacao | fora do escopo | Executada pelo Felipe antes do piloto. |
+| Gate A - dados | fora do escopo | Registrado pelo Felipe. |
+| Cadastro de especies | fora do escopo | Executado pelo Felipe. |
+| Auditoria de atributos | fora do escopo | Executada pelo Felipe. |
+| Gate B - especies | fora do escopo | Registrado pelo Felipe. |
+| Migracao | concluida pelo Felipe | Backups `bkp_itagua001_ictio_c029_20260908t162046z_*` presentes no banco. |
+| Consolidacao | concluida pelo Felipe | 66 linhas em `biota_analise_consolidada` para o recorte. |
+| Configuracao das analises | concluida | Template, paleta, pasta e produtos abaixo; recipe e client criados. |
+| Gate C - analises | aprovado com condicoes | Felipe aprovou em 2026-09-08 com 10 condicoes; ver secao dedicada. |
+| Geracao dos produtos | amostra concluida | 1 de 4 empreendimentos gerado para revisao (Senhora do Porto); aguardando autorizacao para os demais. |
+| Revisao tecnica | pendente | Depende da geracao. |
+| Revisao de layout | pendente | Depende da revisao tecnica. |
+| Fechamento | pendente | Depende dos produtos, dossie e registry. |
+
+## Gates
+
+| Gate | Status | Registro |
+| --- | --- | --- |
+| A - dados | `out_of_scope` | Conduzido pelo Felipe fora deste piloto. |
+| B - especies | `out_of_scope` | Conduzido pelo Felipe fora deste piloto. |
+| C - analises | `approved_with_conditions` | Felipe aprovou em 2026-09-08 com 10 condicoes (ver "Condicoes Do Gate C" abaixo). |
+
+## Condicoes Do Gate C (Felipe, 2026-09-08)
+
+1. Usar exclusivamente `C029-2026-08-SC` (rotulo real do banco para Ictiofauna) — **atendida**.
+2. Manter `29_campanha-Julho_26` como pasta contratual e registrar no manifesto que a coleta ocorreu em 2026-08-01 — **atendida** (nota na recipe e no dossie; pendente confirmar no manifesto quando a pasta real do Google Drive estiver acessivel, ver "Limitacao De Ambiente").
+3. Usar `ictio_partial` e preservar os 13 produtos comparaveis a C028 — **atendida** (13 produtos gerados na amostra; um 14o produto, `6_1_figura_ocorrencia_qualitativa`, so aparece quando ha captura qualitativa real, o que nao ocorreu na C028).
+4. Eliminar `TARGET_PCH_NAME`/`TARGET_CAMPANHA` fixos do modulo antes de gerar — **atendida** (globais removidos; `campanha_alvo`/`pch_alvo` agora obrigatorios).
+5. Criar recipe e client proprios do ITAGUA001; proibido `client="fersam001"` ou `audit_project_slug` de outro projeto — **atendida**.
+6. Autorizada a criacao de um dossie minimo do ITAGUA001 — **atendida**.
+7. Preservar os 32 pontos cadastrados, inclusive os 12 com captura zero, e confirmar que representam esforco valido antes de gerar — **atendida** (confirmado no Supabase; loader corrigido para nao descartar esses pontos; ver "Correcoes Aplicadas").
+8. Normalizar o vocabulario de origem apenas nos produtos, sem alterar o Supabase — **atendida**.
+9. Manter status `prototype`; nao promover para `reference` antes do Gate R — **atendida** (recipe e registry marcados `prototype`).
+10. Registrar no diario todas as mudancas e dificuldades — **atendida**, ver diario do piloto.
+
+## Configuracao Das Analises (proposta do Gate C)
+
+- numero de campanhas no recorte: 1 (`C029-2026-08-SC`)
+- template proposto: **campanha unica / poucas campanhas**, o mesmo perfil usado
+  na Campanha 28 e o mesmo perfil de referencia do VIRITA001. Em
+  `src/opyta_analysis/pipelines/diagnostico/ictio.py` o ramo de poucas campanhas
+  e acionado por `len(campaigns) <= 2` (barras agrupadas, sem small multiples
+  nem paineis por ano). Nenhuma serie longa e nenhuma comparacao Pre/Pos.
+- gerador proposto: `ictio_partial` (`run_ictio_partial_pipeline`), blocos
+  `6.1` a `6.8`, executado uma vez por empreendimento, como na Campanha 28.
+  Alternativa possivel: `ictio` (blocos 3 a 13). Ver "Decisao pendente 1".
+- paleta proposta: verde FERSAM001/Guanhães ja usada na Campanha 28
+  (`configs/clients/fersam001.json`: `primary_hex #11420C`,
+  `secondary_hex #6A8F63`, `highlight_hex #3F5F3B`) sobre `configs/theme_default.json`.
+  Proposta de melhoria: criar `configs/clients/itagua001_guanhaes.json` com o
+  mesmo `theme_override` e com `audit_project_slug` correto. Ver "Decisao pendente 2".
+- pasta de saida proposta:
+  `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/Resultados e análises/29_campanha-Julho_26/Ictiofauna/<Empreendimento>`
+  espelhando `28_campanha-Abril_26/Ictiofauna/<Empreendimento>`.
+- produtos esperados (por empreendimento, padrao da Campanha 28):
+  1. `6_1_tabela_especies_<emp>.xlsx`
+  2. `6_1_figura_abundancia_cpue_n_<emp>.png`
+  3. `6_2_tabela_estimadores_<emp>.xlsx`
+  4. `6_2_curva_coletor_dados_<emp>.xlsx`
+  5. `6_2_curva_coletor_<emp>.png`
+  6. `6_3_indices_diversidade.xlsx`
+  7. `6_3_indices_diversidade.png`
+  8. `6_4_matriz_similaridade_jaccard_por_pontos.xlsx`
+  9. `6_4_dendrograma_jaccard_por_pontos.png`
+  10. `6_5_tabela_jaccard_rp_vs_tr.xlsx`
+  11. `6_5_diagrama_venn_rp_vs_tr.png`
+  12. `6_6_6_8_tabela_geral_status.xlsx`
+  13. `6_relatorio_descritivo_ictio_parcial.txt`
+- lastro automatico: `execution_metadata.json` + `_run_this_analysis.py` em
+  `outputs/_project_scripts/ITAGUA001__monitoramento_da_fauna/ictiofauna`
+  (gerado pelo `runner.py`, com manifesto de arquivos e contexto git).
+
+## Correcoes Aplicadas Antes Da Geracao
+
+- **Isolamento de filtros:** `run_ictio_partial_pipeline` agora exige
+  `campanha_alvo` e `pch_alvo` explicitos (`ValueError` se ausentes) e valida
+  internamente que o dataframe carregado contem apenas a campanha e o
+  empreendimento pedidos, abortando com `RuntimeError` em caso de vazamento.
+  Testado no preflight (ver abaixo) com controle negativo usando o rotulo
+  divergente do briefing (`C029-2026-07-SC`), que corretamente retorna 0 linhas
+  para Ictiofauna.
+- **Pontos com captura zero:** o loader (`_load_ictio_partial_df`) deixou de
+  descartar esforcos sem nenhuma linha em `resultados_ictiofauna`. Esses
+  esforcos agora entram como unidades amostrais de captura zero
+  (`amostragem_zero_captura=True`), afetando corretamente riqueza por ponto,
+  suficiencia amostral (6.2, `n_unidades_amostrais`) e a base de pontos usada
+  em 6.4/6.5. Confirmado no Supabase (somente leitura) que os 32 pontos
+  cadastrados na campanha, incluindo os 12 sem captura, tem `esforco_amostragem`
+  valido (100 ou 120, metodo e tipo de amostragem preenchidos).
+- **Bug encontrado e corrigido durante o teste da amostra:** com pontos de
+  captura zero agora presentes, `df_quali` deixou de ficar vazio mesmo sem
+  nenhuma especie real, e `_save_block_6_1` registrava
+  `6_1_figura_ocorrencia_qualitativa_*.png` no manifesto sem o arquivo
+  existir de fato (`generated_files_missing_count: 1` no
+  `execution_metadata.json`). Corrigido: `_save_abundance_figure` agora
+  retorna `None` quando nao ha especie a plotar, e o chamador so registra o
+  arquivo no manifesto quando ele e realmente salvo.
+- **Vocabulario de origem:** `_normalize_origem` classifica em
+  `Nativa`/`Nao nativa`/`Nao informado` a partir do texto do Supabase, sem
+  alterar o banco. Aplicado na tabela de especies (6.1) e antes da chamada a
+  `masto._save_general_status_tables` (6.6-6.8). Confirmado na amostra:
+  `Cichla kelberi` (frase composta "exotica na bacia do rio Doce; nativa da
+  bacia Amazonica") passou a ser corretamente classificada como `Nao nativa`
+  e marcada `Exotica=Sim`, o que antes nao ocorria.
+- **Client/recipe proprios:** criados `configs/clients/itagua001_guanhaes.json`
+  e `configs/projects/itagua001_guanhaes_ictiofauna.json` (status `prototype`).
+  `RunParams` ganhou o campo `pch_target`; `runner.py` valida que `ictio_partial`
+  recebe exatamente uma campanha e um `pch_target`, e o script reprodutor
+  gerado automaticamente (`_run_this_analysis.py`) foi corrigido para incluir
+  `pch_target` (nao incluia antes desta mudanca).
+
+## Preflight (Somente Leitura)
+
+Script: `scripts/run/fauna/preflight_itagua001_c029_ictio.py`.
+Resultado: `preflight_ok: true` para os 4 empreendimentos —
+isolamento de campanha e de empreendimento sem vazamento, controle negativo
+do rotulo divergente sem dados, 32/32 pontos presentes, sem colisao de pontos
+entre empreendimentos. Pontos com captura por empreendimento: Jacaré 5/9,
+Senhora do Porto 5/8, Dores de Guanhães 5/7, Fortuna II 5/8 (total 20/32,
+confere com a consulta inicial ao Supabase).
+
+## Amostra Gerada Para Revisao
+
+- empreendimento: Senhora do Porto (1 de 4; os outros 3 nao foram gerados)
+- destino: `outputs/_staging_review/ITAGUA001_C029_ictiofauna/Senhora do Porto/`
+  (pasta local de staging, **nao** a pasta contratual — ver "Limitacao De Ambiente")
+- 13 produtos gerados, todos existentes em disco;
+  `execution_metadata.json` sem avisos (`warnings: []`, `generated_files_missing_count: 0`)
+- lastro: `outputs/_project_scripts/ITAGUA001__monitoramento_da_fauna/ictiofauna/`
+
+## Limitacao De Ambiente
+
+A pasta contratual
+`G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/...`
+nao esta acessivel nesta maquina/sessao (o Google Drive montado aqui so tem
+`Geomil` sob essa arvore; `Itatiaia` nao esta sincronizado/compartilhado com
+esta conta). Por isso a amostra foi gerada em pasta local de staging. Felipe
+deve reexecutar `scripts/run/fauna/run_ictio_partial_c029_itagua001.py --pch
+"Senhora do Porto"` (ou o pacote completo com `--all`) em uma maquina com essa
+pasta do Drive acessivel, para os produtos ficarem no destino contratual.
+
+## Risco Sistemico Encontrado E Corrigido (Runner)
+
+Gerar a amostra apagou temporariamente o lastro historico da C028: o
+runner (`_get_project_audit_dir`) agrupava a trilha de auditoria so por
+projeto+grupo, sem distinguir campanha/empreendimento, e
+`_prune_timestamped_audit_artifacts` mantinha apenas o par mais recente. Os
+8 arquivos timestampados da C028 foram restaurados com `git checkout` antes
+de qualquer commit (nada foi perdido).
+
+Felipe classificou o risco como bloqueante e pediu correcao restrita antes de
+gerar novamente. Aplicada em `src/opyta_analysis/runner.py`:
+
+- identidade de execucao agora inclui projeto, grupo, campanha(s),
+  empreendimento (quando disponivel) e `run_id`;
+- cada execucao grava em um diretorio IMUTAVEL:
+  `outputs/_project_scripts/<projeto>/<grupo>/runs/<campanha>__<empreendimento>/<run_id>/`;
+  nada e apagado (`_prune_timestamped_audit_artifacts` foi removida, sem
+  substituicao por outra forma de exclusao);
+  nenhuma exclusao recursiva foi usada em nenhum ponto;
+- os ponteiros de conveniencia `<grupo>/execution_metadata.json` e
+  `..._run_this_analysis.py` continuam no MESMO caminho de sempre, porque
+  `opyta_analysis.fauna.audit.audit_project()` os descobre com um glob de
+  profundidade fixa (`<projeto>/*/execution_metadata.json`); mudar esse
+  caminho quebraria silenciosamente o audit manifest de todos os projetos.
+
+**Testado** (detalhe completo no diario, sessao 3): 5 testes automatizados
+novos em `tests/test_runner_audit_isolation.py` (coexistencia C028/C029,
+duas execucoes consecutivas da C029, contrato do ponteiro "latest",
+dois empreendimentos da mesma campanha, ausencia de exclusao recursiva no
+modulo) — todos passando; e um teste real (nao simulado) rodando a amostra
+da C029 duas vezes consecutivas contra o Supabase, com checksum MD5 dos 20
+arquivos da C028 identico antes e depois, e `audit_project()` continuando a
+descobrir os 5 grupos do projeto pelo caminho de sempre.
+
+## Pendencias
+
+1. Blocos 6.4 e 6.5 ficam descritivos quando os pontos `TR*` tem pouca ou
+   nenhuma captura nesta campanha; tratado como limitacao documentada no
+   relatorio descritivo e no dossie, nao como erro. Confirmar com Felipe se
+   isso e aceitavel para o pacote final.
+2. Gerar os 3 empreendimentos restantes (Jacaré, Dores de Guanhães, Fortuna II)
+   depende de autorizacao explicita — configuracao aprovada em 2026-09-08,
+   mas Felipe pediu para NAO gerar ainda ate revisar o diff/testes da
+   correcao do runner.
+3. Rodar o pacote completo na maquina com a pasta do Drive acessivel, ou
+   validar um caminho alternativo de saida junto com o Felipe.
+4. Correcao do runner aplicada e testada (ver secao acima); aguardando
+   revisao do diff pelo Felipe antes de qualquer nova geracao ou publicacao
+   na pasta contratual. Commit local preparado, sem push.
+
+## Revisoes
+
+| Revisao | Tipo | Impacto | Estado | Registro |
+| --- | --- | --- | --- | --- |
+| | | | | |
+
+## Fechamento E Aprendizados
+
+- validadores: pendente
+- manifesto: pendente
+- patterns: pendente
+- portfolio: pendente
+- backlog: pendente

@@ -139,9 +139,12 @@
         "Herpetofauna",
         "Avifauna"
       ],
-      "recipes": [],
+      "recipes": [
+        "configs/projects/itagua001_guanhaes_ictiofauna.json"
+      ],
       "docs": [
-        "docs/PIPELINE_ICTIO_165.md"
+        "docs/PIPELINE_ICTIO_165.md",
+        "docs/projects/ITAGUA001_GUANHAES_FAUNA.md"
       ],
       "scripts": [
         "scripts/projects/project_165"
@@ -150,7 +153,8 @@
         "outputs/_project_scripts/ITAGUA001__monitoramento_da_fauna"
       ],
       "learning": [
-        "Referencia historica para pipeline multi-grupo e ictiofauna."
+        "Referencia historica para pipeline multi-grupo e ictiofauna.",
+        "Recipe da Campanha 29 (itagua001_guanhaes_ictiofauna.json) esta em status prototype; nao promover para active/reference antes do Gate R (piloto ITAGUA001/Ictiofauna/C029)."
       ]
     },
     {

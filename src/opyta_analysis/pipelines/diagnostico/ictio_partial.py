@@ -13,14 +13,23 @@ Espelha a estrutura Herp/Masto/Primatas (blocos 6.1-6.8), com adaptacoes:
 CPUEn = numero_de_individuos / esforco * 100   (memoria do projeto)
 CPUEb = pc_g / esforco * 100                   (peso corporal em g)
 
-Uso (via script multi-empreendimento):
+Uso (via recipe/RunParams, sem estado global no modulo):
 
-    import opyta_analysis.pipelines.diagnostico.ictio_partial as ictio_part
-    ictio_part.TARGET_PCH_NAME = "Senhora do Porto"
-    ictio_part.TARGET_CAMPANHA = "C028-2026-05-SC"
-    ictio_part.run_ictio_partial_pipeline(
-        project_id=165, theme=theme, output_dir=out, env_file=env, block="all",
+    from opyta_analysis.pipelines.diagnostico.ictio_partial import run_ictio_partial_pipeline
+    run_ictio_partial_pipeline(
+        project_id=165,
+        theme=theme,
+        output_dir=out,
+        env_file=env,
+        block="all",
+        campanha_alvo="C029-2026-08-SC",
+        pch_alvo="Senhora do Porto",
     )
+
+`campanha_alvo` e `pch_alvo` sao obrigatorios e devem vir da recipe do
+projeto (`configs/projects/*.json` + `RunParams.campaigns`/`RunParams.pch_target`)
+ou de um script explicito. O modulo nao mantem mais alvo fixo em variavel
+global: rodar sem informar os dois parametros levanta `ValueError`.
 """
 from __future__ import annotations
 
@@ -49,13 +58,6 @@ from . import mastofauna as masto
 
 
 # --------------------------------------------------------------------------- #
-# Configuracao por execucao (setada externamente pelo runner multi-emp)
-# --------------------------------------------------------------------------- #
-TARGET_PCH_NAME = "Senhora do Porto"
-TARGET_CAMPANHA = "C028-2026-05-SC"
-
-
-# --------------------------------------------------------------------------- #
 # Helpers
 # --------------------------------------------------------------------------- #
 def _norm(value: object) -> str:
@@ -77,6 +79,30 @@ def _ambiente_from_ponto(nome_ponto: str) -> str:
     if p.startswith("TR"):
         return "TR"
     return "?"
+
+
+_ORIGEM_NAO_NATIVA_RE = re.compile(r"exot|aloc|introduz|invas|nao\s+nativ|non\s+nativ")
+_ORIGEM_NATIVA_RE = re.compile(r"\bnativ")
+
+
+def _normalize_origem(value: object) -> str:
+    """Normaliza o vocabulario de 'origem' apenas para exibicao em produtos.
+
+    Nao altera o Supabase. Trata casos observados na C029 do ITAGUA001, como
+    grafias "Nativo"/"Nativa" e frases compostas (ex.: especie nativa de uma
+    bacia e exotica na bacia do projeto) que a comparacao literal deixava
+    ambiguas na tabela de status (bloco 6.6-6.8).
+    """
+    txt = _norm(value)
+    if not txt:
+        return "Nao informado"
+    is_nao_nativa = bool(_ORIGEM_NAO_NATIVA_RE.search(txt))
+    is_nativa = bool(_ORIGEM_NATIVA_RE.search(txt))
+    if is_nao_nativa:
+        return "Nao nativa"
+    if is_nativa:
+        return "Nativa"
+    return "Nao informado"
 
 
 def _yes_no_flag(value: object) -> bool:
@@ -153,8 +179,6 @@ def _load_ictio_partial_df(
         select="id_esforco,id_especie,numero_de_individuos,pc_g,ct_cm,cp_cm,tipo_amostragem",
     )
     res = [r for r in res if r.get("id_esforco") in esf_ids]
-    if not res:
-        return pd.DataFrame()
 
     # Especies
     esp_rows = paginate(
@@ -214,6 +238,59 @@ def _load_ictio_partial_df(
                 "biomassa_g": r.get("pc_g"),
                 "ct_cm": r.get("ct_cm"),
                 "cp_cm": r.get("cp_cm"),
+                "amostragem_zero_captura": False,
+            }
+        )
+
+    # Esforcos sem nenhuma linha em resultados_ictiofauna representam pontos
+    # efetivamente amostrados com captura zero (nao amostragem ausente). Sem
+    # isso, riqueza/suficiencia/Jaccard contariam apenas pontos com captura,
+    # subestimando o esforco real da campanha (ver diario do piloto, C029).
+    esf_ids_com_resultado = {r["id_esforco"] for r in res}
+    for esf in esfs:
+        if esf["id_esforco"] in esf_ids_com_resultado:
+            continue
+        p = pontos_map.get(esf.get("id_ponto_coleta"), {})
+        id_emp = p.get("id_empreendimento")
+        nome_ponto = p.get("nome_ponto")
+        tipo = esf.get("tipo_amostragem") or esf.get("tipo_de_amostragem")
+        rows.append(
+            {
+                "nome_campanha": camp_map.get(p.get("id_campanha"), "Campanha desconhecida"),
+                "nome_ponto": nome_ponto,
+                "ambiente": _ambiente_from_ponto(nome_ponto),
+                "empreendimento": emp_map.get(id_emp, "Sem empreendimento"),
+                "tipo_amostragem": tipo,
+                "id_esforco": esf.get("id_esforco"),
+                "esforco": esf.get("esforco"),
+                "unidade_esforco": esf.get("unidade_esforco"),
+                "metodo_de_captura": esf.get("metodo_de_captura"),
+                "id_especie": None,
+                "nome_cientifico": None,
+                "nome_popular": None,
+                "ordem": None,
+                "familia": None,
+                "status_ameaca_global": None,
+                "status_ameaca_nacional": None,
+                "status_copam": None,
+                "cites": None,
+                "dependencia_florestal": None,
+                "endemismo": None,
+                "habito_alimentar": None,
+                "guilda_alimentar": None,
+                "migratorio": None,
+                "raridade": None,
+                "origem": None,
+                "distribuicao": None,
+                "cinegetica_db": None,
+                "valor_economico_db": None,
+                "xerimbabo_db": None,
+                "especie_obs": None,
+                "contagem": 0,
+                "biomassa_g": 0,
+                "ct_cm": None,
+                "cp_cm": None,
+                "amostragem_zero_captura": True,
             }
         )
 
@@ -221,8 +298,11 @@ def _load_ictio_partial_df(
     if df.empty:
         return df
 
-    for col in ["nome_campanha", "nome_ponto", "empreendimento", "tipo_amostragem", "nome_cientifico", "nome_popular", "ordem", "familia", "ambiente"]:
+    for col in ["nome_campanha", "nome_ponto", "empreendimento", "tipo_amostragem", "ambiente"]:
         df[col] = df[col].astype(str).str.strip()
+    for col in ["nome_cientifico", "nome_popular", "ordem", "familia"]:
+        df[col] = df[col].astype(object).where(df[col].notna(), None)
+        df[col] = df[col].map(lambda v: str(v).strip() if v is not None else None)
 
     df["contagem"] = pd.to_numeric(df["contagem"], errors="coerce").fillna(0.0)
     df["biomassa_g"] = pd.to_numeric(df["biomassa_g"], errors="coerce").fillna(0.0)
@@ -286,7 +366,8 @@ def _build_species_list_ictio(df: pd.DataFrame) -> pd.DataFrame:
             }
         )
     )
-    for col in ["IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Origem", "Migratorio"]:
+    table["Origem"] = table["Origem"].map(_normalize_origem)
+    for col in ["IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Migratorio"]:
         table[col] = table[col].replace({None: "-", "": "-"}).fillna("-")
     return table[["Ordem", "Familia", "Especie", "Nome popular", "IUCN (2025)", "MMA (2022)", "COPAM (2010)", "Origem", "Migratorio"]]
 
@@ -324,10 +405,14 @@ def _save_abundance_figure(
     theme: dict,
     output_png: Path,
     title_suffix: str = "",
-) -> dict:
+) -> Optional[dict]:
+    """Salva a figura e retorna as metricas, ou None se nao houver especie a
+    plotar (ex.: recorte com apenas unidades de captura zero). O chamador NAO
+    deve registrar `output_png` em `generated_files` quando o retorno for None,
+    para o manifesto de auditoria nao apontar para um arquivo inexistente."""
     grouped, vcol, total_label = _abundance_metric(df_subset, mode)
     if grouped.empty:
-        return {"riqueza_observada": 0.0, "abundancia_total": 0.0}
+        return None
 
     size = get_figsize_by_complexity(theme, n_categories=max(len(grouped), 1), prefer_landscape=True)
     fig, ax = plt.subplots(figsize=size, dpi=int(theme.get("dpi", 600)))
@@ -399,11 +484,12 @@ def _save_abundance_figure(
 
 def _save_block_6_1(
     df_emp: pd.DataFrame,
+    pch_alvo: str,
     theme: dict,
     output_dir: Path,
     generated_files: list[str],
 ) -> dict:
-    pch_slug = _area_slug(TARGET_PCH_NAME)
+    pch_slug = _area_slug(pch_alvo)
     df_quanti, df_quali = _split_quanti_quali(df_emp)
 
     # Tabela consolidada (todas as especies do empreendimento, com origem)
@@ -420,12 +506,16 @@ def _save_block_6_1(
     metrics: dict[str, Any] = {}
     if not df_quanti.empty:
         out_fig_q = output_dir / f"6_1_figura_abundancia_cpue_n_{pch_slug}.png"
-        metrics["quanti"] = _save_abundance_figure(df_quanti, "cpue", theme, out_fig_q)
-        generated_files.append(str(out_fig_q))
+        m = _save_abundance_figure(df_quanti, "cpue", theme, out_fig_q)
+        if m is not None:
+            metrics["quanti"] = m
+            generated_files.append(str(out_fig_q))
     if not df_quali.empty:
         out_fig_p = output_dir / f"6_1_figura_ocorrencia_qualitativa_{pch_slug}.png"
-        metrics["quali"] = _save_abundance_figure(df_quali, "pres", theme, out_fig_p)
-        generated_files.append(str(out_fig_p))
+        m = _save_abundance_figure(df_quali, "pres", theme, out_fig_p)
+        if m is not None:
+            metrics["quali"] = m
+            generated_files.append(str(out_fig_p))
     return metrics
 
 
@@ -434,11 +524,12 @@ def _save_block_6_1(
 # --------------------------------------------------------------------------- #
 def _save_block_6_2(
     df_emp: pd.DataFrame,
+    pch_alvo: str,
     theme: dict,
     output_dir: Path,
     generated_files: list[str],
 ) -> dict:
-    pch_slug = _area_slug(TARGET_PCH_NAME)
+    pch_slug = _area_slug(pch_alvo)
     if df_emp.empty:
         est = pd.DataFrame([{"Area": pch_slug, "Riqueza observada": 0, "Abundancia": 0,
                              "Jackknife 1 estimada": 0.0, "Completude Jackknife 1 (%)": 0.0,
@@ -785,19 +876,34 @@ def _save_block_6_6_8(df_emp: pd.DataFrame, output_dir: Path, generated_files: l
     df_status = df_emp.copy()
     if "valor_economico_db" in df_status.columns:
         df_status["cinegetica_db"] = df_status["valor_economico_db"].map(_yes_no_flag)
+    # Normaliza o vocabulario de origem so para este produto (nao altera o
+    # Supabase); evita que frases compostas (ex.: nativa em outra bacia e
+    # exotica na bacia do projeto) sejam lidas como "nativa" pelo classificador
+    # generico de masto._save_general_status_tables.
+    if "origem" in df_status.columns:
+        df_status["origem"] = df_status["origem"].map(_normalize_origem)
     masto._save_general_status_tables(df_status, output_dir, generated_files)
 
 
 # --------------------------------------------------------------------------- #
 # Relatorio descritivo
 # --------------------------------------------------------------------------- #
-def _save_descriptive_report(details: dict, output_dir: Path, generated_files: list[str]) -> None:
+def _save_descriptive_report(
+    details: dict,
+    campanha_alvo: str,
+    pch_alvo: str,
+    output_dir: Path,
+    generated_files: list[str],
+) -> None:
     lines = [
         "Relatorio descritivo - Ictiofauna (parcial)",
         "",
-        f"Campanha analisada: {TARGET_CAMPANHA}",
-        f"Empreendimento: {TARGET_PCH_NAME}",
+        f"Campanha analisada: {campanha_alvo}",
+        f"Empreendimento: {pch_alvo}",
         f"Registros utilizados: {details.get('rows_loaded', 0)}",
+        f"Pontos amostrados (esforco valido, cadastrados na campanha): {details.get('n_pontos_amostrados', 0)}",
+        f"  - com captura: {details.get('n_pontos_com_captura', 0)}",
+        f"  - com esforco valido e captura zero: {details.get('n_pontos_zero_captura', 0)}",
         f"Especies (total no empreendimento): {details.get('species_total', 0)}",
         f"  - Quantitativa: {details.get('species_quanti', 0)}",
         f"  - Qualitativa: {details.get('species_quali', 0)}",
@@ -830,6 +936,14 @@ def _save_descriptive_report(details: dict, output_dir: Path, generated_files: l
         "6.6-6.8 Tabela geral:",
         "- Consolidacao de ameacadas/endemicas/raras/exoticas (status DB).",
         "- Em ictiofauna, a coluna Cinegetica usa `valor_economico` do cadastro de especies.",
+        "- Origem normalizada apenas neste produto (Nativa / Nao nativa / Nao informado);",
+        "  o cadastro de especies no Supabase nao foi alterado.",
+        "",
+        "Pontos com esforco valido e captura zero:",
+        "- Pontos cadastrados na campanha sem nenhuma linha em resultados_ictiofauna",
+        "  foram mantidos como unidades amostrais com riqueza/abundancia zero, e nao",
+        "  descartados como se nao tivessem sido amostrados. Isso afeta riqueza por",
+        "  ponto, suficiencia amostral (6.2) e a base de pontos usada em 6.4/6.5.",
         "",
         "Observacao: o projeto 165 (ictiofauna) NAO possui pontos controle. As analises",
         "deste relatorio parcial sao internas ao empreendimento.",
@@ -849,55 +963,102 @@ def run_ictio_partial_pipeline(
     env_file: Optional[str] = None,
     block: str = "all",
     campanha_alvo: Optional[str] = None,
+    pch_alvo: Optional[str] = None,
 ) -> Dict[str, Any]:
+    if not campanha_alvo or not str(campanha_alvo).strip():
+        raise ValueError(
+            "run_ictio_partial_pipeline requer 'campanha_alvo' explicito "
+            "(vindo da recipe/RunParams.campaigns). O modulo nao usa mais "
+            "campanha fixa em variavel global."
+        )
+    if not pch_alvo or not str(pch_alvo).strip():
+        raise ValueError(
+            "run_ictio_partial_pipeline requer 'pch_alvo' explicito "
+            "(vindo da recipe/RunParams.pch_target). O modulo nao usa mais "
+            "empreendimento fixo em variavel global."
+        )
+
     output_dir.mkdir(parents=True, exist_ok=True)
     # Higiene de estado matplotlib entre execucoes sequenciais (multi-empreendimento).
     # Sem isso, acumulo de figuras+axes ao longo de iteracoes pode travar a ultima rodada.
     plt.close("all")
-    if campanha_alvo:
-        global TARGET_CAMPANHA
-        TARGET_CAMPANHA = campanha_alvo
 
-    df = _load_ictio_partial_df(project_id=project_id, campanha_alvo=TARGET_CAMPANHA, env_file=env_file)
+    df = _load_ictio_partial_df(project_id=project_id, campanha_alvo=campanha_alvo, env_file=env_file)
     if df.empty:
         return {
             "rows_loaded": 0,
             "executed_blocks": [],
             "generated_files": [],
-            "warning": f"Sem dados de ictiofauna para campanha '{TARGET_CAMPANHA}' no projeto {project_id}.",
+            "warning": f"Sem dados de ictiofauna para campanha '{campanha_alvo}' no projeto {project_id}.",
         }
 
-    df_emp = _subset_emp(df, TARGET_PCH_NAME)
+    # Isolamento do filtro de campanha: nenhuma outra campanha deve vazar para df.
+    campanhas_carregadas = sorted(df["nome_campanha"].dropna().astype(str).unique().tolist())
+    if campanhas_carregadas not in ([], [str(campanha_alvo)]):
+        raise RuntimeError(
+            f"Isolamento de campanha violado: esperado somente '{campanha_alvo}', "
+            f"carregado {campanhas_carregadas}."
+        )
+
+    df_emp = _subset_emp(df, pch_alvo)
     if df_emp.empty:
         return {
             "rows_loaded": int(len(df)),
             "executed_blocks": [],
             "generated_files": [],
-            "warning": f"Sem dados de '{TARGET_PCH_NAME}' na campanha '{TARGET_CAMPANHA}'.",
+            "warning": f"Sem dados de '{pch_alvo}' na campanha '{campanha_alvo}'.",
         }
 
+    # Isolamento do filtro de empreendimento: nenhum outro empreendimento deve vazar.
+    emps_carregados = sorted(df_emp["empreendimento"].dropna().astype(str).unique().tolist())
+    if emps_carregados not in ([], [str(pch_alvo)]):
+        raise RuntimeError(
+            f"Isolamento de empreendimento violado: esperado somente '{pch_alvo}', "
+            f"carregado {emps_carregados}."
+        )
+
     df_quanti, df_quali = _split_quanti_quali(df_emp)
+
+    # Um ponto pode ter mais de um esforco (ex.: rede de emalhar + peneira e
+    # arrasto). So conta como "zero captura" o ponto cujos esforcos, TODOS,
+    # nao tiveram nenhuma captura; um ponto com pelo menos uma captura real em
+    # qualquer metodo conta como "com captura", mesmo que outro esforco no
+    # mesmo ponto tenha sido zero.
+    pontos_todos = set(df_emp["nome_ponto"].dropna().astype(str))
+    pontos_com_captura = (
+        set(df_emp.loc[~df_emp["amostragem_zero_captura"], "nome_ponto"].dropna().astype(str))
+        if "amostragem_zero_captura" in df_emp.columns
+        else set(pontos_todos)
+    )
+    pontos_zero_total = pontos_todos - pontos_com_captura
+    n_pontos_zero = len(pontos_zero_total)
+    n_pontos_amostrados = len(pontos_todos)
 
     generated_files: list[str] = []
     executed: list[str] = []
     block_sel = str(block).strip().lower()
     details: dict[str, Any] = {
+        "campanha_alvo": campanha_alvo,
+        "pch_alvo": pch_alvo,
         "rows_loaded": int(len(df_emp)),
         "species_total": int(df_emp["nome_cientifico"].nunique()),
         "species_quanti": int(df_quanti["nome_cientifico"].nunique()),
         "species_quali": int(df_quali["nome_cientifico"].nunique()),
         "n_pontos_quanti": int(df_quanti["nome_ponto"].nunique()),
         "n_pontos_quali": int(df_quali["nome_ponto"].nunique()),
+        "n_pontos_amostrados": n_pontos_amostrados,
+        "n_pontos_zero_captura": n_pontos_zero,
+        "n_pontos_com_captura": n_pontos_amostrados - n_pontos_zero,
         "campaigns": sorted(df_emp["nome_campanha"].dropna().astype(str).unique().tolist()),
         "points": sorted(df_emp["nome_ponto"].dropna().astype(str).unique().tolist()),
     }
 
     if block_sel in {"6.1", "61", "all"}:
-        details["block_6_1"] = _save_block_6_1(df_emp, theme, output_dir, generated_files)
+        details["block_6_1"] = _save_block_6_1(df_emp, pch_alvo, theme, output_dir, generated_files)
         executed.append("6.1")
 
     if block_sel in {"6.2", "62", "all"}:
-        details["block_6_2"] = _save_block_6_2(df_emp, theme, output_dir, generated_files)
+        details["block_6_2"] = _save_block_6_2(df_emp, pch_alvo, theme, output_dir, generated_files)
         executed.append("6.2")
 
     if block_sel in {"6.3", "63", "all"}:
@@ -917,7 +1078,7 @@ def run_ictio_partial_pipeline(
         executed.extend(["6.6", "6.7", "6.8"])
 
     if block_sel == "all":
-        _save_descriptive_report(details, output_dir, generated_files)
+        _save_descriptive_report(details, campanha_alvo, pch_alvo, output_dir, generated_files)
 
     if not executed:
         raise ValueError(

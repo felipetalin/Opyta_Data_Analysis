@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import re
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Dict, Any
@@ -49,24 +48,65 @@ def _client_audit_project_slug(params: RunParams, config_root: Path) -> str | No
     return str(value).strip() if value else None
 
 
-def _get_project_audit_dir(params: RunParams, config_root: Path, details: Dict[str, Any]) -> Path:
+def _get_project_group_dir(params: RunParams, config_root: Path, details: Dict[str, Any]) -> Path:
+    """Diretorio estavel por (projeto, grupo). Mantido no MESMO caminho de
+    sempre porque `opyta_analysis.fauna.audit.audit_project()` descobre
+    metadados com `project_dir.glob("*/execution_metadata.json")` — um unico
+    nivel de subdiretorio a partir do projeto. Mudar esse caminho quebraria
+    silenciosamente o audit manifest de todos os projetos."""
     root = config_root.parent
     project_name = params.audit_project_slug or details.get("project_name") or _client_audit_project_slug(params, config_root)
     project_folder = _slug(project_name) if project_name else f"project_{params.project_id}"
     group_folder = _slug(params.group).lower()
-    audit_dir = root / "outputs" / "_project_scripts" / project_folder / group_folder
-    audit_dir.mkdir(parents=True, exist_ok=True)
-    return audit_dir
+    group_dir = root / "outputs" / "_project_scripts" / project_folder / group_folder
+    group_dir.mkdir(parents=True, exist_ok=True)
+    return group_dir
+
+
+def _campaign_identity_slug(params: RunParams, details: Dict[str, Any]) -> str:
+    campaigns = params.campaigns or details.get("campaigns") or []
+    campaigns = [str(c) for c in campaigns if c]
+    if not campaigns:
+        return "sem_campanha_definida"
+    if len(campaigns) == 1:
+        return _slug(campaigns[0])
+    ordered = sorted(campaigns)
+    return f"{len(ordered)}campanhas_{_slug(ordered[0])}_a_{_slug(ordered[-1])}"
+
+
+def _pch_identity_slug(params: RunParams) -> str:
+    return _slug(params.pch_target) if params.pch_target else "sem_pch_alvo"
+
+
+def _get_execution_run_dir(group_dir: Path, params: RunParams, details: Dict[str, Any], run_id: str) -> Path:
+    """Diretorio IMUTAVEL por execucao: projeto+grupo (via `group_dir`) mais
+    campanha, empreendimento e `run_id`. Nunca reutilizado nem podado por
+    outra execucao — cada chamada cria um diretorio novo e este runner nunca
+    apaga arquivos dentro de `runs/`."""
+    identity = f"{_campaign_identity_slug(params, details)}__{_pch_identity_slug(params)}"
+    run_dir = group_dir / "runs" / identity / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+    return run_dir
 
 
 def _generate_execution_metadata(
     params: RunParams,
     result: Dict[str, Any],
     config_root: Path,
-    audit_dir: Path,
+    group_dir: Path,
+    run_dir: Path,
     run_id: str,
 ) -> str:
-    """Generate and save execution metadata JSON for audit trail and reproducibility."""
+    """Generate and save execution metadata JSON for audit trail and reproducibility.
+
+    Written to two places:
+    - `run_dir` (immutable, unique per execution: projeto+grupo+campanha+
+      empreendimento+run_id) — never overwritten or pruned by another run.
+    - `group_dir` (stable "latest" pointer, same path used since before this
+      fix) — overwritten every run, kept ONLY for
+      `opyta_analysis.fauna.audit.audit_project()`, which discovers metadata
+      with a fixed-depth glob (`<project>/*/execution_metadata.json`).
+    """
     details = result.get("details", {})
     campaigns = details.get("campaigns", [])
     points = details.get("points", [])
@@ -99,20 +139,20 @@ def _generate_execution_metadata(
         "generated_file_checks": generated_file_checks,
         "generated_files_missing_count": len(missing_generated_files),
         "config_root": str(config_root),
-        "audit_dir": str(audit_dir),
+        "audit_dir": str(run_dir),
+        "run_id": run_id,
         "warnings": warnings,
     }
 
-    metadata_file = audit_dir / f"{run_id}_execution_metadata.json"
-    latest_metadata_file = audit_dir / "execution_metadata.json"
-    with open(metadata_file, "w", encoding="utf-8") as f:
-        json.dump(metadata, f, indent=2, ensure_ascii=False)
-    with open(latest_metadata_file, "w", encoding="utf-8") as f:
-        json.dump(metadata, f, indent=2, ensure_ascii=False)
-    return str(metadata_file)
+    run_metadata_file = run_dir / "execution_metadata.json"
+    latest_metadata_file = group_dir / "execution_metadata.json"
+    for target in (run_metadata_file, latest_metadata_file):
+        with open(target, "w", encoding="utf-8") as f:
+            json.dump(metadata, f, indent=2, ensure_ascii=False)
+    return str(run_metadata_file)
 
 
-def _generate_reproducer_script(params: RunParams, config_root: Path, audit_dir: Path, run_id: str) -> str:
+def _generate_reproducer_script(params: RunParams, config_root: Path, group_dir: Path, run_dir: Path, run_id: str) -> str:
     """Generate a standalone reproducer script for future re-execution."""
     src_path = (config_root.parent / "src").resolve()
     default_output_dir = params.output_dir.resolve()
@@ -124,6 +164,7 @@ def _generate_reproducer_script(params: RunParams, config_root: Path, audit_dir:
     block_literal = repr(params.block)
     audit_project_slug_literal = repr(params.audit_project_slug)
     campaigns_literal = repr(params.campaigns)
+    pch_target_literal = repr(params.pch_target)
 
     script_content = f'''#!/usr/bin/env python
 """
@@ -164,6 +205,7 @@ def main():
         block=args.block,
         audit_project_slug={audit_project_slug_literal},
         campaigns=campaigns,
+        pch_target={pch_target_literal},
     )
 
     config_root = Path(r"{config_root_resolved}")
@@ -181,29 +223,13 @@ if __name__ == "__main__":
     sys.exit(main())
 '''
 
-    reproducer_file = audit_dir / f"{run_id}_run_this_analysis.py"
-    latest_reproducer_file = audit_dir / "_run_this_analysis.py"
-    with open(reproducer_file, "w", encoding="utf-8") as f:
-        f.write(script_content)
-    with open(latest_reproducer_file, "w", encoding="utf-8") as f:
-        f.write(script_content)
-    reproducer_file.chmod(0o755)  # Make executable on Unix
-    latest_reproducer_file.chmod(0o755)  # Make executable on Unix
+    reproducer_file = run_dir / "_run_this_analysis.py"
+    latest_reproducer_file = group_dir / "_run_this_analysis.py"
+    for target in (reproducer_file, latest_reproducer_file):
+        with open(target, "w", encoding="utf-8") as f:
+            f.write(script_content)
+        target.chmod(0o755)  # Make executable on Unix
     return str(reproducer_file)
-
-
-def _prune_timestamped_audit_artifacts(audit_dir: Path, keep_run_id: str) -> None:
-    """Keep only the latest timestamped metadata/reproducer pair."""
-    timestamped_name = re.compile(
-        r"^\d{8}T\d{6}Z_(execution_metadata\.json|run_this_analysis\.py)$"
-    )
-    keep_names = {
-        f"{keep_run_id}_execution_metadata.json",
-        f"{keep_run_id}_run_this_analysis.py",
-    }
-    for path in audit_dir.iterdir():
-        if path.is_file() and timestamped_name.fullmatch(path.name) and path.name not in keep_names:
-            path.unlink()
 
 
 def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
@@ -269,12 +295,24 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             campaign_filter=params.campaigns,
         )
     elif params.pipeline.lower() in {"ictio_partial", "ictiofauna_parcial", "ictio_parcial"}:
+        if not params.campaigns or len(params.campaigns) != 1:
+            raise ValueError(
+                "pipeline 'ictio_partial' requer RunParams.campaigns com exatamente "
+                "uma campanha (a campanha unica do relatorio parcial por empreendimento)."
+            )
+        if not params.pch_target:
+            raise ValueError(
+                "pipeline 'ictio_partial' requer RunParams.pch_target (nome do "
+                "empreendimento/PCH a filtrar)."
+            )
         details = run_ictio_partial_pipeline(
             project_id=params.project_id,
             theme=theme,
             output_dir=params.output_dir,
             env_file=params.env_file,
             block=params.block,
+            campanha_alvo=params.campaigns[0],
+            pch_alvo=params.pch_target,
         )
     # --- Diagnóstico: stubs ---
     elif params.pipeline.lower() in {"macrofitas", "macrófitas", "macrophytes"}:
@@ -345,14 +383,15 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
 
     try:
         run_id = _utc_now().strftime("%Y%m%dT%H%M%SZ")
-        audit_dir = _get_project_audit_dir(params, config_root, details)
-        metadata_path = _generate_execution_metadata(params, result, config_root, audit_dir, run_id)
-        reproducer_path = _generate_reproducer_script(params, config_root, audit_dir, run_id)
-        _prune_timestamped_audit_artifacts(audit_dir, keep_run_id=run_id)
+        group_dir = _get_project_group_dir(params, config_root, details)
+        run_dir = _get_execution_run_dir(group_dir, params, details, run_id)
+        metadata_path = _generate_execution_metadata(params, result, config_root, group_dir, run_dir, run_id)
+        reproducer_path = _generate_reproducer_script(params, config_root, group_dir, run_dir, run_id)
         result["audit_trail"] = {
             "metadata_file": metadata_path,
             "reproducer_script": reproducer_path,
-            "audit_dir": str(audit_dir),
+            "audit_dir": str(run_dir),
+            "run_id": run_id,
         }
     except Exception as e:
         print(f"[WARNING] Failed to generate audit trail: {e}")

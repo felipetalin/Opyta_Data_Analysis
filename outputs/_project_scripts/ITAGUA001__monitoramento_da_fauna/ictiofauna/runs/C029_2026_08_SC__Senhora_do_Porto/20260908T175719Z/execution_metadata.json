@@ -1,5 +1,5 @@
 {
-  "executed_at": "2026-09-08T17:57:35.930953Z",
+  "executed_at": "2026-09-08T17:57:19.214645Z",
   "runner_version": "1.2",
   "project_id": 165,
   "group": "Ictiofauna",
@@ -15,8 +15,8 @@
     "dirty": true,
     "status_short_count": 15,
     "full_dirty": true,
-    "full_status_short_count": 20,
-    "ignored_generated_audit_count": 5
+    "full_status_short_count": 17,
+    "ignored_generated_audit_count": 2
   },
   "rows_loaded": 24,
   "executed_blocks": [
@@ -66,56 +66,56 @@
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 7255,
-      "modified_at": "2026-09-08T17:57:26.046125Z",
-      "sha256": "67d511eca85fd6c39a1e8cfa5bcb677b362010d125279ed7cb882ed12c11dd4c"
+      "size_bytes": 7256,
+      "modified_at": "2026-09-08T17:57:09.579423Z",
+      "sha256": "8f47cf020bc08292fdbee0dbe0de26a94d39844f19066a7fd23a53761750a5e0"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_1_figura_abundancia_cpue_n_senhora_do_porto.png",
       "exists": true,
       "type": "file",
-      "size_bytes": 788446,
-      "modified_at": "2026-09-08T17:57:28.254294Z",
-      "sha256": "f496d29584e1e1bfab2b55cb01a8cf830058616af7c6a3ab12de557dbc9b6316"
+      "size_bytes": 775412,
+      "modified_at": "2026-09-08T17:57:11.485373Z",
+      "sha256": "58e32fbbdfaa7f6c430ec47d58767ec8841cf773a92de9635a8aaf22343e2963"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5021,
-      "modified_at": "2026-09-08T17:57:28.317341Z",
-      "sha256": "e2d152a54841fa90160c92dce65b28ae4b7a0c228e8175335eb15ff7cbcd9b75"
+      "size_bytes": 5020,
+      "modified_at": "2026-09-08T17:57:11.577704Z",
+      "sha256": "1ed739fdb97244ed268bf3db4171f8d62506c94b2a32877c44d0829ab4adbf24"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5722,
-      "modified_at": "2026-09-08T17:57:28.364332Z",
-      "sha256": "5e2bdba33e727def261467f4f97ce41b04c1cb3138251da51563d1dac43a072b"
+      "size_bytes": 5721,
+      "modified_at": "2026-09-08T17:57:11.637036Z",
+      "sha256": "98ff84e0d2369f23c8b4b49298e31539dfd3411393a9c4750bdbf4db3ff0f35e"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
       "exists": true,
       "type": "file",
       "size_bytes": 831921,
-      "modified_at": "2026-09-08T17:57:30.706751Z",
+      "modified_at": "2026-09-08T17:57:13.972846Z",
       "sha256": "72dddf8c2a7d16c2bc8a7becccfcea9d4a792664c0c2a350feec2cf53bb1653a"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
       "exists": true,
       "type": "file",
-      "size_bytes": 5017,
-      "modified_at": "2026-09-08T17:57:30.791425Z",
-      "sha256": "1b5e954daaf86d5a161fe0d36b41ca735c9889f462f440d45b9c540e0b5f9726"
+      "size_bytes": 5018,
+      "modified_at": "2026-09-08T17:57:14.046148Z",
+      "sha256": "669e082b3c590b54d041e0925b4cabbbd2e2476abcdc7a73f9cfe3cf31d73c13"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
       "exists": true,
       "type": "file",
       "size_bytes": 668174,
-      "modified_at": "2026-09-08T17:57:33.367550Z",
+      "modified_at": "2026-09-08T17:57:16.651350Z",
       "sha256": "9b57b325f6b1b0155c5c880a9e1a24abf8447006a066fe78c0b7f3a3f5e78db0"
     },
     {
@@ -123,15 +123,15 @@
       "exists": true,
       "type": "file",
       "size_bytes": 5611,
-      "modified_at": "2026-09-08T17:57:33.475075Z",
-      "sha256": "cf5cad30fc7673f5cff14b037d8fc5481d03d067b00953016a8d8aa1f20a09b6"
+      "modified_at": "2026-09-08T17:57:16.750508Z",
+      "sha256": "276a0f480f696c0829629acdf26bceee3b47353d5bb2efb72ebba2f215a5e0aa"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
       "exists": true,
       "type": "file",
       "size_bytes": 337087,
-      "modified_at": "2026-09-08T17:57:34.650467Z",
+      "modified_at": "2026-09-08T17:57:17.953825Z",
       "sha256": "c9ada6fb109843d4e8e4f06508e0f9777e4e8c5e1a2571bc0be67d8161b3210e"
     },
     {
@@ -139,15 +139,15 @@
       "exists": true,
       "type": "file",
       "size_bytes": 5044,
-      "modified_at": "2026-09-08T17:57:34.702234Z",
-      "sha256": "53fbc47124aacfee2a19895e19ce82832a281f79e7b1e1b6d5eedd6ca80701d9"
+      "modified_at": "2026-09-08T17:57:18.006972Z",
+      "sha256": "aea4834539810b1b0e65f00d9364d9bf89aad036dd2bc6c971d90ecf27419657"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_5_diagrama_venn_rp_vs_tr.png",
       "exists": true,
       "type": "file",
       "size_bytes": 544746,
-      "modified_at": "2026-09-08T17:57:35.844993Z",
+      "modified_at": "2026-09-08T17:57:19.102606Z",
       "sha256": "9f049c866b8c51db01a6fca8714ee6f6d16585320469544593c15f4e942c28c6"
     },
     {
@@ -155,21 +155,21 @@
       "exists": true,
       "type": "file",
       "size_bytes": 5793,
-      "modified_at": "2026-09-08T17:57:35.906818Z",
-      "sha256": "ad40fdd89c6e3b8ed93969c4343f9f6821b31c12f94666ac8c13f48f700a9b43"
+      "modified_at": "2026-09-08T17:57:19.189874Z",
+      "sha256": "7806c0b91e5f53506cd225ea11c0f9e44f74507d49bdc499faa8d9b85debe287"
     },
     {
       "path": "C:\\o\\Opyta_Data_Analysis\\outputs\\_staging_review\\ITAGUA001_C029_ictiofauna\\Senhora do Porto\\6_relatorio_descritivo_ictio_parcial.txt",
       "exists": true,
       "type": "file",
       "size_bytes": 2244,
-      "modified_at": "2026-09-08T17:57:35.908349Z",
+      "modified_at": "2026-09-08T17:57:19.190877Z",
       "sha256": "97c0e854b33edba58c768806738da2dbf103ede53bf41b4823b5d54983eb3532"
     }
   ],
   "generated_files_missing_count": 0,
   "config_root": "C:\\o\\Opyta_Data_Analysis\\configs",
-  "audit_dir": "C:\\o\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\ictiofauna\\runs\\C029_2026_08_SC__Senhora_do_Porto\\20260908T175735Z",
-  "run_id": "20260908T175735Z",
+  "audit_dir": "C:\\o\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\ictiofauna\\runs\\C029_2026_08_SC__Senhora_do_Porto\\20260908T175719Z",
+  "run_id": "20260908T175719Z",
   "warnings": []
 }

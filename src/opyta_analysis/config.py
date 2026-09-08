@@ -17,6 +17,7 @@ class RunParams:
     block: str = "all"
     audit_project_slug: str | None = None
     campaigns: list[str] | None = None
+    pch_target: str | None = None
 
 
 def _read_json(path: Path) -> Dict[str, Any]:
