@@ -384,6 +384,36 @@ antes desta correcao no formato antigo (`20260908T173822Z_*`, criados durante
 a Sessao 2 antes de existir `runs/`) — nao eram lastro de producao, so
 resíduo do meu proprio teste anterior.
 
+### 2.2 Push e pacote de revisao
+
+Felipe aprovou a correcao de isolamento "para compartilhamento e revisao"
+(nao para merge na main) e autorizou: push da branch, informar branch/hash,
+disponibilizar os 13 produtos de Senhora do Porto em pacote de revisao sem
+versionar binarios no Git, e manter registrados os resultados dos testes e
+o checksum da C028 (feito na secao 2.1 acima).
+
+- Commit local: `git commit` unico contendo a correcao do runner + toda a
+  configuracao da C029 (recipe, client, dossie, scripts, teste de regressao).
+  Hash: `500a297d79a63b85db8512c7e189089e24dbd3b9`.
+- Push: `git push -u origin itagua001-ictiofauna-c029` — sucesso,
+  `1addfb2..500a297 itagua001-ictiofauna-c029 -> itagua001-ictiofauna-c029`.
+  Nenhum merge na main foi feito nem tentado.
+- Pacote de revisao: os 13 produtos de "Senhora do Porto" foram compactados
+  com `Compress-Archive` (PowerShell) em
+  `outputs/_staging_review/_pacotes_revisao/ITAGUA001_C029_Ictiofauna_SenhoraDoPorto_revisao_20260908.zip`
+  (2.156.566 bytes). Verificado com `Expand-Archive` para um diretorio
+  temporario: 13 arquivos, igual ao numero gerado. O caminho esta sob
+  `outputs/_staging_review/`, coberto pela regra `outputs/*` do `.gitignore`
+  (confirmado com `git check-ignore -v`) — no ficou fora do Git.
+- Entrega: enviado a Ismayllen via `SendUserFile` (nao ha canal direto para
+  enviar arquivos a Felipe nesta sessao); ela repassa manualmente.
+- Registrado como backlog de alta prioridade em
+  [BACKLOG.md](../BACKLOG.md): os diretorios imutaveis de execucao
+  (`runs/<identidade>/<run_id>/`) crescem indefinidamente e precisam de uma
+  politica explicita de retencao/arquivamento, decidida separadamente e
+  **sem** introduzir qualquer exclusao automatica no fluxo de geracao
+  (`runner.py` continua sem apagar nada).
+
 ### 3. Limitacao reconhecida
 
 Para os grupos que ainda usam `TARGET_PCH_NAME` como variavel global dentro

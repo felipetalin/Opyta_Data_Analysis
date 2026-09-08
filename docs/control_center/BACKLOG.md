@@ -2,6 +2,18 @@
 
 ## Alta Prioridade
 
+- Definir politica explicita de retencao/arquivamento para os diretorios
+  imutaveis de execucao criados por `runner.py`
+  (`outputs/_project_scripts/<projeto>/<grupo>/runs/<campanha>__<empreendimento>/<run_id>/`,
+  ver correcao de 2026-09-08 no piloto ITAGUA001/Ictiofauna/C029). A correcao
+  atual garante que nenhuma execucao apaga ou reutiliza o diretorio de outra,
+  mas isso tambem significa que o volume cresce indefinidamente (um diretorio
+  por execucao, para sempre). Falta decidir, sem introduzir exclusao
+  automatica durante a geracao: quando um `run_id` pode ser arquivado ou
+  compactado, quem aprova o arquivamento, se ha um limite de retencao por
+  projeto/grupo/campanha, e onde registrar a decisao (provavelmente um script
+  de arquivamento manual/aprovado, separado do fluxo de geracao, nunca
+  acionado automaticamente por `run()`).
 - Automatizar a criacao e atualizacao dos registros em
   `docs/control_center/operations/`.
 - Criar validador dos gates e transicoes do fluxo operacional.

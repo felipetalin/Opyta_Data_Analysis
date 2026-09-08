@@ -10,10 +10,18 @@
 - atualizada em: 2026-09-08
 - operador: Ismayllen
 - responsavel pelos dados: Felipe (migracao e consolidacao ja executadas)
-- Gate C: aprovado por Felipe em 2026-09-08; configuracao da C029 aprovada
-- proxima acao: Felipe revisar o diff da correcao do runner e os resultados dos
-  testes (secao "Risco Sistemico Encontrado E Corrigido"); autorizar geracao
-  dos 3 empreendimentos restantes e definir onde publicar na pasta contratual
+- Gate C: aprovado por Felipe em 2026-09-08; configuracao da C029 aprovada;
+  correcao de isolamento do runner aprovada para compartilhamento/revisao
+- branch: `itagua001-ictiofauna-c029`
+- commit enviado (push): `500a297d79a63b85db8512c7e189089e24dbd3b9`
+  ("fix(runner): stop cross-campaign audit trail deletion; configure ITAGUA001 C029")
+- push feito para `origin/itagua001-ictiofauna-c029` em 2026-09-08; **sem merge
+  na main** (nao autorizado)
+- pacote de revisao (fora do Git): `outputs/_staging_review/_pacotes_revisao/ITAGUA001_C029_Ictiofauna_SenhoraDoPorto_revisao_20260908.zip`
+  (2,1 MB, 13 arquivos, enviado a Ismayllen para repasse ao Felipe)
+- proxima acao: aguardar revisao do diff (commit `500a297`) e da amostra de
+  Senhora do Porto pelo Felipe; nao gerar os 3 empreendimentos restantes nem
+  publicar na pasta contratual ate autorizacao explicita
 
 ## Escopo Autorizado
 
@@ -315,9 +323,14 @@ descobrir os 5 grupos do projeto pelo caminho de sempre.
    correcao do runner.
 3. Rodar o pacote completo na maquina com a pasta do Drive acessivel, ou
    validar um caminho alternativo de saida junto com o Felipe.
-4. Correcao do runner aplicada e testada (ver secao acima); aguardando
-   revisao do diff pelo Felipe antes de qualquer nova geracao ou publicacao
-   na pasta contratual. Commit local preparado, sem push.
+4. Correcao do runner aplicada, testada, commitada (`500a297`) e enviada
+   (push) para `origin/itagua001-ictiofauna-c029` em 2026-09-08. Merge na
+   main **nao autorizado**. Aguardando revisao do diff e da amostra pelo
+   Felipe antes de qualquer nova geracao ou publicacao na pasta contratual.
+5. Politica de retencao/arquivamento dos diretorios imutaveis de execucao
+   registrada como backlog de alta prioridade
+   ([BACKLOG.md](../BACKLOG.md)) — nao implementada, sem exclusao automatica
+   introduzida.
 
 ## Revisoes
 
