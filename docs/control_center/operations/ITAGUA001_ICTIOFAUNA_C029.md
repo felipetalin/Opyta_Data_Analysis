@@ -19,9 +19,34 @@
   na main** (nao autorizado)
 - pacote de revisao (fora do Git): `outputs/_staging_review/_pacotes_revisao/ITAGUA001_C029_Ictiofauna_SenhoraDoPorto_revisao_20260908.zip`
   (2,1 MB, 13 arquivos, enviado a Ismayllen para repasse ao Felipe)
-- proxima acao: aguardar revisao do diff (commit `500a297`) e da amostra de
-  Senhora do Porto pelo Felipe; nao gerar os 3 empreendimentos restantes nem
-  publicar na pasta contratual ate autorizacao explicita
+- pasta contratual **confirmada pela usuaria** em 2026-09-08 (caminho real,
+  atalho de drive compartilhado — diferente do "Meu Drive" tentado antes):
+  `G:/.shortcut-targets-by-id/1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/Resultados e análises/29_campanha_Jul_26/Ictiofauna`
+  (nome real usa `_Jul_` com underscore; o `29_campanha-Julho_26` anterior
+  era suposicao errada). Recipe corrigida.
+- **Senhora do Porto publicado na pasta contratual**, autorizado
+  explicitamente pela usuaria em 2026-09-08: 13 arquivos, sem avisos no
+  manifesto (`generated_files_missing_count: 0`), `run_id=20260908T182849Z`.
+  Estrutura por subpasta de empreendimento escolhida por espelhar o padrao
+  ja existente nos outros 4 grupos da mesma pasta contratual (ver "Duvida
+  De Estrutura Nao Resolvida" abaixo).
+- proxima acao: Felipe revisar o diff (commit `500a297`) e o produto
+  publicado de Senhora do Porto; confirmar se a subpasta `Análise
+  consolidada` (vazia, ja existente em `Ictiofauna/`) tinha outro proposito;
+  autorizar ou nao os 3 empreendimentos restantes.
+
+## Duvida De Estrutura Nao Resolvida
+
+Ao inspecionar a pasta real, `Ictiofauna/` continha apenas uma subpasta
+vazia `Análise consolidada`, enquanto os outros 4 grupos da C029 (Avifauna,
+Mastofauna, Herpetofauna, Primatas) ja tinham subpastas por empreendimento
+(`Jacaré/`, `Senhora do Porto/`, `Dores de Guanhães/`, `Fortuna II/`) com
+produtos gerados. Publiquei Senhora do Porto espelhando o padrao dos outros
+4 grupos (decisao mais consistente com o que ja existia), mas **nao
+confirmei com o Felipe** se `Análise consolidada` era o destino pretendido
+para Ictiofauna (por exemplo, um pacote unico cruzando os 4 empreendimentos,
+em vez de 4 pastas separadas). A pasta `Análise consolidada` continua vazia;
+nada foi movido para ou apagado dela.
 
 ## Escopo Autorizado
 
@@ -266,16 +291,16 @@ confere com a consulta inicial ao Supabase).
   `execution_metadata.json` sem avisos (`warnings: []`, `generated_files_missing_count: 0`)
 - lastro: `outputs/_project_scripts/ITAGUA001__monitoramento_da_fauna/ictiofauna/`
 
-## Limitacao De Ambiente
+## Limitacao De Ambiente (Resolvida)
 
-A pasta contratual
-`G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/...`
-nao esta acessivel nesta maquina/sessao (o Google Drive montado aqui so tem
-`Geomil` sob essa arvore; `Itatiaia` nao esta sincronizado/compartilhado com
-esta conta). Por isso a amostra foi gerada em pasta local de staging. Felipe
-deve reexecutar `scripts/run/fauna/run_ictio_partial_c029_itagua001.py --pch
-"Senhora do Porto"` (ou o pacote completo com `--all`) em uma maquina com essa
-pasta do Drive acessivel, para os produtos ficarem no destino contratual.
+O caminho `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães
+Energia/...` nao estava acessivel nesta maquina/sessao. A usuaria identificou
+o caminho real como um atalho de drive compartilhado
+(`G:/.shortcut-targets-by-id/1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ/...`), que
+**esta** acessivel aqui. A recipe foi corrigida para esse caminho e Senhora
+do Porto ja foi publicado nele (ver "Configuracao Das Analises" acima). Nao
+ha mais limitacao de ambiente conhecida para publicar os empreendimentos
+restantes desta maquina.
 
 ## Risco Sistemico Encontrado E Corrigido (Runner)
 
@@ -318,11 +343,10 @@ descobrir os 5 grupos do projeto pelo caminho de sempre.
    relatorio descritivo e no dossie, nao como erro. Confirmar com Felipe se
    isso e aceitavel para o pacote final.
 2. Gerar os 3 empreendimentos restantes (Jacaré, Dores de Guanhães, Fortuna II)
-   depende de autorizacao explicita — configuracao aprovada em 2026-09-08,
-   mas Felipe pediu para NAO gerar ainda ate revisar o diff/testes da
-   correcao do runner.
-3. Rodar o pacote completo na maquina com a pasta do Drive acessivel, ou
-   validar um caminho alternativo de saida junto com o Felipe.
+   depende de autorizacao explicita — Senhora do Porto ja foi publicado, mas
+   os outros 3 nao, ate autorizacao especifica.
+3. Confirmar com o Felipe o proposito da subpasta vazia `Análise
+   consolidada` em `Ictiofauna/` (ver "Duvida De Estrutura Nao Resolvida").
 4. Correcao do runner aplicada, testada, commitada (`500a297`) e enviada
    (push) para `origin/itagua001-ictiofauna-c029` em 2026-09-08. Merge na
    main **nao autorizado**. Aguardando revisao do diff e da amostra pelo

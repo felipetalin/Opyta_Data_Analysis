@@ -425,3 +425,57 @@ mais perda de dados (cada execucao ainda ganha seu proprio `run_id`
 imutavel), mas o rotulo do diretorio fica menos descritivo para esses 4
 grupos ate que eles tambem sejam migrados para receber `pch_target` via
 `RunParams` — mudanca fora do escopo autorizado aqui.
+
+## 2026-09-08 - Sessao 4 (caminho contratual confirmado e primeira publicacao)
+
+A usuaria informou o caminho real da pasta contratual (um atalho de drive
+compartilhado, diferente do "Meu Drive" tentado nas sessoes anteriores) e
+perguntou se poderia subir os resultados. Ao inspecionar essa pasta:
+
+- Confirmado acesso: `G:\.shortcut-targets-by-id\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\...`
+  existe e esta acessivel nesta maquina — a limitacao das sessoes anteriores
+  era so sobre o caminho errado ("Meu Drive"), nao sobre o Drive em si.
+- Nome real da pasta da campanha: `29_campanha_Jul_26` (com underscore),
+  diferente do `29_campanha-Julho_26` que eu tinha suposto por analogia com
+  a C028. Corrigido na recipe e no dossie.
+- `Ictiofauna\` dentro dessa pasta so continha uma subpasta vazia `Análise
+  consolidada`, enquanto os outros 4 grupos da C029 (Avifauna, Mastofauna,
+  Herpetofauna, Primatas) ja tinham subpastas por empreendimento com
+  produtos gerados. Reportei essa divergencia e perguntei qual estrutura
+  usar antes de publicar qualquer coisa.
+- A usuaria confirmou o caminho e autorizou salvar nele
+  ("Está autorizado salvar nesta pasta"), sem se pronunciar explicitamente
+  sobre qual das duas estruturas usar.
+
+**Decisao tomada (registrada, nao consultada com o Felipe ainda):** publiquei
+Senhora do Porto espelhando o padrao ja existente nos outros 4 grupos
+(subpasta por empreendimento), por ser a estrutura mais consistente com o
+que ja estava la. A subpasta `Análise consolidada` continua vazia, intacta;
+nao sei se era o destino pretendido para Ictiofauna. Isso precisa de
+confirmacao do Felipe antes de gerar os outros 3 empreendimentos.
+
+**Acao:**
+1. Corrigi `configs/projects/itagua001_guanhaes_ictiofauna.json`
+   (`output_root`) para o caminho real, com nota explicando o erro anterior.
+2. Rodei `scripts/run/fauna/run_ictio_partial_c029_itagua001.py --pch
+   "Senhora do Porto" --dry-run` primeiro para conferir o plano.
+3. Rodei sem `--dry-run`: `[ok] Senhora do Porto -> ...\29_campanha_Jul_26\Ictiofauna\Senhora do Porto | arquivos: 13`.
+4. Verifiquei os 13 arquivos na pasta real via `Get-ChildItem` (nomes e
+   tamanhos conferem com a amostra revisada).
+5. Conferi o `execution_metadata.json` (ponteiro "latest"): `output_dir`
+   aponta para o caminho real, `warnings: []`,
+   `generated_files_missing_count: 0`, `run_id=20260908T182849Z`.
+6. Reconferi o checksum MD5 dos arquivos da C028 (mesmos 8 pares
+   timestampados de sempre) — identico ao de antes desta publicacao. A unica
+   diferenca no diff foram os 2 arquivos de teste que eu mesma tinha
+   removido na Sessao 3 (residuo do formato antigo, ja tratado, nao e lastro
+   real).
+7. Rodar diretamente para o destino real (em vez de copiar os arquivos da
+   amostra ja revisada) foi deliberado: assim o `execution_metadata.json` do
+   lastro registra o `output_dir` verdadeiro, e nao um caminho de staging
+   obsoleto. O conteudo gerado e deterministico e identico ao da amostra
+   revisada (mesma campanha, mesmo empreendimento, mesmo codigo).
+
+**Nao feito:** os 3 empreendimentos restantes nao foram gerados; nada foi
+commitado ainda nesta sessao (arquivos gerados sao binarios/dados de cliente,
+fora do Git); a pasta `Análise consolidada` nao foi tocada.

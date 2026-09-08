@@ -13,7 +13,7 @@
   "analysis_name": "Ictiofauna - Campanha 29 (piloto Gate C aprovado com condicoes)",
   "client_config": "itagua001_guanhaes",
   "audit_project_slug": "ITAGUA001__monitoramento_da_fauna",
-  "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/Resultados e análises/29_campanha-Julho_26/Ictiofauna",
+  "output_root": "G:/.shortcut-targets-by-id/1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/Resultados e análises/29_campanha_Jul_26/Ictiofauna",
   "campaigns": [
     "C029-2026-08-SC"
   ],
@@ -47,7 +47,8 @@
     "Recipe criada no piloto colaborativo ITAGUA001/Ictiofauna/C029 (Gate C aprovado por Felipe em 2026-09-08 com condicoes).",
     "status=prototype: nao promover para 'active'/'reference' antes do Gate R.",
     "Rotulo de campanha confirmado no Supabase por consulta somente leitura: 'C029-2026-08-SC' (Ictiofauna). O briefing original citava 'C029-2026-07-SC', que corresponde a Avifauna/Mastofauna, nao a Ictiofauna.",
-    "Pasta de saida mantida como '29_campanha-Julho_26' por decisao contratual do Felipe; a coleta de ictiofauna ocorreu em 2026-08-01 e isso deve constar no manifesto/lastro de cada execucao.",
+    "Pasta de saida corrigida em 2026-09-08 para o caminho real confirmado pela usuaria (atalho de drive compartilhado): '.../29_campanha_Jul_26/Ictiofauna' (nome anterior '29_campanha-Julho_26' era uma suposicao por analogia com a C028 e estava errado). A coleta de ictiofauna ocorreu em 2026-08-01 e isso consta no manifesto/lastro de cada execucao.",
+    "Estrutura de subpastas por empreendimento (Jacaré/Senhora do Porto/Dores de Guanhães/Fortuna II) escolhida por espelhar o padrao ja existente nos outros 4 grupos da C029 (Avifauna, Mastofauna, Herpetofauna, Primatas) na mesma pasta contratual. Havia tambem uma subpasta vazia 'Análise consolidada' dentro de Ictiofauna, de proposito nao confirmado com o Felipe; nao usada.",
     "Migracao e consolidacao ja executadas pelo Felipe antes deste piloto (backups public.bkp_itagua001_ictio_c029_20260908t162046z_*). Nao migrado nem consolidado por este piloto.",
     "32 pontos cadastrados na campanha para os 4 empreendimentos; confirmado por consulta ao Supabase que todos os 32 possuem esforco_amostragem valido (esforco=100 ou 120, metodo e tipo_amostragem preenchidos), incluindo os 12 pontos sem nenhuma linha em resultados_ictiofauna. O loader do pipeline (src/opyta_analysis/pipelines/diagnostico/ictio_partial.py) foi ajustado para manter esses 12 pontos como unidades amostrais de captura zero, e nao descarta-los como se nao tivessem sido amostrados.",
     "Vocabulario de 'origem' no cadastro de especies e inconsistente (Nativo/Nativa/Nao Nativo/frase composta para Cichla kelberi). Normalizado apenas nos produtos gerados (bloco 6.6-6.8 e tabela de especies), sem alterar o Supabase.",

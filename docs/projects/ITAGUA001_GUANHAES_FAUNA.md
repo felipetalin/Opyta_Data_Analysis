@@ -51,9 +51,20 @@ estabilidade ([docs/PIPELINE_ICTIO_165.md](../PIPELINE_ICTIO_165.md)), que
   6.1-6.8, um run por empreendimento
 - campanha: `C029-2026-08-SC` (rotulo real no Supabase para Ictiofauna;
   diverge do `C029-2026-07-SC` usado por Avifauna/Mastofauna)
-- pasta de saida: `.../29_campanha-Julho_26/Ictiofauna/<Empreendimento>`
-  (nome contratual mantido; coleta real em 2026-08-01, registrada no
-  manifesto de cada execucao)
+- pasta de saida (confirmada pela usuaria em 2026-09-08, atalho de drive
+  compartilhado):
+  `G:/.shortcut-targets-by-id/1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães Energia/Resultados e análises/29_campanha_Jul_26/Ictiofauna/<Empreendimento>`
+  (o nome `29_campanha-Julho_26` usado antes era uma suposicao errada por
+  analogia com a C028); coleta real em 2026-08-01, registrada no manifesto
+  de cada execucao
+- estrutura por empreendimento escolhida por espelhar o padrao ja existente
+  dos outros 4 grupos da C029 (Avifauna, Mastofauna, Herpetofauna, Primatas)
+  na mesma pasta contratual; havia uma subpasta vazia `Análise consolidada`
+  dentro de `Ictiofauna/` cujo proposito nao foi confirmado com o Felipe —
+  nao utilizada
+- **Senhora do Porto ja publicado** na pasta contratual em 2026-09-08
+  (13 produtos, `run_id=20260908T182849Z`); os outros 3 empreendimentos
+  ainda nao foram gerados nem publicados
 
 ## Limitacoes Conhecidas
 
