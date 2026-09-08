@@ -598,3 +598,60 @@ o cadastro no Supabase — mesmo padrao ja usado para `_normalize_origem()`.
 Aguardar revisao dos 3 ajustes pela usuaria/Felipe antes de gerar os 3
 empreendimentos restantes. Preparar commit local (sem push automatico,
 aguardando nova autorizacao explicita).
+
+## 2026-09-08 - Sessao 6 (geracao dos 3 empreendimentos restantes)
+
+A usuaria autorizou explicitamente: "Pode gerar os três que ainda faltam:
+Jacaré, Dores de Guanhães, Fortuna II". Gerados com o mesmo comando/recipe
+ja usado para Senhora do Porto, sem alterar campanha nem pasta contratual.
+
+### Acao
+
+1. Snapshot antes: checksum MD5 dos 20 arquivos do lastro da C028 e lista
+   completa de arquivos em `runs/` (28 arquivos, incluindo as 5 execucoes
+   ja feitas de Senhora do Porto).
+2. `python scripts/run/fauna/run_ictio_partial_c029_itagua001.py --pch
+   "Jacaré" --pch "Dores de Guanhães" --pch "Fortuna II" --dry-run` primeiro,
+   para conferir o plano (3 `RunParams`, cada um com seu `pch_target` e
+   mesmo `output_root`/`campaigns`).
+3. Rodado sem `--dry-run`: os 3 completaram `[ok]`. Jacaré gerou 13
+   produtos (igual a Senhora do Porto); Dores de Guanhães e Fortuna II
+   geraram 14 cada (a figura extra `6_1_figura_ocorrencia_qualitativa_*`
+   aparece porque esses dois empreendimentos tem pelo menos um ponto TR
+   com captura real — `TRDGN2` e `TRFOR2`/`TRFOR3`, ja identificados no
+   preflight desta operacao).
+4. Verificado: cada um dos 3 ganhou sua PROPRIA pasta de identidade em
+   `runs/` (`C029_2026_08_SC__Jacaré`, `..._Dores_de_Guanhães`,
+   `..._Fortuna_II`), cada uma com um `run_id` novo e unico
+   (`20260908T194249Z`, `20260908T194307Z`, `20260908T194325Z`).
+5. Checksum MD5 da C028 reconferido: identico ao snapshot antes da geracao.
+6. Lista de arquivos em `runs/` comparada antes/depois: nenhuma linha
+   removida (as 5 execucoes anteriores de Senhora do Porto continuam
+   intactas), so linhas adicionadas para os 3 novos empreendimentos.
+7. `MANIFESTO_RASTREABILIDADE.json` confirmado presente nas 3 pastas reais
+   do cliente (`Jacaré/`, `Dores de Guanhães/`, `Fortuna II/`).
+8. `execution_metadata.json` (ponteiro "latest", reflete Fortuna II, a
+   ultima execucao): `warnings: []`, `generated_files_missing_count: 0`.
+9. Suite de testes completa reexecutada: 8/8 passando.
+
+### O que NAO foi feito nesta sessao
+
+- Nao fiz revisao numerica linha a linha dos 3 novos empreendimentos (como
+  fiz para Senhora do Porto antes da aprovacao). Eles usam o MESMO codigo
+  ja revisado e aprovado, mas os numeros especificos de cada um (riqueza,
+  Jaccard, diversidade, especies por ponto) ainda nao foram conferidos
+  individualmente. Registrado como pendencia explicita no registro da
+  operacao para o Felipe conferir.
+- Nao decidi sobre a subpasta `Análise consolidada` (ainda vazia, proposito
+  nao confirmado).
+- Nao fiz push dos commits desta e da sessao anterior (`845385e`, `27dc3fe`
+  e o novo commit desta sessao) — aguardando autorizacao explicita, como
+  da vez anterior.
+- Nao fiz merge na main.
+
+### Proxima acao
+
+Aguardar o Felipe revisar os 4 empreendimentos publicados (numeros de
+Jacaré/Dores de Guanhães/Fortuna II ainda nao conferidos individualmente) e
+decidir sobre fechamento da operacao e a duvida da subpasta `Análise
+consolidada`.

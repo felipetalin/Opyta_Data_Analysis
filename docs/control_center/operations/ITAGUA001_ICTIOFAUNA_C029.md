@@ -5,7 +5,7 @@
 - projeto: `ITAGUA001__monitoramento_da_fauna`
 - grupo: Ictiofauna
 - operacao: Configuracao das analises da Campanha 29 (piloto colaborativo)
-- estado atual: `generating_products` (amostra de Senhora do Porto **revisada e aprovada** quanto a campanha, resultados e metodologia; 3 ajustes pos-aprovacao aplicados e republicados na pasta contratual; pacote dos 3 empreendimentos restantes ainda nao gerado)
+- estado atual: `reviewing_outputs` (4 de 4 empreendimentos gerados e publicados na pasta contratual: Senhora do Porto revisado/aprovado com 3 ajustes; Jacaré, Dores de Guanhães e Fortuna II gerados em 2026-09-08 mediante autorizacao explicita, ainda sem revisao formal)
 - aberta em: 2026-09-08
 - atualizada em: 2026-09-08
 - operador: Ismayllen
@@ -35,9 +35,15 @@
   pos-aprovacao pedidos (manifesto de rastreabilidade, diagrama de Venn,
   padronizacao textual) — todos aplicados e republicados na pasta
   contratual (ver "Ajustes Pos-Aprovacao Da Amostra" abaixo)
-- proxima acao: usuaria/Felipe revisarem os 3 ajustes aplicados; confirmar
-  se a subpasta `Análise consolidada` (vazia, ja existente em `Ictiofauna/`)
-  tinha outro proposito; autorizar ou nao os 3 empreendimentos restantes.
+- os 3 empreendimentos restantes (Jacaré, Dores de Guanhães, Fortuna II)
+  foram gerados e publicados na pasta contratual em 2026-09-08, mediante
+  autorizacao explicita da usuaria ("Pode gerar os três que ainda faltam")
+  (ver "Geracao Dos 3 Empreendimentos Restantes" abaixo)
+- proxima acao: Felipe revisar os 4 empreendimentos publicados (Senhora do
+  Porto ja aprovado; Jacaré/Dores de Guanhães/Fortuna II ainda sem revisao
+  formal); confirmar se a subpasta `Análise consolidada` (vazia, ja
+  existente em `Ictiofauna/`) tinha outro proposito; decidir sobre
+  fechamento da operacao.
 
 ## Duvida De Estrutura Nao Resolvida
 
@@ -174,10 +180,10 @@ Nao nativas presentes: `Cichla kelberi` e `Oreochromis niloticus`.
 | Consolidacao | concluida pelo Felipe | 66 linhas em `biota_analise_consolidada` para o recorte. |
 | Configuracao das analises | concluida | Template, paleta, pasta e produtos abaixo; recipe e client criados. |
 | Gate C - analises | aprovado com condicoes | Felipe aprovou em 2026-09-08 com 10 condicoes; ver secao dedicada. |
-| Geracao dos produtos | amostra concluida | 1 de 4 empreendimentos gerado para revisao (Senhora do Porto); aguardando autorizacao para os demais. |
-| Revisao tecnica | pendente | Depende da geracao. |
-| Revisao de layout | pendente | Depende da revisao tecnica. |
-| Fechamento | pendente | Depende dos produtos, dossie e registry. |
+| Geracao dos produtos | concluida | 4 de 4 empreendimentos gerados e publicados na pasta contratual em 2026-09-08. |
+| Revisao tecnica | parcial | Senhora do Porto revisado e aprovado (campanha, resultados, metodologia) com 3 ajustes aplicados. Jacaré, Dores de Guanhães e Fortuna II ainda sem revisao numerica individual. |
+| Revisao de layout | parcial | Layout do Venn corrigido (aplica-se aos 4 empreendimentos, mesmo codigo); demais produtos ainda nao revisados individualmente para os 3 novos. |
+| Fechamento | pendente | Depende da revisao dos 3 empreendimentos restantes e da decisao sobre `Análise consolidada`. |
 
 ## Gates
 
@@ -380,6 +386,51 @@ anteriores).
 - Campanha `C029-2026-08-SC` e pasta `29_campanha_Jul_26` **nao foram
   alteradas**.
 
+## Geracao Dos 3 Empreendimentos Restantes (2026-09-08)
+
+Autorizado pela usuaria apos a revisao/aprovacao de Senhora do Porto e a
+aplicacao dos 3 ajustes pos-aprovacao. Gerados com o mesmo comando/recipe
+(`configs/projects/itagua001_guanhaes_ictiofauna.json`), campanha
+`C029-2026-08-SC` e pasta `29_campanha_Jul_26` inalteradas:
+
+```
+python scripts/run/fauna/run_ictio_partial_c029_itagua001.py --pch "Jacaré" --pch "Dores de Guanhães" --pch "Fortuna II"
+```
+
+| Empreendimento | Produtos + manifesto | `run_id` |
+| --- | --- | --- |
+| Jacaré | 13 produtos + `MANIFESTO_RASTREABILIDADE.json` (14 arquivos) | `20260908T194249Z` |
+| Dores de Guanhães | 14 produtos + manifesto (15 arquivos) | `20260908T194307Z` |
+| Fortuna II | 14 produtos + manifesto (15 arquivos) | `20260908T194325Z` |
+
+Jacaré tem 13 produtos (como Senhora do Porto) porque nao houve captura
+qualitativa (TR) real; Dores de Guanhães e Fortuna II tem 14 porque cada um
+teve ao menos um ponto TR com captura real (confirmado no preflight desta
+operacao: `TRDGN2` e `TRFOR2`/`TRFOR3`), gerando tambem a figura
+`6_1_figura_ocorrencia_qualitativa_*`.
+
+**Verificacoes antes e depois da geracao:**
+
+- Checksum MD5 dos 20 arquivos do lastro da C028: identico antes e depois.
+- Nenhum arquivo das 5 execucoes anteriores de Senhora do Porto (`runs/
+  C029_2026_08_SC__Senhora_do_Porto/`) foi removido ou alterado — cada
+  empreendimento novo criou sua PRÓPRIA pasta de identidade em `runs/`
+  (`C029_2026_08_SC__Jacaré`, `..._Dores_de_Guanhães`, `..._Fortuna_II`),
+  cada uma com um unico `run_id` novo.
+- `execution_metadata.json` (ponteiro "latest", reflete a ultima execucao —
+  Fortuna II): `warnings: []`, `generated_files_missing_count: 0`.
+- `MANIFESTO_RASTREABILIDADE.json` confirmado presente dentro de cada uma
+  das 3 pastas reais (`Jacaré/`, `Dores de Guanhães/`, `Fortuna II/`).
+- Suite de testes completa (8 testes) reexecutada apos a geracao: 8/8
+  passando.
+- Nenhuma revisao numerica/textual detalhada foi feita ainda para estes 3
+  empreendimentos (diferente de Senhora do Porto, que foi revisado
+  linha a linha antes desta geracao); eles usam o MESMO codigo ja revisado
+  e aprovado para Senhora do Porto (mesmos blocos, mesma normalizacao de
+  origem, mesmo layout de Venn corrigido, mesma acentuacao), mas os
+  NUMEROS especificos de cada empreendimento ainda nao foram conferidos
+  individualmente pelo Felipe.
+
 ## Limitacao De Ambiente (Resolvida)
 
 O caminho `G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Itatiaia/Guanhães
@@ -431,15 +482,17 @@ descobrir os 5 grupos do projeto pelo caminho de sempre.
    nenhuma captura nesta campanha; tratado como limitacao documentada no
    relatorio descritivo e no dossie, nao como erro. Confirmar com Felipe se
    isso e aceitavel para o pacote final.
-2. Gerar os 3 empreendimentos restantes (Jacaré, Dores de Guanhães, Fortuna II)
-   depende de autorizacao explicita — Senhora do Porto ja foi publicado, mas
-   os outros 3 nao, ate autorizacao especifica.
+2. Jacaré, Dores de Guanhães e Fortuna II foram gerados e publicados em
+   2026-09-08 mediante autorizacao explicita da usuaria. **Ainda nao
+   passaram por revisao numerica individual** (diferente de Senhora do
+   Porto, que foi conferido linha a linha). Recomendado que o Felipe
+   confira os 3 antes do fechamento da operacao.
 3. Confirmar com o Felipe o proposito da subpasta vazia `Análise
    consolidada` em `Ictiofauna/` (ver "Duvida De Estrutura Nao Resolvida").
 4. Correcao do runner aplicada, testada, commitada (`500a297`) e enviada
    (push) para `origin/itagua001-ictiofauna-c029` em 2026-09-08. Merge na
-   main **nao autorizado**. Aguardando revisao do diff e da amostra pelo
-   Felipe antes de qualquer nova geracao ou publicacao na pasta contratual.
+   main **nao autorizado**. Commits subsequentes (`845385e`, `27dc3fe`)
+   ainda nao enviados (push) — aguardando nova autorizacao explicita.
 5. Politica de retencao/arquivamento dos diretorios imutaveis de execucao
    registrada como backlog de alta prioridade
    ([BACKLOG.md](../BACKLOG.md)) — nao implementada, sem exclusao automatica

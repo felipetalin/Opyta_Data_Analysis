@@ -62,9 +62,16 @@ estabilidade ([docs/PIPELINE_ICTIO_165.md](../PIPELINE_ICTIO_165.md)), que
   na mesma pasta contratual; havia uma subpasta vazia `Análise consolidada`
   dentro de `Ictiofauna/` cujo proposito nao foi confirmado com o Felipe —
   nao utilizada
-- **Senhora do Porto ja publicado** na pasta contratual em 2026-09-08
-  (13 produtos, `run_id=20260908T182849Z`); os outros 3 empreendimentos
-  ainda nao foram gerados nem publicados
+- **4 de 4 empreendimentos publicados** na pasta contratual em 2026-09-08:
+  Senhora do Porto (13 produtos, revisado/aprovado com 3 ajustes —
+  manifesto de rastreabilidade, layout do Venn, acentuacao), Jacaré
+  (13 produtos), Dores de Guanhães e Fortuna II (14 produtos cada, com
+  figura extra de ocorrencia qualitativa por terem captura real em pontos
+  TR). Jacaré/Dores de Guanhães/Fortuna II gerados com o mesmo codigo ja
+  revisado, mas **ainda sem revisao numerica individual** pelo Felipe.
+- Cada pasta de empreendimento agora tambem contem
+  `MANIFESTO_RASTREABILIDADE.json` (projeto, campanha, empreendimento,
+  responsavel, git, run_id, fonte e SHA-256 de cada produto).
 
 ## Limitacoes Conhecidas
 
