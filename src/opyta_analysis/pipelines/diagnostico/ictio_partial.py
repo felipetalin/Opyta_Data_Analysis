@@ -500,6 +500,33 @@ def _save_abundance_figure(
     }
 
 
+def _build_species_by_point_matrix(df_emp: pd.DataFrame) -> pd.DataFrame:
+    """Matriz de distribuicao das especies nos pontos amostrais (especie x
+    ponto, valores = numero de individuos), combinando Quanti+Quali. Inclui
+    TODOS os pontos com esforco valido cadastrados na campanha, mesmo os de
+    captura zero (colunas ficam com 0 em vez de o ponto simplesmente nao
+    aparecer), para nao sugerir que um ponto nao amostrado."""
+    all_points = sorted(df_emp["nome_ponto"].dropna().astype(str).unique().tolist())
+    real = df_emp[df_emp["nome_cientifico"].notna()]
+    if real.empty or not all_points:
+        return pd.DataFrame()
+
+    pivot = real.pivot_table(
+        index="nome_cientifico", columns="nome_ponto", values="contagem", aggfunc="sum", fill_value=0
+    )
+    pivot = pivot.reindex(columns=all_points, fill_value=0)
+
+    order = (
+        real[["nome_cientifico", "ordem", "familia"]]
+        .drop_duplicates("nome_cientifico")
+        .sort_values(["ordem", "familia", "nome_cientifico"], na_position="last")["nome_cientifico"]
+        .tolist()
+    )
+    pivot = pivot.reindex(index=order).fillna(0).astype(int)
+    pivot.index.name = "Espécie"
+    return pivot.reset_index()
+
+
 def _save_block_6_1(
     df_emp: pd.DataFrame,
     pch_alvo: str,
@@ -520,6 +547,15 @@ def _save_block_6_1(
         if not df_quali.empty:
             _build_species_list_ictio(df_quali).to_excel(writer, sheet_name="Qualitativa", index=False)
     generated_files.append(str(out_tab))
+
+    # Matriz de distribuicao das especies por ponto amostral (especie x ponto,
+    # numero de individuos). Novo produto pedido apos a revisao da amostra de
+    # Senhora do Porto (formato "Tabela 7" usado nos relatorios narrativos).
+    matrix = _build_species_by_point_matrix(df_emp)
+    if not matrix.empty:
+        out_matrix = output_dir / f"6_1_matriz_especies_por_ponto_{pch_slug}.xlsx"
+        matrix.to_excel(out_matrix, index=False, engine="openpyxl")
+        generated_files.append(str(out_matrix))
 
     metrics: dict[str, Any] = {}
     if not df_quanti.empty:
@@ -974,6 +1010,8 @@ def _save_descriptive_report(
         "",
         "6.1 Riqueza, composição e abundância:",
         "- Tabela de espécies (abas Geral / Quantitativa / Qualitativa).",
+        "- Matriz de distribuição das espécies por ponto amostral (número de",
+        "  indivíduos), incluindo pontos com esforço válido e captura zero.",
         "- Figura de abundância CPUE-N (Quantitativos) e ocorrência (Qualitativos).",
         "",
         "6.2 Suficiência amostral:",

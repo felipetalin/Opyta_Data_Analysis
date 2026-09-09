@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Ictiofauna analysis - itagua001_guanhaes
-Generated: 2026-09-09T12:14:46.668253Z
+Generated: 2026-09-09T12:12:43.806712Z
 
 Usage:
   python _run_this_analysis.py
@@ -20,8 +20,8 @@ from opyta_analysis.runner import run
 
 def main():
     parser = argparse.ArgumentParser(description="Re-run Ictiofauna analysis")
-    parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\.shortcut-targets-by-id\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\29_campanha_Jul_26\Ictiofauna\Fortuna II", help="Output directory for generated artifacts")
+    parser.add_argument("--block", default='6.1', help="Block to execute (default: 6.1)")
+    parser.add_argument("--output-dir", default=r"C:\o\Opyta_Data_Analysis\outputs\_staging_review\test_matriz\Dores de Guanhães", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='C:\\o\\Opyta_Data_Analysis\\.env', help="Optional .env file path")
     parser.add_argument("--campaigns", default=None, help="Override comma-separated campaign filter")
     args = parser.parse_args()
@@ -37,7 +37,7 @@ def main():
         block=args.block,
         audit_project_slug='ITAGUA001__monitoramento_da_fauna',
         campaigns=campaigns,
-        pch_target='Fortuna II',
+        pch_target='Dores de Guanhães',
         operator=None,
     )
 

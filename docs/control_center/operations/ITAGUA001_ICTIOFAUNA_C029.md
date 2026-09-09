@@ -5,9 +5,9 @@
 - projeto: `ITAGUA001__monitoramento_da_fauna`
 - grupo: Ictiofauna
 - operacao: Configuracao das analises da Campanha 29 (piloto colaborativo)
-- estado atual: `reviewing_outputs` (4 de 4 empreendimentos gerados e publicados na pasta contratual: Senhora do Porto revisado/aprovado com 3 ajustes; Jacaré, Dores de Guanhães e Fortuna II gerados em 2026-09-08 mediante autorizacao explicita, ainda sem revisao formal)
+- estado atual: `reviewing_outputs` (4 de 4 empreendimentos gerados e publicados na pasta contratual: Senhora do Porto revisado/aprovado com 3 ajustes; Jacaré, Dores de Guanhães e Fortuna II ainda sem revisao formal; novo produto — matriz especie x ponto — adicionado e republicado nos 4 em 2026-09-09)
 - aberta em: 2026-09-08
-- atualizada em: 2026-09-08
+- atualizada em: 2026-09-09
 - operador: Ismayllen
 - responsavel pelos dados: Felipe (migracao e consolidacao ja executadas)
 - Gate C: aprovado por Felipe em 2026-09-08; configuracao da C029 aprovada;
@@ -481,6 +481,46 @@ da C029 duas vezes consecutivas contra o Supabase, com checksum MD5 dos 20
 arquivos da C028 identico antes e depois, e `audit_project()` continuando a
 descobrir os 5 grupos do projeto pelo caminho de sempre.
 
+## Novo Produto — Matriz Espécie x Ponto (2026-09-09)
+
+A usuaria mostrou um "Tabela 7" (distribuicao das especies nos pontos
+amostrais) de um relatorio narrativo (`Resultados_Ictiofauna_DGN_Campanha_29.md`,
+encontrado na pasta de Dores de Guanhães mas nao gerado por este pipeline —
+provavelmente redigido pelo Felipe usando os dados desta operacao) e pediu
+para confirmar se esse tipo de tabela faltava para os outros empreendimentos.
+Confirmado: essa matriz nao fazia parte do conjunto de produtos do
+`ictio_partial` para NENHUM dos 4 empreendimentos — nao era um problema
+isolado de Dores de Guanhães. A usuaria pediu para criar esse produto para
+os 4, com dados reais do Supabase.
+
+**Implementado** em `_build_species_by_point_matrix()` (nova funcao) e
+integrado ao bloco 6.1 (`_save_block_6_1`), gerando
+`6_1_matriz_especies_por_ponto_<empreendimento>.xlsx`: linhas = especies
+(ordem taxonomica igual a tabela de especies), colunas = TODOS os pontos
+com esforco valido cadastrados na campanha (inclusive os de captura zero,
+que aparecem com 0 em vez de simplesmente nao existir como coluna), valores
+= numero de individuos (Quanti+Quali somados).
+
+**Validacao:** os totais por especie da matriz de Dores de Guanhães batem
+exatamente com o relatorio narrativo do Felipe (Astyanax lacustris
+16+9+6+0=31, Hypomasticus copelandii 6+1+0+2=9, Hoplias intermedius
+2+1+2+1=6, Phalloceros uai 3 em `TRDGN2`, Delturus carinotus 1 em `RPDGN3`,
+Hypostomus affinis 2+4=6, Deuterodon taeniatus 3, Rhamdia quelen 1).
+
+Republicado nos 4 empreendimentos com `--all`:
+
+| Empreendimento | Arquivo novo confirmado |
+| --- | --- |
+| Jacaré | `6_1_matriz_especies_por_ponto_jacare.xlsx` |
+| Senhora do Porto | `6_1_matriz_especies_por_ponto_senhora_do_porto.xlsx` |
+| Dores de Guanhães | `6_1_matriz_especies_por_ponto_dores_de_guanhaes.xlsx` |
+| Fortuna II | `6_1_matriz_especies_por_ponto_fortuna_ii.xlsx` |
+
+Checksum MD5 dos 20 arquivos do lastro da C028 reconferido apos a
+republicacao: identico. Cada empreendimento ganhou um novo `run_id` imutavel
+(`20260909T1214*Z`) sem afetar nenhuma execucao anterior. Suite de testes
+(8/8) reexecutada apos a mudanca de codigo: passando.
+
 ## Pendencias
 
 1. Blocos 6.4 e 6.5 ficam descritivos quando os pontos `TR*` tem pouca ou
@@ -496,13 +536,17 @@ descobrir os 5 grupos do projeto pelo caminho de sempre.
    consolidada`~~ — resolvida em 2026-09-08: usuaria autorizou a exclusao,
    confirmada vazia antes de excluir (ver "Duvida De Estrutura — Resolvida").
 4. Correcao do runner aplicada, testada, commitada (`500a297`) e enviada
-   (push) para `origin/itagua001-ictiofauna-c029` em 2026-09-08. Merge na
-   main **nao autorizado**. Commits subsequentes (`845385e`, `27dc3fe`)
-   ainda nao enviados (push) — aguardando nova autorizacao explicita.
+   (push) para `origin/itagua001-ictiofauna-c029` — todos os commits desta
+   operacao ate `a969e0a` ja sincronizados com o remoto (confirmado
+   `0 ahead/0 behind`). Merge na main **nao autorizado**.
 5. Politica de retencao/arquivamento dos diretorios imutaveis de execucao
    registrada como backlog de alta prioridade
    ([BACKLOG.md](../BACKLOG.md)) — nao implementada, sem exclusao automatica
    introduzida.
+6. Novo produto (matriz especie x ponto) adicionado em 2026-09-09 e
+   republicado nos 4 empreendimentos (ver "Novo Produto — Matriz Espécie x
+   Ponto" abaixo); revisao numerica pendente (item 2) agora tambem cobre
+   este arquivo novo para os 4.
 
 ## Revisoes
 

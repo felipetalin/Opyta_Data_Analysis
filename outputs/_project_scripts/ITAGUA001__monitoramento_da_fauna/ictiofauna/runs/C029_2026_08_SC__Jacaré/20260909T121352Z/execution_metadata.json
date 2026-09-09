@@ -1,0 +1,185 @@
+{
+  "executed_at": "2026-09-09T12:13:52.776454Z",
+  "runner_version": "1.3",
+  "project_id": 165,
+  "group": "Ictiofauna",
+  "pipeline": "ictio_partial",
+  "client": "itagua001_guanhaes",
+  "block": "all",
+  "campaign_filter": [
+    "C029-2026-08-SC"
+  ],
+  "git": {
+    "branch": "itagua001-ictiofauna-c029",
+    "commit": "a969e0a",
+    "dirty": true,
+    "status_short_count": 1,
+    "full_dirty": true,
+    "full_status_short_count": 4,
+    "ignored_generated_audit_count": 3
+  },
+  "rows_loaded": 29,
+  "executed_blocks": [
+    "6.1",
+    "6.2",
+    "6.3",
+    "6.4",
+    "6.5",
+    "6.6",
+    "6.7",
+    "6.8"
+  ],
+  "campaigns": [
+    "C029-2026-08-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "RPJAC1",
+    "RPJAC2",
+    "RPJAC3",
+    "RPJAC4",
+    "RPJAC5",
+    "TRJAC1",
+    "TRJAC2",
+    "TRJAC3",
+    "TRJAC4"
+  ],
+  "points_count": 9,
+  "output_dir": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré",
+  "generated_files_count": 14,
+  "generated_files": [
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_1_tabela_especies_jacare.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_1_matriz_especies_por_ponto_jacare.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_1_figura_abundancia_cpue_n_jacare.png",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_2_tabela_estimadores_jacare.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_2_curva_coletor_dados_jacare.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_2_curva_coletor_jacare.png",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_3_indices_diversidade.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_3_indices_diversidade.png",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_4_dendrograma_jaccard_por_pontos.png",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_5_diagrama_venn_rp_vs_tr.png",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_6_6_8_tabela_geral_status.xlsx",
+    "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_relatorio_descritivo_ictio_parcial.txt"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_1_tabela_especies_jacare.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7505,
+      "modified_at": "2026-09-09T12:13:43.569000Z",
+      "sha256": "ce8661bd6d5b771a704c98fdf57b85469bd642196efdde0d3e8774be275a5aa7"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_1_matriz_especies_por_ponto_jacare.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5425,
+      "modified_at": "2026-09-09T12:13:43.602000Z",
+      "sha256": "73bcdd18d97209ff7837222bc4633444b02ca8fafac4368f0caf67486b659034"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_1_figura_abundancia_cpue_n_jacare.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 859460,
+      "modified_at": "2026-09-09T12:13:45.626000Z",
+      "sha256": "082574b8ba4827adf06bc5124373cabbeab12a5d4091c196e367387370a5ca9b"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_2_tabela_estimadores_jacare.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5025,
+      "modified_at": "2026-09-09T12:13:45.720000Z",
+      "sha256": "b9ce0bbe14eb4ba4c45d900893d2cc43e721fa344c3d87dced3fc03078c83f28"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_2_curva_coletor_dados_jacare.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5786,
+      "modified_at": "2026-09-09T12:13:45.786000Z",
+      "sha256": "772daf7de995a297ae7e82bcbecc7dd4d643aac26adef0692cedb576b6ff06fc"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_2_curva_coletor_jacare.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 829756,
+      "modified_at": "2026-09-09T12:13:47.753000Z",
+      "sha256": "71e9cdfbc52cf7e59d8c100dd52a5ce434981ef2492d64a90bcd6bfe2f0fa76a"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_3_indices_diversidade.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5017,
+      "modified_at": "2026-09-09T12:13:47.818000Z",
+      "sha256": "c8282923963b21f723abf5fd926411c17e869658d0f0b83c3a27269d1991531e"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_3_indices_diversidade.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 663438,
+      "modified_at": "2026-09-09T12:13:50.026000Z",
+      "sha256": "82491789ebcbab606e3727e3e641841f0e391a76be74705901d0906c64729dcc"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5612,
+      "modified_at": "2026-09-09T12:13:50.124000Z",
+      "sha256": "dd2d78dca8dcf92507c0b5bee967e37f51b9855515e2def8e39975913e065c52"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_4_dendrograma_jaccard_por_pontos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 354545,
+      "modified_at": "2026-09-09T12:13:51.228000Z",
+      "sha256": "a32f2ff6d66a0da6d6e3df063ccf153d1c8ad9745285f583bd3db9a0cef223a0"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_5_tabela_jaccard_rp_vs_tr.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5067,
+      "modified_at": "2026-09-09T12:13:51.281000Z",
+      "sha256": "43f82cc8b4bab8b97a12ad62c1b927f5bbe056539476a0bff5988381d963953e"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_5_diagrama_venn_rp_vs_tr.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 623193,
+      "modified_at": "2026-09-09T12:13:52.538000Z",
+      "sha256": "d52128e124a985483c00fceed0def80d12a6eca80cf2a927e42e9b8fa20007ae"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_6_6_8_tabela_geral_status.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5895,
+      "modified_at": "2026-09-09T12:13:52.640000Z",
+      "sha256": "2519fcde8244486cb2c6475838b096866608440557d195d023ecba63375e2d61"
+    },
+    {
+      "path": "G:\\.shortcut-targets-by-id\\1dfa3mDLQkCZuEErnRrnLm1tKG19ZAIjZ\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Ictiofauna\\Jacaré\\6_relatorio_descritivo_ictio_parcial.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 2435,
+      "modified_at": "2026-09-09T12:13:52.650000Z",
+      "sha256": "585d29355d84c8ebe7907536ce8a950c94236a49892d0e5e6e99e2553208d55a"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "C:\\o\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "C:\\o\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\ictiofauna\\runs\\C029_2026_08_SC__Jacaré\\20260909T121352Z",
+  "run_id": "20260909T121352Z",
+  "warnings": []
+}

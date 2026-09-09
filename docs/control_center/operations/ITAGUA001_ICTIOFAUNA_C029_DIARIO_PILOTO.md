@@ -683,3 +683,78 @@ lista de pendencias riscando o item correspondente.
 Commitar e enviar (push) este registro de documentacao. Seguem pendentes:
 revisao numerica individual de Jacaré/Dores de Guanhães/Fortuna II pelo
 Felipe, e decisao sobre fechamento da operacao.
+
+## 2026-09-09 - Sessao 8 (novo produto: matriz especie x ponto)
+
+Usuaria pediu para conferir a abundancia de Dores de Guanhães (respondi
+direto: 60 individuos, lido de `6_2_tabela_estimadores_dores_de_guanhaes.xlsx`).
+Em seguida mostrou uma imagem de "Tabela 7 — Distribuição das espécies...
+na PCH Dores de Guanhães" e perguntou se essa tabela tambem faltava para
+os outros empreendimentos.
+
+### Investigacao
+
+Listei os arquivos das 4 pastas reais e notei um arquivo extra so em Dores
+de Guanhães: `Resultados_Ictiofauna_DGN_Campanha_29.md`. Eu NAO gerei esse
+arquivo — nao aparece em nenhum `generated_files` do nosso runner. Li o
+conteudo: e um relatorio narrativo completo (riqueza, abundancia,
+suficiencia, diversidade, Jaccard, ameacadas/exoticas/migratorias/
+cinegeticas), com numeros batendo exatamente com os nossos (60 individuos,
+riqueza 8, Shannon 1,3935 etc) — entao foi escrito por alguem (provavelmente
+o Felipe) usando os dados desta operacao, fora do pipeline. A imagem
+("Tabela 7") tinha `Cichla cf. kelberi` com individuos — especie que o
+proprio relatorio narrativo diz que NAO ocorreu na C029 ("não foram
+registradas nesta campanha"); ou seja, a imagem era da campanha ANTERIOR
+(C028), usada como referencia de formato, nao dado atual.
+
+Confirmei: essa matriz especie x ponto nao e um dos produtos que o
+`ictio_partial` gera para NENHUM dos 4 empreendimentos — nao era um
+problema so de Dores de Guanhães, e o `.md` tambem so existe la.
+
+### Implementacao
+
+Usuaria pediu para criar a tabela para os 4, com dados reais do Supabase.
+
+1. Nova funcao `_build_species_by_point_matrix()` em `ictio_partial.py`:
+   pivot especie (linha) x ponto (coluna) = soma de `contagem`
+   (Quanti+Quali juntos). Colunas incluem TODOS os pontos com esforco
+   valido cadastrados na campanha (inclusive os de captura zero, que
+   aparecem com 0 em vez de sumir como coluna) — mesmo principio ja
+   aplicado no resto do pipeline desde a Sessao 2. Linhas ordenadas por
+   ordem/familia/especie, igual a tabela de especies principal.
+2. Integrada em `_save_block_6_1`, gerando
+   `6_1_matriz_especies_por_ponto_<empreendimento>.xlsx` como produto novo.
+   Descricao do produto acrescentada ao relatorio `.txt` (secao 6.1).
+3. Testei ISOLADO primeiro (`block="6.1"`, saida em pasta de staging local,
+   nao na pasta contratual) para Dores de Guanhães antes de rodar para os 4.
+4. **Validacao cruzada com o relatorio do Felipe:** os totais por especie
+   da matriz gerada bateram exatamente com os numeros do
+   `Resultados_Ictiofauna_DGN_Campanha_29.md` (Astyanax lacustris
+   16+9+6+0=31, Hypomasticus copelandii 6+1+0+2=9, Hoplias intermedius
+   2+1+2+1=6, Phalloceros uai 3 — unico individuo TR, em `TRDGN2`,
+   Delturus carinotus 1 em `RPDGN3`, Hypostomus affinis 2+0+0+4=6,
+   Deuterodon taeniatus 3, Rhamdia quelen 1). Essa batida exata comprova
+   que a matriz nova esta consistente com o que o Felipe ja tinha calculado
+   manualmente/externamente.
+5. Rodei `py_compile` + suite de testes (8/8) antes de tocar a pasta real.
+6. Rodei `run_ictio_partial_c029_itagua001.py --all` para os 4
+   empreendimentos de uma vez (repete o mesmo comando ja usado, sem mudar
+   campanha/pasta/pch — so o codigo mudou, adicionando um arquivo a mais
+   por empreendimento).
+7. Confirmado: cada um dos 4 ganhou exatamente +1 arquivo (Jacaré e
+   Senhora do Porto foram de 13 para 14; Dores de Guanhães e Fortuna II de
+   14 para 15). `execution_metadata.json` da ultima execucao sem avisos.
+   Checksum MD5 da C028 reconferido: identico. Suite de testes reexecutada
+   apos a mudanca real: 8/8.
+
+### Nao feito
+
+- Nao removi nem tentei validar o `.md` do Felipe (nao e produto nosso;
+  so li para conferir os numeros).
+- Nao fiz commit/push ainda desta mudanca de codigo — pendente autorizacao
+  explicita, como nas vezes anteriores.
+
+### Proxima acao
+
+Aguardar autorizacao para commit/push da mudanca de codigo (nova funcao +
+integracao no bloco 6.1) e da republicacao dos 4 empreendimentos.
