@@ -25,6 +25,12 @@ aprovacao do usuario.
 | Area | Estado | Onde acessar |
 | --- | --- | --- |
 | Fluxo operacional | Oficial | [WORKFLOW.md](WORKFLOW.md) |
+| Politica de contexto LLM | Oficial | [LLM_CONTEXT_POLICY.md](LLM_CONTEXT_POLICY.md) |
+| Identidade Supabase | Oficial | [SUPABASE_IDENTITY_POLICY.md](SUPABASE_IDENTITY_POLICY.md) |
+| Tipos de amostragem aquatica | Oficial | [AQUATIC_SAMPLING_TYPE_POLICY.md](AQUATIC_SAMPLING_TYPE_POLICY.md) |
+| Pendências taxonômicas | Oficial | [TAXON_REGISTRATION_INTAKE_POLICY.md](TAXON_REGISTRATION_INTAKE_POLICY.md) |
+| Riscos de custo de tokens | Ativo | [TOKEN_COST_RISK_REGISTER.md](TOKEN_COST_RISK_REGISTER.md) |
+| Fluxo de meio fisico | Ativo | [MEIO_FISICO_WORKFLOW.md](MEIO_FISICO_WORKFLOW.md) |
 | Fluxo de revisao | Oficial | [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md) |
 | Operacoes ativas | Ativo | [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md) |
 | Registros por execucao | Ativo | [operations](operations/README.md) |
@@ -69,14 +75,27 @@ aprovacao de template/paleta/saida -> geracao -> revisao -> fechamento`
 Os detalhes, estados e evidencias obrigatorias estao em
 [WORKFLOW.md](WORKFLOW.md).
 
+## Regra De Contexto Para LLM
+
+Ao usar Codex ou outra LLM, a Central de Controle deve ser carregada em modo de
+contexto minimo.
+
+Sempre consultar [LLM_CONTEXT_POLICY.md](LLM_CONTEXT_POLICY.md) antes de abrir
+dossies, reviews, lastros, outputs ou arquivos historicos. A operacao alvo deve
+guiar quais arquivos adicionais entram no contexto.
+
+Por padrao, nao abrir `outputs/`, `logs/`, todos os registros de operacao,
+todos os reviews, planilhas, imagens, HTMLs, PDFs ou snapshots. Esses itens so
+entram quando houver dependencia tecnica registrada.
+
 ## Portoes Obrigatorios
 
 | Gate | Confirmacao do usuario |
 | --- | --- |
-| A | Dados validados e ajustes aceitos. |
+| A | Dados validados, coordenadas e tipos de amostragem auditados e ajustes aceitos. |
 | B | Cadastro e atributos das especies aceitos. |
-| C | Template, paleta, pasta de saida e produtos aceitos. |
-| R | Pacote revisado aceito depois da comparacao antes/depois. |
+| C | Template, paleta, pasta de saida, produtos e matriz produto x tipo aceitos. |
+| R | Pacote revisado e totais por tipo aceitos depois da comparacao antes/depois. |
 
 O trabalho pode avancar automaticamente dentro de uma etapa, mas deve parar
 quando chegar a um gate ainda nao aprovado.
@@ -88,20 +107,22 @@ base e por uma triagem de impacto:
 
 - texto/layout sem alterar resultados: revisar apenas produtos dependentes;
 - metodo/calculo: regenerar a cadeia analitica afetada;
-- dados/taxonomia: reabrir Gate A ou B e repetir as etapas posteriores;
+- dados/coordenadas/taxonomia: reabrir Gate A ou B e repetir as etapas posteriores;
 - toda revisao termina no Gate R.
 
 ## Ordem De Consulta
 
 1. [WORKFLOW.md](WORKFLOW.md)
-2. [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md), quando for revisao
-3. [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md)
-4. registro da operacao em [operations](operations/README.md)
-5. registro da revisao em [reviews](reviews/README.md), quando aplicavel
-6. [PROJECTS.md](PROJECTS.md) e registry
-7. dossie, recipe e lastro
-8. portfolio e patterns aplicaveis
-9. validadores e fechamento
+2. [LLM_CONTEXT_POLICY.md](LLM_CONTEXT_POLICY.md), quando houver LLM/Codex
+3. [MEIO_FISICO_WORKFLOW.md](MEIO_FISICO_WORKFLOW.md), quando for meio fisico
+4. [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md), quando for revisao
+5. [ACTIVE_OPERATIONS.md](ACTIVE_OPERATIONS.md)
+6. registro da operacao em [operations](operations/README.md)
+7. registro da revisao em [reviews](reviews/README.md), quando aplicavel
+8. [PROJECTS.md](PROJECTS.md) e registry filtrado pelo projeto
+9. dossie, recipe e lastro somente quando aplicaveis a operacao
+10. portfolio e patterns aplicaveis
+11. validadores e fechamento
 
 ## Comandos
 

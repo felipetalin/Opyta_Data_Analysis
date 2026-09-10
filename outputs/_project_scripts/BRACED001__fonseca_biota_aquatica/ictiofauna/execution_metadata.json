@@ -1,0 +1,361 @@
+{
+  "executed_at": "2026-08-13T15:49:31.312569Z",
+  "runner_version": "1.2",
+  "project_id": 133,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "braced001",
+  "block": "all",
+  "campaign_filter": [
+    "C001-2026-03-CH",
+    "C002-2026-06-SC"
+  ],
+  "git": {
+    "branch": "agent/braavg002-ictiofauna-resultados-2026",
+    "commit": "08e2279",
+    "dirty": true,
+    "status_short_count": 46,
+    "full_dirty": true,
+    "full_status_short_count": 244,
+    "ignored_generated_audit_count": 198
+  },
+  "rows_loaded": 58,
+  "executed_blocks": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "9b",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "campaigns": [
+    "C001-2026-03-CH",
+    "C002-2026-06-SC"
+  ],
+  "campaigns_count": 2,
+  "points": [
+    "MA-01-01",
+    "MA-01-02",
+    "MA-01-03",
+    "MA-02-04",
+    "MA-02-05",
+    "MA-02-06",
+    "MA-03-07",
+    "MA-03-08",
+    "MA-03-09",
+    "MA-04-10",
+    "MA-04-11",
+    "MA-04-12",
+    "MA-05-13",
+    "MA-05-14",
+    "MA-05-15",
+    "MA-06-16",
+    "MA-06-17",
+    "MA-06-18"
+  ],
+  "points_count": 18,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca",
+  "generated_files_count": 32,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\01_tabela_composicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_tabela_distribuicao_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08B_df_cpuen_por_especie_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09B_df_cpueb_por_especie_ponto_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08_grafico_cpuen_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09_grafico_cpueb_por_especie_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08B_grafico_cpuen_por_especie_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09B_grafico_cpueb_por_especie_ponto_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\13_tabela_biometria_biomassa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\10_df_diversidade_alfa_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\10_grafico_diversidade_alfa_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\12_df_curva_suficiencia_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\12_curva_suficiencia_amostral_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\DarwinCore_IEF_Ictiofauna_Fonseca_Biota_Aquatica.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\01_tabela_composicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 8141,
+      "modified_at": "2026-08-13T15:48:35.142000Z",
+      "sha256": "37b556558bc5365c72088af201616bb13a0cdf0384a98b0ec1c837f2a7f29b32"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_tabela_distribuicao_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7562,
+      "modified_at": "2026-08-13T15:48:35.667000Z",
+      "sha256": "0983f36c4eac6946a6e6e9e7b251e924504a4cf8d9b199f326b0af84589e7360"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5571,
+      "modified_at": "2026-08-13T15:48:35.944000Z",
+      "sha256": "6da0a1f4f22d8861643fdac684a99ad89c1227321e27b0f8cad2df13211ec4f0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 488807,
+      "modified_at": "2026-08-13T15:48:44.639000Z",
+      "sha256": "69f2a431eaac5f916152e60e5df125384531d35b95023dca06f563a41e6e291d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5604,
+      "modified_at": "2026-08-13T15:48:45.079000Z",
+      "sha256": "5ced0c785d9a2aed1ef3e9f9ece2d8127dcd8a627bdd8fd4007853aa6a8d299e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 578804,
+      "modified_at": "2026-08-13T15:48:50.356000Z",
+      "sha256": "7a26401db29bf4dbc13037086479df19dd6b8cef435b2c79a5062844ca91e7e0"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5070,
+      "modified_at": "2026-08-13T15:48:50.527000Z",
+      "sha256": "033ffcd646a86e9716c169d80dfe0eba76d1d317fadbb220261420d86accfd03"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 608370,
+      "modified_at": "2026-08-13T15:48:54.194000Z",
+      "sha256": "fd045fa15862743f9e57beb7022f25377e19f9d9da7ddaf29a2b3cbba6f6874f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 564542,
+      "modified_at": "2026-08-13T15:48:57.233000Z",
+      "sha256": "54e32dc136bc39ac65068dffeeac22702bf036e96922b7b55332a84903a11af1"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5181,
+      "modified_at": "2026-08-13T15:48:57.338000Z",
+      "sha256": "e76881d73da57b70f7ae398eaef9607694389a24db20bbba13286256507a0e15"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 915531,
+      "modified_at": "2026-08-13T15:49:00.258000Z",
+      "sha256": "e6928d9be80c8192da95967a8b2be31d1a2e3b7daa079153af53248110e65af3"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 784917,
+      "modified_at": "2026-08-13T15:49:03.368000Z",
+      "sha256": "5a64da303fa51fa826cf6544a37569b9ba936ea7fc9d97b5bb8c0a2cd2bc3e7c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6460,
+      "modified_at": "2026-08-13T15:49:03.514000Z",
+      "sha256": "370542af0c00b60681b1faf9aba1fd8e477c9aaa56de180484afe64527bb723e"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\06_grafico_cpuen_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 681396,
+      "modified_at": "2026-08-13T15:49:06.228000Z",
+      "sha256": "e14b7f81ae3173b3f9362928fc98301e9b623795eb6fcec33e079165ff950ff4"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\07_grafico_cpueb_por_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 737604,
+      "modified_at": "2026-08-13T15:49:08.775000Z",
+      "sha256": "8b8dde667b16148f6b59a751b72ab3b97daa6ca82debb0c62020c72c1b47275c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5533,
+      "modified_at": "2026-08-13T15:49:08.938000Z",
+      "sha256": "7cf25eb5cc01b67ed274775f5bb373a5337526bd326dfbe7a799f5f1d2f40c1b"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5560,
+      "modified_at": "2026-08-13T15:49:09.022000Z",
+      "sha256": "21d2c05e2eebc397b95ba0d3f8fc47fc14aaae8356cd803fcb9a1dab3f500ced"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08B_df_cpuen_por_especie_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5938,
+      "modified_at": "2026-08-13T15:49:09.118000Z",
+      "sha256": "5a95947eaefcb500f52dc7cf9c98e95d20dbdef8b149429747456aaa74021498"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09B_df_cpueb_por_especie_ponto_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5950,
+      "modified_at": "2026-08-13T15:49:09.216000Z",
+      "sha256": "fe4ad3aba0df546d4938ec56efaa0e5667001212d76b180691da6628fa7b8da9"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08_grafico_cpuen_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 993630,
+      "modified_at": "2026-08-13T15:49:10.981000Z",
+      "sha256": "c2c9aa336764335aa443ead2f022b6166f7db97e0cee90b7aa11ba9a08b5f073"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09_grafico_cpueb_por_especie_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1010309,
+      "modified_at": "2026-08-13T15:49:12.795000Z",
+      "sha256": "c051755778c03bb2a790231128a67e09f198de2d0669f5b7db6725601b5691ad"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\08B_grafico_cpuen_por_especie_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1213592,
+      "modified_at": "2026-08-13T15:49:17.646000Z",
+      "sha256": "ab767c2c1f9f1e0fea806b3bf53c00d84e19301ceb1f0d85dc48fd2fd91850e7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\09B_grafico_cpueb_por_especie_ponto_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 1270237,
+      "modified_at": "2026-08-13T15:49:22.529000Z",
+      "sha256": "a00e9a01dbb3960910798daed79adfae829d46a1b71bdafc8befdf443d0f42c7"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\13_tabela_biometria_biomassa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7596,
+      "modified_at": "2026-08-13T15:49:22.789000Z",
+      "sha256": "201822dea0121acd0dd4382533273734b0ebb77bd1543481618f5e0cf53d323d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6148,
+      "modified_at": "2026-08-13T15:49:22.967000Z",
+      "sha256": "11be4de6ad96f9a99436a7e35e6cba9f1ade98eb7c503d4de263fc7959673c9d"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 806556,
+      "modified_at": "2026-08-13T15:49:25.422000Z",
+      "sha256": "42658a8dd7b68361e07e038cd8fc097bc112b59a2c70250d1c0b018d9cbee128"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5986,
+      "modified_at": "2026-08-13T15:49:25.551000Z",
+      "sha256": "5cca58cd97423a1dc1d11d268fe80ebaa16fc0b26dc1ac3a5a64de2b60bf8b41"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6013,
+      "modified_at": "2026-08-13T15:49:25.673000Z",
+      "sha256": "cfcad49ed562261fb1a8d585c18ada13288092dce9f377a828ac4c8244dfe2cc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 553068,
+      "modified_at": "2026-08-13T15:49:27.340000Z",
+      "sha256": "57430944d5bdec953a9bf768be20bf42b39bc08872b152d6f6d055b63b12e0fe"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\12_df_curva_suficiencia_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7299,
+      "modified_at": "2026-08-13T15:49:27.569000Z",
+      "sha256": "3e0fb046ae01dc488c0c6e40b07c8ec2aec172644da126d325fd3d22463e7658"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\12_curva_suficiencia_amostral_ictiofauna.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 885629,
+      "modified_at": "2026-08-13T15:49:29.675000Z",
+      "sha256": "e3453b4aab5cac13489ed4b80e1d80a94151d357047aa45c0fc50dc4df48b040"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\DarwinCore_IEF_Ictiofauna_Fonseca_Biota_Aquatica.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 14346,
+      "modified_at": "2026-08-13T15:49:29.969000Z",
+      "sha256": "fd527cc3b61e4f4c8d574e6417290787e33033574583563449bbd88abc848f91"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\ictiofauna",
+  "warnings": []
+}

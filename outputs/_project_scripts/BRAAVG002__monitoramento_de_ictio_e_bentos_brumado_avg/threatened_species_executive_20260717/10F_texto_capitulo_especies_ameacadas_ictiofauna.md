@@ -1,0 +1,11 @@
+# Espécies ameaçadas de extinção registradas na ictiofauna
+
+Foram registradas 2 espécies ameaçadas de extinção no conjunto de dados de ictiofauna: *Neoplecostomus franciscoensis* e *Pareiorhaphis mutuca*. Ambas apresentam associação funcional com ambientes lóticos, bentônicos e de maior dependência de condições físicas específicas do habitat, o que torna sua ocorrência relevante para a leitura conservacionista dos trechos monitorados.
+
+A maior representatividade foi observada para *Neoplecostomus franciscoensis*, responsável por 95.0% da CPUEn total calculada para as espécies ameaçadas. A espécie foi registrada em 20 campanhas e 5 pontos amostrais (PIC-03; PIC-04; PIC-05; PIC-06; PIC-11), indicando distribuição mais recorrente no período avaliado. Esse padrão sugere que parte dos ambientes monitorados ainda apresentou condições compatíveis com a manutenção de espécies reofílicas/bentônicas de interesse conservacionista.
+
+Por outro lado, *Pareiorhaphis mutuca* apresentou ocorrência mais restrita, com 5.0% da CPUEn das espécies ameaçadas, registros em 2 campanhas e 2 pontos amostrais (PIC-01; PIC-02). Esse resultado caracteriza a espécie como um componente pontual da assembleia registrada, cuja permanência deve ser acompanhada nas próximas campanhas em função de sua relevância conservacionista.
+
+De forma integrada, as espécies ameaçadas foram registradas em 21 campanhas e 7 pontos amostrais. A distribuição espacial e temporal desses registros não deve ser interpretada isoladamente como indicativo de ausência de impacto ou de melhoria ambiental, mas como evidência de que determinados trechos ainda mantêm condições adequadas para espécies de maior especificidade ecológica. A interpretação deve considerar simultaneamente o esforço amostral, a continuidade dos pontos, as alterações de acesso, a estrutura dos habitats e as variações hidrológicas entre campanhas.
+
+Para fins de acompanhamento, recomenda-se manter atenção especial aos pontos com registros recorrentes de *Neoplecostomus franciscoensis* e aos pontos com registros pontuais de *Pareiorhaphis mutuca*. Reduções abruptas, deslocamentos espaciais ou ausência persistente dessas espécies em pontos historicamente ocupados devem ser avaliados em conjunto com informações de campo, condições de substrato, conectividade e vazão.

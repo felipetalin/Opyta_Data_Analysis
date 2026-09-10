@@ -1,0 +1,50 @@
+{
+  "stamp": "20260902T154113",
+  "applied": false,
+  "active_groups": [
+    "Fitoplâncton",
+    "Zooplâncton"
+  ],
+  "project": {
+    "id_projeto": 211,
+    "codigo_interno_opyta": "WSPKIN001",
+    "nome_projeto": "Kinross",
+    "id_cliente": 216,
+    "nome_empresa": "WSP"
+  },
+  "campaigns": [
+    {
+      "nome_campanha": "C001-2026-03-CH",
+      "id_campanha": 969
+    },
+    {
+      "nome_campanha": "C002-2026-07-SC",
+      "id_campanha": null
+    }
+  ],
+  "source_summary": {
+    "pontos": 20,
+    "campanhas": 2,
+    "esforcos": 40,
+    "resultados_migraveis": 368,
+    "linhas_fonte": 368,
+    "taxons_soma_por_grupo": 130
+  },
+  "db_before": {
+    "pontos": 0,
+    "esforcos": 0,
+    "resultados_fitoplancton": 0,
+    "resultados_zooplancton": 0,
+    "consolidado": 0
+  },
+  "db_after": null,
+  "backups": null,
+  "deleted": null,
+  "result_counts_by_table": {
+    "resultados_fitoplancton": 124,
+    "resultados_zooplancton": 244
+  },
+  "inserted_results": null,
+  "inserted_consolidated": null,
+  "consolidated_by_campaign": null
+}

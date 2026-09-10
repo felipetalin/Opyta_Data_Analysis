@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-07-13T13:53:11",
+  "project_code": "BRAAVG002",
+  "project_id": 9,
+  "group": "Ictiofauna",
+  "campaigns": {
+    "campaigns": 47,
+    "points": 13,
+    "point_campaign_rows": 611,
+    "expected_point_campaign_rows": 611,
+    "first_campaign": "1ª-Ago-22",
+    "last_campaign": "47ª-Jun-26",
+    "years": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "campaigns_by_year": {
+      "2022": 5,
+      "2023": 12,
+      "2024": 12,
+      "2025": 12,
+      "2026": 6
+    },
+    "total_consolidated_rows": 519,
+    "total_abundance": 1486.0,
+    "total_species": 13,
+    "complete_effort_grid": true
+  },
+  "species": {
+    "species": 13,
+    "species_with_complete_geoarc_traits": 6,
+    "species_needing_functional_traits": 7,
+    "species_needing_species_registry_completion": 13,
+    "traits_source": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Geomil\\Arcellor\\Arcellor Monitoramento\\Produtos\\Resultados\\Resultados\\Ictiofauna\\Exploratorio_assembleia_ictiofauna\\tabela_especie_atributos_funcionais_geoarc001_teste.xlsx",
+    "traits_source_exists": true
+  },
+  "coordinates": {
+    "points": 13,
+    "missing_coordinates": 0,
+    "unstable_points": 0,
+    "kml_status": [
+      {
+        "referencia": "geo_raiz",
+        "pontos": 13,
+        "ok": 13,
+        "divergentes": 0,
+        "max_distancia_m": 0.06924681220433007
+      },
+      {
+        "referencia": "kml_atual",
+        "pontos": 13,
+        "ok": 6,
+        "divergentes": 7,
+        "max_distancia_m": 1610.1982877306834
+      }
+    ]
+  },
+  "readiness": {
+    "long_series_ready": true,
+    "beta_taxonomic_ready": true,
+    "functional_ready": false,
+    "coordinates_stable_in_database": true,
+    "coordinates_match_base_kml": true,
+    "coordinates_match_current_kml": false
+  }
+}

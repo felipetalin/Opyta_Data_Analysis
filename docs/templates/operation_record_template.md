@@ -50,8 +50,22 @@
 
 - bloqueios:
 - avisos:
+- coordenadas:
+  - fonte espacial oficial:
+  - CRS/sistema:
+  - pontos sem coordenada:
+  - coordenadas fora da faixa esperada:
+  - variacao por ponto/campanha:
+  - comparacao com KMZ/KML/shapefile/planilha oficial:
+  - estrategia aprovada no Gate A:
 - ajustes aplicados:
 - arquivos corrigidos:
+- tipos de amostragem:
+  - fonte por grupo/campanha/metodo/tipo:
+  - compatibilidade resultado x esforco:
+  - estrategia para qualitativo:
+  - estrategia para quantitativo:
+  - reconciliacao fonte x preparacao:
 
 ## Cadastro E Auditoria De Especies
 
@@ -64,7 +78,9 @@
 
 - IDs:
 - totais da fonte:
+- totais por tipo na fonte/preparacao/banco/consolidado:
 - totais no banco:
+- coordenadas no banco/consolidado:
 - divergencias:
 - backup:
 - totais consolidados:
@@ -76,6 +92,7 @@
 - paleta:
 - pasta de saida:
 - produtos:
+- matriz produto x tipo de dado/amostragem:
 
 ## Pendencias
 
@@ -91,6 +108,7 @@
 
 - validadores:
 - manifesto:
+- reconciliacao final de tipos, presencas e total quantitativo:
 - patterns:
 - portfolio:
 - backlog:

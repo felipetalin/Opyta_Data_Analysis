@@ -1,0 +1,41 @@
+{
+  "executed_at": "2026-09-09T11:17:37",
+  "project_id": 211,
+  "project_code": "WSPKIN001",
+  "group": "Zoobentos",
+  "product": "mini_mapa_bmwp_ept_chol",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Geo\\2026\\Projeto_WSPKIN001.kmz",
+  "hydro_lines": 1566,
+  "records": 18,
+  "campaigns": [
+    "C01",
+    "C02"
+  ],
+  "points": 9,
+  "outputs": {
+    "figure": {
+      "arquivo": "16_mini_mapa_bmwp_ept_chol_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\16_mini_mapa_bmwp_ept_chol_zoobentos.png",
+      "tamanho_bytes": 1708229,
+      "sha256": "14d40e943ef82c8b3547e0668bcc7b6f97a3af7ffcbeca8040c8e6347884fe2e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "nonblank": true,
+      "pixel_std": 26.771482195405234
+    },
+    "table": {
+      "arquivo": "16_df_mini_mapa_bmwp_ept_chol_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\16_df_mini_mapa_bmwp_ept_chol_zoobentos.xlsx",
+      "sha256": "76ac85b58314cf32b6e69deae757990e57eaf6e579d8b881b7ef820ddde4c596",
+      "tamanho_bytes": 14830
+    }
+  },
+  "notes": [
+    "Produto complementar em A4 paisagem, com BMWP, EPT e CHOL no mesmo painel.",
+    "Linhas separam C01-Chuva e C02-Seca; colunas separam os indicadores.",
+    "BMWP usa as cores originais de classe do indicador; EPT e CHOL usam classes visuais de percentual.",
+    "Círculos sem valores internos para reduzir poluição visual; BMWP indicado por classe e EPT/CHOL por escala percentual."
+  ]
+}

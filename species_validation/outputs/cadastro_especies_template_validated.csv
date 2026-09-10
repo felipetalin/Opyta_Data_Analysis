@@ -1,0 +1,3 @@
+﻿scientific_name,family,kingdom,source_original,project,status_cadastro,opyta_input_name,opyta_validation_status,opyta_taxonomic_status,opyta_matched_name,opyta_accepted_name,opyta_confidence,opyta_match_type,opyta_rank,opyta_kingdom,opyta_phylum,opyta_class,opyta_order,opyta_family,opyta_genus,opyta_family_check,opyta_source,opyta_validated_at,opyta_validation_notes
+Miconia albicans,Melastomataceae,Plantae,exemplo,teste,novo,Miconia albicans,unchecked,,,,,,,,,,,,,,offline_structure_check,2026-08-18T13:04:34.922769+00:00,validacao online nao executada
+Vernonia polyanthes,Asteraceae,Plantae,exemplo,teste,novo,Vernonia polyanthes,unchecked,,,,,,,,,,,,,,offline_structure_check,2026-08-18T13:04:34.923355+00:00,validacao online nao executada

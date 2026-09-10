@@ -1,13 +1,19 @@
 from __future__ import annotations
 
+import argparse
+import json
 import math
 import re
 import shutil
 import sys
+import tempfile
 import unicodedata
 import warnings
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -31,6 +37,7 @@ import opyta_analysis.pipelines.diagnostico.ictio as ictio_mod
 from core.engine import get_engine
 
 
+CONFIG_PATH = ROOT / "configs" / "projects" / "braavg002_ictiofauna_2026.json"
 PROJECT_ID = 9
 GROUP = "Ictiofauna"
 CLIENT = "braavg002"
@@ -42,6 +49,7 @@ BASE_OUT = Path(
 CAMPAIGNS = {
     "abril": "45\u00aa-Abr-26",
     "maio": "46\u00aa-Mai-26",
+    "junho": "47\u00aa-Jun-26",
 }
 
 AREA_01 = "\u00c1rea de controle 01"
@@ -65,6 +73,12 @@ AREA_BY_POINT = {p: AREA_01 for p in AC01_POINTS} | {p: AREA_02 for p in AC02_PO
 AREA_COLORS = {
     AREA_01: "#16803A",
     AREA_02: "#7FA33A",
+}
+NOT_SAMPLED_CAMPAIGN_RANGES = {
+    "PIC-01": [(40, None)],
+    "PIC-02": [(40, 42)],
+    "PIC-03": [(40, 42), (44, None)],
+    "PIC-11": [(40, None)],
 }
 GRID_COLOR = "#DDEBD8"
 EDGE_COLOR = "#173B23"
@@ -99,6 +113,92 @@ MONTHS = {
 }
 
 
+def _json_default(value: object) -> object:
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, np.integer):
+        return int(value)
+    if isinstance(value, np.floating):
+        return float(value)
+    return str(value)
+
+
+def _load_recipe(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _apply_recipe(recipe: dict) -> None:
+    if not recipe:
+        return
+
+    global PROJECT_ID, GROUP, CLIENT, BASE_OUT, CAMPAIGNS
+    global AREA_01, AREA_02, AC01_POINTS, AC02_POINTS, POINT_ORDER, AREA_BY_POINT, AREA_COLORS
+
+    PROJECT_ID = int(recipe.get("project_id", PROJECT_ID))
+    CLIENT = str(recipe.get("client_config", CLIENT))
+    if recipe.get("output_root"):
+        BASE_OUT = Path(recipe["output_root"])
+
+    groups = recipe.get("groups") or []
+    if groups:
+        GROUP = str(groups[0].get("group", GROUP))
+
+    targets = recipe.get("generation", {}).get("targets") or []
+    parsed_targets = {}
+    for target in targets:
+        folder = target.get("folder") or target.get("key")
+        campaign = target.get("campaign")
+        if folder and campaign:
+            parsed_targets[str(folder)] = str(campaign)
+    if parsed_targets:
+        CAMPAIGNS = parsed_targets
+
+    layout = recipe.get("point_layout") or {}
+    control_groups = layout.get("control_groups") or []
+    if len(control_groups) >= 2:
+        AREA_01 = str(control_groups[0].get("label", AREA_01))
+        AREA_02 = str(control_groups[1].get("label", AREA_02))
+        AC01_POINTS = [str(point) for point in control_groups[0].get("points", AC01_POINTS)]
+        AC02_POINTS = [str(point) for point in control_groups[1].get("points", AC02_POINTS)]
+        POINT_ORDER = AC01_POINTS + AC02_POINTS
+        AREA_BY_POINT = {p: AREA_01 for p in AC01_POINTS} | {p: AREA_02 for p in AC02_POINTS}
+
+    colors = layout.get("control_area_colors") or {}
+    AREA_COLORS = {
+        AREA_01: str(colors.get("area_01", colors.get(AREA_01, AREA_COLORS.get(AREA_01, "#16803A")))),
+        AREA_02: str(colors.get("area_02", colors.get(AREA_02, AREA_COLORS.get(AREA_02, "#7FA33A")))),
+    }
+
+
+def _selected_campaigns(campaign_key: str | None) -> dict[str, str]:
+    if not campaign_key:
+        return CAMPAIGNS
+    if campaign_key not in CAMPAIGNS:
+        choices = ", ".join(sorted(CAMPAIGNS))
+        raise RuntimeError(f"Campanha nao cadastrada: {campaign_key}. Opcoes: {choices}")
+    return {campaign_key: CAMPAIGNS[campaign_key]}
+
+
+def _list_campaigns_payload(recipe_path: Path) -> dict:
+    return {
+        "recipe": recipe_path,
+        "project_id": PROJECT_ID,
+        "client": CLIENT,
+        "group": GROUP,
+        "output_root": BASE_OUT,
+        "campaigns": [
+            {
+                "key": folder,
+                "campaign": campaign,
+                "output_dir": BASE_OUT / folder,
+            }
+            for folder, campaign in CAMPAIGNS.items()
+        ],
+    }
+
+
 def _norm(value: object) -> str:
     if value is None or (isinstance(value, float) and math.isnan(value)):
         return ""
@@ -127,6 +227,43 @@ def canonical_campaign(value: object) -> str:
     if month is None or year2 is None:
         return raw
     return f"{seq}\u00aa-{month}-{year2:02d}"
+
+
+def _campaign_seq(value: object) -> int | None:
+    match = re.match(r"^\s*(\d+)", canonical_campaign(value))
+    return int(match.group(1)) if match else None
+
+
+def apply_sampling_adjustments(df: pd.DataFrame) -> pd.DataFrame:
+    """Remove ponto-campanha definido como nao amostrado da camada analitica."""
+    if df.empty or "nome_campanha" not in df.columns or "nome_ponto" not in df.columns:
+        return df
+    out = df.copy()
+    seq = out["nome_campanha"].map(_campaign_seq)
+    point = out["nome_ponto"].astype(str).str.strip()
+    remove = pd.Series(False, index=out.index)
+    for point_name, ranges in NOT_SAMPLED_CAMPAIGN_RANGES.items():
+        for first_seq, last_seq in ranges:
+            in_range = seq >= first_seq
+            if last_seq is not None:
+                in_range &= seq <= last_seq
+            remove |= (point == point_name) & in_range
+    return out.loc[~remove].copy()
+
+
+def _is_not_monitored(point: object, campaign_seq: int | None) -> bool:
+    if campaign_seq is None:
+        return False
+    point_name = _clean_text(point)
+    for first_seq, last_seq in NOT_SAMPLED_CAMPAIGN_RANGES.get(point_name, []):
+        if campaign_seq >= first_seq and (last_seq is None or campaign_seq <= last_seq):
+            return True
+    return False
+
+
+def _monitored_points(campaign: object) -> list[str]:
+    seq = _campaign_seq(campaign)
+    return [point for point in POINT_ORDER if not _is_not_monitored(point, seq)]
 
 
 def _clean_text(value: object) -> str:
@@ -209,7 +346,7 @@ def _load_esforcos_quantitativos() -> pd.DataFrame:
     df = df[df["esforco"].notna() & (df["esforco"] > 0)].copy()
     df = df.groupby(["nome_campanha", "nome_ponto"], as_index=False)["esforco"].sum()
     df["tipo_amostragem"] = "Quantitativo"
-    return df
+    return apply_sampling_adjustments(df)
 
 
 def _pad_zero_catch(df_camp: pd.DataFrame, df_esf_camp: pd.DataFrame) -> pd.DataFrame:
@@ -246,6 +383,79 @@ def _pad_zero_catch(df_camp: pd.DataFrame, df_esf_camp: pd.DataFrame) -> pd.Data
         return pd.concat([df_camp, df_pad], ignore_index=True)
 
 
+def _summarize_campaign_preflight(
+    df_all: pd.DataFrame,
+    df_esf: pd.DataFrame,
+    folder: str,
+    campaign: str,
+) -> dict:
+    out_dir = BASE_OUT / folder
+    df_c = df_all[df_all["nome_campanha"] == campaign].copy()
+    if df_c.empty:
+        return {
+            "key": folder,
+            "campaign": campaign,
+            "status": "missing_in_consolidated",
+            "output_dir": out_dir,
+            "available_campaigns": sorted(df_all["nome_campanha"].dropna().astype(str).unique().tolist()),
+        }
+
+    if not df_esf.empty:
+        df_esf_c = df_esf[df_esf["nome_campanha"] == campaign].copy()
+    else:
+        df_esf_c = df_esf
+    df_point_metrics = _pad_zero_catch(df_c, df_esf_c)
+
+    counts = pd.to_numeric(df_c.get("contagem", 0), errors="coerce").fillna(0)
+    biomass_col = "biomassa_total_analitica" if "biomassa_total_analitica" in df_c.columns else "biomassa"
+    biomass = pd.to_numeric(df_c.get(biomass_col, 0), errors="coerce").fillna(0)
+    observed_points = sorted(df_c["nome_ponto"].dropna().astype(str).unique().tolist())
+    effort_points = sorted(df_esf_c["nome_ponto"].dropna().astype(str).unique().tolist()) if not df_esf_c.empty else []
+    points_expected = _monitored_points(campaign)
+    zero_capture_points = [point for point in points_expected if point in effort_points and point not in observed_points]
+    existing_files = [p for p in out_dir.iterdir() if p.name.lower() != "desktop.ini"] if out_dir.exists() else []
+
+    return {
+        "key": folder,
+        "campaign": campaign,
+        "status": "ready",
+        "output_dir": out_dir,
+        "output_dir_exists": out_dir.exists(),
+        "existing_files": len(existing_files),
+        "records_observed": int(len(df_c)),
+        "records_with_zero_points": int(len(df_point_metrics)),
+        "points_expected": points_expected,
+        "not_monitored_points": [point for point in POINT_ORDER if point not in points_expected],
+        "points_observed": observed_points,
+        "points_with_effort": effort_points,
+        "zero_capture_points_with_effort": zero_capture_points,
+        "taxa": int(df_c["nome_cientifico"].dropna().astype(str).str.strip().replace("", np.nan).nunique()),
+        "abundance_total": float(counts.sum()),
+        "biomass_total": float(biomass.sum()),
+    }
+
+
+def _run_preflight(selected_campaigns: dict[str, str], recipe_path: Path) -> dict:
+    df_all = _load_df_from_sql()
+    if df_all.empty:
+        raise RuntimeError("Sem dados carregados para Ictiofauna projeto 9.")
+    df_esf = _load_esforcos_quantitativos()
+    campaign_results = [
+        _summarize_campaign_preflight(df_all, df_esf, folder, campaign)
+        for folder, campaign in selected_campaigns.items()
+    ]
+    return {
+        "mode": "preflight",
+        "recipe": recipe_path,
+        "project_id": PROJECT_ID,
+        "client": CLIENT,
+        "group": GROUP,
+        "output_root": BASE_OUT,
+        "campaign_results": campaign_results,
+        "ready": all(result["status"] == "ready" for result in campaign_results),
+    }
+
+
 def _clean_output_dir(out_dir: Path) -> None:
     resolved_base = BASE_OUT.resolve()
     resolved_dir = out_dir.resolve()
@@ -280,7 +490,7 @@ def _run_blocks_for_df(df_observed: pd.DataFrame, df_point_metrics: pd.DataFrame
         df_projeto=df_observed, group=group, output_dir=output_dir, generated_files=generated_files
     )
     details["block_4"] = ictio_mod._run_block_4(
-        df_projeto=df_observed, group=group, output_dir=output_dir, generated_files=generated_files
+        df_projeto=df_observed, group=group, theme=theme, output_dir=output_dir, generated_files=generated_files
     )
     details["block_5"] = ictio_mod._run_block_5(
         df_projeto=df_point_metrics, group=group, theme=theme, output_dir=output_dir, generated_files=generated_files
@@ -304,7 +514,7 @@ def _run_blocks_for_df(df_observed: pd.DataFrame, df_point_metrics: pd.DataFrame
         df_projeto=df_observed, group=group, theme=theme, output_dir=output_dir, generated_files=generated_files
     )
     details["block_12"] = ictio_mod._run_block_12(
-        df_projeto=df_observed, group=group, theme=theme, output_dir=output_dir, generated_files=generated_files
+        df_projeto=df_point_metrics, group=group, theme=theme, output_dir=output_dir, generated_files=generated_files
     )
     details["block_13"] = ictio_mod._run_block_13(
         df_projeto=df_observed, group=group, output_dir=output_dir, generated_files=generated_files
@@ -316,10 +526,11 @@ def _run_blocks_for_df(df_observed: pd.DataFrame, df_point_metrics: pd.DataFrame
 
 
 def _point_frame(campaign: str) -> pd.DataFrame:
-    out = pd.DataFrame({"nome_ponto": POINT_ORDER})
+    out = pd.DataFrame({"nome_ponto": _monitored_points(campaign)})
     out["nome_campanha"] = campaign
     out["area_controle"] = out["nome_ponto"].map(AREA_BY_POINT)
-    out["ordem_ponto"] = range(1, len(out) + 1)
+    point_rank = {point: idx + 1 for idx, point in enumerate(POINT_ORDER)}
+    out["ordem_ponto"] = out["nome_ponto"].map(point_rank)
     return out
 
 
@@ -389,28 +600,149 @@ def _build_final_point_metrics(out_dir: Path, campaign: str, folder: str) -> pd.
     return data.sort_values("ordem_ponto").reset_index(drop=True)
 
 
+def _build_final_point_metrics_from_frame(df_point_metrics: pd.DataFrame, campaign: str) -> pd.DataFrame:
+    df = df_point_metrics.copy()
+    df["nome_campanha"] = df["nome_campanha"].map(canonical_campaign)
+    df["nome_ponto"] = df["nome_ponto"].map(_clean_text)
+    df["contagem"] = pd.to_numeric(df.get("contagem", 0), errors="coerce").fillna(0)
+    df["biomassa"] = pd.to_numeric(df.get("biomassa", 0), errors="coerce").fillna(0)
+    df["esforco"] = pd.to_numeric(df.get("esforco", np.nan), errors="coerce")
+    df = df[df["nome_campanha"] == campaign].copy()
+
+    valid_taxa = df[(df["contagem"] > 0) & df["nome_cientifico"].notna()].copy()
+    valid_taxa = valid_taxa[valid_taxa["nome_cientifico"].astype(str).str.strip() != ""]
+    richness = (
+        valid_taxa.groupby("nome_ponto", dropna=False)["nome_cientifico"]
+        .nunique()
+        .reset_index(name="riqueza")
+    )
+    abundance = (
+        df.groupby("nome_ponto", dropna=False)["contagem"]
+        .sum()
+        .reset_index(name="abundancia_total")
+    )
+
+    tipo_norm = df["tipo_amostragem"].astype(str).map(ictio_mod._normalizar_tipo_amostragem)
+    df_quant = df[tipo_norm == "quantitativo"].copy()
+    df_quant = df_quant[df_quant["esforco"].notna() & (df_quant["esforco"] > 0)].copy()
+    if "biomassa_total_analitica" in df_quant.columns:
+        df_quant["biomassa_total_analitica"] = pd.to_numeric(
+            df_quant["biomassa_total_analitica"], errors="coerce"
+        ).fillna(0)
+        biomass_col = "biomassa_total_analitica"
+    else:
+        biomass_col = "biomassa"
+
+    if df_quant.empty:
+        cpue = pd.DataFrame(
+            columns=[
+                "nome_ponto",
+                "abundancia_total",
+                "biomassa_total",
+                "esforco_total_ponto",
+                "unidades_esforco",
+                "cpuen",
+                "cpueb",
+            ]
+        )
+    else:
+        totals = (
+            df_quant.groupby(["nome_campanha", "nome_ponto"], dropna=False)
+            .agg(
+                abundancia_total=("contagem", "sum"),
+                biomassa_total=(biomass_col, "sum"),
+            )
+            .reset_index()
+        )
+        method_cols = [c for c in ["metodo_de_captura", "unidade_esforco"] if c in df_quant.columns]
+        dedup_cols = ["nome_campanha", "nome_ponto", *method_cols, "esforco"]
+        effort = (
+            df_quant[dedup_cols]
+            .dropna(subset=["esforco"])
+            .drop_duplicates()
+            .groupby(["nome_campanha", "nome_ponto"], dropna=False)
+            .agg(esforco_total_ponto=("esforco", "sum"), unidades_esforco=("esforco", "size"))
+            .reset_index()
+        )
+        cpue = totals.merge(effort, on=["nome_campanha", "nome_ponto"], how="left")
+        cpue = cpue[cpue["esforco_total_ponto"].notna() & (cpue["esforco_total_ponto"] > 0)].copy()
+        cpue["cpuen"] = (cpue["abundancia_total"] / cpue["esforco_total_ponto"]) * 100
+        cpue["cpueb"] = (cpue["biomassa_total"] / cpue["esforco_total_ponto"]) * 100
+        cpue = cpue.drop(columns=["nome_campanha"])
+
+    cpue_for_merge = cpue.drop(columns=["abundancia_total"], errors="ignore")
+    data = (
+        _point_frame(campaign)
+        .merge(richness, on="nome_ponto", how="left")
+        .merge(abundance, on="nome_ponto", how="left")
+        .merge(cpue_for_merge, on="nome_ponto", how="left")
+    )
+    numeric_cols = [
+        "riqueza",
+        "abundancia_total",
+        "biomassa_total",
+        "esforco_total_ponto",
+        "unidades_esforco",
+        "cpuen",
+        "cpueb",
+    ]
+    for col in numeric_cols:
+        data[col] = pd.to_numeric(data[col], errors="coerce").fillna(0)
+    return data.sort_values("ordem_ponto").reset_index(drop=True)
+
+
 def _fmt(value: float, decimals: int) -> str:
     if decimals == 0:
         return str(int(round(value)))
     return f"{float(value):.{decimals}f}"
 
 
-def _plot_point_metric(data: pd.DataFrame, value_col: str, ylabel: str, out_png: Path, decimals: int) -> None:
+def _theme_int(theme: dict, key: str, default: int) -> int:
+    try:
+        return int(theme.get(key, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def _theme_figsize(theme: dict) -> tuple[float, float]:
+    raw = theme.get("figsize_standard", [16, 10])
+    if isinstance(raw, (list, tuple)) and len(raw) >= 2:
+        try:
+            return float(raw[0]), float(raw[1])
+        except (TypeError, ValueError):
+            pass
+    return 16.0, 10.0
+
+
+def _plot_point_metric(
+    data: pd.DataFrame,
+    value_col: str,
+    ylabel: str,
+    out_png: Path,
+    decimals: int,
+    theme: dict,
+) -> None:
+    base_size = _theme_int(theme, "font_size_base", 21)
+    tick_size = _theme_int(theme, "point_label_size", base_size)
+    axis_label_size = _theme_int(theme, "label_size", max(base_size, 20))
+    annotation_size = _theme_int(theme, "annotation_size", base_size)
+    area_label_size = _theme_int(theme, "control_area_label_size", max(tick_size, 22))
+    dpi = _theme_int(theme, "dpi", 600)
     plt.rcParams.update(
         {
-            "font.family": "DejaVu Sans",
-            "font.size": 18,
-            "axes.labelsize": 23,
-            "xtick.labelsize": 20,
-            "ytick.labelsize": 20,
-            "figure.dpi": 120,
+            "font.family": str(theme.get("font_family", "DejaVu Sans")),
+            "font.size": base_size,
+            "axes.labelsize": axis_label_size,
+            "xtick.labelsize": tick_size,
+            "ytick.labelsize": tick_size,
+            "figure.dpi": dpi,
         }
     )
     x = np.arange(len(data))
     values = data[value_col].astype(float).to_numpy()
     colors = [AREA_COLORS.get(area, AREA_COLORS[AREA_01]) for area in data["area_controle"]]
 
-    fig, ax = plt.subplots(figsize=(15.8, 7.8))
+    fig, ax = plt.subplots(figsize=_theme_figsize(theme))
     bars = ax.bar(x, values, color=colors, edgecolor=EDGE_COLOR, linewidth=0.9, width=0.68)
     ax.set_ylabel(ylabel)
     ax.set_xticks(x)
@@ -434,7 +766,7 @@ def _plot_point_metric(data: pd.DataFrame, value_col: str, ylabel: str, out_png:
             label,
             ha="center",
             va="bottom",
-            fontsize=18,
+            fontsize=annotation_size,
             color=color,
         )
 
@@ -448,7 +780,7 @@ def _plot_point_metric(data: pd.DataFrame, value_col: str, ylabel: str, out_png:
         transform=trans,
         ha="center",
         va="top",
-        fontsize=22,
+        fontsize=area_label_size,
         color=AREA_COLORS[AREA_01],
     )
     ax.text(
@@ -458,17 +790,29 @@ def _plot_point_metric(data: pd.DataFrame, value_col: str, ylabel: str, out_png:
         transform=trans,
         ha="center",
         va="top",
-        fontsize=22,
+        fontsize=area_label_size,
         color=AREA_COLORS[AREA_02],
     )
 
     fig.subplots_adjust(left=0.09, right=0.99, top=0.965, bottom=0.24)
-    fig.savefig(out_png, dpi=600, bbox_inches="tight")
+    with tempfile.TemporaryDirectory(prefix="avg_ictio_plot_") as tmp_dir:
+        tmp_png = Path(tmp_dir) / out_png.name
+        fig.savefig(tmp_png, dpi=dpi, bbox_inches="tight")
+        shutil.copy2(tmp_png, out_png)
     plt.close(fig)
 
 
-def _write_final_point_outputs(out_dir: Path, campaign: str, folder: str) -> pd.DataFrame:
-    metrics = _build_final_point_metrics(out_dir, campaign, folder)
+def _write_final_point_outputs(
+    out_dir: Path,
+    campaign: str,
+    folder: str,
+    theme: dict,
+    source_df: pd.DataFrame | None = None,
+) -> pd.DataFrame:
+    if source_df is None:
+        metrics = _build_final_point_metrics(out_dir, campaign, folder)
+    else:
+        metrics = _build_final_point_metrics_from_frame(source_df, campaign)
 
     metrics[["nome_campanha", "nome_ponto", "riqueza"]].to_excel(
         out_dir / "02_df_riqueza_por_ponto_ictiofauna.xlsx",
@@ -504,11 +848,51 @@ def _write_final_point_outputs(out_dir: Path, campaign: str, folder: str) -> pd.
         ("07_grafico_cpueb_por_ponto_ictiofauna.png", "cpueb", "CPUEb (g/100m\u00b2)", 2),
     ]
     for filename, col, ylabel, decimals in specs:
-        _plot_point_metric(metrics, col, ylabel, out_dir / filename, decimals)
+        _plot_point_metric(metrics, col, ylabel, out_dir / filename, decimals, theme)
     return metrics
 
 
-def main() -> int:
+def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Gera resultados parciais de Ictiofauna AVG por campanha.")
+    parser.add_argument(
+        "--recipe",
+        type=Path,
+        default=CONFIG_PATH,
+        help="Recipe com campanhas, saida e regras de geracao.",
+    )
+    parser.add_argument(
+        "--campaign",
+        help="Pasta/campanha cadastrada no recipe. Sem este argumento, usa todas as campanhas cadastradas.",
+    )
+    parser.add_argument("--list-campaigns", action="store_true", help="Lista alvos cadastrados e nao gera arquivos.")
+    parser.add_argument("--preflight", action="store_true", help="Confere dados/saida sem limpar pasta nem gerar produtos.")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = _parse_args(argv)
+    recipe = _load_recipe(args.recipe)
+    _apply_recipe(recipe)
+
+    if args.list_campaigns:
+        print(json.dumps(_list_campaigns_payload(args.recipe), ensure_ascii=False, indent=2, default=_json_default))
+        return 0
+
+    try:
+        selected_campaigns = _selected_campaigns(args.campaign)
+    except RuntimeError as exc:
+        print(f"[ERRO] {exc}")
+        return 1
+
+    if args.preflight:
+        try:
+            payload = _run_preflight(selected_campaigns, args.recipe)
+        except RuntimeError as exc:
+            print(f"[ERRO] {exc}")
+            return 1
+        print(json.dumps(payload, ensure_ascii=False, indent=2, default=_json_default))
+        return 0 if payload["ready"] else 1
+
     theme = load_theme(ROOT / "configs", CLIENT)
     BASE_OUT.mkdir(parents=True, exist_ok=True)
 
@@ -519,7 +903,7 @@ def main() -> int:
 
     df_esf = _load_esforcos_quantitativos()
 
-    for folder, campaign in CAMPAIGNS.items():
+    for folder, campaign in selected_campaigns.items():
         out_dir = BASE_OUT / folder
         _clean_output_dir(out_dir)
 
@@ -542,7 +926,7 @@ def main() -> int:
             theme=theme,
             output_dir=out_dir,
         )
-        metrics = _write_final_point_outputs(out_dir, campaign, folder)
+        metrics = _write_final_point_outputs(out_dir, campaign, folder, theme, source_df=df_point_metrics)
         print(
             f"[ok] {campaign} -> {out_dir} | arquivos pipeline: {len(details.get('generated_files', []))} | "
             f"pontos finais: {len(metrics)}"

@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import re
 import unicodedata
@@ -27,18 +27,62 @@ TARGET_PCH_NAME = "Dores de Guanhaes"
 TARGET_CONTROL_NAME = "Area Controle"
 
 
+def _save_figure_for_report(fig, output_png: Path, theme: dict) -> None:
+    bbox = None if bool(theme.get("preserve_word_caption_margin", False)) else "tight"
+    fig.savefig(
+        output_png,
+        dpi=int(theme.get("dpi", 600)),
+        bbox_inches=bbox,
+        pad_inches=float(theme.get("savefig_pad_inches", 0.08)),
+    )
+
+
 def _norm(value: object) -> str:
     txt = str(value or "").strip().lower()
     txt = unicodedata.normalize("NFKD", txt)
     txt = "".join(ch for ch in txt if not unicodedata.combining(ch))
-    txt = txt.replace("á", "a").replace("ã", "a").replace("â", "a")
-    txt = txt.replace("é", "e").replace("ê", "e")
-    txt = txt.replace("í", "i")
-    txt = txt.replace("ó", "o").replace("õ", "o").replace("ô", "o")
-    txt = txt.replace("ú", "u")
-    txt = txt.replace("ç", "c")
+    txt = txt.replace("Ã¡", "a").replace("Ã£", "a").replace("Ã¢", "a")
+    txt = txt.replace("Ã©", "e").replace("Ãª", "e")
+    txt = txt.replace("Ã­", "i")
+    txt = txt.replace("Ã³", "o").replace("Ãµ", "o").replace("Ã´", "o")
+    txt = txt.replace("Ãº", "u")
+    txt = txt.replace("Ã§", "c")
     txt = re.sub(r"\s+", " ", txt)
     return txt
+
+
+def _infer_empreendimento_from_mastofauna_point(point_name: object) -> str | None:
+    point = _norm(point_name).upper()
+    point = re.sub(r"[^A-Z0-9]+", "", point)
+
+    if point.startswith(("CO", "CON", "BAAC", "PMPRICON")):
+        return "Area Controle"
+    if point.startswith(("DG", "DGN", "BADG", "PMPRIDGN")):
+        return "Dores de Guanhaes"
+    if point.startswith(("FO", "FOR", "BAFO", "PMPRIFOR")):
+        return "Fortuna II"
+    if point.startswith(("JA", "JAC", "BAJA", "PMPRIJAC")):
+        return "Jacare"
+    if point.startswith(("SP", "SPT", "BASP", "PMPRISPT")):
+        return "Senhora do Porto"
+    return None
+
+
+def _resolve_empreendimento_mastofauna(
+    point_name: object,
+    id_empreendimento: object,
+    emp_map: dict[object, str],
+) -> str:
+    if id_empreendimento in emp_map:
+        return emp_map[id_empreendimento]
+    return _infer_empreendimento_from_mastofauna_point(point_name) or "Sem empreendimento"
+
+
+def _apply_campaign_filter(df: pd.DataFrame, campaign_filter: Optional[list[str]] = None) -> pd.DataFrame:
+    if df.empty or not campaign_filter or "nome_campanha" not in df.columns:
+        return df
+    allowed = {str(c).strip() for c in campaign_filter if str(c).strip()}
+    return df[df["nome_campanha"].astype(str).str.strip().isin(allowed)].copy()
 
 
 def _safe_name(text: str) -> str:
@@ -161,11 +205,12 @@ def _load_mastofauna_df(project_id: int, env_file: Optional[str]) -> pd.DataFram
         ponto = pontos_map.get(esf.get("id_ponto_coleta"), {})
         esp = esp_map.get(r.get("id_especie"), {})
         id_emp = ponto.get("id_empreendimento")
+        nome_ponto = ponto.get("nome_ponto")
         rows.append(
             {
                 "nome_campanha": camp_map.get(ponto.get("id_campanha"), "Campanha desconhecida"),
-                "nome_ponto": ponto.get("nome_ponto"),
-                "empreendimento": emp_map.get(id_emp, "Sem empreendimento"),
+                "nome_ponto": nome_ponto,
+                "empreendimento": _resolve_empreendimento_mastofauna(nome_ponto, id_emp, emp_map),
                 "nome_cientifico": esp.get("nome_cientifico"),
                 "nome_popular": esp.get("nome_popular"),
                 "ordem": esp.get("ordem"),
@@ -243,12 +288,13 @@ def _load_sampling_units_df(project_id: int, env_file: Optional[str]) -> pd.Data
     for esf in esforcos:
         ponto = pontos_map.get(esf.get("id_ponto_coleta"), {})
         id_emp = ponto.get("id_empreendimento")
+        nome_ponto = ponto.get("nome_ponto")
         rows.append(
             {
                 "id_esforco": esf.get("id_esforco"),
                 "nome_campanha": camp_map.get(ponto.get("id_campanha"), "Campanha desconhecida"),
-                "nome_ponto": ponto.get("nome_ponto"),
-                "empreendimento": emp_map.get(id_emp, "Sem empreendimento"),
+                "nome_ponto": nome_ponto,
+                "empreendimento": _resolve_empreendimento_mastofauna(nome_ponto, id_emp, emp_map),
                 "esforco": esf.get("esforco"),
                 "unidade_esforco": esf.get("unidade_esforco"),
             }
@@ -364,7 +410,7 @@ def _save_abundance_figures(df_area: pd.DataFrame, theme: dict, output_png: Path
     rel_color = str(theme.get("primary_hex", "#2E6F95"))
     total_color = str(theme.get("secondary_hex", "#E07A5F"))
 
-    # Barras lado a lado (verticalmente deslocadas) para evitar qualquer sobreposição.
+    # Barras lado a lado (verticalmente deslocadas) para evitar qualquer sobreposiÃ§Ã£o.
     y_rel = y - 0.19
     y_total = y + 0.19
 
@@ -444,7 +490,7 @@ def _save_abundance_figures(df_area: pd.DataFrame, theme: dict, output_png: Path
 
     validate_axes_style(ax, theme)
     fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.02))
-    fig.savefig(output_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    _save_figure_for_report(fig, output_png, theme)
     plt.close(fig)
 
     return {
@@ -602,7 +648,7 @@ def _save_estimators_and_curve(
     validate_axes_style(ax, theme)
     fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=True, extra_bottom=0.04))
     out_curve_png = output_dir / f"6_2_curva_coletor_{area_slug}.png"
-    fig.savefig(out_curve_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    _save_figure_for_report(fig, out_curve_png, theme)
     plt.close(fig)
     generated_files.append(str(out_curve_png))
 
@@ -631,10 +677,16 @@ def _save_diversity(df_pch: pd.DataFrame, df_control: pd.DataFrame, theme: dict,
     div_plot = div.set_index("Area").reindex(order).reset_index()
 
     base_w, base_h = get_figsize_by_complexity(theme, n_categories=2, prefer_landscape=False)
+    if bool(theme.get("preserve_word_caption_margin", False)):
+        base_w = float(theme.get("report_landscape_width", 10.8))
+        base_h = float(theme.get("report_landscape_height", 7.2))
     fig, axes = plt.subplots(
         nrows=3,
         ncols=1,
-        figsize=(base_w, max(base_h * 1.6, 9.5)),
+        figsize=(
+            base_w,
+            max(base_h, 6.8) if bool(theme.get("preserve_word_caption_margin", False)) else max(base_h * 1.6, 9.5),
+        ),
         dpi=int(theme.get("dpi", 600)),
         sharex=False,
     )
@@ -671,7 +723,7 @@ def _save_diversity(df_pch: pd.DataFrame, df_control: pd.DataFrame, theme: dict,
 
     fig.tight_layout(rect=get_tight_layout_rect(theme, has_legend=False, extra_bottom=0.01))
     out_png = output_dir / "6_3_indices_diversidade.png"
-    fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    _save_figure_for_report(fig, out_png, theme)
     plt.close(fig)
     generated_files.append(str(out_png))
 
@@ -702,7 +754,7 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
     # ===== DENDROGRAMA POR PONTOS AMOSTRAIS (Melhorado) =====
     df_all = pd.concat([df_pch.assign(area=TARGET_PCH_NAME), df_control.assign(area=TARGET_CONTROL_NAME)], ignore_index=True)
     
-    # Criar matriz de presença/ausência por ponto amostral
+    # Criar matriz de presenÃ§a/ausÃªncia por ponto amostral
     pontos_unicos = sorted(df_all["nome_ponto"].dropna().unique().tolist())
     todas_especies = sorted(union)
     
@@ -741,12 +793,17 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
         
         # Dendrograma com todos os pontos
         n_pts = len(pontos_unicos)
-        fig_height = min(max(4 + n_pts * 0.4, 8), 16)
-        fig, ax = plt.subplots(figsize=(12, fig_height), dpi=int(theme.get("dpi", 600)))
+        if bool(theme.get("preserve_word_caption_margin", False)):
+            fig_width = float(theme.get("report_portrait_width", 7.4))
+            fig_height = float(theme.get("report_portrait_height", 10.1))
+        else:
+            fig_width = 12
+            fig_height = min(max(4 + n_pts * 0.4, 8), 16)
+        fig, ax = plt.subplots(figsize=(fig_width, fig_height), dpi=int(theme.get("dpi", 600)))
         
         dendro = dendrogram(z_points, labels=pontos_unicos, orientation="right", ax=ax, color_threshold=None)
         for collection in ax.collections:
-            collection.set_linewidth(1.6)
+            collection.set_linewidth(float(theme.get("dendrogram_linewidth", 1.35)))
         
         # Colorir labels dos pontos: azul para PCH, laranja para Controle
         color_pch = str(theme.get("primary_hex", "#1f77b4"))
@@ -767,22 +824,28 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
         ticks_sim = np.arange(0, 101, 10)
         ticks_dist = 1 - (ticks_sim / 100.0)
         ax.set_xticks(ticks_dist)
-        ax.set_xticklabels([str(t) for t in ticks_sim], fontsize=10)
+        ax.set_xticklabels([str(t) for t in ticks_sim], fontsize=float(theme.get("dendrogram_tick_size", 8.8)))
         
         apply_theme(ax, theme, xlabel="Similaridade de Jaccard (%)", ylabel="Pontos Amostrais")
         validate_axes_style(ax, theme)
         
         # Legenda centralizada no topo (sem titulo)
-        fig.text(0.495, 0.96, f"■ {TARGET_PCH_NAME}", ha="right", va="top", fontsize=11,
-             fontweight="bold", color=color_pch)
-        fig.text(0.5, 0.96, "|", ha="center", va="top", fontsize=11,
-             fontweight="bold", color="black")
-        fig.text(0.505, 0.96, f"■ {TARGET_CONTROL_NAME}", ha="left", va="top", fontsize=11,
-             fontweight="bold", color=color_ctrl)
+        fig.text(
+            0.495, 0.96, f"{TARGET_PCH_NAME}", ha="right", va="top",
+            fontsize=float(theme.get("legend_size", 9)), fontweight="bold", color=color_pch,
+        )
+        fig.text(
+            0.5, 0.96, "|", ha="center", va="top",
+            fontsize=float(theme.get("legend_size", 9)), fontweight="bold", color="black",
+        )
+        fig.text(
+            0.505, 0.96, f"{TARGET_CONTROL_NAME}", ha="left", va="top",
+            fontsize=float(theme.get("legend_size", 9)), fontweight="bold", color=color_ctrl,
+        )
         
         fig.tight_layout(rect=[0, 0, 1, 0.95])
         out_dendro_pts = output_dir / "6_4_dendrograma_jaccard_por_pontos.png"
-        fig.savefig(out_dendro_pts, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+        _save_figure_for_report(fig, out_dendro_pts, theme)
         plt.close(fig)
         generated_files.append(str(out_dendro_pts))
     
@@ -813,14 +876,18 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
     validate_axes_style(ax, theme)
     fig.tight_layout()
     out_dendro = output_dir / "6_4_dendrograma_jaccard_pch_vs_controle.png"
-    fig.savefig(out_dendro, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    _save_figure_for_report(fig, out_dendro, theme)
     plt.close(fig)
     generated_files.append(str(out_dendro))
 
     only_pch = len(set_pch - set_ctrl)
     only_ctrl = len(set_ctrl - set_pch)
     both = len(inter)
-    fig, ax = plt.subplots(figsize=(11, 7.4), dpi=int(theme.get("dpi", 600)))
+    venn_size = (
+        float(theme.get("report_landscape_width", 10.8)),
+        float(theme.get("report_landscape_height", 7.2)),
+    ) if bool(theme.get("preserve_word_caption_margin", False)) else (11, 7.4)
+    fig, ax = plt.subplots(figsize=venn_size, dpi=int(theme.get("dpi", 600)))
 
     pch_label = "Área de Estudo"
     ctrl_label = "Área Controle"
@@ -828,15 +895,15 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
     ctrl_color = str(theme.get("secondary_hex", "#5B8E53"))
     dark_text = "#0D2A1D"
 
-    # Círculos com sobreposição moderada e melhor equilíbrio visual.
+    # CÃ­rculos com sobreposiÃ§Ã£o moderada e melhor equilÃ­brio visual.
     c1 = Circle((0.39, 0.67), 0.22, color=pch_color, alpha=0.24, ec="#0E3A22", lw=1.4)
     c2 = Circle((0.61, 0.67), 0.22, color=ctrl_color, alpha=0.22, ec="#4C8642", lw=1.4)
     ax.add_patch(c1)
     ax.add_patch(c2)
 
-    # Sem título no gráfico: padrão técnico do projeto.
+    # Sem tÃ­tulo no grÃ¡fico: padrÃ£o tÃ©cnico do projeto.
 
-    # Valores e descrições internas com alinhamento vertical consistente.
+    # Valores e descriÃ§Ãµes internas com alinhamento vertical consistente.
     y_num = 0.69
     y_desc = 0.63
     ax.text(0.33, y_num, str(only_pch), ha="center", va="center", fontsize=32, fontweight="bold", color=dark_text)
@@ -848,7 +915,7 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
     ax.text(0.67, y_num, str(only_ctrl), ha="center", va="center", fontsize=32, fontweight="bold", color="#2F6A34")
     ax.text(0.67, y_desc, "Espécies\nexclusivas", ha="center", va="center", fontsize=13.2, color="#2F6A34")
 
-    # Nomes das áreas com menor peso para não competir com os valores centrais.
+    # Nomes das Ã¡reas com menor peso para nÃ£o competir com os valores centrais.
     ax.plot([0.27, 0.35], [0.50, 0.50], color="#0E3A22", linewidth=1.8)
     ax.text(0.31, 0.47, pch_label, ha="center", va="center", fontsize=14.2, fontweight="semibold", color="#0E3A22")
     ax.text(0.31, 0.44, f"{len(set_pch)} espécies", ha="center", va="center", fontsize=11.2, color="#1A3D25")
@@ -880,7 +947,7 @@ def _save_similarity_and_venn(df_pch: pd.DataFrame, df_control: pd.DataFrame, th
     validate_axes_style(ax, theme)
     fig.tight_layout()
     out_venn = output_dir / "6_5_diagrama_venn_pch_vs_controle.png"
-    fig.savefig(out_venn, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    _save_figure_for_report(fig, out_venn, theme)
     plt.close(fig)
     generated_files.append(str(out_venn))
 
@@ -894,7 +961,13 @@ def _save_general_status_tables(df_all: pd.DataFrame, output_dir: Path, generate
             familia=("familia", "first"),
             iucn=("status_ameaca_global", "first"),
             mma=("status_ameaca_nacional", "first"),
-            origem=("origem", "first"),
+            copam=("status_copam", "first"),
+            cites=("cites", "first"),
+            dependencia_florestal=("dependencia_florestal", "first"),
+            endemismo=("endemismo", "first"),
+            sensibilidade_ambiental=("sensibilidade_ambiental", "first"),
+            migratorio=("migratorio", "first"),
+            raridade=("raridade", "first"),
             distribuicao=("distribuicao", "first"),
             habito=("habito_alimentar", "first"),
             cinegetica_db=("cinegetica_db", "first"),
@@ -907,17 +980,13 @@ def _save_general_status_tables(df_all: pd.DataFrame, output_dir: Path, generate
         return txt in {"vu", "en", "cr", "nt", "quase ameacada", "ameacada"}
 
     species["Ameacada"] = species["iucn"].map(_is_threatened) | species["mma"].map(_is_threatened)
-    species["Endemica"] = False
-    species["Rara"] = False
+    species["Endemica"] = species["endemismo"].map(_norm).str.contains("sim|endem", case=False, na=False)
+    species["Rara"] = species["raridade"].map(_norm).str.contains("sim|rar", case=False, na=False)
 
     dist_txt = species["distribuicao"].map(_norm)
-    origem_txt = species["origem"].map(_norm)
-    has_dist = species["distribuicao"].notna() & (dist_txt.str.strip() != "")
     exotica_por_dist = dist_txt.str.contains("exot|aloc|introduz|invas", case=False, na=False)
-    nativa_por_origem = origem_txt.str.contains("nativ", case=False, na=False)
-    nao_nativa_por_origem = origem_txt.str.contains("nao\\s+nativ|non\\s+nativ", case=False, na=False)
-    exotica_por_origem = origem_txt.str.contains("exot|aloc|introduz|invas", case=False, na=False)
-    species["Exotica"] = exotica_por_dist | nao_nativa_por_origem | (exotica_por_origem & ~nativa_por_origem)
+    nao_nativa_por_dist = dist_txt.str.contains("nao\\s+nativ|non\\s+nativ", case=False, na=False)
+    species["Exotica"] = exotica_por_dist | nao_nativa_por_dist
 
     cineg_db = species["cinegetica_db"]
     cineg_fallback = species["habito"].astype(str).str.contains("herb|oniv|carn", case=False, na=False)
@@ -938,7 +1007,13 @@ def _save_general_status_tables(df_all: pd.DataFrame, output_dir: Path, generate
             "familia",
             "iucn",
             "mma",
-            "origem",
+            "copam",
+            "cites",
+            "dependencia_florestal",
+            "endemismo",
+            "sensibilidade_ambiental",
+            "migratorio",
+            "raridade",
             "distribuicao",
             "habito",
             "Ameacada",
@@ -999,9 +1074,11 @@ def run_mastofauna_pipeline(
     output_dir: Path,
     env_file: Optional[str] = None,
     block: str = "all",
+    campaign_filter: Optional[list[str]] = None,
 ) -> Dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     df_raw = _load_mastofauna_df(project_id=project_id, env_file=env_file)
+    df_raw = _apply_campaign_filter(df_raw, campaign_filter)
 
     if df_raw.empty:
         return {
@@ -1010,8 +1087,6 @@ def run_mastofauna_pipeline(
             "generated_files": [],
             "warning": "Sem dados de mastofauna para o projeto informado.",
         }
-
-    df_status = df_raw.copy()
 
     # Regra solicitada: mastofauna sem primatas.
     df = df_raw[~df_raw.apply(_is_primata, axis=1)].copy()
@@ -1022,6 +1097,7 @@ def run_mastofauna_pipeline(
 
     df_pch = _subset_by_empreendimento(df, TARGET_PCH_NAME)
     df_control = _subset_by_empreendimento(df, TARGET_CONTROL_NAME)
+    df_report = pd.concat([df_pch, df_control], ignore_index=True)
 
     details: dict[str, Any] = {
         "rows_loaded": int(len(df)),
@@ -1061,6 +1137,7 @@ def run_mastofauna_pipeline(
 
     if block_sel in {"6.2", "62", "all"}:
         df_units = _load_sampling_units_df(project_id=project_id, env_file=env_file)
+        df_units = _apply_campaign_filter(df_units, campaign_filter)
         df_units_pch = _subset_by_empreendimento(df_units, TARGET_PCH_NAME) if not df_units.empty else pd.DataFrame()
         df_units_ctrl = _subset_by_empreendimento(df_units, TARGET_CONTROL_NAME) if not df_units.empty else pd.DataFrame()
         est_pch = _save_estimators_and_curve(
@@ -1097,7 +1174,7 @@ def run_mastofauna_pipeline(
         executed_blocks.append("6.5")
 
     if block_sel in {"6.6", "66", "6.7", "67", "6.8", "68", "all"}:
-        _save_general_status_tables(df_status, output_dir, generated_files)
+        _save_general_status_tables(df_report, output_dir, generated_files)
         executed_blocks.extend(["6.6", "6.7", "6.8"])
 
     if block_sel in {"all"}:

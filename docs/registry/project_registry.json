@@ -71,10 +71,14 @@
         "Ictiofauna",
         "Zoobentos"
       ],
-      "recipes": [],
+      "recipes": [
+        "configs/projects/braavg002_ictiofauna_2026.json"
+      ],
       "docs": [
         "docs/AVG_BENTOS_INVENTARIO_BANCO_20260608.md",
         "docs/AVG_ICTIOFAUNA_2026.md",
+        "docs/control_center/operations/BRAAVG002_ICTIOFAUNA_JUNHO_2026.md",
+        "docs/control_center/operations/BRAAVG002_ICTIOFAUNA_AGOSTO_2026.md",
         "docs/control_center/reviews/BRAAVG002_ZOOBENTOS_MARCO_2026_REV_R01.md",
         "docs/control_center/reviews/BRAAVG002_ZOOBENTOS_JANEIRO_2026_REV_R02.md"
       ],
@@ -85,7 +89,8 @@
         "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg"
       ],
       "learning": [
-        "Rotinas recentes de bentos/ictio 2026 devem ser avaliadas para virar recipe."
+        "Rotinas recentes de bentos/ictio 2026 devem ser avaliadas para virar recipe.",
+        "Para PNGs grandes em pastas do Google Drive, salvar primeiro em diretorio temporario local e depois copiar para a pasta final reduz risco de arquivo truncado."
       ]
     },
     {
@@ -444,6 +449,57 @@
         "Migracao consolidou 301 linhas de resultados em 150 registros agregados, preservando 707 individuos.",
         "Para CPUEb exata em ictiofauna, manter fonte linha-a-linha quando o script oficial de consolidacao preencher biomassa com PC_g."
       ]
+    },
+    {
+      "canonical_key": "BIOCOL001__monitoramento_e_resgate_da_ictiofauna_uhe_colider",
+      "supabase": {
+        "id_projeto": 206,
+        "codigo_interno_opyta": "BIOCOL001",
+        "nome_projeto": "Monitoramento e Resgate da Ictiofauna no rio Teles Pires, na Area de Influencia da Usina Hidreletrica Colider - MT"
+      },
+      "status": "active",
+      "aliases": [
+        "colider_ictiofauna",
+        "bios_colider",
+        "biocol001_colider"
+      ],
+      "domains": [
+        "Ictiofauna",
+        "Migracao",
+        "Serie longa"
+      ],
+      "recipes": [
+        "configs/projects/biocol001_colider_ictiofauna.json"
+      ],
+      "docs": [
+        "docs/projects/BIOCOL001_COLIDER_ICTIOFAUNA.md",
+        "docs/control_center/operations/BIOCOL001_ICTIOFAUNA_COLIDER_MIGRACAO.md"
+      ],
+      "scripts": [],
+      "audit": [
+        "outputs/_project_scripts/BIOCOL001__monitoramento_e_resgate_da_ictiofauna_uhe_colider"
+      ],
+      "learning": [
+        "Para campanhas historicas de ictiofauna, usar codigo operacional C### para contagem; rotulos com ano/mes podem colapsar para a mesma campanha operacional.",
+        "Gate B deve bloquear especies usadas nos resultados com buracos em classificacao e atributos obrigatorios do cadastro antes da migracao.",
+        "No consolidado atual, BIOCOL001 esta preenchido em codigo_interno_opyta; codigo_opyta esta nulo e deve ser padronizado antes de produtos que filtrem por essa coluna."
+      ]
+    },
+    {
+      "canonical_key": "WSPKIN001__kinross_bandeirinhas",
+      "supabase": {
+        "id_projeto": 211,
+        "codigo_interno_opyta": "WSPKIN001",
+        "nome_projeto": "Kinross"
+      },
+      "status": "active",
+      "aliases": ["wsp_kinross_bandeirinhas", "kinross", "bandeirinhas"],
+      "domains": ["Fitoplâncton", "Migração"],
+      "recipes": [],
+      "docs": ["docs/control_center/operations/WSPKIN001_FITOPLANCTON_MIGRACAO.md"],
+      "scripts": [],
+      "audit": ["outputs/validacoes/wspkin001_fitoplancton_20260902"],
+      "learning": ["Cliente WSP (id_cliente=216) e projeto WSPKIN001 (id_projeto=211) criados e confirmados no Supabase em 2026-09-02."]
     }
   ]
 }

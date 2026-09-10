@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-07-16T11:26:57",
+  "project_code": "BRAAVG002",
+  "status": "generated",
+  "metric": "CPUEn",
+  "groups": {
+    "especialistas_loticos_sensiveis": {
+      "rotulo": "Especialistas lóticos sensíveis",
+      "especies": [
+        "Neoplecostomus franciscoensis",
+        "Pareiorhaphis mutuca",
+        "Trichomycterus brasiliensis",
+        "Trichomycterus novalimensis"
+      ]
+    },
+    "generalistas_tolerantes": {
+      "rotulo": "Generalistas tolerantes",
+      "especies": [
+        "Geophagus brasiliensis",
+        "Phalloceros uai",
+        "Poecilia cf. mexicana",
+        "Poecilia reticulata",
+        "Rhamdia quelen"
+      ]
+    }
+  },
+  "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10E_grafico_mini_mapas_grupos_funcionais_sentinelas_ano_ictiofauna.png",
+  "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10E_df_mini_mapas_grupos_funcionais_sentinelas_ano_ictiofauna.xlsx",
+  "support_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\functional_group_sentinel_maps_20260716\\10E_grafico_mini_mapas_grupos_funcionais_sentinelas_ano_ictiofauna.png",
+  "support_table": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\functional_group_sentinel_maps_20260716\\10E_df_mini_mapas_grupos_funcionais_sentinelas_ano_ictiofauna.xlsx",
+  "years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "points": 13,
+  "coordinate_strategy": "last_coordenada_valida_planilha",
+  "coordinate_source": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\geoarc001_long_study_source_20260713\\braavg002_geoarc001_source_ictiofauna.xlsx",
+  "control_area_layers": {
+    "Area de controle 01": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Geo\\771_area_controle_01_pl.kml",
+    "Area de controle 02": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Geo\\771_area_controle_02_pl.kml"
+  },
+  "map_rule": "CPUEn media anual por ponto e grupo funcional, incluindo zeros nas campanhas quantitativas amostradas sem registro do grupo."
+}

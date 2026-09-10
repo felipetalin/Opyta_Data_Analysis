@@ -294,6 +294,7 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             output_dir=params.output_dir,
             env_file=params.env_file,
             block=params.block,
+            campaign_filter=params.campaigns,
         )
     elif params.pipeline.lower() in {"primatas", "primatas_diag", "primates"}:
         details = run_primatas_pipeline(
@@ -303,6 +304,7 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             output_dir=params.output_dir,
             env_file=params.env_file,
             block=params.block,
+            campaign_filter=params.campaigns,
         )
     elif params.pipeline.lower() in {"herpetofauna", "herp", "repteis"}:
         details = run_herpetofauna_pipeline(
@@ -312,6 +314,7 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             output_dir=params.output_dir,
             env_file=params.env_file,
             block=params.block,
+            campaign_filter=params.campaigns,
         )
     elif params.pipeline.lower() in {"avifauna", "aves", "birds"}:
         details = run_avifauna_pipeline(
@@ -321,6 +324,7 @@ def run(params: RunParams, config_root: Path) -> Dict[str, Any]:
             output_dir=params.output_dir,
             env_file=params.env_file,
             block=params.block,
+            campaign_filter=params.campaigns,
         )
     # --- Monitoramento ---
     elif params.pipeline.lower() in {"mastofauna_mon", "mastofauna_monitoramento", "masto_mon"}:

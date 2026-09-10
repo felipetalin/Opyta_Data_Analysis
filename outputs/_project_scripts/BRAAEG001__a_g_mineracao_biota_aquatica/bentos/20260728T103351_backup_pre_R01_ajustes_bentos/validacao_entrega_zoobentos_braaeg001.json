@@ -1,0 +1,15 @@
+{
+  "validated_at": "2026-07-28T13:15:24.613209Z",
+  "status": "OK",
+  "files_checked": 32,
+  "figures_checked": 14,
+  "missing_files": [],
+  "zero_size_files": [],
+  "bad_dimensions": [],
+  "blank_figures": [],
+  "errors_count": 0,
+  "warnings": [
+    "BMWP calculado por famílias únicas presentes em cada ponto/campanha.",
+    "Figuras 08 e 09 mostram os 20 táxons mais abundantes para preservar legibilidade em A4 paisagem; as planilhas mantêm todos os táxons."
+  ]
+}

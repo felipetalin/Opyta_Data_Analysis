@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -11,6 +12,42 @@ from . import mastofauna as masto
 
 TARGET_PCH_NAME = "Dores de Guanhães"
 TARGET_CONTROL_NAME = "Área Controle"
+
+
+def _infer_empreendimento_from_herpetofauna_point(point_name: object) -> str | None:
+    point = masto._norm(point_name).upper()
+    point = re.sub(r"[^A-Z0-9]+", "", point)
+    if point.startswith(("CO", "CON")):
+        return "Area Controle"
+    if point.startswith(("DG", "DGN")):
+        return "Dores de Guanhaes"
+    if point.startswith(("FO", "FOR")):
+        return "Fortuna II"
+    if point.startswith(("JA", "JAC")):
+        return "Jacare"
+    if point.startswith(("SP", "SPT")):
+        return "Senhora do Porto"
+    return None
+
+
+def _resolve_empreendimento_herpetofauna(point_name: object, id_empreendimento: object, emp_map: dict[object, str]) -> str:
+    if id_empreendimento in emp_map:
+        return emp_map[id_empreendimento]
+    return _infer_empreendimento_from_herpetofauna_point(point_name) or "Sem empreendimento"
+
+
+def _apply_campaign_filter(df: pd.DataFrame, campaign_filter: Optional[list[str]] = None) -> pd.DataFrame:
+    if df.empty or not campaign_filter or "nome_campanha" not in df.columns:
+        return df
+    allowed = {str(c).strip() for c in campaign_filter if str(c).strip()}
+    allowed_norm = {masto._norm(c) for c in allowed}
+    campaign_text = df["nome_campanha"].astype(str).str.strip()
+    campaign_norm = campaign_text.map(masto._norm)
+    mask = campaign_text.isin(allowed) | campaign_norm.isin(allowed_norm)
+    for item in allowed_norm:
+        if item:
+            mask = mask | campaign_norm.str.contains(item, regex=False)
+    return df[mask].copy()
 
 
 def _load_herpetofauna_df(project_id: int, env_file: Optional[str]) -> pd.DataFrame:
@@ -69,11 +106,12 @@ def _load_herpetofauna_df(project_id: int, env_file: Optional[str]) -> pd.DataFr
         ponto = pontos_map.get(esf.get("id_ponto_coleta"), {})
         esp = esp_map.get(r.get("id_especie"), {})
         id_emp = ponto.get("id_empreendimento")
+        nome_ponto = ponto.get("nome_ponto")
         rows.append(
             {
                 "nome_campanha": camp_map.get(ponto.get("id_campanha"), "Campanha desconhecida"),
-                "nome_ponto": ponto.get("nome_ponto"),
-                "empreendimento": emp_map.get(id_emp, "Sem empreendimento"),
+                "nome_ponto": nome_ponto,
+                "empreendimento": _resolve_empreendimento_herpetofauna(nome_ponto, id_emp, emp_map),
                 "nome_cientifico": esp.get("nome_cientifico"),
                 "nome_popular": esp.get("nome_popular"),
                 "ordem": esp.get("ordem"),
@@ -151,12 +189,13 @@ def _load_sampling_units_df(project_id: int, env_file: Optional[str]) -> pd.Data
     for esf in esforcos:
         ponto = pontos_map.get(esf.get("id_ponto_coleta"), {})
         id_emp = ponto.get("id_empreendimento")
+        nome_ponto = ponto.get("nome_ponto")
         rows.append(
             {
                 "id_esforco": esf.get("id_esforco"),
                 "nome_campanha": camp_map.get(ponto.get("id_campanha"), "Campanha desconhecida"),
-                "nome_ponto": ponto.get("nome_ponto"),
-                "empreendimento": emp_map.get(id_emp, "Sem empreendimento"),
+                "nome_ponto": nome_ponto,
+                "empreendimento": _resolve_empreendimento_herpetofauna(nome_ponto, id_emp, emp_map),
                 "esforco": esf.get("esforco"),
                 "unidade_esforco": esf.get("unidade_esforco"),
             }
@@ -215,6 +254,7 @@ def run_herpetofauna_pipeline(
     output_dir: Path,
     env_file: Optional[str] = None,
     block: str = "all",
+    campaign_filter: Optional[list[str]] = None,
 ) -> Dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -223,6 +263,7 @@ def run_herpetofauna_pipeline(
     masto.TARGET_CONTROL_NAME = TARGET_CONTROL_NAME
 
     df = _load_herpetofauna_df(project_id=project_id, env_file=env_file)
+    df = _apply_campaign_filter(df, campaign_filter)
     if df.empty:
         return {
             "rows_loaded": 0,
@@ -237,6 +278,7 @@ def run_herpetofauna_pipeline(
 
     df_pch = masto._subset_by_empreendimento(df, TARGET_PCH_NAME)
     df_control = masto._subset_by_empreendimento(df, TARGET_CONTROL_NAME)
+    df_report = pd.concat([df_pch, df_control], ignore_index=True)
 
     details: dict[str, Any] = {
         "rows_loaded": int(len(df)),
@@ -271,6 +313,7 @@ def run_herpetofauna_pipeline(
 
     if block_sel in {"6.2", "62", "all"}:
         df_units = _load_sampling_units_df(project_id=project_id, env_file=env_file)
+        df_units = _apply_campaign_filter(df_units, campaign_filter)
         df_units_pch = masto._subset_by_empreendimento(df_units, TARGET_PCH_NAME) if not df_units.empty else pd.DataFrame()
         df_units_ctrl = masto._subset_by_empreendimento(df_units, TARGET_CONTROL_NAME) if not df_units.empty else pd.DataFrame()
 
@@ -308,7 +351,7 @@ def run_herpetofauna_pipeline(
         executed_blocks.append("6.5")
 
     if block_sel in {"6.6", "66", "6.7", "67", "6.8", "68", "all"}:
-        masto._save_general_status_tables(df, output_dir, generated_files)
+        masto._save_general_status_tables(df_report, output_dir, generated_files)
         executed_blocks.extend(["6.6", "6.7", "6.8"])
 
     if block_sel in {"all"}:

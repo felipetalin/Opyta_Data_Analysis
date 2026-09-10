@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-07-15T14:21:21",
+  "project_code": "BRAAVG002",
+  "analysis": "exploratoria_bray_curtis_agrupamento_espacial_temporal",
+  "metric": "CPUEn por ponto x especie agregado por ano temporal",
+  "distance": "Bray-Curtis",
+  "cluster_method": "UPGMA/average linkage",
+  "cluster_cut_height": 0.8,
+  "years": {
+    "2023": {
+      "points": 13,
+      "species": 13
+    },
+    "2024": {
+      "points": 13,
+      "species": 13
+    },
+    "2025": {
+      "points": 13,
+      "species": 13
+    },
+    "2026": {
+      "points": 13,
+      "species": 13
+    }
+  },
+  "figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\bray_spatial_temporal_exploratory_20260715\\EXP_bray_curtis_agrupamento_pontos_por_ano_temporal.png",
+  "pcoa_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\bray_spatial_temporal_exploratory_20260715\\EXP_pcoa_bray_curtis_grupos_por_ano_temporal.png",
+  "biplot_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\bray_spatial_temporal_exploratory_20260715\\EXP_pcoa_biplot_bray_species_vectors_por_ano_temporal.png",
+  "final_biplot_figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\09_grafico_pcoa_biplot_bray_curtis_vetores_especies_ictiofauna.png",
+  "representatives_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\bray_spatial_temporal_exploratory_20260715\\EXP_especies_representativas_grupos_bray.png",
+  "workbook": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\bray_spatial_temporal_exploratory_20260715\\EXP_bray_curtis_matrizes_ponto_ano_temporal.xlsx",
+  "notes": [
+    "Pontos sem captura e com esforco quantitativo entram como vetor zero.",
+    "Distancia zero-zero definida como 0 para evitar indeterminacao.",
+    "PIC-02 e tratado pelo nome operacional disponivel na base; a realocacao deve ser descrita no texto metodologico."
+  ]
+}

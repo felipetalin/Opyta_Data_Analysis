@@ -1,0 +1,58 @@
+{
+  "executed_at": "2026-06-26T12:24:32.519673Z",
+  "runner_version": "1.2",
+  "project_id": 189,
+  "group": "Ictiofauna",
+  "pipeline": "ictio",
+  "client": "virita001",
+  "block": "biometria",
+  "campaign_filter": [
+    "C001-2026-06-SC"
+  ],
+  "git": {
+    "branch": "main",
+    "commit": "8fc572a",
+    "dirty": true,
+    "status_short_count": 12,
+    "full_dirty": true,
+    "full_status_short_count": 19,
+    "ignored_generated_audit_count": 7
+  },
+  "rows_loaded": 21,
+  "executed_blocks": [
+    "9b"
+  ],
+  "campaigns": [
+    "C001-2026-06-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "Ictio_01",
+    "Ictio_02",
+    "Ictio_03",
+    "Ictio_04",
+    "Ictio_05",
+    "Ictio_06",
+    "Ictio_07"
+  ],
+  "points_count": 7,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1",
+  "generated_files_count": 1,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\13_tabela_biometria_biomassa_ictiofauna.xlsx"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Virtual\\São Gonçalo\\Resultados\\Ictiofauna\\Campanha_1\\13_tabela_biometria_biomassa_ictiofauna.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 7711,
+      "modified_at": "2026-06-26T12:24:32.427000Z",
+      "sha256": "041d6fc526469338d339a4adca38942c7975ea27198eeecbbb108210396ad7e7"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\VIRITA001__diagnostico_da_ictiofauna_do_projeto_itabrita\\ictiofauna",
+  "warnings": []
+}

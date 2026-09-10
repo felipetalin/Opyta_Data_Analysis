@@ -33,6 +33,9 @@
 - Gate B reaberto: nao
 - Gate C reaberto: nao
 - banco afetado: nao
+- coordenadas afetadas: nao
+- fonte espacial de referencia:
+- produtos com latitude/longitude:
 - produtos dependentes:
 
 ## Progresso
@@ -61,6 +64,10 @@
 ## Validadores
 
 -
+- auditoria de coordenadas:
+  - antes:
+  - depois:
+  - divergencias remanescentes:
 
 ## Gate R
 

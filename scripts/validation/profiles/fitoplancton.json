@@ -1,0 +1,27 @@
+{
+  "id": "fitoplancton",
+  "label": "Fitopl\u00e2ncton",
+  "result_sheet": "Resultados_Fitoplancton",
+  "species_sheet": "Cadastro_Especies",
+  "species_group_aliases": ["Fitopl\u00e2ncton", "Fitoplancton"],
+  "taxonomy_profile": "fitoplankton",
+  "taxonomy_sources": [
+    "GBIF Backbone Taxonomy",
+    "Catalogue of Life",
+    "DiatomBase"
+  ],
+  "severity_overrides": {
+    "INCOMPLETE_SPECIES_CATALOG": "warning"
+  },
+  "rules": {
+    "keep_sp": true,
+    "classify_sp_by_genus": true,
+    "accept_confirmed_spelling_corrections": true,
+    "keep_professional_on_partial": true,
+    "keep_professional_on_conflict": true,
+    "classification_rule": "two_databases_or_primary",
+    "primary_source_order": ["DiatomBase", "Catalogue of Life", "GBIF"],
+    "partial_taxa_from_lowest_rank": true,
+    "missing_value": "N.A."
+  }
+}

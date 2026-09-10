@@ -1,0 +1,38 @@
+{
+  "executed_at": "2026-08-07T13:34:10",
+  "project_code": "BRAAEG001",
+  "group": "Ictiofauna",
+  "product": "mini_mapa_cambevas_cpuen",
+  "source_workbook": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\lastros_migracao\\Resultados_Migração _Ictio.xlsx",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\Geo\\1AEMG002\\Hidrografia.kmz",
+  "hydro_lines": 1122,
+  "species": [
+    "Trichomycterus brasiliensis",
+    "Trichomycterus immaculatus"
+  ],
+  "max_cpuen": 6.451612903225806,
+  "outputs": {
+    "figure": {
+      "arquivo": "15_mini_mapa_cambevas_cpuen_ictiofauna.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\15_mini_mapa_cambevas_cpuen_ictiofauna.png",
+      "tamanho_bytes": 1330523,
+      "sha256": "5f069a80609b4a0cbb87fa1e9ee2695cd028a0c066ed72d0bea1e2dc391f8e63",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "nonblank": true,
+      "pixel_std": 26.07444281106985
+    },
+    "table": {
+      "arquivo": "15_df_mini_mapa_cambevas_cpuen_ictiofauna.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\15_df_mini_mapa_cambevas_cpuen_ictiofauna.xlsx",
+      "sha256": "6030c29b8f247a8b009ead0c089383175590cc879993a7401b99cba69446543e",
+      "tamanho_bytes": 9800
+    }
+  },
+  "notes": [
+    "Produto em A4 paisagem, sem titulo geral, seguindo premissas dos minimapas de biota aquatica.",
+    "CPUEn calculada como individuos da especie no ponto / esforco total quantitativo do ponto x 100.",
+    "O esforco total inclui metodos quantitativos com ou sem captura, preservando a padronizacao da amostragem.",
+    "As duas especies sao apresentadas como organismos de interesse para leitura de integridade ambiental, sem diagnostico isolado de qualidade da agua."
+  ]
+}

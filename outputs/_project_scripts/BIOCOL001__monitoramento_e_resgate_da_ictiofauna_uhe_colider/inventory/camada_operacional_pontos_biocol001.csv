@@ -1,0 +1,20 @@
+ponto,camada_operacional,incluir_analises_gerais,papel_analitico,observacao
+ICTIO01,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO02,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO03,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO04,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO05,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO06,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO07,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO08,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO09,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO10,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO11,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO12,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO13A,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO13A - Marcação,programacao_marcacao,nao,ponto_especial_marcacao,"Faz parte da programacao de marcacao; manter no banco, mas excluir por padrao das analises gerais."
+ICTIO13B,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO13C,sistema_transposicao_condicional,condicional,ponto_sistema_transposicao,"Ponto do sistema de transposicao de peixes; incluir ou excluir conforme objetivo da analise."
+ICTIO13D,sistema_transposicao_condicional,condicional,ponto_sistema_transposicao,"Ponto do sistema de transposicao de peixes; incluir ou excluir conforme objetivo da analise."
+ICTIO14,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO15,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.

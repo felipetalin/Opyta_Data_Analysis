@@ -1,0 +1,925 @@
+{
+  "generated_at_utc": "2026-07-10T00:52:32.998446+00:00",
+  "project_code": "BRAANG01",
+  "matrix": "Água Superficial",
+  "points": [
+    "MCB1010",
+    "MCB1011"
+  ],
+  "params": [
+    "Arsênio Dissolvido",
+    "Arsênio Total",
+    "Cianeto Livre",
+    "Cianeto Total",
+    "Cianeto WAD",
+    "Cobalto Total",
+    "Cobre Total",
+    "Condutividade Elétrica",
+    "Cor Verdadeira",
+    "Cromo Total",
+    "Demanda Bioquímica de Oxigênio",
+    "Demanda Química de Oxigênio",
+    "Fenóis Totais",
+    "Ferro Dissolvido",
+    "Ferro Total",
+    "Ítrio (Metais Totais)",
+    "Manganês Dissolvido",
+    "Manganês Total",
+    "Mercúrio Total",
+    "Níquel Total",
+    "Nitrato",
+    "Óleos e Graxas",
+    "Oxigênio Dissolvido (OD)",
+    "pH",
+    "Selênio Total",
+    "Sólidos Dissolvidos Totais",
+    "Sólidos Sedimentáveis",
+    "Sólidos Totais Suspensos",
+    "Sulfato",
+    "Surfactantes (LAS)",
+    "Temperatura da Água",
+    "Temperatura do Ar",
+    "Turbidez",
+    "Zinco Total"
+  ],
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Anglo\\dados\\Migração e resultados\\Resultados\\_revisoes\\R04_agua_superficial_20260709\\revisado\\Água_Superficial",
+  "png_count": 34,
+  "results": [
+    {
+      "param": "Arsênio Dissolvido",
+      "file": "ST_Arsênio_Dissolvido_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Arsênio Total",
+      "file": "ST_Arsênio_Total_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.01,
+              "rotulo": "VMP - máximo: 0.01"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.01,
+              "rotulo": "VMP - máximo: 0.01"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Cianeto Livre",
+      "file": "ST_Cianeto_Livre_P1.png",
+      "campaign_count": 8,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 8,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.005,
+              "rotulo": "VMP - máximo: 0.005"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 6,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.005,
+              "rotulo": "VMP - máximo: 0.005"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Cianeto Total",
+      "file": "ST_Cianeto_Total_P1.png",
+      "campaign_count": 8,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 8,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 6,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Cianeto WAD",
+      "file": "ST_Cianeto_WAD_P1.png",
+      "campaign_count": 34,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 33,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 33,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Cobalto Total",
+      "file": "ST_Cobalto_Total_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.05,
+              "rotulo": "VMP - máximo: 0.05"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.05,
+              "rotulo": "VMP - máximo: 0.05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Cobre Total",
+      "file": "ST_Cobre_Total_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Condutividade Elétrica",
+      "file": "ST_Condutividade_Elétrica_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Cor Verdadeira",
+      "file": "ST_Cor_Verdadeira_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 75.0,
+              "rotulo": "VMP - máximo: 75"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 75.0,
+              "rotulo": "VMP - máximo: 75"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Cromo Total",
+      "file": "ST_Cromo_Total_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.05,
+              "rotulo": "VMP - máximo: 0.05"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.05,
+              "rotulo": "VMP - máximo: 0.05"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Demanda Bioquímica de Oxigênio",
+      "file": "ST_Demanda_Bioquímica_de_Oxigênio_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 5.0,
+              "rotulo": "VMP - máximo: 5"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 5.0,
+              "rotulo": "VMP - máximo: 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Demanda Química de Oxigênio",
+      "file": "ST_Demanda_Química_de_Oxigênio_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Fenóis Totais",
+      "file": "ST_Fenóis_Totais_P1.png",
+      "campaign_count": 41,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 41,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.01,
+              "rotulo": "VMP - máximo: 0.01"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 33,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.01,
+              "rotulo": "VMP - máximo: 0.01"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Ferro Dissolvido",
+      "file": "ST_Ferro_Dissolvido_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.3,
+              "rotulo": "VMP - máximo: 0.3"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.3,
+              "rotulo": "VMP - máximo: 0.3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Ferro Total",
+      "file": "ST_Ferro_Total_P1.png",
+      "campaign_count": 39,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 37,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 39,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Ítrio (Metais Totais)",
+      "file": "ST_Ítrio_(Metais_Totais)_P1.png",
+      "campaign_count": 13,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 13,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 13,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Manganês Dissolvido",
+      "file": "ST_Manganês_Dissolvido_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.1,
+              "rotulo": "VMP - máximo: 0.1"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.1,
+              "rotulo": "VMP - máximo: 0.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Manganês Total",
+      "file": "ST_Manganês_Total_P1.png",
+      "campaign_count": 49,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 49,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.1,
+              "rotulo": "VMP - máximo: 0.1"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 49,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.1,
+              "rotulo": "VMP - máximo: 0.1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Mercúrio Total",
+      "file": "ST_Mercúrio_Total_P1.png",
+      "campaign_count": 11,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 11,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.0002,
+              "rotulo": "VMP - máximo: 0.0002"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 10,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.0002,
+              "rotulo": "VMP - máximo: 0.0002"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Níquel Total",
+      "file": "ST_Níquel_Total_P1.png",
+      "campaign_count": 37,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 37,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.025,
+              "rotulo": "VMP - máximo: 0.025"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 36,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.025,
+              "rotulo": "VMP - máximo: 0.025"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Nitrato",
+      "file": "ST_Nitrato_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 10.0,
+              "rotulo": "VMP - máximo: 10"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 10.0,
+              "rotulo": "VMP - máximo: 10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Óleos e Graxas",
+      "file": "ST_Óleos_e_Graxas_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.0,
+              "rotulo": "VMP - máximo: 0"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.0,
+              "rotulo": "VMP - máximo: 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Oxigênio Dissolvido (OD)",
+      "file": "ST_Oxigênio_Dissolvido_(OD)_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "minimo",
+              "valor": 5.0,
+              "rotulo": "VMP - mínimo: 5"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "minimo",
+              "valor": 5.0,
+              "rotulo": "VMP - mínimo: 5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "pH",
+      "file": "ST_pH_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 9.0,
+              "rotulo": "VMP - máximo: 9"
+            },
+            {
+              "tipo": "minimo",
+              "valor": 6.0,
+              "rotulo": "VMP - mínimo: 6"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 9.0,
+              "rotulo": "VMP - máximo: 9"
+            },
+            {
+              "tipo": "minimo",
+              "valor": 6.0,
+              "rotulo": "VMP - mínimo: 6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Selênio Total",
+      "file": "ST_Selênio_Total_P1.png",
+      "campaign_count": 31,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 31,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.01,
+              "rotulo": "VMP - máximo: 0.01"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 31,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.01,
+              "rotulo": "VMP - máximo: 0.01"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Sólidos Dissolvidos Totais",
+      "file": "ST_Sólidos_Dissolvidos_Totais_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 500.0,
+              "rotulo": "VMP - máximo: 500"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 500.0,
+              "rotulo": "VMP - máximo: 500"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Sólidos Sedimentáveis",
+      "file": "ST_Sólidos_Sedimentáveis_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 1.0,
+              "rotulo": "VMP - máximo: 1"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 1.0,
+              "rotulo": "VMP - máximo: 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Sólidos Totais Suspensos",
+      "file": "ST_Sólidos_Totais_Suspensos_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 100.0,
+              "rotulo": "VMP - máximo: 100"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 100.0,
+              "rotulo": "VMP - máximo: 100"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Sulfato",
+      "file": "ST_Sulfato_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 250.0,
+              "rotulo": "VMP - máximo: 250"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 250.0,
+              "rotulo": "VMP - máximo: 250"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Surfactantes (LAS)",
+      "file": "ST_Surfactantes_(LAS)_P1.png",
+      "campaign_count": 38,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 38,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.5,
+              "rotulo": "VMP - máximo: 0.5"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 36,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.5,
+              "rotulo": "VMP - máximo: 0.5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Temperatura da Água",
+      "file": "ST_Temperatura_da_Água_P1.png",
+      "campaign_count": 38,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 24,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 37,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Temperatura do Ar",
+      "file": "ST_Temperatura_do_Ar_P1.png",
+      "campaign_count": 38,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 24,
+          "vmp_visible": []
+        },
+        {
+          "point": "MCB1011",
+          "rows": 37,
+          "vmp_visible": []
+        }
+      ]
+    },
+    {
+      "param": "Turbidez",
+      "file": "ST_Turbidez_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 100.0,
+              "rotulo": "VMP - máximo: 100"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 100.0,
+              "rotulo": "VMP - máximo: 100"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Zinco Total",
+      "file": "ST_Zinco_Total_P1.png",
+      "campaign_count": 54,
+      "points": [
+        {
+          "point": "MCB1010",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.18,
+              "rotulo": "VMP - máximo: 0.18"
+            }
+          ]
+        },
+        {
+          "point": "MCB1011",
+          "rows": 54,
+          "vmp_visible": [
+            {
+              "tipo": "maximo",
+              "valor": 0.18,
+              "rotulo": "VMP - máximo: 0.18"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

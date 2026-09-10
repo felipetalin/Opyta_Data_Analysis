@@ -1,0 +1,49 @@
+{
+  "stamp": "20260813T122913",
+  "applied": false,
+  "active_groups": [
+    "Ictiofauna"
+  ],
+  "project": {
+    "id_projeto": 133,
+    "codigo_interno_opyta": "BRACED001",
+    "nome_projeto": "Fonseca-Biota Aquática",
+    "id_cliente": 1,
+    "nome_empresa": "Brandt Meio Ambiente Ltda."
+  },
+  "campaigns": [
+    {
+      "nome_campanha": "C001-2026-03-CH",
+      "id_campanha": null
+    },
+    {
+      "nome_campanha": "C002-2026-06-SC",
+      "id_campanha": 679
+    }
+  ],
+  "source_summary": {
+    "pontos": 36,
+    "campanhas": 2,
+    "esforcos": 41,
+    "resultados_migraveis": 42,
+    "linhas_fonte": 55,
+    "taxons_soma_por_grupo": 14
+  },
+  "db_before": {
+    "pontos": 18,
+    "esforcos": 20,
+    "resultados_ictiofauna": 19,
+    "consolidado": 19
+  },
+  "db_after": null,
+  "backups": null,
+  "deleted": null,
+  "result_counts_by_table": {
+    "resultados_ictiofauna": 42
+  },
+  "inserted_results": null,
+  "inserted_consolidated": null,
+  "consolidated_by_campaign": null,
+  "project_code": "BRACED001",
+  "project_id": 133
+}

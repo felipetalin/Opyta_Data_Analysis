@@ -1,0 +1,30 @@
+{
+  "executed_at": "2026-09-08T12:07:24.544494-03:00",
+  "project_id": 165,
+  "campaign": "C029-2026-08-SC",
+  "source": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Campanhas de campo\\29_campanha-Julho_26\\Ictiofauna\\3.Agosto-26\\Planilha\\projeto_ictio_real-Guanhães_260817.xlsx",
+  "source_sha256": "3f8ca8ac99a2f3c7ba11d89b28dfd7969d638a6e05f257aa8a6b12951e90abc0",
+  "approved_adjustments": [
+    {
+      "source_excel_row": 10872,
+      "field": "Metodo_de_Captura",
+      "before": "Rede de emalhar",
+      "after": "Peneira e arrasto",
+      "authorization": "Usuario confirmou explicitamente na sessao em 2026-09-08"
+    }
+  ],
+  "totals": {
+    "points": 32,
+    "efforts": 49,
+    "result_rows": 66,
+    "individuals": 235,
+    "species": 14
+  },
+  "detail_totals": {
+    "detail_rows": 99,
+    "detail_individuals": "235"
+  },
+  "history_scope": "only C029 cleaned/written",
+  "products_generated": false,
+  "consolidation_executed": false
+}

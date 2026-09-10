@@ -1,0 +1,15 @@
+{
+  "validated_at": "2026-07-28T12:35:22.839776Z",
+  "status": "OK",
+  "files_checked": 30,
+  "figures_checked": 12,
+  "missing_files": [],
+  "zero_size_files": [],
+  "bad_dimensions": [],
+  "blank_figures": [],
+  "errors_count": 0,
+  "warnings": [
+    "Densidade, diversidade, similaridade e suficiência foram calculadas somente com registros quantitativos.",
+    "Registros qualitativos foram usados para composição, ocorrência e riqueza taxonômica."
+  ]
+}

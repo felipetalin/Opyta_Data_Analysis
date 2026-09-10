@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-18T21:21:24.199393Z",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Zooplâncton",
+  "action": "generate_zooplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton",
+  "figures_count": 14,
+  "figures_ok": 14,
+  "files_count": 36,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\20260818T181722_contact_sheet_figuras_zooplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 624,
+    "rows_quantitative": 517,
+    "rows_qualitative": 107,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 18,
+    "taxa_total": 58,
+    "taxa_quant": 58,
+    "phyla_total": 4,
+    "density_total": 36.120000000000005,
+    "density_unit": "org/amostra",
+    "max_richness": 23.0,
+    "max_richness_point": "MA-01-01",
+    "max_richness_campaign": "C01-Chuva",
+    "max_density": 1.5,
+    "max_density_point": "MA-04-10",
+    "max_density_campaign": "C02-Seca",
+    "dominant_phylum": "Rotifera",
+    "dominant_phylum_density": 15.600000000000001,
+    "dominant_taxon": "CYCLOPOIDA (nauplius)",
+    "dominant_taxon_density": 3.58,
+    "suff_obs": 58.0,
+    "suff_est": 58.97222222222247
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\00_base_consolidada_zooplancton.xlsx",
+      "tamanho_bytes": 88529,
+      "sha256": "1cec493ddd0d3ceeb6a18368ad94bedca3da677272c21b74aecd6ae4abe0f05f"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\01_tabela_composicao_zooplancton.xlsx",
+      "tamanho_bytes": 8654,
+      "sha256": "ff2cbc1c4efa43832f57dcf01f19707e4e206953b9a0a7805e9f8360c9a915b4"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\01_tabela_ocorrencia_zooplancton.xlsx",
+      "tamanho_bytes": 13772,
+      "sha256": "047c20361ab1e4b85fff939810981c4a98b00e184122e30a119c06b95a19474a"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5758,
+      "sha256": "d6d0e23c3d93cea3f9037582fe3d59f9b873d1497bd4c93f642aab312ea1cf61"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\02_grafico_riqueza_por_ponto_zooplancton.png",
+      "tamanho_bytes": 543604,
+      "sha256": "8e26ea3c7eb11f9dabb84da25c828415f8e43a1359c865647248f66b8340cfda",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 99.96210406708242,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5814,
+      "sha256": "54da5622ff9df0fab6c6fcebd764e2676cfbea5e3af5008e9c52c9999a7d0792"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "tamanho_bytes": 644221,
+      "sha256": "a2192e4f0a238e9212da95d764a67aad791d6d2e17013103dc9fb92717c866bc",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 96.14057214072238,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\04_df_riqueza_por_filo_zooplancton.xlsx",
+      "tamanho_bytes": 5032,
+      "sha256": "cb5f7d52c6609ab532e88de98d5fef70b85b270073d8641e83f47fb5bedc4146"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\04_grafico_riqueza_filo_barras_zooplancton.png",
+      "tamanho_bytes": 419897,
+      "sha256": "762dfef691fec3f374b36ca1d6b37bd4babe4c6205f6f3ded27c57b67a9d3cc7",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 96.8328736862589,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "tamanho_bytes": 429222,
+      "sha256": "1f5c3f7a621b2566365521e2dbc138eeede11eceb054e9ee65beaa7645bd84be",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 85.12817020538958,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 6085,
+      "sha256": "9af26425a5a0da92646f472ee211d2cecb5970206030175bf9241c76528320c0"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 593575,
+      "sha256": "561ca20ee54579e6fd50131769193f4badabdebe8cdb8ddc18912e82214b096e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 84.80041780109453,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 6614,
+      "sha256": "3f5b17fbe6e2daa81148f77c178e2b823c267bb6bf396514bd7b2987ffabd929"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 580679,
+      "sha256": "ee38d9415b5ec0a04618e21221889671335ae7c5569c6700181a7e7a3660dd39",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 93.06619182878167,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\08_df_densidade_por_taxon_zooplancton.xlsx",
+      "tamanho_bytes": 7755,
+      "sha256": "e60904ab248474d4528d6a93e38f21ba1454a2a98d94f2669d9c2f70d09d4f57"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\08_grafico_densidade_por_taxon_zooplancton.png",
+      "tamanho_bytes": 1224065,
+      "sha256": "0ee5ac8184e1b9e39a34c7ab5ec989c3fe3e58b133490956d72035ee6398fb65",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 75.57878891952626,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 11727,
+      "sha256": "0156bfecb8d398ca00932e9a236ca99bf312f4a3c2efa7dfb5ba4c46edcad119"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "tamanho_bytes": 1342658,
+      "sha256": "68bed6df07a3893948d8c18ac6e69e0005053da1e42ab60ed670e42d8f2781da",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.55962577119597,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\10_df_diversidade_alfa_zooplancton.xlsx",
+      "tamanho_bytes": 7383,
+      "sha256": "9554db3d1ce82d60be7316fcf7b593a81b76c3464e87fa23f48507f24fa18ee8"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\10_grafico_diversidade_alfa_zooplancton.png",
+      "tamanho_bytes": 857749,
+      "sha256": "d89c071f8efac39621a91b3946164a7c013997745f0cf0a7664983a0d1f652a2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 106.5851540834224,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\11_df_matriz_comunidade_zooplancton.xlsx",
+      "tamanho_bytes": 11680,
+      "sha256": "ca4735f7aed5380a15b1c4ae5a6aaf1c0f20e8fd75d5bbbb472d875d849e9d8d"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\11_df_distancias_braycurtis_zooplancton.xlsx",
+      "tamanho_bytes": 15296,
+      "sha256": "7ff7c74994989af09e0ccdf97485c6ce80785645c4a765985611169dbbd8be86"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\11_dendrograma_similaridade_zooplancton.png",
+      "tamanho_bytes": 813769,
+      "sha256": "c55b29d4a8cb425a22f784c6caf1ea79587403c792f233b56faafb411fe5bf47",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 46.93581132997829,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 9129,
+      "sha256": "a233fa5385bded7bbc34d0f6dd90d2bcc0eccf2974fde9dde1b3baee885f54fd"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 7984,
+      "sha256": "ea511c99b2857d7d91bae571705de08ffa98e690015de1c10dbb6a3e16843153"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "tamanho_bytes": 496314,
+      "sha256": "850d503d70291e8b0cbe71a2792f0a6cd10db558ce6ab17d959206d3d7ea3b94",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 37.58961628794005,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\12_df_curva_suficiencia_zooplancton.xlsx",
+      "tamanho_bytes": 7383,
+      "sha256": "ca5c99b8e58d958d3c5f53e538a74e4debce60981a3934399f301251fb7e3362"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\12_curva_suficiencia_amostral_zooplancton.png",
+      "tamanho_bytes": 605537,
+      "sha256": "894be9b8bdefe1b4c54c500ad106120403f9668f46dd5f6c3c99dd1aaa70991e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.91886586401524,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zooplancton_BRACED001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\DarwinCore_IEF_Zooplancton_BRACED001.xlsx",
+      "tamanho_bytes": 69535,
+      "sha256": "b28285c65329b0f5a93d1a2d160997bdbf79bb34ac7a6752417c089b07d86ca8"
+    },
+    {
+      "arquivo": "14_tabela_sintese_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\14_tabela_sintese_zooplancton.xlsx",
+      "tamanho_bytes": 6338,
+      "sha256": "3c24c1a0803b1426e770c706e294a60d75b66d1d5d259b91e982cc0e009b6525"
+    },
+    {
+      "arquivo": "14_grafico_sintese_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\14_grafico_sintese_zooplancton.png",
+      "tamanho_bytes": 399590,
+      "sha256": "56d97db11d85ef47ad1ef451bedf7810dd8c469f51039ef0c4a08957f65dc52e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 83.24321673033364,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zooplancton_braced001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\relatorio_tecnico_zooplancton_braced001.html",
+      "tamanho_bytes": 4110,
+      "sha256": "ac89a0966d887b7cc1ff0a76902ae34b096d1fb3d69dab6266ad1d5ff8511e57"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\manifesto_entrega_zooplancton_braced001.json",
+      "tamanho_bytes": 10935,
+      "sha256": "d7b9a05579f94a2d4370e5273c1b12b10e700761aa6b70e41da7ddaf5d38130d"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braced001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\manifesto_entrega_zooplancton_braced001.xlsx",
+      "tamanho_bytes": 7922,
+      "sha256": "d07b7762736c93b056bca999d84fc82606e4f823d1ab99b8e7a903c944bb2fec"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braced001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\manifesto_entrega_zooplancton_braced001.md",
+      "tamanho_bytes": 2667,
+      "sha256": "9634bc765440e605a986852dc6af92975e4fe488be5cb38ffc17c13875284d61"
+    },
+    {
+      "arquivo": "validacao_entrega_zooplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Zooplancton\\validacao_entrega_zooplancton_braced001.json",
+      "tamanho_bytes": 901,
+      "sha256": "e91e2fb0c7ebfee64db6962685bbbbf6f40c71a69cccd6098df3d1ff3251b582"
+    }
+  ]
+}

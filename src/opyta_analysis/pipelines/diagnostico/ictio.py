@@ -2281,20 +2281,21 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     if missing:
         raise RuntimeError(f"[ERRO] Colunas obrigatorias ausentes no Bloco 9 ICTIO: {', '.join(missing)}")
 
-    df_quant = _drop_effort_only_records(df_projeto).copy()
-    tipo_norm = df_quant["tipo_amostragem"].astype(str).map(_normalizar_tipo_amostragem)
-    df_quant = df_quant[tipo_norm == "quantitativo"].copy()
+    df_quant_all = df_projeto.copy()
+    tipo_norm = df_quant_all["tipo_amostragem"].astype(str).map(_normalizar_tipo_amostragem)
+    df_quant_all = df_quant_all[tipo_norm == "quantitativo"].copy()
+    df_quant_all["esforco"] = pd.to_numeric(df_quant_all["esforco"], errors="coerce")
+    df_quant_all = df_quant_all[df_quant_all["esforco"].notna() & (df_quant_all["esforco"] > 0)].copy()
 
-    df_quant["esforco"] = pd.to_numeric(df_quant["esforco"], errors="coerce")
+    df_quant = _drop_effort_only_records(df_quant_all).copy()
     df_quant["contagem"] = pd.to_numeric(df_quant["contagem"], errors="coerce").fillna(0)
     df_quant["biomassa"] = pd.to_numeric(df_quant["biomassa"], errors="coerce").fillna(0)
     if "biomassa_total_analitica" in df_quant.columns:
         df_quant["biomassa_total_analitica"] = pd.to_numeric(
             df_quant["biomassa_total_analitica"], errors="coerce"
         ).fillna(0)
-    df_quant = df_quant[df_quant["esforco"].notna() & (df_quant["esforco"] > 0)].copy()
 
-    if df_quant.empty:
+    if df_quant_all.empty or df_quant.empty:
         pd.DataFrame(columns=base_cols).to_excel(out_df_cpuen, index=False, engine="openpyxl")
         pd.DataFrame(columns=base_cols).to_excel(out_df_cpueb, index=False, engine="openpyxl")
         pd.DataFrame(columns=base_cols).to_excel(out_df_cpuen_point, index=False, engine="openpyxl")
@@ -2315,7 +2316,7 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
         )
         .reset_index()
     )
-    df_effort = _esforco_total_por_ponto(df_quant)
+    df_effort = _esforco_total_por_ponto(df_quant_all)
     df_species_point = df_species_point.merge(df_effort, on=["nome_campanha", "nome_ponto"], how="left")
     df_species_point = df_species_point[
         df_species_point["esforco_total_ponto"].notna() & (df_species_point["esforco_total_ponto"] > 0)
@@ -2325,11 +2326,20 @@ def _run_block_9(df_projeto: pd.DataFrame, group: str, theme: dict, output_dir: 
     df_species_point["nome_ponto"] = df_species_point["nome_ponto"].astype(str).str.strip()
     df_species_point["nome_cientifico"] = df_species_point["nome_cientifico"].astype(str).str.strip()
 
-    df_cpue_sp = (
-        df_species_point.groupby(["nome_campanha", "nome_cientifico"], dropna=False)[["cpuen", "cpueb"]]
+    df_campaign_effort = (
+        df_effort.groupby("nome_campanha", dropna=False)["esforco_total_ponto"]
         .sum()
-        .reset_index()
+        .reset_index(name="esforco_total_campanha")
     )
+    df_cpue_sp = (
+        df_species_point.groupby(["nome_campanha", "nome_cientifico"], dropna=False)
+        .agg(contagem=("contagem", "sum"), biomassa=("biomassa", "sum"))
+        .reset_index()
+        .merge(df_campaign_effort, on="nome_campanha", how="left")
+    )
+    df_cpue_sp = df_cpue_sp[df_cpue_sp["esforco_total_campanha"].notna() & (df_cpue_sp["esforco_total_campanha"] > 0)].copy()
+    df_cpue_sp["cpuen"] = (df_cpue_sp["contagem"] / df_cpue_sp["esforco_total_campanha"]) * 100
+    df_cpue_sp["cpueb"] = (df_cpue_sp["biomassa"] / df_cpue_sp["esforco_total_campanha"]) * 100
     df_cpue_sp["nome_campanha"] = df_cpue_sp["nome_campanha"].astype(str).str.strip()
     df_cpue_sp["nome_cientifico"] = df_cpue_sp["nome_cientifico"].astype(str).str.strip()
 
