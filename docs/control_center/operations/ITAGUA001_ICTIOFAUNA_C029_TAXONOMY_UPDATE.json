@@ -1,0 +1,290 @@
+{
+  "executed_at": "2026-09-08T12:05:40.716236-03:00",
+  "authorization": "Valores informados diretamente pelo usuario na sessao em 2026-09-08.",
+  "scope": "especies usadas na ictiofauna ITAGUA001 C029",
+  "before": [
+    {
+      "id_especie": 3754,
+      "nome_cientifico": "Astyanax lacustris",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4754,
+      "nome_cientifico": "Cichla kelberi",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Exótica na bacia do rio Doce; nativa da bacia Amazônica",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4757,
+      "nome_cientifico": "Delturus carinotus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Endêmica da bacia do rio Doce"
+    },
+    {
+      "id_especie": 4758,
+      "nome_cientifico": "Deuterodon taeniatus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4,
+      "nome_cientifico": "Geophagus brasiliensis",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 629,
+      "nome_cientifico": "Hoplias intermedius",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 630,
+      "nome_cientifico": "Hoplias malabaricus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativa",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4765,
+      "nome_cientifico": "Hypomasticus copelandii",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4767,
+      "nome_cientifico": "Hypomasticus thayeri",
+      "status_ameaca_nacional": "VU",
+      "status_ameaca_global": "VU",
+      "status_estadual": "Cr",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4768,
+      "nome_cientifico": "Hypostomus affinis",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 2,
+      "nome_cientifico": "Knodus moenkhausii",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4771,
+      "nome_cientifico": "Oreochromis niloticus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Não Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 5,
+      "nome_cientifico": "Phalloceros uai",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 450,
+      "nome_cientifico": "Rhamdia quelen",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativa",
+      "endemismo": "Não endêmica"
+    }
+  ],
+  "after": [
+    {
+      "id_especie": 3754,
+      "nome_cientifico": "Astyanax lacustris",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4754,
+      "nome_cientifico": "Cichla kelberi",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Exótica na bacia do rio Doce; nativa da bacia Amazônica",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4757,
+      "nome_cientifico": "Delturus carinotus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Endêmica da bacia do rio Doce"
+    },
+    {
+      "id_especie": 4758,
+      "nome_cientifico": "Deuterodon taeniatus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4,
+      "nome_cientifico": "Geophagus brasiliensis",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 629,
+      "nome_cientifico": "Hoplias intermedius",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 630,
+      "nome_cientifico": "Hoplias malabaricus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativa",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4765,
+      "nome_cientifico": "Hypomasticus copelandii",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4767,
+      "nome_cientifico": "Hypomasticus thayeri",
+      "status_ameaca_nacional": "VU",
+      "status_ameaca_global": "VU",
+      "status_estadual": "Cr",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4768,
+      "nome_cientifico": "Hypostomus affinis",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 2,
+      "nome_cientifico": "Knodus moenkhausii",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 4771,
+      "nome_cientifico": "Oreochromis niloticus",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Não Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 5,
+      "nome_cientifico": "Phalloceros uai",
+      "status_ameaca_nacional": "Não listada",
+      "status_ameaca_global": "LC",
+      "status_estadual": "Não listada (MG)",
+      "origem": "Nativo",
+      "endemismo": "Não endêmica"
+    },
+    {
+      "id_especie": 450,
+      "nome_cientifico": "Rhamdia quelen",
+      "status_ameaca_nacional": "N.A.",
+      "status_ameaca_global": "N.A.",
+      "status_estadual": "N.A.",
+      "origem": "Nativa",
+      "endemismo": "Não endêmica"
+    }
+  ],
+  "threat_fields_set_to_na": [
+    "Cichla kelberi",
+    "Delturus carinotus",
+    "Deuterodon taeniatus",
+    "Hypomasticus copelandii",
+    "Hypostomus affinis",
+    "Oreochromis niloticus",
+    "Hoplias malabaricus",
+    "Rhamdia quelen"
+  ],
+  "endemism_set_to_not_endemic": [
+    "Astyanax lacustris",
+    "Geophagus brasiliensis",
+    "Hoplias intermedius",
+    "Hypomasticus thayeri",
+    "Knodus moenkhausii",
+    "Phalloceros uai",
+    "Cichla kelberi",
+    "Deuterodon taeniatus",
+    "Hypomasticus copelandii",
+    "Hypostomus affinis",
+    "Oreochromis niloticus",
+    "Hoplias malabaricus",
+    "Rhamdia quelen"
+  ],
+  "endemism_set_to_doce_basin": [
+    "Delturus carinotus"
+  ],
+  "cichla_origin": "Exótica na bacia do rio Doce; nativa da bacia Amazônica"
+}

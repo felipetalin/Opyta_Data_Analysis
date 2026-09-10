@@ -1,0 +1,55 @@
+{
+  "executed_at": "2026-09-08T13:20:47.563809-03:00",
+  "project_id": 165,
+  "campaign": "C029-2026-08-SC",
+  "backup_tables": {
+    "points": "bkp_itagua001_ictio_c029_20260908t162046z_pontos",
+    "results": "bkp_itagua001_ictio_c029_20260908t162046z_resultados",
+    "details": "bkp_itagua001_ictio_c029_20260908t162046z_detalhes",
+    "consolidated": "bkp_itagua001_ictio_c029_20260908t162046z_consolidado"
+  },
+  "backup_scope": "C029/Ictiofauna",
+  "points_mapped_from_c028": 32,
+  "aggregate_cp_updated": 66,
+  "consolidated_deleted": 0,
+  "consolidated_inserted": 66,
+  "audit": {
+    "linhas": 66,
+    "pontos": 20,
+    "especies": 14,
+    "individuos": "235",
+    "sem_empreendimento": 0,
+    "sem_cp": 0
+  },
+  "by_enterprise": [
+    {
+      "nome_empreendimento": "Dores de Guanhães",
+      "linhas": 16,
+      "pontos": 5,
+      "especies": 8,
+      "individuos": "60"
+    },
+    {
+      "nome_empreendimento": "Fortuna II",
+      "linhas": 14,
+      "pontos": 5,
+      "especies": 8,
+      "individuos": "63"
+    },
+    {
+      "nome_empreendimento": "Jacaré",
+      "linhas": 20,
+      "pontos": 5,
+      "especies": 11,
+      "individuos": "56"
+    },
+    {
+      "nome_empreendimento": "Senhora do Porto",
+      "linhas": 16,
+      "pontos": 5,
+      "especies": 9,
+      "individuos": "56"
+    }
+  ],
+  "products_generated": false
+}
