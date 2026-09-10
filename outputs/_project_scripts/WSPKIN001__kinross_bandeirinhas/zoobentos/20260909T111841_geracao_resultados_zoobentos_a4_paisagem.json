@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-09T14:21:17.542821Z",
+  "project_code": "WSPKIN001",
+  "project_id": 211,
+  "group": "Zoobentos",
+  "action": "generate_bentos_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos",
+  "figures_count": 16,
+  "figures_ok": 16,
+  "files_count": 39,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\zoobentos\\20260909T111841_contact_sheet_figuras_zoobentos_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 152,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-07-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 9,
+    "taxa_total": 41,
+    "families_total": 41,
+    "orders_total": 12,
+    "abundance_total": 349.0,
+    "unit": "org/amostra",
+    "max_richness": 21.0,
+    "max_richness_point": "PT_05",
+    "max_richness_campaign": "C02-Seca",
+    "max_abundance": 103.0,
+    "max_abundance_point": "PT_04",
+    "max_abundance_campaign": "C02-Seca",
+    "dominant_taxon": "Chironomidae",
+    "dominant_taxon_abundance": 105.0,
+    "dominant_order": "Diptera",
+    "dominant_order_abundance": 172.0,
+    "max_bmwp": 113.0,
+    "max_bmwp_point": "PT_05",
+    "max_bmwp_campaign": "C02-Seca",
+    "mean_ept_pct": 20.14732290517863,
+    "mean_chol_pct": 19.69068076255674,
+    "suff_obs": 41.0,
+    "suff_est": 55.117647058823444
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\00_base_consolidada_zoobentos.xlsx",
+      "tamanho_bytes": 20020,
+      "sha256": "8be4ef1f58dd2293fb77a0e277b765f29de699523f50580d6df7f98a23b635ad"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\01_tabela_composicao_zoobentos.xlsx",
+      "tamanho_bytes": 7698,
+      "sha256": "c374de96c57a961d346ff75a5f4ed023efda77de3ea1fe122b6a9cbbc1c75a49"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\01_tabela_ocorrencia_zoobentos.xlsx",
+      "tamanho_bytes": 8463,
+      "sha256": "1917e9573816c2381f285c621a72a56e9ab18fcc819b2d7a96da22807d199c86"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5574,
+      "sha256": "95b355c83fb5f50e0f2fbec0dea20ceabc6d86d7b1768a24eeb35ebdc73beb9c"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+      "tamanho_bytes": 408569,
+      "sha256": "63a0a8caed50e1a2daed4edde98809a22d1030c29a399bc7d4d56dff5bf6d11e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 76.45669486727775,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5589,
+      "sha256": "3b8346af24c973282b1f4ac3266aa971c1cc227272eff4276c9c065f065f37cd"
+    },
+    {
+      "arquivo": "03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "tamanho_bytes": 452451,
+      "sha256": "123adbb18ae3c762a522cda56c49e597803342d0fd897a2b1501d4099608e92d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 58.87919351489562,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "tamanho_bytes": 5357,
+      "sha256": "91a9f6da55a6f132d4a4b74f455c137ab867bdb950a610f004cc49bd11999355"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "tamanho_bytes": 981119,
+      "sha256": "eb5994e2dd617dadc05d3dd2d1cceb5d8d404ff872fa614243d3950a92487b37",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 89.13044375790395,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "tamanho_bytes": 802338,
+      "sha256": "b71b4bde35576cb38c48819acaf93eed22f913e6fa10e0faed045555565b25f5",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 76.87340265984963,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 6373,
+      "sha256": "f054cdd6ee562adb67bbb157d437eb0564b639e872258b2f32c14449fa855cd3"
+    },
+    {
+      "arquivo": "06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 587543,
+      "sha256": "160e76301c9b0aaaa2046b5c7dbbb7514fec1264e2fdaaa36c5685d60c67c66f",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 52.83859267376189,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 6662,
+      "sha256": "6210cb2a261ae1b00d7f585e171da1b06de093212ac4a855a061798d301404d7"
+    },
+    {
+      "arquivo": "07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 581003,
+      "sha256": "aa2356b572b43688bbf41211faf58adde5436a0b36440955063fbf176f6f7a17",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 80.22200402509367,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "tamanho_bytes": 6889,
+      "sha256": "0325af9ed40dd87fa8d8b262ee228691255ef9f014851b7d3007172b08b9d299"
+    },
+    {
+      "arquivo": "08_grafico_abundancia_por_taxon_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\08_grafico_abundancia_por_taxon_zoobentos.png",
+      "tamanho_bytes": 609332,
+      "sha256": "63c38a65eb9b58f7fe2e8fb5f12a0d616614d5205d33c0ff04b608e974bba110",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 47.63159581433333,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 7678,
+      "sha256": "06cbcab2e77b0e394a1d9f250f7d4b5f17b6560f42a4466188942fd84ff677c7"
+    },
+    {
+      "arquivo": "09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "tamanho_bytes": 651323,
+      "sha256": "7f2b256a7ac9d2975977f7ede5d63a06e536e014e7a03ad4620cb833ff666a73",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 40.88350976595067,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+      "tamanho_bytes": 6530,
+      "sha256": "c193f62170d9cb15f19e32ba2bab43957c105096a7d80da58a1dc33861d26bd3"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\10_grafico_diversidade_alfa_zoobentos.png",
+      "tamanho_bytes": 567067,
+      "sha256": "4d05a44b672cec8cbc7de3436b6891aceeb08c155676e56286081d0ddc09a09d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 92.87819022284201,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+      "tamanho_bytes": 7790,
+      "sha256": "f760e42fe9ae220838b5b6daa2bd8e015cb49d07aea25efdca0df59bb53a4556"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+      "tamanho_bytes": 7189,
+      "sha256": "f250c7ccbaaffcd3f41eee9ea5a3ec50260d0ba875da80da7748a8cdfce2ae03"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\11_dendrograma_similaridade_zoobentos.png",
+      "tamanho_bytes": 431441,
+      "sha256": "640528866524850cddb1ae4c81f23710504263cec01b1270e1254b4f9f64dfc7",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 37.885236894295105,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 6931,
+      "sha256": "a713731c5a1d3c1355b17a7065601e4994e14e2fc7c23c10690bb2efd8a6090a"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 5877,
+      "sha256": "f29b69c58d068516d2c86cc76f1cb7df18a59ed1b184fbd6b7314aa4bfba7c6a"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "tamanho_bytes": 285968,
+      "sha256": "708460157a133ed0ee302e39b55fcdf85ef3799a2577b2bb816c8c4a29efa620",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 30.891400762264965,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+      "tamanho_bytes": 5898,
+      "sha256": "d1bc51946cb9368d4b319e901c8fc655ef48fa8ecf291e9c5c9428b83a999eff"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\12_curva_suficiencia_amostral_zoobentos.png",
+      "tamanho_bytes": 599060,
+      "sha256": "f42fc602c77d28399cdf7497c6aef64aa8f6edb6573ef2e96fec4ec2889b2304",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 31.637528897954326,
+      "nonblank": true
+    },
+    {
+      "arquivo": "13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "tamanho_bytes": 6380,
+      "sha256": "db73e1147d75ea13751dd89b6ff0451afa176ee74f2ab0a25452fba8cf65dc3b"
+    },
+    {
+      "arquivo": "13_grafico_bmwp_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\13_grafico_bmwp_por_ponto_zoobentos.png",
+      "tamanho_bytes": 491305,
+      "sha256": "3671be3f454cd9355d4320d96fcff6598f84c28db57c8d331239c15b1c72eb16",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 61.04954878373715,
+      "nonblank": true
+    },
+    {
+      "arquivo": "14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "tamanho_bytes": 585490,
+      "sha256": "bde46500340f7fa6fb4569aa73bde8decaf041bd4bfc7ea66216a7c2f3baee42",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.9761414651336,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zoobentos_WSPKIN001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\DarwinCore_IEF_Zoobentos_WSPKIN001.xlsx",
+      "tamanho_bytes": 22408,
+      "sha256": "51e170d96bee4eeb07e7098687efc971508243ca7035d416058bdb15ae46ffe5"
+    },
+    {
+      "arquivo": "15_tabela_sintese_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\15_tabela_sintese_zoobentos.xlsx",
+      "tamanho_bytes": 8323,
+      "sha256": "0d8ed483a712a6967531279cd8b46839ff37969a482f90fd544172986e609174"
+    },
+    {
+      "arquivo": "15_grafico_sintese_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\15_grafico_sintese_zoobentos.png",
+      "tamanho_bytes": 786882,
+      "sha256": "7eaf3840fec846985eae24386e98fe252db6af71f4e9452b4363bbaf07e33d6c",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 87.61214494572597,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zoobentos_wspkin001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\relatorio_tecnico_zoobentos_wspkin001.html",
+      "tamanho_bytes": 3726,
+      "sha256": "67cc6ed732d117fd3e96d65767f4837b9a6118b81cdbfea5a317a7ffeb0d9e9c"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\manifesto_entrega_zoobentos_wspkin001.json",
+      "tamanho_bytes": 19363,
+      "sha256": "209bd303ffda7d79ed5983748243fdf01cb036596e520a0afe28bdf8acb066b1"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_wspkin001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\manifesto_entrega_zoobentos_wspkin001.xlsx",
+      "tamanho_bytes": 9431,
+      "sha256": "d7df8a8989303791595f1bb92e073859ccacffcca5514c2f2511d618122c8666"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_wspkin001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\manifesto_entrega_zoobentos_wspkin001.md",
+      "tamanho_bytes": 2669,
+      "sha256": "9c2cb671111fa15c6d0debc8bfbb0f983065ac026639deccc523aa7647db2542"
+    },
+    {
+      "arquivo": "validacao_entrega_zoobentos_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zoobentos\\validacao_entrega_zoobentos_wspkin001.json",
+      "tamanho_bytes": 874,
+      "sha256": "568d793e6764a23d5fd5a27696c4a601029e7d81c394dc3c14c0e398a392bf03"
+    }
+  ],
+  "audit_json": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\zoobentos\\20260909T111841_geracao_resultados_zoobentos_a4_paisagem.json",
+  "audit_xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\zoobentos\\20260909T111841_geracao_resultados_zoobentos_a4_paisagem.xlsx"
+}

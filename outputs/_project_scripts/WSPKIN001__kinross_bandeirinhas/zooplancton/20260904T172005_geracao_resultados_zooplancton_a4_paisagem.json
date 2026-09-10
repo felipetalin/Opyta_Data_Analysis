@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-04T20:24:18.076607Z",
+  "project_code": "WSPKIN001",
+  "project_id": 211,
+  "group": "Zooplâncton",
+  "action": "generate_zooplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton",
+  "figures_count": 14,
+  "figures_ok": 14,
+  "files_count": 36,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\zooplancton\\20260904T172005_contact_sheet_figuras_zooplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 244,
+    "rows_quantitative": 233,
+    "rows_qualitative": 11,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-07-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 9,
+    "taxa_total": 51,
+    "taxa_quant": 50,
+    "phyla_total": 5,
+    "density_total": 15.52,
+    "density_unit": "org/amostra",
+    "max_richness": 20.0,
+    "max_richness_point": "PT_04",
+    "max_richness_campaign": "C02-Seca",
+    "max_density": 1.6,
+    "max_density_point": "PT_04",
+    "max_density_campaign": "C02-Seca",
+    "dominant_phylum": "Rotifera",
+    "dominant_phylum_density": 6.88,
+    "dominant_taxon": "Bdelloidea",
+    "dominant_taxon_density": 1.63,
+    "suff_obs": 51.0,
+    "suff_est": 60.41176470588241
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\00_base_consolidada_zooplancton.xlsx",
+      "tamanho_bytes": 38299,
+      "sha256": "04934c4fdbeef3bcedf1a48b127419626f1be18596f9d16ff2966fc00557c3db"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\01_tabela_composicao_zooplancton.xlsx",
+      "tamanho_bytes": 8207,
+      "sha256": "f3558490cf312c7ee37676be2cfc1e4c03b826655cf5167f905b37e5d7882996"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\01_tabela_ocorrencia_zooplancton.xlsx",
+      "tamanho_bytes": 9562,
+      "sha256": "34ce053cbbc739430f716bca03420114d669d2f5e63b1c1a51d392a59fe1d3c8"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5403,
+      "sha256": "8accb70228593bfbbdeaf92f08398043727055927cdd61c7853c82232c041fe2"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\02_grafico_riqueza_por_ponto_zooplancton.png",
+      "tamanho_bytes": 404212,
+      "sha256": "1fb921944f7ec3cf1f99828da11d11a46ca7a318c1e8fb54f434e3de58b41934",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 92.63498373694922,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5431,
+      "sha256": "34d4bc3b68889eb426900fc39ced4cb2e0728a32e1eac76526fd80f18ea69e69"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "tamanho_bytes": 501514,
+      "sha256": "3685785294a861baa8e2922a8f2320d0b178de6f2ce76f3179082e75cabe1cdc",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 85.42649481496109,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\04_df_riqueza_por_filo_zooplancton.xlsx",
+      "tamanho_bytes": 5046,
+      "sha256": "e86f2a96c6e967e78b6f409a7ae7d94faa3c96e23de2f089aa529f0b90895ba0"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\04_grafico_riqueza_filo_barras_zooplancton.png",
+      "tamanho_bytes": 466179,
+      "sha256": "497b16a457942e97aa6db934c74a1a2e5f230056240ed3c59bfcfe22d7bdc92d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 85.55731130739385,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "tamanho_bytes": 459698,
+      "sha256": "573b692e0d9663f04d873e425f67fda304893ec46cba6f57116824ec9d949ea2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 87.27527050996464,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5620,
+      "sha256": "b71f16728bee28b7e00d6469066d6a8461970972928248344bc79a1c91b6541b"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 493386,
+      "sha256": "e6ea653bac00c9265050319018fe77962ec1821e257b7348788e80361304e0b0",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 81.68554603637266,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5818,
+      "sha256": "18261d2cea23f033e0e9aed32ac523a79bdf9c43f2bb3ad5d81d6671ca9e3e5f"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 474022,
+      "sha256": "9ce8662d68699b7b999fa48579d299779f9dc929bc02f34ddfa0790cf4551798",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 96.78558853341521,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\08_df_densidade_por_taxon_zooplancton.xlsx",
+      "tamanho_bytes": 7286,
+      "sha256": "1291f07717c7dc0a26437f010c7b99630da89c29c11e00c92913177d2e3312bb"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\08_grafico_densidade_por_taxon_zooplancton.png",
+      "tamanho_bytes": 1196412,
+      "sha256": "c911fe109aa3a6e5de13f15e46edf54ab82fc412a9c2c07ef6a05588b0b75719",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 71.141805081025,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 8242,
+      "sha256": "be29c8ab3aef10490b2817bcc2ea83b5a745ad30e9486bca9a25821d025289a5"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "tamanho_bytes": 1160303,
+      "sha256": "376fb82af76ab1cb2c5047ce932ec586f651a350d9ea6a5c6b09c9d973f0216e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 49.08078343933921,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\10_df_diversidade_alfa_zooplancton.xlsx",
+      "tamanho_bytes": 6270,
+      "sha256": "f830ad2189d7617a6f860f4cb3b5c7f693994bba21d510d27ce5807f3d95de27"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\10_grafico_diversidade_alfa_zooplancton.png",
+      "tamanho_bytes": 603308,
+      "sha256": "1286199129b4facf40c8378f34d237aea179033be414e77650cedd9970fabcce",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 100.75241413201375,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\11_df_matriz_comunidade_zooplancton.xlsx",
+      "tamanho_bytes": 8048,
+      "sha256": "ad5a334366c028c9cb0651c3b2cf2dc87f83648875106b466c9798c17719c987"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\11_df_distancias_braycurtis_zooplancton.xlsx",
+      "tamanho_bytes": 7419,
+      "sha256": "d6c36aafa290835e5b64dbf21b2a1c97677e60d49bf3c37f499ffd2f3825ffab"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\11_dendrograma_similaridade_zooplancton.png",
+      "tamanho_bytes": 472194,
+      "sha256": "954c796e4bb20acce6a0136dd189ee812d00cefc66e17e954b8210b6b7e26124",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 37.462135914871276,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 7053,
+      "sha256": "33f5d7d8b32f17f1a05ecc4e0798139afb2e86a43246da3dcc7b4e8ed01f1dc8"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 5753,
+      "sha256": "6549006788912b583a611a602748832d0897e243cb14a29000b8cbb39383938f"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "tamanho_bytes": 301889,
+      "sha256": "b5efe47fa294f0e3549b23902f83ce8dba817734fcebc34f73ffd2bdc99ccc47",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 30.28990507003374,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\12_df_curva_suficiencia_zooplancton.xlsx",
+      "tamanho_bytes": 6137,
+      "sha256": "3bc44f909d0b41526ec7ff08e82f55b3550e6cb322a8cbd6f899fd809197a4f6"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\12_curva_suficiencia_amostral_zooplancton.png",
+      "tamanho_bytes": 661492,
+      "sha256": "13c15a960896cbe2b4cdc8770b152364363b6fc968b660729a0a7ac7bf3f5bb0",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.3316320786031,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zooplancton_WSPKIN001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\DarwinCore_IEF_Zooplancton_WSPKIN001.xlsx",
+      "tamanho_bytes": 32134,
+      "sha256": "c8e9dbb70ff70c775496483fd727c970081c7518f105cb58d3bdfb1ebf808b53"
+    },
+    {
+      "arquivo": "14_tabela_sintese_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\14_tabela_sintese_zooplancton.xlsx",
+      "tamanho_bytes": 6339,
+      "sha256": "126dea3ba81d1a16fac5495d42f3b37fb35e598b2136fe1cbbccb61076f714d7"
+    },
+    {
+      "arquivo": "14_grafico_sintese_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\14_grafico_sintese_zooplancton.png",
+      "tamanho_bytes": 421397,
+      "sha256": "e3d5eb90c85603bc838f830d83492cde9b30f34307ccb0f301900572ee37955b",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 74.74956865495942,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zooplancton_wspkin001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\relatorio_tecnico_zooplancton_wspkin001.html",
+      "tamanho_bytes": 4090,
+      "sha256": "58e8b6b820a7abdecdea844a47b0badca317f229296d63161fb4233b7361dda5"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\manifesto_entrega_zooplancton_wspkin001.json",
+      "tamanho_bytes": 11150,
+      "sha256": "5b84eaa3ae6380a1a2d471fddcda15aa3f44eb892a14f7d72ded4f5f66ca09f6"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_wspkin001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\manifesto_entrega_zooplancton_wspkin001.xlsx",
+      "tamanho_bytes": 8029,
+      "sha256": "586e39409503cefe95ee2f7f0521397eeb3e09e438dd3fb12e79c1f4110968e1"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_wspkin001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\manifesto_entrega_zooplancton_wspkin001.md",
+      "tamanho_bytes": 2731,
+      "sha256": "2a9cb626279eef5de36fb772ae0874f9f27077c23c49cb61e8e7628686ca4014"
+    },
+    {
+      "arquivo": "validacao_entrega_zooplancton_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Zooplancton\\validacao_entrega_zooplancton_wspkin001.json",
+      "tamanho_bytes": 901,
+      "sha256": "d23d075995e1f30ce9d57e80c809690509dd182644e8a2a425b3ad96e50c28ad"
+    }
+  ]
+}

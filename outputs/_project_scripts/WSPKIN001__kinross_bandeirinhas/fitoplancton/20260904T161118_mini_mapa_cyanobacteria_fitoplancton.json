@@ -1,0 +1,42 @@
+{
+  "executed_at": "2026-09-04T16:11:23",
+  "project_id": 211,
+  "group": "Fitoplâncton",
+  "product": "mini_mapa_cyanobacteria",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Geo\\2026\\Projeto_WSPKIN001.kmz",
+  "hydro_lines": 1566,
+  "records": 8,
+  "point_campaign_occurrences": 5,
+  "unique_points": 4,
+  "unique_taxa": 6,
+  "campaigns": [
+    "C01-Chuva",
+    "C02-Seca"
+  ],
+  "outputs": {
+    "figure": {
+      "arquivo": "13_mini_mapa_cyanobacteria_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\13_mini_mapa_cyanobacteria_fitoplancton.png",
+      "tamanho_bytes": 1022614,
+      "sha256": "d10f18466634c326bf52d0b8ac8e4733da397ec9a07a955c42f584dbff62851d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "nonblank": true,
+      "pixel_std": 24.392273868340844
+    },
+    "table": {
+      "arquivo": "13_df_mini_mapa_cyanobacteria_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\13_df_mini_mapa_cyanobacteria_fitoplancton.xlsx",
+      "sha256": "c5576b21ecb06a96db7aa3958e27631b407a195f67249094d0d87d43714ed29c",
+      "tamanho_bytes": 6401
+    }
+  },
+  "notes": [
+    "Produto gerado para ilustrar ocorrência e riqueza de Cyanobacteriota em Fitoplâncton.",
+    "Mapa definitivo sem título; círculos em tamanho fixo porque apenas Anagnostidinema sp. possui valor quantitativo.",
+    "A base possui 10 ocorrências ponto-campanha e 8 pontos únicos com registro de Cyanobacteria.",
+    "O texto técnico deve evitar 'dez pontos amostrais' se a intenção for pontos únicos; usar 'dez ocorrências ponto-campanha' ou 'oito pontos amostrais'."
+  ]
+}

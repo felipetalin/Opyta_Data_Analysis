@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-04T19:15:01.767125Z",
+  "project_code": "WSPKIN001",
+  "project_id": 211,
+  "group": "Fitoplâncton",
+  "action": "generate_fitoplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton",
+  "figures_count": 14,
+  "figures_ok": 14,
+  "files_count": 36,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\fitoplancton\\20260904T161137_contact_sheet_figuras_fitoplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 124,
+    "rows_quantitative": 19,
+    "rows_qualitative": 105,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-07-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 9,
+    "taxa_total": 77,
+    "taxa_quant": 18,
+    "phyla_total": 8,
+    "density_total": 221.0866634242424,
+    "density_unit": "org/amostra",
+    "max_richness": 22.0,
+    "max_richness_point": "PT_05",
+    "max_richness_campaign": "C02-Seca",
+    "max_density": 92.121211,
+    "max_density_point": "PT_05",
+    "max_density_campaign": "C02-Seca",
+    "dominant_phylum": "Bacillariophyta",
+    "dominant_phylum_density": 147.393937,
+    "dominant_taxon": "Ulnaria ulna",
+    "dominant_taxon_density": 27.636364,
+    "suff_obs": 77.0,
+    "suff_est": 121.30769230769178
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\00_base_consolidada_fitoplancton.xlsx",
+      "tamanho_bytes": 22921,
+      "sha256": "655f22b548c7ac102fdcb346b29c265813f3f67f6ab9cee09d690596a0f3b5c9"
+    },
+    {
+      "arquivo": "01_tabela_composicao_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\01_tabela_composicao_fitoplancton.xlsx",
+      "tamanho_bytes": 9510,
+      "sha256": "61881c6f4ce00c54718c099a0c282bd39b9e11b126ec5a7a5f08367e384a119b"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\01_tabela_ocorrencia_fitoplancton.xlsx",
+      "tamanho_bytes": 11047,
+      "sha256": "6d9b24c2dc053abe37eee66e69a7dcd8bc4cf3cbec727358c3f5ea00d58ec67b"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5403,
+      "sha256": "86d2edabea2a121bde2f0d8845cb53151eaabfbd37d60d37f7b5641a2c912567"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 405589,
+      "sha256": "5d329d009ea122fcce1c6cbd24f28377147618b2dca31b863b569c6338842103",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 68.93141827671346,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5422,
+      "sha256": "6cfbf07a49ba8fb4d2347360cb70c0ebcc1a6962821add9f719425d8fb910f36"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 436077,
+      "sha256": "11cfb2a45a0e955ce9218869b04db747ffa1728d471257fd708c5f6c648b4397",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 52.99247898666284,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "tamanho_bytes": 5171,
+      "sha256": "6a16d3440881b816ade7589419b76374ef184d5a72e55db24fc192f99986639a"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "tamanho_bytes": 641232,
+      "sha256": "265881933a84169f146b59b5b35b1ee3d6038d6d5fbad83b1dadf81e47a9355c",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 69.49423946740362,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "tamanho_bytes": 588244,
+      "sha256": "692aa74cad45effa5a5f5407c2e6044797a0bf2f8ff693e3be85197be7dae2af",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 86.95561797696749,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5560,
+      "sha256": "6c74a7d12e80fa94b038e6cd7adc3143458a7977458007dddfe83b141a0676da"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 479703,
+      "sha256": "60af55b040b02a947eef0c4e721e27e5803519b4bbfd062b827b67576cb964c4",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 58.29235434354649,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5553,
+      "sha256": "e0dabf70bf061bc1b6888bb107526fe420815069a3e4fb51f5a417b53d43d907"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 480419,
+      "sha256": "3c7a881e43b9ae1120fac958eea398516b1ea6f6fcfd25b5b9e064a30a50193d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 83.83870715540284,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "tamanho_bytes": 5891,
+      "sha256": "9b2fd86cc83cb31840c5c7ba7bae8be2619f1cc60df0f3ee800918ffc431ec8e"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\08_grafico_densidade_por_taxon_fitoplancton.png",
+      "tamanho_bytes": 749702,
+      "sha256": "60de9fbdce8a49e189093f1cf206f31cd3a5d78818466f17bbf69c6551defc61",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 60.76256542151677,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 6194,
+      "sha256": "6c6ce5966e5bfb3d6bd33cac8e6ae3bc50b63ac5448b05f4e92419382c9b6488"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "tamanho_bytes": 747136,
+      "sha256": "812c68ec84a1d9880343919f770848df4b93cb66f6a4af4b529dec8ae08fb94a",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 42.33860289782541,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\10_df_diversidade_alfa_fitoplancton.xlsx",
+      "tamanho_bytes": 5932,
+      "sha256": "feb4876e04bcd97e5256aa2b8578c4d7430fbfb61c2d8618fab25d7548060264"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\10_grafico_diversidade_alfa_fitoplancton.png",
+      "tamanho_bytes": 482443,
+      "sha256": "27cb6b249ce72cb9e014dc1e8731b6de4f7d2a1ae2b182ffe207cda65398445d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 54.29119115865792,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\11_df_matriz_comunidade_fitoplancton.xlsx",
+      "tamanho_bytes": 5745,
+      "sha256": "ee0897507be1e575004e8a76f8bb5865ab36d3af4099a90720ac90c8e5507c4a"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "tamanho_bytes": 5311,
+      "sha256": "591918cc193dcd2e438dc96416cb06cb80dce801b46e95b513f6e2e083acab84"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\11_dendrograma_similaridade_fitoplancton.png",
+      "tamanho_bytes": 363140,
+      "sha256": "20ccc4d2f76376362217129743150aa8591420f10f59c56f598b6072d48b9708",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 34.4117015551981,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\11B_df_matriz_comunidade_pontos_fitoplancton.xlsx",
+      "tamanho_bytes": 5688,
+      "sha256": "c2e096670e1513e6d6404eaf399d2dd2e4d97f743cb9251331e035402c1544d9"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\11B_df_distancias_braycurtis_pontos_fitoplancton.xlsx",
+      "tamanho_bytes": 5249,
+      "sha256": "e14ea00935ffdc71ffd86ad8216146640154ac2334245e2fee942453f3f7e8a8"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\11B_dendrograma_similaridade_pontos_fitoplancton.png",
+      "tamanho_bytes": 292270,
+      "sha256": "2a19539559ad44a7736a92fb357e1310c21c078eb5ea24c0276eca5744ce61ad",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.33439640270768,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\12_df_curva_suficiencia_fitoplancton.xlsx",
+      "tamanho_bytes": 5843,
+      "sha256": "1a8c9fbfc068da42ef7334ddaf2590a8f80e486e0a10c0b95b61a385a985722f"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\12_curva_suficiencia_amostral_fitoplancton.png",
+      "tamanho_bytes": 735610,
+      "sha256": "dcc91c3cf10f9658b706f24dfbee044a375e0cf0e06a4da5f82c378e0d6356b2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.535461787898974,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Fitoplancton_WSPKIN001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\DarwinCore_IEF_Fitoplancton_WSPKIN001.xlsx",
+      "tamanho_bytes": 20612,
+      "sha256": "78a4653990251d6e20321024f2b0e3f41a5b107b7945973040e46d244735f6a0"
+    },
+    {
+      "arquivo": "14_tabela_sintese_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\14_tabela_sintese_fitoplancton.xlsx",
+      "tamanho_bytes": 6507,
+      "sha256": "dd3d05890dca0acfe7ee1090975c5dbc186b0d32aca3f745bdfb9e48df60d55b"
+    },
+    {
+      "arquivo": "14_grafico_sintese_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\14_grafico_sintese_fitoplancton.png",
+      "tamanho_bytes": 569707,
+      "sha256": "eede1d9de36ab8777f8f65b78a06eb968077b6fc090ec7da5dd1c0fcaee57bb4",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 63.84742981570238,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_fitoplancton_wspkin001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\relatorio_tecnico_fitoplancton_wspkin001.html",
+      "tamanho_bytes": 4133,
+      "sha256": "9c1a78c146960a5debd0356921e48e781498df93268387b01c40e2628a085677"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\manifesto_entrega_fitoplancton_wspkin001.json",
+      "tamanho_bytes": 11209,
+      "sha256": "154da80fea3bee6b6fb76f9d95d8c4be99d8f83ab1bcab7dfff5172d6c459f67"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_wspkin001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\manifesto_entrega_fitoplancton_wspkin001.xlsx",
+      "tamanho_bytes": 8011,
+      "sha256": "05dba701ef6856a3af5d09ba9168255db5e71daf06367b1a64afb65f1a28f62a"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_wspkin001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\manifesto_entrega_fitoplancton_wspkin001.md",
+      "tamanho_bytes": 2751,
+      "sha256": "50a2aec03294f9b6e4c3b3d8b65aa817c0df358d1b479ff8ae92dce0b0826c39"
+    },
+    {
+      "arquivo": "validacao_entrega_fitoplancton_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\WSP\\BAndeirinhas_Kinross\\Resultados\\Fitoplancton\\validacao_entrega_fitoplancton_wspkin001.json",
+      "tamanho_bytes": 580,
+      "sha256": "8ee838805abdcaf5ee461f00b2ef9a1c143cb19c7ec53f888e06fcda78beda1d"
+    }
+  ]
+}

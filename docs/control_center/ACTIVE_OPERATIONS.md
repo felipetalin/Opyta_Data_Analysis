@@ -7,8 +7,10 @@ continua em [PROJECTS.md](PROJECTS.md).
 
 | Operacao | Projeto | Grupo | Estado atual | Proxima acao | Registro |
 | --- | --- | --- | --- | --- | --- |
-| Migração inicial | WSPKIN001 / Kinross | Zooplâncton | `registering_species` | Aguardar preenchimento da planilha de cinco táxons novos, revalidar e aplicar cadastro antes do Gate B | [WSPKIN001_ZOOPLANCTON_MIGRACAO.md](operations/WSPKIN001_ZOOPLANCTON_MIGRACAO.md) |
-| Migração inicial | WSPKIN001 / WSP Kinross Bandeirinhas | Fitoplâncton | `registering_species` | Aguardar preenchimento da planilha de 10 táxons novos e 2 cadastros a completar; revalidar e apresentar Gate B | [WSPKIN001_FITOPLANCTON_MIGRACAO.md](operations/WSPKIN001_FITOPLANCTON_MIGRACAO.md) |
+| Migração inicial | WSPKIN001 / Kinross | Zoobentos | `awaiting_revision_approval` | Gate R: aprovar pacote corrigido, com 89 quantitativos/63 qualitativos e validação 16/16 OK | [WSPKIN001_ZOOBENTOS_MIGRACAO.md](operations/WSPKIN001_ZOOBENTOS_MIGRACAO.md) |
+| C029/2026 - migracao sem resultados | ITAGUA001 / Monitoramento da Fauna | Ictiofauna | `configuring_analysis` | Migracao e consolidacao auditadas; configurar template, paleta, saida e produtos para o Gate C | [ITAGUA001_ICTIOFAUNA_C029_2026.md](operations/ITAGUA001_ICTIOFAUNA_C029_2026.md) |
+| Migração inicial | WSPKIN001 / Kinross | Zooplâncton | `reviewing_outputs` | GBIF R03 aplicado; pacote regenerado e validado; aprovar Gate R; integrado Excel adicional fica por ultimo | [WSPKIN001_ZOOPLANCTON_MIGRACAO.md](operations/WSPKIN001_ZOOPLANCTON_MIGRACAO.md) |
+| Migração inicial | WSPKIN001 / Kinross | Fitoplâncton | `reviewing_outputs` | AlgaeBase R02 aplicado e pacote regenerado; revisar resultados; integrado Excel adicional fica por ultimo | [WSPKIN001_FITOPLANCTON_MIGRACAO.md](operations/WSPKIN001_FITOPLANCTON_MIGRACAO.md) |
 | Migracao inicial | BRACAR001 | Ictiofauna | `configuring_analysis` | Definir template, paleta, pasta de saida e produtos para o Gate C; migracao e consolidacao conferidas | [BRACAR001_ICTIOFAUNA_MIGRACAO.md](operations/BRACAR001_ICTIOFAUNA_MIGRACAO.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Zoobentos | `awaiting_revision_approval` | Revisar pacote gerado e aprovar Gate R; validacao 16/16 OK | [BRACED001_ZOOBENTOS_FONSECA_MIGRACAO.md](operations/BRACED001_ZOOBENTOS_FONSECA_MIGRACAO.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Ictiofauna | `awaiting_revision_approval` | Aprovar Gate R das figuras em paineis separados por campanha | [BRACED001_ICTIOFAUNA_FONSECA_MIGRACAO.md](operations/BRACED001_ICTIOFAUNA_FONSECA_MIGRACAO.md) |
@@ -49,6 +51,7 @@ registro em [reviews](reviews/README.md) quando houver escopo executavel.
 
 | Operacao | Projeto | Grupo | Estado final | Concluida em | Registro |
 | --- | --- | --- | --- | --- | --- |
+| Revisão R01 — taxonomia | WSPKIN001 / Kinross | Fitoplâncton e Zooplâncton | `review_completed` | 2026-09-04 | [WSPKIN001_BIOTA_AQUATICA_TAXONOMIA_REV_R01.md](reviews/WSPKIN001_BIOTA_AQUATICA_TAXONOMIA_REV_R01.md) |
 | Agosto/2026 - migracao e Darwin Core | BRAAVG002 / Brumado AVG | Ictiofauna | `completed` | 2026-09-01 | [BRAAVG002_ICTIOFAUNA_AGOSTO_2026.md](operations/BRAAVG002_ICTIOFAUNA_AGOSTO_2026.md) |
 | Revisao R01 - taxonomia | BRACED001 / Fonseca-Biota Aquatica | Zooplancton | `review_completed` | 2026-08-19 | [BRACED001_ZOOPLANCTON_TAXONOMIA_REV_R01.md](reviews/BRACED001_ZOOPLANCTON_TAXONOMIA_REV_R01.md) |
 | Migracao inicial - Fonseca | BRACED001 / Fonseca-Biota Aquatica | Zooplancton | `completed` | 2026-08-19 | [BRACED001_ZOOPLANCTON_FONSECA_MIGRACAO.md](operations/BRACED001_ZOOPLANCTON_FONSECA_MIGRACAO.md) |

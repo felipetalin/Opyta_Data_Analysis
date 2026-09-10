@@ -1,0 +1,109 @@
+{
+  "stamp": "20260902T154518",
+  "applied": true,
+  "active_groups": [
+    "Fitoplâncton",
+    "Zooplâncton"
+  ],
+  "project": {
+    "id_projeto": 211,
+    "codigo_interno_opyta": "WSPKIN001",
+    "nome_projeto": "Kinross",
+    "id_cliente": 216,
+    "nome_empresa": "WSP"
+  },
+  "campaigns": [
+    {
+      "nome_campanha": "C001-2026-03-CH",
+      "id_campanha": 969
+    },
+    {
+      "nome_campanha": "C002-2026-07-SC",
+      "id_campanha": 1013
+    }
+  ],
+  "source_summary": {
+    "pontos": 20,
+    "campanhas": 2,
+    "esforcos": 40,
+    "resultados_migraveis": 368,
+    "linhas_fonte": 368,
+    "taxons_soma_por_grupo": 130
+  },
+  "db_before": {
+    "pontos": 0,
+    "esforcos": 0,
+    "resultados_fitoplancton": 0,
+    "resultados_zooplancton": 0,
+    "consolidado": 0
+  },
+  "db_after": {
+    "pontos": 20,
+    "esforcos": 40,
+    "resultados_fitoplancton": 124,
+    "resultados_zooplancton": 244,
+    "consolidado": 368
+  },
+  "backups": {
+    "pontos": "public.backup_biota_wspkin001_20260902t154518_pontos",
+    "esforcos": "public.backup_biota_wspkin001_20260902t154518_esforcos",
+    "fitoplancton": "public.backup_biota_wspkin001_20260902t154518_fitoplancton",
+    "zooplancton": "public.backup_biota_wspkin001_20260902t154518_zooplancton",
+    "zoobentos": "public.backup_biota_wspkin001_20260902t154518_zoobentos",
+    "ictiofauna": "public.backup_biota_wspkin001_20260902t154518_ictiofauna",
+    "consolidado": "public.backup_biota_wspkin001_20260902t154518_consolidado"
+  },
+  "deleted": {
+    "resultados_fitoplancton": 0,
+    "resultados_zooplancton": 0,
+    "esforcos": 0,
+    "consolidado": 0
+  },
+  "result_counts_by_table": {
+    "resultados_fitoplancton": 124,
+    "resultados_zooplancton": 244
+  },
+  "inserted_results": {
+    "resultados_fitoplancton": 124,
+    "resultados_zooplancton": 244
+  },
+  "inserted_consolidated": 368,
+  "consolidated_by_campaign": [
+    {
+      "grupo_biologico": "Fitoplâncton",
+      "nome_campanha": "C001-2026-03-CH",
+      "linhas": 23,
+      "pontos": 6,
+      "taxons": 22,
+      "contagem_total": 56.844242424242424,
+      "biomassa_total": 0.0
+    },
+    {
+      "grupo_biologico": "Fitoplâncton",
+      "nome_campanha": "C002-2026-07-SC",
+      "linhas": 101,
+      "pontos": 7,
+      "taxons": 68,
+      "contagem_total": 269.242421,
+      "biomassa_total": 0.0
+    },
+    {
+      "grupo_biologico": "Zooplâncton",
+      "nome_campanha": "C001-2026-03-CH",
+      "linhas": 126,
+      "pontos": 9,
+      "taxons": 39,
+      "contagem_total": 17.42,
+      "biomassa_total": 0.0
+    },
+    {
+      "grupo_biologico": "Zooplâncton",
+      "nome_campanha": "C002-2026-07-SC",
+      "linhas": 118,
+      "pontos": 8,
+      "taxons": 40,
+      "contagem_total": 9.1,
+      "biomassa_total": 0.0
+    }
+  ]
+}
