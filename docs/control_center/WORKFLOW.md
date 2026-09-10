@@ -85,14 +85,14 @@ FECHAMENTO E APRENDIZADO
 | Etapa | Acao obrigatoria | Evidencia minima | Proximo estado |
 | --- | --- | --- | --- |
 | 0. Abertura | Confirmar projeto, grupo, campanhas, entradas, saida e operacao; consultar Supabase e registrar `codigo_interno_opyta`, `canonical_key` e `id_projeto` | Registro da operacao criado e identidade Supabase consultada | `validating` |
-| 1. Validacao | Validar estrutura, chaves, pontos, coordenadas, esforco, resultados, taxonomia e totais | Relatorio de validacao, auditoria de coordenadas e lista de ajustes | `awaiting_data_approval` |
+| 1. Validacao | Validar estrutura, chaves, pontos, coordenadas, esforco, resultados, taxonomia, tipos de amostragem e totais | Relatorio de validacao, auditoria de coordenadas, reconciliacao por tipo de amostragem e lista de ajustes | `awaiting_data_approval` |
 | Gate A | Aplicar ajustes permitidos e apresentar o pacote corrigido, incluindo decisao sobre coordenadas | Aprovacao explicita do usuario | `registering_species` |
 | 2. Especies | Identificar especies novas, cadastrar e auditar todos os atributos exigidos | Relatorio de completude taxonomica | `awaiting_species_approval` |
 | Gate B | Resolver campos incertos, endemismo, origem, ameaca e demais atributos | Aprovacao explicita do usuario ou registro `nao aplicavel` | `ready_to_migrate` |
-| 3. Migracao | Reconfirmar identidade Supabase no preflight, executar carga controlada e comparar fonte com banco | Totais Excel x banco, `id_projeto` reconfirmado e divergencias | `consolidating` |
+| 3. Migracao | Reconfirmar identidade Supabase no preflight, executar carga controlada e comparar fonte com banco | Totais Excel x banco por tipo de amostragem, `id_projeto` reconfirmado e divergencias | `consolidating` |
 | 4. Consolidacao | Criar backup, consolidar e auditar a fatia do projeto | Nome do backup e comparacao base x consolidado | `configuring_analysis` |
 | 5. Configuracao | Propor template pelo numero de campanhas, paleta, pasta de saida e produtos | Mapa de decisao analitica | `awaiting_analysis_approval` |
-| Gate C | Confirmar template, paleta e pasta de saida | Aprovacao explicita do usuario | `generating_products` |
+| Gate C | Confirmar template, paleta, pasta de saida e matriz produto x tipo de dado/amostragem | Aprovacao explicita do usuario | `generating_products` |
 | 6. Geracao | Gerar bases, tabelas, graficos, HTML e manifesto | Produtos e lastro reprodutivel | `reviewing_outputs` |
 | 7. Revisao | Conferir numeros, texto, layout e integridade | Validadores, hashes e pendencias visuais | `completed`, `review_planned` ou fluxo de revisao |
 | 8. Fechamento | Atualizar dossie, registries, patterns, portfolio e backlog | Registro da operacao encerrado | `completed` |
@@ -122,6 +122,13 @@ Antes de cadastrar especies ou migrar:
 - preservar os arquivos originais;
 - identificar qualquer ajuste que dependa de criterio tecnico do usuario;
 - registrar a mensagem ou decisao que autorizou o avanco.
+- quando houver amostragem qualitativa e quantitativa, preservar o tipo
+  explicito da fonte e reconciliar, por grupo/campanha/metodo/tipo, linhas da
+  fonte, linhas preparadas e medida ou presencas;
+- conferir a compatibilidade entre o tipo do resultado e o tipo do esforco;
+- bloquear o gate se tipos distintos da fonte forem colapsados ou se valor
+  qualitativo for interpretado como abundancia, conforme
+  [AQUATIC_SAMPLING_TYPE_POLICY.md](AQUATIC_SAMPLING_TYPE_POLICY.md).
 
 ### Gate B — Especies
 
@@ -153,6 +160,9 @@ Antes da geracao em lote, confirmar conjuntamente:
 2. paleta ou identidade visual;
 3. pasta final de saida;
 4. produtos esperados e formato do relatorio.
+5. para bases mistas, matriz produto x tipo de amostragem, incluindo o
+   tratamento de composicao, riqueza, abundancia, diversidade, similaridade,
+   suficiencia e indices bioticos.
 
 O pipeline pode propor defaults a partir do portfolio, mas nao deve assumir a
 aprovacao quando houver mais de uma escolha razoavel.
@@ -206,8 +216,14 @@ patterns e portfolio.
   explicitada e aprovada pelo usuario como ressalva antes da migracao.
 - Migracao deve falhar fechada se a validacao ou a auditoria taxonomica tiver
   bloqueios.
+- Em biota aquatica mista, a migracao tambem deve falhar fechada se o tipo
+  explicito for alterado, divergir do esforco ou nao reconciliar entre fonte,
+  preparacao, banco e consolidado.
 - Consolidacao deve ter backup ou estrategia de reversao registrada.
 - Geracao final deve produzir manifesto ou inventario equivalente.
+- O Gate R deve bloquear o pacote quando linhas por tipo, presencas
+  qualitativas ou total quantitativo divergirem do lastro aprovado, ou quando
+  um produto usar tipo de amostragem diferente da matriz aprovada no Gate C.
 - Ajustes apenas de layout podem manter a operacao em `reviewing_layout` sem
   invalidar os resultados numericos ja auditados.
 - Execucoes por LLM devem obedecer a politica de contexto minimo antes de
