@@ -60,6 +60,12 @@
   - estrategia aprovada no Gate A:
 - ajustes aplicados:
 - arquivos corrigidos:
+- tipos de amostragem:
+  - fonte por grupo/campanha/metodo/tipo:
+  - compatibilidade resultado x esforco:
+  - estrategia para qualitativo:
+  - estrategia para quantitativo:
+  - reconciliacao fonte x preparacao:
 
 ## Cadastro E Auditoria De Especies
 
@@ -72,6 +78,7 @@
 
 - IDs:
 - totais da fonte:
+- totais por tipo na fonte/preparacao/banco/consolidado:
 - totais no banco:
 - coordenadas no banco/consolidado:
 - divergencias:
@@ -85,6 +92,7 @@
 - paleta:
 - pasta de saida:
 - produtos:
+- matriz produto x tipo de dado/amostragem:
 
 ## Pendencias
 
@@ -100,6 +108,7 @@
 
 - validadores:
 - manifesto:
+- reconciliacao final de tipos, presencas e total quantitativo:
 - patterns:
 - portfolio:
 - backlog:

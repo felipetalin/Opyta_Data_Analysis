@@ -26,6 +26,9 @@ aprovacao do usuario.
 | --- | --- | --- |
 | Fluxo operacional | Oficial | [WORKFLOW.md](WORKFLOW.md) |
 | Politica de contexto LLM | Oficial | [LLM_CONTEXT_POLICY.md](LLM_CONTEXT_POLICY.md) |
+| Identidade Supabase | Oficial | [SUPABASE_IDENTITY_POLICY.md](SUPABASE_IDENTITY_POLICY.md) |
+| Tipos de amostragem aquatica | Oficial | [AQUATIC_SAMPLING_TYPE_POLICY.md](AQUATIC_SAMPLING_TYPE_POLICY.md) |
+| Pendências taxonômicas | Oficial | [TAXON_REGISTRATION_INTAKE_POLICY.md](TAXON_REGISTRATION_INTAKE_POLICY.md) |
 | Riscos de custo de tokens | Ativo | [TOKEN_COST_RISK_REGISTER.md](TOKEN_COST_RISK_REGISTER.md) |
 | Fluxo de meio fisico | Ativo | [MEIO_FISICO_WORKFLOW.md](MEIO_FISICO_WORKFLOW.md) |
 | Fluxo de revisao | Oficial | [REVIEW_WORKFLOW.md](REVIEW_WORKFLOW.md) |
@@ -89,10 +92,10 @@ entram quando houver dependencia tecnica registrada.
 
 | Gate | Confirmacao do usuario |
 | --- | --- |
-| A | Dados validados, coordenadas auditadas e ajustes aceitos. |
+| A | Dados validados, coordenadas e tipos de amostragem auditados e ajustes aceitos. |
 | B | Cadastro e atributos das especies aceitos. |
-| C | Template, paleta, pasta de saida e produtos aceitos. |
-| R | Pacote revisado aceito depois da comparacao antes/depois. |
+| C | Template, paleta, pasta de saida, produtos e matriz produto x tipo aceitos. |
+| R | Pacote revisado e totais por tipo aceitos depois da comparacao antes/depois. |
 
 O trabalho pode avancar automaticamente dentro de uma etapa, mas deve parar
 quando chegar a um gate ainda nao aprovado.
