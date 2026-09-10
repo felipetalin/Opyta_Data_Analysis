@@ -1,0 +1,120 @@
+{
+  "source": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Campanhas de campo\\29_campanha-Julho_26\\Ictiofauna\\3.Agosto-26\\Planilha\\projeto_ictio_real-Guanhães_260817.xlsx",
+  "sha256": "3f8ca8ac99a2f3c7ba11d89b28dfd7969d638a6e05f257aa8a6b12951e90abc0",
+  "campaign": "C029-2026-08-SC",
+  "project": "ITAGUA001",
+  "approved_in_memory_adjustments": [
+    {
+      "source_excel_row": 10872,
+      "field": "Metodo_de_Captura",
+      "before": "Rede de emalhar",
+      "after": "Peneira e arrasto",
+      "authorization": "Usuario confirmou explicitamente na sessao em 2026-09-08"
+    }
+  ],
+  "counts": {
+    "Pontos_e_Campanhas": 32,
+    "Resultados_Ictiofauna": 99,
+    "Metadados_Esforco": 49
+  },
+  "individuals": "235",
+  "species": [
+    "Astyanax lacustris",
+    "Cichla kelberi",
+    "Delturus carinotus",
+    "Deuterodon taeniatus",
+    "Geophagus brasiliensis",
+    "Hoplias intermedius",
+    "Hoplias malabaricus",
+    "Hypomasticus copelandii",
+    "Hypomasticus thayeri",
+    "Hypostomus affinis",
+    "Knodus moenkhausii",
+    "Oreochromis niloticus",
+    "Phalloceros uai",
+    "Rhamdia quelen"
+  ],
+  "aggregated_rows": 66,
+  "missing_result_effort_keys": [],
+  "missing_effort_point_keys": [],
+  "duplicate_points": 0,
+  "duplicate_efforts": 0,
+  "missing_result_group_keys": 0,
+  "dates": [
+    "2026-08-01"
+  ],
+  "methods": "Metodo_de_Captura  Tipo_de_Amostragem\nPeneira e arrasto  Qualitativa           32\nRede de emalhar    Quantitativa          17",
+  "numeric_issues": {
+    "Numero_de_Individuos": {
+      "missing_or_invalid": 0,
+      "negative": 0,
+      "zero": 0
+    },
+    "CT_cm": {
+      "missing_or_invalid": 0,
+      "negative": 0,
+      "zero": 0
+    },
+    "PC_g": {
+      "missing_or_invalid": 0,
+      "negative": 0,
+      "zero": 0
+    },
+    "Esforco": {
+      "missing_or_invalid": 0,
+      "negative": 0,
+      "zero": 0
+    }
+  },
+  "coordinates": {
+    "Latitude": {
+      "missing": 0,
+      "invalid": 0,
+      "min": -19.076922,
+      "max": -18.891613
+    },
+    "Longitude": {
+      "missing": 0,
+      "invalid": 0,
+      "min": -43.076668,
+      "max": -42.683107
+    },
+    "previous_campaign_compared": 32,
+    "previous_campaign_changed_points": []
+  },
+  "database_identity": [
+    {
+      "id_projeto": 165,
+      "codigo_interno_opyta": "ITAGUA001",
+      "nome_projeto": "Monitoramento da Fauna"
+    }
+  ],
+  "database_c029": [],
+  "taxonomy": {
+    "matched": 14,
+    "missing_species": [],
+    "missing_attribute_counts": {
+      "status_ameaca_nacional": 0,
+      "status_ameaca_global": 0,
+      "origem": 0,
+      "endemismo": 0
+    },
+    "missing_attributes_by_species": {
+      "Hypomasticus copelandii": [],
+      "Hypomasticus thayeri": [],
+      "Oreochromis niloticus": [],
+      "Deuterodon taeniatus": [],
+      "Hoplias malabaricus": [],
+      "Hypostomus affinis": [],
+      "Cichla kelberi": [],
+      "Geophagus brasiliensis": [],
+      "Astyanax lacustris": [],
+      "Hoplias intermedius": [],
+      "Knodus moenkhausii": [],
+      "Phalloceros uai": [],
+      "Rhamdia quelen": [],
+      "Delturus carinotus": []
+    },
+    "state_context_review": {}
+  }
+}
