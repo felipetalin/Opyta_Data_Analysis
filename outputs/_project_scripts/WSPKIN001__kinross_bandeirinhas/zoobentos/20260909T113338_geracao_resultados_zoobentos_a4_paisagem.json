@@ -1,0 +1,404 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-09T14:36:44.932848Z",
+  "project_code": "WSPKIN001",
+  "project_id": 211,
+  "group": "Zoobentos",
+  "action": "generate_bentos_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado",
+  "figures_count": 16,
+  "figures_ok": 16,
+  "files_count": 39,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\zoobentos\\20260909T113338_contact_sheet_figuras_zoobentos_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 152,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-07-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 9,
+    "taxa_total": 41,
+    "families_total": 31,
+    "orders_total": 11,
+    "abundance_total": 286.0,
+    "unit": "org/amostra",
+    "max_richness": 21.0,
+    "max_richness_point": "PT_05",
+    "max_richness_campaign": "C02-Seca",
+    "max_abundance": 102.0,
+    "max_abundance_point": "PT_04",
+    "max_abundance_campaign": "C02-Seca",
+    "dominant_taxon": "Chironomidae",
+    "dominant_taxon_abundance": 102.0,
+    "dominant_order": "Diptera",
+    "dominant_order_abundance": 162.0,
+    "max_bmwp": 113.0,
+    "max_bmwp_point": "PT_05",
+    "max_bmwp_campaign": "C02-Seca",
+    "mean_ept_pct": 16.406006847183317,
+    "mean_chol_pct": 21.25505757858699,
+    "suff_obs": 31.0,
+    "suff_est": 43.2352941176469,
+    "rows_quantitative": 89,
+    "rows_qualitative": 63
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\00_base_consolidada_zoobentos.xlsx",
+      "tamanho_bytes": 20078,
+      "sha256": "89f9ad7fdd03897bcd0b47a19feb9a2a43cb450ccec8956d4772099764293009"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\01_tabela_composicao_zoobentos.xlsx",
+      "tamanho_bytes": 7925,
+      "sha256": "1a8790bf5fecceec65894337cd5a175cc35fb024544118ce5c52570b4d03ef83"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\01_tabela_ocorrencia_zoobentos.xlsx",
+      "tamanho_bytes": 8463,
+      "sha256": "8f1cdf50d75ff4dc076bb75b0b5ed12297166787dbcbca661d9a8211a8546d3c"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5574,
+      "sha256": "65acfe032dff40e06b03ab4594da4f3e4991903fc2813b32854db32fb87add8e"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\02_grafico_riqueza_por_ponto_zoobentos.png",
+      "tamanho_bytes": 408569,
+      "sha256": "63a0a8caed50e1a2daed4edde98809a22d1030c29a399bc7d4d56dff5bf6d11e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 76.45669486727775,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5586,
+      "sha256": "57cdcb290927a79446205236f00ef7a8ca84ba2dde14984f683810add8ae3d27"
+    },
+    {
+      "arquivo": "03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "tamanho_bytes": 446626,
+      "sha256": "b9635ee23db5aa95979a39320f5315f359dfbc534019a2f74c7f3f312b4a1f99",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 55.362794346966936,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "tamanho_bytes": 5357,
+      "sha256": "cce629be8c69866836e808d0b40d10a857f8a330f74f62e1a559a98d9ca41e6c"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "tamanho_bytes": 981119,
+      "sha256": "eb5994e2dd617dadc05d3dd2d1cceb5d8d404ff872fa614243d3950a92487b37",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 89.13044375790395,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "tamanho_bytes": 802338,
+      "sha256": "b71b4bde35576cb38c48819acaf93eed22f913e6fa10e0faed045555565b25f5",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 76.87340265984963,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 6151,
+      "sha256": "73ddcd6d402854dd7ba1f5381f25c09210becb1b4f83c92b7c9005641fd73514"
+    },
+    {
+      "arquivo": "06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 534808,
+      "sha256": "11e5151b393b2c661f999e8024cff1b68805cd0cffbebfddaadc2cf956fbec8c",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 49.70998211714238,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 6341,
+      "sha256": "48178e5bf64693bdacb07f9e264eb6bcdd24e59110aa4e0d6b7e648dddff460f"
+    },
+    {
+      "arquivo": "07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 527006,
+      "sha256": "c5bf17873ce58ec258b11204c72b112a49e797f70d2d5a5ae980e6bcb51e862b",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 78.5059283524,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "tamanho_bytes": 6486,
+      "sha256": "aaf92781a6550c4f1d8654d14f7a33234edd9a28a740fa0493e4ce86f6f89e18"
+    },
+    {
+      "arquivo": "08_grafico_abundancia_por_taxon_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\08_grafico_abundancia_por_taxon_zoobentos.png",
+      "tamanho_bytes": 590174,
+      "sha256": "314a172102f291470037c3f9b287b47b82e24a39e65ba6153882ad0e3e5f0cd6",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 45.85332726671238,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 7140,
+      "sha256": "8b04caf8f99d1caaa0b306e7430955de3f616176349b3d0592c1f5c3bd6a0d61"
+    },
+    {
+      "arquivo": "09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "tamanho_bytes": 643891,
+      "sha256": "625a5501d26358b787dd0eead100e18ebc296e98d6b740d42e32941baa582fc5",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 40.59380237753058,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\10_df_diversidade_alfa_zoobentos.xlsx",
+      "tamanho_bytes": 6419,
+      "sha256": "c1ab57578a416f5e2c26c400efabe6ced9593b72c8252e44bde47927cde22540"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\10_grafico_diversidade_alfa_zoobentos.png",
+      "tamanho_bytes": 544169,
+      "sha256": "d71fe4c7be2818e7ad3b16de2becc711a2fc742038986dff482682bdda5e445d",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 84.56155370181489,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\11_df_matriz_comunidade_zoobentos.xlsx",
+      "tamanho_bytes": 7162,
+      "sha256": "348e888d42445efa1653044c51abccc8e5322738ebccb492ff6fb7ad1bad1e3b"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\11_df_distancias_braycurtis_zoobentos.xlsx",
+      "tamanho_bytes": 6940,
+      "sha256": "2b0c5d906b7a40c80d4b4340add765d994593caf84ad611ed98cbac4a509c5f5"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\11_dendrograma_similaridade_zoobentos.png",
+      "tamanho_bytes": 431471,
+      "sha256": "6e5436516ee5f0347dd1216a0ebe21836a98ab74a20a49fc96dc0a56c586e42a",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 38.41491732869578,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 6503,
+      "sha256": "c9df7a980d5724114a8aff838927a980cbf22fb8be8fe1d4eae17ac46d433abf"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 5824,
+      "sha256": "50099ca442f5f19edf0aba93c938c26d0ba3fb4dbedfa9e96590ca1fcec44e20"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "tamanho_bytes": 286479,
+      "sha256": "4ffec23bae35d76f24aad61cee4d60b5ec44dc38fb04e9d597011207ea43b088",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 30.812195891395742,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\12_df_curva_suficiencia_zoobentos.xlsx",
+      "tamanho_bytes": 5888,
+      "sha256": "2dbbc8ee0e486c7d868a008fdb182d672bed020200426379c62bdaed4b8f78e7"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\12_curva_suficiencia_amostral_zoobentos.png",
+      "tamanho_bytes": 592853,
+      "sha256": "6d0b473d69e6c528666ebfd5a493fff58f418a62f4ffd42965b847345a3cb0ef",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 31.402402689241235,
+      "nonblank": true
+    },
+    {
+      "arquivo": "13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "tamanho_bytes": 6335,
+      "sha256": "a92a548137c995201e1edfb592d852895df2be0f1dec964c8e9fc5245ae956ff"
+    },
+    {
+      "arquivo": "13_grafico_bmwp_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\13_grafico_bmwp_por_ponto_zoobentos.png",
+      "tamanho_bytes": 491305,
+      "sha256": "3671be3f454cd9355d4320d96fcff6598f84c28db57c8d331239c15b1c72eb16",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 61.04954878373715,
+      "nonblank": true
+    },
+    {
+      "arquivo": "14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "tamanho_bytes": 552415,
+      "sha256": "e029cfd5434d9c7ccd6d9a94ec029f90258609af82ad60f29fda84e6ed1a067c",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 53.654983738311266,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zoobentos_WSPKIN001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\DarwinCore_IEF_Zoobentos_WSPKIN001.xlsx",
+      "tamanho_bytes": 22405,
+      "sha256": "55c44734f6aa4247110a00e34e10d005d49b2611aec53fef3613e16210599332"
+    },
+    {
+      "arquivo": "15_tabela_sintese_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\15_tabela_sintese_zoobentos.xlsx",
+      "tamanho_bytes": 8255,
+      "sha256": "f63dd89237ddef57fca534de89deee7507da0f71cb2676d8ecbd10d3afca72c0"
+    },
+    {
+      "arquivo": "15_grafico_sintese_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\15_grafico_sintese_zoobentos.png",
+      "tamanho_bytes": 769300,
+      "sha256": "b9286f646caa7049d7793e4b5158715c0d7bfe05c1df0aa7018df5ff86622f70",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 86.47670338094518,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zoobentos_wspkin001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\relatorio_tecnico_zoobentos_wspkin001.html",
+      "tamanho_bytes": 3850,
+      "sha256": "3e349386df8bc6f4951232249afd6940ecc98794c9bf1e16fa0c0d8ad7639e69"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\manifesto_entrega_zoobentos_wspkin001.json",
+      "tamanho_bytes": 20308,
+      "sha256": "5ce4feb95c3ddaf0ebf5d92c236951f9540184a7251d1600c16984683928f516"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_wspkin001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\manifesto_entrega_zoobentos_wspkin001.xlsx",
+      "tamanho_bytes": 9355,
+      "sha256": "2fc981ce0081a9e1103479b95de0f2c2fca5ae6bcbf86aacb840fe546095886e"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_wspkin001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\manifesto_entrega_zoobentos_wspkin001.md",
+      "tamanho_bytes": 2639,
+      "sha256": "a1088dbd6a2c0279fb0791a7c5bf6e51d7000f1288f9a8803e085e7290637d73"
+    },
+    {
+      "arquivo": "validacao_entrega_zoobentos_wspkin001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\validacoes\\wspkin001_zoobentos_tipo_amostragem_rev_r01_20260909\\pacote_revisado\\validacao_entrega_zoobentos_wspkin001.json",
+      "tamanho_bytes": 874,
+      "sha256": "9e47b3176d1303d00308c0307b85f74569e6f4783e5899b08e6dda4597620883"
+    }
+  ],
+  "audit_json": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\zoobentos\\20260909T113338_geracao_resultados_zoobentos_a4_paisagem.json",
+  "audit_xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\WSPKIN001__kinross_bandeirinhas\\zoobentos\\20260909T113338_geracao_resultados_zoobentos_a4_paisagem.xlsx"
+}
