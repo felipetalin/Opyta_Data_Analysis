@@ -1,0 +1,20 @@
+{
+  "id": "zooplancton",
+  "label": "Zoopl\u00e2ncton",
+  "result_sheet": "Resultados_Zooplancton",
+  "species_sheet": "Cadastro_Especies",
+  "species_group_aliases": ["Zoopl\u00e2ncton", "Zooplancton"],
+  "taxonomy_profile": "zooplankton",
+  "taxonomy_sources": ["WoRMS", "CTFB", "GBIF"],
+  "severity_overrides": {
+    "INCOMPLETE_SPECIES_CATALOG": "warning"
+  },
+  "rules": {
+    "keep_sp": true,
+    "classify_sp_by_genus": true,
+    "accept_confirmed_spelling_corrections": true,
+    "keep_professional_on_partial": true,
+    "keep_professional_on_conflict": true,
+    "missing_value": "N.A."
+  }
+}

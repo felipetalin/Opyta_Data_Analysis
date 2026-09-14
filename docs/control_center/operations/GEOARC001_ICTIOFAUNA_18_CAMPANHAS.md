@@ -340,7 +340,7 @@ Resumo do bloqueio restante por campanha/ponto:
 
 | Revisao | Tipo | Impacto | Estado | Registro |
 | --- | --- | --- | --- | --- |
-| | | | | |
+| R05 - coordenadas Geoambiental | data | R3 | awaiting_revision_approval | docs/control_center/reviews/GEOARC001_ICTIOFAUNA_COORDENADAS_GEOAMBIENTAL_REV_R05.md |
 
 ## Fechamento E Aprendizados
 

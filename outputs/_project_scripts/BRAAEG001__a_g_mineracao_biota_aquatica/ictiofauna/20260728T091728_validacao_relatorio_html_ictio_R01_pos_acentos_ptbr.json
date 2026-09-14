@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-28T12:17:29.955394Z",
+  "project_code": "BRAAEG001",
+  "group": "Ictiofauna",
+  "revision": "R01",
+  "action": "fix_html_report_ptbr_accents",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna",
+  "report": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\relatorio_tecnico_ictiofauna_braaeg001.html",
+  "manifest_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\manifesto_entrega_ictiofauna_braaeg001.json",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\manifesto_entrega_ictiofauna_braaeg001.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\manifesto_entrega_ictiofauna_braaeg001.md",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\ictiofauna\\validacao_entrega_ictiofauna_braaeg001.json"
+  ],
+  "status": "OK",
+  "checks": [
+    {
+      "arquivo": "relatorio_tecnico_ictiofauna_braaeg001.html",
+      "tamanho_bytes": 4289,
+      "sha256": "69ae30163ba78db80883a074799fb278310b554097cbd2d59b54ecd126262c27",
+      "termos_visiveis_sem_acento": "",
+      "status": "OK"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "validated_at": "2026-08-19T22:49:54.723858Z",
+  "status": "OK",
+  "files_checked": 35,
+  "figures_checked": 14,
+  "missing_files": [],
+  "zero_size_files": [],
+  "bad_dimensions": [],
+  "blank_figures": [],
+  "errors_count": 0,
+  "warnings": [
+    "Densidade, diversidade e similaridade foram calculadas somente com registros quantitativos.",
+    "Registros qualitativos foram usados para composição, ocorrência, riqueza taxonômica e suficiência amostral.",
+    "A figura 11B agrega as campanhas e apresenta a similaridade de Bray-Curtis por ponto."
+  ]
+}

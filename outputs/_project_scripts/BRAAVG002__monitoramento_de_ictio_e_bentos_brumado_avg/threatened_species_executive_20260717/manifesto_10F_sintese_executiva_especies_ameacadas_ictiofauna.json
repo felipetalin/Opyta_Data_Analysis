@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-07-17T11:15:25",
+  "project_code": "BRAAVG002",
+  "status": "generated",
+  "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10F_grafico_sintese_executiva_especies_ameacadas_ictiofauna.png",
+  "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10F_df_sintese_executiva_especies_ameacadas_ictiofauna.xlsx",
+  "chapter_text": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10F_texto_capitulo_especies_ameacadas_ictiofauna.md",
+  "support_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\threatened_species_executive_20260717\\10F_grafico_sintese_executiva_especies_ameacadas_ictiofauna.png",
+  "support_table": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\threatened_species_executive_20260717\\10F_df_sintese_executiva_especies_ameacadas_ictiofauna.xlsx",
+  "support_chapter_text": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\threatened_species_executive_20260717\\10F_texto_capitulo_especies_ameacadas_ictiofauna.md",
+  "species": [
+    "Neoplecostomus franciscoensis",
+    "Pareiorhaphis mutuca"
+  ],
+  "source_tables": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10A_df_sintese_cpuen_especies_ameacadas_ictiofauna.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\10B_df_mini_mapas_especies_ameacadas_ano_ictiofauna.xlsx"
+  ]
+}

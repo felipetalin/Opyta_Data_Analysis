@@ -1,0 +1,41 @@
+{
+  "executed_at": "2026-07-28T16:35:15",
+  "project_id": 195,
+  "group": "Fitoplâncton",
+  "product": "mini_mapa_cyanobacteria",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\Geo\\1AEMG002\\Hidrografia.kmz",
+  "hydro_lines": 1122,
+  "records": 11,
+  "point_campaign_occurrences": 10,
+  "unique_points": 8,
+  "unique_taxa": 7,
+  "campaigns": [
+    "C01-Chuva",
+    "C02-Seca"
+  ],
+  "outputs": {
+    "figure": {
+      "arquivo": "13_mini_mapa_cyanobacteria_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\13_mini_mapa_cyanobacteria_fitoplancton.png",
+      "tamanho_bytes": 1276410,
+      "sha256": "b1c9b50be777b968cbda526428b58e0091325f9486acaf60e7adc2d23525ea60",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "nonblank": true,
+      "pixel_std": 33.991508900094075
+    },
+    "table": {
+      "arquivo": "13_df_mini_mapa_cyanobacteria_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\fitoplancton\\13_df_mini_mapa_cyanobacteria_fitoplancton.xlsx",
+      "sha256": "b9aa98deeedaff6a9232f6de2cd7761fd025760fc09bf7e900084363d711ba91",
+      "tamanho_bytes": 6754
+    }
+  },
+  "notes": [
+    "Produto gerado para ilustrar ocorrência, riqueza e densidade de Cyanobacteria em Fitoplâncton.",
+    "A base possui 10 ocorrências ponto-campanha e 8 pontos únicos com registro de Cyanobacteria.",
+    "O texto técnico deve evitar 'dez pontos amostrais' se a intenção for pontos únicos; usar 'dez ocorrências ponto-campanha' ou 'oito pontos amostrais'."
+  ]
+}

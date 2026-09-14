@@ -1,0 +1,338 @@
+{
+  "schema_version": "1.0",
+  "canonical_key": "BRACED001__fonseca_biota_aquatica",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "client": "Brandt / Cedro Mineracao",
+  "site": "Fonseca",
+  "status": "awaiting_revision_approval",
+  "project_scripts_dir": "outputs/_project_scripts/BRACED001__fonseca_biota_aquatica",
+  "operation_record": "docs/control_center/operations/BRACED001_ICTIOFAUNA_FONSECA_MIGRACAO.md",
+  "reference_profile": "BRAAEG001__a_g_mineracao_biota_aquatica",
+  "migration_source": {
+    "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/Opyta_ictiofauna_banco_dados_mar-jul_26-260813.xlsx",
+    "group": "ictiofauna",
+    "sha256": "DB31C59C956ABB73AED0E9791042623B92E5123E8424C6E5A55AE5C1E96029E5",
+    "campaigns": 2,
+    "point_campaign_rows": 36,
+    "effort_rows": 42,
+    "result_rows": 55,
+    "content_status": "r07_gate_a_ready_awaiting_approval"
+  },
+  "coordinate_reference": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/geo/Geo_Fonseca/Anteriores/pontos_geo.kml",
+  "species_source": {
+    "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/Cadastro_especies_opyta_fonseca-ictio-2600813.xlsx",
+    "sha256": "4AD6B03FD28978A04B7D852805B22A0D4D335C77D7124544EF68D0D33A0589E5",
+    "taxa_rows": 14,
+    "sheet_name": "Cadastro_Especies",
+    "validation_status": "14_of_14_valid",
+    "new_species": ["Brycon opalinus"],
+    "existing_species_strategy": "fill_nulls_only_preserve_non_null_database_values",
+    "gate_b_audit": "ictiofauna/gate_b/gate_b_especies_braced001_20260813T122427.xlsx",
+    "gate_b_status": "approved_applied_validated",
+    "new_species_count": 1,
+    "existing_species_fill_nulls_count": 11,
+    "null_fields_to_fill": 91,
+    "preserved_differences": 39,
+    "required_gaps_after_proposed_action": 0
+  },
+  "migration": {
+    "status": "applied_validated",
+    "dry_run": "ictiofauna/migration/20260813T122913_dry_run_migracao_ictiofauna_braced001.xlsx",
+    "apply": "ictiofauna/migration/20260813T123003_apply_migracao_ictiofauna_braced001.xlsx",
+    "campaigns": 2,
+    "points": 36,
+    "logical_efforts": 41,
+    "results": 42,
+    "taxa": 14,
+    "individuals": 192,
+    "consolidated_rows": 42,
+    "legacy_orphan_points_removed": 18,
+    "backup_prefix": "public.backup_biota_braced001_20260813t123003"
+  },
+  "analysis_configuration": {
+    "status": "gate_c_approved_generated_r01_pending_review",
+    "project_config": "configs/projects/braced001_fonseca_biota_aquatica.json",
+    "client_theme": "configs/clients/braced001.json",
+    "scope": "ictiofauna/analysis_scope_gate_c.md",
+    "template": "fersam001_virita001_short_diagnostic",
+    "palette": "fersam001_green",
+    "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineração/Produtos/Resultados/Fonseca",
+    "reference_output": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/A&G Mineração/resultados/migracao_biota/ictiofauna"
+  },
+  "delivery": {
+    "status": "r01_pending_review",
+    "files": 41,
+    "workbooks": 20,
+    "figures": 17,
+    "html": 1,
+    "json": 2,
+    "markdown": 1,
+    "taxa": 14,
+    "individuals": 192,
+    "formula_errors": 0,
+    "visual_issues": 0,
+    "indicator_minimap": {
+      "species": [
+        "Brycon opalinus",
+        "Pareiorhaphis scutula",
+        "Trichomycterus brasiliensis"
+      ],
+      "figure": "15_mini_mapa_especies_indicadoras_cpuen_ictiofauna.png",
+      "workbook": "15_df_mini_mapa_especies_indicadoras_cpuen_ictiofauna.xlsx",
+      "layout": "a3_landscape_2_campaigns_x_3_species",
+      "label_strategy": "triangular_and_diagonal_offsets_with_leader_lines"
+    },
+    "revision": "docs/control_center/reviews/BRACED001_ICTIOFAUNA_PAINEIS_CAMPANHAS_REV_R01.md"
+  },
+  "zooplancton": {
+    "status": "awaiting_revision_approval",
+    "operation_record": "docs/control_center/operations/BRACED001_ZOOPLANCTON_FONSECA_MIGRACAO.md",
+    "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Resultados/Zooplancton",
+    "migration_source": {
+      "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/Resultados_Migracao_zoo.xlsx",
+      "sha256": "A6C525D6D491D90ED85892B669D58C065CBF826D7C0711CB53863D9E2731E9B7",
+      "previous_sha256": "C111DD7A28A3F7EF8A197236C68E70E4FC8E9F8F97752A954339ABC533AE1C57",
+      "campaigns": 2,
+      "points": 18,
+      "point_campaign_rows": 36,
+      "effort_rows": 72,
+      "result_rows": 624,
+      "taxa": 58
+    },
+    "species_source": {
+      "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/Cadastro_especies_fonseca_zoo_FINAL_CONFERENCIA.xlsx",
+      "sha256": "6CF07D496F03D7CB834B491D0638B756265297E7DA4AD8A80A0775A1F103DC8A",
+      "taxa_rows": 58,
+      "gate_b_status": "approved_applied_validated"
+    },
+    "gate_a": {
+      "status": "approved_pass_with_warnings",
+      "approved_at": "2026-08-18",
+      "validation": "zooplancton/validation/20260818T180817_validacao_gate_a_zooplancton_braced001.xlsx",
+      "previous_blocked_validation": "zooplancton/validation/20260818T114112_validacao_gate_a_zooplancton_braced001.xlsx",
+      "blocker_root_causes": 0,
+      "warnings": 1,
+      "coordinate_rows_valid": 36,
+      "coordinate_max_distance_m": 0,
+      "coordinate_tolerance_m": 50
+    },
+    "gate_b": {
+      "status": "approved_applied_validated",
+      "approved_at": "2026-08-18",
+      "audit": "zooplancton/gate_b/gate_b_especies_zooplancton_braced001_20260818T181529.xlsx",
+      "overrides": "zooplancton/gate_b/taxon_overrides_approved_20260818.json",
+      "database_writes": 58,
+      "result_taxa": 58,
+      "source_taxa": 58,
+      "initial_new_taxa": 4,
+      "expected_new_taxa_after_correction": 3,
+      "existing_taxa_after_correction": 55,
+      "preserved_differences": 200,
+      "required_gaps_after_proposed_action": 0,
+      "corrections": [
+        "Difflugia lithophila -> Difflugia litophila",
+        "Ciliado NI -> Ciliado ni",
+        "Correct shifted taxonomy for Filinia terminalis"
+      ]
+    },
+    "migration": {
+      "status": "applied_validated",
+      "dry_run": "zooplancton/migration/20260818T181215_dry_run_migracao_biota_aquatica_braced001.xlsx",
+      "apply": "zooplancton/migration/20260818T181243_apply_migracao_biota_aquatica_braced001.xlsx",
+      "post_audit": "zooplancton/migration/20260818T181537_auditoria_pos_migracao_zooplancton_braced001.xlsx",
+      "campaigns": 2,
+      "point_campaign_rows": 36,
+      "efforts": 36,
+      "results": 624,
+      "taxa": 58,
+      "consolidated_rows": 624,
+      "post_audit_differences": 0,
+      "backup_prefix": "public.backup_biota_braced001_20260818t181243"
+    },
+    "analysis_configuration": {
+      "status": "gate_c_approved_generated_pending_review",
+      "approved_at": "2026-08-18",
+      "reference": "BRAAEG001 zooplancton operational current",
+      "figures": 14,
+      "xlsx_files": 20,
+      "campaign_panels": true,
+      "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Resultados/Zooplancton",
+      "validation_status": "OK",
+      "generation_audit": "zooplancton/20260818T181722_geracao_resultados_zooplancton_a4_paisagem.xlsx",
+      "contact_sheet": "zooplancton/20260818T181722_contact_sheet_figuras_zooplancton_a4_paisagem.png"
+    }
+  },
+  "fitoplancton": {
+    "status": "awaiting_revision_approval",
+    "operation_record": "docs/control_center/operations/BRACED001_FITOPLANCTON_FONSECA_MIGRACAO.md",
+    "migration_source": {
+      "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/VALIDACAO_FINAL/fitoplancton/Resultados_FINAL.xlsx",
+      "sha256": "D4687C500BDC7CFCC560EC6546C98896358CDD4712E8922A7354323F64730C34",
+      "campaigns": 2,
+      "points": 18,
+      "point_campaign_rows": 36,
+      "effort_rows": 72,
+      "result_rows": 511,
+      "taxa": 198
+    },
+    "species_source": {
+      "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/VALIDACAO_FINAL/fitoplancton/Cadastro_Especies_FINAL.xlsx",
+      "sha256": "531D2CC23DCC4DEA2E635B37282AC68017B4C976D9FE2C9BE1D85C8D21D0253B",
+      "rows": 285,
+      "taxa": 198,
+      "gate_b_status": "approved_applied_validated"
+    },
+    "gate_a": {
+      "status": "approved_pass",
+      "approved_at": "2026-08-18",
+      "validation": "fitoplancton/validation/20260818T154122_validacao_gate_a_fitoplancton_braced001.xlsx",
+      "blockers": 0,
+      "warnings": 0,
+      "coordinate_rows_valid": 36,
+      "coordinate_max_distance_m": 0,
+      "coordinate_tolerance_m": 50
+    },
+    "gate_b": {
+      "status": "approved_applied_validated",
+      "audit": "fitoplancton/gate_b/20260818T160626_gate_b_decisao_fitoplancton_braced001.xlsx",
+      "apply": "fitoplancton/gate_b/20260818T161632_apply_gate_b_fitoplancton_braced001.xlsx",
+      "database_writes": 198,
+      "backup_table": "public.backup_especies_braced001_fitoplancton_gate_b_20260818t161632",
+      "result_taxa": 198,
+      "canonical_source_taxa": 198,
+      "source_duplicate_rows_consolidated": 87,
+      "duplicate_strategy": "keep_last",
+      "new_taxa": 92,
+      "existing_taxa": 106,
+      "null_fields_to_fill": 1076,
+      "group_encoding_fixes": 2,
+      "preserved_non_null_differences": 194,
+      "required_gaps_after_proposed_action": 0,
+      "alias_map": {
+        "Scytonemataceae n.i.": "Scytonemataceae"
+      }
+    },
+    "migration": {
+      "status": "applied_validated",
+      "dry_run": "fitoplancton/migration/20260818T161728_dry_run_migracao_biota_aquatica_braced001.xlsx",
+      "apply": "fitoplancton/migration/20260818T161743_apply_migracao_biota_aquatica_braced001.xlsx",
+      "post_audit": "fitoplancton/migration/20260818T162000_auditoria_pos_migracao_fitoplancton_braced001.xlsx",
+      "campaigns": 2,
+      "points": 36,
+      "efforts": 72,
+      "results": 511,
+      "taxa": 198,
+      "consolidated_rows": 511,
+      "post_audit_differences": 0,
+      "backup_prefix": "public.backup_biota_braced001_20260818t161743"
+    },
+    "analysis_configuration": {
+      "status": "gate_c_approved_generated_pending_review",
+      "approved_at": "2026-08-18",
+      "reference": "BRAAEG001 fitoplancton operational current",
+      "figures": 13,
+      "xlsx_files": 18,
+      "campaign_panels": true,
+      "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Resultados/Fitoplancton",
+      "validation_status": "OK",
+      "generation_audit": "fitoplancton/20260818T172022_geracao_resultados_fitoplancton_a4_paisagem.xlsx",
+      "contact_sheet": "fitoplancton/20260818T172022_contact_sheet_figuras_fitoplancton_a4_paisagem.png"
+    }
+  },
+  "zoobentos": {
+    "status": "awaiting_revision_approval",
+    "operation_record": "docs/control_center/operations/BRACED001_ZOOBENTOS_FONSECA_MIGRACAO.md",
+    "migration_source": {
+      "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/Resultados_Migracao_Zoobentos.xlsx",
+      "sha256": "7B2AFD211CB9F8AB0F556D415740DFC30C0A03D7518117C6B2BA9E5E38A28016",
+      "previous_sha256": "A8E0A9296BD32708D06AEA48DD39A65F4788FC275CB75531D1F3CCBAFFB3FB40",
+      "campaigns": 2,
+      "points": 18,
+      "point_campaign_rows": 36,
+      "effort_rows": 36,
+      "result_rows": 134,
+      "taxa": 31
+    },
+    "species_source": {
+      "path": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca/Cadastro_especies_opyta_fonseca-bentos-260818.xlsx",
+      "sha256": "DBFCCA6FA4BD71D834B3780D7867C250E235F597D702DB1036A94464E9B3C9C3",
+      "rows": 32,
+      "taxa": 31,
+      "gate_b_status": "approved_no_db_changes",
+      "gate_b_approved_at": "2026-08-18",
+      "gate_b_audit": "bentos/gate_b/gate_b_especies_zoobentos_braced001_20260818T165203.xlsx",
+      "new_species": 0,
+      "existing_species": 31,
+      "existing_species_fill_nulls_count": 0,
+      "null_fields_to_fill": 0,
+      "preserved_differences": 120,
+      "required_gaps_after_proposed_action": 0,
+      "bmwp_matches": 31,
+      "proposed_strategy": "preserve_existing_no_species_write"
+    },
+    "gate_a": {
+      "status": "approved_pass",
+      "approved_at": "2026-08-18",
+      "validation": "bentos/validation/20260818T163434_validacao_gate_a_zoobentos_braced001.xlsx",
+      "previous_blocked_validation": "bentos/validation/20260818T162920_validacao_gate_a_zoobentos_braced001.xlsx",
+      "blockers": 0,
+      "warnings": 0,
+      "root_causes": 1,
+      "coordinate_rows_valid": 36,
+      "coordinate_max_distance_m": 0,
+      "coordinate_tolerance_m": 50
+    },
+    "gate_b": {
+      "status": "approved_no_db_changes",
+      "approved_at": "2026-08-18",
+      "species_in_source": 31,
+      "species_existing": 31,
+      "species_inserted": 0,
+      "species_updated": 0,
+      "bmwp_matches": 31,
+      "audit": "bentos/gate_b/gate_b_especies_zoobentos_braced001_20260818T165203.xlsx"
+    },
+    "migration": {
+      "status": "applied_validated",
+      "dry_run": "bentos/migration/20260818T170109_dry_run_migracao_biota_aquatica_braced001.xlsx",
+      "apply": "bentos/migration/20260818T170125_apply_migracao_biota_aquatica_braced001.xlsx",
+      "post_audit": "bentos/migration/20260818T170256_auditoria_pos_migracao_zoobentos_braced001.xlsx",
+      "campaigns": 2,
+      "point_campaign_rows": 36,
+      "efforts": 36,
+      "results": 134,
+      "taxa": 31,
+      "consolidated_rows": 134,
+      "post_audit_differences": 0,
+      "backup_prefix": "public.backup_biota_braced001_20260818t170125"
+    },
+    "analysis_configuration": {
+      "status": "gate_c_approved_generated_pending_review",
+      "approved_at": "2026-08-18",
+      "config": "bentos/config_analises_zoobentos_braced001.json",
+      "reference": "BRAAEG001 bentos R01 operational current",
+      "figures": 16,
+      "xlsx_files": 21,
+      "campaign_panels": true,
+      "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Resultados/Bentos",
+      "validation_status": "OK",
+      "generation_audit": "bentos/20260818T172514_geracao_resultados_zoobentos_a4_paisagem.xlsx",
+      "contact_sheet": "bentos/20260818T172514_contact_sheet_figuras_zoobentos_a4_paisagem.png"
+    }
+  },
+  "source_roots": {
+    "campaigns_fonseca": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Campanhas/Fonseca",
+    "geo_fonseca": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/geo/Geo_Fonseca",
+    "migration_fonseca": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/Cedro Mineracao/Produtos/Migracao/Fonseca"
+  },
+  "groups": [
+    "ictiofauna",
+    "fitoplancton",
+    "zooplancton",
+    "bentos",
+    "meio_fisico"
+  ],
+  "created_at": "2026-08-13",
+  "updated_at": "2026-08-18"
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at_utc": "2026-07-13T11:41:02.377045+00:00",
+  "project_code": "BRAANG01",
+  "matrix": "Efluente",
+  "revision": "R07_eficiencia_dbo_ete_20260713",
+  "param": "Demanda Bioquímica de Oxigênio",
+  "input_point": "MCB907E",
+  "output_point": "MCB907S",
+  "selected_campaign_count": 19,
+  "min_efficiency_percent": 60.0,
+  "meets_count": 16,
+  "fails_count": 3,
+  "mean_efficiency_percent": 80.5,
+  "weighted_efficiency_percent": 92.7,
+  "outputs": {
+    "csv": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Anglo\\dados\\Migração e resultados\\Resultados\\_revisoes\\R07_eficiencia_dbo_ete_20260713\\revisado\\Eficiencia_DBO_ETE\\Eficiencia_DBO_ETE_MCB907E_MCB907S_R07.csv",
+    "xlsx": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Anglo\\dados\\Migração e resultados\\Resultados\\_revisoes\\R07_eficiencia_dbo_ete_20260713\\revisado\\Eficiencia_DBO_ETE\\Eficiencia_DBO_ETE_MCB907E_MCB907S_R07.xlsx",
+    "png": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Anglo\\dados\\Migração e resultados\\Resultados\\_revisoes\\R07_eficiencia_dbo_ete_20260713\\revisado\\Eficiencia_DBO_ETE\\Grafico_Eficiencia_DBO_ETE_MCB907E_MCB907S_R07.png"
+  },
+  "regulatory_reference": "CONAMA 430/2011, complementar a CONAMA 357/2005; remocao minima de 60% de DBO."
+}

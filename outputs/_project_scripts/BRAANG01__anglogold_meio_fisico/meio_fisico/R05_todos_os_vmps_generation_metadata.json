@@ -1,0 +1,932 @@
+{
+  "generated_at_utc": "2026-07-10T17:53:41.496591+00:00",
+  "project_code": "BRAANG01",
+  "matrix": "Água Subterrânea",
+  "revision": "R05_todos_os_vmps_20260710",
+  "base_revision": "R05_agua_subterranea_vmp_dissolvidos_20260710",
+  "scenario": "todos_os_usos_conama_396_2008",
+  "legal_limit_source": "Resolucao CONAMA 396/2008, Anexo I.",
+  "target_params": [
+    "Arsênio Dissolvido",
+    "Arsênio Total",
+    "Cobalto Dissolvido",
+    "Cobre Dissolvido",
+    "Cromo Dissolvido",
+    "Sólidos Dissolvidos Totais",
+    "Sulfato",
+    "Zinco Dissolvido",
+    "pH"
+  ],
+  "limits_mg_l": {
+    "Arsênio Dissolvido": {
+      "Consumo Humano": 0.01,
+      "Dessedentação": 0.2,
+      "Irrigação": 0.05,
+      "Recreação": 0.008
+    },
+    "Arsênio Total": {
+      "Consumo Humano": 0.01,
+      "Dessedentação": 0.2,
+      "Irrigação": 0.05,
+      "Recreação": 0.008
+    },
+    "Cobalto Dissolvido": {
+      "Dessedentação": 1.0,
+      "Irrigação": 0.05,
+      "Recreação": 0.01
+    },
+    "Cobre Dissolvido": {
+      "Consumo Humano": 2.0,
+      "Dessedentação": 0.5,
+      "Irrigação": 0.2,
+      "Recreação": 1.0
+    },
+    "Cromo Dissolvido": {
+      "Consumo Humano": 0.05,
+      "Dessedentação": 1.0,
+      "Irrigação": 0.1,
+      "Recreação": 0.05
+    },
+    "Sólidos Dissolvidos Totais": {
+      "Consumo Humano": 1000.0
+    },
+    "Sulfato": {
+      "Consumo Humano": 250.0,
+      "Dessedentação": 1000.0,
+      "Irrigação": 400.0,
+      "Recreação": 5.0
+    },
+    "Zinco Dissolvido": {
+      "Consumo Humano": 5.0,
+      "Dessedentação": 24.0,
+      "Irrigação": 2.0,
+      "Recreação": 5.0
+    }
+  },
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Anglo\\dados\\Migração e resultados\\Resultados\\_revisoes\\R05_todos_os_vmps_20260710\\revisado\\Água_Subterrânea",
+  "png_count": 18,
+  "results": [
+    {
+      "param": "Arsênio Dissolvido",
+      "files": [
+        "ST_Arsênio_Dissolvido_P1.png",
+        "ST_Arsênio_Dissolvido_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Arsênio Total",
+      "files": [
+        "ST_Arsênio_Total_P1.png",
+        "ST_Arsênio_Total_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2012",
+          "rows": 41,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        },
+        {
+          "point": "MCB2001",
+          "rows": 39,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        },
+        {
+          "point": "MCB2003",
+          "rows": 38,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 39,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.01
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.008
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Cobalto Dissolvido",
+      "files": [
+        "ST_Cobalto_Dissolvido_P1.png",
+        "ST_Cobalto_Dissolvido_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.01
+            }
+          ]
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.01
+            }
+          ]
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": [
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.01
+            }
+          ]
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.01
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.05
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.01
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Cobre Dissolvido",
+      "files": [
+        "ST_Cobre_Dissolvido_P1.png",
+        "ST_Cobre_Dissolvido_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 2.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.5
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Recreação",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 2.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.5
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Recreação",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 2.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.5
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Recreação",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 2.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.5
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Recreação",
+              "valor": 1.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 2.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 0.5
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.2
+            },
+            {
+              "uso": "Recreação",
+              "valor": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Cromo Dissolvido",
+      "files": [
+        "ST_Cromo_Dissolvido_P1.png",
+        "ST_Cromo_Dissolvido_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.05
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.1
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.05
+            }
+          ]
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.05
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.1
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.05
+            }
+          ]
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.05
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.1
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.05
+            }
+          ]
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.05
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.1
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.05
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 0.05
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 0.1
+            },
+            {
+              "uso": "Recreação",
+              "valor": 0.05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Sólidos Dissolvidos Totais",
+      "files": [
+        "ST_Sólidos_Dissolvidos_Totais_P1.png",
+        "ST_Sólidos_Dissolvidos_Totais_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 1000.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 1000.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 1000.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 1000.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 1000.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Sulfato",
+      "files": [
+        "ST_Sulfato_P1.png",
+        "ST_Sulfato_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 250.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1000.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 400.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 250.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1000.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 400.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 250.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1000.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 400.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 250.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1000.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 400.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 250.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 1000.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 400.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "Zinco Dissolvido",
+      "files": [
+        "ST_Zinco_Dissolvido_P1.png",
+        "ST_Zinco_Dissolvido_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 5.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 24.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 2.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 5.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 24.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 2.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 5.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 24.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 2.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": [
+            {
+              "uso": "Consumo Humano",
+              "valor": 5.0
+            },
+            {
+              "uso": "Dessedentação",
+              "valor": 24.0
+            },
+            {
+              "uso": "Irrigação",
+              "valor": 2.0
+            },
+            {
+              "uso": "Recreação",
+              "valor": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "param": "pH",
+      "files": [
+        "ST_pH_P1.png",
+        "ST_pH_P2.png"
+      ],
+      "audit": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "limits": []
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "limits": []
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "limits": []
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "limits": []
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "limits": []
+        }
+      ]
+    }
+  ]
+}

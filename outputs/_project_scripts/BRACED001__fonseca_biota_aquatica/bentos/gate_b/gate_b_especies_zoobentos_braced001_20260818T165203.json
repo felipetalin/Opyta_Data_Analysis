@@ -1,0 +1,243 @@
+{
+  "summary": {
+    "projeto": "BRACED001",
+    "grupo": "Zoobentos",
+    "modo": "audit_only",
+    "taxons_resultados": 31,
+    "taxons_resultados_sem_cadastro": 0,
+    "taxons_cadastro_sem_resultados": 0,
+    "linhas_cadastro_origem": 32,
+    "linhas_duplicadas_removidas": 1,
+    "taxons_duplicados": 1,
+    "estrategia_duplicados": "keep_last",
+    "especies_fonte": 31,
+    "especies_novas": 0,
+    "especies_com_nulos_a_preencher": 0,
+    "campos_nulos_a_preencher": 0,
+    "diferencas_preservadas": 120,
+    "pendencias_obrigatorias_pos_acao": 0,
+    "registros_aplicados": 0
+  },
+  "actions": [
+    {
+      "nome_cientifico": "Hirudinea",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 435,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 2
+    },
+    {
+      "nome_cientifico": "Curculionidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 483,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Elmidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 413,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Gyrinidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 499,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Hydrophilidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 429,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Staphylinidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 553,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Ceratopogonidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 404,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Chironomidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 403,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Culicidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 482,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Empididae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 491,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Simuliidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 405,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Tipulidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 406,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Baetidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 408,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Leptophlebiidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 512,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Belostomatidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 410,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Corixidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 478,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Gerridae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 412,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Naucoridae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 426,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Pyralidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 407,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Corydalidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 479,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Calopterygidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 470,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Gomphidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 414,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Libellulidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 433,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Gripopterygidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 497,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Perlidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 427,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Calamoceratidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 468,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Hydropsychidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 409,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Hydroptilidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 507,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Leptoceridae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 508,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Polycentropodidae",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 540,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 4
+    },
+    {
+      "nome_cientifico": "Oligochaeta",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 415,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 2
+    }
+  ],
+  "resultados_sem_cadastro": [],
+  "cadastro_sem_resultados": [],
+  "applied": []
+}

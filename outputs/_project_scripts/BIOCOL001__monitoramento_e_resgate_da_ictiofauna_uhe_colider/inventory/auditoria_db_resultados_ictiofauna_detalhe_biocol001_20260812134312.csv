@@ -1,0 +1,4 @@
+﻿linhas,individuos,resultados_agregados_vinculados,esforcos,especies,campanhas,pontos,linhas_cp,linhas_pc,linhas_sexo_fm,linhas_emg,linhas_evidencia_forte,individuos_evidencia_forte,bloco,grupos_com_diferenca,diferenca_absoluta_total,agregados_oficiais,agregados_com_detalhe,agregados_sem_detalhe
+74579.0,108355.0,13798.0,1860.0,327.0,69.0,19.0,71201.0,74570.0,0.0,74579.0,2755.0,3070.0,summary,,,,,
+,,,,,,,,,,,,,mismatch,0.0,0.0,,,
+,,,,,,,,,,,,,coverage,,,13798.0,13798.0,0.0

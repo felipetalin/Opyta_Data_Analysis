@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-20T00:01:09.706961Z",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Zooplâncton",
+  "action": "generate_zooplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia",
+  "figures_count": 14,
+  "figures_ok": 14,
+  "files_count": 36,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\20260819T205808_contact_sheet_figuras_zooplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 624,
+    "rows_quantitative": 517,
+    "rows_qualitative": 107,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 18,
+    "taxa_total": 58,
+    "taxa_quant": 58,
+    "phyla_total": 4,
+    "density_total": 36.120000000000005,
+    "density_unit": "org/amostra",
+    "max_richness": 23.0,
+    "max_richness_point": "MA-01-01",
+    "max_richness_campaign": "C01-Chuva",
+    "max_density": 1.5,
+    "max_density_point": "MA-04-10",
+    "max_density_campaign": "C02-Seca",
+    "dominant_phylum": "Rotifera",
+    "dominant_phylum_density": 15.600000000000001,
+    "dominant_taxon": "CYCLOPOIDA (nauplius)",
+    "dominant_taxon_density": 3.58,
+    "suff_obs": 58.0,
+    "suff_est": 58.97222222222247
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\00_base_consolidada_zooplancton.xlsx",
+      "tamanho_bytes": 88372,
+      "sha256": "fc882096cb7266a2f2735b28d2c7bfe90c0eb473bf306c659ae4a53e8c925925"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\01_tabela_composicao_zooplancton.xlsx",
+      "tamanho_bytes": 8635,
+      "sha256": "9613d73a85ddb38fd174d990b42552244d11ea32de847887e7556f59315f55cb"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\01_tabela_ocorrencia_zooplancton.xlsx",
+      "tamanho_bytes": 13770,
+      "sha256": "e352694f13144e572394005475dc506fd0a16c7164f3b4e6236451a108f662eb"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5758,
+      "sha256": "86aae20e16d8088150d7b7765abb1d0981c052e3321f51c73f3070a44e69624d"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\02_grafico_riqueza_por_ponto_zooplancton.png",
+      "tamanho_bytes": 543604,
+      "sha256": "8e26ea3c7eb11f9dabb84da25c828415f8e43a1359c865647248f66b8340cfda",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 99.96210406708242,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5814,
+      "sha256": "0a44631a1471f7eba5b53728d525357366efd5f0754ffd95565a361e6ae9ea6d"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "tamanho_bytes": 644221,
+      "sha256": "a2192e4f0a238e9212da95d764a67aad791d6d2e17013103dc9fb92717c866bc",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 96.14057214072238,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\04_df_riqueza_por_filo_zooplancton.xlsx",
+      "tamanho_bytes": 5032,
+      "sha256": "5b7bff548bd4d62c5173671c4fe8087aeb74147fd803ab58c13d456b402bc551"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\04_grafico_riqueza_filo_barras_zooplancton.png",
+      "tamanho_bytes": 419897,
+      "sha256": "762dfef691fec3f374b36ca1d6b37bd4babe4c6205f6f3ded27c57b67a9d3cc7",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 96.8328736862589,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "tamanho_bytes": 429222,
+      "sha256": "1f5c3f7a621b2566365521e2dbc138eeede11eceb054e9ee65beaa7645bd84be",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 85.12817020538958,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 6085,
+      "sha256": "005c3204b4772e19bb923b4c42f039407f8c480515854116eb6d551dad4a961b"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 593575,
+      "sha256": "561ca20ee54579e6fd50131769193f4badabdebe8cdb8ddc18912e82214b096e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 84.80041780109453,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 6615,
+      "sha256": "c0c34923afb4881713c4ced16c432300add83b64bd692e4d084019ad58310718"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 580679,
+      "sha256": "ee38d9415b5ec0a04618e21221889671335ae7c5569c6700181a7e7a3660dd39",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 93.06619182878167,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\08_df_densidade_por_taxon_zooplancton.xlsx",
+      "tamanho_bytes": 7753,
+      "sha256": "6078dd4653bec6ea3c3163abcc841ca52c41ce7ffb7aadf09d3cc023208afd1e"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\08_grafico_densidade_por_taxon_zooplancton.png",
+      "tamanho_bytes": 1224065,
+      "sha256": "0ee5ac8184e1b9e39a34c7ab5ec989c3fe3e58b133490956d72035ee6398fb65",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 75.57878891952626,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 11725,
+      "sha256": "6bae13961cc08ca4909508209d5b4c0caa77c20ac79cecc4d017bb847dcfc143"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "tamanho_bytes": 1342658,
+      "sha256": "68bed6df07a3893948d8c18ac6e69e0005053da1e42ab60ed670e42d8f2781da",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.55962577119597,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\10_df_diversidade_alfa_zooplancton.xlsx",
+      "tamanho_bytes": 7383,
+      "sha256": "ae4b396f38c53066220a9dad2314082afe895bd0c2efe725a102fcbc959c6e03"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\10_grafico_diversidade_alfa_zooplancton.png",
+      "tamanho_bytes": 857749,
+      "sha256": "d89c071f8efac39621a91b3946164a7c013997745f0cf0a7664983a0d1f652a2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 106.5851540834224,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\11_df_matriz_comunidade_zooplancton.xlsx",
+      "tamanho_bytes": 11679,
+      "sha256": "438f142c520aadf61c8e62e265eb063c6ef1a582d3d034470dce1c528a4b5526"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\11_df_distancias_braycurtis_zooplancton.xlsx",
+      "tamanho_bytes": 15296,
+      "sha256": "5e68d8cf20d223ff0c9e5a55aff8cdd04fd75528b8ba5fe40e1747585efae242"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\11_dendrograma_similaridade_zooplancton.png",
+      "tamanho_bytes": 813769,
+      "sha256": "c55b29d4a8cb425a22f784c6caf1ea79587403c792f233b56faafb411fe5bf47",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 46.93581132997829,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 9126,
+      "sha256": "1eebee00bc4a1bad50864dcd650a67bd3b1768f08beb33157c724f15c00d5505"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 7985,
+      "sha256": "9f82cb5b7d290bbf80bd7f5d48c2c09e532b26c28205b9fe93d8ad69ec3c76fc"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "tamanho_bytes": 496314,
+      "sha256": "850d503d70291e8b0cbe71a2792f0a6cd10db558ce6ab17d959206d3d7ea3b94",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 37.58961628794005,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\12_df_curva_suficiencia_zooplancton.xlsx",
+      "tamanho_bytes": 7384,
+      "sha256": "8379629bc138744850344b561950a42ae9bc34afc62d7473df2177505d36956f"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\12_curva_suficiencia_amostral_zooplancton.png",
+      "tamanho_bytes": 605537,
+      "sha256": "894be9b8bdefe1b4c54c500ad106120403f9668f46dd5f6c3c99dd1aaa70991e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.91886586401524,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zooplancton_BRACED001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\DarwinCore_IEF_Zooplancton_BRACED001.xlsx",
+      "tamanho_bytes": 69481,
+      "sha256": "3a1b02b2a69d5f8abceff5dc009dd4b61549f7611ce102eff2bc685e2504722b"
+    },
+    {
+      "arquivo": "14_tabela_sintese_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\14_tabela_sintese_zooplancton.xlsx",
+      "tamanho_bytes": 6338,
+      "sha256": "8bea897ea3a46f4a65e010c22b453c894cd27f533c5fe28a4992e926b5d38d3d"
+    },
+    {
+      "arquivo": "14_grafico_sintese_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\14_grafico_sintese_zooplancton.png",
+      "tamanho_bytes": 399590,
+      "sha256": "56d97db11d85ef47ad1ef451bedf7810dd8c469f51039ef0c4a08957f65dc52e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 83.24321673033364,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zooplancton_braced001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\relatorio_tecnico_zooplancton_braced001.html",
+      "tamanho_bytes": 4110,
+      "sha256": "ac89a0966d887b7cc1ff0a76902ae34b096d1fb3d69dab6266ad1d5ff8511e57"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\manifesto_entrega_zooplancton_braced001.json",
+      "tamanho_bytes": 11239,
+      "sha256": "6d50d0246335b2a440c8a2af43dbc69582eac9635a7cdeb8d3cb5a4782e9ee0d"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braced001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\manifesto_entrega_zooplancton_braced001.xlsx",
+      "tamanho_bytes": 8011,
+      "sha256": "8d158bd0697e299c7f8b455c2021d9f6402d5dfb80a6bb3a5901f4bf8a553e98"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braced001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\manifesto_entrega_zooplancton_braced001.md",
+      "tamanho_bytes": 2735,
+      "sha256": "c91808dcb974d17ed2649416da4acedd41743afcb7e2354b586941b659457343"
+    },
+    {
+      "arquivo": "validacao_entrega_zooplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia\\validacao_entrega_zooplancton_braced001.json",
+      "tamanho_bytes": 901,
+      "sha256": "aa4cc455f063e61bb936a83fb203739f52d16dc516d9fa81402d49ef93e1b4fe"
+    }
+  ]
+}

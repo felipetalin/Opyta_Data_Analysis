@@ -1,0 +1,949 @@
+{
+  "generated_at": "2026-07-13T17:14:00",
+  "project_code": "BRAAVG002",
+  "group": "Ictiofauna",
+  "status": "generated",
+  "output_dir": "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713",
+  "campaign_scope": "C001 a C047",
+  "campaigns": [
+    {
+      "original": "1ª-Ago-22",
+      "standard": "C001-2022-08-SC"
+    },
+    {
+      "original": "2ª-Set-22",
+      "standard": "C002-2022-09-SC"
+    },
+    {
+      "original": "3ª-Out-22",
+      "standard": "C003-2022-10-CH"
+    },
+    {
+      "original": "4ª-Nov-22",
+      "standard": "C004-2022-11-CH"
+    },
+    {
+      "original": "5ª-Dez-22",
+      "standard": "C005-2022-12-CH"
+    },
+    {
+      "original": "6ª-Jan-23",
+      "standard": "C006-2023-01-CH"
+    },
+    {
+      "original": "7ª-Fev-23",
+      "standard": "C007-2023-02-CH"
+    },
+    {
+      "original": "8ª-Mar-23",
+      "standard": "C008-2023-03-CH"
+    },
+    {
+      "original": "9ª-Abr-23",
+      "standard": "C009-2023-04-SC"
+    },
+    {
+      "original": "10ª-Mai-23",
+      "standard": "C010-2023-05-SC"
+    },
+    {
+      "original": "11ª-Jun-23",
+      "standard": "C011-2023-06-SC"
+    },
+    {
+      "original": "12ª-Jul-23",
+      "standard": "C012-2023-07-SC"
+    },
+    {
+      "original": "13ª-Ago-23",
+      "standard": "C013-2023-08-SC"
+    },
+    {
+      "original": "14ª-Set-23",
+      "standard": "C014-2023-09-SC"
+    },
+    {
+      "original": "15ª-Out-23",
+      "standard": "C015-2023-10-CH"
+    },
+    {
+      "original": "16ª-Nov-23",
+      "standard": "C016-2023-11-CH"
+    },
+    {
+      "original": "17ª-Dez-23",
+      "standard": "C017-2023-12-CH"
+    },
+    {
+      "original": "18ª-Jan-24",
+      "standard": "C018-2024-01-CH"
+    },
+    {
+      "original": "19ª-Fev-24",
+      "standard": "C019-2024-02-CH"
+    },
+    {
+      "original": "20ª-Mar-24",
+      "standard": "C020-2024-03-CH"
+    },
+    {
+      "original": "21ª-Abr-24",
+      "standard": "C021-2024-04-SC"
+    },
+    {
+      "original": "22ª-Mai-24",
+      "standard": "C022-2024-05-SC"
+    },
+    {
+      "original": "23ª-Jun-24",
+      "standard": "C023-2024-06-SC"
+    },
+    {
+      "original": "24ª-Jul-24",
+      "standard": "C024-2024-07-SC"
+    },
+    {
+      "original": "25ª-Ago-24",
+      "standard": "C025-2024-08-SC"
+    },
+    {
+      "original": "26ª-Set-24",
+      "standard": "C026-2024-09-SC"
+    },
+    {
+      "original": "27ª-Out-24",
+      "standard": "C027-2024-10-CH"
+    },
+    {
+      "original": "28ª-Nov-24",
+      "standard": "C028-2024-11-CH"
+    },
+    {
+      "original": "29ª-Dez-24",
+      "standard": "C029-2024-12-CH"
+    },
+    {
+      "original": "30ª-Jan-25",
+      "standard": "C030-2025-01-CH"
+    },
+    {
+      "original": "31ª-Fev-25",
+      "standard": "C031-2025-02-CH"
+    },
+    {
+      "original": "32ª-Mar-25",
+      "standard": "C032-2025-03-CH"
+    },
+    {
+      "original": "33ª-Abr-25",
+      "standard": "C033-2025-04-SC"
+    },
+    {
+      "original": "34ª-Mai-25",
+      "standard": "C034-2025-05-SC"
+    },
+    {
+      "original": "35ª-Jun-25",
+      "standard": "C035-2025-06-SC"
+    },
+    {
+      "original": "36ª-Jul-25",
+      "standard": "C036-2025-07-SC"
+    },
+    {
+      "original": "37ª-Ago-25",
+      "standard": "C037-2025-08-SC"
+    },
+    {
+      "original": "38ª-Set-25",
+      "standard": "C038-2025-09-SC"
+    },
+    {
+      "original": "39ª-Out-25",
+      "standard": "C039-2025-10-CH"
+    },
+    {
+      "original": "40ª-Nov-25",
+      "standard": "C040-2025-11-CH"
+    },
+    {
+      "original": "41ª-Dez-25",
+      "standard": "C041-2025-12-CH"
+    },
+    {
+      "original": "42ª-Jan-26",
+      "standard": "C042-2026-01-CH"
+    },
+    {
+      "original": "43ª-Fev-26",
+      "standard": "C043-2026-02-CH"
+    },
+    {
+      "original": "44ª-Mar-26",
+      "standard": "C044-2026-03-CH"
+    },
+    {
+      "original": "45ª-Abr-26",
+      "standard": "C045-2026-04-SC"
+    },
+    {
+      "original": "46ª-Mai-26",
+      "standard": "C046-2026-05-SC"
+    },
+    {
+      "original": "47ª-Jun-26",
+      "standard": "C047-2026-06-SC"
+    }
+  ],
+  "temporal_year_policy": "agosto a julho",
+  "rows_observed": 519,
+  "rows_with_zero_capture_points": 787,
+  "points": 13,
+  "species": 13,
+  "taxonomy_display_overrides": {
+    "Poecilia mexicana": "Poecilia cf. mexicana"
+  },
+  "removed_previous_traditional_files": 3,
+  "temporal_year_figures": {
+    "temporal_years": {
+      "2023": {
+        "campaigns": [
+          "C001-2022-08-SC",
+          "C002-2022-09-SC",
+          "C003-2022-10-CH",
+          "C004-2022-11-CH",
+          "C005-2022-12-CH",
+          "C006-2023-01-CH",
+          "C007-2023-02-CH",
+          "C008-2023-03-CH",
+          "C009-2023-04-SC",
+          "C010-2023-05-SC",
+          "C011-2023-06-SC",
+          "C012-2023-07-SC"
+        ],
+        "first": "C001-2022-08-SC",
+        "last": "C012-2023-07-SC",
+        "count": 12
+      },
+      "2024": {
+        "campaigns": [
+          "C013-2023-08-SC",
+          "C014-2023-09-SC",
+          "C015-2023-10-CH",
+          "C016-2023-11-CH",
+          "C017-2023-12-CH",
+          "C018-2024-01-CH",
+          "C019-2024-02-CH",
+          "C020-2024-03-CH",
+          "C021-2024-04-SC",
+          "C022-2024-05-SC",
+          "C023-2024-06-SC",
+          "C024-2024-07-SC"
+        ],
+        "first": "C013-2023-08-SC",
+        "last": "C024-2024-07-SC",
+        "count": 12
+      },
+      "2025": {
+        "campaigns": [
+          "C025-2024-08-SC",
+          "C026-2024-09-SC",
+          "C027-2024-10-CH",
+          "C028-2024-11-CH",
+          "C029-2024-12-CH",
+          "C030-2025-01-CH",
+          "C031-2025-02-CH",
+          "C032-2025-03-CH",
+          "C033-2025-04-SC",
+          "C034-2025-05-SC",
+          "C035-2025-06-SC",
+          "C036-2025-07-SC"
+        ],
+        "first": "C025-2024-08-SC",
+        "last": "C036-2025-07-SC",
+        "count": 12
+      },
+      "2026": {
+        "campaigns": [
+          "C037-2025-08-SC",
+          "C038-2025-09-SC",
+          "C039-2025-10-CH",
+          "C040-2025-11-CH",
+          "C041-2025-12-CH",
+          "C042-2026-01-CH",
+          "C043-2026-02-CH",
+          "C044-2026-03-CH",
+          "C045-2026-04-SC",
+          "C046-2026-05-SC",
+          "C047-2026-06-SC"
+        ],
+        "first": "C037-2025-08-SC",
+        "last": "C047-2026-06-SC",
+        "count": 11
+      }
+    },
+    "generated": {
+      "02_riqueza": [
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\02_grafico_riqueza_por_ponto_ano_temporal_2023_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\02_grafico_riqueza_por_ponto_ano_temporal_2024_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\02_grafico_riqueza_por_ponto_ano_temporal_2025_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\02_grafico_riqueza_por_ponto_ano_temporal_2026_ictiofauna.png"
+      ],
+      "03_abundancia": [
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\03_grafico_abundancia_por_ponto_ano_temporal_2023_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\03_grafico_abundancia_por_ponto_ano_temporal_2024_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\03_grafico_abundancia_por_ponto_ano_temporal_2025_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\03_grafico_abundancia_por_ponto_ano_temporal_2026_ictiofauna.png"
+      ],
+      "04B_ocorrencia_campanha": [
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04B_grafico_frequencia_ocorrencia_por_campanha_ano_temporal_2023_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04B_grafico_frequencia_ocorrencia_por_campanha_ano_temporal_2024_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04B_grafico_frequencia_ocorrencia_por_campanha_ano_temporal_2025_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04B_grafico_frequencia_ocorrencia_por_campanha_ano_temporal_2026_ictiofauna.png"
+      ],
+      "06_cpuen": [
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ponto_ano_temporal_2023_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ponto_ano_temporal_2024_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ponto_ano_temporal_2025_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ponto_ano_temporal_2026_ictiofauna.png"
+      ],
+      "07_cpueb": [
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ponto_ano_temporal_2023_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ponto_ano_temporal_2024_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ponto_ano_temporal_2025_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ponto_ano_temporal_2026_ictiofauna.png"
+      ],
+      "10_diversidade": [
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\10_grafico_diversidade_alfa_ano_temporal_2023_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\10_grafico_diversidade_alfa_ano_temporal_2024_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\10_grafico_diversidade_alfa_ano_temporal_2025_ictiofauna.png",
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\10_grafico_diversidade_alfa_ano_temporal_2026_ictiofauna.png"
+      ],
+      "readme": [
+        "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\README_analises_tradicionais_ictiofauna_01_47.md"
+      ]
+    },
+    "generated_count": 25,
+    "removed_replaced_single_figures": [
+      "02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "04B_grafico_frequencia_ocorrencia_por_campanha_ictiofauna.png",
+      "06_grafico_cpuen_por_ano_2022_ictiofauna.png",
+      "06_grafico_cpuen_por_ano_2023_ictiofauna.png",
+      "06_grafico_cpuen_por_ano_2024_ictiofauna.png",
+      "06_grafico_cpuen_por_ano_2025_ictiofauna.png",
+      "06_grafico_cpuen_por_ano_2026_ictiofauna.png",
+      "07_grafico_cpueb_por_ano_2022_ictiofauna.png",
+      "07_grafico_cpueb_por_ano_2023_ictiofauna.png",
+      "07_grafico_cpueb_por_ano_2024_ictiofauna.png",
+      "07_grafico_cpueb_por_ano_2025_ictiofauna.png",
+      "07_grafico_cpueb_por_ano_2026_ictiofauna.png",
+      "10_grafico_diversidade_alfa_ictiofauna.png"
+    ]
+  },
+  "details": {
+    "rows_loaded": 519,
+    "rows_loaded_with_zero_points": 787,
+    "group": "Ictiofauna",
+    "campaigns": [
+      "C001-2022-08-SC",
+      "C002-2022-09-SC",
+      "C003-2022-10-CH",
+      "C004-2022-11-CH",
+      "C005-2022-12-CH",
+      "C006-2023-01-CH",
+      "C007-2023-02-CH",
+      "C008-2023-03-CH",
+      "C009-2023-04-SC",
+      "C010-2023-05-SC",
+      "C011-2023-06-SC",
+      "C012-2023-07-SC",
+      "C013-2023-08-SC",
+      "C014-2023-09-SC",
+      "C015-2023-10-CH",
+      "C016-2023-11-CH",
+      "C017-2023-12-CH",
+      "C018-2024-01-CH",
+      "C019-2024-02-CH",
+      "C020-2024-03-CH",
+      "C021-2024-04-SC",
+      "C022-2024-05-SC",
+      "C023-2024-06-SC",
+      "C024-2024-07-SC",
+      "C025-2024-08-SC",
+      "C026-2024-09-SC",
+      "C027-2024-10-CH",
+      "C028-2024-11-CH",
+      "C029-2024-12-CH",
+      "C030-2025-01-CH",
+      "C031-2025-02-CH",
+      "C032-2025-03-CH",
+      "C033-2025-04-SC",
+      "C034-2025-05-SC",
+      "C035-2025-06-SC",
+      "C036-2025-07-SC",
+      "C037-2025-08-SC",
+      "C038-2025-09-SC",
+      "C039-2025-10-CH",
+      "C040-2025-11-CH",
+      "C041-2025-12-CH",
+      "C042-2026-01-CH",
+      "C043-2026-02-CH",
+      "C044-2026-03-CH",
+      "C045-2026-04-SC",
+      "C046-2026-05-SC",
+      "C047-2026-06-SC"
+    ],
+    "points": [
+      "PIC-01",
+      "PIC-02",
+      "PIC-03",
+      "PIC-04",
+      "PIC-05",
+      "PIC-06",
+      "PIC-07",
+      "PIC-08",
+      "PIC-09",
+      "PIC-10",
+      "PIC-11",
+      "PIC-12",
+      "PIC-13"
+    ],
+    "block_3": {
+      "taxa_total": 13,
+      "colunas": 15
+    },
+    "block_4": {
+      "rows_input": 519,
+      "rows_valid": 519,
+      "taxa_total": 13,
+      "pontos_por_campanha": {
+        "C001-2022-08-SC": 7,
+        "C002-2022-09-SC": 6,
+        "C003-2022-10-CH": 10,
+        "C004-2022-11-CH": 11,
+        "C005-2022-12-CH": 9,
+        "C006-2023-01-CH": 11,
+        "C007-2023-02-CH": 8,
+        "C008-2023-03-CH": 8,
+        "C009-2023-04-SC": 10,
+        "C010-2023-05-SC": 9,
+        "C011-2023-06-SC": 8,
+        "C012-2023-07-SC": 9,
+        "C013-2023-08-SC": 7,
+        "C014-2023-09-SC": 7,
+        "C015-2023-10-CH": 9,
+        "C016-2023-11-CH": 9,
+        "C017-2023-12-CH": 9,
+        "C018-2024-01-CH": 9,
+        "C019-2024-02-CH": 7,
+        "C020-2024-03-CH": 7,
+        "C021-2024-04-SC": 7,
+        "C022-2024-05-SC": 7,
+        "C023-2024-06-SC": 6,
+        "C024-2024-07-SC": 6,
+        "C025-2024-08-SC": 6,
+        "C026-2024-09-SC": 6,
+        "C027-2024-10-CH": 5,
+        "C028-2024-11-CH": 6,
+        "C029-2024-12-CH": 8,
+        "C030-2025-01-CH": 8,
+        "C031-2025-02-CH": 7,
+        "C032-2025-03-CH": 6,
+        "C033-2025-04-SC": 6,
+        "C034-2025-05-SC": 8,
+        "C035-2025-06-SC": 7,
+        "C036-2025-07-SC": 7,
+        "C037-2025-08-SC": 8,
+        "C038-2025-09-SC": 10,
+        "C039-2025-10-CH": 6,
+        "C040-2025-11-CH": 4,
+        "C041-2025-12-CH": 6,
+        "C042-2026-01-CH": 7,
+        "C043-2026-02-CH": 7,
+        "C044-2026-03-CH": 5,
+        "C045-2026-04-SC": 4,
+        "C046-2026-05-SC": 5,
+        "C047-2026-06-SC": 5
+      },
+      "sintese_ocorrencia": {
+        "taxa": 13,
+        "campaigns": [
+          "C001-2022-08-SC",
+          "C002-2022-09-SC",
+          "C003-2022-10-CH",
+          "C004-2022-11-CH",
+          "C005-2022-12-CH",
+          "C006-2023-01-CH",
+          "C007-2023-02-CH",
+          "C008-2023-03-CH",
+          "C009-2023-04-SC",
+          "C010-2023-05-SC",
+          "C011-2023-06-SC",
+          "C012-2023-07-SC",
+          "C013-2023-08-SC",
+          "C014-2023-09-SC",
+          "C015-2023-10-CH",
+          "C016-2023-11-CH",
+          "C017-2023-12-CH",
+          "C018-2024-01-CH",
+          "C019-2024-02-CH",
+          "C020-2024-03-CH",
+          "C021-2024-04-SC",
+          "C022-2024-05-SC",
+          "C023-2024-06-SC",
+          "C024-2024-07-SC",
+          "C025-2024-08-SC",
+          "C026-2024-09-SC",
+          "C027-2024-10-CH",
+          "C028-2024-11-CH",
+          "C029-2024-12-CH",
+          "C030-2025-01-CH",
+          "C031-2025-02-CH",
+          "C032-2025-03-CH",
+          "C033-2025-04-SC",
+          "C034-2025-05-SC",
+          "C035-2025-06-SC",
+          "C036-2025-07-SC",
+          "C037-2025-08-SC",
+          "C038-2025-09-SC",
+          "C039-2025-10-CH",
+          "C040-2025-11-CH",
+          "C041-2025-12-CH",
+          "C042-2026-01-CH",
+          "C043-2026-02-CH",
+          "C044-2026-03-CH",
+          "C045-2026-04-SC",
+          "C046-2026-05-SC",
+          "C047-2026-06-SC"
+        ],
+        "points": [
+          "PIC-01",
+          "PIC-02",
+          "PIC-03",
+          "PIC-04",
+          "PIC-05",
+          "PIC-06",
+          "PIC-07",
+          "PIC-08",
+          "PIC-09",
+          "PIC-10",
+          "PIC-11",
+          "PIC-12",
+          "PIC-13"
+        ],
+        "sampling_units": 343,
+        "annual_sheets": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "campaign_heatmaps": [
+          "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04B_grafico_frequencia_ocorrencia_por_campanha_ictiofauna.png"
+        ],
+        "point_heatmaps": [
+          "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04C_grafico_frequencia_ocorrencia_por_ponto_ictiofauna.png"
+        ],
+        "workbook": "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04A_tabela_sintese_ocorrencia_ictiofauna.xlsx"
+      }
+    },
+    "block_5": {
+      "campaigns": [
+        "C001-2022-08-SC",
+        "C002-2022-09-SC",
+        "C003-2022-10-CH",
+        "C004-2022-11-CH",
+        "C005-2022-12-CH",
+        "C006-2023-01-CH",
+        "C007-2023-02-CH",
+        "C008-2023-03-CH",
+        "C009-2023-04-SC",
+        "C010-2023-05-SC",
+        "C011-2023-06-SC",
+        "C012-2023-07-SC",
+        "C013-2023-08-SC",
+        "C014-2023-09-SC",
+        "C015-2023-10-CH",
+        "C016-2023-11-CH",
+        "C017-2023-12-CH",
+        "C018-2024-01-CH",
+        "C019-2024-02-CH",
+        "C020-2024-03-CH",
+        "C021-2024-04-SC",
+        "C022-2024-05-SC",
+        "C023-2024-06-SC",
+        "C024-2024-07-SC",
+        "C025-2024-08-SC",
+        "C026-2024-09-SC",
+        "C027-2024-10-CH",
+        "C028-2024-11-CH",
+        "C029-2024-12-CH",
+        "C030-2025-01-CH",
+        "C031-2025-02-CH",
+        "C032-2025-03-CH",
+        "C033-2025-04-SC",
+        "C034-2025-05-SC",
+        "C035-2025-06-SC",
+        "C036-2025-07-SC",
+        "C037-2025-08-SC",
+        "C038-2025-09-SC",
+        "C039-2025-10-CH",
+        "C040-2025-11-CH",
+        "C041-2025-12-CH",
+        "C042-2026-01-CH",
+        "C043-2026-02-CH",
+        "C044-2026-03-CH",
+        "C045-2026-04-SC",
+        "C046-2026-05-SC",
+        "C047-2026-06-SC"
+      ],
+      "points": [
+        "PIC-01",
+        "PIC-02",
+        "PIC-03",
+        "PIC-04",
+        "PIC-05",
+        "PIC-06",
+        "PIC-07",
+        "PIC-08",
+        "PIC-09",
+        "PIC-10",
+        "PIC-11",
+        "PIC-12",
+        "PIC-13"
+      ]
+    },
+    "block_6": {
+      "campaigns": [
+        "C001-2022-08-SC",
+        "C002-2022-09-SC",
+        "C003-2022-10-CH",
+        "C004-2022-11-CH",
+        "C005-2022-12-CH",
+        "C006-2023-01-CH",
+        "C007-2023-02-CH",
+        "C008-2023-03-CH",
+        "C009-2023-04-SC",
+        "C010-2023-05-SC",
+        "C011-2023-06-SC",
+        "C012-2023-07-SC",
+        "C013-2023-08-SC",
+        "C014-2023-09-SC",
+        "C015-2023-10-CH",
+        "C016-2023-11-CH",
+        "C017-2023-12-CH",
+        "C018-2024-01-CH",
+        "C019-2024-02-CH",
+        "C020-2024-03-CH",
+        "C021-2024-04-SC",
+        "C022-2024-05-SC",
+        "C023-2024-06-SC",
+        "C024-2024-07-SC",
+        "C025-2024-08-SC",
+        "C026-2024-09-SC",
+        "C027-2024-10-CH",
+        "C028-2024-11-CH",
+        "C029-2024-12-CH",
+        "C030-2025-01-CH",
+        "C031-2025-02-CH",
+        "C032-2025-03-CH",
+        "C033-2025-04-SC",
+        "C034-2025-05-SC",
+        "C035-2025-06-SC",
+        "C036-2025-07-SC",
+        "C037-2025-08-SC",
+        "C038-2025-09-SC",
+        "C039-2025-10-CH",
+        "C040-2025-11-CH",
+        "C041-2025-12-CH",
+        "C042-2026-01-CH",
+        "C043-2026-02-CH",
+        "C044-2026-03-CH",
+        "C045-2026-04-SC",
+        "C046-2026-05-SC",
+        "C047-2026-06-SC"
+      ],
+      "points": [
+        "PIC-01",
+        "PIC-02",
+        "PIC-03",
+        "PIC-04",
+        "PIC-05",
+        "PIC-06",
+        "PIC-07",
+        "PIC-08",
+        "PIC-09",
+        "PIC-10",
+        "PIC-11",
+        "PIC-12",
+        "PIC-13"
+      ]
+    },
+    "block_7": {
+      "ordens": 5,
+      "familias": 8
+    },
+    "block_8": {
+      "campaigns": [
+        "C001-2022-08-SC",
+        "C002-2022-09-SC",
+        "C003-2022-10-CH",
+        "C004-2022-11-CH",
+        "C005-2022-12-CH",
+        "C006-2023-01-CH",
+        "C007-2023-02-CH",
+        "C008-2023-03-CH",
+        "C009-2023-04-SC",
+        "C010-2023-05-SC",
+        "C011-2023-06-SC",
+        "C012-2023-07-SC",
+        "C013-2023-08-SC",
+        "C014-2023-09-SC",
+        "C015-2023-10-CH",
+        "C016-2023-11-CH",
+        "C017-2023-12-CH",
+        "C018-2024-01-CH",
+        "C019-2024-02-CH",
+        "C020-2024-03-CH",
+        "C021-2024-04-SC",
+        "C022-2024-05-SC",
+        "C023-2024-06-SC",
+        "C024-2024-07-SC",
+        "C025-2024-08-SC",
+        "C026-2024-09-SC",
+        "C027-2024-10-CH",
+        "C028-2024-11-CH",
+        "C029-2024-12-CH",
+        "C030-2025-01-CH",
+        "C031-2025-02-CH",
+        "C032-2025-03-CH",
+        "C033-2025-04-SC",
+        "C034-2025-05-SC",
+        "C035-2025-06-SC",
+        "C036-2025-07-SC",
+        "C037-2025-08-SC",
+        "C038-2025-09-SC",
+        "C039-2025-10-CH",
+        "C040-2025-11-CH",
+        "C041-2025-12-CH",
+        "C042-2026-01-CH",
+        "C043-2026-02-CH",
+        "C044-2026-03-CH",
+        "C045-2026-04-SC",
+        "C046-2026-05-SC",
+        "C047-2026-06-SC"
+      ],
+      "points": [
+        "PIC-01",
+        "PIC-02",
+        "PIC-03",
+        "PIC-04",
+        "PIC-05",
+        "PIC-06",
+        "PIC-07",
+        "PIC-08",
+        "PIC-09",
+        "PIC-10",
+        "PIC-11",
+        "PIC-12",
+        "PIC-13"
+      ],
+      "cpue_formula": "(sum_abundance_or_biomass / sum_distinct_effort_by_campaign_point) * 100"
+    },
+    "block_9": {
+      "campaigns": [
+        "C001-2022-08-SC",
+        "C002-2022-09-SC",
+        "C003-2022-10-CH",
+        "C004-2022-11-CH",
+        "C005-2022-12-CH",
+        "C006-2023-01-CH",
+        "C007-2023-02-CH",
+        "C008-2023-03-CH",
+        "C009-2023-04-SC",
+        "C010-2023-05-SC",
+        "C011-2023-06-SC",
+        "C012-2023-07-SC",
+        "C013-2023-08-SC",
+        "C014-2023-09-SC",
+        "C015-2023-10-CH",
+        "C016-2023-11-CH",
+        "C017-2023-12-CH",
+        "C018-2024-01-CH",
+        "C019-2024-02-CH",
+        "C020-2024-03-CH",
+        "C021-2024-04-SC",
+        "C022-2024-05-SC",
+        "C023-2024-06-SC",
+        "C024-2024-07-SC",
+        "C025-2024-08-SC",
+        "C026-2024-09-SC",
+        "C027-2024-10-CH",
+        "C028-2024-11-CH",
+        "C029-2024-12-CH",
+        "C030-2025-01-CH",
+        "C031-2025-02-CH",
+        "C032-2025-03-CH",
+        "C033-2025-04-SC",
+        "C034-2025-05-SC",
+        "C035-2025-06-SC",
+        "C036-2025-07-SC",
+        "C037-2025-08-SC",
+        "C038-2025-09-SC",
+        "C039-2025-10-CH",
+        "C040-2025-11-CH",
+        "C041-2025-12-CH",
+        "C042-2026-01-CH",
+        "C043-2026-02-CH",
+        "C044-2026-03-CH",
+        "C045-2026-04-SC",
+        "C046-2026-05-SC",
+        "C047-2026-06-SC"
+      ],
+      "points": [
+        "PIC-01",
+        "PIC-02",
+        "PIC-03",
+        "PIC-04",
+        "PIC-05",
+        "PIC-06",
+        "PIC-07",
+        "PIC-08",
+        "PIC-09",
+        "PIC-10",
+        "PIC-11",
+        "PIC-12",
+        "PIC-13"
+      ],
+      "species": 13,
+      "cpue_formula": "(species_abundance_or_biomass_at_point / sum_distinct_effort_by_campaign_point) * 100"
+    },
+    "block_10": {
+      "campaigns": [
+        "C001-2022-08-SC",
+        "C002-2022-09-SC",
+        "C003-2022-10-CH",
+        "C004-2022-11-CH",
+        "C005-2022-12-CH",
+        "C006-2023-01-CH",
+        "C007-2023-02-CH",
+        "C008-2023-03-CH",
+        "C009-2023-04-SC",
+        "C010-2023-05-SC",
+        "C011-2023-06-SC",
+        "C012-2023-07-SC",
+        "C013-2023-08-SC",
+        "C014-2023-09-SC",
+        "C015-2023-10-CH",
+        "C016-2023-11-CH",
+        "C017-2023-12-CH",
+        "C018-2024-01-CH",
+        "C019-2024-02-CH",
+        "C020-2024-03-CH",
+        "C021-2024-04-SC",
+        "C022-2024-05-SC",
+        "C023-2024-06-SC",
+        "C024-2024-07-SC",
+        "C025-2024-08-SC",
+        "C026-2024-09-SC",
+        "C027-2024-10-CH",
+        "C028-2024-11-CH",
+        "C029-2024-12-CH",
+        "C030-2025-01-CH",
+        "C031-2025-02-CH",
+        "C032-2025-03-CH",
+        "C033-2025-04-SC",
+        "C034-2025-05-SC",
+        "C035-2025-06-SC",
+        "C036-2025-07-SC",
+        "C037-2025-08-SC",
+        "C038-2025-09-SC",
+        "C039-2025-10-CH",
+        "C040-2025-11-CH",
+        "C041-2025-12-CH",
+        "C042-2026-01-CH",
+        "C043-2026-02-CH",
+        "C044-2026-03-CH",
+        "C045-2026-04-SC",
+        "C046-2026-05-SC",
+        "C047-2026-06-SC"
+      ],
+      "base_quantitativa": "CPUEn (ind/100m2)"
+    },
+    "block_11": {
+      "points": 13,
+      "base_quantitativa": "CPUEn (ind/100m2)"
+    },
+    "block_12": {
+      "samples": 611,
+      "observed_final": 13.0,
+      "jackknife_final": 13.998363338788874
+    },
+    "block_13": {
+      "rows": 519,
+      "sampling_events": 519,
+      "associated_occurrences": 519,
+      "file": "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\DarwinCore_IEF_Ictiofauna_Monitoramento_De_Ictio_E_Bentos_Brumado_Avg.xlsx",
+      "fish_biometric_rows": 519
+    },
+    "executed_blocks": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "generated_files": [
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\01_tabela_composicao_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04_tabela_distribuicao_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04A_tabela_sintese_ocorrencia_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04B_grafico_frequencia_ocorrencia_por_campanha_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04C_grafico_frequencia_ocorrencia_por_ponto_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\02_df_riqueza_por_ponto_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\02_grafico_riqueza_por_ponto_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\03_df_abundancia_por_ponto_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\03_grafico_abundancia_por_ponto_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04_df_riqueza_por_ordem_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04_grafico_riqueza_ordem_barras_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\05_grafico_riqueza_ordem_rosca_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04_df_riqueza_por_familia_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\04_grafico_riqueza_familia_barras_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\05_grafico_riqueza_familia_rosca_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_df_cpue_por_ponto_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ano_2022_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ano_2023_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ano_2024_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ano_2025_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\06_grafico_cpuen_por_ano_2026_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ano_2022_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ano_2023_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ano_2024_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ano_2025_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\07_grafico_cpueb_por_ano_2026_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\08_df_cpuen_por_especie_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\09_df_cpueb_por_especie_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\08B_df_cpuen_por_especie_ponto_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\09B_df_cpueb_por_especie_ponto_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\08_grafico_cpuen_por_especie_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\09_grafico_cpueb_por_especie_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\08B_grafico_cpuen_por_especie_ponto_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\09B_grafico_cpueb_por_especie_ponto_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\10_df_diversidade_alfa_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\10_grafico_diversidade_alfa_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\11_df_matriz_comunidade_ictiofauna_seca_chuva_somadas.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\11_df_distancias_braycurtis_ictiofauna_seca_chuva_somadas.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\11_dendrograma_similaridade_ictiofauna_seca_chuva_somadas.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\12_df_curva_suficiencia_ictiofauna.xlsx",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\12_curva_suficiencia_amostral_ictiofauna.png",
+      "outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_temporal_eval_20260713\\DarwinCore_IEF_Ictiofauna_Monitoramento_De_Ictio_E_Bentos_Brumado_Avg.xlsx"
+    ]
+  }
+}

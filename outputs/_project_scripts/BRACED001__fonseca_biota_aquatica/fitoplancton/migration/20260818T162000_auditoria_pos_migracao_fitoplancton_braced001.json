@@ -1,0 +1,16 @@
+{
+  "projeto": "BRACED001",
+  "grupo": "Fitoplancton",
+  "fonte_resultados": 511,
+  "banco_resultados": 511,
+  "consolidado_resultados": 511,
+  "fonte_esforcos": 72,
+  "banco_esforcos": 72,
+  "fonte_taxons_apos_alias": 198,
+  "banco_taxons": 198,
+  "divergencias_resultados_base": 0,
+  "divergencias_resultados_consolidado": 0,
+  "divergencias_esforcos": 0,
+  "divergencias_pontos_datas_coordenadas": 0,
+  "status": "PASS"
+}

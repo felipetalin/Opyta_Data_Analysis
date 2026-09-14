@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-Reproducer script for primatas analysis - fersam001
-Generated: 2026-05-14T19:51:59.938428Z
+Reproducer script for Primatas analysis - fersam001
+Generated: 2026-08-04T16:35:30.265172Z
 
 Usage:
   python _run_this_analysis.py
@@ -19,20 +19,24 @@ from opyta_analysis.config import RunParams
 from opyta_analysis.runner import run
 
 def main():
-    parser = argparse.ArgumentParser(description="Re-run primatas analysis")
-    parser.add_argument("--block", default='6.2', help="Block to execute (default: 6.2)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\28_campanha-Abril_26\Primatas\Senhora do Porto", help="Output directory for generated artifacts")
-    parser.add_argument("--env-file", default='G:/Meu Drive/Opyta/Opyta_Data/.env', help="Optional .env file path")
+    parser = argparse.ArgumentParser(description="Re-run Primatas analysis")
+    parser.add_argument("--block", default='all', help="Block to execute (default: all)")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\29_campanha_Jul_26\Primatas\Senhora do Porto", help="Output directory for generated artifacts")
+    parser.add_argument("--env-file", default='G:\\Meu Drive\\Opyta\\Opyta_Data\\.env', help="Optional .env file path")
+    parser.add_argument("--campaigns", default=None, help="Override comma-separated campaign filter")
     args = parser.parse_args()
+    campaigns = [c.strip() for c in args.campaigns.split(",") if c.strip()] if args.campaigns else ['C029-2026-07-SC']
 
     params = RunParams(
         project_id=165,
-        group='primatas',
+        group='Primatas',
         pipeline='primatas',
         client='fersam001',
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
         block=args.block,
+        audit_project_slug='ITAGUA001__monitoramento_da_fauna',
+        campaigns=campaigns,
     )
 
     config_root = Path(r"G:\Meu Drive\Opyta\Opyta_Data_Analysis\configs")

@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "default_source": "gbif",
+  "sources": {
+    "gbif": {
+      "label": "GBIF Backbone Taxonomy",
+      "match_url": "https://api.gbif.org/v1/species/match",
+      "role": "mvp_global_match"
+    },
+    "worms": {
+      "label": "World Register of Marine Species",
+      "match_url": "https://www.marinespecies.org/rest/AphiaRecordsByName/{ScientificName}",
+      "role": "zooplankton_specialist"
+    },
+    "ctfb": {
+      "label": "Catalogo Taxonomico da Fauna do Brasil",
+      "match_url": "https://fauna.jbrj.gov.br/rest/v_taxon_data",
+      "role": "brazilian_fauna_authority"
+    }
+  },
+  "profiles": {
+    "zooplankton": {
+      "sources": ["worms", "ctfb", "gbif"],
+      "consensus": "all_three",
+      "conflict_policy": "keep_professional"
+    }
+  },
+  "planned_sources": [
+    "Flora e Funga do Brasil",
+    "POWO",
+    "WFO",
+    "Catalogue of Life",
+    "MycoBank",
+    "Index Fungorum",
+    "AlgaeBase",
+    "IPNI"
+  ]
+}

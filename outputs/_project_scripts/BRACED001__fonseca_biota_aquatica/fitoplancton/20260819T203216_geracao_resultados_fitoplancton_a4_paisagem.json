@@ -1,0 +1,401 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-19T23:34:50.861775Z",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Fitoplâncton",
+  "action": "generate_fitoplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton",
+  "figures_count": 14,
+  "figures_ok": 14,
+  "files_count": 36,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\20260819T203216_contact_sheet_figuras_fitoplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 511,
+    "rows_quantitative": 87,
+    "rows_qualitative": 424,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 18,
+    "taxa_total": 198,
+    "taxa_quant": 58,
+    "phyla_total": 9,
+    "density_total": 2138.1121194666666,
+    "density_unit": "org/amostra",
+    "max_richness": 108.0,
+    "max_richness_point": "MA-01-01",
+    "max_richness_campaign": "C02-Seca",
+    "max_density": 773.8181818181819,
+    "max_density_point": "MA-01-01",
+    "max_density_campaign": "C01-Chuva",
+    "dominant_phylum": "Chlorophyta",
+    "dominant_phylum_density": 543.5151512545456,
+    "dominant_taxon": "Cryptomonas sp.",
+    "dominant_taxon_density": 451.3896965787879,
+    "suff_obs": 198.0,
+    "suff_est": 275.71428571428464,
+    "taxonomy_r01": {
+      "status": "PASS",
+      "checks": {
+        "rows_511": true,
+        "taxa_198": true,
+        "phyla_expected": true,
+        "campaign_richness": true,
+        "shared_taxa_87": true,
+        "exclusive_taxa_36_75": true,
+        "quantitative_taxa_58": true,
+        "qualitative_only_taxa_140": true,
+        "zygnematophyceae_96": true,
+        "desmidiaceae_8": true,
+        "iconella_genus": true,
+        "synura_order": true,
+        "scytonemataceae_ni": true
+      },
+      "phyla": {
+        "Bacillariophyta": 57,
+        "Charophyta": 96,
+        "Chlorophyta": 12,
+        "Cryptophyta": 1,
+        "Cyanobacteriota": 17,
+        "Dinophyta": 5,
+        "Euglenophyta": 5,
+        "Ochrophyta": 4,
+        "Rhodophyta": 1
+      },
+      "campaign_richness": {
+        "C001-2026-03-CH": 123,
+        "C002-2026-06-SC": 162
+      },
+      "shared_taxa": 87,
+      "exclusive_taxa": {
+        "C001-2026-03-CH": 36,
+        "C002-2026-06-SC": 75
+      }
+    }
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\00_base_consolidada_fitoplancton.xlsx",
+      "tamanho_bytes": 75478,
+      "sha256": "a2d38040726d2bad19e2ff0e724870f8bed825e339d2640ce120f783d045f0bf"
+    },
+    {
+      "arquivo": "01_tabela_composicao_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\01_tabela_composicao_fitoplancton.xlsx",
+      "tamanho_bytes": 15948,
+      "sha256": "1acfce852b1d4ca4eefc388f091dfb3ca810672aaa627879c21c27158087e8ab"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\01_tabela_ocorrencia_fitoplancton.xlsx",
+      "tamanho_bytes": 29511,
+      "sha256": "7934bf032f3c29a5f42341a869875b33335c89291cae4d5bc1aded267b5874af"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5787,
+      "sha256": "6f715a11cafa1a2746fe41548965b4ca25e696efa4431820cb5325904f26aa72"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 573533,
+      "sha256": "8b57c6a63ca956b2c501b9d48dc7cb9dc39293dff3f41f7002a933e496d4fce2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 60.96262954880856,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5829,
+      "sha256": "c97e850126b34d034c22b55bf98ebe170d3c60bcc40c3c87e2756aab2d705e08"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 628782,
+      "sha256": "dc0ad511c96510bf32a279acaf5884451e917e5921421714724f9bfe29dac658",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.13854379681834,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "tamanho_bytes": 5194,
+      "sha256": "2e6c0f7e1ac05ecfceea4b7b69c5722b7402bbe61422a40451ea247ccb1983d0"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "tamanho_bytes": 704022,
+      "sha256": "629965f85a72db3a8d130e2fcd78183d931001919d8d91fb4496424ffd182518",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 71.02717105740159,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "tamanho_bytes": 619316,
+      "sha256": "ab56c1193e3c6b338cbda83fb75d818096bee5bb54552224e50437685f7554d1",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 86.57230536334148,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 6385,
+      "sha256": "bf72fb6b6181d8fea6397207e96b26c140005ce6b844b6c765e1d7eb9d6936c8"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 676794,
+      "sha256": "17d20efb83b55b5a004a6b85b188c18c79b6432d71fe6ffc04b1f410e3adce68",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.589633157570645,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 6552,
+      "sha256": "5c2e8f32e67b02838da3e2c2bf5edcc30e643885a6a1e8742c4a5a1affeb09f5"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 639615,
+      "sha256": "f4ae6880406a06ccd663bcbe32aa8b745195f7b517d0095ec2ad18585e828689",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 92.94075787295553,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "tamanho_bytes": 7746,
+      "sha256": "971c3aff7db284b06ddf11408dd880bc3647651547a66d2c5fb123f6760aefb0"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\08_grafico_densidade_por_taxon_fitoplancton.png",
+      "tamanho_bytes": 887005,
+      "sha256": "ef4f8e967a92ea220888c82b2e71cae9fd4049e3418c91890b476fe37e91e572",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.82219659780146,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 11146,
+      "sha256": "1728f10bf0fab5ffa5a79e1876e72fdbc63fa5dc8f59e085b15409aa0444a452"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "tamanho_bytes": 948694,
+      "sha256": "fa9b21c1c3a1dd13a8ac42770c85445c1fbce05fb4100f13e14384b7c5c45653",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 46.16096846187525,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\10_df_diversidade_alfa_fitoplancton.xlsx",
+      "tamanho_bytes": 6836,
+      "sha256": "b08b76d808cf0b53b0d7b68a7ec088a3fe1c4fad3fc74b9873db8aaa6ecae05c"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\10_grafico_diversidade_alfa_fitoplancton.png",
+      "tamanho_bytes": 685179,
+      "sha256": "8d8f36138f664b06308891309c3df97a29640d67f6176b90c6026755c688d921",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 64.43101218743347,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\11_df_matriz_comunidade_fitoplancton.xlsx",
+      "tamanho_bytes": 9498,
+      "sha256": "e9753ccf1a43cb958f53e520ef849cfdba1430bbf37a5bc3edcc2e8fa54a819b"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "tamanho_bytes": 7961,
+      "sha256": "77c4d817c19ac6ff640d00e2977cd442ea3d1ef83fe150a5a58048c5eabb3492"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\11_dendrograma_similaridade_fitoplancton.png",
+      "tamanho_bytes": 626000,
+      "sha256": "dfe03c9587b4db8538061f1a3f5fe6fb3967d1656c9cf9fccad4acf9442e9fb1",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 45.03524197390616,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\11B_df_matriz_comunidade_pontos_fitoplancton.xlsx",
+      "tamanho_bytes": 8262,
+      "sha256": "dfa383dec274316d57813abd197c618e8e43d9badd396c76fa160b9ff8a81066"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\11B_df_distancias_braycurtis_pontos_fitoplancton.xlsx",
+      "tamanho_bytes": 6732,
+      "sha256": "cbab76e23966ecea69e5fdfa1f7d5a14ec31ff2b731080264e5951c20032a594"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\11B_dendrograma_similaridade_pontos_fitoplancton.png",
+      "tamanho_bytes": 453161,
+      "sha256": "acfeead0c550f9edde55afdbcd47c86998dcd68ee1df4bf3cb1d58c0cf202bc2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 38.274529995412955,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\12_df_curva_suficiencia_fitoplancton.xlsx",
+      "tamanho_bytes": 7326,
+      "sha256": "5362a5ba9d7b6a44485008020bcff8de5aa155b2dea66c9e5a801ee29a36b826"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\12_curva_suficiencia_amostral_fitoplancton.png",
+      "tamanho_bytes": 736629,
+      "sha256": "eabcbe84f431d53bc2e48ff6d1e27edd5c911419c031867418414424f37c49f4",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 33.474988112692095,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Fitoplancton_BRACED001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\DarwinCore_IEF_Fitoplancton_BRACED001.xlsx",
+      "tamanho_bytes": 60545,
+      "sha256": "369c71bc02c56e66f9a37e54470eb2a363a7e01c2a0ba62c9fdc125f13a1c08f"
+    },
+    {
+      "arquivo": "14_tabela_sintese_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\14_tabela_sintese_fitoplancton.xlsx",
+      "tamanho_bytes": 6611,
+      "sha256": "f6352c9f9ad24cd5b45092dec18abe0c5450d0613d6ef6ea8df7c4252e6294b7"
+    },
+    {
+      "arquivo": "14_grafico_sintese_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\14_grafico_sintese_fitoplancton.png",
+      "tamanho_bytes": 649822,
+      "sha256": "4a1a0e35043dd9c6feaa1381f2bc410cf57d900d70991d98a31b2d28f05a9402",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 74.348949940961,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_fitoplancton_braced001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\relatorio_tecnico_fitoplancton_braced001.html",
+      "tamanho_bytes": 4150,
+      "sha256": "bfb24fe60546e513eceb463b503024f321c7db631aa62b35016ba8c4c18ff0ee"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\manifesto_entrega_fitoplancton_braced001.json",
+      "tamanho_bytes": 12297,
+      "sha256": "84d84c8cdcd07f7aa1b5b070e5527d6743e740fca7880b5b9b132c34d31d64bc"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braced001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\manifesto_entrega_fitoplancton_braced001.xlsx",
+      "tamanho_bytes": 7996,
+      "sha256": "d753ddba65c44bc156a26d857b36b88c556472a1edac3f89b99ec922fc96b989"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braced001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\manifesto_entrega_fitoplancton_braced001.md",
+      "tamanho_bytes": 2755,
+      "sha256": "2caac128d262caef76022854cd9b2043eb05b87d14f4c370f6ce583e269d0223"
+    },
+    {
+      "arquivo": "validacao_entrega_fitoplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fitoplancton\\validacao_entrega_fitoplancton_braced001.json",
+      "tamanho_bytes": 580,
+      "sha256": "920da008cf30b1e29be776d0376a78f06214527bd8f427473ed9ca6e9f5371cf"
+    }
+  ]
+}

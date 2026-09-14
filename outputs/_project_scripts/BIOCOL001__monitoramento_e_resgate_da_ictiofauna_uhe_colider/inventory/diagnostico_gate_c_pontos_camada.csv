@@ -1,0 +1,20 @@
+﻿nome_ponto,registros,individuos,campanhas,especies,ponto,camada_operacional,incluir_analises_gerais,papel_analitico,observacao
+ICTIO01,976,7159.0,66,160,ICTIO01,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO02,882,4836.0,65,164,ICTIO02,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO03,1019,9109.0,68,172,ICTIO03,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO04,1045,6522.0,66,170,ICTIO04,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO05,599,3844.0,67,133,ICTIO05,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO06,675,3590.0,62,145,ICTIO06,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO07,613,4419.0,67,125,ICTIO07,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO08,499,3615.0,65,125,ICTIO08,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO09,913,10727.0,66,160,ICTIO09,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO10,676,6078.0,69,130,ICTIO10,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO11,709,5787.0,67,144,ICTIO11,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO12,663,5431.0,67,125,ICTIO12,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO13A,1284,14314.0,69,163,ICTIO13A,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO13A - Marcação,22,256.0,3,10,ICTIO13A - Marcação,programacao_marcacao,nao,ponto_especial_marcacao,"Faz parte da programacao de marcacao; manter no banco, mas excluir por padrao das analises gerais."
+ICTIO13B,731,6824.0,59,95,ICTIO13B,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO13C,308,3839.0,33,56,ICTIO13C,sistema_transposicao_condicional,condicional,ponto_sistema_transposicao,Ponto do sistema de transposicao de peixes; incluir ou excluir conforme objetivo da analise.
+ICTIO13D,485,5594.0,32,82,ICTIO13D,sistema_transposicao_condicional,condicional,ponto_sistema_transposicao,Ponto do sistema de transposicao de peixes; incluir ou excluir conforme objetivo da analise.
+ICTIO14,489,2939.0,58,125,ICTIO14,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.
+ICTIO15,1210,10323.0,69,155,ICTIO15,malha_regular,sim,ponto_amostral_regular,Ponto regular da programacao de monitoramento.

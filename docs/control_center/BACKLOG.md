@@ -2,6 +2,19 @@
 
 ## Alta Prioridade
 
+- Especificar e criar camada `opyta_ops` para usar o OPYTA DATA como frontend
+  e o `Opyta_Data_Analysis` como motor/governanca, sem expor scripts e banco
+  diretamente a colaboradores.
+- Integrar o OPYTA DATA ao fluxo da Central de Controle: operacoes, estados,
+  Gates A/B/C/R, aprovacoes explicitas e registro de lastro.
+- Substituir a consolidacao global/destrutiva do OPYTA DATA por consolidacao
+  controlada por escopo, com dry-run, backup, reversao e auditoria.
+- Persistir a auditoria do OPYTA DATA em Supabase, mantendo arquivo local apenas
+  como fallback.
+- Implementar perfis de permissao para colaboradores: leitor, preparador,
+  analista, revisor e administrador.
+- Auditar proximos relatorios de consumo do Codex apos a inclusao de
+  `.codexignore` e `LLM_CONTEXT_POLICY.md`.
 - Automatizar a criacao e atualizacao dos registros em
   `docs/control_center/operations/`.
 - Criar validador dos gates e transicoes do fluxo operacional.
@@ -18,6 +31,8 @@
 - Criar `scripts/run/new_project.py` para abrir projeto, dossie, recipe e
   registro de operacao com templates.
 - Criar gerador de decision record.
+- Conectar a pagina de analises do OPYTA DATA ao runner por recipe em
+  `scripts/run/run_project_recipe.py`.
 - Criar preview HTML simples do Control Center.
 - Reduzir wrappers temporarios na raiz de `scripts`.
 - Avaliar se `TESTE001` deve ser removido tambem do Supabase.

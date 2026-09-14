@@ -81,6 +81,13 @@ POINT_ORDER = AC01_POINTS + AC02_POINTS
 AREA_BY_POINT = {p: AREA_01 for p in AC01_POINTS} | {p: AREA_02 for p in AC02_POINTS}
 POINT_RANK = {point: idx + 1 for idx, point in enumerate(POINT_ORDER)}
 
+NOT_SAMPLED_CAMPAIGN_RANGES = {
+    "PIC-01": [(40, None)],
+    "PIC-02": [(40, 42)],
+    "PIC-03": [(40, 42), (44, None)],
+    "PIC-11": [(40, None)],
+}
+
 
 def _json_default(value: Any) -> Any:
     if isinstance(value, Decimal):
@@ -106,6 +113,26 @@ def _norm_text(value: object) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def _campaign_seq(value: object) -> int:
+    text = _norm_text(value)
+    match = re.search(r"\d+", text)
+    if not match:
+        raise ValueError(f"Campanha sem sequencia numerica: {value!r}")
+    return int(match.group(0))
+
+
+def _is_not_monitored(point: object, campaign_seq: int) -> bool:
+    point_name = "" if point is None else str(point).strip()
+    for start, end in NOT_SAMPLED_CAMPAIGN_RANGES.get(point_name, []):
+        if campaign_seq >= start and (end is None or campaign_seq <= end):
+            return True
+    return False
+
+
+def _monitored_points(campaign_seq: int) -> list[str]:
+    return [point for point in POINT_ORDER if not _is_not_monitored(point, campaign_seq)]
+
+
 def _filter_campaign(df, campaign: str):
     target = _norm_text(campaign)
     mask = df["nome_campanha"].map(_norm_text) == target
@@ -121,13 +148,21 @@ def _add_point_area_metadata(df):
     out["nome_ponto"] = out["nome_ponto"].astype(str).str.strip()
     out["area_controle"] = out["nome_ponto"].map(AREA_BY_POINT)
     out["ordem_ponto"] = out["nome_ponto"].map(POINT_RANK)
+    out["campanha_seq"] = out["nome_campanha"].map(_campaign_seq)
+    out["Status_Monitoramento"] = [
+        "Não monitorado" if _is_not_monitored(point, int(seq)) else "Monitorado"
+        for point, seq in zip(out["nome_ponto"], out["campanha_seq"])
+    ]
     return out
 
 
 def _pad_zero_points(df_campaign):
     df = _add_point_area_metadata(df_campaign)
+    df = df[df["Status_Monitoramento"].eq("Monitorado")].copy()
+    campaign_seq = int(df_campaign["nome_campanha"].map(_campaign_seq).iloc[0])
+    active_points = _monitored_points(campaign_seq)
     observed_points = set(df["nome_ponto"].dropna().astype(str).str.strip())
-    missing_points = [point for point in POINT_ORDER if point not in observed_points]
+    missing_points = [point for point in active_points if point not in observed_points]
     if not missing_points:
         return df
 
@@ -149,6 +184,8 @@ def _pad_zero_points(df_campaign):
         row["nome_ponto"] = point
         row["area_controle"] = AREA_BY_POINT[point]
         row["ordem_ponto"] = POINT_RANK[point]
+        row["campanha_seq"] = campaign_seq
+        row["Status_Monitoramento"] = "Monitorado"
         row["contagem"] = 0
         row["bmwp_score"] = 0
         if "taxon_final" in row:
@@ -216,18 +253,30 @@ def _run_all_blocks(df_observed, df_point_metrics, theme: dict, output_dir: Path
     }
 
 
-def _summarize_df(df) -> dict[str, Any]:
+def _summarize_df(df, campaign: str) -> dict[str, Any]:
+    campaign_seq = _campaign_seq(campaign)
+    active_points = _monitored_points(campaign_seq)
+    not_monitored_points = [point for point in POINT_ORDER if point not in active_points]
     points_with_result = sorted(df["nome_ponto"].dropna().astype(str).unique().tolist())
-    zero_points = [point for point in POINT_ORDER if point not in set(points_with_result)]
+    zero_points = [point for point in active_points if point not in set(points_with_result)]
     return {
         "records": int(len(df)),
         "campaigns": sorted(df["nome_campanha"].dropna().astype(str).unique().tolist()),
-        "points": POINT_ORDER,
+        "points": active_points,
+        "not_monitored_points": not_monitored_points,
         "points_with_result": points_with_result,
         "zero_points": zero_points,
         "taxa": int(df["taxon_final"].nunique()),
         "abundancia_total": float(df["contagem"].sum()),
     }
+
+
+def _summary_filename(targets: list[dict[str, str]]) -> str:
+    slug = "_".join(
+        re.sub(r"[^a-z0-9]+", "_", target["folder"].lower()).strip("_").replace("_26", "")
+        for target in targets
+    )
+    return f"metadata_resultados_zoobentos_{slug}_2026.json"
 
 
 def run(output_root: Path, env_file: str | None) -> dict[str, Any]:
@@ -238,8 +287,10 @@ def run(output_root: Path, env_file: str | None) -> dict[str, Any]:
 
     results: list[dict[str, Any]] = []
     for target in TARGETS:
-        df_campaign = _filter_campaign(df_all, target["campaign"])
-        df_point_metrics = _pad_zero_points(df_campaign)
+        df_campaign_all = _filter_campaign(df_all, target["campaign"])
+        df_point_metrics = _pad_zero_points(df_campaign_all)
+        df_campaign = _add_point_area_metadata(df_campaign_all)
+        df_campaign = df_campaign[df_campaign["Status_Monitoramento"].eq("Monitorado")].copy()
         output_dir = output_root / target["folder"]
         block_result = _run_all_blocks(df_campaign, df_point_metrics, theme, output_dir)
         payload = {
@@ -249,7 +300,7 @@ def run(output_root: Path, env_file: str | None) -> dict[str, Any]:
             "group": GROUP,
             "target_campaign": target["campaign"],
             "output_dir": str(output_dir),
-            **_summarize_df(df_campaign),
+            **_summarize_df(df_campaign, target["campaign"]),
             **block_result,
         }
         (output_dir / "metadata_resultados_zoobentos.json").write_text(
@@ -267,7 +318,7 @@ def run(output_root: Path, env_file: str | None) -> dict[str, Any]:
         "campaign_results": results,
     }
     output_root.mkdir(parents=True, exist_ok=True)
-    (output_root / "metadata_resultados_zoobentos_fev_mar_abr_2026.json").write_text(
+    (output_root / _summary_filename(TARGETS)).write_text(
         json.dumps(summary, ensure_ascii=False, indent=2, default=_json_default),
         encoding="utf-8",
     )

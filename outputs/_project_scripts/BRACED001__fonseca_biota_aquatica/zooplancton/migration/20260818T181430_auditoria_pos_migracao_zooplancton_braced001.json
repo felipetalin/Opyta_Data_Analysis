@@ -1,0 +1,16 @@
+{
+  "projeto": "BRACED001",
+  "grupo": "Zooplancton",
+  "fonte_resultados": 624,
+  "banco_resultados": 624,
+  "consolidado_resultados": 624,
+  "fonte_esforcos": 36,
+  "banco_esforcos": 36,
+  "fonte_taxons_apos_alias": 58,
+  "banco_taxons": 58,
+  "divergencias_resultados_base": 102,
+  "divergencias_resultados_consolidado": 102,
+  "divergencias_esforcos": 0,
+  "divergencias_pontos_datas_coordenadas": 0,
+  "status": "BLOCKED"
+}

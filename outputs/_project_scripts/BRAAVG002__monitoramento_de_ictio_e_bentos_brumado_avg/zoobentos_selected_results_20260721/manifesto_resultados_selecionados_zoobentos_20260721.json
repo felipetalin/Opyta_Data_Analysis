@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-07-22T10:20:58",
+  "project_code": "BRAAVG002",
+  "group": "Zoobentos",
+  "status": "generated_for_review",
+  "source_analytic_base": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\zoobentos_consolidated_analytic_base_20260721\\base_analitica_consolidada_zoobentos_20260721.xlsx",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026",
+  "support_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\zoobentos_selected_results_20260721",
+  "scope": [
+    "composicao taxonomica",
+    "riqueza taxonomica",
+    "abundancia e densidade",
+    "Shannon e Pielou",
+    "tabela BMWP/EPT/CHOL",
+    "PCoA Bray-Curtis por ano temporal",
+    "Darwin Core"
+  ],
+  "visual_rules": {
+    "composition_order_palette": [
+      "#3E7369",
+      "#007032",
+      "#00A859",
+      "#82C21F"
+    ],
+    "traditional_panels": "mesmo modelo A4 por grupos de pontos aprovado na Ictiofauna",
+    "taxon_synthesis": "figura 08C com top 30 taxons por abundancia; Excel contem todos os taxons"
+  },
+  "outputs": {
+    "composition": {
+      "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\01_grafico_composicao_taxonomica_por_ordem_zoobentos.png",
+      "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\01_tabela_composicao_taxonomica_zoobentos.xlsx"
+    },
+    "metric_panels": {
+      "02_riqueza": [
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\02_grafico_riqueza_taxonomica_por_ponto_c001_c047_G01_AC01_PIC01_PIC03_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\02_grafico_riqueza_taxonomica_por_ponto_c001_c047_G02_AC01_PIC04_PIC06_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\02_grafico_riqueza_taxonomica_por_ponto_c001_c047_G03_AC01_PIC07_PIC09_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\02_grafico_riqueza_taxonomica_por_ponto_c001_c047_G04_AC01_PIC11_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\02_grafico_riqueza_taxonomica_por_ponto_c001_c047_G05_AC02_PIC10_PIC13_zoobentos.png"
+      ],
+      "03A_abundancia": [
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03A_grafico_abundancia_por_ponto_c001_c047_G01_AC01_PIC01_PIC03_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03A_grafico_abundancia_por_ponto_c001_c047_G02_AC01_PIC04_PIC06_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03A_grafico_abundancia_por_ponto_c001_c047_G03_AC01_PIC07_PIC09_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03A_grafico_abundancia_por_ponto_c001_c047_G04_AC01_PIC11_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03A_grafico_abundancia_por_ponto_c001_c047_G05_AC02_PIC10_PIC13_zoobentos.png"
+      ],
+      "03B_densidade": [
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03B_grafico_densidade_por_ponto_c001_c047_G01_AC01_PIC01_PIC03_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03B_grafico_densidade_por_ponto_c001_c047_G02_AC01_PIC04_PIC06_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03B_grafico_densidade_por_ponto_c001_c047_G03_AC01_PIC07_PIC09_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03B_grafico_densidade_por_ponto_c001_c047_G04_AC01_PIC11_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03B_grafico_densidade_por_ponto_c001_c047_G05_AC02_PIC10_PIC13_zoobentos.png"
+      ],
+      "04A_shannon": [
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04A_grafico_shannon_por_ponto_c001_c047_G01_AC01_PIC01_PIC03_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04A_grafico_shannon_por_ponto_c001_c047_G02_AC01_PIC04_PIC06_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04A_grafico_shannon_por_ponto_c001_c047_G03_AC01_PIC07_PIC09_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04A_grafico_shannon_por_ponto_c001_c047_G04_AC01_PIC11_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04A_grafico_shannon_por_ponto_c001_c047_G05_AC02_PIC10_PIC13_zoobentos.png"
+      ],
+      "04B_pielou": [
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04B_grafico_pielou_por_ponto_c001_c047_G01_AC01_PIC01_PIC03_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04B_grafico_pielou_por_ponto_c001_c047_G02_AC01_PIC04_PIC06_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04B_grafico_pielou_por_ponto_c001_c047_G03_AC01_PIC07_PIC09_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04B_grafico_pielou_por_ponto_c001_c047_G04_AC01_PIC11_zoobentos.png",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04B_grafico_pielou_por_ponto_c001_c047_G05_AC02_PIC10_PIC13_zoobentos.png"
+      ],
+      "tables": [
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\02_df_riqueza_taxonomica_zoobentos.xlsx",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\03_df_abundancia_densidade_zoobentos.xlsx",
+        "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\04_df_indices_diversidade_alfa_zoobentos.xlsx"
+      ]
+    },
+    "taxon_synthesis": {
+      "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\08C_grafico_sintese_abundancia_taxons_temporal_espacial_zoobentos.png",
+      "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\08C_df_sintese_abundancia_taxons_temporal_espacial_zoobentos.xlsx"
+    },
+    "bioindicator_tables": {
+      "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\05_df_grupos_bioindicadores_bmwp_ept_chol_zoobentos.xlsx"
+    },
+    "pcoa": {
+      "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\07_grafico_pcoa_bray_curtis_por_ano_temporal_zoobentos.png",
+      "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\07_df_pcoa_bray_curtis_zoobentos.xlsx"
+    },
+    "darwin_core": {
+      "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\DarwinCore_IEF_Zoobentos_Monitoramento_De_Ictio_E_Bentos_Brumado_Avg.xlsx"
+    }
+  }
+}

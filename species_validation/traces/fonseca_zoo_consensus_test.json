@@ -1,0 +1,27 @@
+{
+  "validator": "species_registration_validator",
+  "version": 1,
+  "created_at": "2026-08-18T13:22:51.945524+00:00",
+  "input": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Migracao\\Fonseca\\Cadastro_especies_opyta_fonseca-zoo-260818.xlsx",
+  "output": "species_validation\\outputs\\fonseca_zoo_consensus_test.xlsx",
+  "source": "WoRMS | CTFB | GBIF",
+  "columns": {
+    "name": "Nome_Cientifico",
+    "family": "Familia",
+    "kingdom": "Reino"
+  },
+  "parameters": {
+    "min_confidence": 92,
+    "offline": false,
+    "limit": 3,
+    "vernacular_language": "por",
+    "profile": "zooplankton"
+  },
+  "summary": {
+    "rows": 3,
+    "status_counts": {
+      "not_found": 2,
+      "review_partial": 1
+    }
+  }
+}

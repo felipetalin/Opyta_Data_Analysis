@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-07-14T09:40:36",
+  "status": "exploratory_not_final",
+  "source_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_campaign_a3_exploratory_20260714",
+  "idea": "Uma figura A3 paisagem por metrica, com C001-C047 no eixo X e separadores pontilhados de ano temporal.",
+  "outputs": {
+    "02_riqueza": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_campaign_a3_exploratory_20260714\\EXP_A3_02_riqueza_por_ponto_c001_c047.png",
+    "03_abundancia": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_campaign_a3_exploratory_20260714\\EXP_A3_03_abundancia_por_ponto_c001_c047.png",
+    "06_cpuen": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_campaign_a3_exploratory_20260714\\EXP_A3_06_cpuen_por_ponto_c001_c047.png",
+    "07_cpueb": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_campaign_a3_exploratory_20260714\\EXP_A3_07_cpueb_por_ponto_c001_c047.png",
+    "10_shannon": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_campaign_a3_exploratory_20260714\\EXP_A3_10A_shannon_por_ponto_c001_c047.png",
+    "10_pielou": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\traditional_full_campaign_a3_exploratory_20260714\\EXP_A3_10B_pielou_por_ponto_c001_c047.png"
+  },
+  "notes": [
+    "Faixas sutis alternadas indicam anos temporais.",
+    "Linhas pontilhadas separam C012/C013, C024/C025 e C036/C037.",
+    "Marcadores indicam periodo hidrologico CH/SC."
+  ]
+}

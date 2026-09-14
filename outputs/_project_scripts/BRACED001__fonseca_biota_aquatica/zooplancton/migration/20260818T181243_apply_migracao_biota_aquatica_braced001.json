@@ -1,0 +1,85 @@
+{
+  "stamp": "20260818T181243",
+  "applied": true,
+  "active_groups": [
+    "Zooplâncton"
+  ],
+  "project": {
+    "id_projeto": 133,
+    "codigo_interno_opyta": "BRACED001",
+    "nome_projeto": "Fonseca-Biota Aquática",
+    "id_cliente": 1,
+    "nome_empresa": "Brandt Meio Ambiente Ltda."
+  },
+  "campaigns": [
+    {
+      "nome_campanha": "C001-2026-03-CH",
+      "id_campanha": 969
+    },
+    {
+      "nome_campanha": "C002-2026-06-SC",
+      "id_campanha": 679
+    }
+  ],
+  "source_summary": {
+    "pontos": 36,
+    "campanhas": 2,
+    "esforcos": 36,
+    "resultados_migraveis": 624,
+    "linhas_fonte": 624,
+    "taxons_soma_por_grupo": 58
+  },
+  "db_before": {
+    "pontos": 36,
+    "esforcos": 0,
+    "resultados_zooplancton": 0,
+    "consolidado": 0
+  },
+  "db_after": {
+    "pontos": 36,
+    "esforcos": 36,
+    "resultados_zooplancton": 624,
+    "consolidado": 624
+  },
+  "backups": {
+    "pontos": "public.backup_biota_braced001_20260818t181243_pontos",
+    "esforcos": "public.backup_biota_braced001_20260818t181243_esforcos",
+    "fitoplancton": "public.backup_biota_braced001_20260818t181243_fitoplancton",
+    "zooplancton": "public.backup_biota_braced001_20260818t181243_zooplancton",
+    "zoobentos": "public.backup_biota_braced001_20260818t181243_zoobentos",
+    "ictiofauna": "public.backup_biota_braced001_20260818t181243_ictiofauna",
+    "consolidado": "public.backup_biota_braced001_20260818t181243_consolidado"
+  },
+  "deleted": {
+    "resultados_zooplancton": 0,
+    "esforcos": 0,
+    "consolidado": 0
+  },
+  "result_counts_by_table": {
+    "resultados_zooplancton": 624
+  },
+  "inserted_results": {
+    "resultados_zooplancton": 624
+  },
+  "inserted_consolidated": 624,
+  "consolidated_by_campaign": [
+    {
+      "grupo_biologico": "Zooplâncton",
+      "nome_campanha": "C001-2026-03-CH",
+      "linhas": 339,
+      "pontos": 18,
+      "taxons": 54,
+      "contagem_total": 79.89,
+      "biomassa_total": 0.0
+    },
+    {
+      "grupo_biologico": "Zooplâncton",
+      "nome_campanha": "C002-2026-06-SC",
+      "linhas": 285,
+      "pontos": 18,
+      "taxons": 56,
+      "contagem_total": 63.23,
+      "biomassa_total": 0.0
+    }
+  ]
+}

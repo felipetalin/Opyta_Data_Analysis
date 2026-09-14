@@ -1,24 +1,29 @@
 {
-  "executed_at": "2026-05-15T20:40:05.685160Z",
-  "runner_version": "1.1",
+  "executed_at": "2026-08-03T19:37:58.882211Z",
+  "runner_version": "1.2",
   "project_id": 165,
   "group": "Herpetofauna",
   "pipeline": "herpetofauna",
   "client": "fersam001",
-  "block": "all",
-  "rows_loaded": 107,
+  "block": "6.5",
+  "campaign_filter": [
+    "jul-26"
+  ],
+  "git": {
+    "branch": "agent/braavg002-ictiofauna-resultados-2026",
+    "commit": "26f99fc",
+    "dirty": true,
+    "status_short_count": 21,
+    "full_dirty": true,
+    "full_status_short_count": 151,
+    "ignored_generated_audit_count": 130
+  },
+  "rows_loaded": 81,
   "executed_blocks": [
-    "6.1",
-    "6.2",
-    "6.3",
-    "6.4",
-    "6.5",
-    "6.6",
-    "6.7",
-    "6.8"
+    "6.5"
   ],
   "campaigns": [
-    "C028-2026-04-SC"
+    "29ª-jul-26-SC"
   ],
   "campaigns_count": 1,
   "points": [
@@ -29,23 +34,19 @@
     "CO5",
     "CO6",
     "CO7",
-    "CON1",
     "CON2",
     "DG1",
     "DG2",
     "DG3",
-    "DG4",
     "DG5",
     "DG6",
     "DG7",
-    "DGN1",
-    "FO1",
+    "DGN2",
+    "FO2",
     "FO4",
     "FO5",
     "FO6",
     "FO7",
-    "FOR1",
-    "FOR2",
     "JA1",
     "JA2",
     "JA3",
@@ -53,40 +54,67 @@
     "JA5",
     "JA6",
     "JA7",
-    "JAC1",
-    "JAC2",
     "SP1",
     "SP2",
     "SP4",
     "SP5",
-    "SP6",
     "SP7",
-    "SPT1"
+    "SPT2"
   ],
-  "points_count": 40,
-  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto",
-  "generated_files_count": 19,
+  "points_count": 33,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto",
+  "generated_files_count": 5,
   "generated_files": [
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_tabela_especies_senhora_do_porto.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_tabela_especies_area_controle.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_figura_abundancia_total_relativa_herpetofauna_senhora_do_porto.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_1_figura_abundancia_herpetofauna_area_controle.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_tabela_estimadores_senhora_do_porto.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_dados_senhora_do_porto.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_senhora_do_porto.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_tabela_estimadores_area_controle.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_dados_area_controle.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_2_curva_coletor_area_controle.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_3_indices_diversidade.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_3_indices_diversidade.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_pch_vs_controle.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_5_diagrama_venn_pch_vs_controle.png",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_6_6_8_tabela_geral_status.xlsx",
-    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\28_campanha-Abril_26\\Herpetofauna\\Senhora do Porto\\6_relatorio_descritivo_herpetofauna.txt"
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_5_diagrama_venn_pch_vs_controle.png"
   ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_tabela_jaccard_pch_vs_controle.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5037,
+      "modified_at": "2026-08-03T19:37:54.668000Z",
+      "sha256": "c3446339e212d5a6de844005cb29b34d9242ff6f0b7667026b8d362023cbd64c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_matriz_similaridade_jaccard_por_pontos.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 6484,
+      "modified_at": "2026-08-03T19:37:54.897000Z",
+      "sha256": "39e7375a3e1a63ce4a1ec6492daa17759a38729d126c08b2ed22f8703d7124bb"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_por_pontos.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 221557,
+      "modified_at": "2026-08-03T19:37:56.464000Z",
+      "sha256": "a122a87381d4f02d40846d23e5aa8551f958a7caaad37c6b739ab7e7a489817f"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_4_dendrograma_jaccard_pch_vs_controle.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 116058,
+      "modified_at": "2026-08-03T19:37:57.463000Z",
+      "sha256": "f48475aa9d19144d95987e88fc187aaf1061a4e449a59aaaa6db66c678f6dabc"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Herpetofauna\\Senhora do Porto\\6_5_diagrama_venn_pch_vs_controle.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 372097,
+      "modified_at": "2026-08-03T19:37:58.650000Z",
+      "sha256": "9c92184fc1138198236863b14df342c27ed4156242bed93e457dc2079c5283dd"
+    }
+  ],
+  "generated_files_missing_count": 0,
   "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
-  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\project_165\\herpetofauna"
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\herpetofauna",
+  "warnings": []
 }

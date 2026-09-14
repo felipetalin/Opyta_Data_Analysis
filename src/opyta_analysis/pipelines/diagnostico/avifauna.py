@@ -247,6 +247,19 @@ def _load_sampling_units_df(project_id: int, env_file: Optional[str]) -> pd.Data
     return df_units
 
 
+def _apply_campaign_filter(df: pd.DataFrame, campaign_filter: list[str] | None) -> tuple[pd.DataFrame, dict[str, Any]]:
+    requested = [str(c).strip() for c in campaign_filter or [] if str(c).strip()]
+    if not requested or "nome_campanha" not in df.columns:
+        return df, {"requested": requested, "matched": [], "missing": []}
+
+    campaign_values = df["nome_campanha"].astype(str).str.strip()
+    available = set(campaign_values.dropna().unique().tolist())
+    matched = [campaign for campaign in requested if campaign in available]
+    missing = [campaign for campaign in requested if campaign not in available]
+    filtered = df[campaign_values.isin(requested)].copy()
+    return filtered, {"requested": requested, "matched": matched, "missing": missing}
+
+
 def _save_premises_table(df: pd.DataFrame, output_dir: Path, generated_files: list[str]) -> None:
     premises = (
         df[["nome_ponto", "empreendimento", "empreendimento_assignment_source"]]
@@ -301,8 +314,9 @@ def _save_abundance_figures_avifauna(
         plot_df["abund_relativa_pct"] = 0.0
 
     n_rows = max(len(plot_df), 1)
-    fig_h = min(max(7.5, 0.34 * n_rows + 2.2), 13.5)
-    fig, ax = plt.subplots(figsize=(15, fig_h), dpi=int(theme.get("dpi", 600)))
+    fig_w = float(theme.get("avifauna_landscape_width", 10.8))
+    fig_h = min(max(5.2, 0.22 * n_rows + 1.3), float(theme.get("avifauna_landscape_height", 7.2)))
+    fig, ax = plt.subplots(figsize=(fig_w, fig_h), dpi=int(theme.get("dpi", 600)))
 
     y = np.arange(n_rows)
     color = str(theme.get("primary_hex", "#11420C"))
@@ -325,7 +339,7 @@ def _save_abundance_figures_avifauna(
             tick.set_fontweight("bold")
         else:
             tick.set_fontstyle("italic")
-        tick.set_fontsize(11 if n_rows > 20 else 12)
+        tick.set_fontsize(float(theme.get("avifauna_species_label_size", 8.8 if n_rows > 20 else 9.5)))
     ax.invert_yaxis()
 
     max_pct = float(plot_df["abund_relativa_pct"].max()) if not plot_df.empty else 0.0
@@ -338,7 +352,7 @@ def _save_abundance_figures_avifauna(
             f"{pct:.1f}% | N={int(count)}",
             ha="left",
             va="center",
-            fontsize=11,
+            fontsize=float(theme.get("avifauna_bar_annotation_size", 8.8)),
             color="black",
         )
 
@@ -352,8 +366,9 @@ def _save_abundance_figures_avifauna(
         ncol=1,
     )
     validate_axes_style(ax, theme)
-    fig.tight_layout(rect=[0, 0, 1, 0.94])
-    fig.savefig(output_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
+    fig.tight_layout(rect=[0.02, 0.04, 0.98, 0.91])
+    bbox = None if bool(theme.get("preserve_word_caption_margin", False)) else "tight"
+    fig.savefig(output_png, dpi=int(theme.get("dpi", 600)), bbox_inches=bbox, pad_inches=0.08)
     plt.close(fig)
 
     return {
@@ -597,6 +612,7 @@ def run_avifauna_pipeline(
     output_dir: Path,
     env_file: Optional[str] = None,
     block: str = "all",
+    campaign_filter: list[str] | None = None,
 ) -> Dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -612,6 +628,16 @@ def run_avifauna_pipeline(
             "warning": "Sem dados de avifauna para o projeto informado.",
         }
 
+    df, campaign_filter_info = _apply_campaign_filter(df, campaign_filter)
+    if df.empty:
+        return {
+            "rows_loaded": 0,
+            "executed_blocks": [],
+            "generated_files": [],
+            "campaign_filter": campaign_filter_info,
+            "warning": "Sem dados de avifauna para o filtro de campanha informado.",
+        }
+
     block_sel = str(block).strip().lower()
     generated_files: list[str] = []
     executed_blocks: list[str] = []
@@ -625,6 +651,7 @@ def run_avifauna_pipeline(
         "pch_rows": int(len(df_pch)),
         "control_rows": int(len(df_control)),
         "campaigns": sorted(df["nome_campanha"].dropna().astype(str).unique().tolist()),
+        "campaign_filter": campaign_filter_info,
         "points": sorted(df["nome_ponto"].dropna().astype(str).unique().tolist()),
         "empreendimentos": sorted(df["empreendimento"].dropna().astype(str).unique().tolist()),
         "assignment_sources": sorted(
@@ -656,6 +683,7 @@ def run_avifauna_pipeline(
 
     if block_sel in {"6.2", "62", "all"}:
         df_units = _load_sampling_units_df(project_id=project_id, env_file=env_file)
+        df_units, _ = _apply_campaign_filter(df_units, campaign_filter)
         df_units_pch = masto._subset_by_empreendimento(df_units, TARGET_PCH_NAME) if not df_units.empty else pd.DataFrame()
         df_units_ctrl = masto._subset_by_empreendimento(df_units, TARGET_CONTROL_NAME) if not df_units.empty else pd.DataFrame()
 

@@ -1,0 +1,1412 @@
+{
+  "summary": {
+    "projeto": "BRACED001",
+    "grupo": "Fitoplancton",
+    "modo": "audit_only",
+    "taxons_resultados": 198,
+    "taxons_resultados_sem_cadastro": 0,
+    "taxons_cadastro_sem_resultados": 0,
+    "linhas_cadastro_origem": 285,
+    "linhas_duplicadas_removidas": 87,
+    "taxons_duplicados": 87,
+    "estrategia_duplicados": "keep_last",
+    "especies_fonte": 198,
+    "especies_novas": 93,
+    "especies_com_nulos_a_preencher": 105,
+    "campos_nulos_a_preencher": 2657,
+    "diferencas_preservadas": 196,
+    "pendencias_obrigatorias_pos_acao": 0,
+    "registros_aplicados": 0
+  },
+  "actions": [
+    {
+      "nome_cientifico": "Achnanthidium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 686.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Nitzschia sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 235.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Desmogonium transfugum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Eunotia minor",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 217.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Fragilaria sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 699.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Fragilariforma javanica",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3791.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Frustulia sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 5466.0,
+      "campos_a_preencher": 9,
+      "diferencas_preservadas": 4.0
+    },
+    {
+      "nome_cientifico": "Neidium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 233.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Pinnularia brauniana",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 724.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Pinnularia gibba",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 5459.0,
+      "campos_a_preencher": 9,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Orthoseira sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 722.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 4.0
+    },
+    {
+      "nome_cientifico": "Iconella planctonica",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Actinella brasiliensis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3893.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Adlafia sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Brachysira sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Caloneis sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 688.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Encyonema minutum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 212.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Encyonema neogracile",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 213.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Encyonopsis microcephala",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 216.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Encyonopsis sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Eunotia acus",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Eunotia bidens",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Eunotia didyma",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3901.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotia flexuosa",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 315.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotia lineolata",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Eunotia monodon",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 218.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotia naegelii",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 219.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotia serra",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 318.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotia sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 698.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotia veneris",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 221.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotia zygodon",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3609.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Eunotioforma synedriformis",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Fragilariforma sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Frustulia crassinervia",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 223.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Frustulia krammeri",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Frustulia saxonica",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3613.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Gomphonema gracile",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 224.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Gomphonema lagenula",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 225.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Gomphonema sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 326.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Iconella constricta",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3919.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Iconella curvula",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Iconella delicatissima",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 5467.0,
+      "campos_a_preencher": 9,
+      "diferencas_preservadas": 5.0
+    },
+    {
+      "nome_cientifico": "Iconella linearis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 327.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Iconella sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Kobayasiella sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 228.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Kurtkrammeria subspicula",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 329.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Navicula angusta",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Navicula cryptocephala",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 229.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Navicula cryptotenella",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 230.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Navicula sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 232.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Nitzschia scalpelliformis",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Pinnularia neomajor",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Pinnularia sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3817.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Pinnularia tabellaria",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3629.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Pinnularia viridis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 238.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Stauroneis phoenicenteron",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 732.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Ulnaria ulna",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 242.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 5.0
+    },
+    {
+      "nome_cientifico": "Closterium lunula",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3838.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Closterium venus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 248.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Cosmarium exiguum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium punctulatum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 253.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Cosmarium regnesi",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium subspeciosum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 255.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Cosmarium trilobulatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Euastrum didelta",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Groenbladia neglecta",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Micrasterias laticeps var. aequilobata",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Micrasterias thomasiana",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum leptacanthum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum muticum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 757.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Staurastrum quadrangulare",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Gonatozygon pilosum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Actinotaenium cucurbitinum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Actinotaenium globosum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 243.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Closterium abruptum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 244.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Closterium closterioides",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Closterium costatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Closterium dianae",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 246.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Closterium gracile",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3640.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Closterium kuetzingii",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 247.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Closterium moniliferum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 743.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Closterium navicula",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 352.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Closterium parvulum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3841.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Closterium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3642.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Closterium striolatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium angulosum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium bioculatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium blyttii",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium candianum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium conatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium conspersum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium contractum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3957.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Cosmarium depressum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium difficile",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium excavatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium granatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium lagoense",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium margaritatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium ocellatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium ornatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium pachydermum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 744.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Cosmarium porteanum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium pseudoconnatum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 252.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Cosmarium pseudopyramidatum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 745.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Cosmarium pseudoretusum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium quadrifarium",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 747.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Cosmarium regnellii",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Cosmarium reniforme",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 254.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Cosmarium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3959.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Cosmarium tinctum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 256.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Desmidium baileyi",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3846.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Desmidium graciliceps var. groenbladii",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Euastrum ansatum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 752.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Gonatozygon monotaenium",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 260.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Haplotaenium minutum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Hyalotheca dissiliens",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3851.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Ichthyocercus longispinus var. tinhareensis",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Micrasterias crux-melitensis",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Micrasterias laticeps",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Mougeotia sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 261.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Netrium digitus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3855.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Penium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 262.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Spinoclosterium cuspidatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Spirogyra sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 263.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Spondylosium planum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum alternans",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 264.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Staurastrum brachiatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum brasiliense",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum forficulatum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum gracile",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum hirsutum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum laeve",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum pilosum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 266.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Staurastrum pingue",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum rotula",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum teliferum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum tentaculiferum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum tetracerum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurastrum trifidum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 267.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Staurodesmus crassus",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurodesmus cuspidatus",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurodesmus dejectus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 758.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Staurodesmus incus",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurodesmus mucronatus",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurodesmus omearae",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurodesmus sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurodesmus subulatus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3966.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Staurodesmus triangularis",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Staurodesmus wandae",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Teilingia granulata",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Tetmemorus brebissonii",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Zygnema sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3860.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Botryococcus braunii",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 439.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Bulbochaete sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3862.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Chlamydomonas sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 269.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Chlorella sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3864.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Closteriopsis sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 270.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Desmodesmus brasiliensis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3868.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Dictyosphaerium ehrenbergianum",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Monoraphidium griffithii",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3871.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Mucidosphaerium pulchellum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 281.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Oedogonium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 390.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Oocystis lacustris",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Stauridium tetras",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 394.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Cryptomonas sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 285.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Aphanocapsa sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Scytonemataceae n.i.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Leibleinia sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Anagnostidinema sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 5460.0,
+      "campos_a_preencher": 9,
+      "diferencas_preservadas": 5.0
+    },
+    {
+      "nome_cientifico": "Aphanizomenon sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Bacularia sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Dolichospermum sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 397.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Geitlerinema sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3877.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Geitlerinema splendidum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 778.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 4.0
+    },
+    {
+      "nome_cientifico": "Limnothrix sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Merismopedia sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Nostoc sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Phormidium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 782.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Planktolyngbya sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Pseudanabaena sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3667.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Pseudanabaenaceae n.i.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Scytonema sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Peridinium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3886.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Katodinium sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Gymnodinium sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3884.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Parvodinium pusillum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 287.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Parvodinium umbonatum",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 399.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Lepocinclis salina",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3984.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Euglena sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 438.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Trachelomonas armata",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 294.0,
+      "campos_a_preencher": 13,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Trachelomonas oblonga",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 297.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Trachelomonas volvocinopsis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 300.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Synura sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3891.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Tribonema sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Dinobryon divergens",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Mallomonas sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3994.0,
+      "campos_a_preencher": 10,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Batrachospermum sp.",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 17,
+      "diferencas_preservadas": NaN
+    }
+  ],
+  "resultados_sem_cadastro": [],
+  "cadastro_sem_resultados": [],
+  "applied": []
+}

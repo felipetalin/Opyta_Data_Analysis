@@ -1,0 +1,477 @@
+{
+  "project_code": "BRAAVG002",
+  "project_id": 9,
+  "project_name": "Monitoramento de ictio e bentos - Brumado - AVG",
+  "canonical_key": "BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg",
+  "supabase_source": {
+    "table": "projetos",
+    "id_field": "id_projeto",
+    "code_field": "codigo_interno_opyta",
+    "name_field": "nome_projeto"
+  },
+  "analysis_name": "AVG Ictiofauna 2026 - resultados parciais por campanha",
+  "client_config": "braavg002",
+  "audit_project_slug": "BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg",
+  "output_root": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026",
+  "groups": [
+    {
+      "group": "Ictiofauna",
+      "pipeline": "ictio",
+      "output_subdir": "."
+    }
+  ],
+  "generation": {
+    "runner": "scripts/projects/avg/run_ictio_avg_2026_por_campanha.py",
+    "mode": "single_campaign_partial",
+    "requires_gate_c": true,
+    "expected_official_files_per_campaign": {
+      "png": 15,
+      "xlsx": 16,
+      "total": 31
+    },
+    "targets": [
+      {
+        "key": "abril",
+        "folder": "abril",
+        "campaign": "45ª-Abr-26",
+        "status": "generated_review_completed",
+        "notes": "Revisao R01 de abril/2026 concluida."
+      },
+      {
+        "key": "maio",
+        "folder": "maio",
+        "campaign": "46ª-Mai-26",
+        "status": "generated_approved"
+      },
+      {
+        "key": "junho",
+        "folder": "junho",
+        "campaign": "47ª-Jun-26",
+        "status": "generated_approved",
+        "notes": "Operacao de junho/2026 encerrada em 2026-07-01."
+      },
+      {
+        "key": "julho",
+        "folder": "julho",
+        "campaign": "48ª-Jul-26",
+        "status": "generated_pending_review",
+        "notes": "Campanha parcial de julho/2026 validada, migrada, consolidada e gerada em 2026-08-03."
+      },
+      {
+        "key": "agosto",
+        "folder": "agosto",
+        "campaign": "49ª-Ago-26",
+        "status": "darwin_core_only_generated_validated",
+        "notes": "Migrada e consolidada em 2026-09-01; Gate C limitado ao Darwin Core IEF, unico produto solicitado e validado."
+      }
+    ],
+    "commands": {
+      "list_campaigns": "python scripts/projects/avg/run_ictio_avg_2026_por_campanha.py --list-campaigns",
+      "preflight_campaign": "python scripts/projects/avg/run_ictio_avg_2026_por_campanha.py --preflight --campaign {key}",
+      "generate_campaign": "python scripts/projects/avg/run_ictio_avg_2026_por_campanha.py --campaign {key}"
+    },
+    "add_new_campaign_policy": "Adicionar novo alvo somente depois de validacao, Gate A/B quando aplicavel, migracao e consolidacao auditadas; depois submeter Gate C antes de gerar."
+  },
+  "point_layout": {
+    "point_order": [
+      "PIC-01",
+      "PIC-02",
+      "PIC-03",
+      "PIC-04",
+      "PIC-05",
+      "PIC-06",
+      "PIC-07",
+      "PIC-08",
+      "PIC-09",
+      "PIC-11",
+      "PIC-10",
+      "PIC-12",
+      "PIC-13"
+    ],
+    "control_area_colors": {
+      "area_01": "#16803A",
+      "area_02": "#7FA33A"
+    },
+    "control_groups": [
+      {
+        "label": "Área de controle 01",
+        "points": [
+          "PIC-01",
+          "PIC-02",
+          "PIC-03",
+          "PIC-04",
+          "PIC-05",
+          "PIC-06",
+          "PIC-07",
+          "PIC-08",
+          "PIC-09",
+          "PIC-11"
+        ]
+      },
+      {
+        "label": "Área de controle 02",
+        "points": [
+          "PIC-10",
+          "PIC-12",
+          "PIC-13"
+        ]
+      }
+    ],
+    "minigraph_grouping": {
+      "field": "area_controle",
+      "source": "point_layout.control_groups",
+      "required_for": [
+        "mini_mapas_funcoes_ecologicas",
+        "sintese_espacial_funcional"
+      ],
+      "rule": "Minigraficos espaciais devem preservar a delimitacao por area de controle 01/02 e usar a mesma ordem AC01 + AC02 dos graficos por ponto."
+    },
+    "zero_capture_rule": "Pontos com esforco quantitativo e captura zero entram apenas nos blocos por ponto: riqueza, abundancia, CPUEn e CPUEb."
+  },
+  "visual_profile": {
+    "theme": "configs/clients/braavg002.json",
+    "font_size_base": 21,
+    "label_size": 20,
+    "legend_size": 18,
+    "title_size": 22,
+    "campaign_label_size": 18,
+    "point_label_size": 21,
+    "control_area_label_size": 22,
+    "figsize_standard": [
+      16,
+      10
+    ],
+    "dpi": 600
+  },
+  "long_study_readiness": {
+    "audit_script": "scripts/projects/avg/audit_ictio_avg_long_study_readiness.py",
+    "audit_output": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/readiness_ictio_long_study_20260713",
+    "source_model": "GEOARC001",
+    "candidate_modules": [
+      {
+        "name": "beta_taxonomica_lcbd",
+        "geoarc_source": "scripts/projects/geoarc001/generate_exploratory_assembly_analysis.py",
+        "readiness": "generated_validated",
+        "notes": "Gerado em 2026-07-13 com fonte analitica AVG, ano temporal ago-jul e campanha padrao como camada analitica."
+      },
+      {
+        "name": "ecologia_funcional",
+        "geoarc_source": "scripts/projects/geoarc001/generate_functional_exploratory_analysis.py",
+        "readiness": "generated_validated",
+        "notes": "Gerado em 2026-07-13 com os 13 traits aprovados para uso analitico; banco public.especies nao alterado."
+      },
+      {
+        "name": "mini_mapas_funcoes_ecologicas",
+        "geoarc_source": "scripts/projects/geoarc001/generate_functional_spatial_mini_maps.py",
+        "readiness": "generated_validated_with_provisional_standard_kml",
+        "notes": "Gerado em 2026-07-13 usando KML padrao da raiz Geo como fonte operacional provisoria, hidrografia AVG e delimitacao AC01/AC02; KML Atual fica para ajuste futuro."
+      },
+      {
+        "name": "sintese_espacial_funcional",
+        "geoarc_source": "scripts/projects/geoarc001/generate_functional_spatial_synthesis.py",
+        "readiness": "generated_validated_with_provisional_standard_kml",
+        "notes": "Gerado em 2026-07-13 usando traits aprovados e KML padrao provisoriamente; se KML Atual for adotado, reabrir etapa espacial."
+      }
+    ],
+    "audit_summary": {
+      "campaigns": 47,
+      "points": 13,
+      "point_campaign_rows": 585,
+      "complete_effort_grid": false,
+      "consolidated_rows": 519,
+      "total_abundance": 1486,
+      "species": 13,
+      "coordinates_missing": 0,
+      "coordinates_unstable_points": 0,
+      "coordinates_match_geo_root_kml": true,
+      "coordinates_match_current_kml": false,
+      "functional_traits_complete_species": 6,
+      "functional_traits_pending_species": 7,
+      "sampling_adjustment": "Regra atualizada em 2026-07-15: PIC-01 e PIC-11 amostrados ate C039; PIC-02 original ate C039, sem amostragem em C040-C042 e realocado ativo em C043-C047; PIC-03 ate C039, com coleta excepcional em C043, sem C040-C042 e C044 em diante."
+    },
+    "coordinate_decision": {
+      "status": "approved_provisional_with_user_adjustments_pending_regeneration",
+      "approved_at": "2026-07-13",
+      "selected_source": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Geo/Ponto amostral - AVG.kml",
+      "selected_source_label": "KML padrao da raiz Geo",
+      "reason": "KML padrao mantido como base provisoria com ajustes analiticos: PIC-11 = -19.801526/-43.700959 e PIC-02 realocado a partir de C043-2026-02 para -19.800376/-43.710610.",
+      "pending_future_adjustment": "Revisar KML Atual antes de fechamento espacial definitivo; se adotado, reabrir Gate A e regenerar produtos espaciais finais.",
+      "coordinate_overrides": {
+        "PIC-11": {
+          "latitude": -19.801526,
+          "longitude": -43.700959,
+          "from_campaign": "C001-2022-08-SC"
+        },
+        "PIC-02": {
+          "latitude": -19.800376,
+          "longitude": -43.71061,
+          "from_campaign": "C043-2026-02-CH"
+        }
+      }
+    },
+    "pending_functional_traits_species": [
+      "Characidium fasciatum",
+      "Geophagus brasiliensis",
+      "Neoplecostomus franciscoensis",
+      "Pareiorhaphis mutuca",
+      "Parotocinclus robustus",
+      "Poecilia mexicana",
+      "Trichomycterus novalimensis"
+    ],
+    "species_traits_review": {
+      "script": "scripts/projects/avg/build_ictio_avg_species_traits_review.py",
+      "output_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/species_traits_review_20260713",
+      "status": "approved_for_analysis",
+      "approved_at": "2026-07-13",
+      "approval_scope": "Uso como matriz analitica do projeto; traits funcionais nao alteraram public.especies; familia de Psalidodon rivularis corrigida no banco em 2026-07-20.",
+      "taxonomy_display_overrides": {
+        "Poecilia mexicana": {
+          "display_name": "Poecilia cf. mexicana",
+          "qualifier": "cf.",
+          "reason": "Usuario informou duvida na identificacao em 2026-07-13; usar cf. nos produtos."
+        }
+      },
+      "species_reviewed": 13,
+      "traits_reused_from_geoarc001": 6,
+      "traits_newly_proposed": 7
+    },
+    "campaign_crosswalk": {
+      "script": "scripts/projects/avg/build_avg_campaign_crosswalk.py",
+      "output_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/campaign_crosswalk_20260713",
+      "status": "proposed_analytic_layer",
+      "season_rule": "CH = outubro a marco; SC = abril a setembro",
+      "temporal_year_rule": "ano temporal = agosto a julho; meses ago-dez pertencem ao ano de inicio, jan-jul ao ano anterior",
+      "temporal_cycles": [
+        {
+          "cycle": "2022/2023",
+          "campaigns": 12,
+          "first": "1a-Ago-22",
+          "last": "12a-Jul-23"
+        },
+        {
+          "cycle": "2023/2024",
+          "campaigns": 12,
+          "first": "13a-Ago-23",
+          "last": "24a-Jul-24"
+        },
+        {
+          "cycle": "2024/2025",
+          "campaigns": 12,
+          "first": "25a-Ago-24",
+          "last": "36a-Jul-25"
+        },
+        {
+          "cycle": "2025/2026",
+          "campaigns": 11,
+          "first": "37a-Ago-25",
+          "last": "47a-Jun-26",
+          "status": "parcial; falta julho/2026 para fechar 12 campanhas"
+        }
+      ],
+      "campaigns": 47,
+      "first_mapping": "1a-Ago-22 -> C001-2022-08-SC",
+      "last_mapping": "47a-Jun-26 -> C047-2026-06-SC",
+      "database_apply": "not_approved",
+      "estimated_database_impact": {
+        "public_campanhas_rows": 47,
+        "biota_analise_consolidada_ictiofauna_rows": 519,
+        "biota_analise_consolidada_zoobentos_rows": 3937,
+        "fisico_analise_consolidada_rows": 0
+      },
+      "recommendation": "Usar como crosswalk analitico primeiro. Renomear no banco exige Gate A/B explicito, backups e revalidacao de Ictiofauna e Zoobentos."
+    },
+    "geoarc001_long_study_generation": {
+      "status": "pending_regeneration_after_sampling_update",
+      "generated_at": "2026-07-14",
+      "source_builder": "scripts/projects/avg/build_ictio_avg_geoarc001_source.py",
+      "source_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/geoarc001_long_study_source_20260713",
+      "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026/estudo_longo_geoarc001_20260713",
+      "manifest": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/2026/estudo_longo_geoarc001_20260713/manifesto_braavg002_estudo_longo_geoarc001_ictiofauna.json",
+      "modules": [
+        "beta_taxonomica_lcbd",
+        "ecologia_funcional",
+        "mini_mapas_funcoes_ecologicas",
+        "sintese_espacial_funcional"
+      ],
+      "validation": {
+        "png_opened_with_pil": 13,
+        "xlsx_opened_with_openpyxl": 12,
+        "errors": 0
+      },
+      "source_validation": {
+        "point_campaign_rows_expected_after_update": 585,
+        "metric_rows_expected_after_update": 761,
+        "pic01_after_c039": 0,
+        "pic02_c040_c042": 0,
+        "pic02_c043_c047": 5,
+        "pic03_c040_c042": 0,
+        "pic03_c043": 1,
+        "pic03_c044_c047": 0,
+        "pic11_after_c039": 0
+      }
+    },
+    "traditional_2026_generation": {
+      "status": "pending_regeneration_after_sampling_update",
+      "generated_at": "2026-07-14T15:32:35",
+      "runner": "scripts/projects/avg/run_ictio_avg_tradicional_consolidado_2026.py",
+      "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna",
+      "manifest": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna/manifesto_braavg002_tradicional_ictiofauna_2026.json",
+      "campaign_scope": "C001 a C047",
+      "campaign_count": 47,
+      "first_campaign": "C001-2022-08-SC",
+      "last_campaign": "C047-2026-06-SC",
+      "temporal_year_policy": "agosto a julho",
+      "temporal_years": {
+        "2023": "C001 a C012",
+        "2024": "C013 a C024",
+        "2025": "C025 a C036",
+        "2026": "C037 a C047"
+      },
+      "records": {
+        "observed_rows": 519,
+        "points": 13,
+        "species": 13,
+        "last_generated": {
+          "generated_at": "2026-07-14T15:32:35",
+          "rows_with_zero_capture_points": 763,
+          "sampled_point_campaign_rows": 587,
+          "removed_not_sampled_point_campaign_rows": 24
+        },
+        "expected_after_sampling_update": {
+          "rows_with_zero_capture_points": 761,
+          "sampled_point_campaign_rows": 585,
+          "removed_not_sampled_point_campaign_rows": 26
+        }
+      },
+      "visual_strategy": "Planilhas e graficos por ponto em A4 paisagem, com nao-amostragem representada como lacuna, C001-C047 no eixo inferior, cores fortes para CH/SC e anos temporais demarcados.",
+      "a4_report_pngs": 30,
+      "occurrence_temporal_pngs": 4,
+      "validation": {
+        "folder_png_opened_with_pil": 58,
+        "folder_xlsx_opened_with_openpyxl": 29,
+        "folder_json": 6,
+        "folder_md": 3,
+        "errors": 0,
+        "last_generated_tables_02_03_06_rows": 587,
+        "pending_regeneration_reason": "Nova regra de amostragem recebida em 2026-07-15; graficos nao foram regenerados por orientacao do usuario.",
+        "expected_tables_02_03_06_rows_after_update": 585,
+        "folder_png_after_08c": 59,
+        "folder_xlsx_after_08c": 35,
+        "folder_json_after_08c": 6,
+        "folder_md_after_08c": 3
+      }
+    },
+    "current_kml_divergent_points_m": {
+      "PIC-03": 182.0,
+      "PIC-06": 384.1,
+      "PIC-07": 546.2,
+      "PIC-08": 324.7,
+      "PIC-09": 286.6,
+      "PIC-11": 1610.2,
+      "PIC-12": 238.6
+    },
+    "sampling_adjustments": {
+      "status": "rule_updated_pending_regeneration",
+      "updated_at": "2026-07-15",
+      "not_sampled_campaign_ranges": {
+        "PIC-01": [
+          "C040-2025-11-CH em diante"
+        ],
+        "PIC-02": [
+          "C040-2025-11-CH a C042-2026-01-CH"
+        ],
+        "PIC-03": [
+          "C040-2025-11-CH a C042-2026-01-CH",
+          "C044-2026-03-CH em diante"
+        ],
+        "PIC-11": [
+          "C040-2025-11-CH em diante"
+        ]
+      },
+      "active_exceptions": {
+        "PIC-02_realocado": "C043-2026-02-CH a C047-2026-06-SC",
+        "PIC-03_excepcional": "C043-2026-02-CH"
+      },
+      "removed_point_campaign_rows": 26,
+      "point_campaign_rows_after_adjustment": 585,
+      "metric_rows_expected_after_adjustment": 761,
+      "database_apply": "not_applied"
+    },
+    "richness_boxplots_exploratory": {
+      "status": "generated_validated_exploratory",
+      "generated_at": "2026-07-15T09:41:09",
+      "script": "scripts/projects/avg/build_ictio_avg_richness_boxplots_exploratory.py",
+      "output_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/richness_boxplots_exploratory_20260715",
+      "metric": "riqueza_taxonomica",
+      "sampling_rule": "Regra revisada em 2026-07-15; nao-amostragem como ausencia, nao zero.",
+      "sampled_point_campaigns": 585,
+      "figures": [
+        "EXP_BOX_01_riqueza_por_ano_temporal_ictiofauna.png",
+        "EXP_BOX_02_riqueza_area_controle_por_ano_temporal_ictiofauna.png",
+        "EXP_BOX_03_riqueza_por_ponto_ictiofauna.png"
+      ],
+      "tables": [
+        "EXP_BOX_df_riqueza_ponto_campanha_ictiofauna.xlsx",
+        "EXP_BOX_resumo_riqueza_ictiofauna.xlsx"
+      ],
+      "validation": {
+        "png_opened_with_pil": 3,
+        "xlsx_opened_with_openpyxl": 2,
+        "errors": 0
+      }
+    },
+    "species_cpuen_synthesis_08C": {
+      "status": "generated_validated",
+      "generated_at": "2026-07-15T11:49:07",
+      "script": "scripts/projects/avg/build_ictio_avg_species_cpuen_synthesis.py",
+      "output_dir": "G:/Meu Drive/Opyta/Clientes/Clientes/Clientes/Brandt/AVG/Produtos/Planilha Consolidada/Resultados e planilhas/Resultados ictio/Consolidado_2026/icitiofauna",
+      "support_dir": "outputs/_project_scripts/BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg/species_cpuen_synthesis_20260715",
+      "figure": "08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png",
+      "table": "08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx",
+      "design": "painel A3 paisagem com margem superior para titulo; ranking de contribuicao relativa da CPUEn em barra unica, heatmap temporal com todas as campanhas e classes percentuais de intensidade relativa, ausencia em branco e bolhas espaciais por CPUEn relativa dentro de cada especie",
+      "species": 13,
+      "campaigns": 47,
+      "points": 13,
+      "top_species": [
+        {
+          "nome_cientifico": "Phalloceros uai",
+          "cpuen_percentual": 39.6,
+          "campanhas_ocorrencia": 46
+        },
+        {
+          "nome_cientifico": "Psalidodon rivularis",
+          "cpuen_percentual": 37.7,
+          "campanhas_ocorrencia": 46
+        }
+      ],
+      "validation": {
+        "png_opened_with_pil": 1,
+        "xlsx_opened_with_openpyxl": 1,
+        "percent_sum": 100.0,
+        "errors": 0
+      },
+      "table_sheets": [
+        "ranking_cpuen",
+        "cpuen_temporal",
+        "cpuen_por_ponto"
+      ]
+    }
+  },
+  "validation_checklist": [
+    "Rodar --preflight para a campanha alvo antes da geracao.",
+    "Confirmar Gate C: template, paleta, pasta de saida e lista de produtos.",
+    "Depois da geracao, verificar abertura real de todos os PNG via PIL.",
+    "Depois da geracao, verificar abertura real de todos os XLSX via openpyxl.",
+    "Conferir 13 pontos nas planilhas 02, 03 e 06.",
+    "Conferir ordem AC01 + AC02 nos graficos por ponto.",
+    "Conferir delimitacao area_controle nos minigraficos espaciais quando estes forem gerados.",
+    "Conferir que 04_df_riqueza_por_ordem_ictiofauna.xlsx e 04_df_riqueza_por_familia_ictiofauna.xlsx nao contem Nao informado.",
+    "Conferir que 01_tabela_composicao_ictiofauna.xlsx nao contem taxon vazio.",
+    "Registrar manifesto/inventario da rodada no registro operacional."
+  ],
+  "data_notes": [
+    "O runner usa dados observados reais nos blocos taxonomicos e comunitarios.",
+    "Linhas auxiliares de captura zero existem apenas para completar eixo e metricas por ponto.",
+    "PNGs grandes em Google Drive devem ser salvos primeiro em diretorio temporario local e copiados para a pasta final."
+  ]
+}

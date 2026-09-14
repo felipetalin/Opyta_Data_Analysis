@@ -10,6 +10,8 @@
     "legend_size": 18,
     "title_size": 22,
     "campaign_label_size": 18,
+    "point_label_size": 21,
+    "control_area_label_size": 22,
     "primary_hex": "#16803A",
     "secondary_hex": "#7FA33A",
     "highlight_hex": "#B5D766",

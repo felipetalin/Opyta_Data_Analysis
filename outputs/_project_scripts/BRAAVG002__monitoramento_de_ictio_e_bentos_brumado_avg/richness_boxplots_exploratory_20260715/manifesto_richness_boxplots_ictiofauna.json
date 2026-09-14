@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-07-15T09:41:09",
+  "project_code": "BRAAVG002",
+  "group": "Ictiofauna",
+  "status": "exploratory_generated",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\richness_boxplots_exploratory_20260715",
+  "metric": "riqueza_taxonomica",
+  "sampled_point_campaigns": 585,
+  "campaigns": 47,
+  "points": 13,
+  "temporal_years": [
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "sampling_rule": "Regra revisada em 2026-07-15; nao-amostragem mantida como ausencia, nao como zero.",
+  "figures": [
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\richness_boxplots_exploratory_20260715\\EXP_BOX_01_riqueza_por_ano_temporal_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\richness_boxplots_exploratory_20260715\\EXP_BOX_02_riqueza_area_controle_por_ano_temporal_ictiofauna.png",
+    "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\richness_boxplots_exploratory_20260715\\EXP_BOX_03_riqueza_por_ponto_ictiofauna.png"
+  ],
+  "tables": {
+    "sample_table": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\richness_boxplots_exploratory_20260715\\EXP_BOX_df_riqueza_ponto_campanha_ictiofauna.xlsx",
+    "summary_table": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\richness_boxplots_exploratory_20260715\\EXP_BOX_resumo_riqueza_ictiofauna.xlsx"
+  }
+}

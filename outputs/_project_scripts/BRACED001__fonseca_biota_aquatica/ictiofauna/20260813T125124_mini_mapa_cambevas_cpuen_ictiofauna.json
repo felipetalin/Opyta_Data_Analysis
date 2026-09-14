@@ -1,0 +1,37 @@
+{
+  "executed_at": "2026-08-13T12:51:30",
+  "project_code": "BRACED001",
+  "group": "Ictiofauna",
+  "product": "mini_mapa_cambevas_cpuen",
+  "source_workbook": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Migracao\\Fonseca\\Opyta_ictiofauna_banco_dados_mar-jul_26-260813.xlsx",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\geo\\Geo_Fonseca\\Anteriores\\Hidrografia - Fonseca.kmz",
+  "hydro_lines": 263,
+  "species": [
+    "Trichomycterus brasiliensis"
+  ],
+  "max_cpuen": 1.7241379310344827,
+  "outputs": {
+    "figure": {
+      "arquivo": "15_mini_mapa_cambevas_cpuen_ictiofauna.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\15_mini_mapa_cambevas_cpuen_ictiofauna.png",
+      "tamanho_bytes": 1825334,
+      "sha256": "30449784157e2bf954c5b4ecb6cfa682600673eb06a5efcfe44438b851b22c25",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "nonblank": true,
+      "pixel_std": 22.936863799871
+    },
+    "table": {
+      "arquivo": "15_df_mini_mapa_cambevas_cpuen_ictiofauna.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\15_df_mini_mapa_cambevas_cpuen_ictiofauna.xlsx",
+      "sha256": "6ff0d5d43b0e0759b0872457ffd97d8d98defb910a4a26e8e5d8f58e9fb7c202",
+      "tamanho_bytes": 9533
+    }
+  },
+  "notes": [
+    "Produto em A4 paisagem, sem titulo geral, seguindo premissas dos minimapas de biota aquatica.",
+    "CPUEn calculada como individuos da especie no ponto / esforco total quantitativo do ponto x 100.",
+    "O esforco total inclui metodos quantitativos com ou sem captura, preservando a padronizacao da amostragem.",
+    "Os taxons selecionados sao apresentados como organismos de interesse para leitura de integridade ambiental, sem diagnostico isolado de qualidade da agua."
+  ]
+}

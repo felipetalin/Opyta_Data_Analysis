@@ -1,0 +1,39 @@
+{
+  "executed_at": "2026-08-13T13:07:20",
+  "project_code": "BRACED001",
+  "group": "Ictiofauna",
+  "product": "mini_mapa_especies_indicadoras_cpuen",
+  "source_workbook": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Migracao\\Fonseca\\Opyta_ictiofauna_banco_dados_mar-jul_26-260813.xlsx",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\geo\\Geo_Fonseca\\Anteriores\\Hidrografia - Fonseca.kmz",
+  "hydro_lines": 263,
+  "species": [
+    "Brycon opalinus",
+    "Pareiorhaphis scutula",
+    "Trichomycterus brasiliensis"
+  ],
+  "max_cpuen": 5.333333333333334,
+  "outputs": {
+    "figure": {
+      "arquivo": "15_mini_mapa_especies_indicadoras_cpuen_ictiofauna.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\15_mini_mapa_especies_indicadoras_cpuen_ictiofauna.png",
+      "tamanho_bytes": 4004227,
+      "sha256": "1d2bbe62f0ba382c70f51970fc30d3535b01487504446552e99e1add72fae5f1",
+      "largura_px": 9924,
+      "altura_px": 7014,
+      "nonblank": true,
+      "pixel_std": 24.44013404238194
+    },
+    "table": {
+      "arquivo": "15_df_mini_mapa_especies_indicadoras_cpuen_ictiofauna.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Fonseca\\15_df_mini_mapa_especies_indicadoras_cpuen_ictiofauna.xlsx",
+      "sha256": "937237a28724293120a23710c65af74c6b31a2ea1b5a0159c1d627a59f2ad1ff",
+      "tamanho_bytes": 12451
+    }
+  },
+  "notes": [
+    "Produto em A4 paisagem, sem titulo geral, seguindo premissas dos minimapas de biota aquatica.",
+    "CPUEn calculada como individuos da especie no ponto / esforco total quantitativo do ponto x 100.",
+    "O esforco total inclui metodos quantitativos com ou sem captura, preservando a padronizacao da amostragem.",
+    "Os taxons selecionados sao apresentados como organismos de interesse para leitura de integridade ambiental, sem diagnostico isolado de qualidade da agua."
+  ]
+}

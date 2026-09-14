@@ -300,6 +300,31 @@ def build_community(tables: SourceTables) -> tuple[pd.DataFrame, pd.DataFrame, p
     for frame in [pc, effort, results]:
         for col in ["nome_campanha", "nome_ponto"]:
             frame[col] = frame[col].astype(str).str.strip()
+    campaign_meta_cols = [
+        col
+        for col in [
+            "Ano_Temporal",
+            "Ano_Calendario",
+            "Mes",
+            "Periodo_Hidrologico",
+            "Ciclo_Temporal",
+            "Rotulo_Relatorio",
+        ]
+        if col in pc.columns
+    ]
+    campaign_meta = (
+        pc[["nome_campanha", *campaign_meta_cols]]
+        .drop_duplicates("nome_campanha")
+        .copy()
+        if campaign_meta_cols
+        else pd.DataFrame(columns=["nome_campanha"])
+    )
+    point_meta_cols = [col for col in ["Area_Controle"] if col in pc.columns]
+    point_meta = (
+        pc[["nome_ponto", *point_meta_cols]].drop_duplicates("nome_ponto").copy()
+        if point_meta_cols
+        else pd.DataFrame(columns=["nome_ponto"])
+    )
     results["nome_cientifico"] = results["nome_cientifico"].astype(str).str.strip()
     results.loc[results["nome_cientifico"].str.lower().isin(["nan", "none", ""]), "nome_cientifico"] = np.nan
     results["contagem"] = pd.to_numeric(results["contagem"], errors="coerce").fillna(0)
@@ -332,11 +357,22 @@ def build_community(tables: SourceTables) -> tuple[pd.DataFrame, pd.DataFrame, p
     sample_grid = pd.DataFrame(
         [{"nome_campanha": campaign, "nome_ponto": point} for campaign in campaigns for point in points]
     )
+    if not campaign_meta.empty:
+        sample_grid = sample_grid.merge(campaign_meta, on="nome_campanha", how="left")
+    if not point_meta.empty:
+        sample_grid = sample_grid.merge(point_meta, on="nome_ponto", how="left")
     sample_grid["sample_id"] = sample_grid["nome_campanha"] + " | " + sample_grid["nome_ponto"]
     sample_grid["campanha_curta"] = sample_grid["nome_campanha"].map(_campaign_short)
     sample_grid["ordem_campanha"] = sample_grid["nome_campanha"].map(_campaign_number)
     sample_grid["ano"] = sample_grid["nome_campanha"].map(_campaign_year)
     sample_grid["estacao"] = sample_grid["nome_campanha"].map(_campaign_season)
+    if "Ano_Temporal" in sample_grid.columns:
+        sample_grid["ano"] = pd.to_numeric(sample_grid["Ano_Temporal"], errors="coerce").combine_first(
+            pd.to_numeric(sample_grid["ano"], errors="coerce")
+        )
+    if "Periodo_Hidrologico" in sample_grid.columns:
+        season_override = sample_grid["Periodo_Hidrologico"].astype(str).str.strip().str.upper()
+        sample_grid.loc[season_override.isin(["CH", "SC"]), "estacao"] = season_override[season_override.isin(["CH", "SC"])]
     sample_grid["estacao_rotulo"] = sample_grid["estacao"].map(SEASON_LABELS).fillna("N.D.")
     sample_grid = sample_grid.merge(effort_total, on=["nome_campanha", "nome_ponto"], how="left")
 
@@ -772,7 +808,7 @@ def functional_indicators(
     return indicators, pd.DataFrame(reading_rows)
 
 
-def build_functional_group_panel(records: pd.DataFrame, metadata: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+def build_functional_group_panel(records: pd.DataFrame, metadata: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     data = records.copy()
     data["habitat_norm"] = data["Habitat_funcional"].map(_normalize_text)
     data["corrente_norm"] = data["Preferencia_correnteza"].map(_normalize_text)
@@ -791,9 +827,45 @@ def build_functional_group_panel(records: pd.DataFrame, metadata: pd.DataFrame) 
     }
 
     rows = []
+    species_rows = []
+    species_columns = [
+        "species_key",
+        "nome_cientifico",
+        "Habitat_funcional",
+        "Preferencia_correnteza",
+        "Guilda_trofica",
+        "Porte_corporal",
+        "Sensibilidade_funcional",
+        "Confianca_classificacao",
+        "Fonte_classificacao",
+        "Observacoes_funcionais",
+    ]
+    species_base = data[[col for col in species_columns if col in data.columns]].drop_duplicates("species_key")
     for order, definition in enumerate(FUNCTIONAL_GROUP_DEFINITIONS, start=1):
         code = definition["codigo"]
         subset = data[masks[code]].copy()
+        species_subset = species_base[species_base["species_key"].isin(subset["species_key"].dropna().unique())].copy()
+        if not species_subset.empty:
+            species_subset.insert(0, "ordem_grupo", order)
+            species_subset.insert(1, "grupo_funcional", code)
+            species_subset.insert(2, "grupo_rotulo", definition["rotulo"])
+            species_subset.insert(3, "criterio", definition["criterio"])
+            species_rows.append(species_subset)
+        else:
+            species_rows.append(
+                pd.DataFrame(
+                    [
+                        {
+                            "ordem_grupo": order,
+                            "grupo_funcional": code,
+                            "grupo_rotulo": definition["rotulo"],
+                            "criterio": definition["criterio"],
+                            "species_key": "",
+                            "nome_cientifico": "Nenhuma espécie enquadrada",
+                        }
+                    ]
+                )
+            )
         if subset.empty:
             agg = pd.DataFrame(
                 columns=["sample_id", "CPUEn_grupo", "contagem_grupo", "riqueza_taxa_grupo", "especies_grupo"]
@@ -827,7 +899,21 @@ def build_functional_group_panel(records: pd.DataFrame, metadata: pd.DataFrame) 
     group_panel = pd.concat(rows, ignore_index=True)
     definitions = pd.DataFrame(FUNCTIONAL_GROUP_DEFINITIONS)
     definitions.insert(0, "ordem_grupo", range(1, len(definitions) + 1))
-    return group_panel, definitions
+    if species_rows:
+        species_groups = pd.concat(species_rows, ignore_index=True)
+        grouped_species = set(species_groups["species_key"].dropna())
+    else:
+        species_groups = pd.DataFrame()
+        grouped_species = set()
+    ungrouped = species_base[~species_base["species_key"].isin(grouped_species)].copy()
+    if not ungrouped.empty:
+        ungrouped.insert(0, "ordem_grupo", len(FUNCTIONAL_GROUP_DEFINITIONS) + 1)
+        ungrouped.insert(1, "grupo_funcional", "sem_grupo_sentinela")
+        ungrouped.insert(2, "grupo_rotulo", "Sem grupo funcional sentinela")
+        ungrouped.insert(3, "criterio", "Espécie com atributos funcionais, mas sem enquadramento nos grupos sentinelas definidos.")
+        species_groups = pd.concat([species_groups, ungrouped], ignore_index=True)
+    species_groups = species_groups.sort_values(["ordem_grupo", "nome_cientifico"]).reset_index(drop=True)
+    return group_panel, definitions, species_groups
 
 
 def _category_palette(categories: list[str], primary: str, secondary: str, highlight: str) -> dict[str, str]:
@@ -1176,6 +1262,7 @@ def write_excel_outputs(
     reading: pd.DataFrame,
     group_panel: pd.DataFrame,
     group_definitions: pd.DataFrame,
+    species_groups: pd.DataFrame,
 ) -> dict[str, str]:
     paths = {
         "functional_composition": output_dir / "19_df_composicao_funcional_ictiofauna.xlsx",
@@ -1210,6 +1297,7 @@ def write_excel_outputs(
     with pd.ExcelWriter(paths["functional_group_heatmaps"], engine="openpyxl") as writer:
         group_panel.to_excel(writer, sheet_name="heatmap_funcoes", index=False)
         group_definitions.to_excel(writer, sheet_name="definicoes_funcoes", index=False)
+        species_groups.to_excel(writer, sheet_name="especies_por_grupo", index=False)
     return {key: str(path) for key, path in paths.items()}
 
 
@@ -1285,7 +1373,7 @@ def main() -> int:
         functional_matrix, metadata, n_perm=args.n_perm, seed=args.seed
     )
     indicators, reading = functional_indicators(by_campaign, metadata, lcbd, records)
-    group_panel, group_definitions = build_functional_group_panel(records, metadata)
+    group_panel, group_definitions, species_groups = build_functional_group_panel(records, metadata)
 
     plot_composition(by_campaign, categories, output_dir / "19_grafico_composicao_funcional_temporal_ictiofauna.png", theme)
     plot_lcbd_heatmap(lcbd, output_dir / "20_grafico_heatmap_lcbd_funcional_ponto_campanha_ictiofauna.png", theme)
@@ -1315,6 +1403,7 @@ def main() -> int:
         reading=reading,
         group_panel=group_panel,
         group_definitions=group_definitions,
+        species_groups=species_groups,
     )
 
     missing_traits = int(records["taxon_sem_atributo"].sum())

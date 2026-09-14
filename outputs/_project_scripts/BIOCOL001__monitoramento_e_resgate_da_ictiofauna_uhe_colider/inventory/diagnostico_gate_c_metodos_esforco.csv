@@ -1,0 +1,11 @@
+﻿metodo_de_captura,unidade_esforco,esforcos,esforcos_invalidos,esforco_min,esforco_max
+Anzol,m²/100,1,1,,
+Arrasto,m²/100,414,414,,
+Peneira,m²/100,4,4,,
+Pinda,m²/100,52,52,,
+Puça,m²/100,229,229,,
+Rede de Emalhar,m²/100,1046,0,20.0,340.0
+Tarrafa,m²/100,33,33,,
+Vara,m²/100,3,3,,
+Vara ,m²/100,1,1,,
+Vara e Molinete,m²/100,86,81,90.0,90.0

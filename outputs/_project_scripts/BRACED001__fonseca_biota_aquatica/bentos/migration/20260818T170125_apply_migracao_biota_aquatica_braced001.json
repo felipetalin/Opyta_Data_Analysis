@@ -1,0 +1,85 @@
+{
+  "stamp": "20260818T170125",
+  "applied": true,
+  "active_groups": [
+    "Zoobentos"
+  ],
+  "project": {
+    "id_projeto": 133,
+    "codigo_interno_opyta": "BRACED001",
+    "nome_projeto": "Fonseca-Biota Aquática",
+    "id_cliente": 1,
+    "nome_empresa": "Brandt Meio Ambiente Ltda."
+  },
+  "campaigns": [
+    {
+      "nome_campanha": "C001-2026-03-CH",
+      "id_campanha": 969
+    },
+    {
+      "nome_campanha": "C002-2026-06-SC",
+      "id_campanha": 679
+    }
+  ],
+  "source_summary": {
+    "pontos": 36,
+    "campanhas": 2,
+    "esforcos": 36,
+    "resultados_migraveis": 134,
+    "linhas_fonte": 134,
+    "taxons_soma_por_grupo": 31
+  },
+  "db_before": {
+    "pontos": 36,
+    "esforcos": 0,
+    "resultados_zoobentos": 0,
+    "consolidado": 0
+  },
+  "db_after": {
+    "pontos": 36,
+    "esforcos": 36,
+    "resultados_zoobentos": 134,
+    "consolidado": 134
+  },
+  "backups": {
+    "pontos": "public.backup_biota_braced001_20260818t170125_pontos",
+    "esforcos": "public.backup_biota_braced001_20260818t170125_esforcos",
+    "fitoplancton": "public.backup_biota_braced001_20260818t170125_fitoplancton",
+    "zooplancton": "public.backup_biota_braced001_20260818t170125_zooplancton",
+    "zoobentos": "public.backup_biota_braced001_20260818t170125_zoobentos",
+    "ictiofauna": "public.backup_biota_braced001_20260818t170125_ictiofauna",
+    "consolidado": "public.backup_biota_braced001_20260818t170125_consolidado"
+  },
+  "deleted": {
+    "resultados_zoobentos": 0,
+    "esforcos": 0,
+    "consolidado": 0
+  },
+  "result_counts_by_table": {
+    "resultados_zoobentos": 134
+  },
+  "inserted_results": {
+    "resultados_zoobentos": 134
+  },
+  "inserted_consolidated": 134,
+  "consolidated_by_campaign": [
+    {
+      "grupo_biologico": "Zoobentos",
+      "nome_campanha": "C001-2026-03-CH",
+      "linhas": 54,
+      "pontos": 17,
+      "taxons": 18,
+      "contagem_total": 159.0,
+      "biomassa_total": 0.0
+    },
+    {
+      "grupo_biologico": "Zoobentos",
+      "nome_campanha": "C002-2026-06-SC",
+      "linhas": 80,
+      "pontos": 18,
+      "taxons": 25,
+      "contagem_total": 328.0,
+      "biomassa_total": 0.0
+    }
+  ]
+}

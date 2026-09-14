@@ -1,0 +1,18 @@
+{
+  "validated_at": "2026-08-19T23:59:54.623979Z",
+  "status": "OK",
+  "files_checked": 35,
+  "figures_checked": 14,
+  "missing_files": [],
+  "zero_size_files": [],
+  "bad_dimensions": [],
+  "blank_figures": [],
+  "errors_count": 0,
+  "warnings": [
+    "Densidade, diversidade e similaridade foram calculadas somente com registros quantitativos.",
+    "Registros qualitativos foram usados para composição, ocorrência, riqueza taxonômica e suficiência amostral.",
+    "Figuras 08 e 09 mostram os 20 táxons com maior densidade para preservar legibilidade em A4 paisagem; as planilhas mantêm todos os táxons.",
+    "Figura 11B adicionada com similaridade de Bray-Curtis por ponto, sem distinguir campanha.",
+    "Figura 13 adicionada como minimapa de ocorrência/riqueza de táxons associados à bioindicação; não representa diagnóstico isolado de qualidade ambiental."
+  ]
+}

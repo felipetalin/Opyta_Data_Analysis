@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-07-15T11:49:07",
+  "project_code": "BRAAVG002",
+  "group": "Ictiofauna",
+  "status": "generated",
+  "metric": "CPUEn",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna",
+  "support_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\species_cpuen_synthesis_20260715",
+  "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png",
+  "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados ictio\\Consolidado_2026\\icitiofauna\\08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx",
+  "support_figure": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\species_cpuen_synthesis_20260715\\08C_grafico_sintese_cpuen_especies_temporal_espacial_ictiofauna.png",
+  "support_table": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\species_cpuen_synthesis_20260715\\08C_df_sintese_cpuen_especies_temporal_espacial_ictiofauna.xlsx",
+  "species": 13,
+  "campaigns": 47,
+  "points": 13,
+  "design_updates": [
+    "barras de contribuicao relativa em verde unico",
+    "layout em A3 paisagem com margem superior para titulo da figura",
+    "ausencia de registro em branco no heatmap",
+    "escala temporal padronizada por classes percentuais de intensidade relativa da CPUEn global",
+    "todas as campanhas C001-C047 exibidas no eixo temporal",
+    "coluna de frequencia removida",
+    "sombreado abaixo dos anos removido",
+    "bolhas espaciais dimensionadas por CPUEn relativa dentro de cada especie",
+    "legendas espaciais horizontais com classes percentuais"
+  ],
+  "sampling_rule": "Regra revisada em 2026-07-15; nao-amostragem como ausencia."
+}

@@ -1,0 +1,101 @@
+{
+  "executed_at": "2026-08-04T16:35:29.314329Z",
+  "runner_version": "1.2",
+  "project_id": 165,
+  "group": "Primatas",
+  "pipeline": "primatas",
+  "client": "fersam001",
+  "block": "all",
+  "campaign_filter": [
+    "C029-2026-07-SC"
+  ],
+  "git": {
+    "branch": "agent/braavg002-ictiofauna-resultados-2026",
+    "commit": "26f99fc",
+    "dirty": true,
+    "status_short_count": 23,
+    "full_dirty": true,
+    "full_status_short_count": 217,
+    "ignored_generated_audit_count": 194
+  },
+  "rows_loaded": 12,
+  "executed_blocks": [
+    "fig17",
+    "6.2",
+    "6.3"
+  ],
+  "campaigns": [
+    "C029-2026-07-SC"
+  ],
+  "campaigns_count": 1,
+  "points": [
+    "JA3-C29-01",
+    "PMPRIFOR1-C29-01",
+    "PMPRIJAC1-C29-01",
+    "PMPRIJAC2C29-01",
+    "PMPRISPT1-C29-01",
+    "PMPRISPT1-C29-02",
+    "PMPRISPT2-C29-01",
+    "PMPRISPT2-C29-02",
+    "PMPRISPT2-C29-03",
+    "PMPRISPT2-C29-04",
+    "PMPRISPT2-C29-05",
+    "PMPRISPT2-C29-06"
+  ],
+  "points_count": 12,
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto",
+  "generated_files_count": 5,
+  "generated_files": [
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\fig17_abundancia_registros_primatas_campanha.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\fig17_tabela_composicao_primatas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\6_2_prim_diagrama_venn_pch_vs_controle.png",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\6_3_tabela_status_ecologico_primatas.xlsx",
+    "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\relatorio_primatas_SPT.txt"
+  ],
+  "generated_file_checks": [
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\fig17_abundancia_registros_primatas_campanha.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 147241,
+      "modified_at": "2026-08-04T16:35:27.201000Z",
+      "sha256": "a1a5c4b48833306f0e41332a955b9b85022521f04c436b516f548711f9365893"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\fig17_tabela_composicao_primatas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5152,
+      "modified_at": "2026-08-04T16:35:27.309000Z",
+      "sha256": "da2a2c0560972502fee03d35c99297bb86fb3afe3bb1ff563f77fc5e6e15b46c"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\6_2_prim_diagrama_venn_pch_vs_controle.png",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 418797,
+      "modified_at": "2026-08-04T16:35:28.854000Z",
+      "sha256": "43904286a60b0550c1e4b6237975a5af9cd25350d45f501ba16a61a54597f716"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\6_3_tabela_status_ecologico_primatas.xlsx",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 5571,
+      "modified_at": "2026-08-04T16:35:29.009000Z",
+      "sha256": "d3ce09d80b23d8535229d270e24de508862aeb173b2458c3144ab57cfa4cfbfd"
+    },
+    {
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Itatiaia\\Guanhães Energia\\Resultados e análises\\29_campanha_Jul_26\\Primatas\\Senhora do Porto\\relatorio_primatas_SPT.txt",
+      "exists": true,
+      "type": "file",
+      "size_bytes": 793,
+      "modified_at": "2026-08-04T16:35:29.047000Z",
+      "sha256": "3ef90d10a24d7d347b41e254a4487c4bc3b41dc54ebf5ce0159f4d7c9934f0a4"
+    }
+  ],
+  "generated_files_missing_count": 0,
+  "config_root": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\configs",
+  "audit_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\ITAGUA001__monitoramento_da_fauna\\primatas",
+  "warnings": []
+}

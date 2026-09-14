@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Reproducer script for Herpetofauna analysis - fersam001
-Generated: 2026-05-15T20:40:05.804139Z
+Generated: 2026-08-03T19:37:59.780172Z
 
 Usage:
   python _run_this_analysis.py
@@ -20,10 +20,12 @@ from opyta_analysis.runner import run
 
 def main():
     parser = argparse.ArgumentParser(description="Re-run Herpetofauna analysis")
-    parser.add_argument("--block", default='all', help="Block to execute (default: all)")
-    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\28_campanha-Abril_26\Herpetofauna\Senhora do Porto", help="Output directory for generated artifacts")
+    parser.add_argument("--block", default='6.5', help="Block to execute (default: 6.5)")
+    parser.add_argument("--output-dir", default=r"G:\Meu Drive\Opyta\Clientes\Clientes\Clientes\Itatiaia\Guanhães Energia\Resultados e análises\29_campanha_Jul_26\Herpetofauna\Senhora do Porto", help="Output directory for generated artifacts")
     parser.add_argument("--env-file", default='G:\\Meu Drive\\Opyta\\Opyta_Data\\.env', help="Optional .env file path")
+    parser.add_argument("--campaigns", default=None, help="Override comma-separated campaign filter")
     args = parser.parse_args()
+    campaigns = [c.strip() for c in args.campaigns.split(",") if c.strip()] if args.campaigns else ['jul-26']
 
     params = RunParams(
         project_id=165,
@@ -33,6 +35,8 @@ def main():
         output_dir=Path(args.output_dir),
         env_file=args.env_file,
         block=args.block,
+        audit_project_slug='ITAGUA001__monitoramento_da_fauna',
+        campaigns=campaigns,
     )
 
     config_root = Path(r"G:\Meu Drive\Opyta\Opyta_Data_Analysis\configs")

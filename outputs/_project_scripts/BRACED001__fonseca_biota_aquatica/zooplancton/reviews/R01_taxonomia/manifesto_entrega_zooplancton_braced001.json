@@ -1,0 +1,290 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-19T23:59:54.668680Z",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Zooplâncton",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\zooplancton\\reviews\\R01_taxonomia",
+  "summary": {
+    "rows_consolidated": 624,
+    "rows_quantitative": 517,
+    "rows_qualitative": 107,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 18,
+    "taxa_total": 58,
+    "taxa_quant": 58,
+    "phyla_total": 4,
+    "density_total": 36.120000000000005,
+    "density_unit": "org/amostra",
+    "max_richness": 23.0,
+    "max_richness_point": "MA-01-01",
+    "max_richness_campaign": "C01-Chuva",
+    "max_density": 1.5,
+    "max_density_point": "MA-04-10",
+    "max_density_campaign": "C02-Seca",
+    "dominant_phylum": "Rotifera",
+    "dominant_phylum_density": 15.600000000000001,
+    "dominant_taxon": "CYCLOPOIDA (nauplius)",
+    "dominant_taxon_density": 3.58,
+    "suff_obs": 58.0,
+    "suff_est": 58.97222222222247
+  },
+  "files_count": 35,
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 88372,
+      "modificado_em": "2026-08-19T23:58:23.901000Z",
+      "sha256": "fc882096cb7266a2f2735b28d2c7bfe90c0eb473bf306c659ae4a53e8c925925"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 8635,
+      "modificado_em": "2026-08-19T23:58:24.328000Z",
+      "sha256": "9613d73a85ddb38fd174d990b42552244d11ea32de847887e7556f59315f55cb"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 13770,
+      "modificado_em": "2026-08-19T23:58:24.791000Z",
+      "sha256": "e352694f13144e572394005475dc506fd0a16c7164f3b4e6236451a108f662eb"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 5758,
+      "modificado_em": "2026-08-19T23:58:24.955000Z",
+      "sha256": "86aae20e16d8088150d7b7765abb1d0981c052e3321f51c73f3070a44e69624d"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 543604,
+      "modificado_em": "2026-08-19T23:58:28.130000Z",
+      "sha256": "8e26ea3c7eb11f9dabb84da25c828415f8e43a1359c865647248f66b8340cfda"
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 5814,
+      "modificado_em": "2026-08-19T23:58:28.294000Z",
+      "sha256": "0a44631a1471f7eba5b53728d525357366efd5f0754ffd95565a361e6ae9ea6d"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 644221,
+      "modificado_em": "2026-08-19T23:58:30.724000Z",
+      "sha256": "a2192e4f0a238e9212da95d764a67aad791d6d2e17013103dc9fb92717c866bc"
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 5032,
+      "modificado_em": "2026-08-19T23:58:30.830000Z",
+      "sha256": "5b7bff548bd4d62c5173671c4fe8087aeb74147fd803ab58c13d456b402bc551"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 419897,
+      "modificado_em": "2026-08-19T23:58:32.752000Z",
+      "sha256": "762dfef691fec3f374b36ca1d6b37bd4babe4c6205f6f3ded27c57b67a9d3cc7"
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 429222,
+      "modificado_em": "2026-08-19T23:58:35.615000Z",
+      "sha256": "1f5c3f7a621b2566365521e2dbc138eeede11eceb054e9ee65beaa7645bd84be"
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6085,
+      "modificado_em": "2026-08-19T23:58:35.764000Z",
+      "sha256": "005c3204b4772e19bb923b4c42f039407f8c480515854116eb6d551dad4a961b"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 593575,
+      "modificado_em": "2026-08-19T23:58:37.458000Z",
+      "sha256": "561ca20ee54579e6fd50131769193f4badabdebe8cdb8ddc18912e82214b096e"
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6615,
+      "modificado_em": "2026-08-19T23:58:37.631000Z",
+      "sha256": "c0c34923afb4881713c4ced16c432300add83b64bd692e4d084019ad58310718"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 580679,
+      "modificado_em": "2026-08-19T23:58:43.168000Z",
+      "sha256": "ee38d9415b5ec0a04618e21221889671335ae7c5569c6700181a7e7a3660dd39"
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7753,
+      "modificado_em": "2026-08-19T23:58:43.472000Z",
+      "sha256": "6078dd4653bec6ea3c3163abcc841ca52c41ce7ffb7aadf09d3cc023208afd1e"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 1224065,
+      "modificado_em": "2026-08-19T23:58:47.169000Z",
+      "sha256": "0ee5ac8184e1b9e39a34c7ab5ec989c3fe3e58b133490956d72035ee6398fb65"
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 11725,
+      "modificado_em": "2026-08-19T23:58:52.924000Z",
+      "sha256": "6bae13961cc08ca4909508209d5b4c0caa77c20ac79cecc4d017bb847dcfc143"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 1342658,
+      "modificado_em": "2026-08-19T23:58:52.635000Z",
+      "sha256": "68bed6df07a3893948d8c18ac6e69e0005053da1e42ab60ed670e42d8f2781da"
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7383,
+      "modificado_em": "2026-08-19T23:58:53.330000Z",
+      "sha256": "ae4b396f38c53066220a9dad2314082afe895bd0c2efe725a102fcbc959c6e03"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 857749,
+      "modificado_em": "2026-08-19T23:58:57.066000Z",
+      "sha256": "d89c071f8efac39621a91b3946164a7c013997745f0cf0a7664983a0d1f652a2"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 813769,
+      "modificado_em": "2026-08-19T23:59:00.501000Z",
+      "sha256": "c55b29d4a8cb425a22f784c6caf1ea79587403c792f233b56faafb411fe5bf47"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 15296,
+      "modificado_em": "2026-08-19T23:59:00.750000Z",
+      "sha256": "5e68d8cf20d223ff0c9e5a55aff8cdd04fd75528b8ba5fe40e1747585efae242"
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 11679,
+      "modificado_em": "2026-08-19T23:58:57.524000Z",
+      "sha256": "438f142c520aadf61c8e62e265eb063c6ef1a582d3d034470dce1c528a4b5526"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 496314,
+      "modificado_em": "2026-08-19T23:59:04.053000Z",
+      "sha256": "850d503d70291e8b0cbe71a2792f0a6cd10db558ce6ab17d959206d3d7ea3b94"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7985,
+      "modificado_em": "2026-08-19T23:59:04.232000Z",
+      "sha256": "9f82cb5b7d290bbf80bd7f5d48c2c09e532b26c28205b9fe93d8ad69ec3c76fc"
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 9126,
+      "modificado_em": "2026-08-19T23:59:00.986000Z",
+      "sha256": "1eebee00bc4a1bad50864dcd650a67bd3b1768f08beb33157c724f15c00d5505"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 605537,
+      "modificado_em": "2026-08-19T23:59:07.340000Z",
+      "sha256": "894be9b8bdefe1b4c54c500ad106120403f9668f46dd5f6c3c99dd1aaa70991e"
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7384,
+      "modificado_em": "2026-08-19T23:59:04.794000Z",
+      "sha256": "8379629bc138744850344b561950a42ae9bc34afc62d7473df2177505d36956f"
+    },
+    {
+      "arquivo": "13_df_mini_mapa_taxons_bioindicadores_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 33736,
+      "modificado_em": "2026-08-19T23:57:50.118000Z",
+      "sha256": "6408a36ff906eed1435dfec9b5dee520bcf5babb80d690e7f811abea248975b1"
+    },
+    {
+      "arquivo": "13_mini_mapa_taxons_bioindicadores_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 2957132,
+      "modificado_em": "2026-08-19T23:57:48.862000Z",
+      "sha256": "36153bb499dfdf73793f5757527f0898c46c53655217a32109872938bc3c180c"
+    },
+    {
+      "arquivo": "14_grafico_sintese_zooplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 399590,
+      "modificado_em": "2026-08-19T23:59:11.531000Z",
+      "sha256": "56d97db11d85ef47ad1ef451bedf7810dd8c469f51039ef0c4a08957f65dc52e"
+    },
+    {
+      "arquivo": "14_tabela_sintese_zooplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6338,
+      "modificado_em": "2026-08-19T23:59:08.670000Z",
+      "sha256": "8bea897ea3a46f4a65e010c22b453c894cd27f533c5fe28a4992e926b5d38d3d"
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zooplancton_BRACED001.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 69481,
+      "modificado_em": "2026-08-19T23:59:08.347000Z",
+      "sha256": "3a1b02b2a69d5f8abceff5dc009dd4b61549f7611ce102eff2bc685e2504722b"
+    },
+    {
+      "arquivo": "relatorio_tecnico_zooplancton_braced001.html",
+      "extensao": "html",
+      "tamanho_bytes": 4110,
+      "modificado_em": "2026-08-19T23:59:11.721000Z",
+      "sha256": "ac89a0966d887b7cc1ff0a76902ae34b096d1fb3d69dab6266ad1d5ff8511e57"
+    },
+    {
+      "arquivo": "validacao_entrega_zooplancton_braced001.json",
+      "extensao": "json",
+      "tamanho_bytes": 901,
+      "modificado_em": "2026-08-19T23:53:35.948000Z",
+      "sha256": "1283cb8476d700d1d5fb2a363e486e9173d301964a2c89e72904a27c7006a557"
+    }
+  ],
+  "revision": {
+    "id": "FITO_GERACAO_01",
+    "applied_at": "2026-08-19T23:59:54.668737Z",
+    "description": "Resultados de Zooplâncton gerados em A4 paisagem com padrão visual de ictiofauna e premissas técnicas do grupo.",
+    "audit_tag": "20260819T205808"
+  }
+}

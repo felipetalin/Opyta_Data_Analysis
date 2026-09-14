@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-19T22:49:54.780919Z",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Fitoplâncton",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos",
+  "summary": {
+    "rows_consolidated": 511,
+    "rows_quantitative": 87,
+    "rows_qualitative": 424,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 18,
+    "taxa_total": 198,
+    "taxa_quant": 58,
+    "phyla_total": 9,
+    "density_total": 2138.1121194666666,
+    "density_unit": "org/amostra",
+    "max_richness": 108.0,
+    "max_richness_point": "MA-01-01",
+    "max_richness_campaign": "C02-Seca",
+    "max_density": 773.8181818181819,
+    "max_density_point": "MA-01-01",
+    "max_density_campaign": "C01-Chuva",
+    "dominant_phylum": "Chlorophyta",
+    "dominant_phylum_density": 543.5151512545456,
+    "dominant_taxon": "Cryptomonas sp.",
+    "dominant_taxon_density": 451.3896965787879,
+    "suff_obs": 198.0,
+    "suff_est": 275.71428571428464,
+    "taxonomy_r01": {
+      "status": "PASS",
+      "checks": {
+        "rows_511": true,
+        "taxa_198": true,
+        "phyla_expected": true,
+        "campaign_richness": true,
+        "shared_taxa_87": true,
+        "exclusive_taxa_36_75": true,
+        "quantitative_taxa_58": true,
+        "qualitative_only_taxa_140": true,
+        "zygnematophyceae_96": true,
+        "desmidiaceae_8": true,
+        "iconella_genus": true,
+        "synura_order": true,
+        "scytonemataceae_ni": true
+      },
+      "phyla": {
+        "Bacillariophyta": 57,
+        "Charophyta": 96,
+        "Chlorophyta": 12,
+        "Cryptophyta": 1,
+        "Cyanobacteriota": 17,
+        "Dinophyta": 5,
+        "Euglenophyta": 5,
+        "Ochrophyta": 4,
+        "Rhodophyta": 1
+      },
+      "campaign_richness": {
+        "C001-2026-03-CH": 123,
+        "C002-2026-06-SC": 162
+      },
+      "shared_taxa": 87,
+      "exclusive_taxa": {
+        "C001-2026-03-CH": 36,
+        "C002-2026-06-SC": 75
+      }
+    }
+  },
+  "files_count": 35,
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 75385,
+      "modificado_em": "2026-08-19T22:48:15.222000Z",
+      "sha256": "240dcbb2a78921f7e7a9d8737d5d56c0e3e48dd6e14f53e02a533eb2cafb8c5d"
+    },
+    {
+      "arquivo": "01_tabela_composicao_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 15952,
+      "modificado_em": "2026-08-19T22:48:17.217000Z",
+      "sha256": "ef21b884d2b72c10f4267163ff833b53cf867a43b08eb3aa6c8acdc30459714a"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 29511,
+      "modificado_em": "2026-08-19T22:48:19.747000Z",
+      "sha256": "82879394006972c0fdbb27f252843d01bfd76402b9dde74041c5c3476d9693bb"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 5787,
+      "modificado_em": "2026-08-19T22:48:19.989000Z",
+      "sha256": "0d1085c3234d866b5947c93c232ef381cd79266e9b70e3101d903fca08786f77"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 573533,
+      "modificado_em": "2026-08-19T22:48:26.027000Z",
+      "sha256": "8b57c6a63ca956b2c501b9d48dc7cb9dc39293dff3f41f7002a933e496d4fce2"
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 5829,
+      "modificado_em": "2026-08-19T22:48:26.229000Z",
+      "sha256": "f7ed65b01ef967a7cd7cfe124c2ba87e3be28858616d4ac5112d76007040525e"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 628782,
+      "modificado_em": "2026-08-19T22:48:29.629000Z",
+      "sha256": "dc0ad511c96510bf32a279acaf5884451e917e5921421714724f9bfe29dac658"
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 5194,
+      "modificado_em": "2026-08-19T22:48:29.762000Z",
+      "sha256": "bfdf5a5ec8247a77a1ea84cf7b64f861fd56bba7a02125acb7ade76d24705fae"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 704022,
+      "modificado_em": "2026-08-19T22:48:32.768000Z",
+      "sha256": "629965f85a72db3a8d130e2fcd78183d931001919d8d91fb4496424ffd182518"
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 619316,
+      "modificado_em": "2026-08-19T22:48:36.028000Z",
+      "sha256": "ab56c1193e3c6b338cbda83fb75d818096bee5bb54552224e50437685f7554d1"
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6385,
+      "modificado_em": "2026-08-19T22:48:36.266000Z",
+      "sha256": "b3a78cb8255f31e9bf1aa18745b6416daa32ffe371d7d1dad0ddb2b6c95f0ac0"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 676794,
+      "modificado_em": "2026-08-19T22:48:40.782000Z",
+      "sha256": "17d20efb83b55b5a004a6b85b188c18c79b6432d71fe6ffc04b1f410e3adce68"
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6552,
+      "modificado_em": "2026-08-19T22:48:40.901000Z",
+      "sha256": "aed4a67ca91f1f78644f3fe4fdc769bea1a64673d6f58540376b668b35bcf938"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 639615,
+      "modificado_em": "2026-08-19T22:48:45.480000Z",
+      "sha256": "f4ae6880406a06ccd663bcbe32aa8b745195f7b517d0095ec2ad18585e828689"
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7747,
+      "modificado_em": "2026-08-19T22:48:45.683000Z",
+      "sha256": "3473471deab58b3e660adb6f319c3591ebd088130a4a6d53659dd83ea956b972"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 887005,
+      "modificado_em": "2026-08-19T22:48:48.297000Z",
+      "sha256": "ef4f8e967a92ea220888c82b2e71cae9fd4049e3418c91890b476fe37e91e572"
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 11146,
+      "modificado_em": "2026-08-19T22:48:53.269000Z",
+      "sha256": "a503686a70232dbcd11d76394c176c0cd877b7a29150c86436f5e4ccb2b9ae17"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 948694,
+      "modificado_em": "2026-08-19T22:48:53.099000Z",
+      "sha256": "fa9b21c1c3a1dd13a8ac42770c85445c1fbce05fb4100f13e14384b7c5c45653"
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6836,
+      "modificado_em": "2026-08-19T22:48:53.451000Z",
+      "sha256": "1e16a8e3b7a8b3852089113f7c33e35263c1f99cabb6f1fd40bc24fd3fb4721b"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 685179,
+      "modificado_em": "2026-08-19T22:48:57.811000Z",
+      "sha256": "8d8f36138f664b06308891309c3df97a29640d67f6176b90c6026755c688d921"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 626000,
+      "modificado_em": "2026-08-19T22:49:00.677000Z",
+      "sha256": "dfe03c9587b4db8538061f1a3f5fe6fb3967d1656c9cf9fccad4acf9442e9fb1"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7961,
+      "modificado_em": "2026-08-19T22:49:00.830000Z",
+      "sha256": "2733c0d74f95bf33411b458ae1eaec40b010dc0e179f1afb70ed4afa82d5ef2f"
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 9499,
+      "modificado_em": "2026-08-19T22:48:58.079000Z",
+      "sha256": "b6c7c60dc5f2781105795d244687fabe7ef14dcd8ae09f277a025839b135c845"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 453161,
+      "modificado_em": "2026-08-19T22:49:03.947000Z",
+      "sha256": "acfeead0c550f9edde55afdbcd47c86998dcd68ee1df4bf3cb1d58c0cf202bc2"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6733,
+      "modificado_em": "2026-08-19T22:49:04.108000Z",
+      "sha256": "ccb3215815d219ff8b12c0ecbd5ea33fd922f025b8b28f1042137fdaa7041476"
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 8262,
+      "modificado_em": "2026-08-19T22:49:00.993000Z",
+      "sha256": "60320ee7ed1a70b73d0e3b0b0e657266cb907d8a2aa8c0bb770dea2bcc19cfe8"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 736629,
+      "modificado_em": "2026-08-19T22:49:07.198000Z",
+      "sha256": "eabcbe84f431d53bc2e48ff6d1e27edd5c911419c031867418414424f37c49f4"
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7326,
+      "modificado_em": "2026-08-19T22:49:04.571000Z",
+      "sha256": "e63471c32a3448ac9dc5972425603737e7ea2e175baa3c9acb076765d530b513"
+    },
+    {
+      "arquivo": "13_df_mini_mapa_cyanobacteria_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 7240,
+      "modificado_em": "2026-08-19T22:47:39.065000Z",
+      "sha256": "1adfac5e9b77bff5c64de1a12892113df55b92c980526427afbcf62ed54cbeb0"
+    },
+    {
+      "arquivo": "13_mini_mapa_cyanobacteria_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 1779851,
+      "modificado_em": "2026-08-19T22:47:38.347000Z",
+      "sha256": "d1d7c3e05bffc89eede6f766807d117842651c691e261ace49ee67b1b018a50c"
+    },
+    {
+      "arquivo": "14_grafico_sintese_fitoplancton.png",
+      "extensao": "png",
+      "tamanho_bytes": 649822,
+      "modificado_em": "2026-08-19T22:49:11.765000Z",
+      "sha256": "4a1a0e35043dd9c6feaa1381f2bc410cf57d900d70991d98a31b2d28f05a9402"
+    },
+    {
+      "arquivo": "14_tabela_sintese_fitoplancton.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 6611,
+      "modificado_em": "2026-08-19T22:49:08.383000Z",
+      "sha256": "38c8c9b2a293daac316a692248ac3edcc2f6cc3f07a87634967bfb404b103ccd"
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Fitoplancton_BRACED001.xlsx",
+      "extensao": "xlsx",
+      "tamanho_bytes": 60543,
+      "modificado_em": "2026-08-19T22:49:08.179000Z",
+      "sha256": "889cdeaf565c1ccef82fe79158cf64d21ef121c59c9b53540744fe46e92263ac"
+    },
+    {
+      "arquivo": "relatorio_tecnico_fitoplancton_braced001.html",
+      "extensao": "html",
+      "tamanho_bytes": 4150,
+      "modificado_em": "2026-08-19T22:49:11.868000Z",
+      "sha256": "bfb24fe60546e513eceb463b503024f321c7db631aa62b35016ba8c4c18ff0ee"
+    },
+    {
+      "arquivo": "validacao_entrega_fitoplancton_braced001.json",
+      "extensao": "json",
+      "tamanho_bytes": 580,
+      "modificado_em": "2026-08-19T22:44:37.702000Z",
+      "sha256": "d98c28ac16008e5533619027e7ce45f479eb667db64bfcd399c7bd4ebe445661"
+    }
+  ],
+  "revision": {
+    "id": "FITO_GERACAO_01",
+    "applied_at": "2026-08-19T22:49:54.780960Z",
+    "description": "Resultados de Fitoplâncton gerados em A4 paisagem com padrão visual de ictiofauna e premissas técnicas do grupo.",
+    "audit_tag": "20260819T194812"
+  }
+}

@@ -33,6 +33,10 @@ GROUP = "Zoobentos"
 RESULTS_TABLE = "resultados_zoobentos"
 AUDIT_DIR = ROOT / "outputs" / "_migration" / "avg_bentos_2026"
 
+TAXON_ALIASES = {
+    "Atopsyche": "Atopsyche sp.",
+}
+
 MONTHS = {
     "jan": "Jan",
     "janeiro": "Jan",
@@ -177,6 +181,11 @@ def _read_clean_workbook(xlsx: Path) -> dict[str, pd.DataFrame]:
             if df[col].dtype == object:
                 df[col] = df[col].map(lambda value: None if _is_blank(value) else value)
         sheets[name] = df
+
+    if "Nome_Cientifico" in sheets["resultados"].columns:
+        sheets["resultados"]["Nome_Cientifico"] = sheets["resultados"]["Nome_Cientifico"].map(
+            lambda value: TAXON_ALIASES.get(str(value).strip(), value) if value is not None else value
+        )
 
     return sheets
 

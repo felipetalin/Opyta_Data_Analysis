@@ -1,0 +1,363 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-28T18:25:23.719534Z",
+  "project_code": "BRAAEG001",
+  "project_id": 195,
+  "group": "Zooplâncton",
+  "action": "generate_zooplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton",
+  "figures_count": 13,
+  "figures_ok": 13,
+  "files_count": 36,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\zooplancton\\20260728T152204_contact_sheet_figuras_zooplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 423,
+    "rows_quantitative": 351,
+    "rows_qualitative": 72,
+    "campaigns": [
+      "C001-2026-02-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 12,
+    "taxa_total": 57,
+    "taxa_quant": 52,
+    "phyla_total": 3,
+    "density_total": 34.150000000000006,
+    "density_unit": "org/amostra",
+    "max_richness": 24.0,
+    "max_richness_point": "PT_05",
+    "max_richness_campaign": "C01-Chuva",
+    "max_density": 2.4,
+    "max_density_point": "PT_12",
+    "max_density_campaign": "C01-Chuva",
+    "dominant_phylum": "Rotifera",
+    "dominant_phylum_density": 12.9,
+    "dominant_taxon": "Bdelloida",
+    "dominant_taxon_density": 3.9000000000000004,
+    "suff_obs": 57.0,
+    "suff_est": 63.70833333333348
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\00_base_consolidada_zooplancton.xlsx",
+      "tamanho_bytes": 61815,
+      "sha256": "a909659981f0476f87deb8a015cd4316fe121526cbdf414570fe8bb6939344e7"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\01_tabela_composicao_zooplancton.xlsx",
+      "tamanho_bytes": 8557,
+      "sha256": "437bb04c93be5ebbfb3c5e64e651097875207d575ab5b8ceb20f1798993c1995"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\01_tabela_ocorrencia_zooplancton.xlsx",
+      "tamanho_bytes": 11161,
+      "sha256": "47107e13f7121c48bd020224f3d7a1a2bc735ec56223bf010b759c8810cf9f14"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\02_df_riqueza_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5523,
+      "sha256": "d414a4ce4efefd2708cdc7ecee62cc772c84a1d931542bd50eb8922b6f139d7f"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\02_grafico_riqueza_por_ponto_zooplancton.png",
+      "tamanho_bytes": 449523,
+      "sha256": "5ac5389fad96be8acb49ddcf1169f038141b99f76659c12212e0d6d602dac3e6",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 96.28473918324326,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\03_df_densidade_total_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5540,
+      "sha256": "4ac4e61e37a4fb051cd73079a4231eb834bb234f005d4becb60aa3aca6daee65"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\03_grafico_densidade_total_por_ponto_zooplancton.png",
+      "tamanho_bytes": 499268,
+      "sha256": "3e611cf4ace155c49b0421cd6c0bfc9ceb9f11ef92047332aa7249e4a8a517c8",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 90.22531464466745,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\04_df_riqueza_por_filo_zooplancton.xlsx",
+      "tamanho_bytes": 5012,
+      "sha256": "20d6911d3733c05451b3bebe503218d5a63bfba23df661a240e5bcafb2793140"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\04_grafico_riqueza_filo_barras_zooplancton.png",
+      "tamanho_bytes": 376492,
+      "sha256": "25633b53ddcd95a7ea6e312fc664d7e317b0aea7339ffec4a203ec6a73bd0bed",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 108.4017981478673,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\05_grafico_riqueza_filo_rosca_zooplancton.png",
+      "tamanho_bytes": 397089,
+      "sha256": "4e65cc7bbba2db163bbc5522325ee285b6845c1e7c2fd07809843b674d333a6a",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 84.83374372497889,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\06_df_densidade_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5628,
+      "sha256": "eee19ba05082cc624d5114702ff2ff7e31e31740ff307b9cd82ded7fba52d424"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\06_grafico_densidade_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 467372,
+      "sha256": "c808b8571e9ae68cb00df709d033fa914e03ccdb8b295abdfb0be4114892d296",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 85.05657881547354,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\07_df_densidade_relativa_filo_por_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 5908,
+      "sha256": "3fb0500bc04da337e0328bcd4136d5a6077cc3964968bc7f41d22506f9e5af55"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\07_grafico_densidade_relativa_filo_por_ponto_zooplancton.png",
+      "tamanho_bytes": 467438,
+      "sha256": "488fee47416fcbf73f33c7a133a4eb212a6e11d29692e6310b201de02e331b36",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 99.21659584367018,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\08_df_densidade_por_taxon_zooplancton.xlsx",
+      "tamanho_bytes": 7371,
+      "sha256": "e6ac5b3170ef0dcdb0fd50b4101a83eff3282fb42d6587c88c9a1096947df31e"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\08_grafico_densidade_por_taxon_zooplancton.png",
+      "tamanho_bytes": 1222235,
+      "sha256": "41f9acd53f836e35e5f2ba0fb3ed63f3c8e937d50d840835fcacf3d4f63441be",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 72.35955977469278,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\09_df_densidade_taxon_ponto_zooplancton.xlsx",
+      "tamanho_bytes": 9024,
+      "sha256": "659675a8a4574a9453537031fdca6575fc66ba0f51e9898ef55659c0f6926eac"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\09_grafico_densidade_taxon_ponto_zooplancton.png",
+      "tamanho_bytes": 1211371,
+      "sha256": "aae27abf1aec1522eff1fb616d14d93185817832cac4250388fa49888b610bfc",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 52.047601876796186,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\10_df_diversidade_alfa_zooplancton.xlsx",
+      "tamanho_bytes": 6643,
+      "sha256": "87e74edb286b0409500bd41ca7573459c8dde71ff32f13a453a1e0ac033362a2"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\10_grafico_diversidade_alfa_zooplancton.png",
+      "tamanho_bytes": 671492,
+      "sha256": "7b8dccd5f62be997d8ab43e34fbb364b9a184c0956f383664a93049ae013aed6",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 103.50810387729136,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\11_df_matriz_comunidade_zooplancton.xlsx",
+      "tamanho_bytes": 9213,
+      "sha256": "fa3e4449fdd1e3a934a7bff269db45a633028fa3bbf800fe55579ae9e3b08cab"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\11_df_distancias_braycurtis_zooplancton.xlsx",
+      "tamanho_bytes": 9119,
+      "sha256": "88527aee6693ed78ec8e805ccd604e77424a8d6e28616bd53320e4de1abadf26"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\11_dendrograma_similaridade_zooplancton.png",
+      "tamanho_bytes": 556401,
+      "sha256": "3eb8a9490a6c303912dd256429fe6917647e4a57238b0ec61ab7cd5b75d15f31",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 39.67974368802817,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\11B_df_matriz_comunidade_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 7570,
+      "sha256": "5af8c3c95ce829a144291750c648493a21a26683a41379c4106408ea478ecd30"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\11B_df_distancias_braycurtis_pontos_zooplancton.xlsx",
+      "tamanho_bytes": 6173,
+      "sha256": "bb87f8d620bb47076f5e4e1dd466e6693fe8c2fbba0c5f0c95676644f582739f"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\11B_dendrograma_similaridade_pontos_zooplancton.png",
+      "tamanho_bytes": 318773,
+      "sha256": "905e02d40d797775285e4d0a969a2f7453d94c8485c8fbaff1033c538e6e51b2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 31.145068476791504,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\12_df_curva_suficiencia_zooplancton.xlsx",
+      "tamanho_bytes": 6587,
+      "sha256": "2e3b3abc6a6c3b5d2e3d491511f95cb705a15015062a246c0c2b9de0e1dc2676"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\12_curva_suficiencia_amostral_zooplancton.png",
+      "tamanho_bytes": 628301,
+      "sha256": "bc7ce9e00f7e6815b42647e6ec249c6d7c520de19ae87105cb8875f742c5949e",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 32.75327103513,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zooplancton_BRAAEG001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\DarwinCore_IEF_Zooplancton_BRAAEG001.xlsx",
+      "tamanho_bytes": 49672,
+      "sha256": "8e9b2773418b0c4f9291e5e31e6de08ad7ffca0a475a50f6c4dfcaa7a5eae254"
+    },
+    {
+      "arquivo": "14_tabela_sintese_zooplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\14_tabela_sintese_zooplancton.xlsx",
+      "tamanho_bytes": 6288,
+      "sha256": "ea2c5970049d6bf7ef30d8c7dd6bf4de99eb157e079382e83780abb34d4d69b4"
+    },
+    {
+      "arquivo": "14_grafico_sintese_zooplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\14_grafico_sintese_zooplancton.png",
+      "tamanho_bytes": 379074,
+      "sha256": "159e2d7e7fc80546dec97802b91235eab5e7691d63064d71b3b2b572f3650da7",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 95.99958415361118,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zooplancton_braaeg001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\relatorio_tecnico_zooplancton_braaeg001.html",
+      "tamanho_bytes": 4093,
+      "sha256": "1a452d68bd66d42d01e9bd3380723aeeb1916ce8f9dc7619bc3417cc7180c3a2"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braaeg001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\manifesto_entrega_zooplancton_braaeg001.json",
+      "tamanho_bytes": 10621,
+      "sha256": "b4b744b7ec473723fbdbf321e227f06f6ea19acfaca5a9f9cfccbf906b8bf868"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braaeg001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\manifesto_entrega_zooplancton_braaeg001.xlsx",
+      "tamanho_bytes": 7833,
+      "sha256": "bac8ca82a40b17d744dc6625380f1e65d2b3b2a8cafd2cd252f6abe03412b60b"
+    },
+    {
+      "arquivo": "manifesto_entrega_zooplancton_braaeg001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\manifesto_entrega_zooplancton_braaeg001.md",
+      "tamanho_bytes": 2575,
+      "sha256": "2290c6eec3d4bb7e73066f837c3974174aa924ead2df1e9a86381c53272617ca"
+    },
+    {
+      "arquivo": "validacao_entrega_zooplancton_braaeg001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\zooplancton\\validacao_entrega_zooplancton_braaeg001.json",
+      "tamanho_bytes": 733,
+      "sha256": "cd397b99dbef84b4d6097c912cb41056b3693f9aedda262be75322325f64c456"
+    }
+  ]
+}

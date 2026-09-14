@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-18T20:27:26.067636Z",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Zoobentos",
+  "action": "generate_bentos_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos",
+  "figures_count": 16,
+  "figures_ok": 16,
+  "files_count": 39,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\bentos\\20260818T172514_contact_sheet_figuras_zoobentos_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 134,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 18,
+    "taxa_total": 31,
+    "families_total": 31,
+    "orders_total": 9,
+    "abundance_total": 487.0,
+    "unit": "org/amostra",
+    "max_richness": 10.0,
+    "max_richness_point": "MA-03-08",
+    "max_richness_campaign": "C02-Seca",
+    "max_abundance": 112.0,
+    "max_abundance_point": "MA-03-08",
+    "max_abundance_campaign": "C02-Seca",
+    "dominant_taxon": "Chironomidae",
+    "dominant_taxon_abundance": 165.0,
+    "dominant_order": "Diptera",
+    "dominant_order_abundance": 293.0,
+    "max_bmwp": 51.0,
+    "max_bmwp_point": "MA-03-08",
+    "max_bmwp_campaign": "C02-Seca",
+    "mean_ept_pct": 15.265384669120301,
+    "mean_chol_pct": 36.71865544171578,
+    "suff_obs": 31.0,
+    "suff_est": 43.628571428571384
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\00_base_consolidada_zoobentos.xlsx",
+      "tamanho_bytes": 18427,
+      "sha256": "25011032dd35cbee21003ed56e5ed82dd7a1a7bd3e5c83b066d141d2faf690f0"
+    },
+    {
+      "arquivo": "01_tabela_composicao_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\01_tabela_composicao_zoobentos.xlsx",
+      "tamanho_bytes": 7166,
+      "sha256": "13e511c785f67cbe9b5b73560c7519fb4845dd191509f093f897b2419e198776"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\01_tabela_ocorrencia_zoobentos.xlsx",
+      "tamanho_bytes": 9432,
+      "sha256": "01f7754acaca8e7419ef8981a4c7d343f5e2f8fa3d154b055521122aae3bb71b"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\02_df_riqueza_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5924,
+      "sha256": "0e8a1580e35a6b5bb19cecd9de620bd6d32552562b200e04dff23e1e61301194"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\02_grafico_riqueza_por_ponto_zoobentos.png",
+      "tamanho_bytes": 525337,
+      "sha256": "99b9f325e9dfd37693693353b9b21a1de5532235be9c2621f8e495348ef7a181",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 79.80227049877654,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\03_df_abundancia_total_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 5966,
+      "sha256": "9c9cf34965047129d311239828e351941baa2faab924099495f176ad14a20513"
+    },
+    {
+      "arquivo": "03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\03_grafico_abundancia_total_por_ponto_zoobentos.png",
+      "tamanho_bytes": 602378,
+      "sha256": "b2535d3b9b2ce416c34cbbeb00b89b8f1e4a2fd6b55efd96aad8c0607cb4f6ea",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 59.86207864667534,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\04_df_riqueza_por_ordem_zoobentos.xlsx",
+      "tamanho_bytes": 5303,
+      "sha256": "ac2e37a095e00f8ae1b573a5471fc47c80feef1f1094d0c0b6a5cbd2382533e4"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\04_grafico_riqueza_ordem_barras_zoobentos.png",
+      "tamanho_bytes": 796851,
+      "sha256": "67140672532b8670a79e10da6a97efea181aaf08d3a2c0241e0ffea5a2691237",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 91.99288851494937,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\05_grafico_riqueza_ordem_rosca_zoobentos.png",
+      "tamanho_bytes": 698991,
+      "sha256": "f1e30937feacbd0b2fe9e7d7bd9b285b16a17768350b7dd06fb5d9e713e4947c",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 76.31878434397883,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\06_df_abundancia_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 6881,
+      "sha256": "4c6408d193e8ebfb11beb64c123e65aa8858892e63a6e3cec7239ee02e8dd3d5"
+    },
+    {
+      "arquivo": "06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\06_grafico_abundancia_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 665649,
+      "sha256": "f18e73e3be9a2f7366cbb3af63eb208257e4430fd2369066e58c62c1125ddddb",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 58.94667207743257,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\07_df_abundancia_relativa_ordem_por_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 7121,
+      "sha256": "c7c9349d38860d522b75776fb568159720d8c4153c0a17cbfe0b8eee6973f5e1"
+    },
+    {
+      "arquivo": "07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\07_grafico_abundancia_relativa_ordem_por_ponto_zoobentos.png",
+      "tamanho_bytes": 658615,
+      "sha256": "1c25e9d030b8507bae3d2e15309ed4de2186ef568d504f4f42f00761dcbefb24",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 101.31788892163493,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\08_df_abundancia_por_taxon_zoobentos.xlsx",
+      "tamanho_bytes": 6491,
+      "sha256": "e97b07d96b240cdf013655191437e8124a5a23d36e9c5a6755ede47668c17fd5"
+    },
+    {
+      "arquivo": "08_grafico_abundancia_por_taxon_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\08_grafico_abundancia_por_taxon_zoobentos.png",
+      "tamanho_bytes": 620104,
+      "sha256": "0a4c9a8b60bb23061c37e32098daf3da11e0938f4701fa82df487825901205d1",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 53.54713746753709,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\09_df_abundancia_taxon_ponto_zoobentos.xlsx",
+      "tamanho_bytes": 8723,
+      "sha256": "ac0683b51f91896af5f8fde192e09b18a8e6e1391db6d891c5357798c36c365f"
+    },
+    {
+      "arquivo": "09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\09_grafico_abundancia_taxon_ponto_zoobentos.png",
+      "tamanho_bytes": 701457,
+      "sha256": "3e3857519ed887c804e78f31bf8e7b458d0f9eaa8cbac3d8988b585c026d05eb",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 44.14658133678713,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\10_df_diversidade_alfa_zoobentos.xlsx",
+      "tamanho_bytes": 7509,
+      "sha256": "9a9d647746cbb20a30536fc56da9ff90603941cc8878a396b74bb7f6819655da"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\10_grafico_diversidade_alfa_zoobentos.png",
+      "tamanho_bytes": 727336,
+      "sha256": "8a575b08b5bf135f8fc882b15abac3e3e602a81f3dc97f4f1a6df896d18f8e9a",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 91.17842003591862,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\11_df_matriz_comunidade_zoobentos.xlsx",
+      "tamanho_bytes": 8626,
+      "sha256": "af1680b4abea60b60d6368737ffce5ec10afc52aadbbb61eb3bce8b9d783af1c"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\11_df_distancias_braycurtis_zoobentos.xlsx",
+      "tamanho_bytes": 11678,
+      "sha256": "e21fc3a2e77a172d0057fb94ce7e5b85a848c388537a5ad61cb6e6c2ebff18a5"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\11_dendrograma_similaridade_zoobentos.png",
+      "tamanho_bytes": 812202,
+      "sha256": "e9d5ade49f1025cf6ba5c1117f6a6508295ffeb03540882e74295908b093dfb8",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 44.86373150106063,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\11B_df_matriz_comunidade_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 7287,
+      "sha256": "2ff63bdf584f32a9ab76f25d97eb23ae2a9bc3a47489edbc4fefcf82bef92e27"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\11B_df_distancias_braycurtis_pontos_zoobentos.xlsx",
+      "tamanho_bytes": 7553,
+      "sha256": "62cfb1f7c197876762ee701be3c6113c54829d3bd8547dab5e973ce3793fb4de"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\11B_dendrograma_similaridade_pontos_zoobentos.png",
+      "tamanho_bytes": 450804,
+      "sha256": "3718220787b4e7e49daed82b4f53ff1e40ffc2e6648e37007e0a55434cd071b8",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 35.56598051550606,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\12_df_curva_suficiencia_zoobentos.xlsx",
+      "tamanho_bytes": 6575,
+      "sha256": "2419fb819a8cfe87538775d160c0f59e33cfd082929f7ccdbb0da080ce4e698c"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\12_curva_suficiencia_amostral_zoobentos.png",
+      "tamanho_bytes": 597161,
+      "sha256": "6f4d309eb0eef8e9bf87dc8eb55bc5e038d81f64fde4d06a951e84f39baf8267",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 31.34952706753626,
+      "nonblank": true
+    },
+    {
+      "arquivo": "13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\13_df_bioindicadores_bmwp_ept_chol_zoobentos.xlsx",
+      "tamanho_bytes": 7215,
+      "sha256": "9966e83bb213bec3d0ef34c73a7d7fc9bd49f3c9dbeb5cc880d9eee7cb485650"
+    },
+    {
+      "arquivo": "13_grafico_bmwp_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\13_grafico_bmwp_por_ponto_zoobentos.png",
+      "tamanho_bytes": 631388,
+      "sha256": "3315aef15206d1508998a1e3a9ddf8841e1272381dc34ed8c54b965b18015e4f",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 63.73265699722082,
+      "nonblank": true
+    },
+    {
+      "arquivo": "14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\14_grafico_ept_chol_por_ponto_zoobentos.png",
+      "tamanho_bytes": 681471,
+      "sha256": "211a3620d97b1e9636af7ea5e357494c8400633d3fcb087c016b6e221cad5650",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 63.06958422170085,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Zoobentos_BRACED001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\DarwinCore_IEF_Zoobentos_BRACED001.xlsx",
+      "tamanho_bytes": 20606,
+      "sha256": "8725056743ed9aeea924c0de2332f9135666bb644c96203f039ae9cb34c90b15"
+    },
+    {
+      "arquivo": "15_tabela_sintese_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\15_tabela_sintese_zoobentos.xlsx",
+      "tamanho_bytes": 9048,
+      "sha256": "7beda08de7908fa7b0b5914ac9bac50b26dae4c3191421143f94332fa252845f"
+    },
+    {
+      "arquivo": "15_grafico_sintese_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\15_grafico_sintese_zoobentos.png",
+      "tamanho_bytes": 694174,
+      "sha256": "09be2f0071ac336b5971f37da7187b8cbae9fb78223cfecf7945d77c2eb5e754",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 87.60494290102037,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_zoobentos_braced001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\relatorio_tecnico_zoobentos_braced001.html",
+      "tamanho_bytes": 3725,
+      "sha256": "8e95b93aa618fd7af0296c68acbab9e7daf29fe33c63177b6afd8b99399faf47"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\manifesto_entrega_zoobentos_braced001.json",
+      "tamanho_bytes": 19274,
+      "sha256": "9d6280ada54d372bd937258c17ea05ec7c390d1b3ccf86d8642d4163af546948"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_braced001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\manifesto_entrega_zoobentos_braced001.xlsx",
+      "tamanho_bytes": 9342,
+      "sha256": "e7ad0b075fc24ff7620d6efe49afe810be54387efc996dac47b038b983ca1582"
+    },
+    {
+      "arquivo": "manifesto_entrega_zoobentos_braced001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\manifesto_entrega_zoobentos_braced001.md",
+      "tamanho_bytes": 2611,
+      "sha256": "01690653d2e73b4d66710051621ab42feb92a77f4188a6e9a648a24539005e8d"
+    },
+    {
+      "arquivo": "validacao_entrega_zoobentos_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Cedro Mineração\\Produtos\\Resultados\\Bentos\\validacao_entrega_zoobentos_braced001.json",
+      "tamanho_bytes": 874,
+      "sha256": "1b136e28a0eadfc52c3cc46f464afcd97ef99c2e718bfeb3622d88ada39e1652"
+    }
+  ],
+  "audit_json": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\bentos\\20260818T172514_geracao_resultados_zoobentos_a4_paisagem.json",
+  "audit_xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\bentos\\20260818T172514_geracao_resultados_zoobentos_a4_paisagem.xlsx"
+}

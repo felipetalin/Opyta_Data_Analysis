@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-07-28T13:43:54.792584Z",
+  "project_code": "BRAAEG001",
+  "project_id": 195,
+  "group": "Zoobentos",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos",
+  "source": "public.resultados_zoobentos / public.biota_analise_consolidada",
+  "script": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\bentos\\generate_bentos_results_a4_landscape.py",
+  "audit_json": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\bentos\\20260728T104034_geracao_resultados_zoobentos_a4_paisagem.json",
+  "audit_xlsx": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\bentos\\20260728T104034_geracao_resultados_zoobentos_a4_paisagem.xlsx",
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAEG001__a_g_mineracao_biota_aquatica\\bentos\\20260728T104034_contact_sheet_figuras_zoobentos_a4_paisagem.png",
+  "premises": [
+    "Figuras em A4 paisagem, 600 dpi.",
+    "Painéis por estação/campanha nas comparações por ponto.",
+    "BMWP calculado por famílias únicas por ponto/campanha.",
+    "EPT e CHOL calculados por abundância relativa."
+  ]
+}

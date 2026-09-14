@@ -1,0 +1,17 @@
+ponto,zona_cartografica,no_poligono_reservatorio,distancia_reta_barragem_km,fonte
+ICTIO01,Montante,nao,44.17,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO02,Montante,nao,46.28,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO03,Montante,nao,51.61,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO04,Montante,nao,54.43,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO05,Reservatorio,sim,43.57,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO06,Reservatorio,sim,25.60,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO07,Reservatorio,sim,24.51,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO08,Reservatorio,sim,26.23,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO09,Reservatorio,sim,13.16,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO10,Reservatorio,sim,9.15,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO11,Reservatorio,sim,2.45,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO12,Reservatorio,sim,2.39,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO13A,Jusante,nao,0.58,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO13B,Reservatorio,sim,0.62,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO14,Jusante,nao,6.29,UHE_Colider_reservatorio_malha_hidrica.kmz
+ICTIO15,Jusante,nao,10.08,UHE_Colider_reservatorio_malha_hidrica.kmz

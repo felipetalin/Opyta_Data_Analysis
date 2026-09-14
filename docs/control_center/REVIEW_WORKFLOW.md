@@ -16,7 +16,10 @@ Gatilhos reconhecidos:
 
 Ao reconhecer um pedido de revisao:
 
-1. abrir este protocolo;
+0. se o pedido for pontual e indicar um unico artefato/produto, usar
+   micro-revisao economica antes de abrir o fluxo completo;
+1. abrir este protocolo somente quando a revisao nao couber na micro-revisao ou
+   quando houver risco de impacto amplo;
 2. localizar o projeto e a operacao original;
 3. identificar o produto ou conjunto que sera a linha de base;
 4. classificar o tipo e o impacto da revisao;
@@ -26,9 +29,31 @@ Ao reconhecer um pedido de revisao:
 7. validar todos os produtos dependentes;
 8. apresentar o pacote revisado no Gate R.
 
+## Micro-Revisao Economica
+
+Use este caminho para erro isolado em grafico, planilha, legenda, texto ou
+produto unico.
+
+1. confirmar mentalmente o alvo e abrir somente arquivos diretamente
+   necessarios;
+2. diagnosticar antes de registrar ou expandir contexto;
+3. corrigir em pasta revisada ou no proprio alvo, conforme aprovacao do
+   usuario;
+4. validar apenas os artefatos afetados;
+5. entregar resposta curta com antes/depois essencial.
+
+Nao abrir painel ativo, registry, dossie, operacao original, lastros historicos
+ou todos os reviews, salvo se o diagnostico mostrar dependencia real. Se a
+micro-revisao revelar impacto em dados, taxonomia, banco, coordenadas ou
+metodologia ampla, escalar para o fluxo completo e registrar a causa.
+
 ## Primeira Resposta Esperada
 
-A primeira devolutiva deve informar:
+Para micro-revisao, a primeira resposta deve ser uma frase curta dizendo quais
+arquivos serao checados e que a expansao so ocorrera se houver impacto amplo.
+
+Para revisao completa ou de alto impacto, a primeira devolutiva deve informar:
+
 
 - projeto e operacao identificados;
 - linha de base que sera preservada;
@@ -70,11 +95,16 @@ O impacto deve ser definido pela dependencia real, nao pelo tamanho visual da
 mudanca. Uma unica letra em um nome cientifico pode ser `R3`; mudar a cor de
 vinte graficos continua sendo `R1`.
 
+Coordenada incorreta e sempre revisao `data`. Se a coordenada ja estiver no
+banco, consolidado, Darwin Core, mapa, tabela espacial ou produto publicado, o
+impacto minimo e `R3`: reabrir Gate A, criar backup, corrigir a fatia afetada,
+validar antes/depois e regenerar todos os produtos que carregam coordenadas.
+
 ## Matriz De Retorno
 
 | O que mudou | Gate reaberto | Etapas que devem ser repetidas |
 | --- | --- | --- |
-| Dados de entrada | Gate A | validacao, migracao, consolidacao, analises e entrega |
+| Dados de entrada, ponto ou coordenada | Gate A | validacao, migracao, consolidacao, analises e entrega |
 | Cadastro ou atributo de especie | Gate B | cadastro; migracao/consolidacao quando afetadas; analises e entrega |
 | Metodo, template, paleta ou produtos acordados | Gate C | configuracao, geracao e revisao |
 | Formula ou filtro sem alterar o banco | Gate C quando a decisao metodologica mudar | base analitica e produtos dependentes |

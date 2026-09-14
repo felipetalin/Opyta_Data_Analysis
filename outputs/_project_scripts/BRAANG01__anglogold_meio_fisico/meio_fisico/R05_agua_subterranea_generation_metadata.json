@@ -1,0 +1,371 @@
+{
+  "generated_at_utc": "2026-07-10T17:37:07.197672+00:00",
+  "project_code": "BRAANG01",
+  "matrix": "Água Subterrânea",
+  "revision": "R05_agua_subterranea_vmp_dissolvidos_20260710",
+  "previous_revision": "R01_agua_subterranea_dessedentacao_20260709",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\Anglo\\dados\\Migração e resultados\\Resultados\\_revisoes\\R05_agua_subterranea_vmp_dissolvidos_20260710\\revisado\\Água_Subterrânea",
+  "target_params": [
+    "Arsênio Dissolvido",
+    "Arsênio Total",
+    "Cobalto Dissolvido",
+    "Cobre Dissolvido",
+    "Cromo Dissolvido",
+    "Sólidos Dissolvidos Totais",
+    "Sulfato",
+    "Zinco Dissolvido",
+    "pH"
+  ],
+  "vmp_column_used": "vmp_396_dessedentacao_animal",
+  "vmp_equivalence_mg_l": {
+    "Arsênio Dissolvido": 0.2,
+    "Cobalto Dissolvido": 1.0,
+    "Cobre Dissolvido": 0.5,
+    "Cromo Dissolvido": 1.0,
+    "Zinco Dissolvido": 24.0
+  },
+  "legal_limit_source": "Limite legal - Resolucao CONAMA 396/2008, Anexo I.",
+  "legend_kept_as": "VMP - Dessedentação",
+  "temporal_png_count": 18,
+  "results": [
+    {
+      "param": "Arsênio Dissolvido",
+      "files": [
+        "ST_Arsênio_Dissolvido_P1.png",
+        "ST_Arsênio_Dissolvido_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        }
+      ]
+    },
+    {
+      "param": "Arsênio Total",
+      "files": [
+        "ST_Arsênio_Total_P1.png",
+        "ST_Arsênio_Total_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2012",
+          "rows": 41,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        },
+        {
+          "point": "MCB2001",
+          "rows": 39,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 38,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 39,
+          "vmp_visible": 0.2,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        }
+      ]
+    },
+    {
+      "param": "Cobalto Dissolvido",
+      "files": [
+        "ST_Cobalto_Dissolvido_P1.png",
+        "ST_Cobalto_Dissolvido_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        }
+      ]
+    },
+    {
+      "param": "Cobre Dissolvido",
+      "files": [
+        "ST_Cobre_Dissolvido_P1.png",
+        "ST_Cobre_Dissolvido_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": 0.5,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": 0.5,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": 0.5,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "vmp_visible": 0.5,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": 0.5,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        }
+      ]
+    },
+    {
+      "param": "Cromo Dissolvido",
+      "files": [
+        "ST_Cromo_Dissolvido_P1.png",
+        "ST_Cromo_Dissolvido_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": 1.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        }
+      ]
+    },
+    {
+      "param": "Sólidos Dissolvidos Totais",
+      "files": [
+        "ST_Sólidos_Dissolvidos_Totais_P1.png",
+        "ST_Sólidos_Dissolvidos_Totais_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        }
+      ]
+    },
+    {
+      "param": "Sulfato",
+      "files": [
+        "ST_Sulfato_P1.png",
+        "ST_Sulfato_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": 1000.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": 1000.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": 1000.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "vmp_visible": 1000.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": 1000.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 preenchido no consolidado."
+        }
+      ]
+    },
+    {
+      "param": "Zinco Dissolvido",
+      "files": [
+        "ST_Zinco_Dissolvido_P1.png",
+        "ST_Zinco_Dissolvido_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": 24.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": 24.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": 24.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": 24.0,
+          "vmp_note": "Limite legal CONAMA 396/2008 aplicado ao parametro dissolvido por equivalencia do analito."
+        }
+      ]
+    },
+    {
+      "param": "pH",
+      "files": [
+        "ST_pH_P1.png",
+        "ST_pH_P2.png"
+      ],
+      "points": [
+        {
+          "point": "MCB2001",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2002B",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2012",
+          "rows": 47,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2003",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        },
+        {
+          "point": "MCB2008",
+          "rows": 54,
+          "vmp_visible": null,
+          "vmp_note": "Sem limite legal CONAMA 396/2008 identificado para este parametro."
+        }
+      ]
+    }
+  ]
+}

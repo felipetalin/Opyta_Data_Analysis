@@ -1,0 +1,401 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-19T22:45:47.382001Z",
+  "project_code": "BRACED001",
+  "project_id": 133,
+  "group": "Fitoplâncton",
+  "action": "generate_fitoplancton_results_a4_landscape",
+  "output_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos",
+  "figures_count": 14,
+  "figures_ok": 14,
+  "files_count": 36,
+  "contact_sheet": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\_auditoria\\20260819T194309_contact_sheet_figuras_fitoplancton_a4_paisagem.png",
+  "metrics": {
+    "rows_consolidated": 511,
+    "rows_quantitative": 87,
+    "rows_qualitative": 424,
+    "campaigns": [
+      "C001-2026-03-CH",
+      "C002-2026-06-SC"
+    ],
+    "campaigns_text": "C01-Chuva, C02-Seca",
+    "points_count": 18,
+    "taxa_total": 198,
+    "taxa_quant": 58,
+    "phyla_total": 9,
+    "density_total": 2138.1121194666666,
+    "density_unit": "org/amostra",
+    "max_richness": 108.0,
+    "max_richness_point": "MA-01-01",
+    "max_richness_campaign": "C02-Seca",
+    "max_density": 773.8181818181819,
+    "max_density_point": "MA-01-01",
+    "max_density_campaign": "C01-Chuva",
+    "dominant_phylum": "Chlorophyta",
+    "dominant_phylum_density": 543.5151512545456,
+    "dominant_taxon": "Cryptomonas sp.",
+    "dominant_taxon_density": 451.3896965787879,
+    "suff_obs": 198.0,
+    "suff_est": 275.71428571428464,
+    "taxonomy_r01": {
+      "status": "PASS",
+      "checks": {
+        "rows_511": true,
+        "taxa_198": true,
+        "phyla_expected": true,
+        "campaign_richness": true,
+        "shared_taxa_87": true,
+        "exclusive_taxa_36_75": true,
+        "quantitative_taxa_58": true,
+        "qualitative_only_taxa_140": true,
+        "zygnematophyceae_96": true,
+        "desmidiaceae_8": true,
+        "iconella_genus": true,
+        "synura_order": true,
+        "scytonemataceae_ni": true
+      },
+      "phyla": {
+        "Bacillariophyta": 57,
+        "Charophyta": 96,
+        "Chlorophyta": 12,
+        "Cryptophyta": 1,
+        "Cyanobacteriota": 17,
+        "Dinophyta": 5,
+        "Euglenophyta": 5,
+        "Ochrophyta": 4,
+        "Rhodophyta": 1
+      },
+      "campaign_richness": {
+        "C001-2026-03-CH": 123,
+        "C002-2026-06-SC": 162
+      },
+      "shared_taxa": 87,
+      "exclusive_taxa": {
+        "C001-2026-03-CH": 36,
+        "C002-2026-06-SC": 75
+      }
+    }
+  },
+  "files": [
+    {
+      "arquivo": "00_base_consolidada_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\00_base_consolidada_fitoplancton.xlsx",
+      "tamanho_bytes": 75385,
+      "sha256": "53c2bbb2d20301cc887c7970787c54950a31a112987f62a0f409a5df1253400c"
+    },
+    {
+      "arquivo": "01_tabela_composicao_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\01_tabela_composicao_fitoplancton.xlsx",
+      "tamanho_bytes": 15948,
+      "sha256": "569783e13e8198a695fa0cf725fc56e5730d097b21b733316d3118afe1728ed1"
+    },
+    {
+      "arquivo": "01_tabela_ocorrencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\01_tabela_ocorrencia_fitoplancton.xlsx",
+      "tamanho_bytes": 29511,
+      "sha256": "5bb6440ac2310ff0a8d284844a1d7b69ba0fdce76a6622b27d595288ef77c6c4"
+    },
+    {
+      "arquivo": "02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\02_df_riqueza_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5787,
+      "sha256": "5f6a166a06dde5a8b34edbb9c3801ffef4be1d2add3fc29c4b7f0e21d9210aa6"
+    },
+    {
+      "arquivo": "02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\02_grafico_riqueza_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 573533,
+      "sha256": "8b57c6a63ca956b2c501b9d48dc7cb9dc39293dff3f41f7002a933e496d4fce2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 60.96262954880856,
+      "nonblank": true
+    },
+    {
+      "arquivo": "03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\03_df_densidade_total_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 5829,
+      "sha256": "3b0e9d28f8496b46c164348712d13c30fceafdb4a9b85ca79063465a015d367e"
+    },
+    {
+      "arquivo": "03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\03_grafico_densidade_total_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 628782,
+      "sha256": "dc0ad511c96510bf32a279acaf5884451e917e5921421714724f9bfe29dac658",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.13854379681834,
+      "nonblank": true
+    },
+    {
+      "arquivo": "04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\04_df_riqueza_por_filo_fitoplancton.xlsx",
+      "tamanho_bytes": 5194,
+      "sha256": "a1b0f4101a2cf2d0fe85bbf0c969a830bda0010aa2f5b5c297611917dc13566a"
+    },
+    {
+      "arquivo": "04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\04_grafico_riqueza_filo_barras_fitoplancton.png",
+      "tamanho_bytes": 704022,
+      "sha256": "629965f85a72db3a8d130e2fcd78183d931001919d8d91fb4496424ffd182518",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 71.02717105740159,
+      "nonblank": true
+    },
+    {
+      "arquivo": "05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\05_grafico_riqueza_filo_rosca_fitoplancton.png",
+      "tamanho_bytes": 619316,
+      "sha256": "ab56c1193e3c6b338cbda83fb75d818096bee5bb54552224e50437685f7554d1",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 86.57230536334148,
+      "nonblank": true
+    },
+    {
+      "arquivo": "06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\06_df_densidade_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 6384,
+      "sha256": "a87bdbc0047daff8fffdeb8a6d90f5bf28135640e7d57112779d2007761f8e98"
+    },
+    {
+      "arquivo": "06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\06_grafico_densidade_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 676794,
+      "sha256": "17d20efb83b55b5a004a6b85b188c18c79b6432d71fe6ffc04b1f410e3adce68",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.589633157570645,
+      "nonblank": true
+    },
+    {
+      "arquivo": "07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\07_df_densidade_relativa_filo_por_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 6552,
+      "sha256": "6c7991559c934ef44d7366fb6ee862ed7a627cde6131987bfeed0d935b8193bd"
+    },
+    {
+      "arquivo": "07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\07_grafico_densidade_relativa_filo_por_ponto_fitoplancton.png",
+      "tamanho_bytes": 639615,
+      "sha256": "f4ae6880406a06ccd663bcbe32aa8b745195f7b517d0095ec2ad18585e828689",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 92.94075787295553,
+      "nonblank": true
+    },
+    {
+      "arquivo": "08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\08_df_densidade_por_taxon_fitoplancton.xlsx",
+      "tamanho_bytes": 7746,
+      "sha256": "ffa78e26814d2a57fc9f6aeb725edfad297c9547c7b8f422106ca37859df7579"
+    },
+    {
+      "arquivo": "08_grafico_densidade_por_taxon_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\08_grafico_densidade_por_taxon_fitoplancton.png",
+      "tamanho_bytes": 887005,
+      "sha256": "ef4f8e967a92ea220888c82b2e71cae9fd4049e3418c91890b476fe37e91e572",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 56.82219659780146,
+      "nonblank": true
+    },
+    {
+      "arquivo": "09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\09_df_densidade_taxon_ponto_fitoplancton.xlsx",
+      "tamanho_bytes": 11146,
+      "sha256": "c6087d6e7f34dde5638a0af0aa986753cb0b8febcf59bb3c9b8d56b3e759425a"
+    },
+    {
+      "arquivo": "09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\09_grafico_densidade_taxon_ponto_fitoplancton.png",
+      "tamanho_bytes": 948694,
+      "sha256": "fa9b21c1c3a1dd13a8ac42770c85445c1fbce05fb4100f13e14384b7c5c45653",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 46.16096846187525,
+      "nonblank": true
+    },
+    {
+      "arquivo": "10_df_diversidade_alfa_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\10_df_diversidade_alfa_fitoplancton.xlsx",
+      "tamanho_bytes": 6836,
+      "sha256": "fb836f129af634d4a2a35dbaac4b35d9350bb234789a88a6031ab2a5a71e474c"
+    },
+    {
+      "arquivo": "10_grafico_diversidade_alfa_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\10_grafico_diversidade_alfa_fitoplancton.png",
+      "tamanho_bytes": 685179,
+      "sha256": "8d8f36138f664b06308891309c3df97a29640d67f6176b90c6026755c688d921",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 64.43101218743347,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11_df_matriz_comunidade_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\11_df_matriz_comunidade_fitoplancton.xlsx",
+      "tamanho_bytes": 9498,
+      "sha256": "bfd8f4e3b503d932f6926ca38275050c08e77910d07aa8efcdd548a2fdca73f8"
+    },
+    {
+      "arquivo": "11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\11_df_distancias_braycurtis_fitoplancton.xlsx",
+      "tamanho_bytes": 7961,
+      "sha256": "ebe9db8092cf755dbe1d1c866809603027dcb9d8a6d1716707fbc88018cd90e4"
+    },
+    {
+      "arquivo": "11_dendrograma_similaridade_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\11_dendrograma_similaridade_fitoplancton.png",
+      "tamanho_bytes": 626000,
+      "sha256": "dfe03c9587b4db8538061f1a3f5fe6fb3967d1656c9cf9fccad4acf9442e9fb1",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 45.03524197390616,
+      "nonblank": true
+    },
+    {
+      "arquivo": "11B_df_matriz_comunidade_pontos_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\11B_df_matriz_comunidade_pontos_fitoplancton.xlsx",
+      "tamanho_bytes": 8262,
+      "sha256": "70ea1073b98c523d8336eb75851c590fc3a767939af038568ce1660ff62730a9"
+    },
+    {
+      "arquivo": "11B_df_distancias_braycurtis_pontos_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\11B_df_distancias_braycurtis_pontos_fitoplancton.xlsx",
+      "tamanho_bytes": 6733,
+      "sha256": "b53e239415d577646cdb51b02224a9ade4522054e0b0e52a52270a44c90c0fcd"
+    },
+    {
+      "arquivo": "11B_dendrograma_similaridade_pontos_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\11B_dendrograma_similaridade_pontos_fitoplancton.png",
+      "tamanho_bytes": 453161,
+      "sha256": "acfeead0c550f9edde55afdbcd47c86998dcd68ee1df4bf3cb1d58c0cf202bc2",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 38.274529995412955,
+      "nonblank": true
+    },
+    {
+      "arquivo": "12_df_curva_suficiencia_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\12_df_curva_suficiencia_fitoplancton.xlsx",
+      "tamanho_bytes": 7326,
+      "sha256": "e22ac4b119636d58a0e965dc39a28e39901750dbb01f83b183f999788b705a42"
+    },
+    {
+      "arquivo": "12_curva_suficiencia_amostral_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\12_curva_suficiencia_amostral_fitoplancton.png",
+      "tamanho_bytes": 736629,
+      "sha256": "eabcbe84f431d53bc2e48ff6d1e27edd5c911419c031867418414424f37c49f4",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 33.474988112692095,
+      "nonblank": true
+    },
+    {
+      "arquivo": "DarwinCore_IEF_Fitoplancton_BRACED001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\DarwinCore_IEF_Fitoplancton_BRACED001.xlsx",
+      "tamanho_bytes": 60542,
+      "sha256": "d419679c7ea214a70298cabf17fb58426e42be93301972c17aa0cf0f4fe104e6"
+    },
+    {
+      "arquivo": "14_tabela_sintese_fitoplancton.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\14_tabela_sintese_fitoplancton.xlsx",
+      "tamanho_bytes": 6611,
+      "sha256": "f51f127be80edf2027aa6373373f010856f67cf87f6967e28cb58167b3a939d6"
+    },
+    {
+      "arquivo": "14_grafico_sintese_fitoplancton.png",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\14_grafico_sintese_fitoplancton.png",
+      "tamanho_bytes": 649822,
+      "sha256": "4a1a0e35043dd9c6feaa1381f2bc410cf57d900d70991d98a31b2d28f05a9402",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "largura_cm": 29.69,
+      "altura_cm": 21.01,
+      "pixel_std": 74.348949940961,
+      "nonblank": true
+    },
+    {
+      "arquivo": "relatorio_tecnico_fitoplancton_braced001.html",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\relatorio_tecnico_fitoplancton_braced001.html",
+      "tamanho_bytes": 4150,
+      "sha256": "bfb24fe60546e513eceb463b503024f321c7db631aa62b35016ba8c4c18ff0ee"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\manifesto_entrega_fitoplancton_braced001.json",
+      "tamanho_bytes": 12047,
+      "sha256": "7ca0321eac45a5c495310d5350a58aa0ad035d031c38c654c9853efce6a88d9d"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braced001.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\manifesto_entrega_fitoplancton_braced001.xlsx",
+      "tamanho_bytes": 7907,
+      "sha256": "566f3ea0415731412e261e35aca8d05377cda5b3c4ea697f020b83b68fb8708a"
+    },
+    {
+      "arquivo": "manifesto_entrega_fitoplancton_braced001.md",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\manifesto_entrega_fitoplancton_braced001.md",
+      "tamanho_bytes": 2686,
+      "sha256": "56c81a0a4e3c55f29e7c76310fada2dad24bdf33e52bb418506ff32965aeac8f"
+    },
+    {
+      "arquivo": "validacao_entrega_fitoplancton_braced001.json",
+      "path": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRACED001__fonseca_biota_aquatica\\fitoplancton\\reviews\\R02_produtos\\validacao_entrega_fitoplancton_braced001.json",
+      "tamanho_bytes": 580,
+      "sha256": "d98c28ac16008e5533619027e7ce45f479eb667db64bfcd399c7bd4ebe445661"
+    }
+  ]
+}

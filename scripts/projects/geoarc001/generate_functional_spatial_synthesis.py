@@ -549,7 +549,15 @@ def plot_balance(
         for category in CATEGORY_ORDER
         if category in set(balance["categoria_balanco"])
     ]
-    ax.legend(handles=legend_handles, title="Classificação exploratória", loc="upper right", fontsize=8.2, title_fontsize=8.6, frameon=True)
+    ax.legend(
+        handles=legend_handles,
+        title="Classificação exploratória",
+        loc="upper left",
+        bbox_to_anchor=(1.01, 1.0),
+        fontsize=8.2,
+        title_fontsize=8.6,
+        frameon=True,
+    )
     fig.text(
         0.02,
         0.025,
@@ -558,7 +566,7 @@ def plot_balance(
         fontsize=8.3,
         color="#404040",
     )
-    fig.subplots_adjust(left=0.10, right=0.96, top=0.90, bottom=0.12)
+    fig.subplots_adjust(left=0.10, right=0.74, top=0.90, bottom=0.12)
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
 
@@ -608,7 +616,15 @@ def plot_trajectory(
         for category in TRAJECTORY_ORDER
         if category in set(trajectory["trajetoria_funcional"])
     ]
-    ax.legend(handles=legend_handles, title="Tendência exploratória", loc="upper right", fontsize=8.0, title_fontsize=8.4, frameon=True)
+    ax.legend(
+        handles=legend_handles,
+        title="Tendência exploratória",
+        loc="upper left",
+        bbox_to_anchor=(1.01, 1.0),
+        fontsize=8.0,
+        title_fontsize=8.4,
+        frameon=True,
+    )
     fig.text(
         0.02,
         0.025,
@@ -617,7 +633,7 @@ def plot_trajectory(
         fontsize=8.3,
         color="#404040",
     )
-    fig.subplots_adjust(left=0.10, right=0.96, top=0.90, bottom=0.12)
+    fig.subplots_adjust(left=0.10, right=0.74, top=0.90, bottom=0.12)
     fig.savefig(out_png, dpi=int(theme.get("dpi", 600)), bbox_inches="tight")
     plt.close(fig)
 
@@ -659,6 +675,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--source", default=str(DEFAULT_SOURCE), help="Planilha de migracao com coordenadas.")
     parser.add_argument("--group-table", default=str(DEFAULT_GROUP_TABLE), help="Planilha do produto 23.")
     parser.add_argument("--coordinate-reference", default=str(DEFAULT_COORD_REFERENCE), help="KMZ/KML com coordenadas oficiais dos pontos.")
+    parser.add_argument(
+        "--workbook-coordinate-strategy",
+        choices=["first", "last"],
+        default="first",
+        help="Quando --coordinate-reference estiver vazio, escolhe primeira ou ultima coordenada valida por ponto na planilha.",
+    )
     parser.add_argument("--hydrology-layer", action="append", default=None, help="Camada KML/KMZ de drenagem/talvegue. Pode ser usada mais de uma vez.")
     parser.add_argument("--no-hydrology", action="store_true", help="Nao desenha malha hidrica nos mapas.")
     parser.add_argument("--ada-layer", default=str(DEFAULT_ADA_LAYER), help="Camada KML/KMZ da ADA.")
@@ -668,6 +690,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--balance-prefix", default="35", help="Prefixo da figura de balanco.")
     parser.add_argument("--trajectory-prefix", default="36", help="Prefixo da figura de trajetoria.")
     parser.add_argument("--data-prefix", default="34_36", help="Prefixo da planilha/manifesto de apoio.")
+    parser.add_argument("--data-only", action="store_true", help="Atualiza apenas planilha e manifesto, sem reescrever as figuras.")
     parser.add_argument("--client", default="default", help="Tema visual.")
     return parser.parse_args()
 
@@ -681,7 +704,7 @@ def main() -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
     theme = load_theme(ROOT / "configs", args.client)
 
-    coords_raw, close_pairs, coord_variation = load_coordinates(source, coordinate_reference)
+    coords_raw, close_pairs, coord_variation = load_coordinates(source, coordinate_reference, args.workbook_coordinate_strategy)
     annual, definitions = load_group_panel(group_table, coords_raw, {"predadores"})
     coords = coords_raw.rename(columns={"Ponto": "nome_ponto"})[["nome_ponto", "Longitude", "Latitude"]].copy()
     hydrology, ada, hydrology_summary, ada_summary = _load_background(args)
@@ -692,9 +715,10 @@ def main() -> int:
     permanence_png = output_dir / f"{args.permanence_prefix}_grafico_mapa_permanencia_funcional_ictiofauna.png"
     balance_png = output_dir / f"{args.balance_prefix}_grafico_mapa_balanco_funcional_ictiofauna.png"
     trajectory_png = output_dir / f"{args.trajectory_prefix}_grafico_mapa_trajetoria_funcional_ictiofauna.png"
-    plot_persistence(persistence, coords, hydrology, ada, permanence_png, theme)
-    plot_balance(balance, coords, hydrology, ada, balance_png, theme)
-    plot_trajectory(trajectory, coords, hydrology, ada, trajectory_png, theme)
+    if not args.data_only:
+        plot_persistence(persistence, coords, hydrology, ada, permanence_png, theme)
+        plot_balance(balance, coords, hydrology, ada, balance_png, theme)
+        plot_trajectory(trajectory, coords, hydrology, ada, trajectory_png, theme)
 
     summary = {
         "source": str(source),
@@ -705,6 +729,8 @@ def main() -> int:
         "trajectory_figure": str(trajectory_png),
         "data_prefix": str(args.data_prefix),
         "coordinate_reference": str(coordinate_reference) if coordinate_reference else None,
+        "coordinate_strategy": "referencia_kmz" if coordinate_reference else f"{args.workbook_coordinate_strategy}_coordenada_valida_planilha",
+        "data_only": bool(args.data_only),
         "groups_considered": definitions[definitions["codigo"].isin(SENTINEL_GROUPS)][["codigo", "rotulo", "criterio"]].to_dict("records"),
         "groups_excluded": ["predadores"],
         "points": int(coords["nome_ponto"].nunique()),

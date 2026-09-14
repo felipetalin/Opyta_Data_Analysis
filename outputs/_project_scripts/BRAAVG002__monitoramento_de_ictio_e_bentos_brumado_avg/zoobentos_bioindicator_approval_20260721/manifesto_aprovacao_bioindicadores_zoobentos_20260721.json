@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-07-21T14:38:53",
+  "project_code": "BRAAVG002",
+  "group": "Zoobentos",
+  "product": "figura_modelo_bioindicadores",
+  "method": {
+    "BMWP": "media anual por ponto das campanhas monitoradas",
+    "EPT": "percentual anual ponderado pela abundancia total do ponto",
+    "CHOL": "percentual anual ponderado pela abundancia total do ponto",
+    "not_monitored": "cinza quando nao ha campanha monitorada no ano temporal pela regra de vigencia"
+  },
+  "outputs": {
+    "figure": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\APROVACAO_06_mini_mapas_anuais_bmwp_chol_ept_zoobentos.png",
+    "table": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\AVG\\Produtos\\Planilha Consolidada\\Resultados e planilhas\\Resultados bentos\\Consolidado_2026\\APROVACAO_06_df_mini_mapas_anuais_bmwp_chol_ept_zoobentos.xlsx"
+  },
+  "support_dir": "G:\\Meu Drive\\Opyta\\Opyta_Data_Analysis\\outputs\\_project_scripts\\BRAAVG002__monitoramento_de_ictio_e_bentos_brumado_avg\\zoobentos_bioindicator_approval_20260721"
+}

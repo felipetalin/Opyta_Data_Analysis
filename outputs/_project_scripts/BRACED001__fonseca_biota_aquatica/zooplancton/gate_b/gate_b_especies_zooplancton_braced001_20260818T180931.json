@@ -1,0 +1,457 @@
+{
+  "summary": {
+    "projeto": "BRACED001",
+    "grupo": "Zooplancton",
+    "modo": "audit_only",
+    "taxons_resultados": 59,
+    "taxons_resultados_sem_cadastro": 1,
+    "taxons_cadastro_sem_resultados": 0,
+    "linhas_cadastro_origem": 58,
+    "linhas_duplicadas_removidas": 0,
+    "taxons_duplicados": 0,
+    "estrategia_duplicados": "keep_last",
+    "especies_fonte": 58,
+    "especies_novas": 3,
+    "especies_com_nulos_a_preencher": 31,
+    "campos_nulos_a_preencher": 55,
+    "diferencas_preservadas": 174,
+    "pendencias_obrigatorias_pos_acao": 58,
+    "registros_aplicados": 0,
+    "normalizacoes_taxonomicas": 2
+  },
+  "actions": [
+    {
+      "nome_cientifico": "Bosmina freyi",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 4000.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Alona sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 104.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Ceriodaphnia sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 3997.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 2.0
+    },
+    {
+      "nome_cientifico": "Diaphanosoma birgei",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 143.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Diaphanosoma brevireme",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 3999.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Notodiaptomus sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4007.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "CALANOIDA  (copepodito)",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 147.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "CALANOIDA  (nauplius)",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 146.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Thermocyclops minutus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4003.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Thermocyclops sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4004.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "CYCLOPOIDA (copepodito)",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 106.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "CYCLOPOIDA (nauplius)",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 105.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Ciliado ni",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4008.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 1.0
+    },
+    {
+      "nome_cientifico": "Cyphoderia ampulla",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 82.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 5.0
+    },
+    {
+      "nome_cientifico": "Euglypha laevis",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 122.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Arcella crenulata",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 73.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Arcella discoides",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 109.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Arcella hemisphaerica",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 74.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Arcella hemisphaerica minima",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 75.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Centropyxis aculeata",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 78.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Centropyxis aerophila",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 116.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Centropyxis cassis",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 79.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Centropyxis ecornis",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 81.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Centropyxis minuta",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 117.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Centropyxis platystoma",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 120.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Difflugia linearis",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 76.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Difflugia litophila",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 114.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 5.0
+    },
+    {
+      "nome_cientifico": "Difflugia urceolata",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 4019.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Lesquereusia modesta",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 83.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Lesquereusia spiralis",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 123.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Netzelia oviformis",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 77.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Phryganella hemisphaerica",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 121.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Bdelloida",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 84.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 3.0
+    },
+    {
+      "nome_cientifico": "Conochilus coenobasis",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 129.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Conochilus natans",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 103.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Filinia terminalis",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 8,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Anuraeopsis fissa",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 85.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Brachionus caudatus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 125.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Brachionus falcatus",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 86.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Keratella americana",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 87.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Keratella cochlearis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 88.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Platyias quadricornis",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 8,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Euchlanis lyra",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 97.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Lecane arcula",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 91.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Lecane bulla",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 92.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Lecane closterocerca",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 93.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Lecane curvicornis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 94.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Lecane decipiens",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4088.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Lecane lunaris",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 96.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Lecane signifera",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 137.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Collurella minima",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 131.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Colurella uncinata",
+      "acao": "INSERT_NEW",
+      "id_especie": NaN,
+      "campos_a_preencher": 8,
+      "diferencas_preservadas": NaN
+    },
+    {
+      "nome_cientifico": "Lepadella patella",
+      "acao": "PRESERVE_EXISTING",
+      "id_especie": 89.0,
+      "campos_a_preencher": 0,
+      "diferencas_preservadas": 6.0
+    },
+    {
+      "nome_cientifico": "Cephalodella gibba",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 98.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Polyarthra sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 101.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Synchaeta sp.",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 141.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Trichocerca pusilla",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 4046.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    },
+    {
+      "nome_cientifico": "Trichocerca similis",
+      "acao": "FILL_NULLS_ONLY",
+      "id_especie": 140.0,
+      "campos_a_preencher": 1,
+      "diferencas_preservadas": 0.0
+    }
+  ],
+  "resultados_sem_cadastro": [
+    "Ciliado NI"
+  ],
+  "cadastro_sem_resultados": [],
+  "applied": [],
+  "taxon_overrides": [
+    {
+      "match": "Ciliado NI",
+      "values": {
+        "nome_cientifico": "Ciliado ni"
+      },
+      "reason": "Normalizacao de capitalizacao aprovada pelo usuario; reutilizar o registro canonico existente."
+    },
+    {
+      "match": "Filinia terminalis",
+      "values": {
+        "reino": "Animalia",
+        "filo": "Rotifera",
+        "classe": "Eurotatoria",
+        "ordem": "Flosculariaceae",
+        "familia": "Trochosphaeridae",
+        "genero": "Filinia",
+        "autor_e_ano": "(Plate, 1886)"
+      },
+      "reason": "Hierarquia taxonomica e autoria assumidas por orientacao explicita do usuario."
+    }
+  ]
+}

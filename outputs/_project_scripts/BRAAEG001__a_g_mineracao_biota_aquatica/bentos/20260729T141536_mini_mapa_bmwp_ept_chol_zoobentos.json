@@ -1,0 +1,41 @@
+{
+  "executed_at": "2026-07-29T14:15:44",
+  "project_id": 195,
+  "project_code": "BRAAEG001",
+  "group": "Zoobentos",
+  "product": "mini_mapa_bmwp_ept_chol",
+  "hydro_kmz": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\Geo\\1AEMG002\\Hidrografia.kmz",
+  "hydro_lines": 1122,
+  "records": 24,
+  "campaigns": [
+    "C01-Chuva",
+    "C02-Seca"
+  ],
+  "points": 12,
+  "outputs": {
+    "figure": {
+      "arquivo": "16_mini_mapa_bmwp_ept_chol_zoobentos.png",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\16_mini_mapa_bmwp_ept_chol_zoobentos.png",
+      "tamanho_bytes": 1775045,
+      "sha256": "9b34dc47e8279c628977a51a84aefb49e3dc5e697bf9d23b2bb2154a61d17bda",
+      "largura_px": 7014,
+      "altura_px": 4962,
+      "dpi_x": 599.9988,
+      "dpi_y": 599.9988,
+      "nonblank": true,
+      "pixel_std": 29.666751750381383
+    },
+    "table": {
+      "arquivo": "16_df_mini_mapa_bmwp_ept_chol_zoobentos.xlsx",
+      "path": "G:\\Meu Drive\\Opyta\\Clientes\\Clientes\\Clientes\\Brandt\\A&G Mineração\\resultados\\migracao_biota\\bentos\\16_df_mini_mapa_bmwp_ept_chol_zoobentos.xlsx",
+      "sha256": "ebf58521cb15837a10f0200faad5629f60510fbe05d434d0a15fdd9d0a55b994",
+      "tamanho_bytes": 18134
+    }
+  },
+  "notes": [
+    "Produto complementar em A4 paisagem, com BMWP, EPT e CHOL no mesmo painel.",
+    "Linhas separam C01-Chuva e C02-Seca; colunas separam os indicadores.",
+    "BMWP usa as cores originais de classe do indicador; EPT e CHOL usam classes visuais de percentual.",
+    "Círculos sem valores internos para reduzir poluição visual; BMWP indicado por classe e EPT/CHOL por escala percentual."
+  ]
+}

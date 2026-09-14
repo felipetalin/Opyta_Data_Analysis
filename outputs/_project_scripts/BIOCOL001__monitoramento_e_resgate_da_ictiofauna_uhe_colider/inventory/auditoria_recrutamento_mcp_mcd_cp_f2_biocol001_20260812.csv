@@ -1,0 +1,36 @@
+﻿id_especie,nome_cientifico,estrategia_reprodutiva,classe_recrutamento,ordem,familia,cp_referencia_f2plus_min_cm,linhas_referencia_f2plus,individuos_referencia_f2plus,linhas_com_cp_mcp_mcd,individuos_com_cp_mcp_mcd,linhas_jovens_preliminar,individuos_jovens_preliminar,status_criterio_recrutamento
+5813,Brycon sp. “adiposa preta”,Migradora de curta distância,MCD,Characiformes,Bryconidae,16.0,1,1.0,5,5.0,4,4.0,Aplicavel com cautela: referencia F2+ pequena
+6056,Myleus pachyodus,Migradora de curta distância,MCD,Characiformes,Serrasalmidae,20.0,1,1.0,61,61.0,12,12.0,Aplicavel com cautela: referencia F2+ pequena
+6153,"Tometes sp. ""teles pires""",Migradora de curta distância,MCD,Characiformes,Serrasalmidae,40.0,1,1.0,9,9.0,5,5.0,Aplicavel com cautela: referencia F2+ pequena
+5788,Argonectes robertsi,Migradora de curta distância,MCD,Characiformes,Hemiodontidae,15.0,28,28.0,448,512.0,33,36.0,Aplicavel preliminarmente
+5875,Curimata inornata,Migradora de curta distância,MCD,Characiformes,Curimatidae,9.0,113,114.0,2055,2996.0,266,279.0,Aplicavel preliminarmente
+5930,Hemiodus unimaculatus,Migradora de curta distância,MCD,Characiformes,Hemiodontidae,10.0,429,548.0,3004,7297.0,214,437.0,Aplicavel preliminarmente
+6010,Leporinus friderici,Migradora de curta distância,MCD,Characiformes,Anostomidae,8.5,14,19.0,852,918.0,400,400.0,Aplicavel preliminarmente
+6066,Myloplus rubripinnis,Migradora de curta distância,MCD,Characiformes,Serrasalmidae,18.5,19,20.0,290,299.0,15,18.0,Aplicavel preliminarmente
+6067,Myloplus schomburgkii,Migradora de curta distância,MCD,Characiformes,Serrasalmidae,13.0,15,15.0,159,180.0,17,24.0,Aplicavel preliminarmente
+6095,Pimelodus cf. tetramerus,Migradora de curta distância,MCD,Siluriformes,Pimelodidae,12.0,19,19.0,1697,2664.0,155,282.0,Aplicavel preliminarmente
+6096,Pimelodus ornatus,Migradora de curta distância,MCD,Siluriformes,Pimelodidae,16.0,9,9.0,87,119.0,16,20.0,Aplicavel preliminarmente
+6187,Brycon aff. pesu,Migradora de curta distância,MCD,Characiformes,Bryconidae,,0,0.0,182,182.0,0,0.0,Sem referencia F2+
+5814,Brycon sp. “subdistal”,Migradora de curta distância,MCD,Characiformes,Bryconidae,,0,0.0,247,677.0,0,0.0,Sem referencia F2+
+5876,Curimata knerii,Migradora de curta distância,MCD,Characiformes,Curimatidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+5933,Hemiodus gracilis,Migradora de curta distância,MCD,Characiformes,Hemiodontidae,,0,0.0,129,129.0,0,0.0,Sem referencia F2+
+5939,Hemiodus sterni,Migradora de curta distância,MCD,Characiformes,Hemiodontidae,,0,0.0,73,73.0,0,0.0,Sem referencia F2+
+6069,"Myloplus sp. ""juvenil""",Migradora de curta distância,MCD,Characiformes,Serrasalmidae,,0,0.0,6,18.0,0,0.0,Sem referencia F2+
+6094,Pimelodus blochii,Migradora de curta distância,MCD,Siluriformes,Pimelodidae,,0,0.0,172,172.0,0,0.0,Sem referencia F2+
+6098,Pinirampus pirinampu,Migradora de curta distância,MCD,Siluriformes,Pimelodidae,,0,0.0,51,56.0,0,0.0,Sem referencia F2+
+6154,Utiaritichthys sennaebragai,Migradora de curta distância,MCD,Characiformes,Serrasalmidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5810,Brycon falcatus,Migradora de longa distância,MCP,Characiformes,Bryconidae,16.5,2,2.0,315,338.0,181,204.0,Aplicavel com cautela: referencia F2+ pequena
+5941,Hemisorubim platyrhynchos,Migradora de longa distância,MCP,Siluriformes,Pimelodidae,28.0,21,21.0,429,445.0,36,40.0,Aplicavel preliminarmente
+5950,Hydrolycus armatus,Migradora de longa distância,MCP,Characiformes,Cynodontidae,27.0,15,15.0,506,511.0,22,22.0,Aplicavel preliminarmente
+5952,Hydrolycus tatauaia,Migradora de longa distância,MCP,Characiformes,Cynodontidae,22.0,130,132.0,1422,1456.0,63,63.0,Aplicavel preliminarmente
+6007,Leporinus cf. fasciatus,Migradora de longa distância,MCP,Characiformes,Anostomidae,3.0,29,31.0,916,1209.0,17,22.0,Aplicavel preliminarmente
+6100,Prochilodus nigricans,Migradora de longa distância,MCP,Characiformes,Prochilodontidae,18.0,102,105.0,1497,1566.0,135,135.0,Aplicavel preliminarmente
+6105,Pterodoras granulosus,Migradora de longa distância,MCP,Siluriformes,Doradidae,15.0,29,29.0,507,623.0,6,13.0,Aplicavel preliminarmente
+6129,Sorubim trigonocephalus,Migradora de longa distância,MCP,Siluriformes,Pimelodidae,22.0,18,19.0,1587,1878.0,41,45.0,Aplicavel preliminarmente
+5809,Brachyplatystoma filamentosum,Migradora de longa distância,MCP,Siluriformes,Pimelodidae,,0,0.0,2,2.0,0,0.0,Sem referencia F2+
+5848,Colossoma macropomum,Migradora de longa distância,MCP,Characiformes,Serrasalmidae,,0,0.0,11,11.0,0,0.0,Sem referencia F2+
+5951,Hydrolycus sp.,Migradora de longa distância,MCP,Characiformes,Cynodontidae,,0,0.0,1,1.0,0,0.0,Sem referencia F2+
+5243,Megaleporinus macrocephalus,Migradora de longa distância,MCP,Characiformes,Anostomidae,,0,0.0,3,3.0,0,0.0,Sem referencia F2+
+6103,Pseudoplatystoma punctifer,Migradora de longa distância,MCP,Siluriformes,Pimelodidae,,0,0.0,71,71.0,0,0.0,Sem referencia F2+
+6104,Pseudoplatystoma tigrinum,Migradora de longa distância,MCP,Siluriformes,Pimelodidae,,0,0.0,3,4.0,0,0.0,Sem referencia F2+
+6155,Zungaro zungaro,Migradora de longa distância,MCP,Siluriformes,Pimelodidae,,0,0.0,37,37.0,0,0.0,Sem referencia F2+
