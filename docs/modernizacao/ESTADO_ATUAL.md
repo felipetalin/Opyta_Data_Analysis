@@ -1,6 +1,23 @@
 # Estado atual da modernização
 
 Atualizado em: 2026-10-27 (America/Sao_Paulo).
+**Prioridade atual: planejar adoção do ai-memory de Fabio Akita para o time de agentes da modernização, conforme MOD-006.**
+A auditoria funcional Drive × GitHub está pausada, com achados preservados abaixo.
+
+## Próxima ação concreta — memória primeiro
+1. Conferir documentação/código da versão atual para implantação e integração dos clientes.
+2. Definir onde um servidor persistente sob controle da Opyta pode funcionar e como os agentes o alcançarão. Drive armazena arquivos, mas não executa o servidor.
+3. Definir projeto de memória exclusivo da modernização, acesso, captura e retenção.
+4. Planejar carregar o acervo já revisado: decisões, histórico, estado e inventário.
+5. Preparar configuração revisável e piloto de gravação, busca e retomada em nova sessão; confirmar individualmente integração com Codex e ChatGPT.
+
+Não instalar nem afirmar que a captura automática está ativa antes da implantação e verificação.
+A preferência pela ferramenta está definida; hospedagem e detalhes de integração permanecem abertos.
+
+## Estado anterior preservado para retomada da auditoria
+
+
+Atualizado em: 2026-10-27 (America/Sao_Paulo).
 Fase: inventário e reconciliação Drive × GitHub, em andamento.
 Última base GitHub comparada: 3ba41794a495cce57905a78841a4a2bb18800a29.
 Esse SHA é a base anterior a esta atualização documental, não o HEAD resultante dela.
