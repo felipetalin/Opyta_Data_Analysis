@@ -50,3 +50,16 @@ Hashes SHA-256 completos abaixo permitem reproduzir a comparação. Não se exec
 ## Próximo recorte
 Análise semântica dos dois diffs; entry points/pipelines, contratos de validação,
 configurações/recipes e dependências. Usar este inventário para evitar repetir a descoberta.
+
+## Atualização funcional — MOD-20261027-03
+Base GitHub desta análise: 3ba41794a495cce57905a78841a4a2bb18800a29.
+A base anterior permanece acima como registro da primeira comparação.
+
+- runner.py: cinco linhas adicionadas no Drive repassam point_filter a ictio e campaign_filter a mastofauna, primatas, herpetofauna e avifauna. Dependências de config e assinaturas confirmadas.
+- supabase_client.py: page_size 1000→250; timeout 60→180 segundos. Não houve benchmark.
+- config.py: campo points existe no Drive e não no GitHub fixado.
+- Assinaturas dos cinco pipelines divergem; fontes e hashes identificados no [relatório funcional](ANALISE_DIFERENCAS_20261027.md).
+- Lacuna observada: script reprodutor do runner do Drive não preserva points. Impacto inferido por leitura estática, sem execução.
+
+Próximo recorte atualizado: CLI/recipes/callers e transporte de filtros, seguido das
+demais diferenças/dependências dos pipelines. Inventário integral permanece pendente.

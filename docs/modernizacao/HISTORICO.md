@@ -52,3 +52,27 @@ os entry points/imports necessários para comparar os pipelines e validadores at
 - Resultado e forma de verificação.
 - Decisões aprovadas e propostas pendentes.
 - Pendências/bloqueios e próxima ação concreta.
+
+## MOD-20261027-03 — Impacto funcional do primeiro recorte de código
+Data: 2026-10-27 (America/Sao_Paulo).
+Autorização: responsável confirmou “Ok siga”, dando continuidade à investigação e aos registros.
+Base GitHub: 3ba41794a495cce57905a78841a4a2bb18800a29.
+
+### Ações e verificação
+1. Relidos estado/decisões e recuperados os registros anteriores antes de avançar.
+2. Obtidos novamente conteúdos completos do runner e cliente no Drive; inspecionados diffs contra GitHub fixado.
+3. Lidos config e assinaturas/aplicação dos filtros de ictio, mastofauna, primatas, herpetofauna e avifauna no Drive e contratos no GitHub.
+4. Confirmado conjunto de dependências: runner do Drive não é compatível isoladamente com config/assinaturas antigas do GitHub.
+5. Identificada omissão de points no script reprodutor gerado pelo runner do Drive.
+6. Classificadas alterações de paginação/timeout sem presumir ganho medido.
+7. Fontes e consequências registradas em ANALISE_DIFERENCAS_20261027.md, com atualização do estado e inventário.
+
+### Resultado e limites
+Diferenças alteram o recorte dos dados e a reprodutibilidade; não são só organização.
+Consequências de execução são inferidas do código e explicitamente identificadas.
+Usados diff textual e inspeção de AST; nenhum pipeline importado/executado ou banco acessado.
+Nenhuma alteração de código operacional ou instalação realizada. Propostas não viraram decisões aprovadas.
+
+### Próxima ação concreta
+Mapear CLI/recipes/callers de RunParams e pipelines para conferir transporte dos
+filtros. Percorrer demais dependências antes de propor qualquer atualização conjunta.
