@@ -116,3 +116,12 @@ NAS/VPS, disponibilidade contínua de um computador nem instalação de Docker/W
 Proposta: usar computador existente para piloto; necessidade de hospedagem permanente
 será decidida conforme acesso e continuidade demonstrados. Não houve instalação.
 Próxima ação: identificar computador alvo e condições de execução do serviço.
+
+## MOD-20261027-07 — Acervo de memória no Drive
+Data: 2026-10-27 (America/Sao_Paulo).
+Autorização: responsável aprovou Drive para acervo compartilhado e armazenamento ativo do ai-memory fora da pasta sincronizada.
+Criadas pastas Modernizacao_Opyta_Data/Memoria sob Opyta, após conferir pasta pai e buscar pasta existente.
+Fonte de acesso: https://drive.google.com/drive/folders/14_1jmc3vqdRYDWAUMZ5KwLw8yx7DmqEx
+Preparadas cópias documentais com origem e versão identificadas para continuidade; decisão MOD-008.
+Limites: cópias documentais não equivalem a importação no ai-memory ou sincronização automática. Nenhum serviço instalado e nenhum dado operacional modificado.
+Próxima ação: identificar computador de instalação e conferir Windows/WSL2/Docker, depois configurar piloto e verificar retomada.
