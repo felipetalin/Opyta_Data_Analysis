@@ -1,0 +1,15 @@
+# Template inativo: adaptar no host escolhido. Não configura acesso remoto.
+# Não armazenar credenciais no repositório. Validar imagem e ambiente antes de usar.
+services:
+  ai-memory:
+    image: docker.io/akitaonrails/ai-memory:3.2.8
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:49374:49374"
+    volumes:
+      - ai-memory-data:/data
+    environment:
+      AI_MEMORY_AUTH_TOKEN: ${AI_MEMORY_AUTH_TOKEN:?Defina a credencial no host fora do Git}
+      AI_MEMORY_ALLOWED_HOSTS: "localhost,127.0.0.1"
+volumes:
+  ai-memory-data:

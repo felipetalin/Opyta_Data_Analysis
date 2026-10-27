@@ -48,3 +48,11 @@ Decisão: priorizar o planejamento de adoção do ai-memory para o time de agent
 Correção de direção: a preferência do responsável é a ferramenta ai-memory com captura, recuperação e continuidade entre agentes; documentos manuais existentes são o acervo inicial, não satisfazem sozinhos esse requisito.
 Consequências: pausar a ampliação da auditoria funcional e definir primeiro servidor persistente, identidade do projeto, captura, MCP, acesso dos clientes, importação do acervo e validação da retomada entre sessões.
 Limites: a direção de adoção não comprova integração automática com este ChatGPT. Hospedagem, versão atual, custos, credenciais e alcance do conector precisam ser confirmados; não houve instalação nesta etapa.
+
+## MOD-007 — Memória da modernização antes da retomada da auditoria
+Data: 2026-10-27
+Status: aprovado pelo responsável nesta conversa.
+Evidência: “Siga nesse sentido. Depois retomamos a auditoria”, após avaliação do uso do ai-memory para preservar construção, decisões e continuidade entre agentes.
+Decisão: preparar e avançar a implantação do ai-memory para a modernização. A auditoria funcional fica pausada até a memória estar preparada e seu uso inicial verificado.
+Consequências: preservar os achados existentes como acervo inicial e histórico técnico útil depois da modernização. Memória operacional futura será avaliada em escopo próprio.
+Detalhamento proposto: PLANO_AI_MEMORY.md. Host, acesso, custos e conectividade ainda dependem da identificação do ambiente. A autorização não contrata infraestrutura nem confirma integração com o ChatGPT.

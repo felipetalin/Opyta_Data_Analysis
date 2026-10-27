@@ -1,68 +1,35 @@
 # Estado atual da modernização
 
 Atualizado em: 2026-10-27 (America/Sao_Paulo).
-**Prioridade atual: planejar adoção do ai-memory de Fabio Akita para o time de agentes da modernização, conforme MOD-006.**
-A auditoria funcional Drive × GitHub está pausada, com achados preservados abaixo.
+Prioridade: implantação do ai-memory para a memória da modernização (MOD-006/MOD-007).
+Auditoria funcional Drive × GitHub: pausada; achados preservados no inventário e relatório.
 
-## Próxima ação concreta — memória primeiro
-1. Conferir documentação/código da versão atual para implantação e integração dos clientes.
-2. Definir onde um servidor persistente sob controle da Opyta pode funcionar e como os agentes o alcançarão. Drive armazena arquivos, mas não executa o servidor.
-3. Definir projeto de memória exclusivo da modernização, acesso, captura e retenção.
-4. Planejar carregar o acervo já revisado: decisões, histórico, estado e inventário.
-5. Preparar configuração revisável e piloto de gravação, busca e retomada em nova sessão; confirmar individualmente integração com Codex e ChatGPT.
+## Feito nesta etapa
+- Reconfirmado release v3.2.8 do ai-memory e consultadas referências desse release para servidor, escopo e MCP.
+- Preparados PLANO_AI_MEMORY.md e dois templates inativos: servidor Docker e marcador de projeto.
+- Definidos proposta de organização, acervo inicial, sequência de implantação e critérios de retomada entre sessões/agentes.
+- Registrada MOD-007: memória da modernização primeiro; auditoria será retomada depois.
 
-Não instalar nem afirmar que a captura automática está ativa antes da implantação e verificação.
-A preferência pela ferramenta está definida; hospedagem e detalhes de integração permanecem abertos.
-
-## Estado anterior preservado para retomada da auditoria
-
-
-Atualizado em: 2026-10-27 (America/Sao_Paulo).
-Fase: inventário e reconciliação Drive × GitHub, em andamento.
-Última base GitHub comparada: 3ba41794a495cce57905a78841a4a2bb18800a29.
-Esse SHA é a base anterior a esta atualização documental, não o HEAD resultante dela.
-
-## Objetivo atual
-Identificar diferenças entre os arquivos no Drive e GitHub, mantendo memória
-persistente da investigação e evitando reconstruir contexto em toda sessão.
-
-## Concluído
-- Confirmados no GitHub os cinco documentos iniciais e a branch de modernização.
-- Inspeção documental do livro (incluindo o apêndice de memória), documentação e estrutura do ai-memory e alternativas; recomendação inicial apresentada como proposta, sem validação de execução no Windows.
-- Responsável esclareceu que os arquivos atuais estão no Drive; premissa de comparação com cópia independente na máquina foi corrigida.
-- Localizadas as pastas Opyta_Data, Opyta_Data_Analysis e Opyta_Data_Analysis.worktrees.
-- Lidos AGENTS, README da Central, política de contexto, sistema de aprendizado, auditoria de conhecimento de agosto e decisão arquitetural de julho no Drive.
-- Confirmadas divergências de conteúdo em AGENTS e README da Central; política de contexto e auditoria não encontradas nos caminhos equivalentes da branch examinada.
-- Comparados os conteúdos completos de runner.py e supabase_client.py por download autenticado do Drive e leitura no SHA GitHub acima: ambos diferentes, inclusive após normalizar CRLF e BOM. Análise funcional inicial documentada em ANALISE_DIFERENCAS_20261027.md.
-- Início oficial e regra de ouro de continuidade registrados por solicitação explícita do responsável.
-
-## Em andamento / não concluído
-- Inventário é parcial; não representa comparação recursiva de toda a plataforma.
-- Ampliar análise aos callers/entry points e às demais diferenças dos pipelines; primeiro recorte funcional concluído por inspeção estática.
-- Comparação dos pipelines, validadores, recipes e dependências efetivamente usados.
-- Verificação no código das conclusões da auditoria de agosto e da decisão de julho.
-- Identificação de versões em worktrees e eventuais alterações ainda não publicadas.
-- Avaliação de arquitetura, banco, interface e memória automática; nenhuma tecnologia escolhida por antecipação.
-
-## Achados funcionais desta etapa
-- Runner do Drive repassa filtros de pontos/campanhas; config e cinco pipelines também mudaram seus contratos. Copiar só runner cria incompatibilidades com o GitHub observado.
-- Script reprodutor gerado pelo runner do Drive não preserva params.points: lacuna de reprodutibilidade identificada estaticamente, sem teste de execução.
-- Paginação mudou de 1000 para 250 e timeout de 60 para 180 segundos; benefício de desempenho/confiabilidade não medido.
-- Fontes, linhas, hashes, consequências e propostas em ANALISE_DIFERENCAS_20261027.md.
+## Estado real da integração
+- Servidor ai-memory: não implantado.
+- Host persistente: ainda não identificado.
+- Captura automática, MCP e importação: não ativados.
+- Codex e ChatGPT: nenhum acesso ao ai-memory demonstrado nesta investigação.
+- Documentação versionada continua sendo o acervo de transição; não confundir com serviço ativo.
 
 ## Próxima ação concreta
-Mapear CLI, recipes e callers de RunParams/pipelines para verificar o transporte de
-campaigns/points até a execução. Em seguida percorrer as dependências adicionais e
-diferenças dos pipelines para preparar uma proposta coerente de reconciliação.
+Identificar servidor/NAS/VPS existente na Opyta e acesso de instalação, ou confirmar
+piloto Windows/WSL2. A partir desse ambiente, finalizar comandos de instalação,
+autenticação e conectividade conforme PLANO_AI_MEMORY.md.
 
-## Retomada por outro agente
-Ler README e DECISOES; consultar HISTORICO/MOD-20261027-03, ANALISE_DIFERENCAS_20261027 e INVENTARIO.
-Usar listagem direta de pasta para código: a busca do conector omitiu .py em um caso.
-Fetch textual de .py devolveu vazio mesmo com tamanho não zero; usar download raw.
-Não interpretar limitação da ferramenta como ausência ou arquivo vazio.
+## Retomada
+Ler README, DECISOES/MOD-006–007, PLANO_AI_MEMORY e HISTORICO/MOD-20261027-05.
+Não ampliar a auditoria de código enquanto esta prioridade estiver em vigor.
+Para recuperar achados: ANALISE_DIFERENCAS_20261027.md e INVENTARIO_DRIVE_GITHUB.md.
 
-## Escopo autorizado
-Investigação e manutenção da documentação da modernização nesta branch.
-Código operacional, dados, main, instalação do ai-memory e sincronização em massa
-permanecem fora desta rodada. Mudanças de documentação não equivalem a adoção da
-arquitetura proposta nem a confirmação de funcionamento da plataforma.
+## Acervo já apurado
+- Drive contém instruções/documentos que divergem do GitHub examinado.
+- Runner/config/pipelines têm contratos diferentes; copiar apenas runner é incompatível.
+- Script reprodutor observado omite o filtro de pontos; impacto inferido estaticamente.
+- Paginação/timeout diferem; benefício não medido.
+- Nenhum pipeline executado nem dado de produção alterado nesta investigação.

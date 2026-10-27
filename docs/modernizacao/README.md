@@ -46,3 +46,8 @@ os documentos atuais, depois propor mudanças fundamentadas.
 Autorizados: investigação e atualização dos registros da modernização nesta branch.
 Mudanças operacionais, instalação de memória, sincronização, produção, Supabase e main
 não estão incluídas nesta autorização documental.
+
+## Prioridade em vigor — MOD-007
+Implantar e verificar o uso inicial do ai-memory para a modernização; depois retomar
+a auditoria funcional. Ver [Plano de implantação](PLANO_AI_MEMORY.md).
+Os templates em ai-memory/ são exemplos inativos, não evidência de serviço instalado.

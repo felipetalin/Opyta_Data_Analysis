@@ -1,0 +1,7 @@
+# Template inativo. Aplicar como .ai-memory.toml apenas na pasta/checkout
+# dedicado à modernização, após configurar e verificar o cliente.
+workspace = "opyta"
+project = "opyta-modernizacao"
+
+[briefing]
+inject_on_session_start = "true"

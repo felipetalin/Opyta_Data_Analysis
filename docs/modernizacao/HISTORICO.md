@@ -91,3 +91,19 @@ ser implementadas e verificadas nos clientes compatíveis.
 Próxima ação: definir servidor persistente, integração Codex/ChatGPT e plano de piloto.
 Nenhum servidor foi instalado, nenhuma captura automática foi ativada e nenhuma
 compatibilidade com o ChatGPT desta conversa foi demonstrada.
+
+## MOD-20261027-05 — Preparação da implantação da memória
+Data: 2026-10-27 (America/Sao_Paulo).
+Autorização: responsável confirmou seguir com ai-memory e retomar auditoria depois.
+
+Ações: relidos estado/decisões; consultado release atual v3.2.8 e documentos técnicos
+fixados nele; preparados plano de implantação e templates inativos de Docker e escopo.
+Resultado: rota concreta para servidor persistente, integração de clientes, importação
+do acervo e verificação da continuidade. A auditoria funcional permanece pausada.
+
+Limite factual: nenhuma instalação/captura/importação realizada. Falta identificar o
+host disponível; não há evidência de que esta conversa esteja conectada ao ai-memory.
+Os templates não foram executados e não incluem o acesso remoto completo.
+
+Próxima ação: obter informação sobre servidor/NAS/VPS ou Windows/WSL2 disponível e,
+com esse ambiente definido, finalizar a instalação e integração verificável.
