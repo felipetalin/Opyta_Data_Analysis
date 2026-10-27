@@ -41,3 +41,10 @@ Ainda não estão confirmados: qual computador pode executar o piloto, disponibi
 para permanecer ligado, acesso administrativo, WSL2/Docker e conectividade dos agentes.
 Próximo passo: identificar esse computador e preparar instalação conforme seu ambiente.
 Proposta inicial: piloto em computador existente, antes de contratar infraestrutura.
+
+## Organização aprovada — MOD-008
+Pasta do acervo: https://drive.google.com/drive/folders/14_1jmc3vqdRYDWAUMZ5KwLw8yx7DmqEx
+Caminho: Opyta/Modernizacao_Opyta_Data/Memoria.
+Acordado: Drive recebe acervo compartilhável; serviço e armazenamento ativo ficam fora da sincronização no notebook do piloto. O notebook não precisa ficar ligado 24 horas; consultas ao serviço dependem de ele estar funcionando.
+Esta rodada disponibiliza cópias documentais identificadas por fonte/versão; não cria sincronização automática.
+Próxima ação para instalação: identificar computador alvo e disponibilidade de Windows/WSL2/Docker; servidor/captura/importação no ai-memory permanecem não ativados.
