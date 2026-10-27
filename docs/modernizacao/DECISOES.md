@@ -56,3 +56,11 @@ Evidência: “Siga nesse sentido. Depois retomamos a auditoria”, após avalia
 Decisão: preparar e avançar a implantação do ai-memory para a modernização. A auditoria funcional fica pausada até a memória estar preparada e seu uso inicial verificado.
 Consequências: preservar os achados existentes como acervo inicial e histórico técnico útil depois da modernização. Memória operacional futura será avaliada em escopo próprio.
 Detalhamento proposto: PLANO_AI_MEMORY.md. Host, acesso, custos e conectividade ainda dependem da identificação do ambiente. A autorização não contrata infraestrutura nem confirma integração com o ChatGPT.
+
+## MOD-008 — Acervo compartilhado no Drive e serviço local no piloto
+Data: 2026-10-27
+Status: aprovado explicitamente pelo responsável (“Aprovado”).
+Decisão: usar Opyta/Modernizacao_Opyta_Data/Memoria no Drive para documentos, exportações e backups consistentes; manter instalação e dados ativos do ai-memory fora da pasta sincronizada no computador que executar o piloto.
+Pasta criada: https://drive.google.com/drive/folders/14_1jmc3vqdRYDWAUMZ5KwLw8yx7DmqEx
+Consequências: documentos no Drive ficam acessíveis independentemente do notebook; captura/busca automáticas dependem de serviço ligado e cliente integrado. Não executar vários servidores sobre a pasta compartilhada.
+Escopo: organização documental aprovada; computador alvo e instalação ainda pendentes. Não há sincronização automática GitHub–Drive nem serviço ai-memory ativo.
