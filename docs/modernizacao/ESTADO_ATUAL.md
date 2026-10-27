@@ -1,24 +1,45 @@
 # Estado atual da modernização
 
-Atualizado em: 2026-10-27.
+Atualizado em: 2026-10-27 (America/Sao_Paulo).
+Fase: inventário e reconciliação Drive × GitHub, em andamento.
+Última base GitHub comparada: b2fcf2a9ce383188f96c4429b768f82bc62fda5c.
+Esse SHA é a base anterior a esta atualização documental, não o HEAD resultante dela.
 
-## Objetivo da rodada
-Estabelecer memória persistente e preparar auditoria técnica, sem alterar código operacional.
+## Objetivo atual
+Identificar diferenças entre os arquivos no Drive e GitHub, mantendo memória
+persistente da investigação e evitando reconstruir contexto em toda sessão.
 
 ## Concluído
-- Repositórios identificados na conta GitHub: `Opyta_Data`, `Opyta_Data_Analysis` e outros produtos Opyta.
-- Consultados: `README.md`, `AGENTS.md`, `docs/ORGANIZACAO_REPOSITORIO.md`, `docs/README.md`, `docs/control_center/README.md`, `scripts/SCRIPT_CATALOG.md`.
-- Branch isolada criada para a modernização.
+- Confirmados no GitHub os cinco documentos iniciais e a branch de modernização.
+- Inspeção documental do livro (incluindo o apêndice de memória), documentação e estrutura do ai-memory e alternativas; recomendação inicial apresentada como proposta, sem validação de execução no Windows.
+- Responsável esclareceu que os arquivos atuais estão no Drive; premissa de comparação com cópia independente na máquina foi corrigida.
+- Localizadas as pastas Opyta_Data, Opyta_Data_Analysis e Opyta_Data_Analysis.worktrees.
+- Lidos AGENTS, README da Central, política de contexto, sistema de aprendizado, auditoria de conhecimento de agosto e decisão arquitetural de julho no Drive.
+- Confirmadas divergências de conteúdo em AGENTS e README da Central; política de contexto e auditoria não encontradas nos caminhos equivalentes da branch examinada.
+- Comparados os conteúdos completos de runner.py e supabase_client.py por download autenticado do Drive e leitura no SHA GitHub acima: ambos diferentes, inclusive após normalizar CRLF e BOM. Significado funcional ainda pendente.
+- Início oficial e regra de ouro de continuidade registrados por solicitação explícita do responsável.
 
-## Em aberto
-- Comparação do workspace local com o remoto, incluindo arquivos sem commit e commits não enviados.
-- Inventário de código, dependências, importações, testes e pipelines realmente usados.
-- Avaliação de redundância com o repositório histórico.
-- Avaliação fundamentada de Supabase/PostgreSQL, backend, interface e alternativas.
-- Benchmark de projetos abertos e leitura aprofundada do livro de Fabio Akita.
+## Em andamento / não concluído
+- Inventário é parcial; não representa comparação recursiva de toda a plataforma.
+- Análise funcional das diferenças de runner.py e supabase_client.py.
+- Comparação dos pipelines, validadores, recipes e dependências efetivamente usados.
+- Verificação no código das conclusões da auditoria de agosto e da decisão de julho.
+- Identificação de versões em worktrees e eventuais alterações ainda não publicadas.
+- Avaliação de arquitetura, banco, interface e memória automática; nenhuma tecnologia escolhida por antecipação.
 
-## Próxima ação
-Executar auditoria de leitura no GitHub; depois comparar com a máquina local **antes** de reorganizar caminhos ou remover scripts.
+## Próxima ação concreta
+Abrir os diffs dos dois módulos comparados; classificar cada diferença e seguir os
+imports/entry points estritamente necessários. Depois comparar contratos de validação,
+pipelines e configurações, ampliando o inventário com IDs Drive e SHA GitHub.
 
-## Restrições
-Não realizar migrações, exclusões, refatorações, commits na main, alterações de dados ou execução de rotinas com efeitos colaterais sem aprovação.
+## Retomada por outro agente
+Ler README e DECISOES; consultar HISTORICO/MOD-20261027-02 e INVENTARIO.
+Usar listagem direta de pasta para código: a busca do conector omitiu .py em um caso.
+Fetch textual de .py devolveu vazio mesmo com tamanho não zero; usar download raw.
+Não interpretar limitação da ferramenta como ausência ou arquivo vazio.
+
+## Escopo autorizado
+Investigação e manutenção da documentação da modernização nesta branch.
+Código operacional, dados, main, instalação do ai-memory e sincronização em massa
+permanecem fora desta rodada. Mudanças de documentação não equivalem a adoção da
+arquitetura proposta nem a confirmação de funcionamento da plataforma.

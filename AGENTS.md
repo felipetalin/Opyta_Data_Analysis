@@ -1,3 +1,21 @@
+# Continuidade da modernização — regra de ouro
+
+Para tarefas de modernização do Opyta Data, começar por
+`docs/modernizacao/README.md`, `ESTADO_ATUAL.md` e `DECISOES.md`.
+Consultar `HISTORICO.md` e o inventário apenas no trecho relevante.
+Antes de encerrar cada etapa, registrar objetivo, ações efetivamente realizadas,
+evidências, resultado, decisões/aprovações, pendências e próxima ação concreta.
+Não depender da memória da conversa nem marcar proposta como decisão aprovada.
+A modernização foi oficialmente iniciada pelo responsável em 2026-10-27.
+
+Os arquivos atuais estão no Google Drive da Opyta, conforme informação do
+responsável e inspeção inicial. Há divergências verificadas entre Drive e GitHub.
+Não presumir equivalência entre fontes nem escolher versão apenas pela data.
+Esta branch guarda o registro da modernização; a documentação operacional abaixo
+é uma versão do GitHub ainda sujeita à reconciliação com o Drive.
+A autorização atual permite investigação e manutenção destes registros.
+Alterações no código operacional, dados ou sincronização em massa exigem escopo aprovado.
+
 # Instrucoes Operacionais Do Repositorio
 
 ## Gatilho Da Central De Controle
