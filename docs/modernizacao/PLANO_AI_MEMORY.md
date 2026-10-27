@@ -108,3 +108,10 @@ Captura automática posterior não recupera retroativamente esta conversa por si
 Identificar com o responsável se existe servidor/NAS/VPS da Opyta disponível ou se
 é necessário começar num Windows com WSL2. Essa informação determina os comandos
 reais de instalação e o caminho de acesso dos clientes. Não pedir senhas ou tokens no chat.
+
+## Organização aprovada posteriormente — MOD-008
+Em 2026-10-27 o responsável aprovou o piloto com serviço local e acervo no Drive.
+Pasta de acervo/exportações/backups: https://drive.google.com/drive/folders/14_1jmc3vqdRYDWAUMZ5KwLw8yx7DmqEx
+O serviço pode operar no notebook apenas durante o trabalho; disponibilidade permanente não é requisito para uso individual. Para equipe, avaliar disponibilidade necessária depois.
+Armazenamento ativo (wiki/SQLite) fica fora da sincronização; publicar somente cópias/exportações e backups consistentes. Não habilitada sincronização automática.
+A proposta anterior de servidor sempre ligado deixa de ser pré-requisito do piloto individual. Computador alvo e requisitos de instalação continuam por confirmar.
