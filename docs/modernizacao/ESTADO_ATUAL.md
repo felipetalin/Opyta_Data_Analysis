@@ -33,3 +33,11 @@ Para recuperar achados: ANALISE_DIFERENCAS_20261027.md e INVENTARIO_DRIVE_GITHUB
 - Script reprodutor observado omite o filtro de pontos; impacto inferido estaticamente.
 - Paginação/timeout diferem; benefício não medido.
 - Nenhum pipeline executado nem dado de produção alterado nesta investigação.
+
+## Infraestrutura informada pelo responsável
+Em 2026-10-27, o responsável informou disponibilidade de GitHub, Google Drive,
+computadores e Supabase. Servidor dedicado/NAS/VPS não foi identificado.
+Ainda não estão confirmados: qual computador pode executar o piloto, disponibilidade
+para permanecer ligado, acesso administrativo, WSL2/Docker e conectividade dos agentes.
+Próximo passo: identificar esse computador e preparar instalação conforme seu ambiente.
+Proposta inicial: piloto em computador existente, antes de contratar infraestrutura.
