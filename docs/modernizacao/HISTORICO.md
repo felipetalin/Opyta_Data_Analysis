@@ -107,3 +107,12 @@ Os templates não foram executados e não incluem o acesso remoto completo.
 
 Próxima ação: obter informação sobre servidor/NAS/VPS ou Windows/WSL2 disponível e,
 com esse ambiente definido, finalizar a instalação e integração verificável.
+
+## MOD-20261027-06 — Infraestrutura disponível
+Data: 2026-10-27 (America/Sao_Paulo).
+Responsável informou GitHub, Google Drive, computadores e Supabase.
+Inventário registrado no estado atual. Não se confirmou servidor dedicado,
+NAS/VPS, disponibilidade contínua de um computador nem instalação de Docker/WSL2.
+Proposta: usar computador existente para piloto; necessidade de hospedagem permanente
+será decidida conforme acesso e continuidade demonstrados. Não houve instalação.
+Próxima ação: identificar computador alvo e condições de execução do serviço.
