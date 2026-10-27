@@ -76,3 +76,18 @@ Nenhuma alteração de código operacional ou instalação realizada. Propostas 
 ### Próxima ação concreta
 Mapear CLI/recipes/callers de RunParams e pipelines para conferir transporte dos
 filtros. Percorrer demais dependências antes de propor qualquer atualização conjunta.
+
+## MOD-20261027-04 — Correção de prioridade: ai-memory primeiro
+Data: 2026-10-27 (America/Sao_Paulo).
+Responsável reiterou a importância do ai-memory e apontou o artigo da versão 2.0.
+O assistente reconheceu que deslocou o foco para auditoria do código e releu o artigo.
+
+Resultado: MOD-006 registra a direção explícita de priorizar o planejamento da adoção
+do ai-memory para agentes da modernização. A auditoria funcional não é pré-requisito
+para esse planejamento e fica pausada no ponto já documentado.
+Acervo existente será insumo inicial; captura, busca e passagem de contexto precisam
+ser implementadas e verificadas nos clientes compatíveis.
+
+Próxima ação: definir servidor persistente, integração Codex/ChatGPT e plano de piloto.
+Nenhum servidor foi instalado, nenhuma captura automática foi ativada e nenhuma
+compatibilidade com o ChatGPT desta conversa foi demonstrada.
