@@ -39,3 +39,12 @@ Alternativas: depender da conversa; instalar memória automática imediatamente;
 Escolhida: usar imediatamente documentação versionada existente; automação permanece proposta em avaliação.
 Consequências: atualizar README, ESTADO_ATUAL, HISTORICO e instrução de entrada no AGENTS. Cada registro distingue decisão aprovada, proposta e fato verificado.
 Escopo autorizado: registros da modernização nesta branch. Não autoriza alterações em produção, código operacional ou instalação do ai-memory.
+
+## MOD-006 — Prioridade explícita: ai-memory de Fabio Akita
+Data: 2026-10-27
+Status: direção de trabalho definida pelo responsável nesta conversa; implantação técnica pendente.
+Evidência: responsável reiterou que quer o ai-memory do Akita e que essa memória será muito importante, apontando https://akitaonrails.com/2026/09/02/ai-memory-2-0-melhor-sistema-memoria-agentes-e-times/ .
+Decisão: priorizar o planejamento de adoção do ai-memory para o time de agentes da modernização. Não condicionar esse trabalho à conclusão da auditoria de código Drive × GitHub.
+Correção de direção: a preferência do responsável é a ferramenta ai-memory com captura, recuperação e continuidade entre agentes; documentos manuais existentes são o acervo inicial, não satisfazem sozinhos esse requisito.
+Consequências: pausar a ampliação da auditoria funcional e definir primeiro servidor persistente, identidade do projeto, captura, MCP, acesso dos clientes, importação do acervo e validação da retomada entre sessões.
+Limites: a direção de adoção não comprova integração automática com este ChatGPT. Hospedagem, versão atual, custos, credenciais e alcance do conector precisam ser confirmados; não houve instalação nesta etapa.
