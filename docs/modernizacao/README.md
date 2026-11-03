@@ -1,5 +1,11 @@
 # Modernização do Opyta Data
 
+## Validação real concluída em 2026-11-03 — estado mais recente
+
+Login ChatGPT confirmado; hooks oficiais reconhecidos pelo doctor. Teste em duas sessões reais Codex CLI passou: marcador exclusivo capturado na sessão A e recuperado por MCP na sessão B independente, junto à MOD-007, justificativa e próxima ação registrada, sem respostas no prompt cego. Corrigida instalação incompleta do CLI com pacote oficial completo da mesma versão 0.166.0, digest conferido; configurações e confiança preservadas. Backup online validado por integrity_check = ok.
+
+Evidências, IDs, prompt, hashes, tentativa falha preservada e limites: [VALIDACAO_AI_MEMORY_REAL_20261103.md](VALIDACAO_AI_MEMORY_REAL_20261103.md). A próxima ação consultada no ai-memory ainda era um snapshot histórico; B reconheceu ausência de aceite atualizado. Não presumir sincronização automática do acervo. Auditoria permanece pausada nesta etapa. Próxima ação: revisar resultado e definir retomada da auditoria; nenhuma nova decisão aprovada.
+
 ## Validação real em 2026-11-03 — login confirmado; hooks pendentes
 
 Objetivo autorizado: concluir a validação em duas sessões reais e registrar evidências na branch modernizacao/memoria-e-auditoria-inicial. Auditoria permanece pausada.

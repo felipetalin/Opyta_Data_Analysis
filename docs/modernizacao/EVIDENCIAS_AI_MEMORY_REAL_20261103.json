@@ -1,0 +1,79 @@
+{
+  "session_a": "01a1a2a8-3a1c-7aa2-ac32-b5326a8c5f94",
+  "session_b": "01a1a2a9-48dc-7960-b203-c435f0a3d968",
+  "marker": "OPYTA-REAL-e7a0752d-0f64-4453-a348-fddaf56eb050",
+  "blind_prompt": "Teste cego autorizado de continuidade. Usando somente as ferramentas MCP ai-memory do projeto atual, recupere a observação exclusiva do teste real mais recente de outra sessão, uma decisão aprovada da modernização com justificativa e a próxima ação concreta. Cite páginas e IDs reais. Não leia arquivos locais, histórico do Codex nem arquivos de evidências como fonte das respostas. Não altere arquivos nem grave wiki ou handoff. Não execute shell. Use memory_query, memory_read_page ou memory_read_session_observations; busque no projeto identificado pelo marcador. Se faltar evidência, diga explicitamente. Responda concisamente.",
+  "marker_match": true,
+  "marker_absent_from_prompt": true,
+  "mcp_calls": [
+    {
+      "tool": "memory_read_session_observations",
+      "arguments": {
+        "workspace": "opyta",
+        "project": "modernizacao-opyta-data",
+        "session_id": "01a1a2a3-49e9-7d21-b202-239866369f5f",
+        "order": "desc",
+        "limit": 4,
+        "body_max_chars": 2000
+      },
+      "status": "completed",
+      "error": null
+    },
+    {
+      "tool": "memory_read_page",
+      "arguments": {
+        "workspace": "opyta",
+        "project": "modernizacao-opyta-data",
+        "path": "sessions/01a1a2a8-3a1c-7aa2-ac32-b5326a8c5f94.md",
+        "max_chars": 18000
+      },
+      "status": "completed",
+      "error": null
+    },
+    {
+      "tool": "memory_read_page",
+      "arguments": {
+        "workspace": "opyta",
+        "project": "modernizacao-opyta-data",
+        "path": "sources/estado_atual.md",
+        "max_chars": 18000
+      },
+      "status": "completed",
+      "error": null
+    },
+    {
+      "tool": "memory_read_page",
+      "arguments": {
+        "workspace": "opyta",
+        "project": "modernizacao-opyta-data",
+        "path": "sources/decisoes.md",
+        "max_chars": 18000
+      },
+      "status": "completed",
+      "error": null
+    },
+    {
+      "tool": "memory_read_session_observations",
+      "arguments": {
+        "workspace": "opyta",
+        "project": "modernizacao-opyta-data",
+        "session_id": "01a1a2a8-3a1c-7aa2-ac32-b5326a8c5f94",
+        "kinds": [
+          "user-prompt"
+        ],
+        "body_max_chars": 8000
+      },
+      "status": "completed",
+      "error": null
+    }
+  ],
+  "other_tool_items": [],
+  "response": "Recuperado via MCP ai-memory em `opyta / modernizacao-opyta-data`:\n\n- **Observação exclusiva:** `OPYTA-REAL-e7a0752d-0f64-4453-a348-fddaf56eb050`, capturada em 03/11/2026 às 18:24:59Z. Observação ID `01a1a2a8-459f-7b43-89f5-aa7cc7bff970`; página `sessions/01a1a2a8-3a1c-7aa2-ac32-b5326a8c5f94.md`.\n- **Decisão aprovada MOD-007:** priorizar implantação e validação inicial do ai-memory, mantendo a auditoria pausada, para preservar decisões e continuidade entre agentes. Aprovação registrada: “Siga nesse sentido. Depois retomamos a auditoria”. Fonte: `sources/decisoes.md`, página ID `01a1a26b-2b02-7f61-9d99-6b02062d37d0`.\n- **Próxima ação registrada:** autenticar Codex no VS Code WSL, confiar nos hooks em `/hooks` e comprovar captura e recuperação em nova sessão real. Fonte: `sources/estado_atual.md`, página ID `01a1a26d-5374-7aa2-b466-d41dddcf7746`.\n\nA observação recuperada comprova captura real posterior ao snapshot; **não encontrei nas evidências consultadas um aceite completo atualizado**.",
+  "sha256": {
+    "real-session-a.jsonl": "6d1e3af981c8d69cefd6c02836fef3421ab250539c545371b5f9d0e40fe1948e",
+    "real-session-b-retry.jsonl": "57e68f9779921d6b8b4a1f91718c913625865efbb2354d208f187ee7cc065714",
+    "real-session-a-prompt.txt": "1ca824eec71a62a7ce75d13e6e1b13b44d8f3986eb8b2987bb54632c46546f4c",
+    "real-session-b-prompt.txt": "94436a0cd19eb354e3ee82826225df25a6b74302f65a8fa91192c6b490b840cb",
+    "ai-memory-real-validation-20261103.tar.gz": "eea39e1f24bb192295781f544c8f1e024bc690ea8dede9334ef8f1427c02d305"
+  }
+}
