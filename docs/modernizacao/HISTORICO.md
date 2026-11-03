@@ -125,3 +125,15 @@ Fonte de acesso: https://drive.google.com/drive/folders/14_1jmc3vqdRYDWAUMZ5KwLw
 Preparadas cópias documentais com origem e versão identificadas para continuidade; decisão MOD-008.
 Limites: cópias documentais não equivalem a importação no ai-memory ou sincronização automática. Nenhum serviço instalado e nenhum dado operacional modificado.
 Próxima ação: identificar computador de instalação e conferir Windows/WSL2/Docker, depois configurar piloto e verificar retomada.
+
+## MOD-20261103-01 — Retomada para instalação local
+Data: 2026-11-03 (America/Sao_Paulo).
+Autorização: responsável solicitou continuar.
+Ações: recuperados ESTADO_ATUAL, PLANO_AI_MEMORY e HISTORICO; confirmado que o
+serviço ainda não foi implantado segundo os registros atuais. O terminal acessível
+nesta conversa retornou Linux; não foi confundido com o Windows do responsável.
+Resultado: preparado diagnóstico somente leitura para executar no PowerShell do
+Windows, conferindo WSL, distribuições, Docker e Codex antes de instalar.
+Pendente: execução pelo responsável e recebimento da saída. Nenhuma instalação,
+ativação de captura, acesso a produção ou retomada de auditoria nesta etapa.
+Próxima ação: interpretar a saída e preparar instalação local conforme o ambiente.
