@@ -100,3 +100,13 @@ verificar SHA-256 publicado no GitHub e informar pasta do download. Sem extrair,
 executar binário, configurar hooks ou iniciar serviço nessa etapa.
 SHA-256 esperado do tar.gz: bb967293da4f977141089a6afeb888d65dc0d12a3a65db9b0c46524324d145a6.
 Download/verificação ainda aguardam saída do responsável; ai-memory não marcado como instalado.
+
+## Verificação do pacote recebida — 2026-11-03
+Responsável enviou saída sha256sum: ai-memory-linux-x86_64.tar.gz: OK.
+Pasta no Ubuntu: /home/felipe/ai-memory-download.jZQx44.
+Pacote v3.3.2 conferido contra digest publicado. Lidos install.sh e workflow de
+release desse tag: conteúdo do pacote fica na raiz, incluindo binário e hooks.
+Próxima etapa fornecida: extrair o pacote completo em ~/.local/lib/ai-memory,
+criar atalho em ~/.local/bin e executar somente --version. Recusar caminhos
+existentes, sem sobrescrever instalação. Sem setup/serviço/hooks nesta etapa.
+Instalação e execução da versão ainda aguardam resultado do responsável.
