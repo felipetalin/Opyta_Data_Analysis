@@ -1,5 +1,27 @@
 # Estado atual da modernização
 
+## Estado vigente — 2026-11-03 — auditoria documentada
+
+Auditoria retomada por autorização explícita do responsável, somente para leitura. As duas etapas concluídas nesta conversa estão registradas separadamente:
+- [Mapeamento Excel → banco](AUDITORIA_FLUXO_EXCEL_BANCO_20261103.md).
+- [Caso histórico WSPKIN001/Ictiofauna](AUDITORIA_WSPKIN001_ICTIOFAUNA_20261103.md).
+
+Excel permanece como padrão de entrada. O piloto ai-memory 3.3.2 teve captura e recuperação reais verificadas; houve consulta MCP no painel na auditoria. Fontes históricas que ainda registram pausa por falta de validação da memória não descrevem este estágio.
+
+Mapeamento: identificados interface, validadores, cadastro mestre, registries, migradores, consolidação e runners; Drive/GitHub não são equivalentes por premissa. Dez módulos comparados entre Drive e deploy-cloud: oito equivalentes após BOM/CRLF e dois divergentes (regras de espécies e migrador ictio). Contrato único de aprovação do Excel por hash é proposta, não implementação aprovada.
+
+WSPKIN001, carga documentada de 11/09/2026: reconciliação do produto histórico confirmada (2.610,3 g; hash da Tabela 13 idêntico ao histórico). Sobre a cópia atual do Excel, média simples produziria 2.491,1667 g e ponderada preservaria 2.610,3 g. **A versão executada do migrador e o peso gravado naquela carga continuam sem comprovação.** Os hashes atuais dos XLSX diferem dos históricos de validação; downloads das revisões antigas retornaram 403. Não generalizar este caso.
+
+## Próxima ação concreta
+Localizar o Excel pelos hashes históricos, o log da migração e a evidência pós-carga por chave.
+Para isso, buscar a identidade do arquivo consumido, o comando/versão/hash do executável e o registro pós-carga de numero_de_individuos e pc_g por chave. Uma consulta atual ao banco não prova sozinha o estado histórico.
+
+## Escopo da rodada de registro
+Responsável autorizou somente documentação em docs/modernizacao/ na branch modernizacao/memoria-e-auditoria-inicial de felipetalin/Opyta_Data_Analysis e registros correspondentes no ai-memory opyta/modernizacao-opyta-data. Feita verificação prévia de duplicatas; os dois resumos não constavam como documentos/páginas explícitas. Não executar a próxima investigação nesta rodada. Nenhuma importação, migração, consulta ao banco ou correção de código é parte desta etapa.
+
+## Estados anteriores — históricos, preservados
+Os blocos abaixo preservam a cronologia anterior. Não substituem o estado vigente e a próxima ação acima.
+
 ## Estado vigente — 03/11/2026
 
 O piloto do ai-memory 3.3.2 passou no teste real com Codex CLI 0.166.0 no Ubuntu/WSL2. Uma nova sessão recuperou pelo MCP uma observação de outra sessão e a decisão MOD-007. O backup teve a integridade do SQLite conferida. O painel VS Code e a troca de ferramenta ficam fora deste teste.
@@ -163,3 +185,4 @@ Próxima etapa fornecida: extrair o pacote completo em ~/.local/lib/ai-memory,
 criar atalho em ~/.local/bin e executar somente --version. Recusar caminhos
 existentes, sem sobrescrever instalação. Sem setup/serviço/hooks nesta etapa.
 Instalação e execução da versão ainda aguardam resultado do responsável.
+

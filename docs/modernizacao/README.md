@@ -1,5 +1,13 @@
 # Modernização do Opyta Data
 
+## Estado vigente e auditorias registradas — 2026-11-03
+
+Auditoria retomada somente para leitura por autorização do responsável; esta rodada apenas registra o que foi concluído. Excel permanece como entrada. Consultar [ESTADO_ATUAL.md](ESTADO_ATUAL.md) para orientação vigente; os relatos anteriores abaixo são históricos.
+- [Mapeamento Excel → banco](AUDITORIA_FLUXO_EXCEL_BANCO_20261103.md).
+- [Trilha histórica WSPKIN001/Ictiofauna](AUDITORIA_WSPKIN001_ICTIOFAUNA_20261103.md).
+Reconciliação do produto histórico confirmada; versão executada do migrador e peso gravado naquela carga não comprovados. Próxima ação: Localizar o Excel pelos hashes históricos, o log da migração e a evidência pós-carga por chave.
+
+
 ## Atualização da página de estado no ai-memory — 2026-11-03
 
 Por pedido explícito do responsável, sources/estado_atual.md foi atualizada a partir de ESTADO_ATUAL.md no commit de0dfcc34312147bd1f103ecd9782067002e535a, blob 8a8bd767ce6bfd1f559cab842dff2edb96aafdd2. Versão anterior preservada integralmente e identificada como histórica. Nova sessão real 01a1a2b4-ffe0-7122-b8f2-47bff0d3f26c recuperou via MCP o estado vigente e reconheceu a orientação superada, sem respostas no prompt cego. Resultado: PASSOU. Evidência: [ATUALIZACAO_ESTADO_AI_MEMORY_20261103.md](ATUALIZACAO_ESTADO_AI_MEMORY_20261103.md).

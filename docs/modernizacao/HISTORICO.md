@@ -1,5 +1,16 @@
 # Histórico da modernização e passagem de contexto
 
+## AUD-REG-20261103 — Registro das auditorias concluídas
+
+Objetivo: persistir o mapa Excel→banco e a trilha histórica WSPKIN001 produzidos nesta conversa, sem nova investigação. Autorização explícita: somente documentação nesta branch e páginas correspondentes no ai-memory deste projeto.
+Verificação inicial: HEAD b7a77e23b892c601a920ecb99e69e39e86be7bae; inventário docs/modernizacao, README/estado/decisões/histórico, buscas MCP e inventário de páginas. Não encontrados os dois resumos como registros explícitos; observações automáticas não equivalem a resumo revisado.
+Ações documentais: criados AUDITORIA_FLUXO_EXCEL_BANCO_20261103.md e AUDITORIA_WSPKIN001_ICTIOFAUNA_20261103.md; atualizado ESTADO_ATUAL e índice. Registro de memória previsto após confirmar commit remoto, com resumo explícito e versão anterior do estado preservada como histórica; IDs e confirmação serão informados na resposta da rodada.
+Resultado da auditoria registrada: mapa de rotas e divergências; produto histórico WSPKIN001 reconciliado por SHA-256 e totais (2.610,3 g), mas migrador efetivamente executado e peso gravado naquela carga sem comprovação. Média simples sobre cópia atual: 2.491,1667 g, diferença -119,1333 g em sete grupos. Revisões históricas inacessíveis com 403.
+Decisões: Excel continua como entrada; contrato único de aprovação por hash permanece proposta. Nenhuma aprovação técnica de implementação presumida.
+Próxima ação: Localizar o Excel pelos hashes históricos, o log da migração e a evidência pós-carga por chave.
+Escopo desta rodada: somente registro; nenhuma busca adicional da trilha, consulta ao banco, importação, migração ou correção de código.
+
+
 ## Atualização da página de estado no ai-memory — 2026-11-03
 
 Por pedido explícito do responsável, sources/estado_atual.md foi atualizada a partir de ESTADO_ATUAL.md no commit de0dfcc34312147bd1f103ecd9782067002e535a, blob 8a8bd767ce6bfd1f559cab842dff2edb96aafdd2. Versão anterior preservada integralmente e identificada como histórica. Nova sessão real 01a1a2b4-ffe0-7122-b8f2-47bff0d3f26c recuperou via MCP o estado vigente e reconheceu a orientação superada, sem respostas no prompt cego. Resultado: PASSOU. Evidência: [ATUALIZACAO_ESTADO_AI_MEMORY_20261103.md](ATUALIZACAO_ESTADO_AI_MEMORY_20261103.md).
