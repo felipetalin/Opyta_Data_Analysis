@@ -89,3 +89,14 @@ O serviço permanece não instalado/não conectado. Acesso automático deste Cha
 - Primeiro marco: gravação de decisão e recuperação correta em nova sessão de Codex; depois outra ferramenta compatível.
 - Instalação do WSL/Ubuntu e ai-memory ainda sem confirmação. Não marcar como instalado.
 - Próxima ação: obter resultado da etapa WSL/Ubuntu documentada; só então prosseguir com pacote Linux e integração no mesmo ambiente.
+
+## Ambiente Linux confirmado — 2026-11-03
+Evidência enviada pelo responsável: criação do usuário felipe e “Installation successful!”.
+Comandos executados no prompt Ubuntu retornaram x86_64, kernel
+6.18.54.1-microsoft-standard-WSL2 e Ubuntu 26.04.1 LTS.
+WSL2/Ubuntu confirmado por saída do usuário, não por execução remota do assistente.
+Próxima etapa preparada: baixar pacote oficial Linux x86_64 v3.3.2 (~22,6 MB),
+verificar SHA-256 publicado no GitHub e informar pasta do download. Sem extrair,
+executar binário, configurar hooks ou iniciar serviço nessa etapa.
+SHA-256 esperado do tar.gz: bb967293da4f977141089a6afeb888d65dc0d12a3a65db9b0c46524324d145a6.
+Download/verificação ainda aguardam saída do responsável; ai-memory não marcado como instalado.
