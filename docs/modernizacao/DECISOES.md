@@ -64,3 +64,11 @@ Decisão: usar Opyta/Modernizacao_Opyta_Data/Memoria no Drive para documentos, e
 Pasta criada: https://drive.google.com/drive/folders/14_1jmc3vqdRYDWAUMZ5KwLw8yx7DmqEx
 Consequências: documentos no Drive ficam acessíveis independentemente do notebook; captura/busca automáticas dependem de serviço ligado e cliente integrado. Não executar vários servidores sobre a pasta compartilhada.
 Escopo: organização documental aprovada; computador alvo e instalação ainda pendentes. Não há sincronização automática GitHub–Drive nem serviço ai-memory ativo.
+
+## MOD-009 — Ambiente de execução e acompanhamento
+Data: 2026-11-03 (America/Sao_Paulo).
+Status: aprovado explicitamente pelo responsável (“aprovado”), após recomendação de conduzir o trabalho técnico pelo Codex no VS Code.
+Decisão: Codex no VS Code executará tarefas técnicas autorizadas e usará ai-memory; este ChatGPT será usado para discussão de arquitetura, prioridades e revisão de decisões.
+Continuidade: decisões deste chat devem ser registradas nos documentos acessíveis ao agente; não presumir integração automática entre ChatGPT e ai-memory.
+Primeiro marco: um piloto com um agente, registro de decisão e retomada comprovada em nova sessão. Depois verificar uma segunda ferramenta compatível. Auditoria segue pausada até validar a memória.
+Rota técnica recomendada já documentada: WSL2/Ubuntu com binário Linux, sem Docker. Execução/instalação no Windows ainda não confirmada pelo responsável.
