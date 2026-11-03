@@ -1,5 +1,14 @@
 # Estado atual da modernização
 
+## Piloto executado em 2026-11-03 — estado que prevalece sobre os relatos históricos abaixo
+
+Instalação ai-memory 3.3.2 verificada no Ubuntu/WSL2 do responsável. Servidor piloto autenticado em loopback; dados ativos no Linux fora do Drive. Plugin oficial Codex 3.3.2 instalado sem hooks duplicados. Importação de seis registros, captura/handoff sintéticos, consulta MCP, reinício e integridade do backup verificados.
+
+**Aceite completo pendente:** Codex Linux ainda sem autenticação; sete hooks oficiais identificados como untrusted. Responsável escolheu autenticação pelo VS Code no WSL; janela do workspace foi aberta. Próximo passo: entrar no Codex nessa janela, confiar nos hooks em /hooks e comprovar captura e recuperação em nova sessão real. Auditoria permanece pausada. Não confundir testes sintéticos com continuidade de um Codex autenticado.
+
+Evidências, caminhos, digests, limites e reversão: [PILOTO_AI_MEMORY_20261103.md](PILOTO_AI_MEMORY_20261103.md). Processo local sem início automático; não há integração demonstrada com este ChatGPT.
+
+
 Atualizado em: 2026-11-03 (America/Sao_Paulo).
 Prioridade: implantação do ai-memory para a memória da modernização (MOD-006/MOD-007).
 Auditoria funcional Drive × GitHub: pausada; achados preservados no inventário e relatório.
