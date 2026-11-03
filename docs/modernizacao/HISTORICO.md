@@ -163,3 +163,10 @@ com efeitos, critérios de avanço, armazenamento e reversão.
 Fornecido apenas comando da primeira etapa de instalação ao responsável; execução local
 não confirmada. Não executar instalador no Linux temporário desta conversa.
 Próxima ação: receber resultado da instalação Ubuntu/WSL antes de fornecer próxima etapa.
+
+## MOD-20261103-03 — Divisão de trabalho aprovada
+Data: 2026-11-03 (America/Sao_Paulo).
+O responsável aprovou Codex no VS Code para execução técnica e este chat para acompanhamento/decisões. Registrada MOD-009.
+Adoção será verificada por piloto de registro e recuperação em nova sessão, antes de ampliar agentes e retomar auditoria.
+Não há integração automática demonstrada deste chat com ai-memory. Não há confirmação de instalação WSL/Ubuntu ou ai-memory.
+Próxima ação: responsável executar/concluir a etapa WSL/Ubuntu do roteiro e enviar a saída; depois verificar ambiente Linux e instalar o pacote oficial com checagem de integridade.
