@@ -1,5 +1,9 @@
 # Histórico da modernização e passagem de contexto
 
+## Rechecagem após confirmação do responsável — 2026-11-03
+
+Responsável informou “feito”. Reexecutados ai-memory --version (3.3.2), codex login status (Logged in using ChatGPT) e ai-memory doctor. O diagnóstico ainda informa sete hooks do plugin ignorados como untrusted ou modified. Usuário local felipe, HOME=/home/felipe, CODEX_HOME não definido. A confiança não está reconhecida neste ambiente. Captura real e teste em nova sessão não executados; nenhuma configuração de confiança alterada. Auditoria permanece pausada. Próxima ação: abrir Codex CLI no terminal Ubuntu/WSL deste workspace, revisar /hooks e confirmar autorização dos sete hooks ai-memory@ai-memory, depois reexecutar doctor antes do teste real. Não há nova decisão ou aceite.
+
 ## Validação real em 2026-11-03 — login confirmado; hooks pendentes
 
 Objetivo autorizado: concluir a validação em duas sessões reais e registrar evidências na branch modernizacao/memoria-e-auditoria-inicial. Auditoria permanece pausada.
