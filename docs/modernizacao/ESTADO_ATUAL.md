@@ -72,3 +72,12 @@ não uma escolha técnica concluída nem pré-requisito já validado no computad
 Próxima ação: preparar roteiro único de instalação com versão revisada, componentes
 necessários, efeitos no Windows, armazenamento, desinstalação e teste de continuidade.
 Neste momento não há ai-memory instalado, captura ativa ou integração com este ChatGPT.
+
+## Roteiro fechado em 2026-11-03
+Ver ROTEIRO_INSTALACAO_AI_MEMORY.md: rota técnica recomendada para o piloto é Ubuntu
+no WSL2 com binário Linux, sem Docker. Versão candidata conferida: v3.3.2.
+Windows nativo tem artefato oficial, mas segue experimental na matriz consultada.
+Primeira etapa entregue ao responsável: instalação oficial Microsoft de WSL/Ubuntu,
+explicitamente identificada como mudança de sistema com elevação e possível reinício.
+Etapa ainda não executada/confirmada. Etapas seguintes dependem da saída real.
+O serviço permanece não instalado/não conectado. Acesso automático deste ChatGPT não demonstrado.
