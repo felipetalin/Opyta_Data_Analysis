@@ -1,6 +1,6 @@
 # Estado atual da modernização
 
-Atualizado em: 2026-10-27 (America/Sao_Paulo).
+Atualizado em: 2026-11-03 (America/Sao_Paulo).
 Prioridade: implantação do ai-memory para a memória da modernização (MOD-006/MOD-007).
 Auditoria funcional Drive × GitHub: pausada; achados preservados no inventário e relatório.
 
@@ -48,3 +48,12 @@ Caminho: Opyta/Modernizacao_Opyta_Data/Memoria.
 Acordado: Drive recebe acervo compartilhável; serviço e armazenamento ativo ficam fora da sincronização no notebook do piloto. O notebook não precisa ficar ligado 24 horas; consultas ao serviço dependem de ele estar funcionando.
 Esta rodada disponibiliza cópias documentais identificadas por fonte/versão; não cria sincronização automática.
 Próxima ação para instalação: identificar computador alvo e disponibilidade de Windows/WSL2/Docker; servidor/captura/importação no ai-memory permanecem não ativados.
+
+## Retomada em 2026-11-03 — diagnóstico do computador
+Memória documental recuperada do GitHub antes de avançar. Mantida MOD-008: piloto
+local fora da pasta sincronizada e acervo compartilhável no Drive.
+O terminal desta conversa retornou Linux; isso não identifica nem permite verificar
+o Windows do responsável. Nenhuma instalação foi realizada no computador dele.
+Próxima ação: receber diagnóstico somente leitura do PowerShell (versão do Windows,
+WSL/distribuições, Docker e Codex). Com a saída, escolher os comandos de instalação
+compatíveis. Não assumir Docker/WSL2 instalado nem executar instalação no host temporário.
