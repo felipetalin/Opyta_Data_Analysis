@@ -1,5 +1,11 @@
 # Histórico da modernização e passagem de contexto
 
+## Atualização da página de estado no ai-memory — 2026-11-03
+
+Por pedido explícito do responsável, sources/estado_atual.md foi atualizada a partir de ESTADO_ATUAL.md no commit de0dfcc34312147bd1f103ecd9782067002e535a, blob 8a8bd767ce6bfd1f559cab842dff2edb96aafdd2. Versão anterior preservada integralmente e identificada como histórica. Nova sessão real 01a1a2b4-ffe0-7122-b8f2-47bff0d3f26c recuperou via MCP o estado vigente e reconheceu a orientação superada, sem respostas no prompt cego. Resultado: PASSOU. Evidência: [ATUALIZACAO_ESTADO_AI_MEMORY_20261103.md](ATUALIZACAO_ESTADO_AI_MEMORY_20261103.md).
+
+Encontrada pendência residual em decisions/pilot-status-20261103.md ainda fixada com orientação antiga; não alterada neste escopo. Próxima ação: tratar essa página em escopo próprio e definir retomada da auditoria com o responsável. Auditoria permanece pausada; nenhuma nova aprovação presumida. ESTADO_ATUAL.md preservado como fonte exata do teste.
+
 ## Validação real concluída em 2026-11-03 — estado mais recente
 
 Login ChatGPT confirmado; hooks oficiais reconhecidos pelo doctor. Teste em duas sessões reais Codex CLI passou: marcador exclusivo capturado na sessão A e recuperado por MCP na sessão B independente, junto à MOD-007, justificativa e próxima ação registrada, sem respostas no prompt cego. Corrigida instalação incompleta do CLI com pacote oficial completo da mesma versão 0.166.0, digest conferido; configurações e confiança preservadas. Backup online validado por integrity_check = ok.
