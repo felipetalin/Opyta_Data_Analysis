@@ -152,3 +152,14 @@ não uma escolha técnica concluída nem pré-requisito já validado no computad
 Próxima ação: preparar roteiro único de instalação com versão revisada, componentes
 necessários, efeitos no Windows, armazenamento, desinstalação e teste de continuidade.
 Neste momento não há ai-memory instalado, captura ativa ou integração com este ChatGPT.
+
+## MOD-20261103-02 — Roteiro técnico verificável de instalação
+Responsável autorizou seguir após pedir planejamento claro.
+Consultado release v3.3.2 (2026-11-03), matriz e guias fixados de instalação/Windows,
+integração Codex e operações; conferido comando na documentação Microsoft.
+Avaliada alternativa de executável Windows; matriz ainda experimental. Rota recomendada:
+Ubuntu no WSL2 + binário Linux, sem Docker. Preparado ROTEIRO_INSTALACAO_AI_MEMORY.md
+com efeitos, critérios de avanço, armazenamento e reversão.
+Fornecido apenas comando da primeira etapa de instalação ao responsável; execução local
+não confirmada. Não executar instalador no Linux temporário desta conversa.
+Próxima ação: receber resultado da instalação Ubuntu/WSL antes de fornecer próxima etapa.
