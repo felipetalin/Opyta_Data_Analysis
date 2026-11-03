@@ -181,3 +181,13 @@ Preparada instrução de download HTTPS e checagem de digest em pasta temporári
 home Linux, fora do Drive. Não há execução do pacote nesta instrução.
 Próxima ação: receber resultado da checagem e caminho baixado, depois instalar o
 binário conforme conteúdo do arquivo e conferir versão antes de configurar serviço.
+
+## Verificação do pacote recebida — 2026-11-03
+Responsável enviou saída sha256sum: ai-memory-linux-x86_64.tar.gz: OK.
+Pasta no Ubuntu: /home/felipe/ai-memory-download.jZQx44.
+Pacote v3.3.2 conferido contra digest publicado. Lidos install.sh e workflow de
+release desse tag: conteúdo do pacote fica na raiz, incluindo binário e hooks.
+Próxima etapa fornecida: extrair o pacote completo em ~/.local/lib/ai-memory,
+criar atalho em ~/.local/bin e executar somente --version. Recusar caminhos
+existentes, sem sobrescrever instalação. Sem setup/serviço/hooks nesta etapa.
+Instalação e execução da versão ainda aguardam resultado do responsável.
