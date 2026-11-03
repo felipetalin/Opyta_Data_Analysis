@@ -170,3 +170,14 @@ O responsável aprovou Codex no VS Code para execução técnica e este chat par
 Adoção será verificada por piloto de registro e recuperação em nova sessão, antes de ampliar agentes e retomar auditoria.
 Não há integração automática demonstrada deste chat com ai-memory. Não há confirmação de instalação WSL/Ubuntu ou ai-memory.
 Próxima ação: responsável executar/concluir a etapa WSL/Ubuntu do roteiro e enviar a saída; depois verificar ambiente Linux e instalar o pacote oficial com checagem de integridade.
+
+## MOD-20261103-04 — WSL2/Ubuntu confirmado e pacote selecionado
+Data: 2026-11-03 (America/Sao_Paulo).
+Responsável enviou confirmação da instalação e saída uname/os-release: x86_64,
+kernel 6.18.54.1-microsoft-standard-WSL2, Ubuntu 26.04.1 LTS; usuário felipe.
+Consultado GitHub Releases: v3.3.2; pacote ai-memory-linux-x86_64.tar.gz,
+22.560.990 bytes; digest SHA-256 bb967293da4f977141089a6afeb888d65dc0d12a3a65db9b0c46524324d145a6.
+Preparada instrução de download HTTPS e checagem de digest em pasta temporária no
+home Linux, fora do Drive. Não há execução do pacote nesta instrução.
+Próxima ação: receber resultado da checagem e caminho baixado, depois instalar o
+binário conforme conteúdo do arquivo e conferir versão antes de configurar serviço.
