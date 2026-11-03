@@ -57,3 +57,18 @@ o Windows do responsável. Nenhuma instalação foi realizada no computador dele
 Próxima ação: receber diagnóstico somente leitura do PowerShell (versão do Windows,
 WSL/distribuições, Docker e Codex). Com a saída, escolher os comandos de instalação
 compatíveis. Não assumir Docker/WSL2 instalado nem executar instalação no host temporário.
+
+## Atualização de 2026-11-03 — diagnóstico recebido e correção da orientação
+O responsável executou os comandos no Windows e enviou a saída: Windows reportado
+10.0.26300.0; Git 2.52.0.windows.1; WSL não instalado; Docker e Codex não encontrados
+no PATH. Isso não prova ausência da extensão Codex no VS Code.
+O comando wsl --version abriu oferta de instalação e exigência de elevação;
+a saída informa cancelamento pelo usuário. Nenhuma instalação concluída foi demonstrada.
+O assistente havia chamado o diagnóstico de somente consulta; essa garantia foi incorreta.
+Evitar invocar wsl novamente nesta condição para mera detecção.
+Decisões mantidas: ai-memory para modernização, piloto local fora do Drive,
+acervo documental no Drive e auditoria pausada. WSL/Docker eram uma rota proposta,
+não uma escolha técnica concluída nem pré-requisito já validado no computador.
+Próxima ação: preparar roteiro único de instalação com versão revisada, componentes
+necessários, efeitos no Windows, armazenamento, desinstalação e teste de continuidade.
+Neste momento não há ai-memory instalado, captura ativa ou integração com este ChatGPT.
