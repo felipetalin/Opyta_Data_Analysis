@@ -81,3 +81,11 @@ Primeira etapa entregue ao responsável: instalação oficial Microsoft de WSL/U
 explicitamente identificada como mudança de sistema com elevação e possível reinício.
 Etapa ainda não executada/confirmada. Etapas seguintes dependem da saída real.
 O serviço permanece não instalado/não conectado. Acesso automático deste ChatGPT não demonstrado.
+
+## Ambiente de trabalho aprovado — MOD-009 (2026-11-03)
+- Execução técnica: Codex no VS Code.
+- Discussão, prioridades e revisão: este ChatGPT.
+- Memória entre agentes: ai-memory; decisões do chat precisam de registro explícito acessível ao agente.
+- Primeiro marco: gravação de decisão e recuperação correta em nova sessão de Codex; depois outra ferramenta compatível.
+- Instalação do WSL/Ubuntu e ai-memory ainda sem confirmação. Não marcar como instalado.
+- Próxima ação: obter resultado da etapa WSL/Ubuntu documentada; só então prosseguir com pacote Linux e integração no mesmo ambiente.
