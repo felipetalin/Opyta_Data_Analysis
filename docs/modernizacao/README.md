@@ -1,5 +1,10 @@
 # Modernização do Opyta Data
 
+## Registro de 2026-11-05 — retomada adiada
+
+Complemento N/PC do WSPKIN001 registrado na [auditoria do caso](AUDITORIA_WSPKIN001_ICTIOFAUNA_20261103.md). Definição histórica de PC, migrador executado e peso pós-carga continuam pendentes. O responsável pediu registrar e continuar depois. Orientação vigente: [ESTADO_ATUAL.md](ESTADO_ATUAL.md).
+
+
 ## Estado vigente e auditorias registradas — 2026-11-03
 
 Auditoria retomada somente para leitura por autorização do responsável; esta rodada apenas registra o que foi concluído. Excel permanece como entrada. Consultar [ESTADO_ATUAL.md](ESTADO_ATUAL.md) para orientação vigente; os relatos anteriores abaixo são históricos.

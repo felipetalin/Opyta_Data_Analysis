@@ -1,5 +1,10 @@
 # Histórico da modernização e passagem de contexto
 
+## AUD-REG-20261105 — N/PC do WSPKIN001 e retomada adiada
+
+Objetivo: registrar a etapa já concluída, por autorização explícita “Registre e seguiremos depois com isso”. Conferidos previamente branch e páginas MCP; complemento ainda ausente. Acrescentados evidências, exemplo das linhas 51–54, definições condicionais, versões e elos pendentes na auditoria existente; atualizado estado/índice. Registro correspondente no ai-memory com referência ao commit e preservação do estado anterior. Verificação: releitura dos documentos e páginas após gravação; resultados informados na resposta. Nenhuma nova investigação operacional, consulta ao banco, carga ou correção nesta rodada. Hipótese N/PC compatível com código ponderado, definição histórica pendente. Próxima ação na retomada: Excel pelos hashes históricos, log identificador da migração, pós-carga N/pc_g por chave e instrução original WSP. Nenhuma decisão técnica de implementação aprovada; investigação adiada a pedido do responsável.
+
+
 ## AUD-REG-20261103 — Registro das auditorias concluídas
 
 Objetivo: persistir o mapa Excel→banco e a trilha histórica WSPKIN001 produzidos nesta conversa, sem nova investigação. Autorização explícita: somente documentação nesta branch e páginas correspondentes no ai-memory deste projeto.

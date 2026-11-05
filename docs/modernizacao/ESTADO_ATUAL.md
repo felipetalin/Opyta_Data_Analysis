@@ -1,5 +1,19 @@
 # Estado atual da modernização
 
+## Estado vigente — 2026-11-05 — registro concluído; investigação adiada
+
+Responsável pediu “Registre e seguiremos depois com isso”. Complemento sobre N/PC registrado em [AUDITORIA_WSPKIN001_ICTIOFAUNA_20261103.md](AUDITORIA_WSPKIN001_ICTIOFAUNA_20261103.md#complemento-registrado-em-2026-11-05--hipótese-npc-e-retomada-adiada). Esta rodada somente registra resultados anteriores; nenhuma nova consulta ao banco, carga ou correção.
+
+Hipótese N = indivíduos representados e PC = peso por indivíduo é compatível com o migrador ponderado disponível no Drive. A definição histórica de PC no WSP permanece pendente: distinguir peso individual medido, média individual do lote e peso total do lote. Modelo genérico e nomenclatura do consolidado divergem; falta instrução original de preenchimento/pesagem e dicionário do destino.
+
+Exemplo real, linhas 51–54: N/PC = 42/10, 10/6, 10/5, 5/4; N=67, média simples 6,25 g, ponderada 8,208955 g, biomassa 550 g se PC é média individual por linha. Produto histórico reconciliado em 2.610,3 g sob essa interpretação; versão executada do migrador e peso gravado naquela carga continuam sem comprovação. Versões disponíveis hoje não comprovam implantação atual. Excel permanece como entrada; resultado restrito ao caso WSPKIN001/projeto 211.
+
+Próxima ação quando retomarmos: localizar Excel pelos hashes históricos, log identificador do migrador e pós-carga com N/pc_g por chave; obter instrução original WSP sobre PC. Investigação fica adiada por pedido do responsável. Nenhuma correção aprovada.
+
+## Estado anterior registrado em 2026-11-03 — histórico
+O bloco seguinte preserva o estágio anterior; a orientação vigente está acima.
+
+
 ## Estado vigente — 2026-11-03 — auditoria documentada
 
 Auditoria retomada por autorização explícita do responsável, somente para leitura. As duas etapas concluídas nesta conversa estão registradas separadamente:
